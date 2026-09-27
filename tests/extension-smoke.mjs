@@ -35,11 +35,9 @@ try {
   assert.match(page.url(), /^chrome-extension:\/\/.+\/newtab\.html$/);
   assert.equal(new URL(page.url()).pathname, `/${manifest.chrome_url_overrides.newtab}`);
   await page.locator('#workspace-toolbar').waitFor({ state: 'visible' });
-  await page.locator('#bookmark-container').waitFor({ state: 'visible' });
+  await page.locator('#bookmark-container[tabindex="-1"]').waitFor({ state: 'visible' });
   try {
-    await page.waitForFunction(() => (
-      document.querySelectorAll('#bookmark-container .bookmark').length >= 2
-    ));
+    assert.equal(await page.locator('#bookmark-container .bookmark').count(), 0);
   } catch (error) {
     throw new Error([
       error.message,

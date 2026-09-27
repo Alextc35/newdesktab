@@ -1,10 +1,12 @@
 import { expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/tests/browser-harness.html');
+  await expectAppReady(page);
   await page.evaluate(() => sessionStorage.clear());
   await page.reload();
-  await expect(page.locator('#bookmark-container')).toHaveAttribute('tabindex', '-1');
+  await expectAppReady(page);
 });
 
 async function revealSideDock(page) {
@@ -79,6 +81,7 @@ test('creates, configures, resizes, persists and removes the bundled clock', asy
 
   await waitForSaved(page);
   await page.reload();
+  await expectAppReady(page);
   await expect(clock).toBeVisible();
   await expect(clock.locator('.clock-widget-time')).toHaveText(/^\d{2}:\d{2}:\d{2}\s?[AP]M$/i);
   await expect.poll(() => page.evaluate(async () => {
@@ -102,7 +105,7 @@ test('creates, configures, resizes, persists and removes the bundled clock', asy
     .map(element => element.id || element.tagName))).toEqual([]);
 
   await page.locator('#history-undo').focus();
-  await page.locator('#history-undo').click();
+  await page.keyboard.press('Enter');
   await expect(clock).toBeVisible();
 });
 

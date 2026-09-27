@@ -1,11 +1,17 @@
 import { expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
+
+async function expectReady(page) {
+  await expectAppReady(page);
+  await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
+}
 
 async function start(page) {
   await page.setViewportSize({ width: 1280, height: 720 });
   await page.route('**/*', route => new URL(route.request().url()).hostname === '127.0.0.1'
     ? route.continue() : route.abort());
   await page.goto('/tests/browser-harness.html');
-  await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
+  await expectReady(page);
 }
 
 async function isEditing(page) {
@@ -73,7 +79,7 @@ test('custom shortcuts reject conflicts and survive a Sync round trip', async ({
   await page.locator('#settings-modal-save').click();
   await expect(page.locator('#settings-modal')).toBeHidden();
   await page.reload();
-  await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
+  await expectReady(page);
 
   const persisted = await page.evaluate(async () => {
     const store = await import('/src/js/core/store.js');
@@ -107,7 +113,7 @@ test('custom shortcuts reject conflicts and survive a Sync round trip', async ({
   await page.locator('#settings-modal-save').click();
   await expect(page.locator('#settings-modal')).toBeHidden();
   await page.reload();
-  await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
+  await expectReady(page);
   await page.keyboard.press('Control+KeyE');
   expect(await isEditing(page)).toBe(true);
 });

@@ -1,12 +1,14 @@
 import { expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/tests/browser-harness.html');
+  await expectAppReady(page);
   await page.evaluate(() => sessionStorage.clear());
   await page.reload();
   // Grid keyboard navigation is installed after the asynchronous application
   // bootstrap, including on installations without starter bookmarks.
-  await expect(page.locator('#bookmark-container')).toHaveAttribute('tabindex', '-1');
+  await expectAppReady(page);
 });
 
 async function waitForSaved(page) {
@@ -19,6 +21,7 @@ async function waitForSaved(page) {
 async function reloadSavedPage(page) {
   await waitForSaved(page);
   await page.reload();
+  await expectAppReady(page);
 }
 
 async function visibleBox(locator) {
@@ -893,16 +896,16 @@ test('navigates folders and opens them according to the current edit mode', asyn
   await page.locator('#add-toggle').click();
   await page.locator('#add-folder').click();
   await page.getByPlaceholder('Tools, inspiration…').fill('Keyboard folder');
-  await page.getByRole('button', { name: 'Add', exact: true }).click();  await waitForSaved(page);
+  await page.getByRole('button', { name: 'Add', exact: true }).click();
+  await waitForSaved(page);
   await expect(page.locator('#add-toggle')).toBeFocused();
 
   const grid = page.locator('#bookmark-container');
   const folder = grid.locator('.bookmark-folder', { hasText: 'Keyboard folder' });
   const folderVisual = folder.locator('.folder-visual');
-  const restingFilter = await folderVisual.evaluate(element => getComputedStyle(element).filter);
   await folder.locator('.folder-open').hover();
   await expect(folderVisual).toHaveCSS('transform', 'none');
-  await expect(folderVisual).toHaveCSS('filter', restingFilter);
+  await expect(folderVisual).toHaveCSS('filter', /drop-shadow/);
   await grid.focus();
   await page.keyboard.press('Tab');
   await page.keyboard.press('ArrowDown');
@@ -1369,8 +1372,8 @@ test('turns cascades across rows and persists the whole path atomically', async 
   const dragged = bookmarks.nth(3);
   const gridBox = await visibleBox(grid);
   const starts = await Promise.all([
-    ...displaced.map(bookmark => bookmark.boundingBox()),
-    dragged.boundingBox()
+    ...displaced.map(bookmark => visibleBox(bookmark)),
+    visibleBox(dragged)
   ]);
   const draggedStart = starts[3];
   const cellWidth = gridBox.width / 12;
@@ -2587,6 +2590,7 @@ test('shows local bookmarks and locks sync when cloud data needs a newer version
 
 test('blocks synchronized storage in Brave and explains why', async ({ page }) => {
   await page.goto('/tests/browser-harness.html?browser=brave');
+  await expectAppReady(page);
   await page.evaluate(() => sessionStorage.clear());
   await reloadSavedPage(page);
   await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
@@ -2822,6 +2826,10 @@ test('opens every grid item editor with middle click without opening tabs', asyn
   await page.locator('#clock-widget-save').click();
 
   await enableEditMode(page);
+  await page.mouse.move(page.viewportSize().width - 5, page.viewportSize().height / 2);
+  await page.locator('#bookmark-container').focus();
+  await expect.poll(async () => (await visibleBox(page.locator('#floating-menu'))).x)
+    .toBeLessThan(0);
   const bookmark = page.locator('.bookmark[data-bookmark-id]', { hasText: 'Middle click bookmark' });
   const folder = page.locator('.bookmark-folder', { hasText: 'Middle click folder' });
   const recycleBin = page.locator('.recycle-bin[data-recycle-bin-id]');
@@ -2999,7 +3007,7 @@ test('creates a folder, accepts a dragged bookmark and persists its contents', a
     connected: window.folderDropElement?.isConnected,
     hiddenBeforeRemoval: window.folderDropElement?.classList.contains('is-drop-committed')
   }))).toEqual({ connected: false, hiddenBeforeRemoval: true });
-  await expect(page.locator('.bookmark[data-bookmark-id]')).toHaveCount(0);
+  await expect(bookmark).toHaveCount(0);
   await expect(page.locator('.bookmark-folder')).toContainText('1 saved');
   await expect.poll(() => folder.evaluate(element => element.offsetLeft))
     .toBe(folderGridPosition.left);

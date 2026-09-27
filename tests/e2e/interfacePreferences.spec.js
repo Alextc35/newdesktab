@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
 
 async function openSettings(page) {
+  await expectAppReady(page);
   await page.mouse.move(5, page.viewportSize().height / 2);
   await page.locator('#settings').click();
   await expect(page.locator('#settings-modal')).toBeVisible();
@@ -10,6 +12,7 @@ async function start(page) {
   await page.route('**/*', route => new URL(route.request().url()).hostname === '127.0.0.1'
     ? route.continue() : route.abort());
   await page.goto('/tests/browser-harness.html');
+  await expectAppReady(page);
   await expect(page.locator('#workspace-select')).toHaveValue('');
   await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
 }

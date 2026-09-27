@@ -1,9 +1,12 @@
 import { expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/tests/browser-harness.html');
+  await expectAppReady(page);
   await page.evaluate(() => sessionStorage.clear());
   await page.reload();
+  await expectAppReady(page);
   await expect(page.locator('.recycle-bin')).toBeVisible();
 });
 

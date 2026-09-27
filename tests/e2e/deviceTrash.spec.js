@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
 
 async function syncSnapshot(page) {
   return page.evaluate(() => JSON.parse(sessionStorage.getItem('newdesktab-test-sync') || '{}'));
@@ -53,6 +54,7 @@ test('each synchronized device keeps an independent recycle bin', async ({ page,
 
   try {
     await page.goto('/tests/browser-harness.html');
+    await expectAppReady(page);
     await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
     await useSync(page);
 
@@ -62,6 +64,7 @@ test('each synchronized device keeps an independent recycle bin', async ({ page,
     expect(secondId).toBeTruthy();
 
     await other.goto('/tests/browser-harness.html');
+    await expectAppReady(other);
     await expect(other.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
     await receiveSync(other, await syncSnapshot(page));
     await other.evaluate(() => new Promise(resolve => (

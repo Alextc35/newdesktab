@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
 
 const folderId = 'appearance-folder';
 const folderCard = page => page.locator(`#bookmark-container [data-folder-id="${folderId}"]`);
@@ -16,20 +17,32 @@ async function start(page, layouts = [{ id: folderId, gx: 0, gy: 0, w: 2, h: 2 }
     return route.abort();
   });
   await page.goto('/tests/browser-harness.html');
+  await expectAppReady(page);
   await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
-  await page.evaluate(async folderLayouts => {
-    const { DEFAULT_BOOKMARK, DEFAULT_FOLDER_STYLE } = await import('/src/js/core/defaults.js');
-    const { getState, setState } = await import('/src/js/core/store.js');
-    const folders = folderLayouts.map(layout => ({ ...DEFAULT_FOLDER_STYLE,
-      name: 'Reading', groupId: null, createdAt: 1, updatedAt: 1, ...layout }));
-    const bookmarks = folders.flatMap(folder => Array.from({ length: 3 }, (_, index) => ({
-      ...DEFAULT_BOOKMARK, id: `${folder.id}-${index}`, name: `Saved page ${index + 1}`,
-      url: `https://example.test/page-${index}`, folderId: folder.id, gx: index, gy: 0
-    })));
-    await setState({ data: { folders, bookmarks,
-      settings: { ...getState().data.settings, interfaceTheme: 'dark', language: 'en' } } });
+  await page.evaluate(folderLayouts => {
+    globalThis.folderAppearanceSetupStatus = 'pending';
+    void (async () => {
+      try {
+        const { DEFAULT_BOOKMARK, DEFAULT_FOLDER_STYLE } = await import('/src/js/core/defaults.js');
+        const { getState, setState } = await import('/src/js/core/store.js');
+        const folders = folderLayouts.map(layout => ({ ...DEFAULT_FOLDER_STYLE,
+          name: 'Reading', groupId: null, createdAt: 1, updatedAt: 1, ...layout }));
+        const bookmarks = folders.flatMap(folder => Array.from({ length: 3 }, (_, index) => ({
+          ...DEFAULT_BOOKMARK, id: `${folder.id}-${index}`, name: `Saved page ${index + 1}`,
+          url: `https://example.test/page-${index}`, folderId: folder.id, gx: index, gy: 0
+        })));
+        await setState({ data: { folders, bookmarks,
+          settings: { ...getState().data.settings, interfaceTheme: 'dark', language: 'en' } } });
+        globalThis.folderAppearanceSetupStatus = 'done';
+      } catch (error) {
+        globalThis.folderAppearanceSetupStatus = `error: ${error.message}`;
+      }
+    })();
   }, layouts);
+  await expect.poll(() => page.evaluate(() => globalThis.folderAppearanceSetupStatus),
+    { timeout: 10_000 }).toBe('done');
   await page.reload();
+  await expectAppReady(page);
   await expect(page.locator('#bookmark-container .bookmark-folder')).toHaveCount(layouts.length);
 }
 
@@ -85,6 +98,7 @@ test('previews, persists and resets the exterior color without making an unchang
   await expect(folderCard(page)).toHaveCSS('background-image', 'none');
   await expectBorder(folderCard(page));
   await page.reload();
+  await expectAppReady(page);
   await expect(folderCard(page)).toHaveCSS('background-color', 'rgb(36, 104, 172)');
   await openEditor(page);
   await tab(page, 'Style');
@@ -93,6 +107,7 @@ test('previews, persists and resets the exterior color without making an unchang
   await reset.click();
   await saveAndClose(page);
   await page.reload();
+  await expectAppReady(page);
   await expect(folderCard(page)).toHaveCSS('background-image', originalBackground);
   expect((await savedFolder(page)).outerBackgroundColor).toBeNull();
   await openEditor(page);
@@ -154,6 +169,7 @@ test('hides previews and keeps the folder name and saved count independently con
   await expect(previewCard(page).locator('.folder-count')).toBeVisible();
   await saveAndClose(page);
   await page.reload();
+  await expectAppReady(page);
 
   await expect(folderCard(page).locator('.folder-previews')).toBeHidden();
   await expect(folderCard(page).locator('.folder-visual')).toBeVisible();
@@ -173,6 +189,7 @@ test('hides previews and keeps the folder name and saved count independently con
   await expect(previewCard(page).locator('.folder-count')).toBeHidden();
   await saveAndClose(page);
   await page.reload();
+  await expectAppReady(page);
   await expect(folderCard(page).locator('.folder-title')).toBeVisible();
   await expect(folderCard(page).locator('.folder-count')).toBeHidden();
   await openEditor(page);
@@ -199,6 +216,7 @@ test('hiding the glyph also hides previews while an empty bordered card still op
   await expectBorder(previewCard(page));
   await saveAndClose(page);
   await page.reload();
+  await expectAppReady(page);
 
   await expect(folderCard(page)).toBeVisible();
   await expectBorder(folderCard(page));

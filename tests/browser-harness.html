@@ -7,7 +7,11 @@
   </head>
   <body>
     <script type="module">
+      import { DEFAULT_BOOKMARK, DEFAULT_STATE } from '../src/js/core/defaults.js';
+
       const listeners = [];
+      const isFreshProfile = !sessionStorage.getItem('newdesktab-test-local')
+        && !sessionStorage.getItem('newdesktab-test-sync');
 
       function createArea(areaName) {
         const storageKey = `newdesktab-test-${areaName}`;
@@ -75,6 +79,42 @@
           }
         }
       };
+
+      // Production intentionally starts with an empty grid. Browser journeys
+      // use two stable fixtures so tests can exercise existing-item behavior
+      // without coupling the product defaults to test data.
+      if (isFreshProfile) {
+        chrome.storage.local.set({
+          ...structuredClone(DEFAULT_STATE.data),
+          bookmarks: [
+            {
+              ...DEFAULT_BOOKMARK,
+              id: 'test-developed-by',
+              name: 'DEVELOPED BY',
+              url: 'https://www.alextc.es',
+              urlLocked: true,
+              noBackground: false,
+              backgroundColor: '#161b22',
+              gx: 0,
+              gy: 1
+            },
+            {
+              ...DEFAULT_BOOKMARK,
+              id: 'test-banana',
+              name: 'banana',
+              backgroundImageUrl: 'https://cdn.osxdaily.com/wp-content/uploads/2013/07/dancing-banana.gif',
+              backgroundImageUrlLocked: true,
+              backgroundFavicon: false,
+              noBackground: false,
+              backgroundColor: '#eeff00',
+              showText: false,
+              showFavicon: false,
+              gx: 1,
+              gy: 1
+            }
+          ]
+        });
+      }
 
       const browserProfile = new URLSearchParams(location.search).get('browser');
       const brands = browserProfile === 'brave'

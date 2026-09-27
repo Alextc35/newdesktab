@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { chromium, expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
 
 const extensionPath = fileURLToPath(new URL('../..', import.meta.url));
 const manifest = JSON.parse(readFileSync(new URL('../../manifest.json', import.meta.url), 'utf8'));
@@ -11,15 +12,58 @@ const extensionId = createHash('sha256').update(Buffer.from(manifest.key, 'base6
 let context;
 let pages;
 
+async function seedBookmarks(page) {
+  await page.evaluate(async () => {
+    const { DEFAULT_BOOKMARK } = await import('./js/core/defaults.js');
+    const { setState } = await import('./js/core/store.js');
+    await setState({
+      data: {
+        bookmarks: [
+          {
+            ...DEFAULT_BOOKMARK,
+            id: 'test-developed-by',
+            name: 'DEVELOPED BY',
+            url: 'https://www.alextc.es',
+            urlLocked: true,
+            noBackground: false,
+            backgroundColor: '#161b22',
+            gx: 0,
+            gy: 1
+          },
+          {
+            ...DEFAULT_BOOKMARK,
+            id: 'test-banana',
+            name: 'banana',
+            backgroundImageUrl: 'https://cdn.osxdaily.com/wp-content/uploads/2013/07/dancing-banana.gif',
+            backgroundImageUrlLocked: true,
+            backgroundFavicon: false,
+            noBackground: false,
+            backgroundColor: '#eeff00',
+            showText: false,
+            showFavicon: false,
+            gx: 1,
+            gy: 1
+          }
+        ]
+      }
+    }, { recordHistory: false });
+  });
+}
+
 test.beforeEach(async () => {
   context = await chromium.launchPersistentContext('', {
     channel: 'chromium', headless: true,
     args: [`--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`]
   });
   await context.route(/^https?:/, route => route.abort());
-  pages = await Promise.all([context.newPage(), context.newPage()]);
+  const firstPage = await context.newPage();
+  await firstPage.goto(`chrome-extension://${extensionId}/${manifest.chrome_url_overrides.newtab}`);
+  await expectAppReady(firstPage);
+  await seedBookmarks(firstPage);
+
+  pages = [firstPage, await context.newPage()];
+  await pages[1].goto(`chrome-extension://${extensionId}/${manifest.chrome_url_overrides.newtab}`);
   for (const page of pages) {
-    await page.goto(`chrome-extension://${extensionId}/${manifest.chrome_url_overrides.newtab}`);
     await expect(page.locator('#bookmark-container .bookmark')).toHaveCount(2);
     await page.evaluate(async () => {
       window.commands = await import('./js/features/bookmarks/bookmarkActions.js');

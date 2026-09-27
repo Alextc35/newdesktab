@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
 
 test.use({ launchOptions: { ignoreDefaultArgs: ['--hide-scrollbars'] } });
 
@@ -7,6 +8,7 @@ async function start(page, width = 1280) {
   await page.route('**/*', route => new URL(route.request().url()).hostname === '127.0.0.1'
     ? route.continue() : route.abort());
   await page.goto('/tests/browser-harness.html');
+  await expectAppReady(page);
   await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK, DEFAULT_FOLDER_STYLE } = await import('/src/js/core/defaults.js');
@@ -39,7 +41,7 @@ async function start(page, width = 1280) {
   await expect(page.locator('#bookmark-container [data-folder-id="compact-folder"]')).toBeVisible();
   // Let storage normalization finish before comparing immutable data.
   await page.reload();
-  await expect(page.locator('#bookmark-container')).toHaveAttribute('tabindex', '-1');
+  await expectAppReady(page);
   await expect(page.locator('#bookmark-container [data-folder-id="compact-folder"]')).toBeVisible();
 }
 
@@ -391,7 +393,8 @@ test('folder artwork scales continuously without typography or thumbnail shape j
     const origin = card.getBoundingClientRect();
     const art = card.querySelector('.folder-visual').getBoundingClientRect();
     const caption = card.querySelector('.folder-caption').getBoundingClientRect();
-    const icons = [...card.querySelectorAll('.folder-previews img')].filter(icon => getComputedStyle(icon).display !== 'none');
+    const icons = [...card.querySelectorAll('.folder-previews > .bookmark-favicon')]
+      .filter(icon => getComputedStyle(icon).display !== 'none');
     return {
       id: card.dataset.folderId,
       art: { width: art.width, height: art.height, top: art.top - origin.top, captionTop: caption.top - origin.top },

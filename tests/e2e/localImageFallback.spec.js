@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
 
 const fallbackUrl = 'https://images.test/fallback.png';
 const imageFile = {
@@ -16,6 +17,7 @@ for (const kind of ['bookmark', 'folder']) {
       contentType: 'image/png', body: imageFile.buffer
     }));
     await page.goto('/tests/browser-harness.html');
+    await expectAppReady(page);
     await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
     await page.evaluate(() => new Promise(resolve => {
       chrome.storage.local.set({

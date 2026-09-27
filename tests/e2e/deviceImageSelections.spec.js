@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
 
 const fallback = 'https://images.test/fallback.gif';
 const updatedFallback = 'https://images.test/updated.gif';
@@ -39,6 +40,7 @@ test('two devices choose and remove their own images while sharing the fallback 
         contentType: 'image/png', body: imageBytes
       }));
       await device.goto('/tests/browser-harness.html');
+      await expectAppReady(device);
       await expect(device.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
     }
 

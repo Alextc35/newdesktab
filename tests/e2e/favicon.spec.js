@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
 
 const icon = Buffer.from(
   'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScL1SQAAAABJRU5ErkJggg==',
@@ -21,6 +22,7 @@ test('loads the parent favicon when the app host returns a valid generic image w
     });
   });
   await page.goto('/tests/browser-harness.html');
+  await expectAppReady(page);
   await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
 
   const id = await page.evaluate(async () => {
@@ -45,6 +47,7 @@ test('offline initials fallback follows the interface theme', async ({ page }) =
     ? route.continue()
     : route.abort());
   await page.goto('/tests/browser-harness.html');
+  await expectAppReady(page);
 
   const id = await page.evaluate(async () => {
     const { addBookmark } = await import('/src/js/features/bookmarks/bookmarkActions.js');

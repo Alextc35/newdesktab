@@ -1,10 +1,16 @@
 import { test, expect } from '@playwright/test';
+import { expectAppReady } from './helpers/appReady.js';
+
+async function expectReady(page) {
+  await expectAppReady(page);
+  expect(await page.evaluate(() => typeof window.NewDeskTabDebug?.report)).toBe('function');
+}
 
 test.beforeEach(async ({ page }) => {
   await page.route('**/*', route => new URL(route.request().url()).hostname === '127.0.0.1'
     ? route.continue() : route.abort());
   await page.goto('/tests/browser-harness.html');
-  await expect.poll(() => page.evaluate(() => typeof window.NewDeskTabDebug?.report)).toBe('function');
+  await expectReady(page);
   expect(await page.evaluate(() => window.NewDeskTabDebug.enabled)).toBe(false);
 });
 
@@ -99,7 +105,7 @@ test('shows startup guidance and command help, reports on demand and clears the 
     }
   });
   await page.reload();
-  await page.waitForFunction(() => typeof window.NewDeskTabDebug?.toggle === 'function');
+  await expectReady(page);
   await createBookmark(page, 'Before debug');
   expect(messages).toHaveLength(2);
   expect(messages[0]).toMatch(/^\[NewDeskTab Debug\] \d{2}:\d{2}:\d{2} /);
@@ -167,7 +173,7 @@ test('shows startup guidance and command help, reports on demand and clears the 
   expect((await page.evaluate(() => window.NewDeskTabDebug.history()))
     .some(record => record.label === 'Create bookmark')).toBe(true);
   await page.reload();
-  await page.waitForFunction(() => typeof window.NewDeskTabDebug?.toggle === 'function');
+  await expectReady(page);
   expect(await page.evaluate(() => window.NewDeskTabDebug.enabled)).toBe(false);
 });
 
