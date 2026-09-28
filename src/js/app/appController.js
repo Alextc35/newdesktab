@@ -1,4 +1,4 @@
-import { debug } from '../core/debug.js';
+import { debug } from '../shared/diagnostics/debug.js';
 import { changeLanguage } from '../platform/i18n/i18n.js';
 import { applyInterfaceTheme } from '../shared/ui/interfaceTheme.js';
 import { applyPageTheme } from '../shared/ui/pageTheme.js';

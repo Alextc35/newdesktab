@@ -1,5 +1,5 @@
 import '../types/types.js'; // typedefs
-import { debug, describeStateChange } from './debug.js';
+import { debug } from '../shared/diagnostics/debug.js';
 import { DEFAULT_STATE } from './defaults.js';
 import { storage, STORAGE_MODES } from '../platform/storage/storageFacade.js';
 import { mergeChanges } from '../shared/data/mergeChanges.js';
@@ -532,4 +532,26 @@ function notify(state, prevState) {
   for (const listener of listeners) {
     listener(state, prevState);
   }
+}
+
+/** Describes store changes without retaining bookmark contents or images. */
+function describeStateChange(partial, previous) {
+  const data = partial.data;
+  if (!data) return 'Update UI state';
+  const groups = data.settings?.bookmarkGroups;
+  if (groups && groups.length !== previous.settings.bookmarkGroups.length) {
+    return groups.length > previous.settings.bookmarkGroups.length
+      ? 'Create workspace' : 'Delete workspace';
+  }
+  if (data.folders && data.folders.length !== previous.folders.length) {
+    return data.folders.length > previous.folders.length ? 'Create folder' : 'Delete folder';
+  }
+  if (data.bookmarks && data.bookmarks.length !== previous.bookmarks.length) {
+    return data.bookmarks.length > previous.bookmarks.length ? 'Add bookmarks' : 'Delete bookmarks';
+  }
+  if (data.settings) {
+    return data.settings.activeBookmarkGroupId !== previous.settings.activeBookmarkGroupId
+      ? 'Switch workspace' : 'Save settings';
+  }
+  return data.folders ? 'Update folders / grid' : 'Update bookmarks / grid';
 }

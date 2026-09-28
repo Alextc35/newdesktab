@@ -128,7 +128,7 @@ grid items.
 
 ## Debug console
 
-The default in `src/js/core/debug.js` is disabled. Open the DevTools console
+The default in `src/js/shared/diagnostics/debug.js` is disabled. Open the DevTools console
 of a NewDeskTab tab and run `NewDeskTabDebug.toggle()` to enable live diagnostics
 without reloading. Run it again to disable them. Filter by `[NewDeskTab Debug]`
 to find the output. Startup prints a short activation hint. Enabling Debug lists
@@ -180,6 +180,7 @@ Important modules:
 ```text
 src/js/app/bootstrap.js                   application startup and dependency wiring
 src/js/app/appController.js               store-to-UI effect coordination
+src/js/app/applicationDiagnostics.js      application debug console and reports
 src/js/app/appStateChanges.js             pure state-transition classification
 src/js/app/registerGridItemTypes.js       bundled grid-item composition
 src/js/domain/bookmarks/                  bookmark model and defaults
@@ -206,6 +207,7 @@ src/js/platform/i18n/              locale resolution and translation runtime
 src/js/platform/storage/           schema, Chrome persistence and device data
 src/js/platform/sync/              versioned, quota-safe sync transport
 src/js/shared/data/mergeChanges.js concurrent persisted-data reconciliation
+src/js/shared/diagnostics/         bounded reusable console tracing
 src/js/shared/grid/                generic placement, resize, movement and keyboard policies
 src/js/shared/keyboard/            shortcut normalization and event matching
 src/js/shared/ui/                 reusable modal, tabs, notices, image and visual primitives

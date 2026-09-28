@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 globalThis.chrome = { runtime: { getManifest: () => ({ version: '0.10.0' }) } };
-const { createDebugger } = await import('../src/js/core/debug.js');
+const { createDebugger } = await import('../src/js/shared/diagnostics/debug.js');
 
 function outputSpy() {
   const calls = [];

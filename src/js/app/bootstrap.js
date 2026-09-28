@@ -1,5 +1,5 @@
-import { debug } from '../core/debug.js';
-import { finishDebugStartup, initDebugTools } from '../core/diagnostics.js';
+import { debug } from '../shared/diagnostics/debug.js';
+import { finishDebugStartup, initDebugTools } from './applicationDiagnostics.js';
 import { initI18n } from '../platform/i18n/i18n.js';
 import { applyInterfaceTheme } from '../shared/ui/interfaceTheme.js';
 import {

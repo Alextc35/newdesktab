@@ -1,9 +1,15 @@
 import { VERSION } from '../platform/browser/extensionMetadata.js';
-import { debug, formatDebugTime } from './debug.js';
+import { debug, formatDebugTime } from '../shared/diagnostics/debug.js';
 import { getSyncBrowserSupport } from '../platform/browser/browserCapabilities.js';
 import { resolveImageSource } from '../platform/images/localImages.js';
 import { isLocalImageReference } from '../shared/images/backgroundImage.js';
-import { getState, getStorageMode, getStorageUsage, getSyncCompatibility, subscribe } from './store.js';
+import {
+  getState,
+  getStorageMode,
+  getStorageUsage,
+  getSyncCompatibility,
+  subscribe
+} from '../core/store.js';
 
 let initialized = false;
 let storageTimer;

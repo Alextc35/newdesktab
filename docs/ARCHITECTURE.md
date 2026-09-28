@@ -37,28 +37,27 @@ The intended responsibilities are:
 - `widgets/`: statically bundled grid-item types, their common persisted
   envelope and lifecycle commands. It is not a remote plugin loader.
 
-During migration, `core/` contains only the remaining state, composed defaults
-and diagnostic infrastructure. New dependencies should follow the direction above.
+During migration, `core/` contains only the remaining live state and composed
+defaults. New dependencies should follow the direction above.
 Existing files move only as part of a behavior-preserving feature phase, not to
 make the tree look finished.
 
 ## Current migration status
 
-Phases 1 through 19 establish the first application, domain, feature, platform
+Phases 1 through 20 establish the first application, domain, feature, platform
 and widget seams, including the first visible bundled widget:
 
 ```text
 src/js/
 ├── app/
 │   ├── appController.js
+│   ├── applicationDiagnostics.js
 │   ├── appStateChanges.js
 │   ├── appShell.js
 │   ├── bootstrap.js
 │   └── registerGridItemTypes.js
 ├── core/
-│   ├── debug.js
 │   ├── defaults.js
-│   ├── diagnostics.js
 │   └── store.js
 ├── domain/
 │   ├── bookmarks/
@@ -158,6 +157,8 @@ src/js/
 ├── shared/
 │   ├── data/
 │   │   └── mergeChanges.js
+│   ├── diagnostics/
+│   │   └── debug.js
 │   ├── grid/
 │   │   ├── gridGeometry.js
 │   │   ├── gridItemRegistry.js
@@ -233,6 +234,12 @@ mechanisms under `shared/keyboard` and `shared/grid`. Their consumers import
 those modules directly; no compatibility re-export remains in `core/`.
 `core/store.js` deliberately stays in place until its remaining consumers can
 move as a separate, tested phase.
+
+The bounded console tracer lives in `shared/diagnostics` and has no knowledge
+of application state. `app/applicationDiagnostics.js` composes it with the
+store, browser capabilities, image cache and startup lifecycle to expose
+`NewDeskTabDebug`. Store-change labels remain private to the store until that
+module is split, preventing a shared primitive from depending on domain shapes.
 
 ## Shared UI primitives
 
@@ -567,6 +574,9 @@ the existing contracts. Remote executable plugins remain out of scope.
     contracts to `domain/settings`, manifest metadata to `platform/browser` and
     page-theme effects to `shared/ui`; keep only state, composed defaults and
     diagnostics deferred there.
+20. ✅ Extract observability from `core/`: keep reusable bounded tracing under
+    `shared/diagnostics`, compose browser/store reports at the application
+    boundary and leave state-specific trace labels private to the store.
 
 Each phase must finish with lint, unit and DOM tests, relevant E2E journeys and
 the unpacked-extension smoke/package checks.

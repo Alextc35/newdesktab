@@ -1,5 +1,5 @@
 import '../../types/types.js'; // typedefs
-import { debug } from '../../core/debug.js';
+import { debug } from '../../shared/diagnostics/debug.js';
 import { getState, setState } from '../../core/store.js';
 import {
   applyBookmarkPreset,

@@ -201,9 +201,11 @@ No es un sistema de plugins remotos.
 ### `core/`: zona de transición restante
 
 `core/` conserva únicamente la infraestructura histórica todavía aplazada:
-store, composición de defaults y diagnóstico. Los modos persistidos de
+store y composición de defaults. Los modos persistidos de
 interacción ya pertenecen a `domain/settings`, los metadatos del manifest a
-`platform/browser` y el efecto visual del fondo a `shared/ui`. La antigua
+`platform/browser`, el efecto visual del fondo a `shared/ui` y la observabilidad
+se reparte entre el logger reutilizable de `shared/diagnostics` y su composición
+en `app/applicationDiagnostics.js`. La antigua
 carpeta `ui/` ya no existe: el
 shell pertenece a `app`, la presentación de cada dominio a su feature y solo
 las primitivas demostrablemente reutilizables viven en `shared/ui`.
@@ -651,6 +653,10 @@ El informe incluye versión, almacenamiento activo, soporte Sync, uso de cuota,
 conteos y tiempos de arranque. Las trazas de operaciones muestran preparación,
 espera en cola y escritura.
 
+`shared/diagnostics/debug.js` implementa el logger acotado sin conocer el estado
+de la aplicación. `app/applicationDiagnostics.js` reúne store, plataforma y
+ciclo de arranque para construir el informe visible en DevTools.
+
 ## 15. Invariantes que no deben romperse
 
 - El dominio no accede al DOM ni a Chrome.
@@ -684,12 +690,11 @@ Evitar los siguientes patrones:
 
 La separación de dominio, features, plataforma, UI compartida y grid ya está
 establecida, el reloj valida el contrato de widgets de extremo a extremo, la
-carpeta transitoria `ui/` ha sido retirada y `core/` se ha reducido a cuatro
+carpeta transitoria `ui/` ha sido retirada y `core/` se ha reducido a dos
 módulos explícitamente aplazados. Las principales zonas pendientes son:
 
-1. Extraer la composición de defaults y la observabilidad de `core/`; dividir el
-   store solo cuando sus límites de estado, historial y persistencia estén
-   protegidos por separado.
+1. Extraer la composición de defaults de `core/`; dividir el store solo cuando
+   sus límites de estado, historial y persistencia estén protegidos por separado.
 2. Mejorar la recuperación de conflictos entre dispositivos.
 3. Versionar entradas de papelera para widgets si deben poder restaurarse.
 

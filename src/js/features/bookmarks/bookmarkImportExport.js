@@ -1,4 +1,4 @@
-import { debug } from '../../core/debug.js';
+import { debug } from '../../shared/diagnostics/debug.js';
 import { getState } from '../../core/store.js';
 import {
   createBookmarksEnvelope,
