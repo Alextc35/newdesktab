@@ -41,10 +41,8 @@ const {
 const { moveGridItemsToRecycleBin } = await import(
   '../src/js/features/recycle-bin/recycleBinActions.js'
 );
-const {
-  DEFAULT_BOOKMARK,
-  DEFAULT_FOLDER_STYLE
-} = await import('../src/js/core/defaults.js');
+const { DEFAULT_BOOKMARK } = await import('../src/js/domain/bookmarks/bookmarkDefaults.js');
+const { DEFAULT_FOLDER_STYLE } = await import('../src/js/domain/folders/folderDefaults.js');
 const {
   clearBookmarkHistory,
   getState,

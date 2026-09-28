@@ -34,7 +34,7 @@ test('light folder grids and previews keep labels readable without changing save
   await expect(grid).toHaveCSS('background-color', 'rgb(247, 247, 248)');
   await expect(page.locator('#folder-modal-empty')).toHaveCSS('color', 'rgb(100, 100, 111)');
   await page.evaluate(async () => {
-    const { DEFAULT_BOOKMARK } = await import('/src/js/core/defaults.js');
+    const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
     const { getState, setState } = await import('/src/js/core/store.js');
     const folderId = getState().data.folders[0].id;
     const examples = [
@@ -171,7 +171,8 @@ test('language preview can be cancelled, saved, and reset to the device default'
 test('deletes every local data area without changing synchronized data', async ({ page }) => {
   await start(page);
   await page.evaluate(async () => {
-    const { DEFAULT_BOOKMARK, DEFAULT_FOLDER_STYLE } = await import('/src/js/core/defaults.js');
+    const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
+    const { DEFAULT_FOLDER_STYLE } = await import('/src/js/domain/folders/folderDefaults.js');
     const { changeStorageMode, getState, setState } = await import('/src/js/core/store.js');
 
     const settings = structuredClone(getState().data.settings);
@@ -266,7 +267,7 @@ test('deletes every local data area without changing synchronized data', async (
   await expect(page.locator('[data-widget-id]')).toHaveCount(0);
 
   await expect.poll(() => page.evaluate(async () => {
-    const { DEFAULT_SETTINGS } = await import('/src/js/core/defaults.js');
+    const { DEFAULT_SETTINGS } = await import('/src/js/domain/settings/settingsDefaults.js');
     const local = JSON.parse(sessionStorage.getItem('newdesktab-test-local') || '{}');
     const sync = JSON.parse(sessionStorage.getItem('newdesktab-test-sync') || '{}');
     return {

@@ -11,7 +11,8 @@ async function start(page, width = 1280) {
   await expectAppReady(page);
   await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
   await page.evaluate(async () => {
-    const { DEFAULT_BOOKMARK, DEFAULT_FOLDER_STYLE } = await import('/src/js/core/defaults.js');
+    const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
+    const { DEFAULT_FOLDER_STYLE } = await import('/src/js/domain/folders/folderDefaults.js');
     const { getState, setState } = await import('/src/js/core/store.js');
     const bookmarks = Array.from({ length: 20 }, (_, index) => ({
       ...DEFAULT_BOOKMARK, id: `compact-${index}`, name: `Bookmark ${index + 1}`,

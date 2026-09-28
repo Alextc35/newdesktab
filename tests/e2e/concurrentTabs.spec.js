@@ -14,7 +14,7 @@ let pages;
 
 async function seedBookmarks(page) {
   await page.evaluate(async () => {
-    const { DEFAULT_BOOKMARK } = await import('./js/core/defaults.js');
+    const { DEFAULT_BOOKMARK } = await import('./js/domain/bookmarks/bookmarkDefaults.js');
     const { setState } = await import('./js/core/store.js');
     await setState({
       data: {

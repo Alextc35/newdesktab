@@ -7,7 +7,8 @@
   </head>
   <body>
     <script type="module">
-      import { DEFAULT_BOOKMARK, DEFAULT_STATE } from '../src/js/core/defaults.js';
+      import { DEFAULT_BOOKMARK } from '../src/js/domain/bookmarks/bookmarkDefaults.js';
+      import { createDefaultPersistedData } from '../src/js/platform/storage/persistedDataDefaults.js';
 
       const listeners = [];
       const isFreshProfile = !sessionStorage.getItem('newdesktab-test-local')
@@ -85,7 +86,7 @@
       // without coupling the product defaults to test data.
       if (isFreshProfile) {
         chrome.storage.local.set({
-          ...structuredClone(DEFAULT_STATE.data),
+          ...createDefaultPersistedData(),
           bookmarks: [
             {
               ...DEFAULT_BOOKMARK,

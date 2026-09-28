@@ -32,7 +32,9 @@ globalThis.chrome = {
   }
 };
 
-const { DEFAULT_RECYCLE_BIN, DEFAULT_SETTINGS } = await import('../src/js/core/defaults.js');
+const { DEFAULT_BOOKMARKS } = await import('../src/js/domain/bookmarks/bookmarkDefaults.js');
+const { DEFAULT_RECYCLE_BIN } = await import('../src/js/domain/recycle-bin/recycleBinDefaults.js');
+const { DEFAULT_SETTINGS } = await import('../src/js/domain/settings/settingsDefaults.js');
 const { getGridItemsInGroup } = await import('../src/js/features/grid/gridSelectors.js');
 const {
   moveBookmarksToRecycleBin,
@@ -174,7 +176,6 @@ test('the recycle bin reserves space only when visible on Main', async () => {
 });
 
 test('new installations start with the recycle bin and no starter bookmarks', async () => {
-  const { DEFAULT_BOOKMARKS } = await import('../src/js/core/defaults.js');
   assert.deepEqual(
     { gx: DEFAULT_RECYCLE_BIN.gx, gy: DEFAULT_RECYCLE_BIN.gy },
     { gx: 0, gy: 0 }

@@ -201,7 +201,9 @@ No es un sistema de plugins remotos.
 ### `core/`: zona de transición restante
 
 `core/` conserva únicamente la infraestructura histórica todavía aplazada:
-store y composición de defaults. Los modos persistidos de
+el store. Los defaults de entidades y ajustes pertenecen a sus dominios, y
+`platform/storage/persistedDataDefaults.js` compone una instancia aislada del
+contrato persistido completo. Los modos persistidos de
 interacción ya pertenecen a `domain/settings`, los metadatos del manifest a
 `platform/browser`, el efecto visual del fondo a `shared/ui` y la observabilidad
 se reparte entre el logger reutilizable de `shared/diagnostics` y su composición
@@ -690,11 +692,11 @@ Evitar los siguientes patrones:
 
 La separación de dominio, features, plataforma, UI compartida y grid ya está
 establecida, el reloj valida el contrato de widgets de extremo a extremo, la
-carpeta transitoria `ui/` ha sido retirada y `core/` se ha reducido a dos
-módulos explícitamente aplazados. Las principales zonas pendientes son:
+carpeta transitoria `ui/` ha sido retirada y `core/` se ha reducido a un único
+módulo explícitamente aplazado. Las principales zonas pendientes son:
 
-1. Extraer la composición de defaults de `core/`; dividir el store solo cuando
-   sus límites de estado, historial y persistencia estén protegidos por separado.
+1. Dividir el store cuando sus límites de estado, historial y persistencia estén
+   protegidos por separado, retirando finalmente `core/`.
 2. Mejorar la recuperación de conflictos entre dispositivos.
 3. Versionar entradas de papelera para widgets si deben poder restaurarse.
 

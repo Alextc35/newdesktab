@@ -8,7 +8,9 @@ import {
   parseBackupPayload,
   parseBookmarksPayload
 } from '../src/js/platform/storage/dataSchema.js';
-import { DATA_SCHEMA_VERSION, DEFAULT_FOLDER_STYLE, DEFAULT_SETTINGS } from '../src/js/core/defaults.js';
+import { DEFAULT_FOLDER_STYLE } from '../src/js/domain/folders/folderDefaults.js';
+import { DEFAULT_SETTINGS } from '../src/js/domain/settings/settingsDefaults.js';
+import { DATA_SCHEMA_VERSION } from '../src/js/platform/storage/schemaVersion.js';
 import { BOOKMARK_DRAG_MODES } from '../src/js/domain/settings/gridInteractionModes.js';
 import { DEFAULT_KEYBOARD_SHORTCUTS } from '../src/js/shared/keyboard/keyboardShortcuts.js';
 

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { DEFAULT_FOLDER_STYLE } from '../src/js/core/defaults.js';
+import { DEFAULT_FOLDER_STYLE } from '../src/js/domain/folders/folderDefaults.js';
 import { normalizeFolderStyle, validateFolderDraft } from '../src/js/domain/folders/folderModel.js';
 
 test('legacy and invalid folder styles preserve the default visible appearance', () => {

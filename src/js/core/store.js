@@ -1,6 +1,6 @@
 import '../types/types.js'; // typedefs
 import { debug } from '../shared/diagnostics/debug.js';
-import { DEFAULT_STATE } from './defaults.js';
+import { createDefaultPersistedData } from '../platform/storage/persistedDataDefaults.js';
 import { storage, STORAGE_MODES } from '../platform/storage/storageFacade.js';
 import { mergeChanges } from '../shared/data/mergeChanges.js';
 import { clearLocalImages } from '../platform/images/localImages.js';
@@ -11,7 +11,7 @@ import { clearDeviceTrash } from '../platform/storage/deviceTrashStorage.js';
  * Global application state.
  * @type {AppState}
  */
-let state = structuredClone(DEFAULT_STATE);
+let state = createDefaultState();
 
 /**
  * Indicates whether the store is still in the hydration phase.
@@ -304,7 +304,7 @@ export async function deleteSyncedData() {
  * @returns {Promise<void>}
  */
 export async function clearAllLocalData() {
-  const data = structuredClone(DEFAULT_STATE.data);
+  const data = createDefaultPersistedData();
   data.bookmarks = [];
   data.folders = [];
   data.widgets = [];
@@ -532,6 +532,24 @@ function notify(state, prevState) {
   for (const listener of listeners) {
     listener(state, prevState);
   }
+}
+
+function createDefaultState() {
+  return {
+    data: createDefaultPersistedData(),
+    ui: {
+      isEditing: false,
+      persistence: {
+        status: 'idle',
+        error: null,
+        updatedAt: null
+      },
+      history: {
+        canUndo: false,
+        canRedo: false
+      }
+    }
+  };
 }
 
 /** Describes store changes without retaining bookmark contents or images. */

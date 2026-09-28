@@ -82,7 +82,7 @@ globalThis.chrome = {
 const { storage, STORAGE_MODES } = await import(
   '../src/js/platform/storage/storageFacade.js'
 );
-const { DATA_SCHEMA_VERSION } = await import('../src/js/core/defaults.js');
+const { DATA_SCHEMA_VERSION } = await import('../src/js/platform/storage/schemaVersion.js');
 const { DEVICE_TRASH_KEY } = await import(
   '../src/js/platform/storage/deviceTrashStorage.js'
 );

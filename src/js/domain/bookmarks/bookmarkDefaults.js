@@ -36,3 +36,6 @@ export const DEFAULT_BOOKMARK = {
   ...DEFAULT_BOOKMARK_STRUCTURE,
   ...DEFAULT_BOOKMARK_STYLE
 };
+
+/** Starter bookmarks for a new profile. Kept empty until a curated set exists. */
+export const DEFAULT_BOOKMARKS = [];

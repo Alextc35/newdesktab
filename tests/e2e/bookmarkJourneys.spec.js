@@ -2539,7 +2539,7 @@ test('localizes sync status and confirms synchronized data deletion', async ({ p
 
 test('shows local bookmarks and locks sync when cloud data needs a newer version', async ({ page }) => {
   const schemaVersion = await page.evaluate(async () => (
-    (await import('/src/js/core/defaults.js')).DATA_SCHEMA_VERSION
+    (await import('/src/js/platform/storage/schemaVersion.js')).DATA_SCHEMA_VERSION
   ));
   const futureSyncData = {
     schemaVersion: schemaVersion + 1,
@@ -2693,7 +2693,8 @@ test('drags the bulk toolbar within the grid and restores its default position',
 
 test('runs every bulk action on a mixed bookmark and folder selection', async ({ page }) => {
   await page.evaluate(async () => {
-    const { DEFAULT_BOOKMARK, DEFAULT_FOLDER_STYLE } = await import('/src/js/core/defaults.js');
+    const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
+    const { DEFAULT_FOLDER_STYLE } = await import('/src/js/domain/folders/folderDefaults.js');
     const { getState, setState } = await import('/src/js/core/store.js');
     await setState({
       data: {

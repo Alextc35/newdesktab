@@ -6,7 +6,7 @@ import { initTabs } from '../../shared/ui/tabs.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 
 import { changeLanguage, t } from '../../platform/i18n/i18n.js';
-import { DEFAULT_SETTINGS } from '../../core/defaults.js';
+import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
 import {
   changeStorageMode,
   clearAllLocalData,

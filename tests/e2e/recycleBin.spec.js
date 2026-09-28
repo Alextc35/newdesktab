@@ -64,7 +64,7 @@ async function toggleEditMode(page) {
 
 async function createDropBookmark(page) {
   await page.evaluate(async () => {
-    const { DEFAULT_BOOKMARK } = await import('/src/js/core/defaults.js');
+    const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
     const { getState, setState } = await import('/src/js/core/store.js');
     const data = getState().data;
     const now = Date.now();
@@ -143,7 +143,7 @@ test('moves, resizes, hides and shows the recycle bin', async ({ page }) => {
   await expect(bin).toBeHidden();
 
   const expectedPosition = await page.evaluate(async () => {
-    const { DEFAULT_BOOKMARK } = await import('/src/js/core/defaults.js');
+    const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
     const { findFirstFreeSlot } = await import('/src/js/shared/grid/gridPlacement.js');
     const { getState, setState } = await import('/src/js/core/store.js');
     const { data } = getState();

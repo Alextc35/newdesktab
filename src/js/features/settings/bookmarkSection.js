@@ -1,7 +1,7 @@
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { openBookmarkPresetEditor } from '../bookmarks/bookmarkModal.js';
 import { t } from '../../platform/i18n/i18n.js';
-import { DEFAULT_SETTINGS } from '../../core/defaults.js';
+import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
 import { normalizeBookmarkPreset } from '../../domain/bookmarks/bookmarkModel.js';
 import { deleteAllBookmarks } from '../bookmarks/bookmarkDestructiveActions.js';
 import { initImportExportButtons } from '../bookmarks/bookmarkImportExport.js';

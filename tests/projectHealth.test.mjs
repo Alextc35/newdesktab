@@ -54,10 +54,10 @@ test('the transitional ui directory has no remaining source modules', () => {
   assert.equal(existsSync('src/js/ui'), false);
 });
 
-test('transitional core contains only explicitly deferred modules', () => {
+test('transitional core contains only the deferred store', () => {
   assert.deepEqual(
     readdirSync('src/js/core').sort(),
-    ['defaults.js', 'store.js']
+    ['store.js']
   );
 });
 

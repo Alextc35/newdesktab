@@ -23,7 +23,8 @@ async function start(page, layouts = [{ id: folderId, gx: 0, gy: 0, w: 2, h: 2 }
     globalThis.folderAppearanceSetupStatus = 'pending';
     void (async () => {
       try {
-        const { DEFAULT_BOOKMARK, DEFAULT_FOLDER_STYLE } = await import('/src/js/core/defaults.js');
+        const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
+        const { DEFAULT_FOLDER_STYLE } = await import('/src/js/domain/folders/folderDefaults.js');
         const { getState, setState } = await import('/src/js/core/store.js');
         const folders = folderLayouts.map(layout => ({ ...DEFAULT_FOLDER_STYLE,
           name: 'Reading', groupId: null, createdAt: 1, updatedAt: 1, ...layout }));
@@ -121,7 +122,7 @@ test('shares the bookmark edit control position and adapts it to the folder surf
     { id: 'dark-folder', gx: 1, gy: 0, w: 1, h: 1, outerBackgroundColor: '#000000' }
   ]);
   await page.evaluate(async () => {
-    const { DEFAULT_BOOKMARK } = await import('/src/js/core/defaults.js');
+    const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
     const { getState, setState } = await import('/src/js/core/store.js');
     await setState({ data: { bookmarks: [...getState().data.bookmarks, {
       ...DEFAULT_BOOKMARK,

@@ -1,7 +1,7 @@
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { t } from '../../platform/i18n/i18n.js';
-import { DEFAULT_SETTINGS } from '../../core/defaults.js';
+import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
 import { flashSuccess } from '../../shared/ui/flash.js';
 import {
   getImageInputValue,

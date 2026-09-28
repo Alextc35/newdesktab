@@ -1,9 +1,7 @@
 import '../../types/types.js';
-import {
-  DEFAULT_RECYCLE_BIN,
-  DEFAULT_SETTINGS,
-  DEFAULT_STATE
-} from '../../core/defaults.js';
+import { DEFAULT_RECYCLE_BIN } from '../../domain/recycle-bin/recycleBinDefaults.js';
+import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
+import { createDefaultPersistedData } from './persistedDataDefaults.js';
 import { DATA_SCHEMA_VERSION } from './schemaVersion.js';
 import {
   normalizeBookmark,
@@ -53,7 +51,7 @@ export function migratePersistedData(input, { useDefaultsWhenEmpty = true } = {}
 
   const rawBookmarks = Array.isArray(source.bookmarks)
     ? source.bookmarks
-    : (useDefaultsWhenEmpty ? DEFAULT_STATE.data.bookmarks : []);
+    : (useDefaultsWhenEmpty ? createDefaultPersistedData().bookmarks : []);
   const rawFolders = Array.isArray(source.folders) ? source.folders : [];
   const rawSettings = source.settings && typeof source.settings === 'object'
     ? source.settings
@@ -297,7 +295,7 @@ export function createBookmarksEnvelope(bookmarks, folders = []) {
  * @param {PersistedData} [currentData]
  * @returns {PersistedData}
  */
-export function parseBackupPayload(payload, currentData = DEFAULT_STATE.data) {
+export function parseBackupPayload(payload, currentData = createDefaultPersistedData()) {
   if (Array.isArray(payload)) {
     return migratePersistedData({
       ...currentData,
@@ -327,7 +325,7 @@ export function parseBackupPayload(payload, currentData = DEFAULT_STATE.data) {
  * @param {PersistedData} currentData
  * @returns {{bookmarks: Bookmark[], folders: BookmarkFolder[]}}
  */
-export function parseBookmarksPayload(payload, currentData = DEFAULT_STATE.data) {
+export function parseBookmarksPayload(payload, currentData = createDefaultPersistedData()) {
   if (payload?.format === 'newdesktab-bookmarks' && Array.isArray(payload.bookmarks)) {
     const migrated = migratePersistedData({
       ...currentData,

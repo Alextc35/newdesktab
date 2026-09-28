@@ -37,14 +37,14 @@ The intended responsibilities are:
 - `widgets/`: statically bundled grid-item types, their common persisted
   envelope and lifecycle commands. It is not a remote plugin loader.
 
-During migration, `core/` contains only the remaining live state and composed
-defaults. New dependencies should follow the direction above.
+During migration, `core/` contains only the remaining live store. New
+dependencies should follow the direction above.
 Existing files move only as part of a behavior-preserving feature phase, not to
 make the tree look finished.
 
 ## Current migration status
 
-Phases 1 through 20 establish the first application, domain, feature, platform
+Phases 1 through 21 establish the first application, domain, feature, platform
 and widget seams, including the first visible bundled widget:
 
 ```text
@@ -57,7 +57,6 @@ src/js/
 │   ├── bootstrap.js
 │   └── registerGridItemTypes.js
 ├── core/
-│   ├── defaults.js
 │   └── store.js
 ├── domain/
 │   ├── bookmarks/
@@ -73,7 +72,8 @@ src/js/
 │   │   └── recycleBinModel.js
 │   ├── settings/
 │   │   ├── gridInteractionModes.js
-│   │   └── interfacePreferences.js
+│   │   ├── interfacePreferences.js
+│   │   └── settingsDefaults.js
 │   └── workspaces/
 │       └── workspaceModel.js
 ├── features/
@@ -150,6 +150,7 @@ src/js/
 │   │   ├── dataSchema.js
 │   │   ├── deviceImageSelections.js
 │   │   ├── deviceTrashStorage.js
+│   │   ├── persistedDataDefaults.js
 │   │   ├── schemaVersion.js
 │   │   └── storageFacade.js
 │   └── sync/
@@ -210,9 +211,11 @@ Bookmark, folder and recycle-bin defaults and normalization now live in
 `domain/`. Their shared background-image value rules are separate from the
 device image cache, Chrome Storage and Canvas processing under `platform/`.
 Store-backed bookmark, folder and mixed-grid commands live in their feature
-slices. `core/defaults.js` temporarily composes and re-exports domain defaults
-so compatibility callers can migrate without a persisted-data change. CSS
-remains under `css/features/` because its loading lifecycle has not changed.
+slices. Settings defaults live with the Settings domain, while
+`platform/storage/persistedDataDefaults.js` composes a fresh complete persisted
+value from the domain defaults and current schema version. There is no defaults
+aggregator or compatibility re-export. CSS remains under `css/features/`
+because its loading lifecycle has not changed.
 
 Workspace identity, naming, normalization and cyclic navigation now live in
 `domain/workspaces`. Store-backed creation, activation, deletion and bookmark
@@ -577,6 +580,9 @@ the existing contracts. Remote executable plugins remain out of scope.
 20. ✅ Extract observability from `core/`: keep reusable bounded tracing under
     `shared/diagnostics`, compose browser/store reports at the application
     boundary and leave state-specific trace labels private to the store.
+21. ✅ Retire the defaults aggregator: keep entity and settings defaults in
+    their domains, compose isolated persisted values at the storage boundary and
+    leave `store.js` as the only transitional `core/` module.
 
 Each phase must finish with lint, unit and DOM tests, relevant E2E journeys and
 the unpacked-extension smoke/package checks.
