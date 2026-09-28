@@ -150,6 +150,39 @@ test('widget registration rejects invalid, duplicate and conflicting types', () 
   );
 });
 
+test('initializes registered widget surfaces once and in catalog order', () => {
+  const widgets = createWidgetRegistry(createGridItemRegistry());
+  const calls = [];
+  const context = { launcher: 'menu', modalHost: 'body' };
+
+  widgets.register({
+    type: 'clock',
+    render: () => ({ dataset: {} }),
+    initialize(received) {
+      calls.push(['clock', received]);
+    }
+  });
+  widgets.register({
+    type: 'notes',
+    render: () => ({ dataset: {} }),
+    initialize(received) {
+      calls.push(['notes', received]);
+    }
+  });
+
+  assert.deepEqual(widgets.initialize(context), ['clock', 'notes']);
+  assert.deepEqual(widgets.initialize(context), []);
+  assert.deepEqual(calls, [
+    ['clock', context],
+    ['notes', context]
+  ]);
+
+  assert.throws(
+    () => widgets.register({ type: 'weather', render: () => ({}), initialize: true }),
+    /initialize must be a function/
+  );
+});
+
 test('persisted widgets reserve cells in their workspace', () => {
   const main = { id: 'main', type: 'clock', groupId: null };
   const work = { id: 'work', type: 'notes', groupId: 'work' };

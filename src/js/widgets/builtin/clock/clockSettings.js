@@ -11,6 +11,7 @@ import {
   DEFAULT_CLOCK_CONFIG,
   normalizeClockConfig
 } from './clockModel.js';
+import { createClockSettingsView } from './clockSettingsView.js';
 import { startClockTicker, updateClockTimeElement } from './clockView.js';
 
 const MODAL_ID = 'clock-widget-settings';
@@ -28,24 +29,32 @@ let deleteButton;
 let saveButton;
 let stopPreviewTicker = null;
 
-export function initClockSettings() {
+export function initClockSettings({ launcher, modalHost } = {}) {
   if (initialized) return;
+  if (!launcher || !modalHost) {
+    throw new Error('Clock widget requires launcher and modal hosts.');
+  }
   initialized = true;
 
-  modal = document.getElementById('clock-widget-modal');
-  modalTitle = document.getElementById('clock-widget-modal-title');
-  hourCycleSelect = document.getElementById('clock-widget-hour-cycle');
-  showSecondsInput = document.getElementById('clock-widget-show-seconds');
-  preview = document.getElementById('clock-widget-preview-time');
-  deleteButton = document.getElementById('clock-widget-delete');
-  saveButton = document.getElementById('clock-widget-save');
+  const view = createClockSettingsView(t);
+  ({
+    modal,
+    modalTitle,
+    hourCycleSelect,
+    showSecondsInput,
+    preview,
+    deleteButton,
+    saveButton
+  } = view);
+  launcher.append(view.launcherButton);
+  modalHost.append(modal);
 
   hourCycleSelect.addEventListener('change', renderPreview);
   showSecondsInput.addEventListener('change', renderPreview);
-  document.getElementById('clock-widget-cancel').addEventListener('click', handleCancel);
+  view.cancelButton.addEventListener('click', handleCancel);
   deleteButton.addEventListener('click', handleDelete);
   saveButton.addEventListener('click', handleSave);
-  document.getElementById('add-clock')?.addEventListener('click', openCreateClock);
+  view.launcherButton.addEventListener('click', openCreateClock);
 
   registerModal({
     id: MODAL_ID,

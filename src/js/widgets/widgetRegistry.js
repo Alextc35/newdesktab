@@ -10,6 +10,7 @@ const RESERVED_GRID_ITEM_TYPES = new Set(['bookmark', 'folder', 'recycle-bin']);
  */
 export function createWidgetRegistry(itemRegistry = gridItemRegistry) {
   const definitions = new Map();
+  const initializedTypes = new Set();
 
   return Object.freeze({
     register(definition) {
@@ -33,6 +34,18 @@ export function createWidgetRegistry(itemRegistry = gridItemRegistry) {
 
     types() {
       return [...definitions.keys()];
+    },
+
+    /** Initializes each registered widget's optional application surface once. */
+    initialize(context = {}) {
+      const initialized = [];
+      for (const widget of definitions.values()) {
+        if (initializedTypes.has(widget.type)) continue;
+        widget.initialize?.(context);
+        initializedTypes.add(widget.type);
+        initialized.push(widget.type);
+      }
+      return initialized;
     }
   });
 }
@@ -42,6 +55,11 @@ export const widgetRegistry = createWidgetRegistry();
 /** Registers one statically bundled widget with the application registry. */
 export function registerWidget(definition) {
   return widgetRegistry.register(definition);
+}
+
+/** Mounts creation controls and editors owned by all registered widgets. */
+export function initializeWidgets(context) {
+  return widgetRegistry.initialize(context);
 }
 
 function validateDefinition(definition) {
@@ -58,6 +76,7 @@ function validateDefinition(definition) {
     throw new TypeError('Widget definition requires render().');
   }
   for (const key of [
+    'initialize',
     'enableEditing',
     'open',
     'edit',

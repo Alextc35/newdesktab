@@ -209,8 +209,9 @@ src/js/shared/grid/                generic placement, resize, movement and keybo
 src/js/shared/keyboard/            shortcut normalization and event matching
 src/js/shared/ui/                 reusable modal, tabs, notices, image and visual primitives
 src/js/widgets/widgetModel.js      generic persisted widget envelope
-src/js/widgets/widgetRegistry.js   bundled-widget to GridItem adapter
+src/js/widgets/widgetRegistry.js   bundled-widget lifecycle and GridItem adapter
 src/js/widgets/widgetActions.js    generic widget lifecycle commands
+src/js/widgets/builtin/index.js    enabled bundled-widget catalog
 src/js/widgets/builtin/clock/      first bundled visible widget
 
 ```

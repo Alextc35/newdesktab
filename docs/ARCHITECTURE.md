@@ -44,7 +44,7 @@ feature phase, not to make the tree look finished.
 
 ## Current migration status
 
-Phases 1 through 16 establish the first application, domain, feature, platform
+Phases 1 through 17 establish the first application, domain, feature, platform
 and widget seams, including the first visible bundled widget:
 
 ```text
@@ -162,10 +162,12 @@ src/js/
 │       └── tabs.js
 └── widgets/
     ├── builtin/
+    │   ├── index.js
     │   └── clock/
     │       ├── clockGridItem.js
     │       ├── clockModel.js
     │       ├── clockSettings.js
+    │       ├── clockSettingsView.js
     │       ├── clockView.js
     │       └── index.js
     ├── widgetActions.js
@@ -455,8 +457,10 @@ attributes. Widget adapters are selectable by default and share the `widget`
 selection kind, so the generic bulk layer can move every widget between
 workspaces without interpreting its configuration. A definition supplies a
 stable `type`, `render()` and any optional editing or interaction capabilities
-it needs. Registration is synchronous local-module composition and is
-compatible with Manifest V3 CSP; no code is downloaded or evaluated.
+it needs. It may also expose `initialize({ launcher, modalHost })` to mount its
+own creation control and editor exactly once. Registration and initialization
+are synchronous local-module composition and are compatible with Manifest V3
+CSP; no code is downloaded or evaluated.
 
 The current recycle-bin schema stores bookmarks and complete folders only.
 Dropping a widget on the bin, deleting it from a bulk selection or using the
@@ -471,11 +475,16 @@ widgets/builtin/clock/
 ├── clockModel.js
 ├── clockGridItem.js
 ├── clockSettings.js
+├── clockSettingsView.js
 ├── clockView.js
 └── index.js
 ```
 
-Application composition registers `clockWidget` through the widget registry.
+`widgets/builtin/index.js` is the single catalog of included implementations.
+Application composition registers that catalog and initializes the generic
+widget lifecycle; it does not import the clock. The clock creates its launcher
+button and settings modal from its own view module, so adding another bundled
+widget requires no widget-specific bootstrap code or static page markup.
 Creation, configuration updates and removal use `widgetActions`; the clock opts
 into the shared drag/resize controller with `kind: 'widget'`. Its visible time
 is transient DOM state aligned to the next second or minute and never produces
@@ -521,6 +530,9 @@ the existing contracts. Remote executable plugins remain out of scope.
 16. ✅ Ship the first visible bundled widget: a local-time clock with 12/24-hour
     and seconds controls, compact-list rendering, drag/resize, persistence,
     keyboard actions and undoable removal.
+17. ✅ Centralize bundled-widget composition and let each definition initialize
+    its own launcher and editor without widget-specific bootstrap imports or
+    static `newtab.html` markup.
 
 Each phase must finish with lint, unit and DOM tests, relevant E2E journeys and
 the unpacked-extension smoke/package checks.

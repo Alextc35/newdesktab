@@ -32,7 +32,7 @@ import { flashInfo } from '../shared/ui/flash.js';
 import { initFloatingMenu } from '../ui/floatingMenu.js';
 import { initKeyboardShortcuts } from '../ui/keyboardShortcuts.js';
 import { initUIController } from '../ui/uiController.js';
-import { initClockSettings } from '../widgets/builtin/clock/index.js';
+import { initializeWidgets } from '../widgets/widgetRegistry.js';
 import { createAppController } from './appController.js';
 import { registerGridItemTypes } from './registerGridItemTypes.js';
 
@@ -106,6 +106,10 @@ function getApplicationElements() {
 
 function initializeUserInterface({ container, gridOverlay, toggleButton }) {
   initUIController({ container, gridOverlay, toggleButton });
+  initializeWidgets({
+    launcher: document.getElementById('add-options'),
+    modalHost: document.body
+  });
   initFloatingMenu();
   initModals();
   initHistoryControls();
@@ -126,5 +130,4 @@ function initModals() {
   initRecycleBinEditorModal();
   initSettingsModal();
   initBookmarkModal();
-  initClockSettings();
 }

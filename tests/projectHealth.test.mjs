@@ -40,6 +40,16 @@ test('all interface languages expose the same translation contract', () => {
   }
 });
 
+test('bundled widget surfaces stay behind the catalog lifecycle', () => {
+  const bootstrap = readFileSync('src/js/app/bootstrap.js', 'utf8');
+  const newTab = readFileSync('src/newtab.html', 'utf8');
+  const catalog = readFileSync('src/js/widgets/builtin/index.js', 'utf8');
+
+  assert.doesNotMatch(bootstrap, /widgets\/builtin|clock/i);
+  assert.doesNotMatch(newTab, /id="(?:add-clock|clock-widget-modal)"/);
+  assert.match(catalog, /clockWidget/);
+});
+
 test('source modules resolve relative imports and do not contain static cycles', () => {
   const sourceRoot = resolve('src/js');
   const files = listJavaScriptFiles(sourceRoot);

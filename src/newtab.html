@@ -74,10 +74,6 @@
           </span>
           Folder
         </button>
-        <button id="add-clock" type="button">
-          <span class="add-option-symbol" aria-hidden="true">◷</span>
-          <span data-i18n="clock.add">Clock</span>
-        </button>
       </div>
     </div>
     <button id="settings" type="button">⚙️</button>
@@ -102,39 +98,6 @@
         <button id="alert-modal-accept" class="btn btn-primary" type="button"
           data-i18n="buttons.accept">Aceptar
         </button>
-      </div>
-    </div>
-  </div>
-
-  <div id="clock-widget-modal" class="modal">
-    <div class="modal-overlay"></div>
-    <div class="modal-card modal-sm clock-widget-modal-card">
-      <h2 id="clock-widget-modal-title" data-i18n="clock.createTitle">Add clock</h2>
-      <p class="clock-widget-modal-description" data-i18n="clock.description">
-        Show your local time on this workspace.
-      </p>
-      <div class="clock-widget-preview" aria-hidden="true">
-        <time id="clock-widget-preview-time" class="clock-widget-preview-time"></time>
-      </div>
-      <div class="modal-field">
-        <label for="clock-widget-hour-cycle" data-i18n="clock.hourCycle">Time format</label>
-        <select id="clock-widget-hour-cycle">
-          <option value="24" data-i18n="clock.hour24">24 hours</option>
-          <option value="12" data-i18n="clock.hour12">12 hours</option>
-        </select>
-      </div>
-      <div class="checkbox-wrapper clock-widget-seconds-option">
-        <input id="clock-widget-show-seconds" type="checkbox">
-        <label for="clock-widget-show-seconds" data-i18n="clock.showSeconds">Show seconds</label>
-      </div>
-      <div class="modal-actions clock-widget-modal-actions">
-        <button id="clock-widget-delete" class="btn btn-danger" type="button"
-          data-i18n="clock.delete">Delete</button>
-        <span class="clock-widget-modal-spacer"></span>
-        <button id="clock-widget-cancel" class="btn btn-ghost" type="button"
-          data-i18n="buttons.cancel">Cancel</button>
-        <button id="clock-widget-save" class="btn btn-primary" type="button"
-          data-i18n="buttons.add">Add</button>
       </div>
     </div>
   </div>

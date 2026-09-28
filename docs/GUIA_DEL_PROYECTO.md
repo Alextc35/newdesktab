@@ -190,8 +190,9 @@ Esta carpeta define el contrato común de widgets empaquetados con la extensión
 No es un sistema de plugins remotos.
 
 - `widgetModel.js`: formato persistido y normalización.
-- `widgetRegistry.js`: validación y adaptación al protocolo del grid.
+- `widgetRegistry.js`: validación, inicialización y adaptación al protocolo del grid.
 - `widgetActions.js`: alta, actualización y eliminación de instancias.
+- `builtin/index.js`: catálogo único de widgets incluidos en esta build.
 - `builtin/clock/`: primer widget visible, con modelo, vista y configuración.
 
 ### `core/` y `ui/`: zonas de transición
@@ -568,13 +569,16 @@ Un widget incluido debe seguir este proceso:
 2. Definir un `type` kebab-case estable.
 3. Implementar `render()`.
 4. Añadir hooks opcionales de edición o interacción.
-5. Registrar la definición durante la composición de la aplicación.
-6. Crear instancias mediante `addWidget()`.
-7. Añadir normalización versionada de su `config` si la necesita.
-8. Cubrir modelo, registry, acciones, DOM y recorrido visible con tests.
+5. Si tiene editor, implementar `initialize({ launcher, modalHost })` para que
+   el propio widget monte su botón y su superficie de configuración.
+6. Añadir la definición al catálogo `widgets/builtin/index.js`.
+7. Crear instancias mediante `addWidget()`.
+8. Añadir normalización versionada de su `config` si la necesita.
+9. Cubrir modelo, registry, acciones, DOM y recorrido visible con tests.
 
 El widget no debe modificar `gridRenderer` ni
-`gridKeyboardController`. Si necesita hacerlo para aparecer, falta una
+`gridKeyboardController`, añadir imports propios a `bootstrap.js` ni insertar
+su modal en `newtab.html`. Si necesita hacerlo para aparecer, falta una
 capacidad genérica en el contrato y debe diseñarse como tal.
 
 ## 12. Dónde realizar cada cambio
