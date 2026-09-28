@@ -218,8 +218,13 @@ src/js/widgets/widgetRegistry.js   bundled-widget lifecycle and GridItem adapter
 src/js/widgets/widgetActions.js    generic widget lifecycle commands
 src/js/widgets/builtin/index.js    enabled bundled-widget catalog
 src/js/widgets/builtin/clock/      first bundled visible widget
+src/styles/main.css                single global CSS entry and composition root
 
 ```
+
+Feature and shared-component styles are colocated beside the JavaScript that
+owns their DOM; the three remaining legacy sheets move in phase 26.
+`src/styles/` contains only document-wide foundations.
 
 The bookmark panel does not import the store, calculate grid placement or
 perform persistence. Controllers decide what saving means. See

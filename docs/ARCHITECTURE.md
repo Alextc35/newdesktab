@@ -253,9 +253,9 @@ Modal stacking, alerts, flash messages, tabs, local-image inputs, lockable
 inputs, action buttons, JSON downloads, viewport policy, surface contrast and
 SVG factories live under `shared/ui`. Each is a proven cross-feature mechanism
 with no feature ownership; feature controllers import the primitive they use
-directly. Their modal, shared-editor and flash styles are colocated in the same
-boundary. The obsolete generic modal index has been removed, so application
-composition names each feature modal explicitly.
+directly. Their modal, shared-editor, flash, item-action and local-image styles
+are colocated in the same boundary. The obsolete generic modal index has been
+removed, so application composition names each feature modal explicitly.
 
 The former `ui/` directory has no compatibility re-exports. Application-shell
 effects live in `app/appShell.js`; runtime shortcuts and the add launcher are
@@ -271,8 +271,9 @@ DOM layout, transient mixed-item selection, bulk actions, pointer gestures,
 keyboard focus and keyboard movement. Feature-owned GridItem adapters opt into
 those controllers without duplicating interaction logic. The selection API is
 generic and represents `{ kind, id }` pairs; bookmark-only compatibility aliases
-have been removed. The viewport, editing overlay and responsive grid styles are
-colocated with this interaction layer.
+have been removed. GridItem interaction, compact presentation, the viewport,
+editing overlay and responsive geometry are colocated with this interaction
+layer.
 
 Keyboard navigation discovers visible items through the registry instead of
 enumerating feature collections or DOM data attributes. Definitions may expose
@@ -327,10 +328,10 @@ no longer a registry for Search. The search modal also owns its toolbar trigger,
 so workspace controls do not depend on Search.
 
 Reusable modal coordination lives in `shared/ui/modalManager.js`. Existing HTML ids
-and CSS under `css/features/searchModal.css` are intentionally unchanged, so
-this move does not alter the DOM, styling, keyboard shortcut or persisted data
-contracts. Unit tests protect the query behavior and the existing Playwright
-journeys protect both search surfaces.
+remain stable, while `features/search/search.css` now sits beside the controller
+that owns them. This does not alter the DOM, styling, keyboard shortcut or
+persisted data contracts. Unit tests protect the query behavior and the existing
+Playwright journeys protect both search surfaces.
 
 ## Bookmark editor feature boundary
 
@@ -598,7 +599,7 @@ the existing contracts. Remote executable plugins remain out of scope.
     CSS import graph against missing files, cycles and orphan stylesheets.
 24. ✅ Colocate shared visual infrastructure and grid structure with their
     `shared/ui` and `features/grid` owners.
-25. ⬜ Colocate bookmark, folder, search, recycle-bin and workspace styles with
+25. ✅ Colocate bookmark, folder, search, recycle-bin and workspace styles with
     their vertical feature slices.
 26. ⬜ Colocate Settings, launcher and bundled-widget styles, then remove the
     empty transitional `css/` directory.

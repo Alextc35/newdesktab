@@ -20,6 +20,8 @@ For browser journeys, install Chromium once with
   `src/js/domain`; keep persisted-data migrations under `src/js/platform/storage`.
 * Keep `src/js/state` limited to live state, transient history and persistence
   orchestration; feature and domain rules do not belong there.
+* Colocate feature CSS with the module that owns its DOM. Keep only document-wide
+  tokens, resets and utilities under `src/styles`.
 * Treat imported and synchronized data as untrusted until it crosses
   `migratePersistedData()`.
 * Use `BookmarkPreset` for appearance only. Never add identity, grid or timestamp

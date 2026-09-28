@@ -1,3 +1,4 @@
+/* Compact list presentation shared by every registered GridItem type. */
 #bookmark-container.is-list-view {
   padding: 24px 16px 88px;
 }

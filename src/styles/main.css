@@ -6,19 +6,24 @@
 @import '../js/features/grid/gridSurface.css';
 @import '../js/features/grid/gridOverlay.css';
 @import '../css/layout/floatingMenu.css';
-@import '../css/layout/workspaceToolbar.css';
+@import '../js/features/workspaces/workspaceToolbar.css';
 
-@import '../css/components/bookmark.css';
+@import '../js/features/grid/gridItem.css';
+@import '../js/features/bookmarks/bookmarkCard.css';
+@import '../js/shared/ui/itemActionButton.css';
+@import '../js/shared/ui/localImageUpload.css';
+@import '../js/features/grid/gridMotion.css';
+@import '../js/features/bookmarks/bookmarkPreview.css';
 @import '../js/shared/ui/modal.css';
 @import '../js/shared/ui/flash.css';
 
 @import '../js/shared/ui/editModal.css';
 @import '../css/features/settingsModal.css';
-@import '../css/features/searchModal.css';
-@import '../css/features/folderModal.css';
+@import '../js/features/search/search.css';
+@import '../js/features/folders/folder.css';
 @import '../js/features/grid/responsiveGrid.css';
-@import '../css/features/bookmarkList.css';
-@import '../css/features/recycleBin.css';
+@import '../js/features/grid/compactView.css';
+@import '../js/features/recycle-bin/recycleBin.css';
 @import '../css/features/clockWidget.css';
 
 @import './utilities/disabled.css';

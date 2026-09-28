@@ -1,0 +1,11 @@
+/* Motion accessibility overrides for interactive grid items. */
+@media (prefers-reduced-motion: reduce) {
+  :is(.bookmark, .grid-widget).is-smart-moving,
+  :is(.bookmark, .grid-widget).is-editing.is-dragging,
+  :is(.bookmark, .grid-widget).is-drop-restoring.is-drop-revealed,
+  :is(.bookmark, .grid-widget) .resizer,
+  :is(.bookmark, .grid-widget) .resize-indicator,
+  .item-action-button {
+    transition: none;
+  }
+}

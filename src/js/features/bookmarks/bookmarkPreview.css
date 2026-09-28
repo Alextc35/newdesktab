@@ -1,0 +1,36 @@
+/* Bookmark editor preview and embedded-folder bookmark adjustments. */
+.bookmark-preview {
+  width: 200px;
+  height: 210px;
+  border-radius: 14px;
+  background-color: var(--ui-preview-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  transition: .2s ease;
+  background-image:
+    linear-gradient(45deg, var(--ui-preview-square) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--ui-preview-square) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--ui-preview-square) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--ui-preview-square) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+/* Transparent items inherit legible labels only on interface-owned canvases. */
+:is(.folder-grid-bookmark, .bookmark-preview .is-preview).has-transparent-background {
+  --bookmark-context-text: light-dark(var(--bookmark-light-text), var(--color-text-bookmark));
+}
+
+.folder-grid-bookmark .item-action-button {
+  border-color: light-dark(var(--ui-border), rgba(255, 255, 255, .16));
+  box-shadow: 0 2px 6px var(--ui-control-shadow);
+}
+
+.folder-grid-bookmark .item-action-button.is-dark:not(:hover) {
+  background: light-dark(#fff, rgba(255, 255, 255, .94));
+  color: light-dark(var(--ui-muted), #111827);
+}

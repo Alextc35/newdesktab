@@ -1,0 +1,52 @@
+/* Reusable actions rendered over editable grid items. */
+.item-actions {
+  position: absolute;
+  top: 8px;
+  left: 22px;
+  z-index: 3;
+  display: flex;
+  gap: 6px;
+}
+
+.item-action-button {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: .8rem;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+  transition: background-color .15s ease, color .15s ease, transform .15s ease,
+    box-shadow .15s ease;
+
+  &.is-dark {
+    background: rgba(255, 255, 255, .94);
+    color: #111827;
+  }
+
+  &.is-light {
+    background: rgba(20, 27, 42, .92);
+    color: #f8fafc;
+  }
+
+  &:hover {
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, .38);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #93c5fd;
+    outline-offset: 2px;
+  }
+
+  &.delete:hover {
+    background: #dc3545;
+    color: #fff;
+  }
+}
