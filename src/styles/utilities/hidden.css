@@ -1,0 +1,4 @@
+/* Cross-feature visibility utility. */
+.is-hidden {
+  display: none;
+}

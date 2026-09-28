@@ -216,8 +216,9 @@ Store-backed bookmark, folder and mixed-grid commands live in their feature
 slices. Settings defaults live with the Settings domain, while
 `platform/storage/persistedDataDefaults.js` composes a fresh complete persisted
 value from the domain defaults and current schema version. There is no defaults
-aggregator or compatibility re-export. CSS remains under `css/features/`
-because its loading lifecycle has not changed.
+aggregator or compatibility re-export. `styles/main.css` is the single document
+entry for global tokens and stylesheet composition; feature CSS is being moved
+beside its explicit visual owner without changing that loading contract.
 
 Workspace identity, naming, normalization and cyclic navigation now live in
 `domain/workspaces`. Store-backed creation, activation, deletion and bookmark
@@ -590,6 +591,17 @@ the existing contracts. Remote executable plugins remain out of scope.
 22. ✅ Retire transitional `core/`: move the live orchestrator to
     `state/appStore.js`, extract tested grid history and diagnostic change
     classification, and update every consumer without a compatibility re-export.
+23. ✅ Establish the stylesheet boundary: move the single entry, reset, tokens,
+    document canvas and global utilities to `styles/`, and protect the complete
+    CSS import graph against missing files, cycles and orphan stylesheets.
+24. ⬜ Colocate shared visual infrastructure and grid structure with their
+    `shared/ui` and `features/grid` owners.
+25. ⬜ Colocate bookmark, folder, search, recycle-bin and workspace styles with
+    their vertical feature slices.
+26. ⬜ Colocate Settings, launcher and bundled-widget styles, then remove the
+    empty transitional `css/` directory.
+27. ⬜ Audit selectors and documentation, then run the complete browser,
+    unpacked-extension and store-package verification.
 
 Each phase must finish with lint, unit and DOM tests, relevant E2E journeys and
 the unpacked-extension smoke/package checks.

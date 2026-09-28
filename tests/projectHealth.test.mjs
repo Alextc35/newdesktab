@@ -58,6 +58,49 @@ test('the transitional core directory has been retired', () => {
   assert.equal(existsSync('src/js/core'), false);
 });
 
+test('the stylesheet entry reaches every source stylesheet without broken imports or cycles', () => {
+  const sourceRoot = resolve('src');
+  const entry = resolve('src/styles/main.css');
+  const stylesheets = listFilesByExtension(sourceRoot, '.css');
+  const visited = new Set();
+  const active = new Set();
+  const stack = [];
+
+  const visit = file => {
+    assert.equal(existsSync(file), true, `Missing stylesheet: ${relative(sourceRoot, file)}`);
+    if (visited.has(file)) return;
+    active.add(file);
+    stack.push(file);
+
+    for (const dependency of readStylesheetDependencies(file)) {
+      assert.equal(
+        existsSync(dependency),
+        true,
+        `Missing stylesheet imported by ${relative(sourceRoot, file)}: ${dependency}`
+      );
+      if (active.has(dependency)) {
+        const start = stack.indexOf(dependency);
+        const cycle = [...stack.slice(start), dependency]
+          .map(item => relative(sourceRoot, item).replaceAll('\\', '/'));
+        assert.fail(`Stylesheet cycle: ${cycle.join(' -> ')}`);
+      }
+      visit(dependency);
+    }
+
+    stack.pop();
+    active.delete(file);
+    visited.add(file);
+  };
+
+  visit(entry);
+  assert.deepEqual(
+    [...visited].sort(),
+    stylesheets.sort(),
+    'Every source stylesheet must be reachable from src/styles/main.css'
+  );
+  assert.match(readFileSync('src/newtab.html', 'utf8'), /href="\.\/styles\/main\.css"/);
+});
+
 test('source modules resolve relative imports and do not contain static cycles', () => {
   const sourceRoot = resolve('src/js');
   const files = listJavaScriptFiles(sourceRoot);
@@ -101,10 +144,14 @@ test('source modules resolve relative imports and do not contain static cycles',
 });
 
 function listJavaScriptFiles(directory) {
+  return listFilesByExtension(directory, '.js');
+}
+
+function listFilesByExtension(directory, extension) {
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
     const path = resolve(directory, entry.name);
-    if (entry.isDirectory()) return listJavaScriptFiles(path);
-    return entry.isFile() && entry.name.endsWith('.js') ? [path] : [];
+    if (entry.isDirectory()) return listFilesByExtension(path, extension);
+    return entry.isFile() && entry.name.endsWith(extension) ? [path] : [];
   });
 }
 
@@ -112,6 +159,14 @@ function readStaticDependencies(file) {
   const source = readFileSync(file, 'utf8');
   const staticImport = /(?:import|export)\s+(?:[^'"]*?\s+from\s+)?['"]([^'"]+)['"]/g;
   return Array.from(source.matchAll(staticImport), match => match[1])
+    .filter(specifier => specifier.startsWith('.'))
+    .map(specifier => resolve(dirname(file), specifier));
+}
+
+function readStylesheetDependencies(file) {
+  const source = readFileSync(file, 'utf8');
+  const stylesheetImport = /@import\s+(?:url\()?['"]([^'"]+)['"]\)?\s*;/g;
+  return Array.from(source.matchAll(stylesheetImport), match => match[1])
     .filter(specifier => specifier.startsWith('.'))
     .map(specifier => resolve(dirname(file), specifier));
 }

@@ -1,3 +1,4 @@
+/* Opt-in scrollbar shared by scrollable surfaces. */
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
 }

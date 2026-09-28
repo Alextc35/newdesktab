@@ -546,15 +546,19 @@ reimplementar estas responsabilidades.
 
 ### CSS
 
-`src/css/main.css` compone hojas agrupadas por intención:
+`src/styles/main.css` es la única entrada cargada por el documento. Los estilos
+globales ya tienen propietarios estables:
 
 ```text
-base/         reset, variables y reglas globales
-layout/       estructura principal y toolbars
-components/   componentes reutilizables
-features/     estilos de funcionalidades concretas
-states/       estados transversales como hidden o disabled
+styles/base/       reset, variables, canvas y scrollbar
+styles/utilities/  estados transversales como hidden o disabled
 ```
+
+Durante la migración, esta entrada también importa las hojas todavía pendientes
+en `src/css/`. Cada una se moverá junto al módulo de `features`, `widgets` o
+`shared/ui` que sea responsable de su DOM. Todo CSS de `src/` debe ser alcanzable
+desde `styles/main.css`; una prueba estructural detecta imports rotos, ciclos y
+hojas huérfanas.
 
 ### Internacionalización
 

@@ -1,3 +1,4 @@
+/* Cross-feature disabled-state utility. */
 .is-disabled,
 :disabled {
   opacity: 0.6 !important;

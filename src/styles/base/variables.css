@@ -1,3 +1,4 @@
+/* Global design tokens shared by every visual owner. */
 :root {
   /* Interface palette. System mode follows prefers-color-scheme automatically. */
   color-scheme: light dark;
