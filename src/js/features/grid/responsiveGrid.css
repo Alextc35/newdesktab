@@ -1,4 +1,4 @@
-/* Keep card content and edit controls within their actual cell dimensions. */
+/* Keep grid content and edit controls within their responsive cell dimensions. */
 #bookmark-container:not(.is-list-view) > :is(.bookmark, .recycle-bin, .grid-widget) {
   container: bookmark-card / size;
 }

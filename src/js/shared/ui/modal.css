@@ -1,3 +1,4 @@
+/* Shared modal surfaces, fields and action primitives. */
 .modal {
   position: fixed;
   inset: 0;

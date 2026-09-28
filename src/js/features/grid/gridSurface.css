@@ -1,3 +1,4 @@
+/* Main grid viewport, canvas and workspace-transition surface. */
 #bookmark-viewport {
   position: fixed;
   inset: 0;

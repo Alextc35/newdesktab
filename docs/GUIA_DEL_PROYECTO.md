@@ -552,13 +552,15 @@ globales ya tienen propietarios estables:
 ```text
 styles/base/       reset, variables, canvas y scrollbar
 styles/utilities/  estados transversales como hidden o disabled
+js/shared/ui/      estilos de modales, editores y notificaciones compartidas
+js/features/grid/  viewport, overlay y geometría responsive del grid
 ```
 
 Durante la migración, esta entrada también importa las hojas todavía pendientes
-en `src/css/`. Cada una se moverá junto al módulo de `features`, `widgets` o
-`shared/ui` que sea responsable de su DOM. Todo CSS de `src/` debe ser alcanzable
-desde `styles/main.css`; una prueba estructural detecta imports rotos, ciclos y
-hojas huérfanas.
+en `src/css/`. Los estilos compartidos y del grid ya viven junto a su propietario;
+el resto se moverá del mismo modo. Todo CSS de `src/` debe ser alcanzable desde
+`styles/main.css`; una prueba estructural detecta imports rotos, ciclos y hojas
+huérfanas.
 
 ### Internacionalización
 

@@ -253,7 +253,8 @@ Modal stacking, alerts, flash messages, tabs, local-image inputs, lockable
 inputs, action buttons, JSON downloads, viewport policy, surface contrast and
 SVG factories live under `shared/ui`. Each is a proven cross-feature mechanism
 with no feature ownership; feature controllers import the primitive they use
-directly. The obsolete generic modal index has been removed, so application
+directly. Their modal, shared-editor and flash styles are colocated in the same
+boundary. The obsolete generic modal index has been removed, so application
 composition names each feature modal explicitly.
 
 The former `ui/` directory has no compatibility re-exports. Application-shell
@@ -270,7 +271,8 @@ DOM layout, transient mixed-item selection, bulk actions, pointer gestures,
 keyboard focus and keyboard movement. Feature-owned GridItem adapters opt into
 those controllers without duplicating interaction logic. The selection API is
 generic and represents `{ kind, id }` pairs; bookmark-only compatibility aliases
-have been removed.
+have been removed. The viewport, editing overlay and responsive grid styles are
+colocated with this interaction layer.
 
 Keyboard navigation discovers visible items through the registry instead of
 enumerating feature collections or DOM data attributes. Definitions may expose
@@ -594,13 +596,14 @@ the existing contracts. Remote executable plugins remain out of scope.
 23. ✅ Establish the stylesheet boundary: move the single entry, reset, tokens,
     document canvas and global utilities to `styles/`, and protect the complete
     CSS import graph against missing files, cycles and orphan stylesheets.
-24. ⬜ Colocate shared visual infrastructure and grid structure with their
+24. ✅ Colocate shared visual infrastructure and grid structure with their
     `shared/ui` and `features/grid` owners.
 25. ⬜ Colocate bookmark, folder, search, recycle-bin and workspace styles with
     their vertical feature slices.
 26. ⬜ Colocate Settings, launcher and bundled-widget styles, then remove the
     empty transitional `css/` directory.
-27. ⬜ Audit selectors and documentation, then run the complete browser,
+27. ⬜ Lift the architectural directories out of the temporary `js/` wrapper,
+    audit selectors and documentation, then run the complete browser,
     unpacked-extension and store-package verification.
 
 Each phase must finish with lint, unit and DOM tests, relevant E2E journeys and

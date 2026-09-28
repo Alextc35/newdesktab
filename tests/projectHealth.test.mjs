@@ -99,6 +99,10 @@ test('the stylesheet entry reaches every source stylesheet without broken import
     'Every source stylesheet must be reachable from src/styles/main.css'
   );
   assert.match(readFileSync('src/newtab.html', 'utf8'), /href="\.\/styles\/main\.css"/);
+  assert.match(
+    readFileSync('tests/browser-harness.html', 'utf8'),
+    /href="\.\.\/src\/styles\/main\.css"/
+  );
 });
 
 test('source modules resolve relative imports and do not contain static cycles', () => {

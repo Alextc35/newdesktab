@@ -1,3 +1,4 @@
+/* Editing overlay aligned to the logical grid cells. */
 #grid-overlay {
   position: absolute;
   top: 0;

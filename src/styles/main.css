@@ -3,20 +3,20 @@
 @import './base/base.css';
 @import './base/scrollbar.css';
 
-@import '../css/layout/bookmarkContainer.css';
-@import '../css/layout/gridOverlay.css';
+@import '../js/features/grid/gridSurface.css';
+@import '../js/features/grid/gridOverlay.css';
 @import '../css/layout/floatingMenu.css';
 @import '../css/layout/workspaceToolbar.css';
 
 @import '../css/components/bookmark.css';
-@import '../css/components/modal.css';
-@import '../css/components/flash.css';
+@import '../js/shared/ui/modal.css';
+@import '../js/shared/ui/flash.css';
 
-@import '../css/features/editModal.css';
+@import '../js/shared/ui/editModal.css';
 @import '../css/features/settingsModal.css';
 @import '../css/features/searchModal.css';
 @import '../css/features/folderModal.css';
-@import '../css/features/responsiveGrid.css';
+@import '../js/features/grid/responsiveGrid.css';
 @import '../css/features/bookmarkList.css';
 @import '../css/features/recycleBin.css';
 @import '../css/features/clockWidget.css';
