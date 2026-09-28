@@ -226,6 +226,43 @@ test('selects, moves and permanently deletes a clock through bulk actions', asyn
   })).toBe('0:0');
 });
 
+test('moves a selected clock one grid cell with the arrow keys', async ({ page }) => {
+  await openClockCreator(page);
+  await page.locator('#clock-widget-save').click();
+  await page.evaluate(async () => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    const state = getState();
+    await setState({
+      data: {
+        bookmarks: [],
+        folders: [],
+        widgets: state.data.widgets.map(widget => ({ ...widget, gx: 2, gy: 2 })),
+        settings: { ...state.data.settings, showRecycleBin: false }
+      }
+    });
+  });
+
+  const clock = page.locator('.clock-widget[data-widget-type="clock"]');
+  await revealSideDock(page);
+  await page.getByRole('button', { name: '✎' }).click();
+  await clock.click();
+  await expect(clock).toHaveClass(/is-selected/);
+
+  await page.keyboard.press('ArrowRight');
+  await expect.poll(() => page.evaluate(async () => {
+    const { getState } = await import('/src/state/appStore.js');
+    const { gx, gy } = getState().data.widgets[0];
+    return { gx, gy };
+  })).toEqual({ gx: 3, gy: 2 });
+
+  await page.keyboard.press('ArrowDown');
+  await expect.poll(() => page.evaluate(async () => {
+    const { getState } = await import('/src/state/appStore.js');
+    const { gx, gy } = getState().data.widgets[0];
+    return { gx, gy };
+  })).toEqual({ gx: 3, gy: 3 });
+});
+
 test('asks before permanently deleting a clock dropped on the recycle bin', async ({ page }) => {
   await openClockCreator(page);
   await page.locator('#clock-widget-save').click();

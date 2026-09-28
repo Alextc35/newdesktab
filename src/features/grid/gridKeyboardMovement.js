@@ -8,6 +8,7 @@ import { getState } from '../../state/appStore.js';
 import { getActiveWorkspaceId } from '../workspaces/workspaceSelectors.js';
 import { hasOpenModal } from '../../shared/ui/modalManager.js';
 import { calculateKeyboardMoveLayout } from '../../shared/grid/smartDragLayout.js';
+import { gridItemRegistry } from '../../shared/grid/gridItemRegistry.js';
 import { isGridKeyboardNavigationActive } from './gridKeyboardController.js';
 import { getSelectedGridItems } from './gridSelection.js';
 
@@ -19,7 +20,7 @@ const ARROW_STEPS = Object.freeze({
 });
 
 /**
- * Enables one-cell keyboard movement for a single selected bookmark or folder.
+ * Enables one-cell keyboard movement for any single selected grid item.
  *
  * Plain arrow keys are deliberately reserved for the selected grid item. Form
  * controls, modal dialogs and modified arrow shortcuts retain their native
@@ -50,12 +51,13 @@ function handleGridItemArrowKey(event) {
   if (!state.ui.isEditing) return;
 
   const selected = selectedItems[0];
-  const item = (selected.kind === 'folder' ? state.data.folders : state.data.bookmarks)
-    .find(candidate => (
-      candidate.id === selected.id
-      && !candidate.folderId
-      && (candidate.groupId ?? null) === getActiveWorkspaceId(state.data)
-    ));
+  const selectedEntry = gridItemRegistry.entries(state, { view: 'grid' }).find(entry => (
+    entry.item.id === selected.id
+    && (entry.definition.selectionKind ?? entry.definition.type) === selected.kind
+  ));
+  const item = selectedEntry?.item;
+  if (item?.folderId) return;
+  if ((item?.groupId ?? null) !== getActiveWorkspaceId(state.data)) return;
   if (!item) return;
 
   event.preventDefault();
@@ -67,7 +69,7 @@ function handleGridItemArrowKey(event) {
       && (candidate.groupId ?? null) === (item.groupId ?? null)
     ))
     .map(candidate => candidate.id));
-  const movableIds = selected.kind === 'folder'
+  const movableIds = ['folder', 'widget'].includes(selected.kind)
     ? items
       .filter(candidate => candidate.id !== state.data.recycleBin?.id)
       .map(candidate => candidate.id)
