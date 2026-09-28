@@ -116,6 +116,32 @@ test('previews, persists and resets the exterior color without making an unchang
   await expect(saveButton(page)).toBeHidden();
 });
 
+test('shows the automatic light folder background in the exterior color picker', async ({ page }) => {
+  await start(page);
+  await page.evaluate(async () => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    await setState({ data: { settings: {
+      ...getState().data.settings,
+      interfaceTheme: 'light'
+    } } });
+  });
+  await expect(page.locator('html')).toHaveAttribute('data-interface-theme', 'light');
+
+  await openEditor(page);
+  await tab(page, 'Style');
+  const color = page.locator('#folder-editor-outer-color');
+  const reset = page.locator('#folder-editor-outer-color-reset');
+  await expect(color).toHaveValue('#f4f4f5');
+  await expect(reset).toBeDisabled();
+
+  await color.fill('#2468ac');
+  await expect(reset).toBeEnabled();
+  await reset.click();
+  await expect(color).toHaveValue('#f4f4f5');
+  await expect(reset).toBeDisabled();
+  await expect(saveButton(page)).toBeHidden();
+});
+
 test('shares the bookmark edit control position and adapts it to the folder surface', async ({ page }) => {
   await start(page, [
     { id: 'light-folder', gx: 0, gy: 0, w: 1, h: 1, outerBackgroundColor: '#ffffff' },

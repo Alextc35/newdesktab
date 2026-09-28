@@ -8,6 +8,7 @@ import { t } from '../../platform/i18n/i18n.js';
 import { getState, getStorageMode, waitForPersistence } from '../../state/appStore.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashSuccess } from '../../shared/ui/flash.js';
+import { isDarkInterfaceActive } from '../../shared/ui/interfaceTheme.js';
 import { getMaxVisibleCols, getMaxVisibleRows } from '../grid/gridLayout.js';
 import {
   getImageInputValue,
@@ -118,7 +119,7 @@ export function initFolderEditorModal() {
   });
   outerColorResetButton.addEventListener('click', () => {
     outerBackgroundColor = null;
-    outerColorInput.value = '#0f172a';
+    outerColorInput.value = fallbackOuterBackgroundColor();
     handleInput();
   });
   imageController = createLockableInputController({
@@ -204,7 +205,7 @@ function populateForm(value) {
   colorInput.value = value.backgroundColor;
   localColorInput.value = value.backgroundColor;
   outerBackgroundColor = value.outerBackgroundColor;
-  outerColorInput.value = outerBackgroundColor || '#0f172a';
+  outerColorInput.value = outerBackgroundColor || fallbackOuterBackgroundColor();
   showFolderInput.checked = value.showFolder;
   showPreviewsInput.checked = value.showPreviews;
   showNameInput.checked = value.showName;
@@ -214,6 +215,10 @@ function populateForm(value) {
   setImageInputValue(localImageInput, value.backgroundImageLocal);
   textColorInput.value = value.textColor;
   imageController.setLocked(value.backgroundImageUrlLocked);
+}
+
+function fallbackOuterBackgroundColor() {
+  return isDarkInterfaceActive() ? '#0f172a' : '#f4f4f5';
 }
 
 function prepareEditor() {

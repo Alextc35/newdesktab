@@ -45,6 +45,26 @@ test('opens the recycle-bin editor from its modal artwork and restores the modal
   await expect(page.locator('#recycle-bin-modal')).not.toHaveAttribute('inert', '');
 });
 
+test('shows the automatic light recycle-bin background in its color picker', async ({ page }) => {
+  await page.evaluate(async () => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    await setState({ data: { settings: {
+      ...getState().data.settings,
+      interfaceTheme: 'light'
+    } } });
+  });
+  await expect(page.locator('html')).toHaveAttribute('data-interface-theme', 'light');
+
+  await page.locator('.recycle-bin-open').click();
+  await page.locator('#recycle-bin-modal-customize').click();
+  const editor = page.locator('#edit-recycle-bin-modal');
+  await editor.getByRole('tab', { name: 'Style' }).click();
+
+  await expect(page.locator('#recycle-bin-editor-background-color'))
+    .toHaveValue('#e2e8f0');
+  await expect(page.locator('#edit-recycle-bin-modal-save')).toBeDisabled();
+});
+
 async function waitForSaved(page) {
   await expect.poll(() => page.evaluate(async () => {
     const { getState } = await import('/src/state/appStore.js');

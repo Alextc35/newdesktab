@@ -8,6 +8,7 @@ import { updateRecycleBinAppearance } from './recycleBinActions.js';
 import { getState, getStorageMode, waitForPersistence } from '../../state/appStore.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashSuccess } from '../../shared/ui/flash.js';
+import { isDarkInterfaceActive } from '../../shared/ui/interfaceTheme.js';
 import {
   getImageInputValue,
   initLocalImageUpload,
@@ -229,18 +230,11 @@ function defaultValue() {
 }
 
 function fallbackBackgroundColor() {
-  return usesDarkInterface() ? '#0f172a' : '#f8fafc';
+  return isDarkInterfaceActive() ? '#0f172a' : '#e2e8f0';
 }
 
 function fallbackTextColor() {
-  return usesDarkInterface() ? '#f8fafc' : '#273244';
-}
-
-function usesDarkInterface() {
-  const interfaceTheme = document.documentElement.dataset.interfaceTheme;
-  if (interfaceTheme === 'light') return false;
-  if (interfaceTheme === 'dark') return true;
-  return globalThis.matchMedia?.('(prefers-color-scheme: dark)')?.matches ?? true;
+  return isDarkInterfaceActive() ? '#f8fafc' : '#273244';
 }
 
 function isDirty() {
