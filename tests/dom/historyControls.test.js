@@ -8,16 +8,16 @@ const mocks = vi.hoisted(() => ({
   undoBookmarks: vi.fn()
 }));
 
-vi.mock('../../src/js/state/appStore.js', () => ({
+vi.mock('../../src/state/appStore.js', () => ({
   redoBookmarks: mocks.redoBookmarks,
   subscribe: mocks.subscribe,
   undoBookmarks: mocks.undoBookmarks
 }));
 
-vi.mock('../../src/js/platform/i18n/i18n.js', () => ({ t: mocks.t }));
-vi.mock('../../src/js/shared/ui/flash.js', () => ({ flash: mocks.flash }));
+vi.mock('../../src/platform/i18n/i18n.js', () => ({ t: mocks.t }));
+vi.mock('../../src/shared/ui/flash.js', () => ({ flash: mocks.flash }));
 
-import { initHistoryControls } from '../../src/js/features/history/historyControls.js';
+import { initHistoryControls } from '../../src/features/history/historyControls.js';
 
 test('history controls follow store state and route buttons and keyboard shortcuts', async () => {
   document.body.innerHTML = `

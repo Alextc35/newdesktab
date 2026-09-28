@@ -7,8 +7,8 @@
   </head>
   <body>
     <script type="module">
-      import { DEFAULT_BOOKMARK } from '../src/js/domain/bookmarks/bookmarkDefaults.js';
-      import { createDefaultPersistedData } from '../src/js/platform/storage/persistedDataDefaults.js';
+      import { DEFAULT_BOOKMARK } from '../src/domain/bookmarks/bookmarkDefaults.js';
+      import { createDefaultPersistedData } from '../src/platform/storage/persistedDataDefaults.js';
 
       const listeners = [];
       const isFreshProfile = !sessionStorage.getItem('newdesktab-test-local')
@@ -140,7 +140,7 @@
       const source = await fetch('../src/newtab.html').then(response => response.text());
       const parsed = new DOMParser().parseFromString(source, 'text/html');
       document.body.replaceChildren(...parsed.body.children);
-      await import('../src/js/main.js');
+      await import('../src/main.js');
     </script>
   </body>
 </html>

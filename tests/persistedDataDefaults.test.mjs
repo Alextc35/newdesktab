@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { DEFAULT_RECYCLE_BIN } from '../src/js/domain/recycle-bin/recycleBinDefaults.js';
-import { DEFAULT_SETTINGS } from '../src/js/domain/settings/settingsDefaults.js';
-import { createDefaultPersistedData } from '../src/js/platform/storage/persistedDataDefaults.js';
-import { DATA_SCHEMA_VERSION } from '../src/js/platform/storage/schemaVersion.js';
+import { DEFAULT_RECYCLE_BIN } from '../src/domain/recycle-bin/recycleBinDefaults.js';
+import { DEFAULT_SETTINGS } from '../src/domain/settings/settingsDefaults.js';
+import { createDefaultPersistedData } from '../src/platform/storage/persistedDataDefaults.js';
+import { DATA_SCHEMA_VERSION } from '../src/platform/storage/schemaVersion.js';
 
 test('creates the complete persisted-data shape for a new profile', () => {
   const data = createDefaultPersistedData();

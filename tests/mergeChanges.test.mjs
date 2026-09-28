@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { mergeChanges } from '../src/js/shared/data/mergeChanges.js';
+import { mergeChanges } from '../src/shared/data/mergeChanges.js';
 
 test('an uncontested replacement retains the requested collection order', () => {
   const base = { bookmarks: [{ id: 'a' }, { id: 'b' }] };

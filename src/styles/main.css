@@ -3,28 +3,28 @@
 @import './base/base.css';
 @import './base/scrollbar.css';
 
-@import '../js/features/grid/gridSurface.css';
-@import '../js/features/grid/gridOverlay.css';
-@import '../js/features/launcher/floatingMenu.css';
-@import '../js/features/workspaces/workspaceToolbar.css';
+@import '../features/grid/gridSurface.css';
+@import '../features/grid/gridOverlay.css';
+@import '../features/launcher/floatingMenu.css';
+@import '../features/workspaces/workspaceToolbar.css';
 
-@import '../js/features/grid/gridItem.css';
-@import '../js/features/bookmarks/bookmarkCard.css';
-@import '../js/shared/ui/itemActionButton.css';
-@import '../js/shared/ui/localImageUpload.css';
-@import '../js/features/grid/gridMotion.css';
-@import '../js/features/bookmarks/bookmarkPreview.css';
-@import '../js/shared/ui/modal.css';
-@import '../js/shared/ui/flash.css';
+@import '../features/grid/gridItem.css';
+@import '../features/bookmarks/bookmarkCard.css';
+@import '../shared/ui/itemActionButton.css';
+@import '../shared/ui/localImageUpload.css';
+@import '../features/grid/gridMotion.css';
+@import '../features/bookmarks/bookmarkPreview.css';
+@import '../shared/ui/modal.css';
+@import '../shared/ui/flash.css';
 
-@import '../js/shared/ui/editModal.css';
-@import '../js/features/settings/settings.css';
-@import '../js/features/search/search.css';
-@import '../js/features/folders/folder.css';
-@import '../js/features/grid/responsiveGrid.css';
-@import '../js/features/grid/compactView.css';
-@import '../js/features/recycle-bin/recycleBin.css';
-@import '../js/widgets/builtin/clock/clock.css';
+@import '../shared/ui/editModal.css';
+@import '../features/settings/settings.css';
+@import '../features/search/search.css';
+@import '../features/folders/folder.css';
+@import '../features/grid/responsiveGrid.css';
+@import '../features/grid/compactView.css';
+@import '../features/recycle-bin/recycleBin.css';
+@import '../widgets/builtin/clock/clock.css';
 
 @import './utilities/disabled.css';
 @import './utilities/hidden.css';

@@ -7,7 +7,7 @@ import {
   getWorkspaceIds,
   normalizeWorkspaces,
   resolveWorkspaceId
-} from '../src/js/domain/workspaces/workspaceModel.js';
+} from '../src/domain/workspaces/workspaceModel.js';
 
 test('creates and normalizes workspace entities without changing persisted identity', () => {
   assert.deepEqual(createWorkspace({ id: 'work', name: '  Work  ' }), {

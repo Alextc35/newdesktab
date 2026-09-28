@@ -17,8 +17,8 @@ For browser journeys, install Chromium once with
 
 * Keep persistence and the global store out of reusable UI components.
 * Put bookmark and folder normalization and validation in their modules under
-  `src/js/domain`; keep persisted-data migrations under `src/js/platform/storage`.
-* Keep `src/js/state` limited to live state, transient history and persistence
+  `src/domain`; keep persisted-data migrations under `src/platform/storage`.
+* Keep `src/state` limited to live state, transient history and persistence
   orchestration; feature and domain rules do not belong there.
 * Colocate feature CSS with the module that owns its DOM. Keep only document-wide
   tokens, resets and utilities under `src/styles`.

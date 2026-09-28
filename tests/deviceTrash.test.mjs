@@ -6,7 +6,7 @@ import {
   restoreDeviceTrash,
   saveDeviceTrash,
   withoutDeviceTrash
-} from '../src/js/platform/storage/deviceTrashStorage.js';
+} from '../src/platform/storage/deviceTrashStorage.js';
 
 const local = {};
 globalThis.chrome = {

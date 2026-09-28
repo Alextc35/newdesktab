@@ -16,10 +16,10 @@ beforeAll(async () => {
     .replace(/<\/html>.*$/s, '');
 
   ({ createBookmarkEditorPanel } = await import(
-    '../../src/js/features/bookmarks/bookmarkEditorPanel.js'
+    '../../src/features/bookmarks/bookmarkEditorPanel.js'
   ));
-  ({ createFavicon } = await import('../../src/js/features/bookmarks/bookmarkFavicon.js'));
-  ({ createBookmarkElement } = await import('../../src/js/features/bookmarks/bookmarkCard.js'));
+  ({ createFavicon } = await import('../../src/features/bookmarks/bookmarkFavicon.js'));
+  ({ createBookmarkElement } = await import('../../src/features/bookmarks/bookmarkCard.js'));
 });
 
 beforeEach(() => {

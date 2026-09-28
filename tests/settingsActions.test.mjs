@@ -32,10 +32,10 @@ globalThis.chrome = {
   }
 };
 
-const { DEFAULT_RECYCLE_BIN } = await import('../src/js/domain/recycle-bin/recycleBinDefaults.js');
-const { DEFAULT_SETTINGS } = await import('../src/js/domain/settings/settingsDefaults.js');
-const { updateSettings } = await import('../src/js/features/settings/settingsActions.js');
-const { getState, hydrateStore, setState } = await import('../src/js/state/appStore.js');
+const { DEFAULT_RECYCLE_BIN } = await import('../src/domain/recycle-bin/recycleBinDefaults.js');
+const { DEFAULT_SETTINGS } = await import('../src/domain/settings/settingsDefaults.js');
+const { updateSettings } = await import('../src/features/settings/settingsActions.js');
+const { getState, hydrateStore, setState } = await import('../src/state/appStore.js');
 
 await hydrateStore();
 

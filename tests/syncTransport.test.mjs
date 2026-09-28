@@ -12,7 +12,7 @@ import {
   SYNC_META_KEY,
   tryDecodeSyncPayload,
   validateSyncMetadata
-} from '../src/js/platform/sync/syncTransport.js';
+} from '../src/platform/sync/syncTransport.js';
 
 const encoder = new TextEncoder();
 

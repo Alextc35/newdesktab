@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, test } from 'vitest';
 import {
   applyFolderAppearance,
   createFolderVisual
-} from '../../src/js/features/folders/folderVisual.js';
+} from '../../src/features/folders/folderVisual.js';
 
 beforeEach(() => {
   document.body.replaceChildren();

@@ -1,14 +1,14 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { createGridItemRegistry } from '../src/js/shared/grid/gridItemRegistry.js';
-import { getGridItemsInGroup } from '../src/js/features/grid/gridSelectors.js';
+import { createGridItemRegistry } from '../src/shared/grid/gridItemRegistry.js';
+import { getGridItemsInGroup } from '../src/features/grid/gridSelectors.js';
 import {
   isWidgetType,
   normalizeWidgetInstance,
   normalizeWidgets
-} from '../src/js/widgets/widgetModel.js';
-import { createWidgetRegistry } from '../src/js/widgets/widgetRegistry.js';
+} from '../src/widgets/widgetModel.js';
+import { createWidgetRegistry } from '../src/widgets/widgetRegistry.js';
 
 test('normalizes the common widget envelope without interpreting its config', () => {
   const config = { timezone: 'Europe/Madrid', nested: { seconds: true } };

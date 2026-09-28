@@ -1,12 +1,12 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { migratePersistedData } from '../src/js/platform/storage/dataSchema.js';
+import { migratePersistedData } from '../src/platform/storage/dataSchema.js';
 import {
   DEVICE_IMAGE_SELECTIONS_KEY,
   restoreDeviceImageSelections,
   saveDeviceImageSelections,
   withoutDeviceImages
-} from '../src/js/platform/storage/deviceImageSelections.js';
+} from '../src/platform/storage/deviceImageSelections.js';
 
 const owned = 'newdesktab-local-image:4c5b9a2e-3f0e-4c7e-889c-72117afc09e9';
 const replacement = 'newdesktab-local-image:8c5b9a2e-3f0e-4c7e-889c-72117afc09e9';

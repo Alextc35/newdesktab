@@ -11,9 +11,9 @@ async function start(page, width = 1280) {
   await expectAppReady(page);
   await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
   await page.evaluate(async () => {
-    const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
-    const { DEFAULT_FOLDER_STYLE } = await import('/src/js/domain/folders/folderDefaults.js');
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
+    const { DEFAULT_FOLDER_STYLE } = await import('/src/domain/folders/folderDefaults.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const bookmarks = Array.from({ length: 20 }, (_, index) => ({
       ...DEFAULT_BOOKMARK, id: `compact-${index}`, name: `Bookmark ${index + 1}`,
       url: 'https://example.internal', gx: index % 10, gy: Math.floor(index / 10) + 2
@@ -47,7 +47,7 @@ async function start(page, width = 1280) {
 }
 
 async function data(page) {
-  return page.evaluate(async () => (await import('/src/js/state/appStore.js')).getState().data);
+  return page.evaluate(async () => (await import('/src/state/appStore.js')).getState().data);
 }
 
 async function sideAction(page, id) {
@@ -63,7 +63,7 @@ test('puts the styled recycle bin first in list view without changing its grid p
   const before = await data(page);
   const recycleBinId = before.recycleBin.id;
   await page.evaluate(async () => {
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
     const [folder] = data.folders;
     await setState({ data: {
@@ -127,7 +127,7 @@ test('puts the styled recycle bin first in list view without changing its grid p
 test('list search filters names, handles accents and spaces, and keeps keyboard navigation within results', async ({ page }) => {
   await start(page, 430);
   await page.evaluate(async () => {
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
     await setState({ data: { ...data, bookmarks: data.bookmarks.map(item => (
       item.id === 'compact-2' ? { ...item, name: 'Café favorito' } : item
@@ -183,7 +183,7 @@ test('list search survives resizing and updates, follows the theme and language,
   await search.fill('Bookmark 20');
   await search.press('ArrowLeft');
   await page.evaluate(async () => {
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
     await setState({ data: { ...data, settings: { ...data.settings, interfaceTheme: 'light', language: 'es' } } });
   });
@@ -205,7 +205,7 @@ test('list search survives resizing and updates, follows the theme and language,
   await expect(search).toHaveValue('Bookmark 20');
   await expect(results).toHaveCount(1);
   await page.evaluate(async () => {
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
     await setState({ data: { ...data, settings: { ...data.settings,
       bookmarkGroups: [...data.settings.bookmarkGroups, { id: 'other-workspace', name: 'Other workspace' }],
@@ -247,7 +247,7 @@ test('keeps saved grid cells and styles immutable through grid, list and grid tr
 test('uses the full viewport and keeps edit controls inside the last column while resizing', async ({ page }) => {
   await start(page);
   await page.evaluate(async () => {
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
     await setState({ data: { ...data,
       bookmarks: data.bookmarks.map(item => item.id === 'compact-19' ? { ...item, gx: 11, gy: 5 } : item),
@@ -329,7 +329,7 @@ test('dragging and resizing use the new cell size after shrinking to 601px', asy
 test('toggling editing preserves grid, card and content geometry at every responsive size', async ({ page }) => {
   await start(page);
   await page.evaluate(async () => {
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
     await setState({ data: { ...data, folders: [...data.folders, {
       ...data.folders[0], id: 'small-folder', name: 'Small folder', gx: 11, gy: 0, w: 1, h: 1
@@ -374,7 +374,7 @@ test('folder artwork scales continuously without typography or thumbnail shape j
     body: '<svg xmlns="http://www.w3.org/2000/svg" width="160" height="100"><rect width="160" height="100" fill="#243650"/></svg>'
   }));
   await page.evaluate(async () => {
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
     const children = data.bookmarks.filter(item => item.folderId === 'compact-folder');
     const smallFolders = ['plain', 'cover'].map((id, index) => ({
@@ -432,7 +432,7 @@ test('folder artwork scales continuously without typography or thumbnail shape j
 test('bookmarks do not jump around 1200px in either viewing or editing mode', async ({ page }) => {
   await start(page);
   await page.evaluate(async () => {
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
     await setState({ data: { ...data, bookmarks: data.bookmarks.map(item => {
       if (item.id === 'compact-2') return { ...item, backgroundFavicon: false };
@@ -585,9 +585,9 @@ test('compact view hides unavailable tools and blocks shortcuts through 600px', 
     await page.locator('#flash-container').evaluate(element => element.replaceChildren());
   }
   await page.keyboard.press('Control+KeyE');
-  expect(await page.evaluate(async () => (await import('/src/js/state/appStore.js')).getState().ui.isEditing)).toBe(false);
+  expect(await page.evaluate(async () => (await import('/src/state/appStore.js')).getState().ui.isEditing)).toBe(false);
   await page.evaluate(async () => (
-    await import('/src/js/features/bookmarks/bookmarkModal.js')
+    await import('/src/features/bookmarks/bookmarkModal.js')
   ).openEditBookmark('compact-1'));
   await expect(page.locator('#edit-bookmark-modal')).toBeHidden();
   await page.setViewportSize({ width: 601, height: 720 });
@@ -614,7 +614,7 @@ test('entering list view cancels an unfinished grid drag and exits editing', asy
   await expect(page.locator('#bookmark-container')).toHaveClass(/is-list-view/);
   await page.mouse.up();
   await expect(page.locator('#bookmark-container .resizer, #bookmark-container .item-actions')).toHaveCount(0);
-  expect(await page.evaluate(async () => (await import('/src/js/state/appStore.js')).getState().ui.isEditing)).toBe(false);
+  expect(await page.evaluate(async () => (await import('/src/state/appStore.js')).getState().ui.isEditing)).toBe(false);
   expect(await data(page)).toEqual(original);
   await page.setViewportSize({ width: 1280, height: 720 });
   await expect(page.locator('#bookmark-container')).not.toHaveClass(/is-list-view/);
@@ -666,7 +666,7 @@ for (const mode of ['add', 'edit']) {
     const original = await data(page);
     if (mode === 'add') await sideAction(page, 'add-bookmark');
     else await page.evaluate(async () => (
-      await import('/src/js/features/bookmarks/bookmarkModal.js')
+      await import('/src/features/bookmarks/bookmarkModal.js')
     ).openEditBookmark('compact-1'));
     const name = page.locator('#bookmark-modal-form-name');
     await name.fill('Unfinished bookmark');

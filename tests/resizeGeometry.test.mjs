@@ -5,7 +5,7 @@ import {
   calculateResizeGeometry,
   getResizeClickDelta,
   RESIZE_DIRECTIONS
-} from '../src/js/shared/grid/resizeGeometry.js';
+} from '../src/shared/grid/resizeGeometry.js';
 
 const GRID = {
   cellWidth: 100,

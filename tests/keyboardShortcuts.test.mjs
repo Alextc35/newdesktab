@@ -10,7 +10,7 @@ import {
   normalizeShortcut,
   SHORTCUT_ACTIONS,
   shortcutFromKeyboardEvent
-} from '../src/js/shared/keyboard/keyboardShortcuts.js';
+} from '../src/shared/keyboard/keyboardShortcuts.js';
 
 test('normalizes editable shortcuts into a stable modifier order', () => {
   assert.equal(normalizeShortcut('shift + control + k'), 'Ctrl+Shift+K');

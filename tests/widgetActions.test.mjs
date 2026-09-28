@@ -29,14 +29,14 @@ globalThis.chrome = {
   }
 };
 
-const { registerWidget } = await import('../src/js/widgets/widgetRegistry.js');
+const { registerWidget } = await import('../src/widgets/widgetRegistry.js');
 const {
   addWidget,
   deleteWidgetById,
   updateWidgetById
-} = await import('../src/js/widgets/widgetActions.js');
-const { updateGridItemsByIds } = await import('../src/js/features/grid/gridItemActions.js');
-const { getState, hydrateStore, setState, undoBookmarks } = await import('../src/js/state/appStore.js');
+} = await import('../src/widgets/widgetActions.js');
+const { updateGridItemsByIds } = await import('../src/features/grid/gridItemActions.js');
+const { getState, hydrateStore, setState, undoBookmarks } = await import('../src/state/appStore.js');
 
 registerWidget({ type: 'clock', render: () => ({ dataset: {} }) });
 

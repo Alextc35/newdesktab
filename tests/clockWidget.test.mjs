@@ -7,7 +7,7 @@ import {
   formatClockTimeParts,
   getClockRefreshDelay,
   normalizeClockConfig
-} from '../src/js/widgets/builtin/clock/clockModel.js';
+} from '../src/widgets/builtin/clock/clockModel.js';
 
 test('normalizes the clock configuration to its stable persisted contract', () => {
   assert.deepEqual(normalizeClockConfig(), DEFAULT_CLOCK_CONFIG);

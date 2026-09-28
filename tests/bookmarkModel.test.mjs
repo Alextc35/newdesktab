@@ -8,9 +8,9 @@ import {
   normalizeBookmarkPreset,
   normalizeBookmarkUrl,
   validateBookmarkDraft
-} from '../src/js/domain/bookmarks/bookmarkModel.js';
-import { validateFolderDraft } from '../src/js/domain/folders/folderModel.js';
-import { findFirstFreeSlot, isAreaFree } from '../src/js/shared/grid/gridPlacement.js';
+} from '../src/domain/bookmarks/bookmarkModel.js';
+import { validateFolderDraft } from '../src/domain/folders/folderModel.js';
+import { findFirstFreeSlot, isAreaFree } from '../src/shared/grid/gridPlacement.js';
 
 test('a preset contains appearance fields only', () => {
   const preset = normalizeBookmarkPreset({

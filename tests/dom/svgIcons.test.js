@@ -5,7 +5,7 @@ import {
   createRecycleBinSvg,
   createSettingsSectionSvg,
   createThemedAssetIcon
-} from '../../src/js/shared/ui/svgIcons.js';
+} from '../../src/shared/ui/svgIcons.js';
 
 describe('shared NewDeskTab SVG icons', () => {
   test.each([

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { searchBookmarks } from '../src/js/features/search/searchBookmarks.js';
+import { searchBookmarks } from '../src/features/search/searchBookmarks.js';
 
 const bookmarks = [
   { id: 'old-name', name: 'Project Atlas', url: 'https://example.com', updatedAt: 10 },

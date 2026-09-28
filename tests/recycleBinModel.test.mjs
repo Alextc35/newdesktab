@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { DEFAULT_RECYCLE_BIN_STYLE } from '../src/js/domain/recycle-bin/recycleBinDefaults.js';
+import { DEFAULT_RECYCLE_BIN_STYLE } from '../src/domain/recycle-bin/recycleBinDefaults.js';
 import {
   normalizeRecycleBinStyle,
   validateRecycleBinStyle
-} from '../src/js/domain/recycle-bin/recycleBinModel.js';
+} from '../src/domain/recycle-bin/recycleBinModel.js';
 
 test('normalizes recycle bin colors and independently hidden elements', () => {
   assert.deepEqual(normalizeRecycleBinStyle({

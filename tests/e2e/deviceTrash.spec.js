@@ -11,7 +11,7 @@ async function receiveSync(page, snapshot) {
 
 async function useSync(page) {
   await page.evaluate(async () => {
-    const { changeStorageMode, getState } = await import('/src/js/state/appStore.js');
+    const { changeStorageMode, getState } = await import('/src/state/appStore.js');
     await changeStorageMode('sync', getState().data);
   });
 }
@@ -19,9 +19,9 @@ async function useSync(page) {
 async function deleteBookmark(page, bookmarkId) {
   await page.evaluate(async id => {
     const { moveBookmarksToRecycleBin } = await import(
-      '/src/js/features/recycle-bin/recycleBinActions.js'
+      '/src/features/recycle-bin/recycleBinActions.js'
     );
-    const { waitForPersistence } = await import('/src/js/state/appStore.js');
+    const { waitForPersistence } = await import('/src/state/appStore.js');
     moveBookmarksToRecycleBin([id]);
     await waitForPersistence();
   }, bookmarkId);
@@ -29,7 +29,7 @@ async function deleteBookmark(page, bookmarkId) {
 
 async function deviceState(page) {
   return page.evaluate(async () => {
-    const { getState } = await import('/src/js/state/appStore.js');
+    const { getState } = await import('/src/state/appStore.js');
     const data = getState().data;
     return {
       bookmarks: data.bookmarks.map(bookmark => bookmark.id),

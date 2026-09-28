@@ -3,8 +3,8 @@ import test from 'node:test';
 import {
   preloadLocalImages,
   resolveBackgroundImage
-} from '../src/js/platform/images/localImages.js';
-import { normalizeBackgroundImage } from '../src/js/shared/images/backgroundImage.js';
+} from '../src/platform/images/localImages.js';
+import { normalizeBackgroundImage } from '../src/shared/images/backgroundImage.js';
 
 test('uses the URL when a local file is missing, and prefers it only after the file is loaded', async () => {
   const reference = 'newdesktab-local-image:4c5b9a2e-3f0e-4c7e-889c-72117afc09e9';

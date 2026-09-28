@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { describeStateChange } from '../src/js/state/stateChangeDescription.js';
+import { describeStateChange } from '../src/state/stateChangeDescription.js';
 
 const previous = {
   bookmarks: [{ id: 'bookmark' }],

@@ -16,7 +16,7 @@ async function start(page) {
 
 async function isEditing(page) {
   return page.evaluate(async () => (
-    await import('/src/js/state/appStore.js')
+    await import('/src/state/appStore.js')
   ).getState().ui.isEditing);
 }
 
@@ -82,7 +82,7 @@ test('custom shortcuts reject conflicts and survive a Sync round trip', async ({
   await expectReady(page);
 
   const persisted = await page.evaluate(async () => {
-    const store = await import('/src/js/state/appStore.js');
+    const store = await import('/src/state/appStore.js');
     return {
       mode: store.getStorageMode(),
       shortcuts: store.getState().data.settings.keyboardShortcuts

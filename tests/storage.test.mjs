@@ -80,14 +80,14 @@ globalThis.chrome = {
 };
 
 const { storage, STORAGE_MODES } = await import(
-  '../src/js/platform/storage/storageFacade.js'
+  '../src/platform/storage/storageFacade.js'
 );
-const { DATA_SCHEMA_VERSION } = await import('../src/js/platform/storage/schemaVersion.js');
+const { DATA_SCHEMA_VERSION } = await import('../src/platform/storage/schemaVersion.js');
 const { DEVICE_TRASH_KEY } = await import(
-  '../src/js/platform/storage/deviceTrashStorage.js'
+  '../src/platform/storage/deviceTrashStorage.js'
 );
 const { DEVICE_IMAGE_SELECTIONS_KEY } = await import(
-  '../src/js/platform/storage/deviceImageSelections.js'
+  '../src/platform/storage/deviceImageSelections.js'
 );
 
 const SETTINGS = {

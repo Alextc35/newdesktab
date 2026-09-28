@@ -78,7 +78,7 @@ test('two devices choose and remove their own images while sharing the fallback 
     await expect(other.locator('#settings-modal')).toBeHidden();
     await receiveSync(page, await syncSnapshot(other));
     await expect.poll(() => page.evaluate(async () => {
-      const { getState } = await import('/src/js/state/appStore.js');
+      const { getState } = await import('/src/state/appStore.js');
       return getState().data.settings.theme.backgroundImageUrl;
     })).toBe(updatedFallback);
     await openTheme(page);

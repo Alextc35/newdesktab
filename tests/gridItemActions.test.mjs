@@ -37,19 +37,19 @@ const {
   duplicateGridItems,
   moveGridItemsToWorkspace,
   permanentlyDeleteGridItem
-} = await import('../src/js/features/grid/gridItemActions.js');
+} = await import('../src/features/grid/gridItemActions.js');
 const { moveGridItemsToRecycleBin } = await import(
-  '../src/js/features/recycle-bin/recycleBinActions.js'
+  '../src/features/recycle-bin/recycleBinActions.js'
 );
-const { DEFAULT_BOOKMARK } = await import('../src/js/domain/bookmarks/bookmarkDefaults.js');
-const { DEFAULT_FOLDER_STYLE } = await import('../src/js/domain/folders/folderDefaults.js');
+const { DEFAULT_BOOKMARK } = await import('../src/domain/bookmarks/bookmarkDefaults.js');
+const { DEFAULT_FOLDER_STYLE } = await import('../src/domain/folders/folderDefaults.js');
 const {
   clearBookmarkHistory,
   getState,
   hydrateStore,
   setState,
   undoBookmarks
-} = await import('../src/js/state/appStore.js');
+} = await import('../src/state/appStore.js');
 
 await hydrateStore();
 

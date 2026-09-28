@@ -47,7 +47,7 @@ test('opens the recycle-bin editor from its modal artwork and restores the modal
 
 async function waitForSaved(page) {
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/state/appStore.js');
+    const { getState } = await import('/src/state/appStore.js');
     return getState().ui.persistence.status;
   })).toMatch(/^(idle|saved)$/);
 }
@@ -64,8 +64,8 @@ async function toggleEditMode(page) {
 
 async function createDropBookmark(page) {
   await page.evaluate(async () => {
-    const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const data = getState().data;
     const now = Date.now();
     await setState({
@@ -143,9 +143,9 @@ test('moves, resizes, hides and shows the recycle bin', async ({ page }) => {
   await expect(bin).toBeHidden();
 
   const expectedPosition = await page.evaluate(async () => {
-    const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
-    const { findFirstFreeSlot } = await import('/src/js/shared/grid/gridPlacement.js');
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
+    const { findFirstFreeSlot } = await import('/src/shared/grid/gridPlacement.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
     const blocker = {
       ...DEFAULT_BOOKMARK,
@@ -176,7 +176,7 @@ test('moves, resizes, hides and shows the recycle bin', async ({ page }) => {
   await page.locator('#settings-modal-save').click();
   await expect(page.locator('.recycle-bin')).toBeVisible();
   await expect.poll(() => page.evaluate(async () => {
-    const { recycleBin } = (await import('/src/js/state/appStore.js')).getState().data;
+    const { recycleBin } = (await import('/src/state/appStore.js')).getState().data;
     return { gx: recycleBin.gx, gy: recycleBin.gy };
   })).toEqual(expectedPosition);
 });
@@ -212,7 +212,7 @@ test('drops a bookmark into the bin and restores the selected item', async ({ pa
 
 test('asks before dropping a folder with contents and supports permanent deletion', async ({ page }) => {
   await page.evaluate(async () => {
-    const { getState, setState } = await import('/src/js/state/appStore.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
     const data = getState().data;
     const folder = {
       id: 'trash-folder', name: 'Archive', gx: 3, gy: 0, w: 1, h: 1,

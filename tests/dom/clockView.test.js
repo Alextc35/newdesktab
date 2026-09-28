@@ -4,7 +4,7 @@ import {
   createClockTimeElement,
   startClockTicker,
   updateClockTimeElement
-} from '../../src/js/widgets/builtin/clock/clockView.js';
+} from '../../src/widgets/builtin/clock/clockView.js';
 
 beforeEach(() => {
   document.body.replaceChildren();

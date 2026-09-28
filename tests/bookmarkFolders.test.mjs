@@ -41,13 +41,13 @@ const {
   renameBookmarkFolder,
   updateBookmarkFolder,
   updateFolderBookmarkPositions
-} = await import('../src/js/features/folders/folderActions.js');
-const { updateGridItemsByIds } = await import('../src/js/features/grid/gridItemActions.js');
+} = await import('../src/features/folders/folderActions.js');
+const { updateGridItemsByIds } = await import('../src/features/grid/gridItemActions.js');
 const {
   createFolderBookmarkLayout,
   FOLDER_GRID_CAPACITY
-} = await import('../src/js/domain/folders/folderGrid.js');
-const { getState, hydrateStore, setState } = await import('../src/js/state/appStore.js');
+} = await import('../src/domain/folders/folderGrid.js');
+const { getState, hydrateStore, setState } = await import('../src/state/appStore.js');
 
 test('folders reserve a cell and own bookmarks without reserving their old cells', async () => {
   await hydrateStore();

@@ -6,7 +6,7 @@ import {
   pruneGridItemSelection,
   subscribeToGridItemSelection,
   toggleGridItemSelection
-} from '../../src/js/features/grid/gridSelection.js';
+} from '../../src/features/grid/gridSelection.js';
 
 beforeEach(() => clearGridItemSelection());
 

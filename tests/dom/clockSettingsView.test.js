@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, test } from 'vitest';
 
 import {
   createClockSettingsView
-} from '../../src/js/widgets/builtin/clock/clockSettingsView.js';
+} from '../../src/widgets/builtin/clock/clockSettingsView.js';
 
 beforeEach(() => {
   document.body.replaceChildren();

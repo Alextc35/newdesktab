@@ -10,7 +10,7 @@ const {
   RECYCLE_BIN_RETENTION_MS,
   removeExpiredTrashEntries,
   restoreTrashEntriesInData
-} = await import('../src/js/domain/recycle-bin/recycleBinEntries.js');
+} = await import('../src/domain/recycle-bin/recycleBinEntries.js');
 
 function bookmark(id, values = {}) {
   return {

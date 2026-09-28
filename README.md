@@ -128,7 +128,7 @@ grid items.
 
 ## Debug console
 
-The default in `src/js/shared/diagnostics/debug.js` is disabled. Open the DevTools console
+The default in `src/shared/diagnostics/debug.js` is disabled. Open the DevTools console
 of a NewDeskTab tab and run `NewDeskTabDebug.toggle()` to enable live diagnostics
 without reloading. Run it again to disable them. Filter by `[NewDeskTab Debug]`
 to find the output. Startup prints a short activation hint. Enabling Debug lists
@@ -163,14 +163,14 @@ and resets to the configured default on reload.
 
 ## Architecture
 
-NewDeskTab uses vanilla JavaScript modules with explicit incremental boundaries:
+NewDeskTab uses vanilla JavaScript modules with explicit architectural boundaries:
 
 ```text
 Application composition
         ↓
 Feature actions and adapters → Pure domain models
         ↓                         ↓
-Transitional store/schema → Platform and shared mechanisms
+Application state/schema → Platform and shared mechanisms
         ↓
 UI controllers and reusable views
 ```
@@ -178,53 +178,54 @@ UI controllers and reusable views
 Important modules:
 
 ```text
-src/js/app/bootstrap.js                   application startup and dependency wiring
-src/js/app/appController.js               store-to-UI effect coordination
-src/js/app/applicationDiagnostics.js      application debug console and reports
-src/js/app/appStateChanges.js             pure state-transition classification
-src/js/app/registerGridItemTypes.js       bundled grid-item composition
-src/js/domain/bookmarks/                  bookmark model and defaults
-src/js/domain/folders/                    folder model and internal layout
-src/js/domain/recycle-bin/                pure trash and restoration rules
-src/js/domain/settings/                   portable preferences and grid-interaction modes
-src/js/domain/workspaces/workspaceModel.js workspace identity and navigation
+src/app/bootstrap.js                   application startup and dependency wiring
+src/app/appController.js               store-to-UI effect coordination
+src/app/applicationDiagnostics.js      application debug console and reports
+src/app/appStateChanges.js             pure state-transition classification
+src/app/registerGridItemTypes.js       bundled grid-item composition
+src/domain/bookmarks/                  bookmark model and defaults
+src/domain/folders/                    folder model and internal layout
+src/domain/recycle-bin/                pure trash and restoration rules
+src/domain/settings/                   portable preferences and grid-interaction modes
+src/domain/workspaces/workspaceModel.js workspace identity and navigation
 
-src/js/features/bookmarks/                  bookmark commands, cards and editor UI
-src/js/features/folders/                     folder commands, cards and modal UI
-src/js/features/grid/                        grid rendering, layout, selection and interactions
-src/js/features/history/                     global undo/redo UI coordination
-src/js/features/keyboard/                    runtime shortcut coordination
-src/js/features/launcher/                    floating creation menu
-src/js/features/recycle-bin/                 recycle-bin actions and UI
-src/js/features/search/                      global and compact-list search UI
-src/js/features/settings/                    settings actions, draft and modal UI
-src/js/features/workspaces/                  workspace actions, selectors and toolbar
+src/features/bookmarks/                  bookmark commands, cards and editor UI
+src/features/folders/                     folder commands, cards and modal UI
+src/features/grid/                        grid rendering, layout, selection and interactions
+src/features/history/                     global undo/redo UI coordination
+src/features/keyboard/                    runtime shortcut coordination
+src/features/launcher/                    floating creation menu
+src/features/recycle-bin/                 recycle-bin actions and UI
+src/features/search/                      global and compact-list search UI
+src/features/settings/                    settings actions, draft and modal UI
+src/features/workspaces/                  workspace actions, selectors and toolbar
 
-src/js/state/appStore.js           live state, subscriptions and persistence queue
-src/js/state/gridHistory.js        bounded grid undo/redo snapshots
-src/js/state/stateChangeDescription.js safe diagnostic change labels
-src/js/platform/browser/           browser capabilities and extension metadata
-src/js/platform/images/            local image cache and browser processing
-src/js/platform/i18n/              locale resolution and translation runtime
-src/js/platform/storage/           schema, Chrome persistence and device data
-src/js/platform/sync/              versioned, quota-safe sync transport
-src/js/shared/data/mergeChanges.js concurrent persisted-data reconciliation
-src/js/shared/diagnostics/         bounded reusable console tracing
-src/js/shared/grid/                generic placement, resize, movement and keyboard policies
-src/js/shared/keyboard/            shortcut normalization and event matching
-src/js/shared/ui/                 reusable modal, tabs, notices, image and visual primitives
-src/js/widgets/widgetModel.js      generic persisted widget envelope
-src/js/widgets/widgetRegistry.js   bundled-widget lifecycle and GridItem adapter
-src/js/widgets/widgetActions.js    generic widget lifecycle commands
-src/js/widgets/builtin/index.js    enabled bundled-widget catalog
-src/js/widgets/builtin/clock/      first bundled visible widget
-src/styles/main.css                single global CSS entry and composition root
+src/state/appStore.js           live state, subscriptions and persistence queue
+src/state/gridHistory.js        bounded grid undo/redo snapshots
+src/state/stateChangeDescription.js safe diagnostic change labels
+src/platform/browser/           browser capabilities and extension metadata
+src/platform/images/            local image cache and browser processing
+src/platform/i18n/              locale resolution and translation runtime
+src/platform/storage/           schema, Chrome persistence and device data
+src/platform/sync/              versioned, quota-safe sync transport
+src/shared/data/mergeChanges.js concurrent persisted-data reconciliation
+src/shared/diagnostics/         bounded reusable console tracing
+src/shared/grid/                generic placement, resize, movement and keyboard policies
+src/shared/keyboard/            shortcut normalization and event matching
+src/shared/ui/                  reusable modal, tabs, notices, image and visual primitives
+src/widgets/widgetModel.js      generic persisted widget envelope
+src/widgets/widgetRegistry.js   bundled-widget lifecycle and GridItem adapter
+src/widgets/widgetActions.js    generic widget lifecycle commands
+src/widgets/builtin/index.js    enabled bundled-widget catalog
+src/widgets/builtin/clock/      first bundled visible widget
+src/styles/main.css             single global CSS entry and composition root
 
 ```
 
 Feature and shared-component styles are colocated beside the JavaScript that
 owns their DOM. `src/styles/` contains only document-wide foundations; the old
-horizontal `src/css/` directory has been retired.
+horizontal `src/css/` directory and the temporary `src/js/` wrapper have been
+retired.
 
 The bookmark panel does not import the store, calculate grid placement or
 perform persistence. Controllers decide what saving means. See
@@ -375,7 +376,7 @@ Actions. Read [CONTRIBUTING.md](CONTRIBUTING.md) before structural changes.
 
 The interface ships with English (`en`), Spanish from Spain (`es`), Latin
 American Spanish (`es_419`) and Brazilian Portuguese (`pt_BR`) in
-`src/js/lang/`.
+`src/lang/`.
 
 ## Roadmap
 

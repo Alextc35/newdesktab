@@ -1,10 +1,10 @@
 # NewDeskTab architecture
 
 NewDeskTab is a Manifest V3 new-tab extension written in vanilla JavaScript. Its
-architecture is migrating incrementally from technical folders toward explicit
-application, domain, feature, platform and shared boundaries. The former `ui/`
-and `core/` transition directories have been retired; every remaining module has
-an explicit tested owner.
+source is organized around explicit application, domain, feature, platform,
+state, widget and shared boundaries. The former `ui/`, `core/`, `css/` and `js/`
+transition directories have been retired; every remaining module has an
+explicit tested owner directly under `src/`.
 
 ## Direction and dependency rules
 
@@ -39,16 +39,18 @@ The intended responsibilities are:
 - `widgets/`: statically bundled grid-item types, their common persisted
   envelope and lifecycle commands. It is not a remote plugin loader.
 
-New dependencies follow the direction above. Existing files move only as part
-of a behavior-preserving feature phase, not to make the tree look finished.
+New dependencies follow the direction above. Structural changes must preserve
+these boundaries and remain behavior-preserving unless a feature explicitly
+requires otherwise.
 
-## Current migration status
+## Current source layout
 
-Phases 1 through 22 establish the first application, domain, feature, platform,
-state and widget seams, including the first visible bundled widget:
+Phases 1 through 27 established the application, domain, feature, platform,
+state and widget seams, including the first visible bundled widget. This is an
+abridged ownership map; colocated styles follow the same directories:
 
 ```text
-src/js/
+src/
 ├── app/
 │   ├── appController.js
 │   ├── applicationDiagnostics.js
@@ -217,8 +219,8 @@ slices. Settings defaults live with the Settings domain, while
 `platform/storage/persistedDataDefaults.js` composes a fresh complete persisted
 value from the domain defaults and current schema version. There is no defaults
 aggregator or compatibility re-export. `styles/main.css` is the single document
-entry for global tokens and stylesheet composition; feature CSS is being moved
-beside its explicit visual owner without changing that loading contract.
+entry for global tokens and stylesheet composition; feature CSS lives beside
+its explicit visual owner without changing that loading contract.
 
 Workspace identity, naming, normalization and cyclic navigation now live in
 `domain/workspaces`. Store-backed creation, activation, deletion and bookmark
@@ -603,7 +605,7 @@ the existing contracts. Remote executable plugins remain out of scope.
     their vertical feature slices.
 26. ✅ Colocate Settings, launcher and bundled-widget styles, then remove the
     empty transitional `css/` directory.
-27. ⬜ Lift the architectural directories out of the temporary `js/` wrapper,
+27. ✅ Lift the architectural directories out of the temporary `js/` wrapper,
     audit selectors and documentation, then run the complete browser,
     unpacked-extension and store-package verification.
 
@@ -612,7 +614,7 @@ the unpacked-extension smoke/package checks.
 
 ## Existing implementation details
 
-The remaining sections describe the current behavior that every migration must
+The remaining sections describe the current behavior that future evolution must
 preserve.
 
 ```text
@@ -627,12 +629,12 @@ Browser persistence
 
 ## Domain and application state
 
-`src/js/domain/bookmarks/bookmarkModel.js` owns bookmark drafts, presets,
-normalization and validation. `src/js/domain/folders/folderModel.js` owns the
+`src/domain/bookmarks/bookmarkModel.js` owns bookmark drafts, presets,
+normalization and validation. `src/domain/folders/folderModel.js` owns the
 equivalent folder rules, including its name contract. Their functions do not
 read global state, making them deterministic.
 
-`src/js/platform/storage/dataSchema.js` is the boundary for stored,
+`src/platform/storage/dataSchema.js` is the boundary for stored,
 synchronized and imported data. `schemaVersion` changes only when a persisted
 shape changes; the current value is isolated in `schemaVersion.js`. Old data is
 migrated before entering the store. Schema 3 adds `folders` and the nullable
@@ -655,14 +657,14 @@ implement store-backed application commands. Batch operations make one store
 transition, so undo treats them as a single user action. Workspace UI reads the
 legacy persisted fields only through `workspaceSelectors.js`.
 
-`src/js/domain/settings/gridInteractionModes.js` owns the persisted drag and
+`src/domain/settings/gridInteractionModes.js` owns the persisted drag and
 resize contracts and normalizes missing or unknown values to safe defaults.
-`src/js/platform/browser/browserCapabilities.js` keeps browser detection out of
+`src/platform/browser/browserCapabilities.js` keeps browser detection out of
 Settings and only enables synchronized storage for tested, branded Google
 Chrome environments.
 
-`src/js/state/appStore.js` owns live state, subscriptions and the persistence
-queue. `src/js/state/gridHistory.js` owns bounded grid-content undo/redo
+`src/state/appStore.js` owns live state, subscriptions and the persistence
+queue. `src/state/gridHistory.js` owns bounded grid-content undo/redo
 snapshots, while `stateChangeDescription.js` classifies diagnostic labels. A
 history snapshot contains bookmarks, folders, widgets, recycle-bin appearance
 and trash together. Synchronization settings are deliberately excluded from
@@ -812,7 +814,7 @@ moves and occupied-cell displacement through the same
 rendered as smooth transforms from each item's persisted cell; on release the
 transform remains visible until
 `updateFolderBookmarkPositions()` atomically commits that exact layout, avoiding
-a source/destination flash. `src/js/domain/folders/folderGrid.js` owns the pure
+a source/destination flash. `src/domain/folders/folderGrid.js` owns the pure
 local layout contract and normalizes legacy or colliding positions
 deterministically. Main-grid bookmark drag logic detects folder hit targets and
 delegates membership changes to the folder feature actions.
@@ -837,3 +839,7 @@ The project has four complementary checks:
 2. Node tests for domain, schemas, storage and history.
 3. Vitest/jsdom for editor and modal lifecycles.
 4. Playwright journeys plus an optional unpacked-extension smoke test.
+
+Project-health tests also protect the source boundaries, import graphs and
+literal DOM id contracts used by JavaScript and CSS. This keeps path and
+selector drift visible before browser journeys run.

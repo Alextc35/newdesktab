@@ -31,7 +31,7 @@ test('all interface languages expose the same translation contract', () => {
     }
   ).sort();
   const contracts = languages.map(language => flattenKeys(JSON.parse(
-    readFileSync(`src/js/lang/${language}.json`, 'utf8')
+    readFileSync(`src/lang/${language}.json`, 'utf8')
   )));
 
   assert.ok(contracts[0].includes('folder.actions.deleteBookmark'));
@@ -41,9 +41,9 @@ test('all interface languages expose the same translation contract', () => {
 });
 
 test('bundled widget surfaces stay behind the catalog lifecycle', () => {
-  const bootstrap = readFileSync('src/js/app/bootstrap.js', 'utf8');
+  const bootstrap = readFileSync('src/app/bootstrap.js', 'utf8');
   const newTab = readFileSync('src/newtab.html', 'utf8');
-  const catalog = readFileSync('src/js/widgets/builtin/index.js', 'utf8');
+  const catalog = readFileSync('src/widgets/builtin/index.js', 'utf8');
 
   assert.doesNotMatch(bootstrap, /widgets\/builtin|clock/i);
   assert.doesNotMatch(newTab, /id="(?:add-clock|clock-widget-modal)"/);
@@ -51,15 +51,33 @@ test('bundled widget surfaces stay behind the catalog lifecycle', () => {
 });
 
 test('the transitional ui directory has no remaining source modules', () => {
-  assert.equal(existsSync('src/js/ui'), false);
+  assert.equal(existsSync('src/ui'), false);
 });
 
 test('the transitional core directory has been retired', () => {
-  assert.equal(existsSync('src/js/core'), false);
+  assert.equal(existsSync('src/core'), false);
 });
 
 test('the transitional css directory has been retired', () => {
   assert.equal(existsSync('src/css'), false);
+});
+
+test('the temporary JavaScript wrapper has been retired', () => {
+  assert.equal(existsSync('src/js'), false);
+  for (const boundary of [
+    'app',
+    'domain',
+    'features',
+    'lang',
+    'platform',
+    'shared',
+    'state',
+    'types',
+    'widgets'
+  ]) {
+    assert.equal(existsSync(`src/${boundary}`), true, `Missing source boundary: ${boundary}`);
+  }
+  assert.equal(existsSync('src/main.js'), true);
 });
 
 test('the stylesheet entry reaches every source stylesheet without broken imports or cycles', () => {
@@ -109,8 +127,59 @@ test('the stylesheet entry reaches every source stylesheet without broken import
   );
 });
 
+test('literal DOM id contracts stay aligned across modules and stylesheets', () => {
+  const sourceRoot = resolve('src');
+  const markupFiles = [
+    ...listJavaScriptFiles(sourceRoot),
+    ...listFilesByExtension(sourceRoot, '.html')
+  ];
+  const declaredIds = new Set(markupFiles.flatMap(file => {
+    const source = readFileSync(file, 'utf8');
+    return [
+      ...Array.from(source.matchAll(/\bid\s*=\s*['"]([^'"]+)['"]/g), match => match[1]),
+      ...Array.from(source.matchAll(/\bhtmlFor\s*=\s*['"]([^'"]+)['"]/g), match => match[1])
+    ];
+  }));
+
+  for (const file of markupFiles) {
+    const source = readFileSync(file, 'utf8');
+    const referencedIds = [
+      ...Array.from(
+        source.matchAll(/getElementById\(\s*['"]([^'"]+)['"]/g),
+        match => match[1]
+      ),
+      ...Array.from(
+        source.matchAll(/querySelector(?:All)?\(\s*['"]#([A-Za-z_][\w-]*)/g),
+        match => match[1]
+      )
+    ];
+    for (const id of referencedIds) {
+      assert.equal(
+        declaredIds.has(id),
+        true,
+        `Undeclared DOM id referenced by ${relative(sourceRoot, file)}: #${id}`
+      );
+    }
+  }
+
+  for (const file of listFilesByExtension(sourceRoot, '.css')) {
+    const source = readFileSync(file, 'utf8');
+    const selectorIds = Array.from(
+      source.matchAll(/#([A-Za-z_][\w-]*-[\w-]+)/g),
+      match => match[1]
+    );
+    for (const id of selectorIds) {
+      assert.equal(
+        declaredIds.has(id),
+        true,
+        `Undeclared DOM id styled by ${relative(sourceRoot, file)}: #${id}`
+      );
+    }
+  }
+});
+
 test('source modules resolve relative imports and do not contain static cycles', () => {
-  const sourceRoot = resolve('src/js');
+  const sourceRoot = resolve('src');
   const files = listJavaScriptFiles(sourceRoot);
   const knownFiles = new Set(files);
   const graph = new Map(files.map(file => {

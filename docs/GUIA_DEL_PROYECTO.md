@@ -8,7 +8,7 @@ la evolución del proyecto.
 > **Nombre del producto:** NewDeskTab  
 > **Tipo de aplicación:** extensión Chromium Manifest V3  
 > **Tecnología principal:** JavaScript ES modules, HTML y CSS nativos  
-> **Versión descrita:** 0.19.0
+> **Versión descrita:** 0.20.1
 
 ## 1. Visión general
 
@@ -41,8 +41,9 @@ DOM
 ```
 
 Las fronteras principales son `app`, `domain`, `features`, `platform`, `shared`,
-`state` y `widgets`. Las antiguas carpetas transitorias `core` y `ui` ya no
-existen: cada módulo tiene un propietario arquitectónico explícito.
+`state` y `widgets`. Las antiguas carpetas transitorias `core`, `ui`, `css` y
+`js` ya no existen: cada módulo tiene un propietario arquitectónico explícito
+directamente bajo `src/`.
 
 ## 2. Principios de diseño
 
@@ -86,7 +87,7 @@ asumiendo que el esquema ya es válido y actual.
 ## 3. Arranque de la aplicación
 
 El manifiesto declara `src/newtab.html` como sustitución de la nueva pestaña.
-El HTML carga `src/js/main.js`, que llama a `startApplication()`.
+El HTML carga `src/main.js`, que llama a `startApplication()`.
 
 `app/bootstrap.js` ejecuta, en este orden, las siguientes tareas:
 
@@ -110,12 +111,12 @@ de datos normalizados e idioma.
 
 | Archivo | Responsabilidad |
 |---|---|
-| `src/js/main.js` | Entrada mínima de JavaScript |
-| `src/js/app/bootstrap.js` | Orden de inicialización e inyección de dependencias |
-| `src/js/app/registerGridItemTypes.js` | Registro de tipos incluidos en el grid |
-| `src/js/app/appController.js` | Efectos globales posteriores a un cambio de estado |
-| `src/js/app/appStateChanges.js` | Clasificación pura de qué parte del estado cambió |
-| `src/js/app/appShell.js` | Resize global y representación del modo edición |
+| `src/main.js` | Entrada mínima de JavaScript |
+| `src/app/bootstrap.js` | Orden de inicialización e inyección de dependencias |
+| `src/app/registerGridItemTypes.js` | Registro de tipos incluidos en el grid |
+| `src/app/appController.js` | Efectos globales posteriores a un cambio de estado |
+| `src/app/appStateChanges.js` | Clasificación pura de qué parte del estado cambió |
+| `src/app/appShell.js` | Resize global y representación del modo edición |
 
 ## 4. Capas y reglas de dependencia
 
@@ -552,19 +553,20 @@ globales ya tienen propietarios estables:
 ```text
 styles/base/       reset, variables, canvas y scrollbar
 styles/utilities/  estados transversales como hidden o disabled
-js/shared/ui/      estilos de modales, editores y notificaciones compartidas
-js/features/grid/  GridItem, vista compacta, viewport y geometría responsive
-js/features/*/     presentación propia de cada feature junto a sus controladores
-js/widgets/*/      presentación propia de cada widget incluido
+shared/ui/         estilos de modales, editores y notificaciones compartidas
+features/grid/     GridItem, vista compacta, viewport y geometría responsive
+features/*/        presentación propia de cada feature junto a sus controladores
+widgets/*/         presentación propia de cada widget incluido
 ```
 
-La antigua carpeta horizontal `src/css/` ya no existe. Todo CSS de `src/` debe
-ser alcanzable desde `styles/main.css`; una prueba estructural detecta imports
-rotos, ciclos, hojas huérfanas y la reaparición de esa carpeta transitoria.
+Las antiguas carpetas horizontales `src/css/` y `src/js/` ya no existen. Los
+límites arquitectónicos y sus estilos viven directamente bajo `src/`. Todo CSS
+debe ser alcanzable desde `styles/main.css`; las pruebas estructurales detectan
+imports rotos, ciclos, hojas huérfanas y la reaparición de esos wrappers.
 
 ### Internacionalización
 
-Los catálogos están en `src/js/lang/`. `platform/i18n/i18n.js` resuelve idioma,
+Los catálogos están en `src/lang/`. `platform/i18n/i18n.js` resuelve idioma,
 traduce claves y actualiza atributos `data-i18n` del DOM.
 
 El texto visible nuevo debe añadirse a todos los idiomas compatibles y
@@ -697,8 +699,8 @@ Evitar los siguientes patrones:
 
 La separación de dominio, features, plataforma, estado, UI compartida y grid ya
 está establecida. El reloj valida el contrato de widgets de extremo a extremo y
-las carpetas transitorias `ui/` y `core/` han sido retiradas. Las principales
-zonas de evolución son:
+los antiguos wrappers `ui/`, `core/`, `css/` y `js/` han sido retirados. Las
+principales zonas de evolución son:
 
 1. Mejorar la recuperación de conflictos entre dispositivos.
 2. Versionar entradas de papelera para widgets si deben poder restaurarse.

@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { BOOKMARK_DRAG_MODES } from '../src/js/domain/settings/gridInteractionModes.js';
+import { BOOKMARK_DRAG_MODES } from '../src/domain/settings/gridInteractionModes.js';
 import {
   calculateKeyboardMoveLayout,
   calculateSmartDragLayout
-} from '../src/js/shared/grid/smartDragLayout.js';
+} from '../src/shared/grid/smartDragLayout.js';
 
 function plan(items, draggedId, target, options = {}) {
   return calculateSmartDragLayout({

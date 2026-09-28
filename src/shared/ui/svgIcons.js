@@ -85,7 +85,7 @@ export function createThemedAssetIcon(kind) {
   for (const theme of ['light', 'dark']) {
     const image = document.createElement('img');
     image.className = `newdesktab-themed-icon-${theme}`;
-    image.src = new URL(`../../../assets/icons/${kind}-${theme}.svg`, import.meta.url).href;
+    image.src = new URL(`../../assets/icons/${kind}-${theme}.svg`, import.meta.url).href;
     image.alt = '';
     image.draggable = false;
     wrapper.append(image);

@@ -5,7 +5,7 @@ import {
   BOOKMARK_RESIZE_MODES,
   normalizeBookmarkDragMode,
   normalizeBookmarkResizeMode
-} from '../src/js/domain/settings/gridInteractionModes.js';
+} from '../src/domain/settings/gridInteractionModes.js';
 
 test('normalizes persisted drag modes without changing supported values', () => {
   for (const mode of Object.values(BOOKMARK_DRAG_MODES)) {

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { createGridItemRegistry } from '../src/js/shared/grid/gridItemRegistry.js';
+import { createGridItemRegistry } from '../src/shared/grid/gridItemRegistry.js';
 
 function definition(type, order, items) {
   return {

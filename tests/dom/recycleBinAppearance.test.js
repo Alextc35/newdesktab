@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest';
 import {
   applyRecycleBinAppearance,
   createRecycleBinGlyph
-} from '../../src/js/features/recycle-bin/recycleBinAppearance.js';
+} from '../../src/features/recycle-bin/recycleBinAppearance.js';
 
 describe('recycle bin appearance', () => {
   test('applies custom colors and independently hides card elements', () => {

@@ -4,7 +4,7 @@ import test from 'node:test';
 import {
   findGridKeyboardRoute,
   getGridItemNavigationAnchor
-} from '../src/js/shared/grid/gridKeyboardRoute.js';
+} from '../src/shared/grid/gridKeyboardRoute.js';
 
 function item(id, gx, gy, w = 1, h = 1) {
   return { id, gx, gy, w, h };

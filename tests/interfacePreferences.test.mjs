@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { resolveLanguage } from '../src/js/domain/settings/interfacePreferences.js';
+import { resolveLanguage } from '../src/domain/settings/interfacePreferences.js';
 import {
   createBackupEnvelope,
   migratePersistedData,
   parseBackupPayload
-} from '../src/js/platform/storage/dataSchema.js';
+} from '../src/platform/storage/dataSchema.js';
 
 test('automatic language resolves supported device locales and falls back to English', () => {
   for (const [locale, expected] of [

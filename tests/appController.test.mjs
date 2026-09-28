@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { detectApplicationChanges } from '../src/js/app/appStateChanges.js';
+import { detectApplicationChanges } from '../src/app/appStateChanges.js';
 
 function createState() {
   return {

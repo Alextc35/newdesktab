@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { createGridHistory, hasGridDataChange } from '../src/js/state/gridHistory.js';
+import { createGridHistory, hasGridDataChange } from '../src/state/gridHistory.js';
 
 const createData = name => ({
   bookmarks: [{ id: name, name }],

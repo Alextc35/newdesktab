@@ -38,9 +38,9 @@ const {
   moveBookmarksToWorkspace,
   setActiveWorkspace
 } = await import(
-  '../src/js/features/workspaces/workspaceActions.js'
+  '../src/features/workspaces/workspaceActions.js'
 );
-const { getState, hydrateStore, setState } = await import('../src/js/state/appStore.js');
+const { getState, hydrateStore, setState } = await import('../src/state/appStore.js');
 
 test('deleting a workspace also deletes its bookmarks without moving them to Main', async () => {
   await hydrateStore();

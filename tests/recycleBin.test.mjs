@@ -32,10 +32,10 @@ globalThis.chrome = {
   }
 };
 
-const { DEFAULT_BOOKMARKS } = await import('../src/js/domain/bookmarks/bookmarkDefaults.js');
-const { DEFAULT_RECYCLE_BIN } = await import('../src/js/domain/recycle-bin/recycleBinDefaults.js');
-const { DEFAULT_SETTINGS } = await import('../src/js/domain/settings/settingsDefaults.js');
-const { getGridItemsInGroup } = await import('../src/js/features/grid/gridSelectors.js');
+const { DEFAULT_BOOKMARKS } = await import('../src/domain/bookmarks/bookmarkDefaults.js');
+const { DEFAULT_RECYCLE_BIN } = await import('../src/domain/recycle-bin/recycleBinDefaults.js');
+const { DEFAULT_SETTINGS } = await import('../src/domain/settings/settingsDefaults.js');
+const { getGridItemsInGroup } = await import('../src/features/grid/gridSelectors.js');
 const {
   moveBookmarksToRecycleBin,
   moveFolderToRecycleBin,
@@ -44,9 +44,9 @@ const {
   ensureRecycleBinPosition,
   restoreTrashEntries,
   updateRecycleBinAppearance
-} = await import('../src/js/features/recycle-bin/recycleBinActions.js');
+} = await import('../src/features/recycle-bin/recycleBinActions.js');
 const { RECYCLE_BIN_RETENTION_MS } = await import(
-  '../src/js/domain/recycle-bin/recycleBinEntries.js'
+  '../src/domain/recycle-bin/recycleBinEntries.js'
 );
 const {
   clearBookmarkHistory,
@@ -55,7 +55,7 @@ const {
   setState,
   undoBookmarks,
   waitForPersistence
-} = await import('../src/js/state/appStore.js');
+} = await import('../src/state/appStore.js');
 
 await hydrateStore();
 
