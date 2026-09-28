@@ -156,6 +156,79 @@ test('shares the bookmark edit control position and adapts it to the folder surf
   await expect(darkFolder.locator('.item-action-button.edit')).toHaveClass(/is-dark/);
 });
 
+test('keeps folder artwork and captions aligned across visibility and editing states', async ({ page }) => {
+  await start(page, [
+    { id: folderId, gx: 0, gy: 0, w: 1, h: 1 },
+    { id: 'no-name-folder', gx: 1, gy: 0, w: 1, h: 1, showName: false },
+    { id: 'no-count-folder', gx: 2, gy: 0, w: 1, h: 1, showCount: false },
+    { id: 'visual-only-folder', gx: 3, gy: 0, w: 1, h: 1,
+      showName: false, showCount: false }
+  ]);
+
+  const cards = page.locator('#bookmark-container .bookmark-folder');
+  const visualWidths = await cards.evaluateAll(elements => elements.map(element => (
+    element.querySelector('.folder-visual').getBoundingClientRect().width
+  )));
+  expect(Math.max(...visualWidths) - Math.min(...visualWidths)).toBeLessThanOrEqual(1);
+
+  const geometry = await folderCard(page).evaluate(element => {
+    const card = element.getBoundingClientRect();
+    const visual = element.querySelector('.folder-visual').getBoundingClientRect();
+    const title = element.querySelector('.folder-title').getBoundingClientRect();
+    const count = element.querySelector('.folder-count').getBoundingClientRect();
+    return {
+      card: card.toJSON(),
+      visual: visual.toJSON(),
+      title: title.toJSON(),
+      count: count.toJSON()
+    };
+  });
+  const cardCenter = geometry.card.x + geometry.card.width / 2;
+  expect(Math.abs(geometry.visual.x + geometry.visual.width / 2 - cardCenter)).toBeLessThanOrEqual(1);
+  expect(Math.abs(geometry.title.x + geometry.title.width / 2 - cardCenter)).toBeLessThanOrEqual(1);
+  expect(Math.abs(geometry.count.x + geometry.count.width / 2 - cardCenter)).toBeLessThanOrEqual(1);
+  expect(geometry.title.y).toBeGreaterThanOrEqual(geometry.visual.y + geometry.visual.height);
+  expect(geometry.card.y + geometry.card.height - geometry.count.y - geometry.count.height)
+    .toBeLessThanOrEqual(8);
+
+  await page.keyboard.press('Control+KeyE');
+  const editingWidth = await folderCard(page).locator('.folder-visual')
+    .evaluate(element => element.getBoundingClientRect().width);
+  expect(Math.abs(editingWidth - geometry.visual.width)).toBeLessThanOrEqual(1);
+
+  await folderCard(page).locator('.item-action-button.edit').click();
+  const previewGeometry = await previewCard(page).evaluate(element => {
+    const card = element.getBoundingClientRect();
+    const visual = element.querySelector('.folder-visual').getBoundingClientRect();
+    const title = element.querySelector('.folder-title').getBoundingClientRect();
+    const count = element.querySelector('.folder-count').getBoundingClientRect();
+    return {
+      card: card.toJSON(),
+      visual: visual.toJSON(),
+      title: title.toJSON(),
+      count: count.toJSON()
+    };
+  });
+  const previewCenter = previewGeometry.card.x + previewGeometry.card.width / 2;
+  expect(Math.abs(previewGeometry.card.width - previewGeometry.card.height)).toBeLessThanOrEqual(1);
+  expect(previewGeometry.card.width).toBeLessThanOrEqual(150);
+  expect(Math.abs(
+    previewGeometry.visual.x + previewGeometry.visual.width / 2 - previewCenter
+  )).toBeLessThanOrEqual(1);
+  expect(Math.abs(
+    previewGeometry.title.x + previewGeometry.title.width / 2 - previewCenter
+  )).toBeLessThanOrEqual(1);
+  expect(Math.abs(
+    previewGeometry.count.x + previewGeometry.count.width / 2 - previewCenter
+  )).toBeLessThanOrEqual(1);
+  expect(previewGeometry.title.y)
+    .toBeGreaterThanOrEqual(previewGeometry.visual.y + previewGeometry.visual.height);
+  expect(
+    previewGeometry.card.y + previewGeometry.card.height
+      - previewGeometry.count.y - previewGeometry.count.height
+  ).toBeLessThanOrEqual(8);
+});
+
 test('hides previews and keeps the folder name and saved count independently configurable', async ({ page }) => {
   await start(page);
   await openEditor(page);

@@ -316,7 +316,10 @@ function renderPreview() {
   card.setAttribute('role', 'img');
   card.setAttribute('aria-label', `${name}, ${t('folder.count', { count })}`);
   applyFolderAppearance(card, folder);
-  card.append(createFolderVisual(folder, bookmarks));
+
+  const content = document.createElement('div');
+  content.className = 'folder-card-content';
+  content.append(createFolderVisual(folder, bookmarks));
 
   const caption = document.createElement('span');
   caption.className = 'folder-caption';
@@ -327,7 +330,8 @@ function renderPreview() {
   saved.className = 'folder-count';
   saved.textContent = t('folder.count', { count });
   caption.append(title, saved);
-  card.append(caption);
+  content.append(caption);
+  card.append(content);
   preview.replaceChildren(card);
 }
 

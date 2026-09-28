@@ -20,7 +20,7 @@
   transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
 }
 
-.folder-open {
+.folder-card-content {
   /* Width changes scale the artwork; text sizes depend only on available height. */
   --folder-title-size: clamp(10px, 10cqh, 14px);
   --folder-count-size: clamp(8px, 8cqh, 11px);
@@ -47,11 +47,16 @@
   border: 0;
   background: transparent;
   color: inherit;
-  cursor: pointer;
   font: inherit;
 }
 
-.bookmark-folder.is-single-cell .folder-open {
+.folder-open {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.bookmark-folder.is-single-cell .folder-card-content {
   justify-content: flex-start;
 }
 
@@ -73,26 +78,14 @@
 .is-folder-hidden .folder-visual,
 .is-folder-preview-hidden .folder-previews,
 .is-folder-name-hidden .folder-title,
-.is-folder-count-hidden .folder-count,
-.is-folder-name-hidden.is-folder-count-hidden .folder-caption {
+.is-folder-count-hidden .folder-count {
   display: none;
 }
 
-.bookmark-folder.is-folder-name-hidden .folder-open {
-  --folder-title-height: 0px;
-  --folder-caption-gap: 0px;
-}
-
-.bookmark-folder.is-folder-count-hidden .folder-open {
-  --folder-count-height: 0px;
-  --folder-caption-gap: 0px;
-}
-
-.bookmark-folder.is-folder-name-hidden.is-folder-count-hidden .folder-open {
+.bookmark-folder:not(.bookmark-list-item).is-folder-hidden .folder-card-content,
+.folder-editor-preview-card.is-folder-hidden .folder-card-content {
+  --folder-art-height: 0px;
   --folder-content-gap: 0px;
-}
-
-.bookmark-folder:not(.bookmark-list-item).is-folder-hidden .folder-open {
   padding-top: 0;
   justify-content: center;
 }
@@ -363,16 +356,19 @@
 .folder-caption {
   display: grid;
   width: 100%;
+  height: var(--folder-caption-height);
   min-width: 0;
   flex: 0 0 auto;
   grid-template-columns: minmax(0, 1fr);
-  gap: 2px;
+  grid-template-rows: var(--folder-title-height) var(--folder-count-height);
+  gap: var(--folder-caption-gap);
   padding: 0;
   overflow: hidden;
 }
 
 .folder-title {
   display: block;
+  grid-row: 1;
   width: 100%;
   min-width: 0;
   overflow: hidden;
@@ -387,6 +383,7 @@
 
 .folder-count {
   display: block;
+  grid-row: 2;
   width: 100%;
   min-width: 0;
   overflow: hidden;
@@ -888,13 +885,9 @@
   --folder-text-color: #f8fafc;
   --folder-preview-icon-size: 30px;
   --folder-context-text: light-dark(var(--folder-light-text, var(--ui-text)), var(--folder-text-color));
-  display: flex;
-  width: 210px;
-  height: 220px;
-  padding: 15px 12px 10px;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  width: 150px;
+  height: 150px;
+  padding: 5px;
   border: 1px solid color-mix(in srgb, var(--folder-color) 42%, transparent);
   border-radius: 14px;
   background:
@@ -904,16 +897,12 @@
     linear-gradient(145deg, light-dark(#fff, rgba(15, 36, 58, .96)),
       light-dark(#f4f4f5, rgba(12, 20, 34, .96)));
   box-sizing: border-box;
+  container-type: size;
 }
 
-.folder-editor-preview-card .folder-visual {
-  width: min(84%, 176px);
-  height: auto;
-  flex: 0 1 auto;
-}
-
-.folder-editor-preview-card .folder-caption {
-  margin-top: 2px;
+.folder-editor-preview-card .folder-card-content {
+  border: 0;
+  background: transparent;
 }
 
 @media (max-width: 720px) {

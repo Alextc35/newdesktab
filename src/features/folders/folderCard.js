@@ -20,7 +20,7 @@ export function createFolderElement({ container, folder, bookmarks, isEditing })
   applyGridItemPosition(container, element, folder);
 
   const button = document.createElement('button');
-  button.className = 'folder-open';
+  button.className = 'folder-open folder-card-content';
   button.type = 'button';
   button.title = folder.name;
   button.setAttribute('aria-label', t('folder.open', {
