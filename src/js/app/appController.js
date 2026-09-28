@@ -5,8 +5,10 @@ import { applyGlobalTheme } from '../core/theme.js';
 import { enableGridEditing, renderGrid } from '../features/grid/gridRenderer.js';
 import { clearGridItemSelection } from '../features/grid/gridSelection.js';
 import { preloadLocalImages } from '../platform/images/localImages.js';
-import { syncKeyboardShortcutAccessibility } from '../ui/keyboardShortcuts.js';
-import { updateEditUI } from '../ui/uiController.js';
+import {
+  syncKeyboardShortcutAccessibility
+} from '../features/keyboard/keyboardShortcutController.js';
+import { updateAppShellEditing } from './appShell.js';
 import { detectApplicationChanges } from './appStateChanges.js';
 
 /**
@@ -19,7 +21,7 @@ export function createAppController({ container }) {
     handleStateChange(state, previousState) {
       if (!previousState) {
         applyGlobalTheme(state.data.settings);
-        updateEditUI(state.ui.isEditing);
+        updateAppShellEditing(state.ui.isEditing);
         const trace = debug.start('Initial grid render');
         renderGrid(container);
         trace.end();
@@ -45,7 +47,7 @@ export function createAppController({ container }) {
         else renderGrid(container);
       }
 
-      if (changes.editing) updateEditUI(state.ui.isEditing);
+      if (changes.editing) updateAppShellEditing(state.ui.isEditing);
     }
   });
 }

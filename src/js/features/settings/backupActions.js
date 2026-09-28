@@ -1,10 +1,11 @@
 import {
   createBackupEnvelope,
   parseBackupPayload
-} from '../platform/storage/dataSchema.js';
-import { getState, setState } from '../core/store.js';
-import { flashError, flashSuccess } from '../shared/ui/flash.js';
-import { ensureRecycleBinPosition } from '../features/recycle-bin/recycleBinActions.js';
+} from '../../platform/storage/dataSchema.js';
+import { getState, setState } from '../../core/store.js';
+import { flashError, flashSuccess } from '../../shared/ui/flash.js';
+import { downloadJson } from '../../shared/ui/jsonDownload.js';
+import { ensureRecycleBinPosition } from '../recycle-bin/recycleBinActions.js';
 
 export function exportBackup() {
   try {
@@ -40,16 +41,3 @@ export async function importBackup(file) {
   }
 }
 
-export function downloadJson(value, filename) {
-  const blob = new Blob([JSON.stringify(value, null, 2)], {
-    type: 'application/json'
-  });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement('a');
-  anchor.href = url;
-  anchor.download = filename;
-  document.body.appendChild(anchor);
-  anchor.click();
-  anchor.remove();
-  URL.revokeObjectURL(url);
-}

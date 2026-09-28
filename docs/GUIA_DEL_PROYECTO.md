@@ -116,6 +116,7 @@ de datos normalizados e idioma.
 | `src/js/app/registerGridItemTypes.js` | Registro de tipos incluidos en el grid |
 | `src/js/app/appController.js` | Efectos globales posteriores a un cambio de estado |
 | `src/js/app/appStateChanges.js` | Clasificación pura de qué parte del estado cambió |
+| `src/js/app/appShell.js` | Resize global y representación del modo edición |
 
 ## 4. Capas y reglas de dependencia
 
@@ -150,6 +151,8 @@ features/
 ├── folders/        acciones, tarjeta, editor y modal interior
 ├── grid/           render, selección, drag, resize y teclado
 ├── history/        controles de undo y redo
+├── keyboard/       coordinación de atajos con controles y modales
+├── launcher/       menú flotante de creación
 ├── recycle-bin/    eliminación, restauración y presentación
 ├── search/         búsqueda global y filtros locales
 ├── settings/       modal, borrador y secciones de preferencias
@@ -176,7 +179,7 @@ El dominio nunca debe importar esta capa.
 Alberga código que ya ha demostrado ser común a varias features.
 
 - `shared/grid`: geometría, placement, resize, movimiento y registro de tipos.
-- `shared/ui`: modales, alertas, flashes, pestañas e iconos.
+- `shared/ui`: modales, alertas, flashes, viewport y primitivas visuales.
 - `shared/keyboard`: representación y resolución de atajos.
 - `shared/data`: reconciliación de cambios persistidos.
 - `shared/images`: formato portable de referencias a imágenes.
@@ -195,11 +198,12 @@ No es un sistema de plugins remotos.
 - `builtin/index.js`: catálogo único de widgets incluidos en esta build.
 - `builtin/clock/`: primer widget visible, con modelo, vista y configuración.
 
-### `core/` y `ui/`: zonas de transición
+### `core/`: zona de transición restante
 
 `core/` conserva la infraestructura central histórica: store, defaults, tema,
-diagnósticos y modos de interacción. `ui/` conserva coordinación general y
-algunas utilidades antiguas de bookmarks.
+diagnósticos y modos de interacción. La antigua carpeta `ui/` ya no existe: el
+shell pertenece a `app`, la presentación de cada dominio a su feature y solo
+las primitivas demostrablemente reutilizables viven en `shared/ui`.
 
 El código nuevo no debe añadirse automáticamente a estas carpetas. Primero debe
 comprobarse si pertenece a una feature, al dominio, a plataforma o a shared.
@@ -676,13 +680,13 @@ Evitar los siguientes patrones:
 ## 17. Estado actual y siguiente evolución
 
 La separación de dominio, features, plataforma, UI compartida y grid ya está
-establecida, y el reloj valida el contrato de widgets de extremo a extremo. Las
-principales zonas pendientes son:
+establecida, el reloj valida el contrato de widgets de extremo a extremo y la
+carpeta transitoria `ui/` ha sido retirada. Las principales zonas pendientes son:
 
-1. Continuar reduciendo los módulos residuales de `ui/`.
-2. Dividir responsabilidades restantes de `core/` cuando exista una frontera
+1. Dividir responsabilidades restantes de `core/` cuando exista una frontera
    probada para cada una.
-3. Mejorar la recuperación de conflictos entre dispositivos.
+2. Mejorar la recuperación de conflictos entre dispositivos.
+3. Versionar entradas de papelera para widgets si deben poder restaurarse.
 
 Para las reglas arquitectónicas exhaustivas y el historial de la migración,
 consultar también [`ARCHITECTURE.md`](ARCHITECTURE.md).

@@ -1,5 +1,5 @@
 import { t } from '../../../platform/i18n/i18n.js';
-import { createItemActionButton } from '../../../ui/bookmark/actions.js';
+import { createItemActionButton } from '../../../shared/ui/itemActionButton.js';
 import { addGridItemPointerControls } from '../../../features/grid/gridPointerController.js';
 import { applyGridItemPosition } from '../../../features/grid/gridItemLayout.js';
 import { isGridKeyboardActive } from '../../../features/grid/gridKeyboardController.js';

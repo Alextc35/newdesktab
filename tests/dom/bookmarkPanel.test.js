@@ -18,7 +18,7 @@ beforeAll(async () => {
   ({ createBookmarkEditorPanel } = await import(
     '../../src/js/features/bookmarks/bookmarkEditorPanel.js'
   ));
-  ({ createFavicon } = await import('../../src/js/ui/bookmark/favicon.js'));
+  ({ createFavicon } = await import('../../src/js/features/bookmarks/bookmarkFavicon.js'));
   ({ createBookmarkElement } = await import('../../src/js/features/bookmarks/bookmarkCard.js'));
 });
 

@@ -2,11 +2,11 @@ import { createBookmarkElement } from './bookmarkCard.js';
 import { openEditBookmark } from './bookmarkModal.js';
 import { moveBookmarksToRecycleBin } from '../recycle-bin/recycleBinActions.js';
 import { permanentlyDeleteGridItem } from '../grid/gridItemActions.js';
-import { addBookmarkActions } from '../../ui/bookmark/actions.js';
+import { addBookmarkActions } from './bookmarkCardActions.js';
 import { isGridKeyboardActive } from '../grid/gridKeyboardController.js';
 import { addGridItemPointerControls } from '../grid/gridPointerController.js';
 import { isGridItemSelected } from '../grid/gridSelection.js';
-import { createListItem } from '../../ui/bookmark/listView.js';
+import { createBookmarkListItem } from './bookmarkListItem.js';
 import { applyGridItemPosition } from '../grid/gridItemLayout.js';
 import { getActiveWorkspaceId } from '../workspaces/workspaceSelectors.js';
 import { t } from '../../platform/i18n/i18n.js';
@@ -23,7 +23,7 @@ export const bookmarkGridItem = Object.freeze({
       && (bookmark.groupId ?? null) === getActiveWorkspaceId(state.data)),
   render({ view, container, item, state }) {
     if (view === 'list') {
-      return createListItem(item, {
+      return createBookmarkListItem(item, {
         active: isGridKeyboardActive(item.id)
       });
     }

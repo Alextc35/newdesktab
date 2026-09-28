@@ -1,5 +1,5 @@
 import { GRID_COLS, GRID_ROWS } from '../../shared/grid/gridGeometry.js';
-import { isListView } from '../../ui/viewportMode.js';
+import { isListView } from '../../shared/ui/viewportMode.js';
 
 /**
  * Updates CSS variables representing grid cell size.

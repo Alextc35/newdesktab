@@ -7,7 +7,7 @@ import { gridItemRegistry } from '../../shared/grid/gridItemRegistry.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { flashInfo, flashSuccess } from '../../shared/ui/flash.js';
 import { hasOpenModal } from '../../shared/ui/modalManager.js';
-import { isListView } from '../../ui/viewportMode.js';
+import { isListView } from '../../shared/ui/viewportMode.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import {
   clearGridItemSelection,

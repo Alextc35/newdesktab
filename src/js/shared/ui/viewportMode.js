@@ -1,5 +1,5 @@
-import { flashError, flashInfo } from '../shared/ui/flash.js';
-import { syncModalViewport } from '../shared/ui/modalManager.js';
+import { flashError, flashInfo } from './flash.js';
+import { syncModalViewport } from './modalManager.js';
 
 export const COMPACT_VIEW_WIDTH = 600;
 

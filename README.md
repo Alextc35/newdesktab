@@ -192,6 +192,8 @@ src/js/features/bookmarks/                  bookmark commands, cards and editor 
 src/js/features/folders/                     folder commands, cards and modal UI
 src/js/features/grid/                        grid rendering, layout, selection and interactions
 src/js/features/history/                     global undo/redo UI coordination
+src/js/features/keyboard/                    runtime shortcut coordination
+src/js/features/launcher/                    floating creation menu
 src/js/features/recycle-bin/                 recycle-bin actions and UI
 src/js/features/search/                      global and compact-list search UI
 src/js/features/settings/                    settings actions, draft and modal UI

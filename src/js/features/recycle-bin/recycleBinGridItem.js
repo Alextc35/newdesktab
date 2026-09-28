@@ -1,9 +1,9 @@
 import { t } from '../../platform/i18n/i18n.js';
-import { createItemActionButton } from '../../ui/bookmark/actions.js';
+import { createItemActionButton } from '../../shared/ui/itemActionButton.js';
 import { isGridKeyboardActive } from '../grid/gridKeyboardController.js';
 import { applyGridItemPosition } from '../grid/gridItemLayout.js';
 import { addGridItemPointerControls } from '../grid/gridPointerController.js';
-import { isVisuallyDark } from '../../ui/bookmark/utils.js';
+import { isGridItemSurfaceDark } from '../grid/gridItemAppearance.js';
 import { openRecycleBinEditor } from './recycleBinEditorModal.js';
 import { openRecycleBinModal } from './recycleBinModal.js';
 import { applyRecycleBinAppearance, createRecycleBinGlyph } from './recycleBinAppearance.js';
@@ -135,7 +135,7 @@ function createRecycleBinListItem({ recycleBin, count, active, onOpen }) {
 
 function addRecycleBinActions(container, recycleBin) {
   const themeClass = recycleBin.backgroundColor && !recycleBin.noBackground
-    ? (isVisuallyDark(recycleBin) ? 'is-dark' : 'is-light')
+    ? (isGridItemSurfaceDark(recycleBin) ? 'is-dark' : 'is-light')
     : defaultActionTheme();
   const actions = document.createElement('div');
   actions.className = 'item-actions recycle-bin-item-actions';

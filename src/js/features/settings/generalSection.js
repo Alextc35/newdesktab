@@ -7,7 +7,7 @@ import {
   getInitialSnapshot
 } from './settingsDraft.js';
 import { t } from '../../platform/i18n/i18n.js';
-import { exportBackup, importBackup } from '../../ui/backup.js';
+import { exportBackup, importBackup } from './backupActions.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { createRecycleBinSvg } from '../../shared/ui/svgIcons.js';
 

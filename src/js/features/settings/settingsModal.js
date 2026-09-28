@@ -3,7 +3,7 @@ import { flashSuccess, flashError } from '../../shared/ui/flash.js';
 import { registerModal, openModal, closeModal } from '../../shared/ui/modalManager.js';
 import { createSettingsSectionSvg } from '../../shared/ui/svgIcons.js';
 import { initTabs } from '../../shared/ui/tabs.js';
-import { ensurePanelFits } from '../../ui/viewportMode.js';
+import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 
 import { changeLanguage, t } from '../../platform/i18n/i18n.js';
 import { DEFAULT_SETTINGS } from '../../core/defaults.js';

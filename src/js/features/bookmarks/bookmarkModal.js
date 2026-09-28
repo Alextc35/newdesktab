@@ -10,7 +10,7 @@ import {
   openModal as openManagedModal,
   registerModal
 } from '../../shared/ui/modalManager.js';
-import { ensurePanelFits } from '../../ui/viewportMode.js';
+import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 import { getActiveWorkspaceId } from '../workspaces/workspaceSelectors.js';
 import {
   addBookmark,

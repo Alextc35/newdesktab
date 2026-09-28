@@ -1,7 +1,7 @@
 import '../../types/types.js'; // typedefs
 
 /**
- * Creates a favicon image element for a bookmark.
+ * Creates a favicon element for a bookmark.
  *
  * Attempts to fetch the site favicon without a leading www. or app.
  * If it fails or the URL is internal, uses the bookmark initials.

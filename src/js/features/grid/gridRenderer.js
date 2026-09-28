@@ -6,7 +6,7 @@ import {
 import { createListSearch } from '../search/listSearch.js';
 import { applyGridItemPosition } from './gridItemLayout.js';
 import { updateGridSize } from './gridLayout.js';
-import { isListView } from '../../ui/viewportMode.js';
+import { isListView } from '../../shared/ui/viewportMode.js';
 import { gridItemRegistry } from '../../shared/grid/gridItemRegistry.js';
 import {
   getActiveWorkspaceId,

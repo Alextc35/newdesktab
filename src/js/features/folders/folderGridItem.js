@@ -1,5 +1,5 @@
 import { isGridKeyboardActive } from '../grid/gridKeyboardController.js';
-import { createListItem } from '../../ui/bookmark/listView.js';
+import { createFolderListItem } from './folderListItem.js';
 import { getActiveWorkspaceId } from '../workspaces/workspaceSelectors.js';
 import { createFolderElement, enableFolderEditing } from './folderCard.js';
 import { openFolderEditor } from './folderEditorModal.js';
@@ -28,8 +28,7 @@ export const folderGridItem = Object.freeze({
   },
   render({ view, container, item, bookmarks, state }) {
     if (view === 'list') {
-      return createListItem(item, {
-        folder: true,
+      return createFolderListItem(item, {
         count: bookmarks.length,
         active: isGridKeyboardActive(item.id),
         onOpen: () => openFolderModal(item.id)

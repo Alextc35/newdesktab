@@ -5,11 +5,11 @@ import {
   parseBookmarksPayload
 } from '../../platform/storage/dataSchema.js';
 import { flashSuccess, flashError } from '../../shared/ui/flash.js';
-import { downloadJson } from '../backup.js';
+import { downloadJson } from '../../shared/ui/jsonDownload.js';
 import {
   ensureRecycleBinPosition,
   replaceGridDataThroughRecycleBin
-} from '../../features/recycle-bin/recycleBinActions.js';
+} from '../recycle-bin/recycleBinActions.js';
 
 /**
  * Exports all current bookmarks as a JSON file.

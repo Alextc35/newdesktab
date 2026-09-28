@@ -29,9 +29,9 @@ import { initGridKeyboardNavigation } from '../features/grid/gridKeyboardControl
 import { initGridKeyboardMovement } from '../features/grid/gridKeyboardMovement.js';
 import { initAlertModal } from '../shared/ui/alertModal.js';
 import { flashInfo } from '../shared/ui/flash.js';
-import { initFloatingMenu } from '../ui/floatingMenu.js';
-import { initKeyboardShortcuts } from '../ui/keyboardShortcuts.js';
-import { initUIController } from '../ui/uiController.js';
+import { initFloatingMenu } from '../features/launcher/floatingMenu.js';
+import { initKeyboardShortcuts } from '../features/keyboard/keyboardShortcutController.js';
+import { initAppShell } from './appShell.js';
 import { initializeWidgets } from '../widgets/widgetRegistry.js';
 import { createAppController } from './appController.js';
 import { registerGridItemTypes } from './registerGridItemTypes.js';
@@ -105,7 +105,7 @@ function getApplicationElements() {
 }
 
 function initializeUserInterface({ container, gridOverlay, toggleButton }) {
-  initUIController({ container, gridOverlay, toggleButton });
+  initAppShell({ container, gridOverlay, toggleButton });
   initializeWidgets({
     launcher: document.getElementById('add-options'),
     modalHost: document.body

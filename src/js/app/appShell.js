@@ -3,7 +3,7 @@ import { getState, toggleEditing } from '../core/store.js';
 
 import { resizeGridView } from '../features/grid/gridRenderer.js';
 import { cancelGridGesture } from '../features/grid/gridPointerController.js';
-import { ensurePanelFits, isListView } from './viewportMode.js';
+import { ensurePanelFits, isListView } from '../shared/ui/viewportMode.js';
 
 import { flash } from '../shared/ui/flash.js';
 
@@ -24,15 +24,14 @@ let resizeFrame = null;
  * 
  * Responsibilities:
  * - Handles resize re-render logic
- * - Binds Add and Edit toggle buttons
+ * - Binds the global Edit toggle
  *
  * @param {Object} options
  * @param {HTMLElement} options.container - Bookmark container element
  * @param {HTMLElement} options.gridOverlay - Grid overlay element
- * @param {HTMLElement} options.addButton - Add bookmark button
  * @param {HTMLElement} options.toggleButton - Edit mode toggle button
  */
-export function initUIController({
+export function initAppShell({
   container,
   gridOverlay,
   toggleButton
@@ -51,7 +50,7 @@ export function initUIController({
  *
  * @param {boolean} isEditing - Whether edit mode is enabled
  */
-export function updateEditUI(isEditing) {
+export function updateAppShellEditing(isEditing) {
   if (!toggleButtonRef || !gridOverlayRef) return;
 
   toggleButtonRef.textContent = isEditing ? '🔒' : '✎';

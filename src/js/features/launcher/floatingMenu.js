@@ -1,4 +1,4 @@
-import { hasOpenModal } from '../shared/ui/modalManager.js';
+import { hasOpenModal } from '../../shared/ui/modalManager.js';
 
 export function initFloatingMenu() {
   const container = document.querySelector('.floating-add');

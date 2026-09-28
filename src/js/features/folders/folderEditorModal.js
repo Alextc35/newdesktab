@@ -18,7 +18,7 @@ import {
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { closeModal, openModal, registerModal } from '../../shared/ui/modalManager.js';
 import { initTabs } from '../../shared/ui/tabs.js';
-import { ensurePanelFits } from '../../ui/viewportMode.js';
+import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 import { applyFolderAppearance, createFolderVisual } from './folderVisual.js';
 
 let initialized = false;

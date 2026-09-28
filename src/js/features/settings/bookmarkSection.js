@@ -3,8 +3,8 @@ import { openBookmarkPresetEditor } from '../bookmarks/bookmarkModal.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { DEFAULT_SETTINGS } from '../../core/defaults.js';
 import { normalizeBookmarkPreset } from '../../domain/bookmarks/bookmarkModel.js';
-import { deleteAllBookmarks } from '../../ui/bookmark/actions.js';
-import { initImportExportButtons } from '../../ui/bookmark/importExport.js';
+import { deleteAllBookmarks } from '../bookmarks/bookmarkDestructiveActions.js';
+import { initImportExportButtons } from '../bookmarks/bookmarkImportExport.js';
 import {
   getDraftBookmarkDefault,
   getDraftBookmarkDragMode,

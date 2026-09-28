@@ -21,7 +21,7 @@ import {
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { closeModal, openModal, registerModal } from '../../shared/ui/modalManager.js';
 import { initTabs } from '../../shared/ui/tabs.js';
-import { ensurePanelFits } from '../../ui/viewportMode.js';
+import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 
 let initialized = false;
 let initialValue = null;

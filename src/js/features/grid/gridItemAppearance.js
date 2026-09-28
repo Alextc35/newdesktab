@@ -2,7 +2,7 @@ import '../../types/types.js'; // typedefs
 import { resolveBackgroundImage } from '../../platform/images/localImages.js';
 
 /**
- * Determines whether a bookmark should be considered visually dark.
+ * Determines whether a styled grid-item surface should be considered dark.
  *
  * The evaluation is based on:
  * - Background color luminance
@@ -11,13 +11,13 @@ import { resolveBackgroundImage } from '../../platform/images/localImages.js';
  *
  * This is mainly used to decide UI contrast (e.g. action button theme).
  *
- * @param {Bookmark} bookmark - The bookmark data object.
+ * @param {Object} item - Grid item with bookmark-compatible appearance fields.
  * @returns {boolean} True if the bookmark is considered visually dark.
  */
-export function isVisuallyDark(bookmark) {
-  let dark = isDarkColor(bookmark.backgroundColor);
-  if (resolveBackgroundImage(bookmark)) dark = true;
-  if (bookmark.invertColorBg) dark = !dark;
+export function isGridItemSurfaceDark(item) {
+  let dark = isDarkColor(item.backgroundColor);
+  if (resolveBackgroundImage(item)) dark = true;
+  if (item.invertColorBg) dark = !dark;
   return dark;
 }
 

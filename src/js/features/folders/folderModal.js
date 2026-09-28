@@ -13,9 +13,9 @@ import {
 } from '../../domain/folders/folderGrid.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { getState, subscribe } from '../../core/store.js';
-import { createItemActionButton } from '../../ui/bookmark/actions.js';
+import { createItemActionButton } from '../../shared/ui/itemActionButton.js';
 import { calculateSmartDragLayout } from '../../shared/grid/smartDragLayout.js';
-import { createListItem } from '../../ui/bookmark/listView.js';
+import { createBookmarkListItem } from '../bookmarks/bookmarkListItem.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashInfo, flashSuccess } from '../../shared/ui/flash.js';
 import { getMaxVisibleCols, getMaxVisibleRows } from '../grid/gridLayout.js';
@@ -26,7 +26,7 @@ import {
   registerModal
 } from '../../shared/ui/modalManager.js';
 import { createEditIndicatorSvg } from '../../shared/ui/svgIcons.js';
-import { ensurePanelFits, isListView } from '../../ui/viewportMode.js';
+import { ensurePanelFits, isListView } from '../../shared/ui/viewportMode.js';
 import { createBookmarkElement } from '../bookmarks/bookmarkCard.js';
 import { openEditBookmark } from '../bookmarks/bookmarkModal.js';
 import { openFolderEditor } from './folderEditorModal.js';
@@ -225,7 +225,7 @@ function renderFolderContents() {
       const second = layout.get(b.id);
       return first.gy - second.gy || first.gx - second.gx;
     });
-    for (const bookmark of ordered) list.append(createListItem(bookmark));
+    for (const bookmark of ordered) list.append(createBookmarkListItem(bookmark));
     return;
   }
 

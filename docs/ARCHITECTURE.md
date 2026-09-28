@@ -1,10 +1,10 @@
 # NewDeskTab architecture
 
 NewDeskTab is a Manifest V3 new-tab extension written in vanilla JavaScript. Its
-architecture is being migrated incrementally from technical folders
-(`core/`, `ui/`) toward explicit application, domain, feature, platform and
-shared boundaries. The legacy folders remain valid transition points: files
-move only when a tested boundary exists for them.
+architecture is migrating incrementally from technical folders toward explicit
+application, domain, feature, platform and shared boundaries. The former `ui/`
+transition directory has been retired; `core/` remains a temporary boundary and
+files move only when a tested owner exists for them.
 
 ## Direction and dependency rules
 
@@ -37,14 +37,14 @@ The intended responsibilities are:
 - `widgets/`: statically bundled grid-item types, their common persisted
   envelope and lifecycle commands. It is not a remote plugin loader.
 
-During migration, `core/` contains a mixture of domain and platform code and
-`ui/` contains shared UI plus feature UI. New dependencies should follow the
-direction above. Existing files are moved only as part of a behavior-preserving
-feature phase, not to make the tree look finished.
+During migration, `core/` contains the remaining state, defaults, theme and
+diagnostic infrastructure. New dependencies should follow the direction above.
+Existing files move only as part of a behavior-preserving feature phase, not to
+make the tree look finished.
 
 ## Current migration status
 
-Phases 1 through 17 establish the first application, domain, feature, platform
+Phases 1 through 18 establish the first application, domain, feature, platform
 and widget seams, including the first visible bundled widget:
 
 ```text
@@ -52,6 +52,7 @@ src/js/
 ├── app/
 │   ├── appController.js
 │   ├── appStateChanges.js
+│   ├── appShell.js
 │   ├── bootstrap.js
 │   └── registerGridItemTypes.js
 ├── domain/
@@ -74,9 +75,13 @@ src/js/
 │   ├── bookmarks/
 │   │   ├── bookmarkActions.js
 │   │   ├── bookmarkCard.js
+│   │   ├── bookmarkCardActions.js
 │   │   ├── bookmarkEditor.js
 │   │   ├── bookmarkEditorPanel.js
+│   │   ├── bookmarkFavicon.js
 │   │   ├── bookmarkGridItem.js
+│   │   ├── bookmarkImportExport.js
+│   │   ├── bookmarkListItem.js
 │   │   ├── bookmarkModal.js
 │   │   └── bookmarkPreview.js
 │   ├── folders/
@@ -86,10 +91,12 @@ src/js/
 │   │   ├── folderController.js
 │   │   ├── folderEditorModal.js
 │   │   ├── folderGridItem.js
+│   │   ├── folderListItem.js
 │   │   ├── folderModal.js
 │   │   └── folderVisual.js
 │   ├── grid/
 │   │   ├── gridBulkActions.js
+│   │   ├── gridItemAppearance.js
 │   │   ├── gridItemActions.js
 │   │   ├── gridItemLayout.js
 │   │   ├── gridKeyboardController.js
@@ -101,6 +108,10 @@ src/js/
 │   │   └── gridSelectors.js
 │   ├── history/
 │   │   └── historyControls.js
+│   ├── keyboard/
+│   │   └── keyboardShortcutController.js
+│   ├── launcher/
+│   │   └── floatingMenu.js
 │   ├── recycle-bin/
 │   │   ├── recycleBinActions.js
 │   │   ├── recycleBinAppearance.js
@@ -112,6 +123,7 @@ src/js/
 │   │   ├── searchBookmarks.js
 │   │   └── searchModal.js
 │   ├── settings/
+│   │   ├── backupActions.js
 │   │   ├── settingsActions.js
 │   │   ├── settingsDraft.js
 │   │   ├── settingsModal.js
@@ -154,12 +166,15 @@ src/js/
 │       ├── alertModal.js
 │       ├── flash.js
 │       ├── interfaceTheme.js
+│       ├── itemActionButton.js
+│       ├── jsonDownload.js
 │       ├── localImageUpload.js
 │       ├── lockableInput.js
 │       ├── modalManager.js
 │       ├── surfaceContrast.js
 │       ├── svgIcons.js
-│       └── tabs.js
+│       ├── tabs.js
+│       └── viewportMode.js
 └── widgets/
     ├── builtin/
     │   ├── index.js
@@ -213,15 +228,18 @@ move as a separate, tested phase.
 ## Shared UI primitives
 
 Modal stacking, alerts, flash messages, tabs, local-image inputs, lockable
-inputs, surface contrast and SVG factories live under `shared/ui`. Each is a
-proven cross-feature mechanism with no feature ownership; feature controllers
-import the primitive they use directly. The obsolete generic modal index has
-been removed, so application composition names each feature modal explicitly.
+inputs, action buttons, JSON downloads, viewport policy, surface contrast and
+SVG factories live under `shared/ui`. Each is a proven cross-feature mechanism
+with no feature ownership; feature controllers import the primitive they use
+directly. The obsolete generic modal index has been removed, so application
+composition names each feature modal explicitly.
 
-The remaining `ui/` modules coordinate the application shell, backup flows and
-bookmark-oriented presentation helpers that do not yet have a final owner.
-They remain transitional until those responsibilities have their own tested
-boundary. This move changes no HTML, CSS, persisted data or modal behavior.
+The former `ui/` directory has no compatibility re-exports. Application-shell
+effects live in `app/appShell.js`; runtime shortcuts and the add launcher are
+small feature slices; backup behavior belongs to Settings; and bookmark cards,
+favicons, compact rows and transfer controls belong to Bookmarks. Folder rows
+remain in the Folder feature because their visual and open behavior are
+folder-specific.
 
 ## Grid interaction boundary
 
@@ -300,11 +318,10 @@ actions, keyboard navigation, folder modal and Settings import that feature
 entry point directly. The generic modal index is no longer a registry for the
 bookmark editor.
 
-Reusable tabs, modal management, alerts and local-image input controllers live
-in `shared/ui`. Viewport checks remain transitional shell coordination in
-`ui/`; grid selection, drag/resize and keyboard movement belong to the Grid
-feature. Existing HTML templates, CSS, persistence and bookmark draft contracts
-are unchanged.
+Reusable tabs, modal management, alerts, local-image input controllers and
+viewport policy live in `shared/ui`; grid selection, drag/resize and keyboard
+movement belong to the Grid feature. Existing HTML templates, CSS, persistence
+and bookmark draft contracts are unchanged.
 
 ## Folder feature boundary
 
@@ -316,11 +333,12 @@ directly, and the generic modal index no longer exposes folder-specific entry
 points.
 
 The folder slice consumes the Grid feature for top-level layout, drag/resize,
-selection and keyboard behavior. Transitional bookmark-card actions and compact
-list rows remain in `ui/`, while generic modal, tab and local-image primitives
-come from `shared/ui`. Its modal also invokes the bookmark editor through the
-bookmark feature entry point. Moving these modules changes neither folder data,
-internal 6 × 3 layout, HTML templates, CSS nor keyboard behavior.
+selection and keyboard behavior. Bookmark presentation remains owned by the
+Bookmark feature, folder compact rows remain owned by Folders, and generic
+action-button, modal, tab and local-image primitives come from `shared/ui`.
+Its modal also invokes the bookmark editor through the bookmark feature entry
+point. Moving these modules changes neither folder data, internal 6 × 3 layout,
+HTML templates, CSS nor keyboard behavior.
 
 ## Workspace and history control boundaries
 
@@ -533,6 +551,9 @@ the existing contracts. Remote executable plugins remain out of scope.
 17. ✅ Centralize bundled-widget composition and let each definition initialize
     its own launcher and editor without widget-specific bootstrap imports or
     static `newtab.html` markup.
+18. ✅ Retire the transitional `ui/` directory by assigning application-shell,
+    launcher, shortcut, backup and bookmark presentation code to explicit owners
+    and extracting only proven cross-feature UI primitives.
 
 Each phase must finish with lint, unit and DOM tests, relevant E2E journeys and
 the unpacked-extension smoke/package checks.

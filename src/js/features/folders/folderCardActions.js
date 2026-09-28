@@ -1,6 +1,6 @@
 import { t } from '../../platform/i18n/i18n.js';
-import { createItemActionButton } from '../../ui/bookmark/actions.js';
-import { isVisuallyDark } from '../../ui/bookmark/utils.js';
+import { createItemActionButton } from '../../shared/ui/itemActionButton.js';
+import { isGridItemSurfaceDark } from '../grid/gridItemAppearance.js';
 import { openFolderEditor } from './folderEditorModal.js';
 
 export function addFolderActions(container, folder) {
@@ -24,7 +24,7 @@ export function addFolderActions(container, folder) {
 
 function isFolderActionSurfaceDark(folder) {
   if (folder.outerBackgroundColor) {
-    return isVisuallyDark({ backgroundColor: folder.outerBackgroundColor });
+    return isGridItemSurfaceDark({ backgroundColor: folder.outerBackgroundColor });
   }
 
   const interfaceTheme = document.documentElement.dataset.interfaceTheme;
