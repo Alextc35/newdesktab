@@ -152,7 +152,7 @@ features/
 ├── grid/           render, selección, drag, resize y teclado
 ├── history/        controles de undo y redo
 ├── keyboard/       coordinación de atajos con controles y modales
-├── launcher/       menú flotante de creación
+├── launcher/       dock lateral expandible de creación
 ├── recycle-bin/    eliminación, restauración y presentación
 ├── search/         búsqueda global y filtros locales
 ├── settings/       modal, borrador y secciones de preferencias
@@ -292,7 +292,9 @@ definitivamente. No se crea una entrada que después no pueda restaurarse.
 
 Los workspaces se almacenan actualmente dentro de `settings.bookmarkGroups` y
 el activo en `settings.activeBookmarkGroupId`. El workspace principal se
-representa con `null`.
+representa con `null`. La barra inferior muestra el workspace activo y expande
+su propia superficie hacia arriba para ofrecer la selección; el `select`
+interno queda como espejo de estado y no como interfaz flotante.
 
 Las preferencias incluyen idioma, tema, comportamiento de drag y resize,
 atajos, presets y visibilidad de la papelera.

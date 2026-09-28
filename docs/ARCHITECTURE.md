@@ -263,11 +263,15 @@ are colocated in the same boundary. The obsolete generic modal index has been
 removed, so application composition names each feature modal explicitly.
 
 The former `ui/` directory has no compatibility re-exports. Application-shell
-effects live in `app/appShell.js`; runtime shortcuts and the add launcher are
-small feature slices; backup behavior belongs to Settings; and bookmark cards,
+effects live in `app/appShell.js`; runtime shortcuts and the expandable edge
+launcher are small feature slices; backup behavior belongs to Settings; and bookmark cards,
 favicons, compact rows and transfer controls belong to Bookmarks. Folder rows
 remain in the Folder feature because their visual and open behavior are
 folder-specific.
+
+Workspace navigation is owned by `features/workspaces/workspaceToolbar.js`.
+Its bottom dock renders an integrated, expandable workspace list while keeping
+a hidden native select as a state mirror for simple compatibility and tests.
 
 ## Grid interaction boundary
 

@@ -39,6 +39,13 @@ async function revealSideDock(page) {
   await expect.poll(async () => (await visibleBox(menu)).x).toBeGreaterThanOrEqual(0);
 }
 
+async function chooseWorkspace(page, workspaceId) {
+  const toolbar = page.getByRole('navigation', { name: 'Workspace controls' });
+  await toolbar.hover();
+  await page.locator('#workspace-toggle').click();
+  await page.locator(`#workspace-options [data-workspace-id="${workspaceId}"]`).click();
+}
+
 async function openClockCreator(page) {
   await revealSideDock(page);
   await page.locator('#add-toggle').click();
@@ -577,9 +584,37 @@ test('reveals the bottom workspace dock on hover and keyboard focus', async ({ p
     .toBeLessThan(viewportHeight - 40);
 
   await page.mouse.move(0, 0);
-  await page.getByRole('combobox', { name: 'Workspace' }).focus();
+  await page.locator('#workspace-toggle').focus();
   await expect.poll(async () => (await visibleBox(toolbar)).y)
     .toBeLessThan(viewportHeight - 40);
+});
+
+test('expands the bottom dock around workspace choices and collapses on toggle', async ({ page }) => {
+  const toolbar = page.getByRole('navigation', { name: 'Workspace controls' });
+  const toggle = page.locator('#workspace-toggle');
+  const options = page.locator('#workspace-options');
+  await toolbar.hover();
+  const collapsedHeight = (await visibleBox(toolbar)).height;
+
+  await toggle.click();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  await expect(options).toHaveAttribute('aria-hidden', 'false');
+  await expect(options).toBeVisible();
+  await expect.poll(async () => (await visibleBox(toolbar)).height)
+    .toBeGreaterThan(collapsedHeight + 30);
+
+  const expandedToolbar = await visibleBox(toolbar);
+  const expandedOptions = await visibleBox(options);
+  expect(expandedOptions.x).toBeGreaterThanOrEqual(expandedToolbar.x);
+  expect(expandedOptions.x + expandedOptions.width)
+    .toBeLessThanOrEqual(expandedToolbar.x + expandedToolbar.width);
+
+  await toggle.click();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  await expect(options).toHaveAttribute('aria-hidden', 'true');
+  await expect(options).toBeHidden();
+  await expect.poll(async () => (await visibleBox(toolbar)).height)
+    .toBeCloseTo(collapsedHeight, 0);
 });
 
 test('reveals the left action dock on hover and keyboard focus', async ({ page }) => {
@@ -2203,7 +2238,7 @@ test('creates a workspace and finds bookmarks across workspaces', async ({ page 
   await page.getByRole('button', { name: 'Create workspace' }).click();
   await page.getByPlaceholder('Work, leisure…').fill('Work');
   await page.getByRole('button', { name: 'Accept' }).click();  await waitForSaved(page);
-  await expect(page.getByRole('combobox', { name: 'Workspace' })).toHaveValue(/.+/);
+  await expect(page.locator('#workspace-select')).toHaveValue(/.+/);
 
   await revealSideDock(page);
   await page.locator('#add-toggle').click();
@@ -2225,7 +2260,7 @@ test('cycles workspaces with Alt plus arrow keys and animates the grid', async (
   await page.getByPlaceholder('Work, leisure…').fill('Work');
   await page.getByRole('button', { name: 'Accept' }).click();  await waitForSaved(page);
 
-  const workspace = page.getByRole('combobox', { name: 'Workspace' });
+  const workspace = page.locator('#workspace-select');
   const workId = await workspace.inputValue();
   await page.keyboard.press('Alt+ArrowUp');
   await expect(workspace).toHaveValue('');
@@ -2265,7 +2300,7 @@ test('warns before deleting a workspace and removes its bookmarks', async ({ pag
   await page.getByRole('button', { name: 'Delete workspace' }).click();
   await page.getByRole('button', { name: 'Accept' }).click();  await waitForSaved(page);
 
-  await expect(page.getByRole('combobox', { name: 'Workspace' })).toHaveValue('');
+  await expect(page.locator('#workspace-select')).toHaveValue('');
   await expect(page.getByRole('link', { name: /Temporary bookmark/ })).toHaveCount(0);
 });
 
@@ -2805,7 +2840,7 @@ test('runs every bulk action on a mixed bookmark and folder selection', async ({
     ].join(':');
   })).toBe('work:work:work');
 
-  await page.locator('#workspace-select').selectOption('work');
+  await chooseWorkspace(page, 'work');
   await expect(bookmark).toBeVisible();
   await bookmark.click();
   await folder.click();

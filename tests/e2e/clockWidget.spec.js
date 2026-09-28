@@ -36,6 +36,40 @@ async function waitForSaved(page) {
   })).toMatch(/^(idle|saved)$/);
 }
 
+async function chooseWorkspace(page, workspaceId) {
+  const toolbar = page.getByRole('navigation', { name: 'Workspace controls' });
+  await toolbar.hover();
+  await page.locator('#workspace-toggle').click();
+  await page.locator(`#workspace-options [data-workspace-id="${workspaceId}"]`).click();
+}
+
+test('expands the edge dock around its creation actions and collapses on toggle', async ({ page }) => {
+  await revealSideDock(page);
+
+  const dock = page.locator('#floating-menu');
+  const toggle = page.locator('#add-toggle');
+  const options = page.locator('#add-options');
+  const collapsedWidth = (await dock.boundingBox()).width;
+
+  await toggle.click();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  await expect(options).toHaveAttribute('aria-hidden', 'false');
+  await expect(options).toBeVisible();
+  await expect.poll(async () => (await dock.boundingBox()).width).toBeGreaterThan(200);
+
+  const expandedDock = await dock.boundingBox();
+  const expandedOptions = await options.boundingBox();
+  expect(expandedOptions.x).toBeGreaterThanOrEqual(expandedDock.x);
+  expect(expandedOptions.x + expandedOptions.width)
+    .toBeLessThanOrEqual(expandedDock.x + expandedDock.width);
+
+  await toggle.click();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  await expect(options).toHaveAttribute('aria-hidden', 'true');
+  await expect(options).toBeHidden();
+  await expect.poll(async () => (await dock.boundingBox()).width).toBeCloseTo(collapsedWidth, 0);
+});
+
 test('returns to the widget catalog when clock creation is cancelled', async ({ page }) => {
   await openClockCreator(page);
 
@@ -155,9 +189,9 @@ test('selects, moves and permanently deletes a clock through bulk actions', asyn
   await page.getByRole('button', { name: 'Accept' }).click();
   await waitForSaved(page);
 
-  const workspaceSelect = page.getByRole('combobox', { name: 'Workspace' });
+  const workspaceSelect = page.locator('#workspace-select');
   const workId = await workspaceSelect.inputValue();
-  await workspaceSelect.selectOption('');
+  await chooseWorkspace(page, '');
   await expect(clock).toBeVisible();
 
   await revealSideDock(page);
@@ -176,7 +210,7 @@ test('selects, moves and permanently deletes a clock through bulk actions', asyn
     return getState().data.widgets[0]?.groupId;
   })).toBe(workId);
 
-  await workspaceSelect.selectOption(workId);
+  await chooseWorkspace(page, workId);
   await expect(clock).toBeVisible();
   await clock.click();
   await bulkActions.getByRole('button', { name: 'Delete', exact: true }).click();

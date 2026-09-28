@@ -5,8 +5,8 @@
   left: 50%;
   z-index: var(--z-floating-menu);
   display: flex;
-  align-items: center;
-  gap: 6px;
+  flex-direction: column;
+  align-items: stretch;
   max-width: calc(100vw - 24px);
   padding: 12px 8px 8px;
   border: 1px solid var(--ui-glass-border);
@@ -35,10 +35,17 @@
 
 #workspace-toolbar:hover,
 #workspace-toolbar:focus-within,
-#workspace-toolbar:has(#workspace-select:open) {
+#workspace-toolbar:has(#workspace-toggle[aria-expanded="true"]) {
   box-shadow: 0 -10px 32px var(--ui-control-shadow);
   transform: translate(-50%, 0);
   opacity: 1;
+}
+
+.workspace-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
 }
 
 #workspace-toolbar :is(button, select) {
@@ -63,135 +70,119 @@
   opacity: .3;
 }
 
-#workspace-select {
+#workspace-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   min-width: 96px;
   max-width: 180px;
   padding: 0 10px;
   font-size: 13px;
   font-weight: 600;
-  color-scheme: inherit;
   cursor: pointer;
-  text-overflow: ellipsis;
 }
 
-#workspace-select:hover,
-#workspace-select:open {
+#workspace-current-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspace-toggle-icon {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  color: var(--ui-menu-muted);
+  rotate: 45deg;
+  transition: rotate .18s ease;
+}
+
+#workspace-toggle:hover,
+#workspace-toggle[aria-expanded="true"] {
   background: var(--ui-glass-hover);
 }
 
-#workspace-select:focus-visible {
+#workspace-toggle[aria-expanded="true"] .workspace-toggle-icon {
+  rotate: 225deg;
+}
+
+#workspace-toggle:focus-visible {
   outline: 2px solid var(--ui-accent);
   outline-offset: 2px;
 }
 
-#workspace-select option {
-  background: var(--ui-menu);
-  color: var(--ui-menu-text);
+.workspace-options {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  visibility: hidden;
+  transition:
+    max-height .28s ease,
+    margin .28s ease,
+    padding .28s ease,
+    opacity .16s ease,
+    transform .24s ease,
+    visibility 0s linear .28s;
 }
 
-@supports (appearance: base-select) {
-  #workspace-select,
-  #workspace-select::picker(select) {
-    appearance: base-select;
-  }
+.workspace-options[hidden] {
+  display: none;
+}
 
-  #workspace-select {
-    anchor-name: --workspace-select;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    white-space: nowrap;
-  }
+#workspace-toolbar:has(#workspace-toggle[aria-expanded="true"]) .workspace-options {
+  max-height: min(280px, calc(100dvh - 96px));
+  margin-bottom: 6px;
+  padding-top: 6px;
+  overflow-y: auto;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible;
+  transition-delay: 0s, 0s, 0s, .06s, 0s, 0s;
+}
 
-  #workspace-toolbar #workspace-select > button {
-    flex: 1;
-    min-width: 0;
-    min-height: 0;
-    padding: 0;
-    background: transparent;
-    text-align: start;
-  }
+#workspace-toolbar .workspace-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  padding: 8px 10px;
+  text-align: left;
+}
 
-  #workspace-select selectedcontent {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+#workspace-toolbar .workspace-option[aria-current="true"] {
+  background: var(--ui-selected);
+  color: var(--ui-info-text);
+  font-weight: 600;
+}
 
-  #workspace-select::picker-icon {
-    content: '';
-    display: block;
-    flex-shrink: 0;
-    width: 6px;
-    height: 6px;
-    border-right: 1.5px solid currentColor;
-    border-bottom: 1.5px solid currentColor;
-    color: var(--ui-menu-muted);
-    rotate: 45deg;
-    transition: rotate .15s ease;
-  }
+.workspace-option-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-  #workspace-select:open::picker-icon {
-    rotate: 225deg;
-  }
+.workspace-option-check {
+  flex: 0 0 auto;
+  color: var(--ui-accent);
+  opacity: 0;
+}
 
-  #workspace-select::picker(select) {
-    position: fixed;
-    position-anchor: --workspace-select;
-    position-area: none;
-    inset: auto;
-    bottom: calc(anchor(top) + 20px);
-    left: clamp(12px, anchor(left), calc(100vw - 272px));
-    position-try-fallbacks: none;
-    min-width: 0;
-    width: min(260px, calc(100vw - 24px));
-    max-height: min(320px, calc(100dvh - 88px));
-    margin: 0;
-    padding: 6px;
-    border: 1px solid var(--ui-glass-border);
-    border-radius: 12px;
-    background: var(--ui-menu);
-    color: var(--ui-menu-text);
-    box-shadow: 0 12px 36px var(--ui-control-shadow);
-    scrollbar-width: thin;
-    scrollbar-color: var(--ui-menu-muted) transparent;
-  }
-
-  #workspace-select option {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-height: 38px;
-    padding: 9px 12px;
-    border-radius: 7px;
-    font-weight: 400;
-    line-height: 1.4;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    cursor: pointer;
-  }
-
-  #workspace-select option:checked {
-    background: var(--ui-selected);
-    color: var(--ui-info-text);
-    font-weight: 600;
-  }
-
-  #workspace-select option:is(:hover, :focus-visible) {
-    background: var(--ui-glass-hover);
-    outline: none;
-  }
-
-  #workspace-select option:checked:is(:hover, :focus-visible) {
-    background: var(--ui-info-hover);
-  }
-
-  #workspace-select option::checkmark {
-    order: 1;
-    margin-inline-start: auto;
-    color: var(--ui-accent);
-  }
+.workspace-option[aria-current="true"] .workspace-option-check {
+  opacity: 1;
 }
 
 .workspace-toolbar-divider {
@@ -202,7 +193,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   #workspace-toolbar,
-  #workspace-select::picker-icon {
+  .workspace-options,
+  .workspace-toggle-icon {
     transition: none;
   }
 }

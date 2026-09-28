@@ -194,7 +194,7 @@ src/features/folders/                     folder commands, cards and modal UI
 src/features/grid/                        grid rendering, layout, selection and interactions
 src/features/history/                     global undo/redo UI coordination
 src/features/keyboard/                    runtime shortcut coordination
-src/features/launcher/                    floating creation menu
+src/features/launcher/                    expandable edge creation dock
 src/features/recycle-bin/                 recycle-bin actions and UI
 src/features/search/                      global and compact-list search UI
 src/features/settings/                    settings actions, draft and modal UI

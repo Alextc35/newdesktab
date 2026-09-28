@@ -1,14 +1,19 @@
 /* Edge launcher dock and creation actions. */
 #floating-menu {
+  --launcher-collapsed-width: 58px;
+  --launcher-expanded-width: 232px;
+
   position: fixed;
   top: 50%;
   left: 0;
   z-index: var(--z-floating-menu);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 58px;
+  width: var(--launcher-collapsed-width);
   padding: 12px 8px;
+  overflow: hidden;
   border: 1px solid var(--ui-glass-border);
   border-left: 0;
   border-radius: 0 16px 16px 0;
@@ -17,8 +22,8 @@
   backdrop-filter: blur(12px);
   opacity: .78;
   transform: translate(-48px, -50%);
-  transition: transform .28s ease, opacity .2s ease, box-shadow .2s ease;
-  will-change: transform;
+  transition: width .28s ease, transform .28s ease, opacity .2s ease, box-shadow .2s ease;
+  will-change: width, transform;
 
   &::after {
     content: '';
@@ -38,6 +43,10 @@
     box-shadow: 12px 0 34px var(--ui-control-shadow);
     opacity: 1;
     transform: translate(0, -50%);
+  }
+
+  &:has(#add-toggle[aria-expanded="true"]) {
+    width: var(--launcher-expanded-width);
   }
 }
 
@@ -97,25 +106,41 @@
 
 .floating-add {
   position: relative;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
 }
 
 #add-options {
   position: absolute;
   top: 50%;
-  left: calc(100% + 18px);
+  left: calc(100% + 10px);
   display: grid;
   gap: 4px;
   width: 164px;
-  padding: 6px;
-  border: 1px solid var(--ui-glass-border);
-  border-radius: 14px;
-  background: var(--ui-menu);
-  box-shadow: 0 12px 36px var(--ui-control-shadow);
-  transform: translateY(-50%);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-10px, -50%);
+  visibility: hidden;
+  transition:
+    opacity .16s ease,
+    transform .24s ease,
+    visibility 0s linear .28s;
 }
 
 #add-options[hidden] {
   display: none;
+}
+
+#floating-menu:has(#add-toggle[aria-expanded="true"]) #add-options {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(0, -50%);
+  visibility: visible;
+  transition-delay: .06s, 0s, 0s;
 }
 
 #floating-menu #add-options button {
@@ -162,7 +187,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   #floating-menu,
-  #floating-menu button {
+  #floating-menu button,
+  #add-options {
     transition: none;
   }
 }

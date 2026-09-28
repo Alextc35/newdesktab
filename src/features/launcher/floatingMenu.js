@@ -6,12 +6,20 @@ export function initFloatingMenu() {
   const options = document.getElementById('add-options');
   const buttons = [...options.querySelectorAll('button')];
 
-  function setOpen(open) {
-    options.hidden = !open;
-    toggle.setAttribute('aria-expanded', String(open));
+  options.hidden = false;
+
+  function isOpen() {
+    return toggle.getAttribute('aria-expanded') === 'true';
   }
 
-  toggle.addEventListener('click', () => setOpen(options.hidden));
+  function setOpen(open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    options.toggleAttribute('inert', !open);
+    options.setAttribute('aria-hidden', String(!open));
+  }
+
+  setOpen(false);
+  toggle.addEventListener('click', () => setOpen(!isOpen()));
 
   // Restore focus before the existing action opens its dialog, so closing the
   // dialog returns to the visible + button instead of a hidden option.
@@ -24,7 +32,7 @@ export function initFloatingMenu() {
   container.addEventListener('keydown', event => {
     if (hasOpenModal()) return;
     event.stopPropagation();
-    if (event.key === 'Escape' && !options.hidden) {
+    if (event.key === 'Escape' && isOpen()) {
       event.preventDefault();
       toggle.focus();
       setOpen(false);

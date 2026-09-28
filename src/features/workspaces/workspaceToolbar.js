@@ -26,23 +26,65 @@ let isSwitchingWorkspace = false;
 
 export function initWorkspaceToolbar() {
   const container = document.getElementById('bookmark-container');
+  const toolbar = document.getElementById('workspace-toolbar');
   const select = document.getElementById('workspace-select');
-  const selectButton = select.querySelector('button');
+  const toggle = document.getElementById('workspace-toggle');
+  const currentName = document.getElementById('workspace-current-name');
+  const options = document.getElementById('workspace-options');
   const addButton = document.getElementById('workspace-add');
   const deleteButton = document.getElementById('workspace-delete');
 
-  // Keep Space and type-ahead in the picker from triggering page shortcuts.
-  select.addEventListener('keydown', event => event.stopPropagation());
+  options.hidden = false;
+  setWorkspaceOptionsOpen(false);
+
+  toggle.addEventListener('click', () => {
+    setWorkspaceOptionsOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  toggle.addEventListener('keydown', event => {
+    if (!['ArrowDown', 'ArrowUp'].includes(event.key)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setWorkspaceOptionsOpen(true);
+    const buttons = getWorkspaceOptionButtons();
+    const activeIndex = buttons.findIndex(button => button.getAttribute('aria-current') === 'true');
+    const fallbackIndex = event.key === 'ArrowDown' ? 0 : buttons.length - 1;
+    buttons[activeIndex < 0 ? fallbackIndex : activeIndex]?.focus();
+  });
+  options.addEventListener('click', event => {
+    const button = event.target.closest('[data-workspace-id]');
+    if (!button) return;
+    const targetId = button.dataset.workspaceId || null;
+    setWorkspaceOptionsOpen(false);
+    toggle.focus();
+    void switchToWorkspace(targetId);
+  });
+  options.addEventListener('keydown', event => {
+    const buttons = getWorkspaceOptionButtons();
+    const index = buttons.indexOf(document.activeElement);
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      event.stopPropagation();
+      setWorkspaceOptionsOpen(false);
+      toggle.focus();
+      return;
+    }
+    if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const nextIndex = event.key === 'Home'
+      ? 0
+      : event.key === 'End'
+        ? buttons.length - 1
+        : (index + (event.key === 'ArrowDown' ? 1 : -1) + buttons.length) % buttons.length;
+    buttons[nextIndex]?.focus();
+  });
+
   select.addEventListener('change', async () => {
-    const targetId = select.value || null;
-    const { data } = getState();
-    const ids = getWorkspaceIds(data);
-    const direction = ids.indexOf(targetId) < ids.indexOf(getActiveWorkspaceId(data))
-      ? -1
-      : 1;
-    await switchWorkspace(container, targetId, direction);
+    setWorkspaceOptionsOpen(false);
+    await switchToWorkspace(select.value || null);
   });
   addButton.addEventListener('click', async () => {
+    setWorkspaceOptionsOpen(false);
     const name = await showPrompt(t('workspace.prompt'), {
       placeholder: t('workspace.namePlaceholder')
     });
@@ -51,6 +93,7 @@ export function initWorkspaceToolbar() {
     }
   });
   deleteButton.addEventListener('click', async () => {
+    setWorkspaceOptionsOpen(false);
     if (!select.value) return;
     const { data } = getState();
     const workspace = getWorkspaceById(data, select.value);
@@ -72,12 +115,53 @@ export function initWorkspaceToolbar() {
   subscribe(state => {
     const workspaces = getWorkspaces(state.data);
     const selected = getActiveWorkspaceId(state.data) ?? '';
-    select.replaceChildren(...(selectButton ? [selectButton] : []), new Option(t('workspace.main'), ''));
+    const workspaceChoices = [
+      { id: '', name: t('workspace.main') },
+      ...workspaces.map(workspace => ({ id: workspace.id, name: workspace.name }))
+    ];
+    select.replaceChildren(new Option(t('workspace.main'), ''));
     for (const workspace of workspaces) select.add(new Option(workspace.name, workspace.id));
     select.value = selected;
     select.title = select.selectedOptions[0]?.textContent ?? '';
+    currentName.textContent = select.title;
+    toggle.title = select.title;
+    options.replaceChildren(...workspaceChoices.map(choice => createWorkspaceOption(
+      choice,
+      choice.id === selected
+    )));
     deleteButton.disabled = !selected;
   });
+
+  toolbar.addEventListener('click', event => {
+    const button = event.target.closest('button');
+    if (!button || button === toggle || button.closest('#workspace-options')) return;
+    setWorkspaceOptionsOpen(false);
+  }, true);
+  document.addEventListener('pointerdown', event => {
+    if (!toolbar.contains(event.target)) setWorkspaceOptionsOpen(false);
+  });
+  document.addEventListener('focusin', event => {
+    if (!toolbar.contains(event.target)) setWorkspaceOptionsOpen(false);
+  });
+
+  function setWorkspaceOptionsOpen(open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    options.toggleAttribute('inert', !open);
+    options.setAttribute('aria-hidden', String(!open));
+  }
+
+  function getWorkspaceOptionButtons() {
+    return [...options.querySelectorAll('[data-workspace-id]')];
+  }
+
+  async function switchToWorkspace(targetId) {
+    const { data } = getState();
+    const ids = getWorkspaceIds(data);
+    const direction = ids.indexOf(targetId) < ids.indexOf(getActiveWorkspaceId(data))
+      ? -1
+      : 1;
+    await switchWorkspace(container, targetId, direction);
+  }
 
   document.addEventListener('keydown', event => {
     if (!event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
@@ -92,6 +176,27 @@ export function initWorkspaceToolbar() {
     event.preventDefault();
     void switchWorkspace(container, targetId, direction);
   });
+}
+
+function createWorkspaceOption({ id, name }, active) {
+  const item = document.createElement('div');
+  item.setAttribute('role', 'listitem');
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.dataset.workspaceId = id;
+  button.className = 'workspace-option';
+  button.setAttribute('aria-current', String(active));
+
+  const label = document.createElement('span');
+  label.className = 'workspace-option-name';
+  label.textContent = name;
+  const check = document.createElement('span');
+  check.className = 'workspace-option-check';
+  check.setAttribute('aria-hidden', 'true');
+  check.textContent = '✓';
+  button.append(label, check);
+  item.append(button);
+  return item;
 }
 
 /**
