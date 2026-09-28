@@ -1,7 +1,7 @@
 import { debug } from '../core/debug.js';
 import { changeLanguage } from '../platform/i18n/i18n.js';
 import { applyInterfaceTheme } from '../shared/ui/interfaceTheme.js';
-import { applyGlobalTheme } from '../core/theme.js';
+import { applyPageTheme } from '../shared/ui/pageTheme.js';
 import { enableGridEditing, renderGrid } from '../features/grid/gridRenderer.js';
 import { clearGridItemSelection } from '../features/grid/gridSelection.js';
 import { preloadLocalImages } from '../platform/images/localImages.js';
@@ -20,7 +20,7 @@ export function createAppController({ container }) {
   return Object.freeze({
     handleStateChange(state, previousState) {
       if (!previousState) {
-        applyGlobalTheme(state.data.settings);
+        applyPageTheme(state.data.settings);
         updateAppShellEditing(state.ui.isEditing);
         const trace = debug.start('Initial grid render');
         renderGrid(container);
@@ -60,14 +60,14 @@ function renderChangedGrid(container, state, settingsChanged) {
   });
   void preloadLocalImages(state.data).then(() => {
     trace.mark('Resolve local images');
-    if (settingsChanged) applyGlobalTheme(state.data.settings);
+    if (settingsChanged) applyPageTheme(state.data.settings);
     renderGrid(container);
     trace.mark('Build grid DOM');
     trace.end();
   }).catch(error => {
     trace.end({ status: 'error', error: error.message });
     console.error('[LOCAL_IMAGE] Could not load local image:', error);
-    if (settingsChanged) applyGlobalTheme(state.data.settings);
+    if (settingsChanged) applyPageTheme(state.data.settings);
     renderGrid(container);
   });
 }

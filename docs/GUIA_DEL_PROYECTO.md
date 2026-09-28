@@ -200,8 +200,11 @@ No es un sistema de plugins remotos.
 
 ### `core/`: zona de transición restante
 
-`core/` conserva la infraestructura central histórica: store, defaults, tema,
-diagnósticos y modos de interacción. La antigua carpeta `ui/` ya no existe: el
+`core/` conserva únicamente la infraestructura histórica todavía aplazada:
+store, composición de defaults y diagnóstico. Los modos persistidos de
+interacción ya pertenecen a `domain/settings`, los metadatos del manifest a
+`platform/browser` y el efecto visual del fondo a `shared/ui`. La antigua
+carpeta `ui/` ya no existe: el
 shell pertenece a `app`, la presentación de cada dominio a su feature y solo
 las primitivas demostrablemente reutilizables viven en `shared/ui`.
 
@@ -680,11 +683,13 @@ Evitar los siguientes patrones:
 ## 17. Estado actual y siguiente evolución
 
 La separación de dominio, features, plataforma, UI compartida y grid ya está
-establecida, el reloj valida el contrato de widgets de extremo a extremo y la
-carpeta transitoria `ui/` ha sido retirada. Las principales zonas pendientes son:
+establecida, el reloj valida el contrato de widgets de extremo a extremo, la
+carpeta transitoria `ui/` ha sido retirada y `core/` se ha reducido a cuatro
+módulos explícitamente aplazados. Las principales zonas pendientes son:
 
-1. Dividir responsabilidades restantes de `core/` cuando exista una frontera
-   probada para cada una.
+1. Extraer la composición de defaults y la observabilidad de `core/`; dividir el
+   store solo cuando sus límites de estado, historial y persistencia estén
+   protegidos por separado.
 2. Mejorar la recuperación de conflictos entre dispositivos.
 3. Versionar entradas de papelera para widgets si deben poder restaurarse.
 

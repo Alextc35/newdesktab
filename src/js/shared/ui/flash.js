@@ -1,6 +1,6 @@
-import { MAX_FLASHES } from '../../core/config.js'
 import { t } from '../../platform/i18n/i18n.js';
 
+const MAX_FLASHES = 3;
 const flashContainer = document.getElementById('flash-container');
 
 /**

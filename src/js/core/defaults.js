@@ -1,6 +1,8 @@
 import '../types/types.js'; // typedefs
-import { BOOKMARK_DRAG_MODES } from './bookmarkDragModes.js';
-import { BOOKMARK_RESIZE_MODES } from './bookmarkResizeModes.js';
+import {
+  BOOKMARK_DRAG_MODES,
+  BOOKMARK_RESIZE_MODES
+} from '../domain/settings/gridInteractionModes.js';
 import { DEFAULT_KEYBOARD_SHORTCUTS } from '../shared/keyboard/keyboardShortcuts.js';
 import {
   DEFAULT_BOOKMARK,

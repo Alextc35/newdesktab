@@ -9,8 +9,10 @@ import {
   normalizeBookmark,
   normalizeBookmarkPreset
 } from '../../domain/bookmarks/bookmarkModel.js';
-import { normalizeBookmarkDragMode } from '../../core/bookmarkDragModes.js';
-import { normalizeBookmarkResizeMode } from '../../core/bookmarkResizeModes.js';
+import {
+  normalizeBookmarkDragMode,
+  normalizeBookmarkResizeMode
+} from '../../domain/settings/gridInteractionModes.js';
 import { normalizeKeyboardShortcuts } from '../../shared/keyboard/keyboardShortcuts.js';
 import { normalizeFolderStyle } from '../../domain/folders/folderModel.js';
 import { normalizeBackgroundImage } from '../../shared/images/backgroundImage.js';

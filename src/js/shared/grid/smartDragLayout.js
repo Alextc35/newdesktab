@@ -2,7 +2,7 @@ import { isAreaFree } from './gridPlacement.js';
 import {
   BOOKMARK_DRAG_MODES,
   normalizeBookmarkDragMode
-} from '../../core/bookmarkDragModes.js';
+} from '../../domain/settings/gridInteractionModes.js';
 
 /**
  * Builds a reversible grid layout for one drag position.

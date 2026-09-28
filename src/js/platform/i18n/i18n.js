@@ -1,5 +1,5 @@
 import '../../types/types.js'; // typedefs
-import { VERSION } from '../../core/config.js';
+import { VERSION } from '../browser/extensionMetadata.js';
 import { loadTranslations } from '../../lang/index.js';
 import {
   normalizeLanguagePreference,

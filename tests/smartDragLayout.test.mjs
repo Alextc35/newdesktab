@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { BOOKMARK_DRAG_MODES } from '../src/js/core/bookmarkDragModes.js';
+import { BOOKMARK_DRAG_MODES } from '../src/js/domain/settings/gridInteractionModes.js';
 import {
   calculateKeyboardMoveLayout,
   calculateSmartDragLayout

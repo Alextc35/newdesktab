@@ -128,7 +128,7 @@ grid items.
 
 ## Debug console
 
-`DEBUG` in `src/js/core/config.js` defaults to `false`. Open the DevTools console
+The default in `src/js/core/debug.js` is disabled. Open the DevTools console
 of a NewDeskTab tab and run `NewDeskTabDebug.toggle()` to enable live diagnostics
 without reloading. Run it again to disable them. Filter by `[NewDeskTab Debug]`
 to find the output. Startup prints a short activation hint. Enabling Debug lists
@@ -185,7 +185,7 @@ src/js/app/registerGridItemTypes.js       bundled grid-item composition
 src/js/domain/bookmarks/                  bookmark model and defaults
 src/js/domain/folders/                    folder model and internal layout
 src/js/domain/recycle-bin/                pure trash and restoration rules
-src/js/domain/settings/                   portable preference normalization
+src/js/domain/settings/                   portable preferences and grid-interaction modes
 src/js/domain/workspaces/workspaceModel.js workspace identity and navigation
 
 src/js/features/bookmarks/                  bookmark commands, cards and editor UI
@@ -199,9 +199,8 @@ src/js/features/search/                      global and compact-list search UI
 src/js/features/settings/                    settings actions, draft and modal UI
 src/js/features/workspaces/                  workspace actions, selectors and toolbar
 
-src/js/core/bookmarkDragModes.js   drag-mode constants and normalization
 src/js/core/store.js               state, persistence status and undo/redo
-src/js/platform/browser/           tested browser capability detection
+src/js/platform/browser/           browser capabilities and extension metadata
 src/js/platform/images/            local image cache and browser processing
 src/js/platform/i18n/              locale resolution and translation runtime
 src/js/platform/storage/           schema, Chrome persistence and device data

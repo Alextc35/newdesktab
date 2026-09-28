@@ -1,4 +1,4 @@
-import { VERSION } from './config.js';
+import { VERSION } from '../platform/browser/extensionMetadata.js';
 import { debug, formatDebugTime } from './debug.js';
 import { getSyncBrowserSupport } from '../platform/browser/browserCapabilities.js';
 import { resolveImageSource } from '../platform/images/localImages.js';

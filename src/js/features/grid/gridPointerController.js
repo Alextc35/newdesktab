@@ -12,7 +12,7 @@ import { getState } from '../../core/store.js';
 import {
   BOOKMARK_RESIZE_MODES,
   normalizeBookmarkResizeMode
-} from '../../core/bookmarkResizeModes.js';
+} from '../../domain/settings/gridInteractionModes.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { toggleGridItemSelection } from './gridSelection.js';
 import {

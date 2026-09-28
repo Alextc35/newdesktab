@@ -1,5 +1,4 @@
-import { DEBUG } from './config.js';
-
+const DEFAULT_DEBUG_ENABLED = false;
 const PREFIX = '[NewDeskTab Debug]';
 const NO_TRACE = Object.freeze({ id: null, mark() {}, end() {} });
 const COLORS = { info: '#1d4ed8', success: '#166534', error: '#b91c1c', muted: '#475569' };
@@ -124,7 +123,7 @@ function round(value) {
   return Math.round(Math.max(0, value) * 100) / 100;
 }
 
-export const debug = createDebugger({ enabled: DEBUG });
+export const debug = createDebugger({ enabled: DEFAULT_DEBUG_ENABLED });
 
 /** Describes unlabelled changes without retaining bookmark contents or images. */
 export function describeStateChange(partial, previous) {

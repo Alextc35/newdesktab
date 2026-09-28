@@ -37,14 +37,14 @@ The intended responsibilities are:
 - `widgets/`: statically bundled grid-item types, their common persisted
   envelope and lifecycle commands. It is not a remote plugin loader.
 
-During migration, `core/` contains the remaining state, defaults, theme and
-diagnostic infrastructure. New dependencies should follow the direction above.
+During migration, `core/` contains only the remaining state, composed defaults
+and diagnostic infrastructure. New dependencies should follow the direction above.
 Existing files move only as part of a behavior-preserving feature phase, not to
 make the tree look finished.
 
 ## Current migration status
 
-Phases 1 through 18 establish the first application, domain, feature, platform
+Phases 1 through 19 establish the first application, domain, feature, platform
 and widget seams, including the first visible bundled widget:
 
 ```text
@@ -55,6 +55,11 @@ src/js/
 │   ├── appShell.js
 │   ├── bootstrap.js
 │   └── registerGridItemTypes.js
+├── core/
+│   ├── debug.js
+│   ├── defaults.js
+│   ├── diagnostics.js
+│   └── store.js
 ├── domain/
 │   ├── bookmarks/
 │   │   ├── bookmarkDefaults.js
@@ -68,6 +73,7 @@ src/js/
 │   │   ├── recycleBinEntries.js
 │   │   └── recycleBinModel.js
 │   ├── settings/
+│   │   ├── gridInteractionModes.js
 │   │   └── interfacePreferences.js
 │   └── workspaces/
 │       └── workspaceModel.js
@@ -134,7 +140,8 @@ src/js/
 │       └── workspaceToolbar.js
 ├── platform/
 │   ├── browser/
-│   │   └── browserCapabilities.js
+│   │   ├── browserCapabilities.js
+│   │   └── extensionMetadata.js
 │   ├── images/
 │   │   └── localImages.js
 │   ├── i18n/
@@ -171,6 +178,7 @@ src/js/
 │       ├── localImageUpload.js
 │       ├── lockableInput.js
 │       ├── modalManager.js
+│       ├── pageTheme.js
 │       ├── surfaceContrast.js
 │       ├── svgIcons.js
 │       ├── tabs.js
@@ -212,12 +220,13 @@ field names for UI and other feature consumers.
 
 ## Platform and shared runtime boundaries
 
-Browser-brand detection and the translation runtime live under `platform/`
-because they read browser capabilities, Chrome runtime URLs, device locale and
-translation assets. Portable preference normalization remains deterministic in
-`domain/settings`, while `shared/ui/interfaceTheme.js` owns the small DOM
-effect that applies the normalized interface theme. The bootstrap injects the
-hydrated settings into i18n, so the platform service does not read the store.
+Browser-brand detection, manifest metadata and the translation runtime live
+under `platform/` because they read browser capabilities, Chrome runtime APIs,
+device locale and translation assets. Portable preference normalization remains
+deterministic in `domain/settings`, while `shared/ui/interfaceTheme.js` and
+`shared/ui/pageTheme.js` own the DOM effects that apply interface colors and the
+configured page background. The bootstrap injects the hydrated settings into
+i18n, so the platform service does not read the store.
 
 Keyboard shortcut parsing and spatial grid routing are pure cross-feature
 mechanisms under `shared/keyboard` and `shared/grid`. Their consumers import
@@ -554,6 +563,10 @@ the existing contracts. Remote executable plugins remain out of scope.
 18. ✅ Retire the transitional `ui/` directory by assigning application-shell,
     launcher, shortcut, backup and bookmark presentation code to explicit owners
     and extracting only proven cross-feature UI primitives.
+19. ✅ Begin retiring transitional `core/`: move persisted grid-interaction
+    contracts to `domain/settings`, manifest metadata to `platform/browser` and
+    page-theme effects to `shared/ui`; keep only state, composed defaults and
+    diagnostics deferred there.
 
 Each phase must finish with lint, unit and DOM tests, relevant E2E journeys and
 the unpacked-extension smoke/package checks.
@@ -603,8 +616,8 @@ implement store-backed application commands. Batch operations make one store
 transition, so undo treats them as a single user action. Workspace UI reads the
 legacy persisted fields only through `workspaceSelectors.js`.
 
-`src/js/core/bookmarkDragModes.js` owns the persisted drag-mode contract and
-normalizes missing or unknown values to None.
+`src/js/domain/settings/gridInteractionModes.js` owns the persisted drag and
+resize contracts and normalizes missing or unknown values to safe defaults.
 `src/js/platform/browser/browserCapabilities.js` keeps browser detection out of
 Settings and only enables synchronized storage for tested, branded Google
 Chrome environments.

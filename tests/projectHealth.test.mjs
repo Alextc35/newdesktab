@@ -54,6 +54,13 @@ test('the transitional ui directory has no remaining source modules', () => {
   assert.equal(existsSync('src/js/ui'), false);
 });
 
+test('transitional core contains only explicitly deferred modules', () => {
+  assert.deepEqual(
+    readdirSync('src/js/core').sort(),
+    ['debug.js', 'defaults.js', 'diagnostics.js', 'store.js']
+  );
+});
+
 test('source modules resolve relative imports and do not contain static cycles', () => {
   const sourceRoot = resolve('src/js');
   const files = listJavaScriptFiles(sourceRoot);

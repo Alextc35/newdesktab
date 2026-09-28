@@ -1,5 +1,7 @@
-import { normalizeBookmarkDragMode } from '../../core/bookmarkDragModes.js';
-import { normalizeBookmarkResizeMode } from '../../core/bookmarkResizeModes.js';
+import {
+  normalizeBookmarkDragMode,
+  normalizeBookmarkResizeMode
+} from '../../domain/settings/gridInteractionModes.js';
 import { normalizeInterfaceTheme } from '../../domain/settings/interfacePreferences.js';
 import { normalizeKeyboardShortcuts } from '../../shared/keyboard/keyboardShortcuts.js';
 import { getState } from '../../core/store.js';
