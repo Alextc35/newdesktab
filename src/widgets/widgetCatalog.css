@@ -1,0 +1,126 @@
+/* Generic picker for statically bundled widgets. */
+.widget-catalog-card {
+  display: flex;
+  width: min(560px, calc(100vw - 32px));
+  max-height: min(620px, calc(100vh - 32px));
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.widget-catalog-header h2 {
+  margin-bottom: 7px;
+}
+
+.widget-catalog-header p {
+  margin: 0 0 20px;
+  color: var(--ui-muted);
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.widget-catalog-list {
+  display: grid;
+  gap: 10px;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.widget-catalog-item {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  gap: 14px;
+  width: 100%;
+  min-height: 84px;
+  padding: 14px;
+  align-items: center;
+  border: 1px solid var(--ui-border);
+  border-radius: 14px;
+  background: var(--ui-input);
+  color: var(--ui-text);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: border-color .16s ease, background-color .16s ease, transform .16s ease;
+}
+
+.widget-catalog-item:hover {
+  border-color: var(--ui-accent);
+  background: var(--ui-hover);
+  transform: translateY(-1px);
+}
+
+.widget-catalog-item:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 2px;
+}
+
+.widget-catalog-icon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid light-dark(rgba(37, 99, 235, .2), rgba(125, 211, 252, .2));
+  border-radius: 13px;
+  background:
+    radial-gradient(circle at 22% 16%, rgba(125, 211, 252, .28), transparent 42%),
+    linear-gradient(145deg, light-dark(#eef5ff, #14233a), light-dark(#dce8fb, #09111f));
+  color: light-dark(#15243d, #f5f9ff);
+  font-size: 1.85rem;
+}
+
+.widget-catalog-copy {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.widget-catalog-copy strong {
+  font-size: .96rem;
+}
+
+.widget-catalog-copy span {
+  color: var(--ui-muted);
+  font-size: .8rem;
+  line-height: 1.4;
+}
+
+.widget-catalog-arrow {
+  color: var(--ui-muted);
+  font-size: 1.7rem;
+}
+
+.widget-catalog-empty {
+  margin: 0;
+  padding: 28px 16px;
+  border: 1px dashed var(--ui-border);
+  border-radius: 14px;
+  color: var(--ui-muted);
+  text-align: center;
+}
+
+.widget-catalog-actions {
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .widget-catalog-card {
+    padding: 18px;
+  }
+
+  .widget-catalog-item {
+    grid-template-columns: 46px minmax(0, 1fr) auto;
+    padding: 12px;
+  }
+
+  .widget-catalog-icon {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .widget-catalog-item {
+    transition: none;
+  }
+}

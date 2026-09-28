@@ -30,24 +30,34 @@ test('all interface languages expose the same translation contract', () => {
         : [path];
     }
   ).sort();
-  const contracts = languages.map(language => flattenKeys(JSON.parse(
+  const dictionaries = languages.map(language => JSON.parse(
     readFileSync(`src/lang/${language}.json`, 'utf8')
-  )));
+  ));
+  const contracts = dictionaries.map(dictionary => flattenKeys(dictionary));
 
   assert.ok(contracts[0].includes('folder.actions.deleteBookmark'));
   for (const contract of contracts.slice(1)) {
     assert.deepEqual(contract, contracts[0]);
   }
+  assert.deepEqual(dictionaries.map(dictionary => dictionary.launcher.bookmark), [
+    'Bookmark', 'Favoritos', 'Marcadores', 'Favorito'
+  ]);
+  assert.deepEqual(dictionaries.map(dictionary => dictionary.launcher.folder), [
+    'Folder', 'Carpeta', 'Carpeta', 'Pasta'
+  ]);
 });
 
 test('bundled widget surfaces stay behind the catalog lifecycle', () => {
   const bootstrap = readFileSync('src/app/bootstrap.js', 'utf8');
   const newTab = readFileSync('src/newtab.html', 'utf8');
-  const catalog = readFileSync('src/widgets/builtin/index.js', 'utf8');
+  const bundledCatalog = readFileSync('src/widgets/builtin/index.js', 'utf8');
+  const widgetCatalog = readFileSync('src/widgets/widgetCatalog.js', 'utf8');
 
   assert.doesNotMatch(bootstrap, /widgets\/builtin|clock/i);
   assert.doesNotMatch(newTab, /id="(?:add-clock|clock-widget-modal)"/);
-  assert.match(catalog, /clockWidget/);
+  assert.match(newTab, /id="add-widgets"/);
+  assert.doesNotMatch(widgetCatalog, /clock/i);
+  assert.match(bundledCatalog, /clockWidget/);
 });
 
 test('the transitional ui directory has no remaining source modules', () => {

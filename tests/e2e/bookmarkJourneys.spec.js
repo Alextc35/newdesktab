@@ -39,6 +39,14 @@ async function revealSideDock(page) {
   await expect.poll(async () => (await visibleBox(menu)).x).toBeGreaterThanOrEqual(0);
 }
 
+async function openClockCreator(page) {
+  await revealSideDock(page);
+  await page.locator('#add-toggle').click();
+  await page.locator('#add-widgets').click();
+  await page.locator('#widget-catalog-modal [data-widget-type="clock"]').click();
+  await expect(page.locator('#clock-widget-modal')).toBeVisible();
+}
+
 async function enableEditMode(page) {
   await revealSideDock(page);
   await page.getByRole('button', { name: '✎' }).click();
@@ -2821,9 +2829,7 @@ test('opens every grid item editor with middle click without opening tabs', asyn
   await page.getByRole('button', { name: 'Add', exact: true }).click();
   await waitForSaved(page);
 
-  await revealSideDock(page);
-  await page.locator('#add-toggle').click();
-  await page.locator('#add-clock').click();
+  await openClockCreator(page);
   await page.locator('#clock-widget-save').click();
 
   await enableEditMode(page);

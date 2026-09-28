@@ -2,6 +2,16 @@
   "html": {
     "title": "Nueva pestaña"
   },
+  "launcher": {
+    "bookmark": "Marcadores",
+    "folder": "Carpeta",
+    "widgets": "Widgets"
+  },
+  "widgets": {
+    "title": "Widgets",
+    "description": "Elige un widget para agregarlo a este espacio de trabajo.",
+    "empty": "Todavía no hay widgets disponibles."
+  },
   "flash": {
     "viewport": {
       "tooNarrow": "Amplía la ventana para usar esta función.",
@@ -161,7 +171,6 @@
   },
   "clock": {
     "name": "Reloj",
-    "add": "Reloj",
     "createTitle": "Agregar reloj",
     "editTitle": "Configuración del reloj",
     "description": "Muestra tu hora local en este espacio de trabajo.",

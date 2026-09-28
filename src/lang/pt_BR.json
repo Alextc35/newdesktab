@@ -2,6 +2,16 @@
   "html": {
     "title": "Nova guia"
   },
+  "launcher": {
+    "bookmark": "Favorito",
+    "folder": "Pasta",
+    "widgets": "Widgets"
+  },
+  "widgets": {
+    "title": "Widgets",
+    "description": "Escolha um widget para adicionar a este espaço de trabalho.",
+    "empty": "Ainda não há widgets disponíveis."
+  },
   "flash": {
     "viewport": {
       "tooNarrow": "Amplie a janela para usar esta função.",
@@ -161,7 +171,6 @@
   },
   "clock": {
     "name": "Relógio",
-    "add": "Relógio",
     "createTitle": "Adicionar relógio",
     "editTitle": "Configurações do relógio",
     "description": "Mostre sua hora local neste espaço de trabalho.",

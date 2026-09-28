@@ -200,6 +200,9 @@ src/
     │       ├── clockView.js
     │       └── index.js
     ├── widgetActions.js
+    ├── widgetCatalog.css
+    ├── widgetCatalog.js
+    ├── widgetCatalogView.js
     ├── widgetModel.js
     └── widgetRegistry.js
 ```
@@ -504,10 +507,13 @@ attributes. Widget adapters are selectable by default and share the `widget`
 selection kind, so the generic bulk layer can move every widget between
 workspaces without interpreting its configuration. A definition supplies a
 stable `type`, `render()` and any optional editing or interaction capabilities
-it needs. It may also expose `initialize({ launcher, modalHost })` to mount its
-own creation control and editor exactly once. Registration and initialization
-are synchronous local-module composition and are compatible with Manifest V3
-CSP; no code is downloaded or evaluated.
+it needs. A creatable definition also supplies catalog metadata and
+`create({ onCancel })`; the generic widget catalog turns those fields into its
+picker UI and provides the return navigation when creation is abandoned. It may expose
+`initialize({ modalHost })` to mount widget-owned support surfaces, such as an
+editor, exactly once. Registration and initialization are synchronous
+local-module composition and are compatible with Manifest V3 CSP; no code is
+downloaded or evaluated.
 
 The current recycle-bin schema stores bookmarks and complete folders only.
 Dropping a widget on the bin, deleting it from a bulk selection or using the
@@ -529,9 +535,11 @@ widgets/builtin/clock/
 
 `widgets/builtin/index.js` is the single catalog of included implementations.
 Application composition registers that catalog and initializes the generic
-widget lifecycle; it does not import the clock. The clock creates its launcher
-button and settings modal from its own view module, so adding another bundled
-widget requires no widget-specific bootstrap code or static page markup.
+widget lifecycle; it does not import the clock. `widgets/widgetCatalog.js`
+renders every creatable registry definition behind the single static “Widgets”
+launcher entry. The clock owns only its settings modal and creation command, so
+adding another bundled widget requires no widget-specific bootstrap code,
+launcher button or static modal markup.
 Creation, configuration updates and removal use `widgetActions`; the clock opts
 into the shared drag/resize controller with `kind: 'widget'`. Its visible time
 is transient DOM state aligned to the next second or minute and never produces
@@ -578,8 +586,8 @@ the existing contracts. Remote executable plugins remain out of scope.
     and seconds controls, compact-list rendering, drag/resize, persistence,
     keyboard actions and undoable removal.
 17. ✅ Centralize bundled-widget composition and let each definition initialize
-    its own launcher and editor without widget-specific bootstrap imports or
-    static `newtab.html` markup.
+    its own editor without widget-specific bootstrap imports or static modal
+    markup.
 18. ✅ Retire the transitional `ui/` directory by assigning application-shell,
     launcher, shortcut, backup and bookmark presentation code to explicit owners
     and extracting only proven cross-feature UI primitives.

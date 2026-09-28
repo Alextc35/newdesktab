@@ -1,18 +1,6 @@
-/** Builds the clock launcher and settings modal owned by the bundled widget. */
+/** Builds the clock settings modal owned by the bundled widget. */
 export function createClockSettingsView(translate = key => key) {
   const translated = (tagName, key) => translatedElement(tagName, key, translate);
-  const launcherButton = document.createElement('button');
-  launcherButton.id = 'add-clock';
-  launcherButton.type = 'button';
-
-  const launcherIcon = document.createElement('span');
-  launcherIcon.className = 'add-option-symbol';
-  launcherIcon.setAttribute('aria-hidden', 'true');
-  launcherIcon.textContent = '◷';
-
-  const launcherLabel = translated('span', 'clock.add');
-  launcherButton.append(launcherIcon, launcherLabel);
-
   const modal = document.createElement('div');
   modal.id = 'clock-widget-modal';
   modal.className = 'modal';
@@ -84,7 +72,6 @@ export function createClockSettingsView(translate = key => key) {
   modal.append(overlay, card);
 
   return {
-    launcherButton,
     modal,
     modalTitle,
     hourCycleSelect,

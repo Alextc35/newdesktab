@@ -2,6 +2,16 @@
   "html": {
     "title": "New tab"
   },
+  "launcher": {
+    "bookmark": "Bookmark",
+    "folder": "Folder",
+    "widgets": "Widgets"
+  },
+  "widgets": {
+    "title": "Widgets",
+    "description": "Choose a widget to add to this workspace.",
+    "empty": "No widgets are available yet."
+  },
   "flash": {
     "viewport": {
       "tooNarrow": "Widen the window to use this feature.",
@@ -161,7 +171,6 @@
   },
   "clock": {
     "name": "Clock",
-    "add": "Clock",
     "createTitle": "Add clock",
     "editTitle": "Clock settings",
     "description": "Show your local time on this workspace.",

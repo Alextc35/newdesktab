@@ -15,6 +15,20 @@ async function revealSideDock(page) {
     .toBeGreaterThanOrEqual(0);
 }
 
+async function openClockCreator(page) {
+  await revealSideDock(page);
+  await page.locator('#add-toggle').click();
+  await expect(page.locator('#add-bookmark')).toContainText('Bookmark');
+  await expect(page.locator('#add-folder')).toContainText('Folder');
+  await expect(page.locator('#add-widgets')).toContainText('Widgets');
+  await page.locator('#add-widgets').click();
+  const catalog = page.locator('#widget-catalog-modal');
+  await expect(catalog).toBeVisible();
+  await expect(catalog.getByRole('heading', { name: 'Widgets' })).toBeVisible();
+  await catalog.locator('[data-widget-type="clock"]').click();
+  await expect(catalog).toBeHidden();
+}
+
 async function waitForSaved(page) {
   await expect.poll(() => page.evaluate(async () => {
     const { getState } = await import('/src/state/appStore.js');
@@ -22,10 +36,29 @@ async function waitForSaved(page) {
   })).toMatch(/^(idle|saved)$/);
 }
 
+test('returns to the widget catalog when clock creation is cancelled', async ({ page }) => {
+  await openClockCreator(page);
+
+  const clockModal = page.locator('#clock-widget-modal');
+  const catalog = page.locator('#widget-catalog-modal');
+  await page.locator('#clock-widget-show-seconds').check();
+  await page.locator('#clock-widget-cancel').click();
+  await expect(page.locator('#alert-modal')).toBeVisible();
+  await expect(catalog).toBeHidden();
+
+  await page.locator('#alert-modal-cancel').click();
+  await expect(clockModal).toBeVisible();
+  await expect(catalog).toBeHidden();
+
+  await page.locator('#clock-widget-cancel').click();
+  await page.locator('#alert-modal-accept').click();
+  await expect(clockModal).toBeHidden();
+  await expect(catalog).toBeVisible();
+  await expect(page.locator('.clock-widget[data-widget-type="clock"]')).toHaveCount(0);
+});
+
 test('creates, configures, resizes, persists and removes the bundled clock', async ({ page }) => {
-  await revealSideDock(page);
-  await page.locator('#add-toggle').click();
-  await page.locator('#add-clock').click();
+  await openClockCreator(page);
 
   const modal = page.locator('#clock-widget-modal');
   await expect(modal).toBeVisible();
@@ -110,9 +143,7 @@ test('creates, configures, resizes, persists and removes the bundled clock', asy
 });
 
 test('selects, moves and permanently deletes a clock through bulk actions', async ({ page }) => {
-  await revealSideDock(page);
-  await page.locator('#add-toggle').click();
-  await page.locator('#add-clock').click();
+  await openClockCreator(page);
   await page.locator('#clock-widget-save').click();
   const clock = page.locator('.clock-widget[data-widget-type="clock"]');
   await expect(clock).toBeVisible();
@@ -162,9 +193,7 @@ test('selects, moves and permanently deletes a clock through bulk actions', asyn
 });
 
 test('asks before permanently deleting a clock dropped on the recycle bin', async ({ page }) => {
-  await revealSideDock(page);
-  await page.locator('#add-toggle').click();
-  await page.locator('#add-clock').click();
+  await openClockCreator(page);
   await page.locator('#clock-widget-save').click();
 
   const clock = page.locator('.clock-widget[data-widget-type="clock"]');
@@ -218,9 +247,7 @@ test('asks before permanently deleting a clock dropped on the recycle bin', asyn
 });
 
 test('treats keyboard deletion of a widget as permanent', async ({ page }) => {
-  await revealSideDock(page);
-  await page.locator('#add-toggle').click();
-  await page.locator('#add-clock').click();
+  await openClockCreator(page);
   await page.locator('#clock-widget-save').click();
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
@@ -248,9 +275,7 @@ test('treats keyboard deletion of a widget as permanent', async ({ page }) => {
 });
 
 test('renders the clock as an accessible row in compact view', async ({ page }) => {
-  await revealSideDock(page);
-  await page.locator('#add-toggle').click();
-  await page.locator('#add-clock').click();
+  await openClockCreator(page);
   await page.locator('#clock-widget-save').click();
 
   await page.setViewportSize({ width: 600, height: 700 });

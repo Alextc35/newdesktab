@@ -194,6 +194,8 @@ No es un sistema de plugins remotos.
 
 - `widgetModel.js`: formato persistido y normalización.
 - `widgetRegistry.js`: validación, inicialización y adaptación al protocolo del grid.
+- `widgetCatalog.js`: catálogo visual genérico para crear widgets registrados.
+- `widgetCatalogView.js`: estructura DOM pura del selector de widgets.
 - `widgetActions.js`: alta, actualización y eliminación de instancias.
 - `builtin/index.js`: catálogo único de widgets incluidos en esta build.
 - `builtin/clock/`: primer widget visible, con modelo, vista y configuración.
@@ -587,12 +589,15 @@ Un widget incluido debe seguir este proceso:
 2. Definir un `type` kebab-case estable.
 3. Implementar `render()`.
 4. Añadir hooks opcionales de edición o interacción.
-5. Si tiene editor, implementar `initialize({ launcher, modalHost })` para que
-   el propio widget monte su botón y su superficie de configuración.
-6. Añadir la definición al catálogo `widgets/builtin/index.js`.
-7. Crear instancias mediante `addWidget()`.
-8. Añadir normalización versionada de su `config` si la necesita.
-9. Cubrir modelo, registry, acciones, DOM y recorrido visible con tests.
+5. Para hacerlo creable, declarar `catalog: { nameKey, descriptionKey, icon }`
+   e implementar `create({ onCancel })`; el selector genérico construye la
+   tarjeta y aporta el regreso al catálogo si se abandona la creación.
+6. Si tiene editor, implementar `initialize({ modalHost })` para montar solo su
+   superficie de configuración.
+7. Añadir la definición al catálogo `widgets/builtin/index.js`.
+8. Crear instancias mediante `addWidget()`.
+9. Añadir normalización versionada de su `config` si la necesita.
+10. Cubrir modelo, registry, acciones, DOM y recorrido visible con tests.
 
 El widget no debe modificar `gridRenderer` ni
 `gridKeyboardController`, añadir imports propios a `bootstrap.js` ni insertar

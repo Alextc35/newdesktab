@@ -25,6 +25,7 @@
 @import '../features/grid/compactView.css';
 @import '../features/recycle-bin/recycleBin.css';
 @import '../widgets/builtin/clock/clock.css';
+@import '../widgets/widgetCatalog.css';
 
 @import './utilities/disabled.css';
 @import './utilities/hidden.css';

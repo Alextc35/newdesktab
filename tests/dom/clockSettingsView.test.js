@@ -9,15 +9,10 @@ beforeEach(() => {
 });
 
 describe('clock settings view', () => {
-  test('builds its launcher and complete modal without static page markup', () => {
+  test('builds its complete modal without static page markup', () => {
     const view = createClockSettingsView();
-    const launcher = document.createElement('div');
-    launcher.id = 'add-options';
-    launcher.append(view.launcherButton);
-    document.body.append(launcher, view.modal);
+    document.body.append(view.modal);
 
-    expect(document.getElementById('add-clock')).toBe(view.launcherButton);
-    expect(view.launcherButton.querySelector('[data-i18n="clock.add"]')).not.toBeNull();
     expect(document.getElementById('clock-widget-modal')).toBe(view.modal);
     expect(view.modalTitle.dataset.i18n).toBe('clock.createTitle');
     expect(view.hourCycleSelect.options).toHaveLength(2);

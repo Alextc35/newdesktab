@@ -28,11 +28,12 @@ let preview;
 let deleteButton;
 let saveButton;
 let stopPreviewTicker = null;
+let createCancelHandler = null;
 
-export function initClockSettings({ launcher, modalHost } = {}) {
+export function initClockSettings({ modalHost } = {}) {
   if (initialized) return;
-  if (!launcher || !modalHost) {
-    throw new Error('Clock widget requires launcher and modal hosts.');
+  if (!modalHost) {
+    throw new Error('Clock widget requires a modal host.');
   }
   initialized = true;
 
@@ -46,7 +47,6 @@ export function initClockSettings({ launcher, modalHost } = {}) {
     deleteButton,
     saveButton
   } = view);
-  launcher.append(view.launcherButton);
   modalHost.append(modal);
 
   hourCycleSelect.addEventListener('change', renderPreview);
@@ -54,8 +54,6 @@ export function initClockSettings({ launcher, modalHost } = {}) {
   view.cancelButton.addEventListener('click', handleCancel);
   deleteButton.addEventListener('click', handleDelete);
   saveButton.addEventListener('click', handleSave);
-  view.launcherButton.addEventListener('click', openCreateClock);
-
   registerModal({
     id: MODAL_ID,
     element: modal,
@@ -65,9 +63,10 @@ export function initClockSettings({ launcher, modalHost } = {}) {
   });
 }
 
-export function openCreateClock() {
+export function openCreateClock({ onCancel } = {}) {
   mode = 'create';
   activeWidgetId = null;
+  createCancelHandler = typeof onCancel === 'function' ? onCancel : null;
   initialConfig = structuredClone(DEFAULT_CLOCK_CONFIG);
   populateForm(initialConfig);
   modalTitle.textContent = t('clock.createTitle');
@@ -84,6 +83,7 @@ export function openClockEditor(widgetId) {
 
   mode = 'edit';
   activeWidgetId = widgetId;
+  createCancelHandler = null;
   initialConfig = normalizeClockConfig(widget.config);
   populateForm(initialConfig);
   modalTitle.textContent = t('clock.editTitle');
@@ -186,8 +186,10 @@ async function handleCancel() {
     });
     if (!confirmed) return;
   }
+  const onCreateCancel = mode === 'create' ? createCancelHandler : null;
   closeModal(MODAL_ID);
   resetEditor();
+  onCreateCancel?.();
 }
 
 function syncControls(disabled) {
@@ -204,5 +206,6 @@ function resetEditor() {
   mode = null;
   activeWidgetId = null;
   initialConfig = null;
+  createCancelHandler = null;
   syncControls(false);
 }

@@ -36,6 +36,11 @@ export function createWidgetRegistry(itemRegistry = gridItemRegistry) {
       return [...definitions.keys()];
     },
 
+    /** Returns the registered widgets that expose a user-facing creation flow. */
+    catalog() {
+      return [...definitions.values()].filter(widget => widget.catalog && widget.create);
+    },
+
     /** Initializes each registered widget's optional application surface once. */
     initialize(context = {}) {
       const initialized = [];
@@ -57,7 +62,7 @@ export function registerWidget(definition) {
   return widgetRegistry.register(definition);
 }
 
-/** Mounts creation controls and editors owned by all registered widgets. */
+/** Initializes the application surfaces owned by all registered widgets. */
 export function initializeWidgets(context) {
   return widgetRegistry.initialize(context);
 }
@@ -77,6 +82,7 @@ function validateDefinition(definition) {
   }
   for (const key of [
     'initialize',
+    'create',
     'enableEditing',
     'open',
     'edit',
@@ -94,8 +100,25 @@ function validateDefinition(definition) {
     }
   }
 
+  let catalog = null;
+  if (definition.catalog !== undefined) {
+    if (!definition.catalog || typeof definition.catalog !== 'object') {
+      throw new TypeError('Widget catalog metadata must be an object.');
+    }
+    for (const key of ['nameKey', 'descriptionKey', 'icon']) {
+      if (typeof definition.catalog[key] !== 'string' || !definition.catalog[key].trim()) {
+        throw new TypeError(`Widget catalog ${key} must be a non-empty string.`);
+      }
+    }
+    if (typeof definition.create !== 'function') {
+      throw new TypeError('Catalog widgets require create().');
+    }
+    catalog = Object.freeze({ ...definition.catalog });
+  }
+
   return Object.freeze({
     ...definition,
+    catalog,
     order: Object.freeze({
       grid: Number.isFinite(definition.order?.grid) ? definition.order.grid : 40,
       list: Number.isFinite(definition.order?.list) ? definition.order.list : 40

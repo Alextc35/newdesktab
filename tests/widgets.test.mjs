@@ -183,6 +183,42 @@ test('initializes registered widget surfaces once and in catalog order', () => {
   );
 });
 
+test('catalog exposes only widgets with validated creation metadata', () => {
+  const widgets = createWidgetRegistry(createGridItemRegistry());
+  const create = () => {};
+  const clock = widgets.register({
+    type: 'clock',
+    render: () => ({ dataset: {} }),
+    create,
+    catalog: {
+      nameKey: 'clock.name',
+      descriptionKey: 'clock.description',
+      icon: '◷'
+    }
+  });
+  widgets.register({ type: 'internal-status', render: () => ({ dataset: {} }) });
+
+  assert.deepEqual(widgets.catalog(), [clock]);
+  assert.equal(Object.isFrozen(clock.catalog), true);
+  assert.throws(
+    () => widgets.register({
+      type: 'weather',
+      render: () => ({ dataset: {} }),
+      catalog: { nameKey: 'weather.name', descriptionKey: 'weather.description', icon: '☀' }
+    }),
+    /require create/
+  );
+  assert.throws(
+    () => widgets.register({
+      type: 'notes',
+      render: () => ({ dataset: {} }),
+      create,
+      catalog: { nameKey: '', descriptionKey: 'notes.description', icon: 'N' }
+    }),
+    /nameKey must be a non-empty string/
+  );
+});
+
 test('persisted widgets reserve cells in their workspace', () => {
   const main = { id: 'main', type: 'clock', groupId: null };
   const work = { id: 'work', type: 'notes', groupId: 'work' };

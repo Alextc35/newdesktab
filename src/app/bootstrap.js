@@ -33,6 +33,7 @@ import { initFloatingMenu } from '../features/launcher/floatingMenu.js';
 import { initKeyboardShortcuts } from '../features/keyboard/keyboardShortcutController.js';
 import { initAppShell } from './appShell.js';
 import { initializeWidgets } from '../widgets/widgetRegistry.js';
+import { initWidgetCatalog } from '../widgets/widgetCatalog.js';
 import { createAppController } from './appController.js';
 import { registerGridItemTypes } from './registerGridItemTypes.js';
 
@@ -107,7 +108,10 @@ function getApplicationElements() {
 function initializeUserInterface({ container, gridOverlay, toggleButton }) {
   initAppShell({ container, gridOverlay, toggleButton });
   initializeWidgets({
-    launcher: document.getElementById('add-options'),
+    modalHost: document.body
+  });
+  initWidgetCatalog({
+    launcherButton: document.getElementById('add-widgets'),
     modalHost: document.body
   });
   initFloatingMenu();
