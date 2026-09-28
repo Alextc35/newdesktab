@@ -1,5 +1,5 @@
 import { debug } from '../../shared/diagnostics/debug.js';
-import { getState } from '../../core/store.js';
+import { getState } from '../../state/appStore.js';
 import {
   createBookmarksEnvelope,
   parseBookmarksPayload

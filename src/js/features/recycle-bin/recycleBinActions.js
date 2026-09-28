@@ -1,6 +1,6 @@
 import '../../types/types.js';
 import { DEFAULT_RECYCLE_BIN } from '../../domain/recycle-bin/recycleBinDefaults.js';
-import { clearBookmarkHistory, getState, setState } from '../../core/store.js';
+import { clearBookmarkHistory, getState, setState } from '../../state/appStore.js';
 import { normalizeRecycleBinStyle } from '../../domain/recycle-bin/recycleBinModel.js';
 import {
   createBookmarkTrashEntry,

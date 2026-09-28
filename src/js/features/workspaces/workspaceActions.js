@@ -4,7 +4,7 @@ import {
   resolveWorkspaceId
 } from '../../domain/workspaces/workspaceModel.js';
 import { findFirstFreeSlot } from '../../shared/grid/gridPlacement.js';
-import { clearBookmarkHistory, getState, setState } from '../../core/store.js';
+import { clearBookmarkHistory, getState, setState } from '../../state/appStore.js';
 import { getGridItemsInGroup } from '../grid/gridSelectors.js';
 import { moveWorkspaceToRecycleBin } from '../recycle-bin/recycleBinActions.js';
 import { getActiveWorkspaceId, getWorkspaces } from './workspaceSelectors.js';

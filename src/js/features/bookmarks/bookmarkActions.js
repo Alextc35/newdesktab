@@ -1,6 +1,6 @@
 import '../../types/types.js'; // typedefs
 import { debug } from '../../shared/diagnostics/debug.js';
-import { getState, setState } from '../../core/store.js';
+import { getState, setState } from '../../state/appStore.js';
 import {
   applyBookmarkPreset,
   createBookmarkDraft,

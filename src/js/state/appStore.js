@@ -6,6 +6,8 @@ import { mergeChanges } from '../shared/data/mergeChanges.js';
 import { clearLocalImages } from '../platform/images/localImages.js';
 import { clearDeviceImageSelections } from '../platform/storage/deviceImageSelections.js';
 import { clearDeviceTrash } from '../platform/storage/deviceTrashStorage.js';
+import { createGridHistory, hasGridDataChange } from './gridHistory.js';
+import { describeStateChange } from './stateChangeDescription.js';
 
 /**
  * Global application state.
@@ -32,11 +34,7 @@ let unsubscribeFromStorage = null;
 /** @type {Promise<void>} */
 let persistenceQueue = Promise.resolve();
 
-const HISTORY_LIMIT = 50;
-/** @type {Array<Pick<DataState, 'bookmarks'|'folders'|'widgets'|'recycleBin'|'trash'>>} */
-const undoStack = [];
-/** @type {Array<Pick<DataState, 'bookmarks'|'folders'|'widgets'|'recycleBin'|'trash'>>} */
-const redoStack = [];
+const gridHistory = createGridHistory();
 
 /**
  * List of subscribed listeners executed on every state change.
@@ -72,33 +70,10 @@ export async function setState(partial, { recordHistory = true, debugTrace } = {
   let persistenceError = null;
   let persisted = false;
   let persistenceMode = storage.getMode();
-  const gridDataWillChange = (
-    partial.data?.bookmarks !== undefined
-    && partial.data.bookmarks !== state.data.bookmarks
-  ) || (
-    partial.data?.folders !== undefined
-    && partial.data.folders !== state.data.folders
-  ) || (
-    partial.data?.widgets !== undefined
-    && partial.data.widgets !== state.data.widgets
-  ) || (
-    partial.data?.recycleBin !== undefined
-    && partial.data.recycleBin !== state.data.recycleBin
-  ) || (
-    partial.data?.trash !== undefined
-    && partial.data.trash !== state.data.trash
-  );
+  const gridDataWillChange = hasGridDataChange(partial.data, state.data);
 
   if (!isHydrating && recordHistory && gridDataWillChange) {
-    undoStack.push(structuredClone({
-      bookmarks: state.data.bookmarks,
-      folders: state.data.folders,
-      widgets: state.data.widgets,
-      recycleBin: state.data.recycleBin,
-      trash: state.data.trash
-    }));
-    if (undoStack.length > HISTORY_LIMIT) undoStack.shift();
-    redoStack.length = 0;
+    gridHistory.record(state.data);
   }
 
   state = {
@@ -109,10 +84,7 @@ export async function setState(partial, { recordHistory = true, debugTrace } = {
     ui: {
       ...state.ui,
       ...(partial.ui || {}),
-      history: {
-        canUndo: undoStack.length > 0,
-        canRedo: redoStack.length > 0
-      }
+      history: gridHistory.getStatus()
     }
   };
 
@@ -198,41 +170,25 @@ export async function setState(partial, { recordHistory = true, debugTrace } = {
  * @returns {Promise<boolean>}
  */
 export async function undoBookmarks() {
-  const previous = undoStack.pop();
-  if (!previous) return false;
+  const transition = gridHistory.takeUndo(state.data);
+  if (!transition) return false;
 
-  redoStack.push(structuredClone({
-    bookmarks: state.data.bookmarks,
-    folders: state.data.folders,
-    widgets: state.data.widgets,
-    recycleBin: state.data.recycleBin,
-    trash: state.data.trash
-  }));
-  await setState({ data: previous }, { recordHistory: false, debugTrace: debug.start('Undo') });
+  await setState({ data: transition.data }, { recordHistory: false, debugTrace: debug.start('Undo') });
   return true;
 }
 
 /** @returns {Promise<boolean>} */
 export async function redoBookmarks() {
-  const next = redoStack.pop();
-  if (!next) return false;
+  const transition = gridHistory.takeRedo(state.data);
+  if (!transition) return false;
 
-  undoStack.push(structuredClone({
-    bookmarks: state.data.bookmarks,
-    folders: state.data.folders,
-    widgets: state.data.widgets,
-    recycleBin: state.data.recycleBin,
-    trash: state.data.trash
-  }));
-  await setState({ data: next }, { recordHistory: false, debugTrace: debug.start('Redo') });
+  await setState({ data: transition.data }, { recordHistory: false, debugTrace: debug.start('Redo') });
   return true;
 }
 
 /** Clears transient undo history after hydration or a full data replacement. */
 export function clearBookmarkHistory() {
-  undoStack.length = 0;
-  redoStack.length = 0;
-  state.ui.history = { canUndo: false, canRedo: false };
+  state.ui.history = gridHistory.clear();
 }
 
 /**
@@ -550,26 +506,4 @@ function createDefaultState() {
       }
     }
   };
-}
-
-/** Describes store changes without retaining bookmark contents or images. */
-function describeStateChange(partial, previous) {
-  const data = partial.data;
-  if (!data) return 'Update UI state';
-  const groups = data.settings?.bookmarkGroups;
-  if (groups && groups.length !== previous.settings.bookmarkGroups.length) {
-    return groups.length > previous.settings.bookmarkGroups.length
-      ? 'Create workspace' : 'Delete workspace';
-  }
-  if (data.folders && data.folders.length !== previous.folders.length) {
-    return data.folders.length > previous.folders.length ? 'Create folder' : 'Delete folder';
-  }
-  if (data.bookmarks && data.bookmarks.length !== previous.bookmarks.length) {
-    return data.bookmarks.length > previous.bookmarks.length ? 'Add bookmarks' : 'Delete bookmarks';
-  }
-  if (data.settings) {
-    return data.settings.activeBookmarkGroupId !== previous.settings.activeBookmarkGroupId
-      ? 'Switch workspace' : 'Save settings';
-  }
-  return data.folders ? 'Update folders / grid' : 'Update bookmarks / grid';
 }

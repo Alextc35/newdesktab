@@ -200,7 +200,9 @@ src/js/features/search/                      global and compact-list search UI
 src/js/features/settings/                    settings actions, draft and modal UI
 src/js/features/workspaces/                  workspace actions, selectors and toolbar
 
-src/js/core/store.js               state, persistence status and undo/redo
+src/js/state/appStore.js           live state, subscriptions and persistence queue
+src/js/state/gridHistory.js        bounded grid undo/redo snapshots
+src/js/state/stateChangeDescription.js safe diagnostic change labels
 src/js/platform/browser/           browser capabilities and extension metadata
 src/js/platform/images/            local image cache and browser processing
 src/js/platform/i18n/              locale resolution and translation runtime

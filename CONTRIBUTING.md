@@ -16,7 +16,10 @@ For browser journeys, install Chromium once with
 ## Design boundaries
 
 * Keep persistence and the global store out of reusable UI components.
-* Put bookmark and folder normalization, validation and migrations in `src/js/core`.
+* Put bookmark and folder normalization and validation in their modules under
+  `src/js/domain`; keep persisted-data migrations under `src/js/platform/storage`.
+* Keep `src/js/state` limited to live state, transient history and persistence
+  orchestration; feature and domain rules do not belong there.
 * Treat imported and synchronized data as untrusted until it crosses
   `migratePersistedData()`.
 * Use `BookmarkPreset` for appearance only. Never add identity, grid or timestamp

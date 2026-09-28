@@ -3,8 +3,8 @@
 NewDeskTab is a Manifest V3 new-tab extension written in vanilla JavaScript. Its
 architecture is migrating incrementally from technical folders toward explicit
 application, domain, feature, platform and shared boundaries. The former `ui/`
-transition directory has been retired; `core/` remains a temporary boundary and
-files move only when a tested owner exists for them.
+and `core/` transition directories have been retired; every remaining module has
+an explicit tested owner.
 
 ## Direction and dependency rules
 
@@ -34,18 +34,18 @@ The intended responsibilities are:
   images and i18n loading. Domain code must not import it.
 - `shared/`: proven cross-feature mechanisms. It must stay small; feature rules
   do not move here merely because several files call them.
+- `state/`: live application state, transient history and persistence
+  orchestration. Domain rules and browser storage implementations stay outside.
 - `widgets/`: statically bundled grid-item types, their common persisted
   envelope and lifecycle commands. It is not a remote plugin loader.
 
-During migration, `core/` contains only the remaining live store. New
-dependencies should follow the direction above.
-Existing files move only as part of a behavior-preserving feature phase, not to
-make the tree look finished.
+New dependencies follow the direction above. Existing files move only as part
+of a behavior-preserving feature phase, not to make the tree look finished.
 
 ## Current migration status
 
-Phases 1 through 21 establish the first application, domain, feature, platform
-and widget seams, including the first visible bundled widget:
+Phases 1 through 22 establish the first application, domain, feature, platform,
+state and widget seams, including the first visible bundled widget:
 
 ```text
 src/js/
@@ -56,8 +56,6 @@ src/js/
 │   ├── appShell.js
 │   ├── bootstrap.js
 │   └── registerGridItemTypes.js
-├── core/
-│   └── store.js
 ├── domain/
 │   ├── bookmarks/
 │   │   ├── bookmarkDefaults.js
@@ -76,6 +74,10 @@ src/js/
 │   │   └── settingsDefaults.js
 │   └── workspaces/
 │       └── workspaceModel.js
+├── state/
+│   ├── appStore.js
+│   ├── gridHistory.js
+│   └── stateChangeDescription.js
 ├── features/
 │   ├── bookmarks/
 │   │   ├── bookmarkActions.js
@@ -234,15 +236,15 @@ i18n, so the platform service does not read the store.
 
 Keyboard shortcut parsing and spatial grid routing are pure cross-feature
 mechanisms under `shared/keyboard` and `shared/grid`. Their consumers import
-those modules directly; no compatibility re-export remains in `core/`.
-`core/store.js` deliberately stays in place until its remaining consumers can
-move as a separate, tested phase.
+those modules directly; no compatibility re-export or transitional directory
+remains.
 
 The bounded console tracer lives in `shared/diagnostics` and has no knowledge
 of application state. `app/applicationDiagnostics.js` composes it with the
 store, browser capabilities, image cache and startup lifecycle to expose
-`NewDeskTabDebug`. Store-change labels remain private to the store until that
-module is split, preventing a shared primitive from depending on domain shapes.
+`NewDeskTabDebug`. State-specific labels are classified by
+`state/stateChangeDescription.js`, keeping the reusable tracer independent from
+application data shapes.
 
 ## Shared UI primitives
 
@@ -407,11 +409,11 @@ card without importing the grid orchestrator.
 ```text
 recycle-bin UI / grid adapter
              ↓
-features/recycle-bin/recycleBinActions.js → core/store.js
+features/recycle-bin/recycleBinActions.js → state/appStore.js
              ↓
 domain/recycle-bin/recycleBinEntries.js
 
-core/store.js
+state/appStore.js
      ↓
 platform/storage/storageFacade.js
      ↓
@@ -441,7 +443,9 @@ Chrome-specific persistence is now behind a platform boundary:
 ```text
 UI / feature commands
         ↓
-core/store.js (live state, subscriptions, history, persistence queue)
+state/appStore.js (live state, subscriptions and persistence queue)
+        ↓
+state/gridHistory.js (bounded transient undo/redo snapshots)
         ↓
 platform/storage/storageFacade.js (mode, quotas, compatibility, events)
         ├── platform/storage/dataSchema.js (migration and envelopes)
@@ -583,6 +587,9 @@ the existing contracts. Remote executable plugins remain out of scope.
 21. ✅ Retire the defaults aggregator: keep entity and settings defaults in
     their domains, compose isolated persisted values at the storage boundary and
     leave `store.js` as the only transitional `core/` module.
+22. ✅ Retire transitional `core/`: move the live orchestrator to
+    `state/appStore.js`, extract tested grid history and diagnostic change
+    classification, and update every consumer without a compatibility re-export.
 
 Each phase must finish with lint, unit and DOM tests, relevant E2E journeys and
 the unpacked-extension smoke/package checks.
@@ -597,12 +604,12 @@ Reusable UI components and renderers
         ↓
 Feature actions and selectors
         ↓
-Domain models + core/store.js
+Domain models + state/appStore.js
         ↓
 Browser persistence
 ```
 
-## Domain and transitional core
+## Domain and application state
 
 `src/js/domain/bookmarks/bookmarkModel.js` owns bookmark drafts, presets,
 normalization and validation. `src/js/domain/folders/folderModel.js` owns the
@@ -638,10 +645,12 @@ resize contracts and normalizes missing or unknown values to safe defaults.
 Settings and only enables synchronized storage for tested, branded Google
 Chrome environments.
 
-`src/js/core/store.js` owns live state, the persistence queue and grid-content
-undo/redo history. A history snapshot contains bookmarks and folders together.
-Synchronization settings are deliberately excluded from undo, preventing a
-shortcut from changing where data is stored.
+`src/js/state/appStore.js` owns live state, subscriptions and the persistence
+queue. `src/js/state/gridHistory.js` owns bounded grid-content undo/redo
+snapshots, while `stateChangeDescription.js` classifies diagnostic labels. A
+history snapshot contains bookmarks, folders, widgets, recycle-bin appearance
+and trash together. Synchronization settings are deliberately excluded from
+undo, preventing a shortcut from changing where data is stored.
 
 ## Folder invariants
 
@@ -770,8 +779,8 @@ Legacy raw bookmark arrays remain importable without folders.
 
 ## UI coordination
 
-Modal controllers translate user actions into feature or transitional core
-commands. Recycle-bin modals now call their colocated feature actions. The
+Modal controllers translate user actions into feature or application-state
+commands. Recycle-bin modals call their colocated feature actions. The
 modal manager owns stacking, focus trapping, background isolation and focus
 restoration.
 

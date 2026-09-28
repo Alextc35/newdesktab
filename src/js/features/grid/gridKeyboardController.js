@@ -1,4 +1,4 @@
-import { getState, toggleEditing } from '../../core/store.js';
+import { getState, toggleEditing } from '../../state/appStore.js';
 import {
   findGridKeyboardRoute,
   getGridItemNavigationAnchor

@@ -2,7 +2,7 @@ import {
   createBackupEnvelope,
   parseBackupPayload
 } from '../../platform/storage/dataSchema.js';
-import { getState, setState } from '../../core/store.js';
+import { getState, setState } from '../../state/appStore.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { downloadJson } from '../../shared/ui/jsonDownload.js';
 import { ensureRecycleBinPosition } from '../recycle-bin/recycleBinActions.js';

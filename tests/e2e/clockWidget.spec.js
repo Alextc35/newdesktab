@@ -17,7 +17,7 @@ async function revealSideDock(page) {
 
 async function waitForSaved(page) {
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().ui.persistence.status;
   })).toMatch(/^(idle|saved)$/);
 }
@@ -50,7 +50,7 @@ test('creates, configures, resizes, persists and removes the bundled clock', asy
 
   await clock.locator('.resizer.right').click({ modifiers: ['Shift'] });
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().data.widgets[0]?.w;
   })).toBe(1);
   await expect(clock).toHaveClass(/is-single-cell/);
@@ -75,7 +75,7 @@ test('creates, configures, resizes, persists and removes the bundled clock', asy
   await clock.locator('.resizer.right').click();
   await clock.locator('.resizer.right').click();
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().data.widgets[0]?.w;
   })).toBe(3);
 
@@ -85,7 +85,7 @@ test('creates, configures, resizes, persists and removes the bundled clock', asy
   await expect(clock).toBeVisible();
   await expect(clock.locator('.clock-widget-time')).toHaveText(/^\d{2}:\d{2}:\d{2}\s?[AP]M$/i);
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     const widget = getState().data.widgets[0];
     return { w: widget?.w, config: widget?.config };
   })).toEqual({
@@ -141,7 +141,7 @@ test('selects, moves and permanently deletes a clock through bulk actions', asyn
   await page.locator('#bulk-workspace-select').selectOption(workId);
   await expect(clock).toHaveCount(0);
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().data.widgets[0]?.groupId;
   })).toBe(workId);
 
@@ -155,7 +155,7 @@ test('selects, moves and permanently deletes a clock through bulk actions', asyn
   await page.locator('#alert-modal-accept').click();
   await expect(clock).toHaveCount(0);
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     const { widgets, trash } = getState().data;
     return `${widgets.length}:${trash.length}`;
   })).toBe('0:0');
@@ -211,7 +211,7 @@ test('asks before permanently deleting a clock dropped on the recycle bin', asyn
   await page.locator('#alert-modal-accept').click();
   await expect(clock).toHaveCount(0);
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     const { widgets, trash } = getState().data;
     return `${widgets.length}:${trash.length}`;
   })).toBe('0:0');
@@ -223,7 +223,7 @@ test('treats keyboard deletion of a widget as permanent', async ({ page }) => {
   await page.locator('#add-clock').click();
   await page.locator('#clock-widget-save').click();
   await page.evaluate(async () => {
-    const { getState, setState } = await import('/src/js/core/store.js');
+    const { getState, setState } = await import('/src/js/state/appStore.js');
     await setState({
       data: {
         bookmarks: [],

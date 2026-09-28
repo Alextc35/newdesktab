@@ -33,7 +33,7 @@ globalThis.chrome = {
 };
 
 const { duplicateBookmarksByIds } = await import('../src/js/features/bookmarks/bookmarkActions.js');
-const { getState, hydrateStore, setState } = await import('../src/js/core/store.js');
+const { getState, hydrateStore, setState } = await import('../src/js/state/appStore.js');
 
 test('bulk duplication reserves free slots and reports bookmarks that do not fit', async () => {
   await hydrateStore();

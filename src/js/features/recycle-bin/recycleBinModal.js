@@ -1,4 +1,4 @@
-import { getState, subscribe } from '../../core/store.js';
+import { getState, subscribe } from '../../state/appStore.js';
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
 import {
   emptyRecycleBin,

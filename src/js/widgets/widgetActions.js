@@ -1,4 +1,4 @@
-import { clearBookmarkHistory, getState, setState } from '../core/store.js';
+import { clearBookmarkHistory, getState, setState } from '../state/appStore.js';
 import { findFirstFreeSlot } from '../shared/grid/gridPlacement.js';
 import { getGridItemsInGroup } from '../features/grid/gridSelectors.js';
 import { getActiveWorkspaceId } from '../features/workspaces/workspaceSelectors.js';

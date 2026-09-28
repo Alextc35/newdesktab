@@ -15,7 +15,7 @@ let pages;
 async function seedBookmarks(page) {
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK } = await import('./js/domain/bookmarks/bookmarkDefaults.js');
-    const { setState } = await import('./js/core/store.js');
+    const { setState } = await import('./js/state/appStore.js');
     await setState({
       data: {
         bookmarks: [
@@ -67,7 +67,7 @@ test.beforeEach(async () => {
     await expect(page.locator('#bookmark-container .bookmark')).toHaveCount(2);
     await page.evaluate(async () => {
       window.commands = await import('./js/features/bookmarks/bookmarkActions.js');
-      window.store = await import('./js/core/store.js');
+      window.store = await import('./js/state/appStore.js');
       window.folders = await import('./js/features/folders/folderActions.js');
     });
   }

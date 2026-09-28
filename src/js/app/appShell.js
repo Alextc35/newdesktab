@@ -1,5 +1,5 @@
 import { t } from '../platform/i18n/i18n.js';
-import { getState, toggleEditing } from '../core/store.js';
+import { getState, toggleEditing } from '../state/appStore.js';
 
 import { resizeGridView } from '../features/grid/gridRenderer.js';
 import { cancelGridGesture } from '../features/grid/gridPointerController.js';

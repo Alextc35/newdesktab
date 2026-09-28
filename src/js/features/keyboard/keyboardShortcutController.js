@@ -4,7 +4,7 @@ import {
   normalizeKeyboardShortcuts,
   SHORTCUT_ACTIONS
 } from '../../shared/keyboard/keyboardShortcuts.js';
-import { getState } from '../../core/store.js';
+import { getState } from '../../state/appStore.js';
 import { hasOpenModal, isModalActive } from '../../shared/ui/modalManager.js';
 
 let initialized = false;

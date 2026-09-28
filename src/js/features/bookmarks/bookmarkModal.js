@@ -1,4 +1,4 @@
-import { getState, waitForPersistence } from '../../core/store.js';
+import { getState, waitForPersistence } from '../../state/appStore.js';
 import { createBookmarkDraft } from '../../domain/bookmarks/bookmarkModel.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { findFirstFreeSlot } from '../../shared/grid/gridPlacement.js';

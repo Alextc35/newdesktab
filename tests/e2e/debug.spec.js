@@ -57,7 +57,7 @@ test('reports startup, actual quotas and persisted create/edit/delete timings', 
   expect(report.storage[0].usedBytes).toBe(bytes);
 
   await page.evaluate(async () => {
-    const { changeStorageMode } = await import('/src/js/core/store.js');
+    const { changeStorageMode } = await import('/src/js/state/appStore.js');
     await changeStorageMode('sync');
   });
   const synced = await page.evaluate(() => window.NewDeskTabDebug.report());

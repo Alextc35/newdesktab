@@ -6,7 +6,7 @@ import {
 import { DEFAULT_FOLDER_STYLE } from '../../domain/folders/folderDefaults.js';
 import { resolveWorkspaceId } from '../../domain/workspaces/workspaceModel.js';
 import { findFirstFreeSlot } from '../../shared/grid/gridPlacement.js';
-import { clearBookmarkHistory, getState, setState } from '../../core/store.js';
+import { clearBookmarkHistory, getState, setState } from '../../state/appStore.js';
 import { getGridItemsInGroup } from './gridSelectors.js';
 import { getWorkspaces } from '../workspaces/workspaceSelectors.js';
 

@@ -4,7 +4,7 @@ import {
   GRID_COLS,
   GRID_ROWS
 } from '../../shared/grid/gridGeometry.js';
-import { getState } from '../../core/store.js';
+import { getState } from '../../state/appStore.js';
 import { getActiveWorkspaceId } from '../workspaces/workspaceSelectors.js';
 import { hasOpenModal } from '../../shared/ui/modalManager.js';
 import { calculateKeyboardMoveLayout } from '../../shared/grid/smartDragLayout.js';

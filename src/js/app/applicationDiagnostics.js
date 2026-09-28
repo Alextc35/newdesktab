@@ -9,7 +9,7 @@ import {
   getStorageUsage,
   getSyncCompatibility,
   subscribe
-} from '../core/store.js';
+} from '../state/appStore.js';
 
 let initialized = false;
 let storageTimer;

@@ -5,7 +5,7 @@ import {
   validateRecycleBinStyle
 } from '../../domain/recycle-bin/recycleBinModel.js';
 import { updateRecycleBinAppearance } from './recycleBinActions.js';
-import { getState, getStorageMode, waitForPersistence } from '../../core/store.js';
+import { getState, getStorageMode, waitForPersistence } from '../../state/appStore.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashSuccess } from '../../shared/ui/flash.js';
 import {

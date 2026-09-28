@@ -55,7 +55,7 @@ const {
   setState,
   undoBookmarks,
   waitForPersistence
-} = await import('../src/js/core/store.js');
+} = await import('../src/js/state/appStore.js');
 
 await hydrateStore();
 

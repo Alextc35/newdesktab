@@ -1,4 +1,4 @@
-import { getState, waitForPersistence } from '../../../core/store.js';
+import { getState, waitForPersistence } from '../../../state/appStore.js';
 import { getMaxVisibleCols, getMaxVisibleRows } from '../../../features/grid/gridLayout.js';
 import { t } from '../../../platform/i18n/i18n.js';
 import { showAlert } from '../../../shared/ui/alertModal.js';

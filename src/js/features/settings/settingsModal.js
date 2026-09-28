@@ -12,7 +12,7 @@ import {
   clearAllLocalData,
   getState,
   getStorageMode
-} from '../../core/store.js';
+} from '../../state/appStore.js';
 import { ensureRecycleBinPosition } from '../recycle-bin/recycleBinActions.js';
 
 

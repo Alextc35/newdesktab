@@ -88,7 +88,7 @@ const {
   hydrateStore,
   setState,
   subscribeToRemoteSyncUpdates
-} = await import('../src/js/core/store.js');
+} = await import('../src/js/state/appStore.js');
 
 const waitForStorageRefresh = () => new Promise(resolve => setTimeout(resolve, 80));
 

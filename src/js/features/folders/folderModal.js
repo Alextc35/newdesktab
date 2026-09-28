@@ -12,7 +12,7 @@ import {
   FOLDER_GRID_ROWS
 } from '../../domain/folders/folderGrid.js';
 import { t } from '../../platform/i18n/i18n.js';
-import { getState, subscribe } from '../../core/store.js';
+import { getState, subscribe } from '../../state/appStore.js';
 import { createItemActionButton } from '../../shared/ui/itemActionButton.js';
 import { calculateSmartDragLayout } from '../../shared/grid/smartDragLayout.js';
 import { createBookmarkListItem } from '../bookmarks/bookmarkListItem.js';

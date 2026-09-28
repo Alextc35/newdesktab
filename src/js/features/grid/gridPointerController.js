@@ -8,7 +8,7 @@ import { GRID_COLS, GRID_ROWS, PADDING } from '../../shared/grid/gridGeometry.js
 import { FOLDER_GRID_CAPACITY } from '../../domain/folders/folderGrid.js';
 import { isAreaFree } from '../../shared/grid/gridPlacement.js';
 import { gridItemRegistry } from '../../shared/grid/gridItemRegistry.js';
-import { getState } from '../../core/store.js';
+import { getState } from '../../state/appStore.js';
 import {
   BOOKMARK_RESIZE_MODES,
   normalizeBookmarkResizeMode

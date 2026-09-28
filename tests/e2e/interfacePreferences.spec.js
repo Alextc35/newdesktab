@@ -35,7 +35,7 @@ test('light folder grids and previews keep labels readable without changing save
   await expect(page.locator('#folder-modal-empty')).toHaveCSS('color', 'rgb(100, 100, 111)');
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
-    const { getState, setState } = await import('/src/js/core/store.js');
+    const { getState, setState } = await import('/src/js/state/appStore.js');
     const folderId = getState().data.folders[0].id;
     const examples = [
       { name: 'White', textColor: '#ffffff' },
@@ -75,7 +75,7 @@ test('light folder grids and previews keep labels readable without changing save
   await expect(page.locator('#bookmark-container [data-bookmark-id="White"] .bookmark-title'))
     .toHaveCSS('color', 'rgb(255, 255, 255)');
   expect(await page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().data.bookmarks.map(item => item.textColor);
   })).toEqual(['#ffffff', '#5531a8', '#ffffff', '#ffffff']);
 });
@@ -173,7 +173,7 @@ test('deletes every local data area without changing synchronized data', async (
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
     const { DEFAULT_FOLDER_STYLE } = await import('/src/js/domain/folders/folderDefaults.js');
-    const { changeStorageMode, getState, setState } = await import('/src/js/core/store.js');
+    const { changeStorageMode, getState, setState } = await import('/src/js/state/appStore.js');
 
     const settings = structuredClone(getState().data.settings);
     settings.interfaceTheme = 'dark';

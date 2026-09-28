@@ -13,7 +13,7 @@ import {
   normalizeFolderStyle,
   validateFolderDraft
 } from '../../domain/folders/folderModel.js';
-import { getState, setState } from '../../core/store.js';
+import { getState, setState } from '../../state/appStore.js';
 import { moveFolderToRecycleBin } from '../recycle-bin/recycleBinActions.js';
 import { getGridItemsInGroup } from '../grid/gridSelectors.js';
 import { getActiveWorkspaceId } from '../workspaces/workspaceSelectors.js';

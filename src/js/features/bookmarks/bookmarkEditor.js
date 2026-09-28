@@ -1,4 +1,4 @@
-import { getStorageMode } from '../../core/store.js';
+import { getStorageMode } from '../../state/appStore.js';
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import {
   getImageInputValue,

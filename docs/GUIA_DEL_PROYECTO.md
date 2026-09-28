@@ -32,24 +32,23 @@ app/bootstrap.js ─────────────── composición e in
 features ──────── domain ─────── casos de uso y reglas
     ↓                 ↓
 shared ───────── platform ────── mecanismos y acceso al navegador
-    ↓
-core/store.js ────────────────── estado, historial y persistencia
+    ↓                 ↓
+state/appStore.js ────────────── estado vivo y cola de persistencia
     ↓
 app/appController.js ─────────── efectos visuales posteriores
     ↓
 DOM
 ```
 
-La arquitectura se encuentra en una migración controlada. Las fronteras nuevas
-son `app`, `domain`, `features`, `platform`, `shared` y `widgets`. Las carpetas
-`core` y `ui` siguen siendo válidas, pero contienen código de transición que
-debe ir reduciéndose cuando exista un destino con una responsabilidad clara.
+Las fronteras principales son `app`, `domain`, `features`, `platform`, `shared`,
+`state` y `widgets`. Las antiguas carpetas transitorias `core` y `ui` ya no
+existen: cada módulo tiene un propietario arquitectónico explícito.
 
 ## 2. Principios de diseño
 
 ### 2.1 Una sola fuente de verdad
 
-El estado en memoria de `core/store.js` es la fuente de verdad durante la
+El estado en memoria de `state/appStore.js` es la fuente de verdad durante la
 ejecución. La interfaz no debe modificar objetos persistidos directamente.
 Toda operación de negocio termina produciendo un cambio mediante `setState()`.
 
@@ -198,22 +197,21 @@ No es un sistema de plugins remotos.
 - `builtin/index.js`: catálogo único de widgets incluidos en esta build.
 - `builtin/clock/`: primer widget visible, con modelo, vista y configuración.
 
-### `core/`: zona de transición restante
+### `state/`: estado vivo de la aplicación
 
-`core/` conserva únicamente la infraestructura histórica todavía aplazada:
-el store. Los defaults de entidades y ajustes pertenecen a sus dominios, y
+Esta carpeta es una frontera explícita, no una zona genérica para reglas de
+negocio:
+
+- `appStore.js`: fuente de verdad en memoria, suscripciones, hidratación y cola
+  de persistencia.
+- `gridHistory.js`: snapshots transitorios y acotados de undo/redo.
+- `stateChangeDescription.js`: clasificación segura de cambios para diagnóstico.
+
+Los defaults de entidades y ajustes pertenecen a sus dominios, y
 `platform/storage/persistedDataDefaults.js` compone una instancia aislada del
-contrato persistido completo. Los modos persistidos de
-interacción ya pertenecen a `domain/settings`, los metadatos del manifest a
-`platform/browser`, el efecto visual del fondo a `shared/ui` y la observabilidad
-se reparte entre el logger reutilizable de `shared/diagnostics` y su composición
-en `app/applicationDiagnostics.js`. La antigua
-carpeta `ui/` ya no existe: el
-shell pertenece a `app`, la presentación de cada dominio a su feature y solo
-las primitivas demostrablemente reutilizables viven en `shared/ui`.
-
-El código nuevo no debe añadirse automáticamente a estas carpetas. Primero debe
-comprobarse si pertenece a una feature, al dominio, a plataforma o a shared.
+contrato persistido completo. El shell pertenece a `app`, la presentación de
+cada dominio a su feature y solo las primitivas demostrablemente reutilizables
+viven en `shared/ui`.
 
 ## 5. Modelo de estado
 
@@ -298,10 +296,10 @@ atajos, presets y visibilidad de la papelera.
 
 ## 6. Store, historial y ciclo de actualización
 
-`core/store.js` ofrece tres responsabilidades principales:
+`state/appStore.js` coordina tres responsabilidades principales:
 
 1. Mantener el estado actual en memoria.
-2. Registrar y restaurar historial.
+2. Aplicar el historial que encapsula `state/gridHistory.js`.
 3. Persistir cambios y notificar suscriptores.
 
 ### Qué sucede en `setState()`
@@ -318,7 +316,8 @@ atajos, presets y visibilidad de la papelera.
 
 El historial conserva un máximo de 50 snapshots. Incluye bookmarks, carpetas,
 widgets, papelera y trash. No incluye el modo de almacenamiento, evitando que
-un undo cambie accidentalmente de Local a Sync.
+un undo cambie accidentalmente de Local a Sync. La etiqueta legible usada por
+el trazado se calcula aparte en `state/stateChangeDescription.js`.
 
 ### Reacción visual
 
@@ -690,15 +689,15 @@ Evitar los siguientes patrones:
 
 ## 17. Estado actual y siguiente evolución
 
-La separación de dominio, features, plataforma, UI compartida y grid ya está
-establecida, el reloj valida el contrato de widgets de extremo a extremo, la
-carpeta transitoria `ui/` ha sido retirada y `core/` se ha reducido a un único
-módulo explícitamente aplazado. Las principales zonas pendientes son:
+La separación de dominio, features, plataforma, estado, UI compartida y grid ya
+está establecida. El reloj valida el contrato de widgets de extremo a extremo y
+las carpetas transitorias `ui/` y `core/` han sido retiradas. Las principales
+zonas de evolución son:
 
-1. Dividir el store cuando sus límites de estado, historial y persistencia estén
-   protegidos por separado, retirando finalmente `core/`.
-2. Mejorar la recuperación de conflictos entre dispositivos.
-3. Versionar entradas de papelera para widgets si deben poder restaurarse.
+1. Mejorar la recuperación de conflictos entre dispositivos.
+2. Versionar entradas de papelera para widgets si deben poder restaurarse.
+3. Seguir extrayendo del store solo responsabilidades que obtengan un contrato y
+   pruebas propios; `state/` no debe convertirse en un nuevo cajón genérico.
 
 Para las reglas arquitectónicas exhaustivas y el historial de la migración,
 consultar también [`ARCHITECTURE.md`](ARCHITECTURE.md).

@@ -11,7 +11,7 @@ import {
   getWorkspaceItemCounts,
   getWorkspaces
 } from './workspaceSelectors.js';
-import { getState, subscribe } from '../../core/store.js';
+import { getState, subscribe } from '../../state/appStore.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { clearGridItemSelection } from '../grid/gridSelection.js';
 import { showAlert, showPrompt } from '../../shared/ui/alertModal.js';

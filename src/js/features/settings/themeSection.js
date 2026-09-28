@@ -10,7 +10,7 @@ import {
   setImageInputValue
 } from '../../shared/ui/localImageUpload.js';
 import { resolveBackgroundImage } from '../../platform/images/localImages.js';
-import { getStorageMode } from '../../core/store.js';
+import { getStorageMode } from '../../state/appStore.js';
 import {
   getDraftStorageMode,
   getDraftTheme,

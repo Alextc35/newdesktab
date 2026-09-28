@@ -49,7 +49,7 @@ const {
   hydrateStore,
   setState,
   undoBookmarks
-} = await import('../src/js/core/store.js');
+} = await import('../src/js/state/appStore.js');
 
 await hydrateStore();
 

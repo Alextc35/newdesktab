@@ -1,4 +1,4 @@
-import { getState } from '../../core/store.js';
+import { getState } from '../../state/appStore.js';
 import { t } from '../../platform/i18n/i18n.js';
 import {
   clearGridKeyboardNavigation

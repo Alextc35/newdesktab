@@ -50,16 +50,16 @@ try {
     addBookmark({ name: 'Release smoke', url: 'https://smoke.internal', gx: 5, gy: 0 });
   });
   await page.waitForFunction(async () => {
-    const { getState } = await import('./js/core/store.js');
+    const { getState } = await import('./js/state/appStore.js');
     return getState().ui.persistence.status === 'saved';
   });
   await page.reload();
   await page.getByRole('link', { name: /Release smoke/ }).waitFor({ state: 'visible' });
 
   await page.keyboard.press('Control+KeyE');
-  await page.waitForFunction(async () => (await import('./js/core/store.js')).getState().ui.isEditing);
+  await page.waitForFunction(async () => (await import('./js/state/appStore.js')).getState().ui.isEditing);
   await page.keyboard.press('Control+KeyE');
-  await page.waitForFunction(async () => !(await import('./js/core/store.js')).getState().ui.isEditing);
+  await page.waitForFunction(async () => !(await import('./js/state/appStore.js')).getState().ui.isEditing);
 
   await page.keyboard.press('Control+KeyB');
   await page.locator('#edit-bookmark-modal').waitFor({ state: 'visible' });

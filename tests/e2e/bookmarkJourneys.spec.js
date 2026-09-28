@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
 
 async function waitForSaved(page) {
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().ui.persistence.status;
   })).toMatch(/^(idle|saved)$/);
 }
@@ -748,7 +748,7 @@ test('customizes and hides the recycle bin from its edit action', async ({ page 
   await page.locator('#edit-recycle-bin-modal-save').click();
   await expect(page.locator('#bookmark-container .recycle-bin')).toHaveCount(0);
   await expect.poll(() => page.evaluate(async () => (
-    await import('/src/js/core/store.js')
+    await import('/src/js/state/appStore.js')
   ).getState().data.settings.showRecycleBin)).toBe(false);
 });
 
@@ -839,7 +839,7 @@ test('marks the keyboard-focused bookmark with S while editing', async ({ page }
 
   await page.keyboard.press('Escape');
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().ui.isEditing;
   })).toBe(false);
 
@@ -1007,7 +1007,7 @@ test('confirms Backspace and Delete on the keyboard-focused bookmark while editi
     .getAttribute('data-bookmark-id');
   const second = page.locator(`[data-bookmark-id="${secondBookmarkId}"]`);
   const trashCount = await page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().data.trash.length;
   });
 
@@ -1030,7 +1030,7 @@ test('confirms Backspace and Delete on the keyboard-focused bookmark while editi
   await page.getByRole('button', { name: 'Accept', exact: true }).click();
   await expect(page.locator(`[data-bookmark-id="${bookmarkId}"]`)).toHaveCount(0);
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().data.trash.length;
   })).toBe(trashCount);
   await page.keyboard.press('Control+KeyZ');
@@ -1043,7 +1043,7 @@ test('confirms Backspace and Delete on the keyboard-focused bookmark while editi
   await page.getByRole('button', { name: 'Accept', exact: true }).click();
   await expect(page.locator(`[data-bookmark-id="${secondBookmarkId}"]`)).toHaveCount(0);
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().data.trash.length;
   })).toBe(trashCount + 1);
   await expect(page.locator('#bookmark-container .is-keyboard-active')).toHaveCount(1);
@@ -1099,7 +1099,7 @@ test('confirms Delete and Backspace on an unselected keyboard-focused folder', a
   await page.getByRole('button', { name: 'Accept', exact: true }).click();
   await expect(folder).toHaveCount(0);
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().data.trash.some(entry => (
       entry.type === 'folder' && entry.folder.name === 'Delete with keyboard'
     ));
@@ -2139,7 +2139,7 @@ test('expands compact folder creation and persists its advanced appearance', asy
 
   await expect(modal).toBeHidden();
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     const folder = getState().data.folders.find(item => item.name === 'Styled folder');
     return folder?.backgroundColor;
   })).toBe('#ef4444');
@@ -2281,7 +2281,7 @@ test('optionally deletes folders when deleting all bookmarks', async ({ page }) 
   await page.getByRole('button', { name: 'Cancel' }).click();
   await expect(page.locator('#settings-modal')).toBeVisible();
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return {
       bookmarks: getState().data.bookmarks.length,
       folders: getState().data.folders.length
@@ -2294,7 +2294,7 @@ test('optionally deletes folders when deleting all bookmarks', async ({ page }) 
   await waitForSaved(page);
   await expect(page.locator('#settings-modal')).toBeHidden();
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return {
       bookmarks: getState().data.bookmarks.length,
       folders: getState().data.folders.length
@@ -2311,7 +2311,7 @@ test('optionally deletes folders when deleting all bookmarks', async ({ page }) 
   await waitForSaved(page);
   await expect(page.locator('#settings-modal')).toBeHidden();
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return {
       bookmarks: getState().data.bookmarks.length,
       folders: getState().data.folders.length
@@ -2695,7 +2695,7 @@ test('runs every bulk action on a mixed bookmark and folder selection', async ({
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK } = await import('/src/js/domain/bookmarks/bookmarkDefaults.js');
     const { DEFAULT_FOLDER_STYLE } = await import('/src/js/domain/folders/folderDefaults.js');
-    const { getState, setState } = await import('/src/js/core/store.js');
+    const { getState, setState } = await import('/src/js/state/appStore.js');
     await setState({
       data: {
         bookmarks: [
@@ -2766,7 +2766,7 @@ test('runs every bulk action on a mixed bookmark and folder selection', async ({
   await expect(page.locator('.bookmark-folder')).toHaveCount(2);
   await expect(page.getByText('Mixed folder (copy)', { exact: true })).toBeVisible();
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     const copy = getState().data.folders.find(item => item.name === 'Mixed folder (copy)');
     return copy
       ? getState().data.bookmarks.filter(item => item.folderId === copy.id).length
@@ -2777,7 +2777,7 @@ test('runs every bulk action on a mixed bookmark and folder selection', async ({
   await folder.click();
   await bulkActions.getByRole('button', { name: 'Apply default style' }).click();
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     const data = getState().data;
     const bookmark = data.bookmarks.find(item => item.id === 'mixed-bookmark');
     const folder = data.folders.find(item => item.id === 'mixed-folder');
@@ -2788,7 +2788,7 @@ test('runs every bulk action on a mixed bookmark and folder selection', async ({
   await folder.click();
   await page.locator('#bulk-workspace-select').selectOption('work');
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     const data = getState().data;
     return [
       data.bookmarks.find(item => item.id === 'mixed-bookmark')?.groupId,
@@ -2807,7 +2807,7 @@ test('runs every bulk action on a mixed bookmark and folder selection', async ({
   await expect(bookmark).toHaveCount(0);
   await expect(folder).toHaveCount(0);
   await expect.poll(() => page.evaluate(async () => {
-    const { getState } = await import('/src/js/core/store.js');
+    const { getState } = await import('/src/js/state/appStore.js');
     return getState().data.trash.length;
   })).toBe(2);
 });

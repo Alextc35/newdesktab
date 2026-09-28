@@ -8,7 +8,7 @@ const mocks = vi.hoisted(() => ({
   undoBookmarks: vi.fn()
 }));
 
-vi.mock('../../src/js/core/store.js', () => ({
+vi.mock('../../src/js/state/appStore.js', () => ({
   redoBookmarks: mocks.redoBookmarks,
   subscribe: mocks.subscribe,
   undoBookmarks: mocks.undoBookmarks

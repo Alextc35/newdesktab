@@ -10,7 +10,7 @@ import {
   getSyncCompatibility,
   getSyncedDataMetadata,
   subscribe
-} from '../../core/store.js';
+} from '../../state/appStore.js';
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
 import {
   getSyncBrowserSupport,

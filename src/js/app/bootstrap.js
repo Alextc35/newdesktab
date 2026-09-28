@@ -8,7 +8,7 @@ import {
   hydrateStore,
   subscribe,
   subscribeToRemoteSyncUpdates
-} from '../core/store.js';
+} from '../state/appStore.js';
 import {
   ensureRecycleBinPosition,
   purgeExpiredRecycleBinEntries

@@ -62,7 +62,7 @@ test('offline initials fallback follows the interface theme', async ({ page }) =
   await expect(fallback).toHaveCSS('color', 'rgb(36, 36, 40)');
 
   await page.evaluate(async () => {
-    const { getState, setState } = await import('/src/js/core/store.js');
+    const { getState, setState } = await import('/src/js/state/appStore.js');
     const settings = getState().data.settings;
     await setState({ data: { settings: { ...settings, interfaceTheme: 'dark' } } });
   });

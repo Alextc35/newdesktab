@@ -9,7 +9,7 @@ import {
   getActiveWorkspaceId,
   getWorkspaces
 } from '../workspaces/workspaceSelectors.js';
-import { getState, subscribe } from '../../core/store.js';
+import { getState, subscribe } from '../../state/appStore.js';
 import { gridItemRegistry } from '../../shared/grid/gridItemRegistry.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { showAlert } from '../../shared/ui/alertModal.js';

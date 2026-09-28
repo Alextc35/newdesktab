@@ -39,7 +39,7 @@ const {
   redoBookmarks,
   setState,
   undoBookmarks
-} = await import('../src/js/core/store.js');
+} = await import('../src/js/state/appStore.js');
 
 test('bookmark history supports undo and redo as persisted state changes', async () => {
   await hydrateStore();

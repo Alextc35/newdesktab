@@ -4,7 +4,7 @@ import {
 } from '../../domain/settings/gridInteractionModes.js';
 import { normalizeInterfaceTheme } from '../../domain/settings/interfacePreferences.js';
 import { normalizeKeyboardShortcuts } from '../../shared/keyboard/keyboardShortcuts.js';
-import { getState } from '../../core/store.js';
+import { getState } from '../../state/appStore.js';
 
 /**
  * Draft theme state used while the settings modal is open.

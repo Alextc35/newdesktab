@@ -54,11 +54,8 @@ test('the transitional ui directory has no remaining source modules', () => {
   assert.equal(existsSync('src/js/ui'), false);
 });
 
-test('transitional core contains only the deferred store', () => {
-  assert.deepEqual(
-    readdirSync('src/js/core').sort(),
-    ['store.js']
-  );
+test('the transitional core directory has been retired', () => {
+  assert.equal(existsSync('src/js/core'), false);
 });
 
 test('source modules resolve relative imports and do not contain static cycles', () => {

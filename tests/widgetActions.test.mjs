@@ -36,7 +36,7 @@ const {
   updateWidgetById
 } = await import('../src/js/widgets/widgetActions.js');
 const { updateGridItemsByIds } = await import('../src/js/features/grid/gridItemActions.js');
-const { getState, hydrateStore, setState, undoBookmarks } = await import('../src/js/core/store.js');
+const { getState, hydrateStore, setState, undoBookmarks } = await import('../src/js/state/appStore.js');
 
 registerWidget({ type: 'clock', render: () => ({ dataset: {} }) });
 
