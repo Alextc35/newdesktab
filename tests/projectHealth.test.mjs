@@ -58,6 +58,10 @@ test('the transitional core directory has been retired', () => {
   assert.equal(existsSync('src/js/core'), false);
 });
 
+test('the transitional css directory has been retired', () => {
+  assert.equal(existsSync('src/css'), false);
+});
+
 test('the stylesheet entry reaches every source stylesheet without broken imports or cycles', () => {
   const sourceRoot = resolve('src');
   const entry = resolve('src/styles/main.css');

@@ -554,14 +554,13 @@ styles/base/       reset, variables, canvas y scrollbar
 styles/utilities/  estados transversales como hidden o disabled
 js/shared/ui/      estilos de modales, editores y notificaciones compartidas
 js/features/grid/  GridItem, vista compacta, viewport y geometría responsive
-js/features/*/     presentación propia de bookmarks, folders, búsqueda,
-                   papelera y workspaces junto a sus controladores
+js/features/*/     presentación propia de cada feature junto a sus controladores
+js/widgets/*/      presentación propia de cada widget incluido
 ```
 
-Durante la migración, esta entrada también importa las tres hojas todavía
-pendientes en `src/css/`. Todo CSS de `src/` debe ser alcanzable desde
-`styles/main.css`; una prueba estructural detecta imports rotos, ciclos y hojas
-huérfanas.
+La antigua carpeta horizontal `src/css/` ya no existe. Todo CSS de `src/` debe
+ser alcanzable desde `styles/main.css`; una prueba estructural detecta imports
+rotos, ciclos, hojas huérfanas y la reaparición de esa carpeta transitoria.
 
 ### Internacionalización
 

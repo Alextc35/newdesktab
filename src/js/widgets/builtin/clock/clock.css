@@ -1,3 +1,4 @@
+/* Bundled clock card, compact row, preview and responsive time layout. */
 .clock-widget {
   overflow: hidden;
   border: 1px solid light-dark(rgba(255, 255, 255, .58), rgba(255, 255, 255, .13));

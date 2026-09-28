@@ -601,7 +601,7 @@ the existing contracts. Remote executable plugins remain out of scope.
     `shared/ui` and `features/grid` owners.
 25. ✅ Colocate bookmark, folder, search, recycle-bin and workspace styles with
     their vertical feature slices.
-26. ⬜ Colocate Settings, launcher and bundled-widget styles, then remove the
+26. ✅ Colocate Settings, launcher and bundled-widget styles, then remove the
     empty transitional `css/` directory.
 27. ⬜ Lift the architectural directories out of the temporary `js/` wrapper,
     audit selectors and documentation, then run the complete browser,

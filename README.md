@@ -223,8 +223,8 @@ src/styles/main.css                single global CSS entry and composition root
 ```
 
 Feature and shared-component styles are colocated beside the JavaScript that
-owns their DOM; the three remaining legacy sheets move in phase 26.
-`src/styles/` contains only document-wide foundations.
+owns their DOM. `src/styles/` contains only document-wide foundations; the old
+horizontal `src/css/` directory has been retired.
 
 The bookmark panel does not import the store, calculate grid placement or
 perform persistence. Controllers decide what saving means. See

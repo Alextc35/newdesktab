@@ -5,7 +5,7 @@
 
 @import '../js/features/grid/gridSurface.css';
 @import '../js/features/grid/gridOverlay.css';
-@import '../css/layout/floatingMenu.css';
+@import '../js/features/launcher/floatingMenu.css';
 @import '../js/features/workspaces/workspaceToolbar.css';
 
 @import '../js/features/grid/gridItem.css';
@@ -18,13 +18,13 @@
 @import '../js/shared/ui/flash.css';
 
 @import '../js/shared/ui/editModal.css';
-@import '../css/features/settingsModal.css';
+@import '../js/features/settings/settings.css';
 @import '../js/features/search/search.css';
 @import '../js/features/folders/folder.css';
 @import '../js/features/grid/responsiveGrid.css';
 @import '../js/features/grid/compactView.css';
 @import '../js/features/recycle-bin/recycleBin.css';
-@import '../css/features/clockWidget.css';
+@import '../js/widgets/builtin/clock/clock.css';
 
 @import './utilities/disabled.css';
 @import './utilities/hidden.css';
