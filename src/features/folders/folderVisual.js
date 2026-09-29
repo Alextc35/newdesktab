@@ -11,7 +11,7 @@ export function createFolderVisual(folder, bookmarks = [], { compact = false } =
   visual.setAttribute('aria-hidden', 'true');
   applyFolderAppearance(visual, folder);
 
-  const artwork = createFolderSvg();
+  const artwork = createFolderSvg(resolveBackgroundImage(folder));
   const body = document.createElement('span');
   body.className = 'folder-body';
   const previews = document.createElement('span');
@@ -70,9 +70,4 @@ export function applyFolderAppearance(element, folder = {}) {
 
   const backgroundImage = resolveBackgroundImage(folder) ?? '';
   element.classList.toggle('has-folder-bg-image', Boolean(backgroundImage));
-  if (backgroundImage) {
-    element.style.setProperty('--folder-bg-image', `url("${backgroundImage}")`);
-  } else {
-    element.style.removeProperty('--folder-bg-image');
-  }
 }

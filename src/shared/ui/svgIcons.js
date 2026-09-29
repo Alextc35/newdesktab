@@ -1,22 +1,48 @@
 /** Shared SVG factories for feature-owned views. */
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const ICON_KINDS = new Set(['bookmark', 'folder', 'recycle-bin']);
+let folderImagePatternId = 0;
 
 /** Creates the fixed-ratio folder artwork shared by every dynamic folder surface. */
-export function createFolderSvg() {
+export function createFolderSvg(backgroundImageUrl = null) {
   const svg = createSvg('0 0 136 100', 'folder-svg');
   svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-  svg.append(
-    createPath(
-      'M12 26V14a8 8 0 0 1 8-8h32a10 10 0 0 1 8 4l12 16H12Z',
-      'folder-tab'
-    ),
-    createPath(
-      'M7 24h122a7 7 0 0 1 7 7v59a10 10 0 0 1-10 10H10A10 10 0 0 1 0 90V31a7 7 0 0 1 7-7Z',
-      'folder-svg-body'
-    ),
-    createPath('M13 27h110', 'folder-svg-highlight')
+  const tab = createPath(
+    'M12 26V14a8 8 0 0 1 8-8h32a10 10 0 0 1 8 4l12 16H12Z',
+    'folder-tab'
   );
+  const body = createPath(
+    'M7 24h122a7 7 0 0 1 7 7v59a10 10 0 0 1-10 10H10A10 10 0 0 1 0 90V31a7 7 0 0 1 7-7Z',
+    'folder-svg-body'
+  );
+
+  if (backgroundImageUrl) {
+    const patternId = `folder-image-pattern-${++folderImagePatternId}`;
+    const defs = document.createElementNS(SVG_NS, 'defs');
+    const pattern = document.createElementNS(SVG_NS, 'pattern');
+    pattern.id = patternId;
+    pattern.setAttribute('patternUnits', 'userSpaceOnUse');
+    pattern.setAttribute('width', '136');
+    pattern.setAttribute('height', '100');
+
+    const fallback = document.createElementNS(SVG_NS, 'rect');
+    fallback.classList.add('folder-svg-image-fallback');
+    fallback.setAttribute('width', '136');
+    fallback.setAttribute('height', '100');
+    const image = document.createElementNS(SVG_NS, 'image');
+    image.classList.add('folder-svg-image');
+    image.setAttribute('width', '136');
+    image.setAttribute('height', '100');
+    image.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    image.setAttribute('href', backgroundImageUrl);
+    pattern.append(fallback, image);
+    defs.append(pattern);
+    svg.append(defs);
+    tab.style.fill = `url(#${patternId})`;
+    body.style.fill = `url(#${patternId})`;
+  }
+
+  svg.append(tab, body, createPath('M13 27h110', 'folder-svg-highlight'));
   return svg;
 }
 

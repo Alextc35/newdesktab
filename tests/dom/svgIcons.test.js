@@ -12,6 +12,23 @@ describe('shared NewDeskTab SVG icons', () => {
     expect(createRecycleBinSvg().getAttribute('viewBox')).toBe('0 0 92 108');
   });
 
+  test('fills the complete folder silhouette with a unique image pattern', () => {
+    const first = createFolderSvg('data:image/png;base64,AA==');
+    const second = createFolderSvg('https://images.test/folder.png');
+    const firstPattern = first.querySelector('pattern');
+    const secondPattern = second.querySelector('pattern');
+
+    expect(firstPattern.id).not.toBe(secondPattern.id);
+    expect(firstPattern.getAttribute('patternUnits')).toBe('userSpaceOnUse');
+    expect(firstPattern.querySelector('image').getAttribute('preserveAspectRatio'))
+      .toBe('xMidYMid slice');
+    expect(firstPattern.querySelector('image').getAttribute('width')).toBe('136');
+    expect(firstPattern.querySelector('image').getAttribute('height')).toBe('100');
+    expect(first.querySelector('.folder-tab').style.fill)
+      .toBe(first.querySelector('.folder-svg-body').style.fill);
+    expect(first.querySelector('.folder-tab').style.fill).toContain(firstPattern.id);
+  });
+
   test('creates a reusable vector edit affordance for modal artwork', () => {
     const svg = createEditIndicatorSvg();
 

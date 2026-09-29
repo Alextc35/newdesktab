@@ -541,6 +541,55 @@ test('transparent SVG tabs meet the folder face at small, normal and large sizes
   await assertTabBounds(previewCard(page).locator('.folder-visual'));
 });
 
+test('fills the entire SVG folder silhouette with one continuous image', async ({ page }) => {
+  const image = `data:image/svg+xml,${encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="#ef4444"/></svg>'
+  )}`;
+  await start(page, [
+    { id: folderId, gx: 0, gy: 0, w: 1, h: 1, backgroundImageUrl: image },
+    { id: 'transparent-image-folder', gx: 1, gy: 0, w: 2, h: 2,
+      backgroundImageUrl: image, noBackground: true }
+  ]);
+
+  for (const visual of await page.locator('#bookmark-container .folder-visual').all()) {
+    const appearance = await visual.evaluate((element, imageUrl) => {
+      const svg = element.querySelector('.folder-svg');
+      const pattern = svg.querySelector('pattern');
+      const tab = svg.querySelector('.folder-tab');
+      const body = svg.querySelector('.folder-svg-body');
+      const artwork = element.getBoundingClientRect();
+      const face = element.querySelector('.folder-body').getBoundingClientRect();
+      const previews = element.querySelector('.folder-previews').getBoundingClientRect();
+      return {
+        patternId: pattern.id,
+        patternUnits: pattern.getAttribute('patternUnits'),
+        imageSource: pattern.querySelector('image').getAttribute('href'),
+        imageSize: [pattern.querySelector('image').getAttribute('width'),
+          pattern.querySelector('image').getAttribute('height')],
+        imageFit: pattern.querySelector('image').getAttribute('preserveAspectRatio'),
+        sameFill: getComputedStyle(tab).fill === getComputedStyle(body).fill,
+        tabFill: getComputedStyle(tab).fill,
+        previewsInside: previews.left >= face.left && previews.right <= face.right
+          && previews.top >= face.top && previews.bottom <= face.bottom,
+        imageMatches: pattern.querySelector('image').getAttribute('href') === imageUrl,
+        artworkRatio: artwork.width / artwork.height
+      };
+    }, image);
+    expect(appearance.patternUnits).toBe('userSpaceOnUse');
+    expect(appearance.imageSource).toBe(image);
+    expect(appearance.imageSize).toEqual(['136', '100']);
+    expect(appearance.imageFit).toBe('xMidYMid slice');
+    expect(appearance.sameFill).toBe(true);
+    expect(appearance.tabFill).toContain(appearance.patternId);
+    expect(appearance.previewsInside).toBe(true);
+    expect(appearance.artworkRatio).toBeCloseTo(1.36, 1);
+  }
+
+  await openEditor(page);
+  await expect(previewCard(page).locator('.folder-svg pattern image'))
+    .toHaveAttribute('href', image);
+});
+
 test('centers the search glyph and preserves the opened-folder SVG proportions', async ({ page }) => {
   await start(page, [{
     id: folderId,
