@@ -105,7 +105,7 @@ test('creates, configures, resizes, persists and removes the bundled clock', asy
   await expect(clock.locator('.clock-widget-time')).toHaveText(/^\d{2}:\d{2}$/);
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '✎' }).click();
+  await page.locator('#edit-toggle-mode').click();
   await clock.locator('.item-action-button.edit').click();
   await page.locator('#clock-widget-hour-cycle').selectOption('12');
   await page.locator('#clock-widget-show-seconds').check();
@@ -161,7 +161,7 @@ test('creates, configures, resizes, persists and removes the bundled clock', asy
   });
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '✎' }).click();
+  await page.locator('#edit-toggle-mode').click();
   await clock.locator('.item-action-button.edit').click();
   await page.locator('#clock-widget-delete').click();
   await page.locator('#alert-modal-accept').click();
@@ -195,7 +195,7 @@ test('selects, moves and permanently deletes a clock through bulk actions', asyn
   await expect(clock).toBeVisible();
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '✎' }).click();
+  await page.locator('#edit-toggle-mode').click();
   await clock.click();
   const bulkActions = page.getByRole('toolbar', { name: 'Selected item actions' });
   await expect(clock).toHaveClass(/is-selected/);
@@ -249,7 +249,7 @@ test('moves a selected clock one grid cell with the arrow keys', async ({ page }
 
   const clock = page.locator('.clock-widget[data-widget-type="clock"]');
   await revealSideDock(page);
-  await page.getByRole('button', { name: '✎' }).click();
+  await page.locator('#edit-toggle-mode').click();
   await clock.click();
   await expect(clock).toHaveClass(/is-selected/);
 
@@ -275,7 +275,7 @@ test('asks before permanently deleting a clock dropped on the recycle bin', asyn
   const clock = page.locator('.clock-widget[data-widget-type="clock"]');
   const recycleBin = page.locator('.recycle-bin[data-recycle-bin-id]');
   await revealSideDock(page);
-  await page.getByRole('button', { name: '✎' }).click();
+  await page.locator('#edit-toggle-mode').click();
 
   const dropClockOnRecycleBin = async () => {
     const clockBox = await clock.boundingBox();
@@ -338,7 +338,7 @@ test('treats keyboard deletion of a widget as permanent', async ({ page }) => {
 
   const clock = page.locator('.clock-widget[data-widget-type="clock"]');
   await revealSideDock(page);
-  await page.getByRole('button', { name: '✎' }).click();
+  await page.locator('#edit-toggle-mode').click();
   await page.locator('#bookmark-container').focus();
   await page.keyboard.press('Tab');
   await expect(clock).toHaveClass(/is-keyboard-active/);

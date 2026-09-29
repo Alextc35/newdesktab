@@ -78,9 +78,26 @@
   }
 }
 
-#floating-menu #edit-toggle-mode:hover {
+#floating-menu #edit-toggle-mode:is(:hover, .is-editing) {
   color: #fff;
   background: rgba(37, 99, 235, .82);
+}
+
+#edit-toggle-mode {
+  --edit-toggle-art: url('/src/assets/icons/edit-mode.svg');
+}
+
+#edit-toggle-mode.is-editing {
+  --edit-toggle-art: url('/src/assets/icons/exit-edit-mode.svg');
+}
+
+#edit-toggle-mode .edit-toggle-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: currentColor;
+  -webkit-mask: var(--edit-toggle-art) center / contain no-repeat;
+  mask: var(--edit-toggle-art) center / contain no-repeat;
 }
 
 #floating-menu #add-toggle:hover,

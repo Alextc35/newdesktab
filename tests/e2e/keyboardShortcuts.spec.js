@@ -20,6 +20,27 @@ async function isEditing(page) {
   ).getState().ui.isEditing);
 }
 
+test('edit launcher swaps SVG assets and accessible labels with its mode', async ({ page }) => {
+  await start(page);
+  const button = page.locator('#edit-toggle-mode');
+  const icon = button.locator('.edit-toggle-icon');
+  await expect(button).toHaveAttribute('aria-label', 'Enter edit mode');
+  await expect(button).toHaveAttribute('aria-pressed', 'false');
+  expect(await icon.evaluate(element => getComputedStyle(element).maskImage))
+    .toContain('/src/assets/icons/edit-mode.svg');
+
+  await page.mouse.move(5, page.viewportSize().height / 2);
+  await button.click();
+  await expect(button).toHaveAttribute('aria-label', 'Exit edit mode');
+  await expect(button).toHaveAttribute('aria-pressed', 'true');
+  expect(await icon.evaluate(element => getComputedStyle(element).maskImage))
+    .toContain('/src/assets/icons/exit-edit-mode.svg');
+
+  await page.keyboard.press('Control+KeyE');
+  await expect(button).toHaveAttribute('aria-label', 'Enter edit mode');
+  await expect(button).toHaveAttribute('aria-pressed', 'false');
+});
+
 test('default shortcuts replace the old keys and expose accessible hints', async ({ page }) => {
   await start(page);
 

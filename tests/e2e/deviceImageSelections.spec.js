@@ -10,7 +10,7 @@ const imageBytes = Buffer.from(
 
 async function openTheme(page) {
   await page.mouse.move(5, page.viewportSize().height / 2);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Theme' }).click();
 }
 

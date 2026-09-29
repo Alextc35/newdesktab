@@ -156,7 +156,7 @@ test('moves, resizes, hides and shows the recycle bin', async ({ page }) => {
 
   await toggleEditMode(page);
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   const showBin = page.locator('#settings-show-recycle-bin');
   await showBin.uncheck();
   await page.locator('#settings-modal-save').click();
@@ -191,7 +191,7 @@ test('moves, resizes, hides and shows the recycle bin', async ({ page }) => {
   });
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await showBin.check();
   await page.locator('#settings-modal-save').click();
   await expect(page.locator('.recycle-bin')).toBeVisible();

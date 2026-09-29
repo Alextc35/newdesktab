@@ -5,7 +5,11 @@
   "launcher": {
     "bookmark": "Marcador",
     "folder": "Carpeta",
-    "widgets": "Widgets"
+    "widgets": "Widgets",
+    "editMode": {
+      "enter": "Entrar en modo edición",
+      "exit": "Salir del modo edición"
+    }
   },
   "widgets": {
     "title": "Widgets",

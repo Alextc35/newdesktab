@@ -56,7 +56,7 @@ async function openClockCreator(page) {
 
 async function enableEditMode(page) {
   await revealSideDock(page);
-  await page.getByRole('button', { name: '✎' }).click();
+  await page.locator('#edit-toggle-mode').click();
 }
 
 async function expectThemeActionsInsideInputs(page) {
@@ -83,7 +83,7 @@ async function enableFolderEditMode(page) {
 
 async function setBookmarkDragMode(page, mode) {
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
   const input = page.locator(`input[name="bookmark-drag-mode"][value="${mode}"]`);
   if (await input.isChecked()) {
@@ -142,13 +142,13 @@ async function moveGridItemByCells(page, bookmark, deltaX, deltaY) {
 
 test('keeps a locally uploaded theme image out of synchronized storage', async ({ page }) => {
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Sync' }).click();
   await page.getByRole('radio', { name: /Synced/ }).check();
   await page.locator('#settings-modal-save').click();
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Theme' }).click();
 
   const fileInput = page.locator('#settings-theme-bg-upload-input');
@@ -208,7 +208,7 @@ test('keeps a locally uploaded theme image out of synchronized storage', async (
   ))).toContain('data:image/webp');
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Theme' }).click();
   await expect(imageReference).toHaveValue('theme.png');
   await expect(imageUrl).toHaveValue(fallbackUrl);
@@ -226,7 +226,7 @@ test('keeps a locally uploaded theme image out of synchronized storage', async (
     document.documentElement.style.getPropertyValue('--image-bg-body')
   ))).toContain(fallbackUrl);
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Theme' }).click();
   await expect(page.locator('#settings-theme-bg-preview')).toHaveCSS('background-image', `url("${fallbackUrl}")`);
   await expect(imageReference).toBeHidden();
@@ -247,7 +247,7 @@ test('switches to the default wallpaper without losing the custom URL or local i
   }));
   const openTheme = async () => {
     await revealSideDock(page);
-    await page.getByRole('button', { name: '⚙️' }).click();
+    await page.locator('#settings').click();
     await page.getByRole('button', { name: 'Theme' }).click();
   };
   await expect(root).toHaveClass(/is-default-bg/);
@@ -340,7 +340,7 @@ test('keeps solid and image backgrounds separate while preserving both modes', a
   await page.route(fallbackUrl, route => route.abort());
   const openTheme = async () => {
     await revealSideDock(page);
-    await page.getByRole('button', { name: '⚙️' }).click();
+    await page.locator('#settings').click();
     await page.getByRole('button', { name: 'Theme' }).click();
   };
 
@@ -510,7 +510,7 @@ test('keeps solid and image backgrounds separate while preserving both modes', a
 
 test('hides local image sync notices in This Device Only mode', async ({ page }) => {
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Theme' }).click();
 
   await expect(page.locator('#settings-modal .local-image-notice')).toBeHidden();
@@ -526,7 +526,7 @@ test('hides local image sync notices in This Device Only mode', async ({ page })
 
 test('treats a local image as one removable value without copying or changing its URL fallback', async ({ page }) => {
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Theme' }).click();
 
   const imageUrl = page.locator('#settings-theme-bg-image');
@@ -630,7 +630,7 @@ test('reveals the left action dock on hover and keyboard focus', async ({ page }
     .toHaveCSS('background-color', 'rgba(22, 163, 74, 0.82)');
 
   await page.mouse.move(page.viewportSize().width / 2, viewportHeight / 2);
-  await page.getByRole('button', { name: '✎' }).focus();
+  await page.locator('#edit-toggle-mode').focus();
   await expect.poll(async () => (await visibleBox(menu)).x).toBeGreaterThanOrEqual(0);
 });
 
@@ -1516,7 +1516,7 @@ test('turns cascades across rows and persists the whole path atomically', async 
 
 test('defaults to none, warns about sequence, and persists drag modes', async ({ page }) => {
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
 
   const cascade = page.locator('input[name="bookmark-drag-mode"][value="cascade"]');
@@ -1537,7 +1537,7 @@ test('defaults to none, warns about sequence, and persists drag modes', async ({
   await expect(page.locator('#settings-modal')).toBeHidden();
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
   await expect(cascade).toBeChecked();
   if (!(await page.locator('input[name="bookmark-drag-mode"]').first().isVisible())) {
@@ -2313,7 +2313,7 @@ test('optionally deletes folders when deleting all bookmarks', async ({ page }) 
   await waitForSaved(page);
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
   const deleteAll = page.getByRole('button', { name: 'Delete all bookmarks' });
 
@@ -2345,7 +2345,7 @@ test('optionally deletes folders when deleting all bookmarks', async ({ page }) 
   })).toEqual({ bookmarks: 0, folders: 1 });
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
   await deleteAll.click();
   await expect(checkbox).not.toBeChecked();
@@ -2365,7 +2365,7 @@ test('optionally deletes folders when deleting all bookmarks', async ({ page }) 
 
 test('saves a named appearance preset', async ({ page }) => {
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Save', exact: true })).toBeHidden();
   await page.getByRole('textbox', { name: 'Preset name' }).fill('Dark');
@@ -2374,14 +2374,14 @@ test('saves a named appearance preset', async ({ page }) => {
   await page.getByRole('button', { name: 'Save', exact: true }).click();
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
   await expect(page.getByRole('combobox', { name: 'Saved presets' })).toContainText('Dark');
 });
 
 test('configures the default bookmark through the shared preset editor', async ({ page }) => {
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
 
   await expect(page.locator('#settings-modal-tab-bookmark .default-bookmark-settings')).toBeVisible();
@@ -2411,7 +2411,7 @@ test('configures the default bookmark through the shared preset editor', async (
   await page.getByRole('button', { name: 'Save', exact: true }).click();
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
   await page.getByRole('button', { name: 'Configure default bookmark' }).click();
   await expect(editor.locator('#bookmark-modal-form-backgroundColor')).toHaveValue('#123456');
@@ -2419,20 +2419,20 @@ test('configures the default bookmark through the shared preset editor', async (
 
 test('persists the synchronized storage choice', async ({ page }) => {
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Sync' }).click();
   await page.getByRole('radio', { name: /Synced/ }).check();
   await page.getByRole('button', { name: 'Save', exact: true }).click();
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Sync' }).click();
   await expect(page.getByRole('radio', { name: /Synced/ })).toBeChecked();
 });
 
 test('shows selected storage and local storage availability when sync is selected', async ({ page }) => {
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Sync' }).click();
 
   const usage = page.locator('[data-storage-usage-active]');
@@ -2518,13 +2518,13 @@ test('shows selected storage and local storage availability when sync is selecte
 
 test('localizes sync status and confirms synchronized data deletion', async ({ page }) => {
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Sync' }).click();
   await page.getByRole('radio', { name: /Synced/ }).check();
   await page.getByRole('button', { name: 'Save', exact: true }).click();
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Sync' }).click();
 
   const deleteSyncData = page.getByRole('button', { name: 'Delete synced data' });
@@ -2648,7 +2648,7 @@ test('shows local bookmarks and locks sync when cloud data needs a newer version
   await expect(page.getByText(/Sync was paused because the cloud data/)).toBeVisible();
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Sync' }).click();
 
   await expect(page.getByRole('radio', { name: /This device only/ })).toBeChecked();
@@ -2670,7 +2670,7 @@ test('blocks synchronized storage in Brave and explains why', async ({ page }) =
   await expect(page.getByRole('link', { name: /DEVELOPED BY/ })).toBeVisible();
 
   await revealSideDock(page);
-  await page.getByRole('button', { name: '⚙️' }).click();
+  await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Sync' }).click();
 
   await expect(page.getByRole('radio', { name: /This device only/ })).toBeChecked();

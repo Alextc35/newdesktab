@@ -65,7 +65,7 @@ for (const kind of ['bookmark', 'folder']) {
         const menu = page.locator('#floating-menu');
         await page.mouse.move(5, page.viewportSize().height / 2);
         await expect.poll(async () => (await menu.boundingBox()).x).toBeGreaterThanOrEqual(0);
-        await page.getByRole('button', { name: '✎' }).click();
+        await page.locator('#edit-toggle-mode').click();
         await card.getByRole('button', { name: 'Edit bookmark' }).click();
       } else {
         await card.getByRole('button', { name: /Open Image folder/ }).click();

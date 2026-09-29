@@ -5,7 +5,11 @@
   "launcher": {
     "bookmark": "Bookmark",
     "folder": "Folder",
-    "widgets": "Widgets"
+    "widgets": "Widgets",
+    "editMode": {
+      "enter": "Enter edit mode",
+      "exit": "Exit edit mode"
+    }
   },
   "widgets": {
     "title": "Widgets",

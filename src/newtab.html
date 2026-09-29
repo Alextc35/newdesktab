@@ -57,7 +57,10 @@
   </div>
 
   <div id="floating-menu">
-    <button id="edit-toggle-mode" type="button">✎</button>
+    <button id="edit-toggle-mode" type="button" aria-label="Enter edit mode"
+      data-i18n-aria-label="launcher.editMode.enter" aria-pressed="false">
+      <span class="edit-toggle-icon" aria-hidden="true"></span>
+    </button>
     <div class="floating-add">
       <button id="add-toggle" type="button" aria-label="Add" data-i18n-aria-label="buttons.add"
         aria-expanded="false" aria-controls="add-options">

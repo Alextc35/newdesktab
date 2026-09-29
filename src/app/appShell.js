@@ -53,7 +53,11 @@ export function initAppShell({
 export function updateAppShellEditing(isEditing) {
   if (!toggleButtonRef || !gridOverlayRef) return;
 
-  toggleButtonRef.textContent = isEditing ? '🔒' : '✎';
+  const labelKey = isEditing ? 'launcher.editMode.exit' : 'launcher.editMode.enter';
+  toggleButtonRef.dataset.i18nAriaLabel = labelKey;
+  toggleButtonRef.setAttribute('aria-label', t(labelKey));
+  toggleButtonRef.setAttribute('aria-pressed', String(isEditing));
+  toggleButtonRef.classList.toggle('is-editing', isEditing);
   gridOverlayRef.style.display = isEditing ? 'block' : 'none';
 }
 

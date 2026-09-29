@@ -5,7 +5,11 @@
   "launcher": {
     "bookmark": "Favorito",
     "folder": "Pasta",
-    "widgets": "Widgets"
+    "widgets": "Widgets",
+    "editMode": {
+      "enter": "Entrar no modo de edição",
+      "exit": "Sair do modo de edição"
+    }
   },
   "widgets": {
     "title": "Widgets",
