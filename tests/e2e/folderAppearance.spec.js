@@ -80,6 +80,38 @@ async function expectBorder(card) {
   await expect(card).not.toHaveCSS('border-top-color', 'rgba(0, 0, 0, 0)');
 }
 
+async function measureGridCardAlignment(page) {
+  return page.evaluate(id => {
+    const measure = (card, icon, title, count) => {
+      const cardRect = card.getBoundingClientRect();
+      const iconRect = icon.getBoundingClientRect();
+      const titleRect = title.getBoundingClientRect();
+      const countRect = count?.getBoundingClientRect();
+      return {
+        iconTop: iconRect.top - cardRect.top,
+        titleTop: titleRect.top - cardRect.top,
+        titleBottom: titleRect.bottom - cardRect.top,
+        gap: titleRect.top - iconRect.bottom,
+        countTop: countRect?.height ? countRect.top - cardRect.top : null,
+        countBottom: countRect?.height ? countRect.bottom - cardRect.top : null,
+        cardHeight: cardRect.height
+      };
+    };
+    const folder = document.querySelector(`[data-folder-id="${id}"]`);
+    const bookmark = document.querySelector('[data-bookmark-id="comparison-bookmark"]');
+    const recycleBin = document.querySelector('#bookmark-container > .recycle-bin');
+    return {
+      folder: measure(folder, folder.querySelector('.folder-visual'),
+        folder.querySelector('.folder-title'), folder.querySelector('.folder-count')),
+      bookmark: measure(bookmark, bookmark.querySelector('.bookmark-favicon'),
+        bookmark.querySelector('.bookmark-title')),
+      recycleBin: measure(recycleBin, recycleBin.querySelector('.recycle-bin-glyph'),
+        recycleBin.querySelector('.recycle-bin-caption strong'),
+        recycleBin.querySelector('.recycle-bin-caption small'))
+    };
+  }, folderId);
+}
+
 test('new folders and the default recycle bin have no outer background', async ({ page }) => {
   await page.goto('/tests/browser-harness.html');
   await expectAppReady(page);
@@ -132,12 +164,14 @@ test('new folders and the default recycle bin have no outer background', async (
   await expect(folder).not.toHaveClass(/is-folder-outer-transparent/);
 });
 
-test('positions a one-cell folder like a bookmark while separating its artwork and name', async ({ page }) => {
-  await start(page, [{ id: folderId, gx: 0, gy: 0, w: 1, h: 1 }]);
+test('aligns bookmark, folder and recycle bin independently of their optional counts', async ({ page }) => {
+  await start(page, [{ id: folderId, gx: 0, gy: 0, w: 1, h: 1, showCount: false }]);
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
     const { getState, setState } = await import('/src/state/appStore.js');
-    await setState({ data: { bookmarks: [...getState().data.bookmarks, {
+    const data = getState().data;
+    await setState({ data: { recycleBin: { ...data.recycleBin, gx: 2, gy: 0, w: 1, h: 1 },
+      bookmarks: [...data.bookmarks, {
       ...DEFAULT_BOOKMARK,
       id: 'comparison-bookmark', name: 'YouTube', url: 'https://youtube.com',
       backgroundFavicon: true, showText: true, gx: 1, gy: 0, w: 1, h: 1
@@ -146,30 +180,52 @@ test('positions a one-cell folder like a bookmark while separating its artwork a
 
   const bookmark = page.locator('[data-bookmark-id="comparison-bookmark"]');
   await expect(bookmark).toBeVisible();
-  const measurements = await page.evaluate(id => {
-    const measure = (card, icon, title) => {
-      const cardRect = card.getBoundingClientRect();
-      const iconRect = icon.getBoundingClientRect();
-      const titleRect = title.getBoundingClientRect();
-      return {
-        iconTop: iconRect.top - cardRect.top,
-        titleTop: titleRect.top - cardRect.top,
-        gap: titleRect.top - iconRect.bottom
-      };
-    };
-    const folderCard = document.querySelector(`[data-folder-id="${id}"]`);
-    const bookmarkCard = document.querySelector('[data-bookmark-id="comparison-bookmark"]');
-    return {
-      folder: measure(folderCard, folderCard.querySelector('.folder-visual'),
-        folderCard.querySelector('.folder-title')),
-      bookmark: measure(bookmarkCard, bookmarkCard.querySelector('.bookmark-favicon'),
-        bookmarkCard.querySelector('.bookmark-title'))
-    };
-  }, folderId);
+  const withoutCounts = await measureGridCardAlignment(page);
+  for (const card of [withoutCounts.folder, withoutCounts.recycleBin]) {
+    expect(Math.abs(card.iconTop - withoutCounts.bookmark.iconTop)).toBeLessThanOrEqual(2);
+    expect(Math.abs(card.titleTop - withoutCounts.bookmark.titleTop)).toBeLessThanOrEqual(2);
+    expect(card.gap).toBeGreaterThanOrEqual(5);
+    expect(card.countTop).toBeNull();
+  }
 
-  expect(Math.abs(measurements.folder.iconTop - measurements.bookmark.iconTop)).toBeLessThanOrEqual(2);
-  expect(Math.abs(measurements.folder.titleTop - measurements.bookmark.titleTop)).toBeLessThanOrEqual(2);
-  expect(measurements.folder.gap).toBeGreaterThanOrEqual(5);
+  await page.evaluate(async id => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    const data = getState().data;
+    await setState({ data: {
+      folders: data.folders.map(folder => folder.id === id ? { ...folder, showCount: true } : folder),
+      recycleBin: { ...data.recycleBin, showCount: true }
+    } });
+  }, folderId);
+  await expect(folderCard(page).locator('.folder-count')).toBeVisible();
+  await expect(page.locator('#bookmark-container > .recycle-bin .recycle-bin-caption small'))
+    .toBeVisible();
+  const withCounts = await measureGridCardAlignment(page);
+  for (const kind of ['folder', 'recycleBin']) {
+    expect(Math.abs(withCounts[kind].iconTop - withoutCounts[kind].iconTop)).toBeLessThanOrEqual(1);
+    expect(Math.abs(withCounts[kind].titleTop - withoutCounts[kind].titleTop)).toBeLessThanOrEqual(1);
+    expect(withCounts[kind].countTop).toBeGreaterThan(withCounts[kind].titleBottom);
+    expect(withCounts[kind].countBottom).toBeLessThan(withCounts[kind].cardHeight);
+  }
+
+  await page.evaluate(async id => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    const data = getState().data;
+    await setState({ data: {
+      folders: data.folders.map(folder => folder.id === id ? { ...folder, w: 2, h: 2 } : folder),
+      bookmarks: data.bookmarks.map(item => item.id === 'comparison-bookmark'
+        ? { ...item, gx: 2, w: 2, h: 2 } : item),
+      recycleBin: { ...data.recycleBin, gx: 4, w: 2, h: 2 }
+    } });
+  }, folderId);
+  await expect.poll(() => folderCard(page).evaluate(card => card.getBoundingClientRect().width))
+    .toBeGreaterThan(150);
+  const enlarged = await measureGridCardAlignment(page);
+  for (const card of [enlarged.folder, enlarged.recycleBin]) {
+    expect(Math.abs(card.iconTop - enlarged.bookmark.iconTop)).toBeLessThanOrEqual(2);
+    expect(Math.abs(card.titleTop - enlarged.bookmark.titleTop)).toBeLessThanOrEqual(2);
+    expect(card.countTop).toBeGreaterThan(card.titleBottom);
+    expect(card.countBottom).toBeLessThan(card.cardHeight);
+  }
 });
 
 test('previews, persists and resets the exterior color without making an unchanged editor dirty', async ({ page }) => {
@@ -290,7 +346,7 @@ test('keeps folder artwork and captions aligned across visibility and editing st
     element.querySelector('.folder-caption').getBoundingClientRect().height
   )));
   expect(captionHeights[0]).toBeGreaterThan(captionHeights[1]);
-  expect(captionHeights[0]).toBeGreaterThan(captionHeights[2]);
+  expect(captionHeights[0]).toBe(captionHeights[2]);
   expect(captionHeights[3]).toBe(0);
 
   const geometry = await folderCard(page).evaluate(element => {

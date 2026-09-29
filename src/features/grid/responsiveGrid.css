@@ -83,6 +83,74 @@
   }
 }
 
+/* Mirror the bookmark's icon-and-title block for folders and the recycle bin.
+   Their optional count sits below the title without recentering either row. */
+#bookmark-container:not(.is-list-view) > :is(
+  .bookmark-folder:not(.is-folder-hidden):not(.is-folder-name-hidden),
+  .recycle-bin:not(.is-recycle-bin-icon-hidden):not(.is-recycle-bin-name-hidden)
+) {
+  --aligned-card-action-size: clamp(14px, calc(25cqh - 1px), 20px);
+  --aligned-card-icon-room: max(
+    100cqw + 12px - 2 * (11px + var(--aligned-card-action-size)),
+    100cqh + 12px - 2 * (7px + var(--aligned-card-action-size)) - 17.4px
+  );
+  /* The 1px border on these cards makes their container 2px smaller. */
+  --aligned-card-icon-size: min(
+    calc(100cqw + 2px),
+    max(24px, calc(60cqw + 1.2px)),
+    calc(60cqh + 1.2px),
+    max(0px, var(--aligned-card-icon-room))
+  );
+  --aligned-card-title-height: 14.4px;
+  --aligned-card-art-height: max(0px, calc(var(--aligned-card-icon-size) - 3px));
+
+  & :is(.folder-card-content, .recycle-bin-open) {
+    display: grid;
+    padding: 0;
+    align-content: center;
+    justify-items: center;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: var(--aligned-card-icon-size) var(--aligned-card-title-height);
+    gap: 3px;
+  }
+
+  & :is(.folder-visual, .recycle-bin-glyph) {
+    height: var(--aligned-card-art-height);
+    align-self: start;
+  }
+
+  & .folder-visual {
+    width: calc(var(--aligned-card-art-height) * 1.36);
+  }
+
+  & .recycle-bin-glyph {
+    width: calc(var(--aligned-card-art-height) * 23 / 27);
+    flex: none;
+  }
+
+  & :is(.folder-caption, .recycle-bin-caption) {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: var(--aligned-card-title-height);
+    overflow: visible;
+  }
+
+  & :is(.folder-title, .recycle-bin-caption strong) {
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  & :is(.folder-count, .recycle-bin-caption small) {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    width: 100%;
+  }
+}
+
 @media (601px <= width <= 1000px) {
   #bookmark-container > .bookmark-folder.is-single-cell {
     & .folder-previews {
