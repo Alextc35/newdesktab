@@ -656,6 +656,12 @@
 .theme-wallpaper-manager:not([open]) > :not(summary) { display: none; }
 .theme-wallpaper-manager[open] > :not(summary) { margin-top: 10px; }
 
+.theme-wallpaper-device-hint {
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .theme-wallpaper-list { display: grid; gap: 6px; }
 
 .theme-wallpaper-row,

@@ -11,6 +11,7 @@ import {
 } from '../features/keyboard/keyboardShortcutController.js';
 import { updateAppShellEditing } from './appShell.js';
 import { detectApplicationChanges } from './appStateChanges.js';
+import { getStorageMode } from '../state/appStore.js';
 
 /**
  * Coordinates application-wide UI effects caused by store transitions. Domain
@@ -18,10 +19,17 @@ import { detectApplicationChanges } from './appStateChanges.js';
  * to the relevant presentation and platform boundaries.
  */
 export function createAppController({ container }) {
+  let lastStorageMode;
+  const applyCurrentPageTheme = settings => applyPageTheme(settings, {
+    includeFallback: getStorageMode() === 'sync'
+  });
   return Object.freeze({
     handleStateChange(state, previousState) {
+      const storageMode = getStorageMode();
+      const modeChanged = lastStorageMode !== undefined && storageMode !== lastStorageMode;
+      lastStorageMode = storageMode;
       if (!previousState) {
-        applyPageTheme(state.data.settings);
+        applyCurrentPageTheme(state.data.settings);
         updateAppShellEditing(state.ui.isEditing);
         const trace = debug.start('Initial grid render');
         renderGrid(container);
@@ -30,6 +38,7 @@ export function createAppController({ container }) {
       }
 
       const changes = detectApplicationChanges(state, previousState);
+      if (modeChanged) applyCurrentPageTheme(state.data.settings);
 
       if (changes.editing && !state.ui.isEditing) {
         clearGridItemSelection();
@@ -42,7 +51,7 @@ export function createAppController({ container }) {
       }
 
       if (changes.grid) {
-        renderChangedGrid(container, state, changes.settings);
+        renderChangedGrid(container, state, changes.settings, applyCurrentPageTheme);
       } else if (changes.editing) {
         if (state.ui.isEditing) enableGridEditing(container);
         else renderGrid(container);
@@ -53,7 +62,7 @@ export function createAppController({ container }) {
   });
 }
 
-function renderChangedGrid(container, state, settingsChanged) {
+function renderChangedGrid(container, state, settingsChanged, applyCurrentPageTheme) {
   const trace = debug.start('Render grid', {
     bookmarks: state.data.bookmarks.length,
     folders: state.data.folders.length,
@@ -61,14 +70,14 @@ function renderChangedGrid(container, state, settingsChanged) {
   });
   void Promise.all([preloadLocalImages(state.data), preloadLocalVideos(state.data)]).then(() => {
     trace.mark('Resolve local images');
-    if (settingsChanged) applyPageTheme(state.data.settings);
+    if (settingsChanged) applyCurrentPageTheme(state.data.settings);
     renderGrid(container);
     trace.mark('Build grid DOM');
     trace.end();
   }).catch(error => {
     trace.end({ status: 'error', error: error.message });
     console.error('[LOCAL_IMAGE] Could not load local image:', error);
-    if (settingsChanged) applyPageTheme(state.data.settings);
+    if (settingsChanged) applyCurrentPageTheme(state.data.settings);
     renderGrid(container);
   });
 }

@@ -173,7 +173,7 @@ test('creates, configures, resizes, persists and removes the bundled clock', asy
 
   await page.locator('#history-undo').focus();
   await page.keyboard.press('Enter');
-  await expect(clock).toBeVisible();
+  await expect(clock).toHaveCount(0);
 });
 
 test('selects, moves and permanently deletes a clock through bulk actions', async ({ page }) => {

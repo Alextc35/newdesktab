@@ -19,22 +19,20 @@ if (typeof document !== 'undefined') {
   });
 }
 
-/** Combines the existing single-image choice with additional ordered wallpapers. */
-export function resolveThemeWallpapers(theme = {}) {
-  const sources = [];
+/** Personal wallpapers rotate on this device; the shared URL is a Sync-only fallback. */
+export function resolveThemeWallpapers(theme = {}, { includeFallback = false } = {}) {
+  const sources = normalizeWallpaperMedia(theme.backgroundMedia)
+    .map(resolveWallpaperItem).filter(Boolean);
+  if (sources.length) return sources;
+  if (!includeFallback) return sources;
+
   const primaryVideo = theme.backgroundVideo ?? {};
   if (theme.backgroundPrimaryType === 'video') {
-    const url = primaryVideo.source === 'url'
-      ? primaryVideo.url ?? resolveLocalVideo(primaryVideo.local)
-      : resolveLocalVideo(primaryVideo.local) ?? primaryVideo.url;
+    const url = primaryVideo.url;
     if (url) sources.push({ type: 'video', url });
   } else {
-    const primary = resolveBackgroundImage(theme);
+    const primary = theme.backgroundImageUrl;
     if (primary) sources.push({ type: 'image', url: primary });
-  }
-  for (const item of normalizeWallpaperMedia(theme.backgroundMedia)) {
-    const source = resolveWallpaperItem(item);
-    if (source) sources.push(source);
   }
   return sources;
 }
@@ -83,7 +81,7 @@ function setWallpaperRotation(sources, intervalSeconds) {
     wallpaperSources = sources;
   }
   showWallpaper();
-  if (sources.length > 1 && wallpaperTimer === null) {
+  if (sources.length > 1 && intervalSeconds > 0 && wallpaperTimer === null) {
     wallpaperTimer = setInterval(() => {
       if (document.hidden) return;
       wallpaperIndex = (wallpaperIndex + 1) % wallpaperSources.length;
@@ -98,7 +96,7 @@ function setWallpaperRotation(sources, intervalSeconds) {
  * @param {Partial<Settings>} [settings={}]
  * @returns {void}
  */
-export function applyPageTheme(settings = {}) {
+export function applyPageTheme(settings = {}, { includeFallback = false } = {}) {
   const root = document.documentElement;
   const theme = settings.theme || {};
   wallpaperBaseColor = theme.backgroundSolid
@@ -119,7 +117,7 @@ export function applyPageTheme(settings = {}) {
   }
 
   setWallpaperRotation(
-    resolveThemeWallpapers(theme),
+    resolveThemeWallpapers(theme, { includeFallback }),
     normalizeWallpaperInterval(theme.backgroundRotationSeconds)
   );
 }

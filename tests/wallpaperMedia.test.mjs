@@ -53,8 +53,11 @@ test('keeps an additional local image slot without syncing its file reference', 
 test('rejects unsupported URLs and out-of-range intervals', () => {
   assert.equal(normalizeWallpaperUrl('file:///tmp/movie.mp4', 'video'), null);
   assert.equal(normalizeWallpaperUrl('javascript:alert(1)', 'image'), null);
-  assert.equal(normalizeWallpaperInterval(4), 30);
+  assert.equal(normalizeWallpaperInterval(4), 0);
+  assert.equal(normalizeWallpaperInterval(0), 0);
   assert.equal(normalizeWallpaperInterval(3600), 3600);
+  assert.equal(normalizeWallpaperInterval(86400), 86400);
+  assert.equal(normalizeWallpaperInterval(30), 30); // Preserve old choices.
 });
 
 test('detects direct video URLs and keeps the primary local video out of Sync', () => {

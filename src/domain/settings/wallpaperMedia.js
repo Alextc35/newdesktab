@@ -1,7 +1,7 @@
 import { isLocalImageReference, normalizeBackgroundImage } from '../../shared/images/backgroundImage.js';
 
-export const MAX_WALLPAPER_ITEMS = 24;
-export const DEFAULT_WALLPAPER_INTERVAL = 30;
+export const MAX_WALLPAPER_ITEMS = 25;
+export const DEFAULT_WALLPAPER_INTERVAL = 0;
 export const LOCAL_VIDEO_PROTOCOL = 'newdesktab-local-video:';
 const COLOR_PATTERN = /^#[\da-f]{6}$/i;
 
@@ -36,7 +36,7 @@ export function isLocalVideoReference(value) {
 }
 
 export function normalizeWallpaperInterval(value) {
-  return Number.isInteger(value) && value >= 5 && value <= 3600
+  return Number.isInteger(value) && (value === 0 || value >= 5 && value <= 86400)
     ? value : DEFAULT_WALLPAPER_INTERVAL;
 }
 

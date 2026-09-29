@@ -271,17 +271,18 @@ keeps the working data locally when necessary. An open NewDeskTab page also show
 a flash message when its data is updated by another synchronized device; writes
 made on the current device do not trigger that message locally.
 
-In **Settings → Theme**, the primary wallpaper accepts an image or video URL,
-or an image or MP4/WebM/Ogg video from this device. The collapsed **More
-wallpapers** section accepts additional URLs (detecting video by extension)
-and local image or video files,
-lets you reorder them, choose a color behind transparent media, preview each
-wallpaper and set the rotation interval. Previews use the desktop's aspect
-ratio and cover crop. Videos play muted and loop. Local images and videos
-remain on this device; Sync transfers only the ordered configuration and
-remote URLs. A local-only wallpaper is unavailable on another device until
-that device selects its own file. Local videos can be up to 200 MB and are
-stored separately from Chrome Sync.
+In **Settings → Theme**, the image or video URL appears only in Sync mode and
+provides a shared fallback. **My own wallpapers** is a device-only collection of
+URLs and local image or MP4/WebM/Ogg video files. You can reorder them, choose
+a color behind transparent media, preview each one and set a rotation interval
+for this device. The fallback appears only in Sync mode when no personal
+wallpaper is available; it does not join the rotation. The first wallpaper stays
+fixed by default; short rotation presets can be enabled when wanted.
+Previews use the desktop's aspect
+ratio and cover crop. Videos play muted and loop. Local video files can be up
+to 200 MB and are stored separately from Chrome Sync. Existing shared
+wallpaper lists are copied once into each device's personal collection when
+upgrading, then subsequent edits stay independent.
 
 > Cross-device sync requires the same extension ID on every installation. A
 > Chrome Web Store release provides this automatically. Development installs

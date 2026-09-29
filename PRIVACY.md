@@ -34,9 +34,12 @@ NewDeskTab also stores synchronization metadata, including a generated device
 identifier and update timestamps, to distinguish local and remote changes.
 The extension does not give its developer access to that synchronized data.
 
-Local image and video files, filenames and device-specific file selections are
-not sent to Sync. Configured remote image and video URLs, wallpaper order and
-rotation timing are part of the shared settings.
+Local image and video files, filenames, personal wallpaper URLs, their order
+and rotation timing are not sent to Sync. Only the fallback wallpaper URL is
+synchronized, and only appears on the page in Sync mode when no personal
+wallpaper is available. An older shared wallpaper list may remain in Sync as a frozen
+migration copy so devices upgrading later can retain their previous wallpapers;
+subsequent edits to personal wallpapers never update that copy.
 See [Google's privacy policy](https://policies.google.com/privacy) for Google's
 handling of its services.
 

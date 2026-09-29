@@ -89,6 +89,9 @@ const { DEVICE_TRASH_KEY } = await import(
 const { DEVICE_IMAGE_SELECTIONS_KEY } = await import(
   '../src/platform/storage/deviceImageSelections.js'
 );
+const { DEVICE_WALLPAPERS_KEY } = await import(
+  '../src/platform/storage/deviceWallpapers.js'
+);
 
 const SETTINGS = {
   language: 'es',
@@ -236,6 +239,26 @@ test('reports exact local data and image categories', async () => {
     );
   } finally {
     for (const key of Object.keys(localData)) delete localData[key];
+    Object.assign(localData, previous);
+  }
+});
+
+test('counts personal wallpaper images as theme storage without a synced selection slot', async () => {
+  const localData = chrome.storage.local.data;
+  const previous = structuredClone(localData);
+  const reference = 'newdesktab-local-image:4c5b9a2e-3f0e-4c7e-889c-72117afc09e9';
+  const key = 'newdesktabLocalImage:4c5b9a2e-3f0e-4c7e-889c-72117afc09e9';
+  for (const entry of Object.keys(localData)) delete localData[entry];
+  Object.assign(localData, {
+    [key]: { dataUrl: 'data:image/webp;base64,dGVzdA==', name: 'own.webp' },
+    [DEVICE_WALLPAPERS_KEY]: { media: [{ id: 'own', type: 'image',
+      backgroundImageLocal: reference }], rotationSeconds: 30 }
+  });
+  try {
+    const usage = await storage.getUsage(STORAGE_MODES.LOCAL);
+    assert.equal(usage.imageBreakdown.themeBytes, getStorageBytes({ [key]: localData[key] }));
+  } finally {
+    for (const entry of Object.keys(localData)) delete localData[entry];
     Object.assign(localData, previous);
   }
 });

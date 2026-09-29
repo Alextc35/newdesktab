@@ -7,6 +7,7 @@ import { clearLocalImages } from '../platform/images/localImages.js';
 import { clearLocalVideos } from '../platform/images/localVideos.js';
 import { clearDeviceImageSelections } from '../platform/storage/deviceImageSelections.js';
 import { clearDeviceTrash } from '../platform/storage/deviceTrashStorage.js';
+import { clearDeviceWallpapers } from '../platform/storage/deviceWallpapers.js';
 import { createGridHistory, hasGridDataChange } from './gridHistory.js';
 import { describeStateChange } from './stateChangeDescription.js';
 
@@ -280,7 +281,8 @@ export async function clearAllLocalData() {
     clearLocalImages(),
     clearLocalVideos(),
     clearDeviceImageSelections(),
-    clearDeviceTrash()
+    clearDeviceTrash(),
+    clearDeviceWallpapers()
   ]);
   clearBookmarkHistory();
 }

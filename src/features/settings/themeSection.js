@@ -3,19 +3,15 @@ import { createLockableInputController } from '../../shared/ui/lockableInput.js'
 import { t } from '../../platform/i18n/i18n.js';
 import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
-import {
-  getImageInputValue,
-  setLocalImageSyncNoticeVisibility,
-  setImageInputValue
-} from '../../shared/ui/localImageUpload.js';
+import { getImageInputValue, setImageInputValue } from '../../shared/ui/localImageUpload.js';
 import { deleteLocalImage, getLocalImageName, saveLocalImage } from '../../platform/images/localImages.js';
 import { deleteLocalVideo, getLocalVideoName, saveLocalVideo } from '../../platform/images/localVideos.js';
 import { inferWallpaperType, MAX_WALLPAPER_ITEMS, normalizeWallpaperInterval, normalizeWallpaperUrl } from '../../domain/settings/wallpaperMedia.js';
 import { resolveThemeWallpapers, resolveWallpaperItem } from '../../shared/ui/pageTheme.js';
 import { getStorageMode } from '../../state/appStore.js';
 import {
-  getDraftStorageMode,
   getDraftTheme,
+  getDraftStorageMode,
   setDraftThemeValue,
   replaceDraftTheme
 } from './settingsDraft.js';
@@ -48,18 +44,9 @@ export function initThemeSection({
   const bgSolidColorField = document.getElementById('settings-theme-bg-solid-color-field');
   const bgColorInput = document.getElementById('settings-theme-bg-color');
   const bgImageControls = document.getElementById('settings-theme-bg-image-controls');
-  const bgImageSourceField = document.getElementById('settings-theme-bg-image-source-field');
-  const bgImageSourceSelect = document.getElementById('settings-theme-bg-image-source');
   const bgImageUrlField = document.getElementById('settings-theme-bg-image-url-field');
   const bgImageColorInput = document.getElementById('settings-theme-bg-image-color');
   const bgImageInput = document.getElementById('settings-theme-bg-image');
-  const bgLocalColorInput = document.getElementById('settings-theme-bg-local-color');
-  const bgLocalInput = document.getElementById('settings-theme-bg-local');
-  const bgLocalField = bgLocalInput.closest('.local-image-field');
-  const clearBgLocalBtn = document.getElementById('settings-theme-clear-bg-local');
-  const bgImageUploadInput = document.getElementById('settings-theme-bg-upload-input');
-  const bgImageUploadButton = document.getElementById('settings-theme-bg-upload');
-  const bgImageUploadNotice = bgImageUploadButton?.parentElement?.querySelector('.local-image-notice');
   const resetBgBtn = document.getElementById('settings-theme-reset-bg');
   const mediaList = document.getElementById('settings-theme-media-list');
   const mediaDetails = document.getElementById('settings-theme-more-wallpapers');
@@ -103,7 +90,6 @@ export function initThemeSection({
    * Controller used to manage the lockable background-image input.
    */
   let bgController;
-  let primaryUploadPending = false;
   let additionalUploadPending = false;
 
   /* ==================================================
@@ -120,45 +106,26 @@ export function initThemeSection({
     return typeof value === 'string' && value.trim() !== '';
   }
 
-  function syncImageColorInputs(value) {
-    bgImageColorInput.value = value;
-    bgLocalColorInput.value = value;
+  function primaryUrl(theme = getDraftTheme()) {
+    return theme.backgroundPrimaryType === 'video'
+      ? theme.backgroundVideo?.url : theme.backgroundImageUrl;
   }
 
-  function primaryMedia(theme = getDraftTheme()) {
-    const isVideo = theme.backgroundPrimaryType === 'video';
-    return {
-      isVideo,
-      url: isVideo ? theme.backgroundVideo?.url : theme.backgroundImageUrl,
-      local: isVideo ? theme.backgroundVideo?.local : theme.backgroundImageLocal,
-      source: isVideo ? theme.backgroundVideo?.source : theme.backgroundImageSource
-    };
+  function isSyncMode() {
+    return (getDraftStorageMode() ?? getStorageMode()) === 'sync';
   }
 
   function syncPrimaryInputs() {
-    const current = primaryMedia();
-    if (bgImageInput.value !== (current.url ?? '')) {
-      setImageInputValue(bgImageInput, current.url);
-    }
-    if (current.isVideo) {
-      delete bgLocalInput.dataset.localImageReference;
-      bgLocalInput.value = current.local
-        ? getLocalVideoName(current.local) ?? t('localImage.unnamed') : '';
-    } else {
-      setImageInputValue(bgLocalInput, current.local);
-    }
+    const url = primaryUrl();
+    if (bgImageInput.value !== (url ?? '')) setImageInputValue(bgImageInput, url);
     bgController?.refresh();
   }
 
   function setPrimaryUrl(value) {
-    const draft = getDraftTheme();
-    const type = value ? inferWallpaperType(value) : draft.backgroundPrimaryType;
+    const type = value ? inferWallpaperType(value) : 'image';
     setDraftThemeValue('backgroundPrimaryType', type);
     if (type === 'video') {
-      setDraftThemeValue('backgroundVideo', {
-        ...draft.backgroundVideo,
-        url: value || null
-      });
+      setDraftThemeValue('backgroundVideo', { url: value || null, local: null, source: 'url' });
     } else {
       setDraftThemeValue('backgroundImageUrl', value || null);
     }
@@ -170,9 +137,13 @@ export function initThemeSection({
     if (![...mediaInterval.options].some(option => Number(option.value) === interval)) {
       const option = document.createElement('option');
       option.value = String(interval);
-      option.textContent = `${interval} s`;
+      option.textContent = interval === 0 ? t('settingsModal.theme.noRotation')
+        : interval < 60 ? `${interval} s`
+        : interval < 3600 ? `${interval / 60} min` : `${interval / 3600} h`;
       option.dataset.customInterval = '';
-      mediaInterval.append(option);
+      const nextOption = [...mediaInterval.options]
+        .find(existing => Number(existing.value) > interval);
+      mediaInterval.insertBefore(option, nextOption ?? null);
     }
     mediaInterval.value = String(interval);
   }
@@ -356,7 +327,7 @@ export function initThemeSection({
     bgPreview.style.backgroundImage = '';
     bgPreview.classList.toggle('is-default-bg', draft.backgroundDefault);
     const sources = draft.backgroundDefault || draft.backgroundSolid
-      ? [] : resolveThemeWallpapers(draft);
+      ? [] : resolveThemeWallpapers(draft, { includeFallback: isSyncMode() });
     previewNavigation.classList.toggle('is-hidden', sources.length < 2);
     previewIndex = sources.length ? previewIndex % sources.length : 0;
     previewCount.textContent = sources.length ? `${previewIndex + 1} / ${sources.length}` : '';
@@ -395,7 +366,7 @@ export function initThemeSection({
    */
   function updateColorState() {
     const draft = getDraftTheme();
-    const hasImage = hasImageValue(primaryMedia(draft).url);
+    const hasImage = hasImageValue(primaryUrl(draft));
     const isLocked = bgController?.isLocked?.() ?? false;
 
     clearBgImageBtn.style.display = hasImage && !isLocked ? 'block' : 'none';
@@ -415,40 +386,26 @@ export function initThemeSection({
    * - preview is refreshed after state updates
    */
   function updateStates() {
-    const draft = getDraftTheme();
-    const primary = primaryMedia(draft);
     const backgroundImage = bgImageMode.checked && !bgSolid.checked;
     const backgroundSolid = bgSolid.checked && !backgroundImage;
     const imagesDisabled = !backgroundImage;
-    const hasLocalImage = hasImageValue(primary.local);
-    const activeSource = hasLocalImage && primary.source !== 'url'
-      ? 'local'
-      : 'url';
+    const syncMode = isSyncMode();
 
     syncPrimaryInputs();
 
     bgSolidColorField.classList.toggle('is-hidden', !backgroundSolid);
     bgColorInput.disabled = !backgroundSolid;
     bgImageControls.classList.toggle('is-hidden', imagesDisabled);
-    bgImageSourceField.classList.toggle('is-hidden', !hasLocalImage);
-    bgImageSourceSelect.value = activeSource;
-    bgImageSourceSelect.disabled = imagesDisabled;
-    bgImageUrlField.classList.toggle('is-hidden', hasLocalImage && activeSource === 'local');
-    bgLocalField.classList.toggle('is-hidden', !hasLocalImage || activeSource === 'url');
-    bgImageColorInput.disabled = imagesDisabled || activeSource !== 'url'
-      || (bgController?.isLocked() ?? false);
-    bgLocalColorInput.disabled = imagesDisabled || activeSource !== 'local';
-    bgImageInput.disabled = imagesDisabled;
-    bgLocalInput.disabled = imagesDisabled;
-    clearBgLocalBtn.disabled = imagesDisabled;
-    bgImageUploadButton.disabled = imagesDisabled || primaryUploadPending || additionalUploadPending;
-    toggleBtn.disabled = imagesDisabled;
-    clearBgImageBtn.disabled = imagesDisabled;
-    copyBgImageBtn.disabled = imagesDisabled;
+    bgImageUrlField.classList.toggle('is-hidden', !syncMode);
+    bgImageColorInput.disabled = imagesDisabled || !syncMode || (bgController?.isLocked() ?? false);
+    bgImageInput.disabled = imagesDisabled || !syncMode;
+    toggleBtn.disabled = imagesDisabled || !syncMode;
+    clearBgImageBtn.disabled = imagesDisabled || !syncMode;
+    copyBgImageBtn.disabled = imagesDisabled || !syncMode;
     mediaUrl.disabled = imagesDisabled || additionalUploadPending;
     mediaAdd.disabled = imagesDisabled || additionalUploadPending;
-    mediaUploadInput.disabled = imagesDisabled || primaryUploadPending || additionalUploadPending;
-    mediaUploadButton.disabled = imagesDisabled || primaryUploadPending || additionalUploadPending;
+    mediaUploadInput.disabled = imagesDisabled || additionalUploadPending;
+    mediaUploadButton.disabled = imagesDisabled || additionalUploadPending;
     mediaInterval.disabled = imagesDisabled;
 
     updatePreview();
@@ -468,15 +425,10 @@ export function initThemeSection({
     const draft = getDraftTheme();
     syncPreviewAspectRatio();
 
-    setLocalImageSyncNoticeVisibility(
-      bgImageUploadNotice,
-      getDraftStorageMode() ?? getStorageMode()
-    );
-
     bgImageMode.checked = !draft.backgroundDefault && !draft.backgroundSolid;
     bgSolid.checked = draft.backgroundSolid || false;
     bgColorInput.value = draft.backgroundColor;
-    syncImageColorInputs(draft.backgroundImageColor);
+    bgImageColorInput.value = draft.backgroundImageColor;
     syncPrimaryInputs();
     syncIntervalSelect(draft.backgroundRotationSeconds);
     mediaDetails.open = false;
@@ -539,27 +491,10 @@ export function initThemeSection({
     onRequestSaveStateUpdate();
   });
 
-  for (const input of [bgImageColorInput, bgLocalColorInput]) {
-    input.addEventListener('input', () => {
-      if (input.disabled) return;
-
-      syncImageColorInputs(input.value);
-      setDraftThemeValue('backgroundImageColor', input.value);
-
-      updatePreview();
-      onRequestSaveStateUpdate();
-    });
-  }
-
-  bgImageSourceSelect.addEventListener('change', () => {
-    const draft = getDraftTheme();
-    if (draft.backgroundPrimaryType === 'video') {
-      setDraftThemeValue('backgroundVideo', { ...draft.backgroundVideo,
-        source: bgImageSourceSelect.value });
-    } else {
-      setDraftThemeValue('backgroundImageSource', bgImageSourceSelect.value);
-    }
-    updateStates();
+  bgImageColorInput.addEventListener('input', () => {
+    if (bgImageColorInput.disabled) return;
+    setDraftThemeValue('backgroundImageColor', bgImageColorInput.value);
+    updatePreview();
     onRequestSaveStateUpdate();
   });
 
@@ -567,92 +502,6 @@ export function initThemeSection({
     setBackgroundMode(bgSolid.checked ? 'solid' : 'default');
     updateStates();
     onRequestSaveStateUpdate();
-  });
-
-  bgImageUploadButton.addEventListener('click', () => bgImageUploadInput.click());
-  bgImageUploadInput.addEventListener('change', async () => {
-    const file = bgImageUploadInput.files?.[0];
-    bgImageUploadInput.value = '';
-    if (!file) return;
-    const draftAtStart = getDraftTheme();
-    const saveButton = document.getElementById('settings-modal-save');
-    primaryUploadPending = true;
-    saveButton.disabled = true;
-    bgImageUploadButton.disabled = true;
-    try {
-      const isVideo = file.type.startsWith('video/');
-      const reference = isVideo ? await saveLocalVideo(file) : await saveLocalImage(file);
-      if (getDraftTheme() !== draftAtStart) {
-        await (isVideo ? deleteLocalVideo(reference) : deleteLocalImage(reference));
-        return;
-      }
-      if (isVideo) {
-        uploadedVideos.add(reference);
-        setDraftThemeValue('backgroundPrimaryType', 'video');
-        setDraftThemeValue('backgroundVideo', {
-          ...draftAtStart.backgroundVideo, local: reference, source: 'local'
-        });
-      } else {
-        uploadedImages.add(reference);
-        setDraftThemeValue('backgroundPrimaryType', 'image');
-        setDraftThemeValue('backgroundImageLocal', reference);
-        setDraftThemeValue('backgroundImageSource', 'local');
-      }
-      updateStates();
-    } catch (error) {
-      console.error('[THEME] Could not add primary wallpaper:', error);
-      flashError('flash.settings.invalidWallpaperFile');
-    } finally {
-      primaryUploadPending = false;
-      if (getDraftTheme() === draftAtStart) updateStates();
-      onRequestSaveStateUpdate();
-    }
-  });
-
-  clearBgLocalBtn.addEventListener('click', () => {
-    if (clearBgLocalBtn.disabled) return;
-    const draft = getDraftTheme();
-    if (draft.backgroundPrimaryType === 'video') {
-      setDraftThemeValue('backgroundVideo', {
-        ...draft.backgroundVideo, local: null, source: 'url'
-      });
-    } else {
-      setDraftThemeValue('backgroundImageLocal', null);
-      setDraftThemeValue('backgroundImageSource', 'url');
-    }
-    updateStates();
-    onRequestSaveStateUpdate();
-  });
-
-  const selectLocalFilename = () => bgLocalInput.setSelectionRange(0, bgLocalInput.value.length);
-  const hasPrimaryLocalFile = () => Boolean(getDraftTheme() && primaryMedia().local);
-  for (const type of ['copy', 'cut', 'paste', 'beforeinput', 'drop']) {
-    bgLocalInput.addEventListener(type, event => event.preventDefault());
-  }
-  bgLocalInput.addEventListener('focus', () => {
-    if (hasPrimaryLocalFile()) selectLocalFilename();
-  });
-  bgLocalInput.addEventListener('pointerdown', event => {
-    if (!hasPrimaryLocalFile()) return;
-    event.preventDefault();
-    bgLocalInput.focus({ preventScroll: true });
-    selectLocalFilename();
-  });
-  bgLocalInput.addEventListener('keydown', event => {
-    if (!hasPrimaryLocalFile()) return;
-    if (['Backspace', 'Delete'].includes(event.key)) {
-      event.preventDefault();
-      clearBgLocalBtn.click();
-      return;
-    }
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-    event.preventDefault();
-    selectLocalFilename();
-  });
-  bgLocalInput.addEventListener('select', () => {
-    if (!hasPrimaryLocalFile()) return;
-    if (bgLocalInput.selectionStart === 0 && bgLocalInput.selectionEnd === bgLocalInput.value.length) return;
-    selectLocalFilename();
   });
 
   mediaAdd.addEventListener('click', () => {
@@ -679,7 +528,7 @@ export function initThemeSection({
   mediaUploadInput.addEventListener('change', async () => {
     const files = [...(mediaUploadInput.files ?? [])];
     mediaUploadInput.value = '';
-    if (!files.length || additionalUploadPending || primaryUploadPending) return;
+    if (!files.length || additionalUploadPending) return;
     const draftAtStart = getDraftTheme();
     if (!draftAtStart) return;
     if ((draftAtStart.backgroundMedia?.length ?? 0) + files.length > MAX_WALLPAPER_ITEMS) {
@@ -741,7 +590,7 @@ export function initThemeSection({
 
   for (const [button, offset] of [[previewPrevious, -1], [previewNext, 1]]) {
     button.addEventListener('click', () => {
-      const count = resolveThemeWallpapers(getDraftTheme()).length;
+      const count = resolveThemeWallpapers(getDraftTheme(), { includeFallback: isSyncMode() }).length;
       if (count < 2) return;
       previewIndex = (previewIndex + offset + count) % count;
       updatePreview();
@@ -769,7 +618,7 @@ export function initThemeSection({
     bgImageMode.checked = !draft.backgroundDefault && !draft.backgroundSolid;
     bgSolid.checked = draft.backgroundSolid;
     bgColorInput.value = draft.backgroundColor;
-    syncImageColorInputs(draft.backgroundImageColor);
+    bgImageColorInput.value = draft.backgroundImageColor;
     syncPrimaryInputs();
     syncIntervalSelect(draft.backgroundRotationSeconds);
     previewIndex = 0;
@@ -799,7 +648,7 @@ export function initThemeSection({
     syncUI,
     cleanupLocalMedia,
     discardUploadedMedia,
-    isUploading: () => primaryUploadPending || additionalUploadPending,
+    isUploading: () => additionalUploadPending,
     pausePreview
   };
 }

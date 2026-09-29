@@ -314,7 +314,8 @@ test('deletes every local data area without changing synchronized data', async (
       settingsAreDefault: JSON.stringify(local.settings) === JSON.stringify(DEFAULT_SETTINGS),
       sync,
       localImageKeys: Object.keys(local).filter(key => key.startsWith('newdesktabLocalImage:')),
-      hasImageSelections: Object.hasOwn(local, 'newdesktabLocalImageSelections')
+      hasImageSelections: Object.hasOwn(local, 'newdesktabLocalImageSelections'),
+      hasPersonalWallpapers: Object.hasOwn(local, 'newdesktabDeviceWallpapers')
     };
   })).toEqual({
     mode: 'local',
@@ -325,7 +326,8 @@ test('deletes every local data area without changing synchronized data', async (
     settingsAreDefault: true,
     sync: syncedBeforeDelete,
     localImageKeys: [],
-    hasImageSelections: false
+    hasImageSelections: false,
+    hasPersonalWallpapers: false
   });
 
   await page.reload();

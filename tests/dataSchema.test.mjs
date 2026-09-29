@@ -104,7 +104,7 @@ test('adds solid color mode without changing saved backgrounds and normalizes co
       ...savedBackground, backgroundDefault, backgroundSolid: false,
       backgroundPrimaryType: 'image',
       backgroundVideo: { url: null, local: null, source: 'url' },
-      backgroundMedia: [], backgroundRotationSeconds: 30
+      backgroundMedia: [], backgroundRotationSeconds: 0
     });
   }
 

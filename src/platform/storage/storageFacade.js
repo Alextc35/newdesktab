@@ -29,6 +29,13 @@ import {
   saveDeviceTrash,
   withoutDeviceTrash
 } from './deviceTrashStorage.js';
+import {
+  DEVICE_WALLPAPERS_KEY,
+  prepareLegacyDeviceWallpapers,
+  restoreDeviceWallpapers,
+  saveDeviceWallpapers,
+  withoutDeviceWallpapers
+} from './deviceWallpapers.js';
 
 export const STORAGE_MODES = Object.freeze({
   LOCAL: 'local',
@@ -131,11 +138,9 @@ function reconcileStorageBreakdown(breakdown, usedBytes) {
 function getLocalImageCategories(values) {
   const categories = new Map();
   const selections = values[DEVICE_IMAGE_SELECTIONS_KEY];
-  if (!selections || typeof selections !== 'object' || Array.isArray(selections)) {
-    return categories;
-  }
-
-  for (const [slot, selection] of Object.entries(selections)) {
+  for (const [slot, selection] of Object.entries(
+    selections && typeof selections === 'object' && !Array.isArray(selections) ? selections : {}
+  )) {
     const reference = typeof selection === 'string'
       ? selection
       : selection?.reference;
@@ -150,6 +155,14 @@ function getLocalImageCategories(values) {
           : 'bookmark';
     const previous = categories.get(reference);
     categories.set(reference, !previous || previous === category ? category : 'other');
+  }
+
+  const wallpaperMedia = values[DEVICE_WALLPAPERS_KEY]?.media;
+  for (const item of Array.isArray(wallpaperMedia) ? wallpaperMedia : []) {
+    const reference = item?.backgroundImageLocal;
+    if (typeof reference !== 'string' || !reference.startsWith('newdesktab-local-image:')) continue;
+    const previous = categories.get(reference);
+    categories.set(reference, !previous || previous === 'theme' ? 'theme' : 'other');
   }
 
   return categories;
@@ -395,6 +408,7 @@ async function readSyncData() {
  */
 async function writeLocalData(data) {
   await saveDeviceImageSelections(data);
+  await saveDeviceWallpapers(data);
   await callStorage(chrome.storage.local, 'set', normalizePersistedData(data));
 }
 
@@ -407,8 +421,21 @@ async function writeLocalData(data) {
 async function writeSyncData(data) {
   const normalized = normalizePersistedData(data);
   await saveDeviceImageSelections(normalized);
+  await saveDeviceWallpapers(normalized);
   await saveDeviceTrash(normalized);
-  const shared = withoutDeviceTrash(withoutDeviceImages(normalized));
+  const shared = withoutDeviceWallpapers(withoutDeviceTrash(withoutDeviceImages(normalized)));
+  const existing = await readSyncData();
+  const existingTheme = existing?.settings?.theme;
+  const legacyMedia = existingTheme?.legacyBackgroundMedia
+    ?? (existing?.schemaVersion !== DATA_SCHEMA_VERSION ? existingTheme?.backgroundMedia : null);
+  if (Array.isArray(legacyMedia) && legacyMedia.length) {
+    const seed = normalizePersistedData(existing);
+    seed.settings.theme.backgroundMedia = legacyMedia;
+    shared.settings.theme.legacyBackgroundMedia = withoutDeviceImages(seed)
+      .settings.theme.backgroundMedia;
+    shared.settings.theme.legacyBackgroundRotationSeconds = existingTheme?.legacyBackgroundRotationSeconds
+      ?? existingTheme?.backgroundRotationSeconds;
+  }
   const encoded = encodeSyncPayload(shared, {
     schemaVersion: DATA_SCHEMA_VERSION,
     writerDeviceId: deviceId
@@ -822,7 +849,8 @@ export const storage = {
     if (requestedMode === STORAGE_MODES.SYNC && activeMode === STORAGE_MODES.SYNC) {
       data = normalizePersistedData(await restoreDeviceTrash(data));
     }
-    data = await restoreDeviceImageSelections(data);
+    data = await restoreDeviceImageSelections(await prepareLegacyDeviceWallpapers(data));
+    data = await restoreDeviceWallpapers(data);
 
     // Rewrite legacy synchronized payloads once their trash has safely moved
     // to this device. Future reads then avoid downloading those entries.
@@ -923,11 +951,15 @@ export const storage = {
 
       if (existingSyncData) {
         await saveDeviceImageSelections(nextData);
+        await saveDeviceWallpapers(nextData);
         await saveDeviceTrash(nextData);
         nextData = normalizePersistedData(
           await restoreDeviceTrash(normalizePersistedData(existingSyncData))
         );
-        nextData = await restoreDeviceImageSelections(nextData);
+        nextData = await restoreDeviceImageSelections(
+          await prepareLegacyDeviceWallpapers(nextData)
+        );
+        nextData = await restoreDeviceWallpapers(nextData);
         await writeSyncData(nextData);
         source = 'existing';
       } else {
@@ -997,7 +1029,8 @@ function placeConcurrentAdditions(base, latest, data) {
 
 chrome.storage.onChanged.addListener((changes, areaName) => {
   if (areaName === STORAGE_MODES.LOCAL
-    && (changes[DEVICE_IMAGE_SELECTIONS_KEY] || changes[DEVICE_TRASH_KEY])) {
+    && (changes[DEVICE_IMAGE_SELECTIONS_KEY] || changes[DEVICE_TRASH_KEY]
+      || changes[DEVICE_WALLPAPERS_KEY])) {
     for (const listener of changeListeners) listener({ areaName, origin: 'same-device' });
   }
 
