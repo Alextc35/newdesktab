@@ -13,6 +13,7 @@ test('creates the complete persisted-data shape for a new profile', () => {
   assert.deepEqual(data.folders, []);
   assert.deepEqual(data.widgets, []);
   assert.deepEqual(data.recycleBin, DEFAULT_RECYCLE_BIN);
+  assert.equal(data.recycleBin.showCount, false);
   assert.deepEqual(data.trash, []);
   assert.deepEqual(data.settings, DEFAULT_SETTINGS);
 });

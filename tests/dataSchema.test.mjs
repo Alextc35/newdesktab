@@ -30,7 +30,7 @@ test('migrates schema 8 folders without changing their saved appearance', () => 
   const folder = migrated.folders[0];
   assert.equal(migrated.schemaVersion, DATA_SCHEMA_VERSION);
   for (const [key, value] of Object.entries({
-    ...DEFAULT_FOLDER_STYLE, ...savedStyle, noOuterBackground: false
+    ...DEFAULT_FOLDER_STYLE, ...savedStyle, noOuterBackground: false, showCount: true
   })) {
     assert.equal(folder[key], value);
   }

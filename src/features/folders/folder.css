@@ -94,6 +94,37 @@
   display: none;
 }
 
+.is-folder-count-hidden:not(.is-folder-name-hidden) .folder-card-content {
+  --folder-caption-height: var(--folder-title-height);
+  --folder-caption-gap: 0px;
+}
+
+.is-folder-count-hidden:not(.is-folder-name-hidden) .folder-caption {
+  grid-template-rows: var(--folder-title-height);
+}
+
+.is-folder-name-hidden:not(.is-folder-count-hidden) .folder-card-content {
+  --folder-caption-height: var(--folder-count-height);
+  --folder-caption-gap: 0px;
+}
+
+.is-folder-name-hidden:not(.is-folder-count-hidden) .folder-caption {
+  grid-template-rows: var(--folder-count-height);
+}
+
+.is-folder-name-hidden:not(.is-folder-count-hidden) .folder-count {
+  grid-row: 1;
+}
+
+.is-folder-name-hidden.is-folder-count-hidden .folder-card-content {
+  --folder-caption-height: 0px;
+  --folder-content-gap: 0px;
+}
+
+.is-folder-name-hidden.is-folder-count-hidden .folder-caption {
+  display: none;
+}
+
 .bookmark-folder:not(.bookmark-list-item).is-folder-hidden .folder-card-content,
 .folder-editor-preview-card.is-folder-hidden .folder-card-content {
   --folder-art-height: 0px;

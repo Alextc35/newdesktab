@@ -391,10 +391,12 @@ test('restores the recycle bin defaults from the general tab', async ({ page }) 
   await expect(page.locator('#recycle-bin-editor-background-color')).toHaveValue(/#[\da-f]{6}/i);
   await expect(page.locator('#recycle-bin-editor-no-background')).toBeChecked();
   await expect(page.locator('#recycle-bin-editor-show-name')).toBeChecked();
+  await expect(page.locator('#recycle-bin-editor-show-count')).not.toBeChecked();
   await page.locator('#edit-recycle-bin-modal-save').click();
 
   recycleBin = page.locator('#bookmark-container .recycle-bin');
   await expect(recycleBin).not.toHaveClass(/is-recycle-bin-name-hidden/);
+  await expect(recycleBin).toHaveClass(/is-recycle-bin-count-hidden/);
   await expect(recycleBin).not.toHaveClass(/has-recycle-bin-background/);
 });
 

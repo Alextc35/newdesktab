@@ -14,5 +14,5 @@ export const DEFAULT_FOLDER_STYLE = Object.freeze({
   showFolder: true,
   showPreviews: true,
   showName: true,
-  showCount: true
+  showCount: false
 });

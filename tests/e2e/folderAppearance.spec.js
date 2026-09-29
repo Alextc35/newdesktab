@@ -28,6 +28,7 @@ async function start(page, layouts = [{ id: folderId, gx: 0, gy: 0, w: 2, h: 2 }
         const { getState, setState } = await import('/src/state/appStore.js');
         const folders = folderLayouts.map(layout => ({ ...DEFAULT_FOLDER_STYLE,
           noOuterBackground: false,
+          showCount: true,
           name: 'Reading', groupId: null, createdAt: 1, updatedAt: 1, ...layout }));
         const bookmarks = folders.flatMap(folder => Array.from({ length: 3 }, (_, index) => ({
           ...DEFAULT_BOOKMARK, id: `${folder.id}-${index}`, name: `Saved page ${index + 1}`,
@@ -91,6 +92,8 @@ test('new folders and the default recycle bin have no outer background', async (
 
   const recycleBin = page.locator('#bookmark-container .recycle-bin');
   await expect(recycleBin).toHaveClass(/is-recycle-bin-transparent/);
+  await expect(recycleBin).toHaveClass(/is-recycle-bin-count-hidden/);
+  await expect(recycleBin.locator('.recycle-bin-caption small')).toBeHidden();
   await expect(recycleBin).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
 
   await page.mouse.move(5, page.viewportSize().height / 2);
@@ -102,6 +105,8 @@ test('new folders and the default recycle bin have no outer background', async (
 
   const folder = page.locator('#bookmark-container .bookmark-folder', { hasText: 'New folder' });
   await expect(folder).toHaveClass(/is-folder-outer-transparent/);
+  await expect(folder).toHaveClass(/is-folder-count-hidden/);
+  await expect(folder.locator('.folder-count')).toBeHidden();
   await expect(folder).toHaveCSS('background-image', 'none');
   await expect(folder).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await expect(folder).toHaveCSS('box-shadow', 'none');
@@ -113,6 +118,9 @@ test('new folders and the default recycle bin have no outer background', async (
   await expect(noOuterBackground).toBeChecked();
   await expect(page.locator('#folder-editor-outer-color')).toBeDisabled();
   await expect(page.locator('#folder-editor-no-background')).not.toBeChecked();
+  await page.locator('#edit-folder-modal').getByRole('tab', { name: 'Text' }).click();
+  await expect(page.locator('#folder-editor-show-count')).not.toBeChecked();
+  await page.locator('#edit-folder-modal').getByRole('tab', { name: 'Style' }).click();
   await noOuterBackground.uncheck();
   await expect(previewCard(page)).not.toHaveCSS('background-image', 'none');
   await page.locator('#edit-folder-modal-save').click();
@@ -238,10 +246,12 @@ test('keeps folder artwork and captions aligned across visibility and editing st
   ]);
 
   const cards = page.locator('#bookmark-container .bookmark-folder');
-  const visualWidths = await cards.evaluateAll(elements => elements.map(element => (
-    element.querySelector('.folder-visual').getBoundingClientRect().width
+  const captionHeights = await cards.evaluateAll(elements => elements.map(element => (
+    element.querySelector('.folder-caption').getBoundingClientRect().height
   )));
-  expect(Math.max(...visualWidths) - Math.min(...visualWidths)).toBeLessThanOrEqual(1);
+  expect(captionHeights[0]).toBeGreaterThan(captionHeights[1]);
+  expect(captionHeights[0]).toBeGreaterThan(captionHeights[2]);
+  expect(captionHeights[3]).toBe(0);
 
   const geometry = await folderCard(page).evaluate(element => {
     const card = element.getBoundingClientRect();

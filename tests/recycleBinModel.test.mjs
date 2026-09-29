@@ -39,7 +39,8 @@ test('invalid recycle bin appearance falls back without hiding content', () => {
     backgroundColor: 'purple',
     iconColor: null,
     textColor: '#123'
-  }), DEFAULT_RECYCLE_BIN_STYLE);
+  }), { ...DEFAULT_RECYCLE_BIN_STYLE, showCount: true });
+  assert.equal(normalizeRecycleBinStyle(DEFAULT_RECYCLE_BIN_STYLE).showCount, false);
 });
 
 test('an older recycle bin with a custom background keeps that background', () => {

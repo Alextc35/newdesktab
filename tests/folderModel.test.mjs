@@ -14,9 +14,11 @@ test('legacy and invalid folder styles preserve the default visible appearance',
   }]) {
     assert.deepEqual(normalizeFolderStyle(style), {
       ...DEFAULT_FOLDER_STYLE,
-      noOuterBackground: false
+      noOuterBackground: false,
+      showCount: true
     });
   }
+  assert.equal(normalizeFolderStyle(DEFAULT_FOLDER_STYLE).showCount, false);
 });
 
 test('folder visibility controls are independent except previews require a folder graphic', () => {

@@ -116,6 +116,7 @@ test('creates legacy-safe folder styles and updates their appearance', async () 
     backgroundImageUrlLocked: false,
     textColor: '#f8fafc'
   });
+  assert.equal(created.showCount, false);
 
   const updated = updateBookmarkFolder(created.id, {
     name: 'Games',

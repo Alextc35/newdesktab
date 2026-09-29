@@ -14,7 +14,7 @@ export const DEFAULT_RECYCLE_BIN_STYLE = Object.freeze({
   textColor: null,
   showIcon: true,
   showName: true,
-  showCount: true
+  showCount: false
 });
 
 /** The recycle bin is a first-class grid item, visible only in Main. */
