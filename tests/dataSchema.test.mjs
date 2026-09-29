@@ -29,7 +29,9 @@ test('migrates schema 8 folders without changing their saved appearance', () => 
   });
   const folder = migrated.folders[0];
   assert.equal(migrated.schemaVersion, DATA_SCHEMA_VERSION);
-  for (const [key, value] of Object.entries({ ...DEFAULT_FOLDER_STYLE, ...savedStyle })) {
+  for (const [key, value] of Object.entries({
+    ...DEFAULT_FOLDER_STYLE, ...savedStyle, noOuterBackground: false
+  })) {
     assert.equal(folder[key], value);
   }
   assert.deepEqual(migratePersistedData(migrated), migrated);
@@ -40,11 +42,13 @@ test('preserves folder controls across backup and bookmarks-only exports', () =>
     bookmarks: [{ id: 'saved', name: 'Saved', folderId: 'custom' }],
     folders: [{
       id: 'custom', name: 'Custom', outerBackgroundColor: '#ABCDEF',
+      noOuterBackground: true,
       showFolder: false, showPreviews: true, showName: false, showCount: false
     }]
   });
   const folder = data.folders[0];
   assert.equal(folder.outerBackgroundColor, '#abcdef');
+  assert.equal(folder.noOuterBackground, true);
   assert.equal(folder.showFolder, false);
   assert.equal(folder.showPreviews, false);
   assert.equal(folder.showName, false);

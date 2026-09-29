@@ -378,6 +378,7 @@ test('restores the recycle bin defaults from the general tab', async ({ page }) 
 
   const editor = page.locator('#edit-recycle-bin-modal');
   await editor.getByRole('tab', { name: 'Style' }).click();
+  await page.locator('#recycle-bin-editor-no-background').uncheck();
   await page.locator('#recycle-bin-editor-background-color').fill('#663399');
   await editor.getByRole('tab', { name: 'Text' }).click();
   await page.locator('#recycle-bin-editor-show-name').uncheck();
@@ -388,7 +389,7 @@ test('restores the recycle bin defaults from the general tab', async ({ page }) 
   await expect(editor.getByRole('tab', { name: 'General' })).toHaveClass(/active/);
   await page.locator('#recycle-bin-editor-reset').click();
   await expect(page.locator('#recycle-bin-editor-background-color')).toHaveValue(/#[\da-f]{6}/i);
-  await expect(page.locator('#recycle-bin-editor-no-background')).not.toBeChecked();
+  await expect(page.locator('#recycle-bin-editor-no-background')).toBeChecked();
   await expect(page.locator('#recycle-bin-editor-show-name')).toBeChecked();
   await page.locator('#edit-recycle-bin-modal-save').click();
 

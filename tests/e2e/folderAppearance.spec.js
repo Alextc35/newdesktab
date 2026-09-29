@@ -27,6 +27,7 @@ async function start(page, layouts = [{ id: folderId, gx: 0, gy: 0, w: 2, h: 2 }
         const { DEFAULT_FOLDER_STYLE } = await import('/src/domain/folders/folderDefaults.js');
         const { getState, setState } = await import('/src/state/appStore.js');
         const folders = folderLayouts.map(layout => ({ ...DEFAULT_FOLDER_STYLE,
+          noOuterBackground: false,
           name: 'Reading', groupId: null, createdAt: 1, updatedAt: 1, ...layout }));
         const bookmarks = folders.flatMap(folder => Array.from({ length: 3 }, (_, index) => ({
           ...DEFAULT_BOOKMARK, id: `${folder.id}-${index}`, name: `Saved page ${index + 1}`,
@@ -77,6 +78,51 @@ async function expectBorder(card) {
     .toBeGreaterThan(0);
   await expect(card).not.toHaveCSS('border-top-color', 'rgba(0, 0, 0, 0)');
 }
+
+test('new folders and the default recycle bin have no outer background', async ({ page }) => {
+  await page.goto('/tests/browser-harness.html');
+  await expectAppReady(page);
+  await page.evaluate(async () => {
+    const { DEFAULT_RECYCLE_BIN } = await import('/src/domain/recycle-bin/recycleBinDefaults.js');
+    const { setState } = await import('/src/state/appStore.js');
+    await setState({ data: { bookmarks: [], folders: [],
+      recycleBin: structuredClone(DEFAULT_RECYCLE_BIN) } });
+  });
+
+  const recycleBin = page.locator('#bookmark-container .recycle-bin');
+  await expect(recycleBin).toHaveClass(/is-recycle-bin-transparent/);
+  await expect(recycleBin).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+
+  await page.mouse.move(5, page.viewportSize().height / 2);
+  await page.locator('#add-toggle').click();
+  await page.locator('#add-folder').click();
+  await page.locator('#folder-editor-name').fill('New folder');
+  await page.locator('#edit-folder-modal').getByRole('button', { name: 'Add', exact: true }).click();
+  await expect(page.locator('#edit-folder-modal')).toBeHidden();
+
+  const folder = page.locator('#bookmark-container .bookmark-folder', { hasText: 'New folder' });
+  await expect(folder).toHaveClass(/is-folder-outer-transparent/);
+  await expect(folder).toHaveCSS('background-image', 'none');
+  await expect(folder).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+  await expect(folder).toHaveCSS('box-shadow', 'none');
+
+  await folder.locator('.folder-open').click();
+  await page.locator('#folder-modal-customize').click();
+  await page.locator('#edit-folder-modal').getByRole('tab', { name: 'Style' }).click();
+  const noOuterBackground = page.locator('#folder-editor-no-outer-background');
+  await expect(noOuterBackground).toBeChecked();
+  await expect(page.locator('#folder-editor-outer-color')).toBeDisabled();
+  await expect(page.locator('#folder-editor-no-background')).not.toBeChecked();
+  await noOuterBackground.uncheck();
+  await expect(previewCard(page)).not.toHaveCSS('background-image', 'none');
+  await page.locator('#edit-folder-modal-save').click();
+  await expect(page.locator('#edit-folder-modal')).toBeHidden();
+  await page.locator('#folder-modal-close').click();
+  await expect(folder).not.toHaveClass(/is-folder-outer-transparent/);
+  await page.reload();
+  await expectAppReady(page);
+  await expect(folder).not.toHaveClass(/is-folder-outer-transparent/);
+});
 
 test('previews, persists and resets the exterior color without making an unchanged editor dirty', async ({ page }) => {
   await start(page);

@@ -21,9 +21,13 @@ const IMAGE_PROTOCOLS = new Set(['http:', 'https:', 'data:']);
 export function normalizeRecycleBinStyle(value = {}) {
   const source = value && typeof value === 'object' ? value : {};
   const image = normalizeBackgroundImage(source);
+  const backgroundColor = normalizeOptionalColor(source.backgroundColor);
+  const hasLegacyBackground = Boolean(backgroundColor || image.backgroundImageUrl || image.backgroundImageLocal);
   return {
-    noBackground: source.noBackground === true,
-    backgroundColor: normalizeOptionalColor(source.backgroundColor),
+    noBackground: source.noBackground === undefined
+      ? DEFAULT_RECYCLE_BIN_STYLE.noBackground && !hasLegacyBackground
+      : source.noBackground === true,
+    backgroundColor,
     ...image,
     backgroundImageUrlLocked: Boolean(image.backgroundImageUrl)
       && image.backgroundImageUrlLocked,

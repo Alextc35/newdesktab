@@ -12,7 +12,10 @@ test('legacy and invalid folder styles preserve the default visible appearance',
     showName: 0,
     showCount: undefined
   }]) {
-    assert.deepEqual(normalizeFolderStyle(style), DEFAULT_FOLDER_STYLE);
+    assert.deepEqual(normalizeFolderStyle(style), {
+      ...DEFAULT_FOLDER_STYLE,
+      noOuterBackground: false
+    });
   }
 });
 

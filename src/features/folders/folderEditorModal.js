@@ -3,6 +3,7 @@ import {
   createBookmarkFolder,
   updateBookmarkFolder
 } from './folderActions.js';
+import { DEFAULT_FOLDER_STYLE } from '../../domain/folders/folderDefaults.js';
 import { validateFolderDraft } from '../../domain/folders/folderModel.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { getState, getStorageMode, waitForPersistence } from '../../state/appStore.js';
@@ -31,6 +32,7 @@ let modal;
 let modalTitle;
 let nameInput;
 let noBackgroundInput;
+let noOuterBackgroundInput;
 let colorInput;
 let outerColorInput;
 let outerColorResetButton;
@@ -66,6 +68,7 @@ export function initFolderEditorModal() {
   modalTitle = modal.querySelector('h2');
   nameInput = document.getElementById('folder-editor-name');
   noBackgroundInput = document.getElementById('folder-editor-no-background');
+  noOuterBackgroundInput = document.getElementById('folder-editor-no-outer-background');
   colorInput = document.getElementById('folder-editor-color');
   outerColorInput = document.getElementById('folder-editor-outer-color');
   outerColorResetButton = document.getElementById('folder-editor-outer-color-reset');
@@ -108,7 +111,8 @@ export function initFolderEditorModal() {
     handleInput();
   });
   for (const input of [
-    noBackgroundInput, showFolderInput, showPreviewsInput, showNameInput, showCountInput
+    noBackgroundInput, noOuterBackgroundInput,
+    showFolderInput, showPreviewsInput, showNameInput, showCountInput
   ]) {
     input.addEventListener('change', handleInput);
   }
@@ -163,7 +167,7 @@ export function openCreateFolder() {
 
   mode = 'create';
   activeFolderId = null;
-  initialValue = editableFolderValue({ name: '' });
+  initialValue = editableFolderValue({ ...DEFAULT_FOLDER_STYLE, name: '' });
   populateForm(initialValue);
   modalTitle.textContent = t('folder.editor.createTitle');
   saveButton.textContent = t('buttons.add');
@@ -202,6 +206,7 @@ function populateForm(value) {
   nameInput.maxLength = BOOKMARK_FOLDER_NAME_MAX_LENGTH;
   nameInput.value = value.name;
   noBackgroundInput.checked = value.noBackground;
+  noOuterBackgroundInput.checked = value.noOuterBackground;
   colorInput.value = value.backgroundColor;
   localColorInput.value = value.backgroundColor;
   outerBackgroundColor = value.outerBackgroundColor;
@@ -241,6 +246,7 @@ function currentValue() {
   return {
     name: nameInput.value,
     noBackground: noBackgroundInput.checked,
+    noOuterBackground: noOuterBackgroundInput.checked,
     backgroundColor: colorInput.value,
     outerBackgroundColor,
     showFolder: showFolderInput.checked,
@@ -265,6 +271,7 @@ function isDirty() {
   const current = currentValue();
   return current.name !== initialValue.name
     || current.noBackground !== initialValue.noBackground
+    || current.noOuterBackground !== initialValue.noOuterBackground
     || current.backgroundColor !== initialValue.backgroundColor
     || current.outerBackgroundColor !== initialValue.outerBackgroundColor
     || current.showFolder !== initialValue.showFolder
@@ -292,6 +299,7 @@ function syncStyleControls() {
   if (!showFolderInput.checked) showPreviewsInput.checked = false;
   showPreviewsInput.disabled = !showFolderInput.checked;
   outerColorResetButton.disabled = outerBackgroundColor === null;
+  outerColorInput.disabled = noOuterBackgroundInput.checked;
 }
 
 function syncSaveButton() {

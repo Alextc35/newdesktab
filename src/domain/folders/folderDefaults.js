@@ -1,10 +1,11 @@
 import '../../types/types.js';
 
-/** Default appearance applied to new and legacy folders. */
+/** New-folder defaults; older folders without noOuterBackground keep their card. */
 export const DEFAULT_FOLDER_STYLE = Object.freeze({
   noBackground: false,
   backgroundColor: '#38bdf8',
   outerBackgroundColor: null,
+  noOuterBackground: true,
   backgroundImageUrl: null,
   backgroundImageLocal: null,
   backgroundImageSource: 'url',

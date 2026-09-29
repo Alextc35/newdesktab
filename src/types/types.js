@@ -65,6 +65,7 @@
  * @property {boolean} noBackground
  * @property {string} backgroundColor
  * @property {string|null} outerBackgroundColor Null keeps the automatic tile gradient.
+ * @property {boolean} noOuterBackground Whether the outer tile is transparent.
  * @property {string|null} backgroundImageUrl
  * @property {string|null} backgroundImageLocal
  * @property {'local'|'url'} backgroundImageSource

@@ -289,6 +289,7 @@
       "showName": "Mostrar nome da pasta",
       "showCount": "Mostrar quantidade de salvos",
       "outerBackgroundColor": "Cor do fundo externo:",
+      "noOuterBackground": "Sem fundo externo",
       "resetOuterBackground": "Usar fundo padrão",
       "noBackground": "Preenchimento da pasta transparente",
       "backgroundColor": "Cor da pasta:",

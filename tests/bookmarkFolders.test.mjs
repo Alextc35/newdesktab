@@ -103,12 +103,14 @@ test('creates legacy-safe folder styles and updates their appearance', async () 
 
   assert.deepEqual({
     noBackground: created.noBackground,
+    noOuterBackground: created.noOuterBackground,
     backgroundColor: created.backgroundColor,
     backgroundImageUrl: created.backgroundImageUrl,
     backgroundImageUrlLocked: created.backgroundImageUrlLocked,
     textColor: created.textColor
   }, {
     noBackground: false,
+    noOuterBackground: true,
     backgroundColor: '#38bdf8',
     backgroundImageUrl: null,
     backgroundImageUrlLocked: false,

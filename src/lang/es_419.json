@@ -289,6 +289,7 @@
       "showName": "Mostrar nombre de la carpeta",
       "showCount": "Mostrar número de guardados",
       "outerBackgroundColor": "Color del fondo exterior:",
+      "noOuterBackground": "Sin fondo exterior",
       "resetOuterBackground": "Usar fondo predeterminado",
       "noBackground": "Relleno de carpeta transparente",
       "backgroundColor": "Color de la carpeta:",

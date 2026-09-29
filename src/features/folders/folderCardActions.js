@@ -23,7 +23,7 @@ export function addFolderActions(container, folder) {
 }
 
 function isFolderActionSurfaceDark(folder) {
-  if (folder.outerBackgroundColor) {
+  if (folder.outerBackgroundColor && !folder.noOuterBackground) {
     return isGridItemSurfaceDark({ backgroundColor: folder.outerBackgroundColor });
   }
 

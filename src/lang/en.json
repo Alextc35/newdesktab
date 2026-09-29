@@ -289,6 +289,7 @@
       "showName": "Show folder name",
       "showCount": "Show saved count",
       "outerBackgroundColor": "Outer background color:",
+      "noOuterBackground": "No outer background",
       "resetOuterBackground": "Use default background",
       "noBackground": "Transparent folder fill",
       "backgroundColor": "Folder color:",

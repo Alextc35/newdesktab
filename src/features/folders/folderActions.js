@@ -1,4 +1,5 @@
 import '../../types/types.js';
+import { DEFAULT_FOLDER_STYLE } from '../../domain/folders/folderDefaults.js';
 import { findFirstFreeSlot } from '../../shared/grid/gridPlacement.js';
 import {
   cellKey,
@@ -45,7 +46,7 @@ export function createBookmarkFolder(name, { columns, rows } = {}, appearance = 
   const folder = {
     id: crypto.randomUUID(),
     name: normalizedName,
-    ...normalizeFolderStyle(appearance),
+    ...normalizeFolderStyle({ ...DEFAULT_FOLDER_STYLE, ...appearance }),
     ...position,
     w: 1,
     h: 1,

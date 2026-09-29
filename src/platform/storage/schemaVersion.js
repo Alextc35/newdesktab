@@ -1,2 +1,2 @@
 /** Current version of NewDeskTab's persisted data contract. */
-export const DATA_SCHEMA_VERSION = 20;
+export const DATA_SCHEMA_VERSION = 21;

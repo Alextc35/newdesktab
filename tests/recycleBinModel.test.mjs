@@ -42,6 +42,12 @@ test('invalid recycle bin appearance falls back without hiding content', () => {
   }), DEFAULT_RECYCLE_BIN_STYLE);
 });
 
+test('an older recycle bin with a custom background keeps that background', () => {
+  const legacy = normalizeRecycleBinStyle({ backgroundColor: '#123456' });
+  assert.equal(legacy.noBackground, false);
+  assert.equal(legacy.backgroundColor, '#123456');
+});
+
 test('validates recycle bin background image URLs', () => {
   const invalid = validateRecycleBinStyle({ backgroundImageUrl: 'javascript:alert(1)' });
   assert.equal(invalid.isValid, false);

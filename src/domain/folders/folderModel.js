@@ -15,6 +15,7 @@ export const FOLDER_STYLE_KEYS = Object.freeze([
   'noBackground',
   'backgroundColor',
   'outerBackgroundColor',
+  'noOuterBackground',
   'backgroundImageUrl',
   'backgroundImageLocal',
   'backgroundImageSource',
@@ -41,6 +42,8 @@ export function normalizeFolderStyle(value = {}) {
     outerBackgroundColor: isHexColor(source.outerBackgroundColor)
       ? source.outerBackgroundColor.toLowerCase()
       : DEFAULT_FOLDER_STYLE.outerBackgroundColor,
+    // Older folders did not have this option and retain their original card.
+    noOuterBackground: source.noOuterBackground === true,
     ...image,
     backgroundImageUrlLocked: Boolean(image.backgroundImageUrl)
       && image.backgroundImageUrlLocked,

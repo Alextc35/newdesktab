@@ -70,6 +70,18 @@
   background: var(--folder-outer-color);
 }
 
+.bookmark-folder:not(.bookmark-list-item).is-folder-outer-transparent,
+.folder-editor-preview-card.is-folder-outer-transparent {
+  --folder-context-text: var(--ui-text);
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+}
+
+.is-folder-outer-transparent .folder-count {
+  color: var(--ui-muted);
+}
+
 .has-folder-outer-color .folder-count {
   color: color-mix(in srgb, var(--folder-text-color) 72%, transparent);
 }

@@ -50,6 +50,7 @@ export function createFolderVisual(folder, bookmarks = [], { compact = false } =
 export function applyFolderAppearance(element, folder = {}) {
   element.style.setProperty('--folder-light-text', lightSurfaceTextColor(folder.textColor));
   element.classList.toggle('is-folder-transparent', folder.noBackground === true);
+  element.classList.toggle('is-folder-outer-transparent', folder.noOuterBackground === true);
   element.classList.toggle('is-folder-hidden', folder.showFolder === false);
   element.classList.toggle('is-folder-preview-hidden', folder.showFolder === false || folder.showPreviews === false);
   element.classList.toggle('is-folder-name-hidden', folder.showName === false);
