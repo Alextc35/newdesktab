@@ -82,7 +82,10 @@
       "copied": "Value copied to clipboard",
       "resetBg": "Theme reset",
       "deletedAllData": "All local NewDeskTab data deleted",
-      "deleteAllDataError": "Could not delete all local NewDeskTab data"
+      "deleteAllDataError": "Could not delete all local NewDeskTab data",
+      "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image/video URL.",
+      "invalidWallpaperFile": "Could not add this file. Use a supported image or an MP4, WebM or Ogg video up to 200 MB.",
+      "wallpaperLimit": "You can add up to 24 additional wallpapers."
     },
     "localImage": {
       "invalid": "Choose a PNG, JPEG, WebP, GIF, or AVIF image.",
@@ -152,7 +155,7 @@
     "settings": {
       "cancel": "Discard settings changes?",
       "reset": "Reset all settings? Bookmarks will not be deleted.",
-      "deleteAllData": "Delete all local NewDeskTab data from this device? Bookmarks, folders, widgets, settings, recycle-bin items, and local images will be permanently deleted. Cloud data will not be changed. If Sync is active, this device will switch to Local first. This action cannot be undone.",
+      "deleteAllData": "Delete all local NewDeskTab data from this device? Bookmarks, folders, widgets, settings, recycle-bin items, local images and local videos will be permanently deleted. Cloud data will not be changed. If Sync is active, this device will switch to Local first. This action cannot be undone.",
       "theme": {
         "reset": "Reset theme settings?"
       },
@@ -458,6 +461,8 @@
         "trashImages": "Recycle bin",
         "otherImages": "Other",
         "localImagesHint": "Included in the totals above. Remote images only use the space required by their address.",
+        "localVideos": "Local videos",
+        "localVideosHint": "Stored separately on this device; not included in the totals above and not synced.",
         "error": "Usage unavailable"
       },
       "browserSupport": {
@@ -484,12 +489,36 @@
     "theme": {
       "title": "Theme",
       "subtitle": "Page background",
-      "backgroundImageMode": "Image",
+      "backgroundImageMode": "Image/video",
+      "wallpapersTitle": "More wallpapers",
+      "mediaUrl": "Wallpaper URL",
+      "image": "Image",
+      "video": "Video",
+      "addUrl": "Add URL",
+      "addFiles": "Add local files",
+      "localMediaNotice": "Local files stay on this device; videos can be up to 200 MB and play muted.",
+      "rotationInterval": "Change wallpaper every",
+      "interval5": "5 seconds",
+      "interval15": "15 seconds",
+      "interval30": "30 seconds",
+      "interval60": "1 minute",
+      "interval300": "5 minutes",
+      "previous": "Previous",
+      "next": "Next",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "remove": "Remove",
+      "unavailableLocal": "Local file unavailable on this device",
+      "mediaColor": "Color behind this wallpaper",
+      "mediaPreview": "Preview wallpaper",
+      "localFile": "Local file:",
+      "removeLocalFile": "Remove local file",
+      "activeSource": "Active source",
       "backgroundDefaultHint": "When neither option is selected, the default NewDeskTab background is used.",
       "backgroundSolid": "Solid color",
       "backgroundColor": "Color:",
-      "backgroundImageColor": "Color behind the image",
-      "backgroundImage": "Image URL:",
+      "backgroundImageColor": "Color behind the image/video",
+      "backgroundImage": "Image or video URL:",
       "urlHidden": "URL hidden",
       "resetBackground": "Reset theme"
     },

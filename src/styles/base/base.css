@@ -14,6 +14,20 @@ body {
   font-family: var(--font-family-body);
 }
 
+#page-wallpaper-video {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+#page-wallpaper-video[hidden] {
+  display: none;
+}
+
 html.is-default-bg body,
 .bg-preview.is-default-bg {
   background-image:

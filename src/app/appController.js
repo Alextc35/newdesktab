@@ -5,6 +5,7 @@ import { applyPageTheme } from '../shared/ui/pageTheme.js';
 import { enableGridEditing, renderGrid } from '../features/grid/gridRenderer.js';
 import { clearGridItemSelection } from '../features/grid/gridSelection.js';
 import { preloadLocalImages } from '../platform/images/localImages.js';
+import { preloadLocalVideos } from '../platform/images/localVideos.js';
 import {
   syncKeyboardShortcutAccessibility
 } from '../features/keyboard/keyboardShortcutController.js';
@@ -58,7 +59,7 @@ function renderChangedGrid(container, state, settingsChanged) {
     folders: state.data.folders.length,
     widgets: state.data.widgets.length
   });
-  void preloadLocalImages(state.data).then(() => {
+  void Promise.all([preloadLocalImages(state.data), preloadLocalVideos(state.data)]).then(() => {
     trace.mark('Resolve local images');
     if (settingsChanged) applyPageTheme(state.data.settings);
     renderGrid(container);

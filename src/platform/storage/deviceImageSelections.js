@@ -1,6 +1,8 @@
 import { preloadLocalImages, resolveImageSource } from '../images/localImages.js';
 import { isLocalImageReference } from '../../shared/images/backgroundImage.js';
 import { callStorage } from './chromeStorage.js';
+import { isLocalVideoReference } from '../../domain/settings/wallpaperMedia.js';
+import { preloadLocalVideoReferences, resolveLocalVideo } from '../images/localVideos.js';
 
 export const DEVICE_IMAGE_SELECTIONS_KEY = 'newdesktabLocalImageSelections';
 
@@ -8,6 +10,13 @@ export const DEVICE_IMAGE_SELECTIONS_KEY = 'newdesktabLocalImageSelections';
 function imageSlots(data) {
   return [
     ['theme', data.settings?.theme],
+    ['theme-video:primary', data.settings?.theme?.backgroundVideo],
+    ...(data.settings?.theme?.backgroundMedia ?? [])
+      .filter(item => item?.type === 'image')
+      .map(item => [`theme:${item.id}`, item]),
+    ...(data.settings?.theme?.backgroundMedia ?? [])
+      .filter(item => item?.type === 'video')
+      .map(item => [`theme-video:${item.id}`, item]),
     ['bookmarkDefault', data.settings?.bookmarkDefault],
     ['recycleBin', data.recycleBin],
     ...(data.bookmarks ?? []).map(item => [`bookmark:${item.id}`, item]),
@@ -25,9 +34,14 @@ function imageSlots(data) {
 /** Removes device selections from the payload sent to Sync, without changing app state. */
 export function withoutDeviceImages(data) {
   const shared = structuredClone(data);
-  for (const [, style] of imageSlots(shared)) {
-    delete style.backgroundImageLocal;
-    delete style.backgroundImageSource;
+  for (const [key, style] of imageSlots(shared)) {
+    if (key.startsWith('theme-video:')) {
+      delete style.local;
+      delete style.source;
+    } else {
+      delete style.backgroundImageLocal;
+      delete style.backgroundImageSource;
+    }
   }
   return shared;
 }
@@ -38,11 +52,14 @@ export async function saveDeviceImageSelections(data) {
   const slots = imageSlots(data);
   let changed = pruneSelections(selections, slots);
   for (const [key, style] of slots) {
-    const reference = isLocalImageReference(style.backgroundImageLocal)
-      ? style.backgroundImageLocal : null;
+    const isVideo = key.startsWith('theme-video:');
+    const reference = isVideo
+      ? (isLocalVideoReference(style.local) ? style.local : null)
+      : (isLocalImageReference(style.backgroundImageLocal) ? style.backgroundImageLocal : null);
     const selection = {
       reference,
-      source: reference && style.backgroundImageSource !== 'url' ? 'local' : 'url'
+      source: reference && (isVideo ? style.source : style.backgroundImageSource) !== 'url'
+        ? 'local' : 'url'
     };
     if (!Object.hasOwn(selections, key) && !reference) continue;
     if (sameSelection(selections[key], selection)) continue;
@@ -67,22 +84,34 @@ export async function restoreDeviceImageSelections(data) {
   const selections = await readSelections();
   const slots = imageSlots(restored);
   const candidates = slots.map(([key, style]) => (
-    Object.hasOwn(selections, key) ? selections[key].reference : style.backgroundImageLocal
+    Object.hasOwn(selections, key) ? selections[key].reference
+      : key.startsWith('theme-video:') ? style.local : style.backgroundImageLocal
   ));
   await preloadLocalImages(candidates);
+  await preloadLocalVideoReferences(candidates);
 
   let changed = pruneSelections(selections, slots);
   for (const [key, style] of slots) {
+    const isVideo = key.startsWith('theme-video:');
     const hasSelection = Object.hasOwn(selections, key);
-    const reference = hasSelection ? selections[key].reference : style.backgroundImageLocal;
-    const source = hasSelection ? selections[key].source : style.backgroundImageSource;
-    const available = isLocalImageReference(reference) && resolveImageSource(reference);
-    style.backgroundImageLocal = available ? reference : null;
-    style.backgroundImageSource = available && source !== 'url' ? 'local' : 'url';
-    if (!hasSelection && isLocalImageReference(reference)) {
+    const reference = hasSelection ? selections[key].reference
+      : isVideo ? style.local : style.backgroundImageLocal;
+    const source = hasSelection ? selections[key].source
+      : isVideo ? style.source : style.backgroundImageSource;
+    const available = isVideo
+      ? isLocalVideoReference(reference) && resolveLocalVideo(reference)
+      : isLocalImageReference(reference) && resolveImageSource(reference);
+    if (isVideo) {
+      style.local = available ? reference : null;
+      style.source = available && source !== 'url' ? 'local' : 'url';
+    } else {
+      style.backgroundImageLocal = available ? reference : null;
+      style.backgroundImageSource = available && source !== 'url' ? 'local' : 'url';
+    }
+    if (!hasSelection && (isVideo ? isLocalVideoReference(reference) : isLocalImageReference(reference))) {
       selections[key] = {
-        reference: style.backgroundImageLocal,
-        source: style.backgroundImageSource
+        reference: isVideo ? style.local : style.backgroundImageLocal,
+        source: isVideo ? style.source : style.backgroundImageSource
       };
       changed = true;
     }
@@ -96,7 +125,7 @@ async function readSelections() {
   const value = stored[DEVICE_IMAGE_SELECTIONS_KEY];
   if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
   return Object.fromEntries(Object.entries(value).flatMap(([key, selection]) => {
-    if (selection === null || isLocalImageReference(selection)) {
+    if (selection === null || isLocalImageReference(selection) || isLocalVideoReference(selection)) {
       return [[key, {
         reference: selection,
         source: selection ? 'local' : 'url'
@@ -104,7 +133,7 @@ async function readSelections() {
     }
     if (!selection || typeof selection !== 'object' || Array.isArray(selection)) return [];
     const reference = selection.reference;
-    if (reference !== null && !isLocalImageReference(reference)) return [];
+    if (reference !== null && !isLocalImageReference(reference) && !isLocalVideoReference(reference)) return [];
     return [[key, {
       reference,
       source: reference && selection.source !== 'url' ? 'local' : 'url'

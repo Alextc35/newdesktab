@@ -5,6 +5,7 @@ import {
   BOOKMARK_RESIZE_MODES
 } from './gridInteractionModes.js';
 import { DEFAULT_KEYBOARD_SHORTCUTS } from '../../shared/keyboard/keyboardShortcuts.js';
+import { DEFAULT_WALLPAPER_INTERVAL } from './wallpaperMedia.js';
 
 /** Default settings used when no persisted preference exists. */
 export const DEFAULT_SETTINGS = {
@@ -23,7 +24,11 @@ export const DEFAULT_SETTINGS = {
     backgroundImageUrl: null,
     backgroundImageLocal: null,
     backgroundImageSource: 'url',
-    backgroundImageUrlLocked: false
+    backgroundImageUrlLocked: false,
+    backgroundPrimaryType: 'image',
+    backgroundVideo: { url: null, local: null, source: 'url' },
+    backgroundMedia: [],
+    backgroundRotationSeconds: DEFAULT_WALLPAPER_INTERVAL
   },
 
   bookmarkDefault: {

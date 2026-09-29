@@ -24,6 +24,7 @@ import { initSearchModal } from '../features/search/searchModal.js';
 import { initSettingsModal } from '../features/settings/settingsModal.js';
 import { initWorkspaceToolbar } from '../features/workspaces/workspaceToolbar.js';
 import { preloadLocalImages } from '../platform/images/localImages.js';
+import { preloadLocalVideos } from '../platform/images/localVideos.js';
 import { initGridBulkActions } from '../features/grid/gridBulkActions.js';
 import { initGridKeyboardNavigation } from '../features/grid/gridKeyboardController.js';
 import { initGridKeyboardMovement } from '../features/grid/gridKeyboardMovement.js';
@@ -68,6 +69,7 @@ export async function bootstrapApplication({ trace, startedAt }) {
 
   applyInterfaceTheme(getState().data.settings.interfaceTheme);
   await preloadLocalImages(getState().data);
+  await preloadLocalVideos(getState().data);
   trace.mark('Load local images');
 
   await initI18n(getState().data.settings);

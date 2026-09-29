@@ -145,7 +145,7 @@ function getLocalImageCategories(values) {
 
     const category = slot.startsWith('trash:')
       ? 'trash'
-      : slot === 'theme' ? 'theme'
+      : slot === 'theme' || slot.startsWith('theme:') ? 'theme'
         : slot.startsWith('folder:') ? 'folder'
           : 'bookmark';
     const previous = categories.get(reference);

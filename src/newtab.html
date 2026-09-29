@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
+  <video id="page-wallpaper-video" muted autoplay playsinline loop aria-hidden="true" tabindex="-1" hidden></video>
   <div id="bookmark-viewport" class="custom-scrollbar">
     <div id="bookmark-container"></div>
     <div id="grid-overlay"></div>
@@ -752,6 +753,11 @@
                     </div>
                     <small data-i18n="settingsModal.sync.usage.localImagesHint">Incluidas en los totales anteriores. Las imágenes remotas solo ocupan el texto de su dirección.</small>
                   </div>
+                  <div class="storage-video-usage" data-storage-video-usage hidden>
+                    <span data-i18n="settingsModal.sync.usage.localVideos">Vídeos locales</span>
+                    <strong data-storage-video-total>0 B</strong>
+                    <small data-i18n="settingsModal.sync.usage.localVideosHint">Guardados aparte en este dispositivo; no están incluidos en los totales anteriores ni se sincronizan.</small>
+                  </div>
                 </article>
 
                 <article class="storage-usage-item storage-usage-item-local" data-storage-usage-local hidden>
@@ -819,6 +825,11 @@
                     </div>
                     <small data-i18n="settingsModal.sync.usage.localImagesHint">Incluidas en los totales anteriores. Las imágenes remotas solo ocupan el texto de su dirección.</small>
                   </div>
+                  <div class="storage-video-usage" data-storage-video-usage hidden>
+                    <span data-i18n="settingsModal.sync.usage.localVideos">Vídeos locales</span>
+                    <strong data-storage-video-total>0 B</strong>
+                    <small data-i18n="settingsModal.sync.usage.localVideosHint">Guardados aparte en este dispositivo; no están incluidos en los totales anteriores ni se sincronizan.</small>
+                  </div>
                 </article>
               </div>
             </section>
@@ -841,7 +852,7 @@
                   <input id="settings-theme-bg-image-mode" type="checkbox"
                     aria-controls="settings-theme-bg-image-controls">
                   <label for="settings-theme-bg-image-mode"
-                    data-i18n="settingsModal.theme.backgroundImageMode">Imagen</label>
+                    data-i18n="settingsModal.theme.backgroundImageMode">Imagen/vídeo</label>
                 </div>
                 <div class="checkbox-wrapper">
                   <input id="settings-theme-bg-solid" type="checkbox"
@@ -871,7 +882,7 @@
                 </div>
                 <div id="settings-theme-bg-image-url-field" class="background-image-url-field">
                   <label for="settings-theme-bg-image"
-                    data-i18n="settingsModal.theme.backgroundImage">Imagen URL:
+                    data-i18n="settingsModal.theme.backgroundImage">URL de imagen o vídeo:
                   </label>
                   <div class="input-with-actions background-image-input">
                     <div class="background-image-color">
@@ -892,7 +903,7 @@
                   </div>
                 </div>
                 <div class="local-image-field is-hidden">
-                  <label for="settings-theme-bg-local" data-i18n="localImage.label">Local image:</label>
+                  <label for="settings-theme-bg-local" data-i18n="settingsModal.theme.localFile">Archivo local:</label>
                   <div class="input-with-actions background-image-input">
                     <div class="background-image-color">
                       <input id="settings-theme-bg-local-color" type="color"
@@ -901,21 +912,46 @@
                     </div>
                     <input id="settings-theme-bg-local" type="text" readonly>
                     <button id="settings-theme-clear-bg-local" class="input-action input-clear"
-                      type="button" aria-label="Remove local image"
-                      data-i18n-aria-label="localImage.remove">✕</button>
+                      type="button" aria-label="Quitar archivo local"
+                      data-i18n-aria-label="settingsModal.theme.removeLocalFile">✕</button>
                   </div>
                 </div>
                 <div class="local-image-upload">
                   <input id="settings-theme-bg-upload-input" class="is-hidden" type="file"
-                    accept="image/avif,image/gif,image/jpeg,image/png,image/webp">
+                    accept="image/avif,image/gif,image/jpeg,image/png,image/webp,video/mp4,video/webm,video/ogg">
                   <button id="settings-theme-bg-upload" class="btn btn-secondary" type="button"
                     data-i18n="localImage.upload">Upload from this device</button>
-                  <p class="local-image-notice" data-i18n="localImage.notice">
-                    Local images are not synced.
+                  <p class="local-image-notice" data-i18n="settingsModal.theme.localMediaNotice">
+                    Los archivos locales permanecen en este dispositivo; los vídeos admiten hasta 200 MB y se reproducen sin sonido.
                   </p>
                 </div>
+                <details id="settings-theme-more-wallpapers" class="theme-wallpaper-manager">
+                  <summary data-i18n="settingsModal.theme.wallpapersTitle">Más fondos</summary>
+                  <div id="settings-theme-media-list" class="theme-wallpaper-list"></div>
+                  <div class="theme-wallpaper-add">
+                    <input id="settings-theme-media-url" type="url" placeholder="https://..." aria-label="URL del fondo" data-i18n-aria-label="settingsModal.theme.mediaUrl">
+                    <button id="settings-theme-media-add" class="btn btn-secondary" type="button" data-i18n="settingsModal.theme.addUrl">Añadir URL</button>
+                  </div>
+                  <input id="settings-theme-media-upload-input" class="is-hidden" type="file" multiple
+                    accept="image/avif,image/gif,image/jpeg,image/png,image/webp,video/mp4,video/webm,video/ogg">
+                  <button id="settings-theme-media-upload" class="btn btn-secondary theme-wallpaper-upload"
+                    type="button" data-i18n="settingsModal.theme.addFiles">Añadir archivos locales</button>
+                  <label for="settings-theme-media-interval" data-i18n="settingsModal.theme.rotationInterval">Cambiar fondo cada</label>
+                  <select id="settings-theme-media-interval">
+                    <option value="5" data-i18n="settingsModal.theme.interval5">5 segundos</option>
+                    <option value="15" data-i18n="settingsModal.theme.interval15">15 segundos</option>
+                    <option value="30" data-i18n="settingsModal.theme.interval30">30 segundos</option>
+                    <option value="60" data-i18n="settingsModal.theme.interval60">1 minuto</option>
+                    <option value="300" data-i18n="settingsModal.theme.interval300">5 minutos</option>
+                  </select>
+                </details>
               </div>
-              <div id="settings-theme-bg-preview" class="bg-preview"></div>
+              <div id="settings-theme-bg-preview" class="bg-preview"><video id="settings-theme-preview-video" muted autoplay playsinline loop hidden></video></div>
+              <div id="settings-theme-preview-navigation" class="theme-preview-navigation is-hidden">
+                <button id="settings-theme-preview-prev" class="btn btn-secondary" type="button" aria-label="Anterior" data-i18n-aria-label="settingsModal.theme.previous">‹</button>
+                <span id="settings-theme-preview-count"></span>
+                <button id="settings-theme-preview-next" class="btn btn-secondary" type="button" aria-label="Siguiente" data-i18n-aria-label="settingsModal.theme.next">›</button>
+              </div>
               <button id="settings-theme-reset-bg" class="btn btn-secondary" type="button"
                 data-i18n="settingsModal.theme.resetBackground">Restablecer tema
               </button>

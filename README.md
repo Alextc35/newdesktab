@@ -30,7 +30,8 @@ items on a desktop without relying on a NewDeskTab account or backend.
 * Global search palette (`/`)
 * Multi-select, bulk styling, moving, duplication and deletion
 * Bookmark duplication plus atomic undo/redo for bookmark and folder changes
-* Themes, favicon previews and English, Spanish and Brazilian Portuguese UI
+* Solid, image and muted-video themes with ordered wallpaper rotation; local
+  media or remote URLs, plus favicon previews and four interface locales
 * Versioned bookmark import/export and complete backups
 * Optional Google Chrome profile synchronization with status and data
   management
@@ -204,7 +205,7 @@ src/state/appStore.js           live state, subscriptions and persistence queue
 src/state/gridHistory.js        bounded grid undo/redo snapshots
 src/state/stateChangeDescription.js safe diagnostic change labels
 src/platform/browser/           browser capabilities and extension metadata
-src/platform/images/            local image cache and browser processing
+src/platform/images/            local image/video storage and browser processing
 src/platform/i18n/              locale resolution and translation runtime
 src/platform/storage/           schema, Chrome persistence and device data
 src/platform/sync/              versioned, quota-safe sync transport
@@ -269,6 +270,18 @@ delete all synchronized NewDeskTab data after confirmation. Deleting sync data f
 keeps the working data locally when necessary. An open NewDeskTab page also shows
 a flash message when its data is updated by another synchronized device; writes
 made on the current device do not trigger that message locally.
+
+In **Settings → Theme**, the primary wallpaper accepts an image or video URL,
+or an image or MP4/WebM/Ogg video from this device. The collapsed **More
+wallpapers** section accepts additional URLs (detecting video by extension)
+and local image or video files,
+lets you reorder them, choose a color behind transparent media, preview each
+wallpaper and set the rotation interval. Previews use the desktop's aspect
+ratio and cover crop. Videos play muted and loop. Local images and videos
+remain on this device; Sync transfers only the ordered configuration and
+remote URLs. A local-only wallpaper is unavailable on another device until
+that device selects its own file. Local videos can be up to 200 MB and are
+stored separately from Chrome Sync.
 
 > Cross-device sync requires the same extension ID on every installation. A
 > Chrome Web Store release provides this automatically. Development installs
@@ -382,7 +395,7 @@ American Spanish (`es_419`) and Brazilian Portuguese (`pt_BR`) in
 ## Roadmap
 
 * Revision and conflict recovery for simultaneous edits across devices
-* Additional theme controls and shareable preset packs
+* Shareable preset packs
 * More import sources
 * Chrome Web Store release and feedback-driven improvements
 

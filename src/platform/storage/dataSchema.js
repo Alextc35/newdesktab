@@ -14,6 +14,7 @@ import {
 import { normalizeKeyboardShortcuts } from '../../shared/keyboard/keyboardShortcuts.js';
 import { normalizeFolderStyle } from '../../domain/folders/folderModel.js';
 import { normalizeBackgroundImage } from '../../shared/images/backgroundImage.js';
+import { normalizePrimaryVideo, normalizeWallpaperInterval, normalizeWallpaperMedia } from '../../domain/settings/wallpaperMedia.js';
 import {
   normalizeInterfaceTheme,
   normalizeLanguagePreference
@@ -194,7 +195,11 @@ function normalizeTheme(value) {
     backgroundImageColor: typeof source.backgroundImageColor === 'string'
       ? source.backgroundImageColor
       : legacyBackgroundColor,
-    ...normalizeBackgroundImage(source)
+    ...normalizeBackgroundImage(source),
+    backgroundPrimaryType: source.backgroundPrimaryType === 'video' ? 'video' : 'image',
+    backgroundVideo: normalizePrimaryVideo(source.backgroundVideo),
+    backgroundMedia: normalizeWallpaperMedia(source.backgroundMedia),
+    backgroundRotationSeconds: normalizeWallpaperInterval(source.backgroundRotationSeconds)
   };
   theme.backgroundDefault = theme.backgroundDefault === true;
   theme.backgroundSolid = !theme.backgroundDefault && theme.backgroundSolid === true;

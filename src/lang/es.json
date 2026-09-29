@@ -82,7 +82,10 @@
       "copied": "Valor copiado al portapapeles",
       "resetBg": "Tema restablecido",
       "deletedAllData": "Todos los datos locales de NewDeskTab eliminados",
-      "deleteAllDataError": "No se pudieron borrar todos los datos locales de NewDeskTab"
+      "deleteAllDataError": "No se pudieron borrar todos los datos locales de NewDeskTab",
+      "invalidWallpaperUrl": "Introduce una URL HTTP o HTTPS válida para la imagen o el vídeo.",
+      "invalidWallpaperFile": "No se pudo añadir el archivo. Usa una imagen compatible o un vídeo MP4, WebM u Ogg de hasta 200 MB.",
+      "wallpaperLimit": "Puedes añadir hasta 24 fondos adicionales."
     },
     "localImage": {
       "invalid": "Elige una imagen PNG, JPEG, WebP, GIF o AVIF.",
@@ -152,7 +155,7 @@
     "settings": {
       "cancel": "¿Descartar los cambios en la configuración?",
       "reset": "¿Restablecer todos los ajustes? Los favoritos no se borrarán.",
-      "deleteAllData": "¿Borrar todos los datos locales de NewDeskTab de este dispositivo? Se eliminarán permanentemente los favoritos, las carpetas, los widgets, los ajustes, la papelera y las imágenes locales. Los datos de la nube no se modificarán. Si Sync está activo, este dispositivo pasará primero a Local. Esta acción no se puede deshacer.",
+      "deleteAllData": "¿Borrar todos los datos locales de NewDeskTab de este dispositivo? Se eliminarán permanentemente los favoritos, las carpetas, los widgets, los ajustes, la papelera, las imágenes y los vídeos locales. Los datos de la nube no se modificarán. Si Sync está activo, este dispositivo pasará primero a Local. Esta acción no se puede deshacer.",
       "theme": {
         "reset": "¿Restablecer la configuración del tema?"
       },
@@ -458,6 +461,8 @@
         "trashImages": "Papelera",
         "otherImages": "Otras",
         "localImagesHint": "Incluidas en los totales anteriores. Las imágenes remotas solo ocupan el texto de su dirección.",
+        "localVideos": "Vídeos locales",
+        "localVideosHint": "Guardados aparte en este dispositivo; no están incluidos en los totales anteriores ni se sincronizan.",
         "error": "Uso no disponible"
       },
       "browserSupport": {
@@ -484,12 +489,36 @@
     "theme": {
       "title": "Tema",
       "subtitle": "Fondo de la página",
-      "backgroundImageMode": "Imagen",
+      "backgroundImageMode": "Imagen/vídeo",
+      "wallpapersTitle": "Más fondos",
+      "mediaUrl": "URL del fondo",
+      "image": "Imagen",
+      "video": "Vídeo",
+      "addUrl": "Añadir URL",
+      "addFiles": "Añadir archivos locales",
+      "localMediaNotice": "Los archivos locales permanecen en este dispositivo; los vídeos admiten hasta 200 MB y se reproducen sin sonido.",
+      "rotationInterval": "Cambiar fondo cada",
+      "interval5": "5 segundos",
+      "interval15": "15 segundos",
+      "interval30": "30 segundos",
+      "interval60": "1 minuto",
+      "interval300": "5 minutos",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "moveUp": "Subir",
+      "moveDown": "Bajar",
+      "remove": "Quitar",
+      "unavailableLocal": "Archivo local no disponible en este dispositivo",
+      "mediaColor": "Color detrás de este fondo",
+      "mediaPreview": "Previsualizar fondo",
+      "localFile": "Archivo local:",
+      "removeLocalFile": "Quitar archivo local",
+      "activeSource": "Fuente activa",
       "backgroundDefaultHint": "Sin seleccionar ninguna opción se usa el fondo predeterminado de NewDeskTab.",
       "backgroundSolid": "Color sólido",
       "backgroundColor": "Color:",
-      "backgroundImageColor": "Color detrás de la imagen",
-      "backgroundImage": "URL de la imagen:",
+      "backgroundImageColor": "Color detrás de la imagen o el vídeo",
+      "backgroundImage": "URL de imagen o vídeo:",
       "urlHidden": "URL oculta",
       "resetBackground": "Restablecer tema"
     },

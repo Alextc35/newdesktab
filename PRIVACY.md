@@ -1,11 +1,11 @@
 # NewDeskTab Privacy Policy
 
-Last updated: September 9, 2026
+Last updated: September 29, 2026
 
 NewDeskTab replaces the browser's new tab page with a customizable bookmark
 workspace. It does not require a NewDeskTab account or use a NewDeskTab-operated
 backend. This policy describes the extension, including its local storage,
-optional Google Chrome synchronization, and requests for external images.
+optional Google Chrome synchronization, and requests for external media.
 
 ## Information used by NewDeskTab
 
@@ -13,7 +13,8 @@ NewDeskTab stores the bookmarks you enter or import, including their names, URLs
 layout, appearance and creation/update timestamps. It also stores folders,
 workspaces, presets and settings such as language and theme. Images selected
 from your device are processed in the browser; their optimized image data and
-original filenames are stored in the extension's local storage.
+original filenames are stored in the extension's local storage. Videos selected
+from your device are stored in the browser's local IndexedDB with their filenames.
 
 NewDeskTab uses this information to display, edit, search, save and restore your
 workspace. It requests the `storage` permission for this purpose. It does not
@@ -33,12 +34,13 @@ NewDeskTab also stores synchronization metadata, including a generated device
 identifier and update timestamps, to distinguish local and remote changes.
 The extension does not give its developer access to that synchronized data.
 
-Local image files, filenames and device-specific image selections are not sent
-to Sync. Configured remote image URLs are part of the shared workspace data.
+Local image and video files, filenames and device-specific file selections are
+not sent to Sync. Configured remote image and video URLs, wallpaper order and
+rotation timing are part of the shared settings.
 See [Google's privacy policy](https://policies.google.com/privacy) for Google's
 handling of its services.
 
-## Requests for favicons and other images
+## Requests for favicons and other media
 
 When a view or editor displays a website icon, NewDeskTab requests it from Google's
 favicon service at `https://t3.gstatic.com/faviconV2`. The request includes the
@@ -47,36 +49,38 @@ or `app.` removed. It does not include the bookmark URL's path, query string or
 fragment. Hosts ending in `.internal` or `.local` use generated initials instead.
 These exclusions do not cover every possible private hostname or IP address.
 
-When a remote background image is displayed, the browser requests its configured
-URL from the image host. The initial example workspace includes an image from
-`cdn.osxdaily.com`, so this request may happen on first use. Requests can also
-occur while previews are displayed, without opening a bookmark's website.
+When a remote background image or video is displayed, the browser requests its
+configured URL from its host. Requests can also occur while previews are
+displayed, without opening a bookmark's website.
 
-Image providers receive the requested URL and ordinary connection/request
+Media providers receive the requested URL and ordinary connection/request
 information, such as your IP address and browser headers. Browser privacy and
 cookie settings apply. NewDeskTab does not operate these image services or control
-their logging or retention. Replacing remote images with local files or removing
-the remote URLs avoids those particular image requests. Favicons may still be
+their logging or retention. Replacing remote media with local files or removing
+the remote URLs avoids those particular media requests. Favicons may still be
 requested by views that display website icons.
 
 Opening a bookmark navigates to its destination; that website's policies then
-apply. External images are displayed as images, not executed as extension code.
+apply. External media is displayed as images or videos, not executed as extension code.
 
 ## Exports, retention and deletion
 
 Import reads a file you select; export creates a JSON download on your device.
 NewDeskTab does not upload these files to the developer. Exports contain bookmark
-and workspace data and may include local image references, but do not embed the
-locally stored image files. Keep those original files if you need them on another
+and workspace data and may include local media references, but do not embed the
+locally stored image or video files. Keep those original files if you need them on another
 device. Exported JSON files are not encrypted by NewDeskTab.
 
 Workspace data is retained in the browser until you change or remove it.
 Deleting a bookmark removes the record but does not necessarily erase unused
-image files from extension storage. Returning to Local mode retains the Sync
+image files from extension storage. Removing a local video wallpaper on this
+device deletes its stored file after saving; cancelling a new video upload also
+removes it. Returning to Local mode retains the Sync
 copy. Settings provides an explicit action to delete NewDeskTab's synchronized
 data; when needed, it first preserves the working data locally. To remove local
-data and stored image files, clear the extension's storage using browser tools
-or remove the extension. Delete exported files separately. Google controls the
+data and stored media files, use Settings → General → Delete all local data,
+clear the extension's storage using browser tools, or remove the extension.
+Delete exported files separately. Google controls the
 retention of data within its services.
 
 ## Analytics, advertising and support

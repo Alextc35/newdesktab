@@ -101,7 +101,10 @@ test('adds solid color mode without changing saved backgrounds and normalizes co
       settings: { theme: { ...savedBackground, backgroundDefault } }
     });
     assert.deepEqual(migrated.settings.theme, {
-      ...savedBackground, backgroundDefault, backgroundSolid: false
+      ...savedBackground, backgroundDefault, backgroundSolid: false,
+      backgroundPrimaryType: 'image',
+      backgroundVideo: { url: null, local: null, source: 'url' },
+      backgroundMedia: [], backgroundRotationSeconds: 30
     });
   }
 

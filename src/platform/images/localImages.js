@@ -132,6 +132,14 @@ export async function saveLocalImage(file) {
   return reference;
 }
 
+/** Removes an uploaded image that was never kept in saved app data. */
+export async function deleteLocalImage(reference) {
+  if (!isLocalImageReference(reference)) return;
+  await callStorage(chrome.storage.local, 'remove', getStorageKey(reference));
+  cachedImages.delete(reference);
+  cachedImageNames.delete(reference);
+}
+
 /** Removes every image file owned by NewDeskTab from this browser profile. */
 export async function clearLocalImages() {
   const values = await callStorage(chrome.storage.local, 'get', null);

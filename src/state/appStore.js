@@ -4,6 +4,7 @@ import { createDefaultPersistedData } from '../platform/storage/persistedDataDef
 import { storage, STORAGE_MODES } from '../platform/storage/storageFacade.js';
 import { mergeChanges } from '../shared/data/mergeChanges.js';
 import { clearLocalImages } from '../platform/images/localImages.js';
+import { clearLocalVideos } from '../platform/images/localVideos.js';
 import { clearDeviceImageSelections } from '../platform/storage/deviceImageSelections.js';
 import { clearDeviceTrash } from '../platform/storage/deviceTrashStorage.js';
 import { createGridHistory, hasGridDataChange } from './gridHistory.js';
@@ -277,6 +278,7 @@ export async function clearAllLocalData() {
 
   await Promise.all([
     clearLocalImages(),
+    clearLocalVideos(),
     clearDeviceImageSelections(),
     clearDeviceTrash()
   ]);

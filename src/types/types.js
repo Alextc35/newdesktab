@@ -114,6 +114,10 @@
  * @property {string|null} theme.backgroundImageLocal
  * @property {'local'|'url'} theme.backgroundImageSource
  * @property {boolean} theme.backgroundImageUrlLocked
+ * @property {'image'|'video'} theme.backgroundPrimaryType
+ * @property {{url: string|null, local: string|null, source: 'local'|'url'}} theme.backgroundVideo
+ * @property {Array<{id: string, type: 'image'|'video', url?: string|null, local?: string|null, backgroundImageUrl?: string|null, backgroundImageLocal?: string|null}>} theme.backgroundMedia
+ * @property {number} theme.backgroundRotationSeconds
  * @property {BookmarkPreset} bookmarkDefault
  * @property {Array<{id: string, name: string, style: BookmarkPreset}>} bookmarkPresets
  * @property {Workspace[]} bookmarkGroups Legacy persisted field for workspaces.

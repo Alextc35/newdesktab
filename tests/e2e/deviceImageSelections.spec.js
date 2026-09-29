@@ -85,7 +85,7 @@ test('two devices choose and remove their own images while sharing the fallback 
     await expect(page.locator('#settings-theme-bg-image-source')).toHaveValue('local');
     await expect(page.locator('#settings-theme-bg-image')).toHaveValue(updatedFallback);
     await expect(page.locator('#settings-theme-bg-local')).toHaveValue('device-a.png');
-    await page.getByRole('button', { name: 'Remove local image' }).click();
+    await page.getByRole('button', { name: 'Remove local file' }).click();
     await page.locator('#settings-modal-save').click();
     await expect(page.locator('body')).toHaveCSS('background-image', `url("${updatedFallback}")`);
     await receiveSync(other, await syncSnapshot(page));

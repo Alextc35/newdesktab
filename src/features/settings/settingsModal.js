@@ -85,6 +85,8 @@ export function initSettingsModal() {
 
   settingsModal.querySelector('[data-tab="settings-modal-tab-theme"]')
     ?.addEventListener('click', () => themeSection.syncUI());
+  settingsModal.querySelectorAll('.settings-modal-tab-btn:not([data-tab="settings-modal-tab-theme"])')
+    .forEach(button => button.addEventListener('click', () => themeSection.pausePreview()));
 
   const bookmarkSection = initBookmarkSection({
     onRequestSaveStateUpdate: updateSaveButtonState
@@ -161,6 +163,8 @@ export function initSettingsModal() {
    */
   async function handleCancel() {
     if (!hasChanges()) {
+      await themeSection.discardUploadedMedia();
+      themeSection.pausePreview();
       closeModal('settings');
       return true;
     }
@@ -174,6 +178,8 @@ export function initSettingsModal() {
 
     generalSection.restoreInitialTheme();
     await languageSection.restoreInitialLanguage();
+    await themeSection.discardUploadedMedia();
+    themeSection.pausePreview();
     resetState();
     closeModal('settings');
     return true;
@@ -235,7 +241,9 @@ export function initSettingsModal() {
    * - close the modal
    */
   async function saveSettings() {
+    if (themeSection.isUploading()) return;
     const newSettings = buildNewSettings();
+    const previousTheme = getState().data.settings.theme;
     const currentStorageMode = getStorageMode();
     const nextStorageMode = getDraftStorageMode();
 
@@ -263,7 +271,14 @@ export function initSettingsModal() {
 
       ensureRecycleBinPosition();
 
+      try {
+        await themeSection.cleanupLocalMedia(previousTheme, getState().data.settings.theme);
+      } catch (cleanupError) {
+        console.error('[SETTINGS] Could not remove unused local videos:', cleanupError);
+      }
+
       resetState();
+      themeSection.pausePreview();
       closeModal('settings');
     } catch (err) {
       console.error('[SETTINGS] Storage mode change failed:', err);

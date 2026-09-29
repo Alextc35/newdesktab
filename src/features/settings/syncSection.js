@@ -12,6 +12,7 @@ import {
   subscribe
 } from '../../state/appStore.js';
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
+import { getLocalVideoStorageBytes } from '../../platform/images/localVideos.js';
 import {
   getSyncBrowserSupport,
   SYNC_BROWSERS
@@ -114,6 +115,8 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
       progress: query('progress', '[role="progressbar"]'),
       imageBreakdown: query('imageBreakdown', '[data-storage-image-breakdown]'),
       imageTotal: query('imageTotal', '[data-storage-image-total]'),
+      videoUsage: query('videoUsage', '[data-storage-video-usage]'),
+      videoTotal: query('videoTotal', '[data-storage-video-total]'),
       segments: {
         system: query('systemSegment', '[data-storage-segment="system"]'),
         bookmarks: query('bookmarksSegment', '[data-storage-segment="bookmarks"]'),
@@ -159,6 +162,8 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
   let storageUsageError = false;
   let localStorageUsage = null;
   let localStorageUsageError = false;
+  let localVideoBytes = null;
+  let localVideoUsageError = false;
   let usageRequestId = 0;
   let isDeleting = false;
   let observedStorageMode = getStorageMode();
@@ -366,6 +371,12 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
   function renderStorageUsageView(view, modeKey, usage, usageError) {
     if (!view.item) return;
 
+    view.videoUsage?.toggleAttribute('hidden', modeKey !== 'local');
+    if (view.videoTotal && modeKey === 'local') {
+      view.videoTotal.textContent = localVideoUsageError ? '—'
+        : Number.isFinite(localVideoBytes) ? formatStorageBytes(localVideoBytes) : '…';
+    }
+
     view.item.dataset.storageUsage = modeKey;
     if (view.mode) view.mode.textContent = t(`settingsModal.sync.usage.${modeKey}`);
     view.progress?.setAttribute(
@@ -450,10 +461,15 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
     storageUsageError = false;
     localStorageUsage = null;
     localStorageUsageError = false;
+    localVideoBytes = null;
+    localVideoUsageError = false;
     renderStorageUsage();
 
     const modes = modeKey === 'sync' ? ['sync', 'local'] : ['local'];
-    const results = await Promise.allSettled(modes.map(mode => getStorageUsage(mode)));
+    const results = await Promise.allSettled([
+      ...modes.map(mode => getStorageUsage(mode)),
+      getLocalVideoStorageBytes()
+    ]);
     if (requestId !== usageRequestId || modeKey !== getUsageDisplayMode()) return;
 
     const [activeResult, localResult] = results;
@@ -471,6 +487,14 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
         console.error('[SETTINGS] Could not read local storage usage:', localResult.reason);
         localStorageUsageError = true;
       }
+    }
+
+    const videoResult = results[modes.length];
+    if (videoResult.status === 'fulfilled') {
+      localVideoBytes = videoResult.value;
+    } else {
+      console.error('[SETTINGS] Could not read local video storage usage:', videoResult.reason);
+      localVideoUsageError = true;
     }
 
     renderStorageUsage();
