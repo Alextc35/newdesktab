@@ -360,14 +360,24 @@ test('transparent SVG tabs meet the folder face at small, normal and large sizes
         sameArtwork: tab.parentElement === body.parentElement,
         bodyPaintsAfterTab: Boolean(
           tab.compareDocumentPosition(body) & Node.DOCUMENT_POSITION_FOLLOWING
-        )
+        ),
+        shadow: getComputedStyle(element).filter,
+        tabFill: getComputedStyle(tab).fill,
+        bodyFill: getComputedStyle(body).fill,
+        highlight: getComputedStyle(svg.querySelector('.folder-svg-highlight')).display,
+        bodyOverlay: getComputedStyle(element.querySelector('.folder-body'), '::before').backgroundImage
       };
     });
     expect(structure).toEqual({
       viewBox: '0 0 136 100',
       preserveAspectRatio: 'xMidYMid meet',
       sameArtwork: true,
-      bodyPaintsAfterTab: true
+      bodyPaintsAfterTab: true,
+      shadow: 'none',
+      tabFill: 'none',
+      bodyFill: 'none',
+      highlight: 'none',
+      bodyOverlay: 'none'
     });
   };
   for (const visual of await page.locator('#bookmark-container .folder-visual').all()) {

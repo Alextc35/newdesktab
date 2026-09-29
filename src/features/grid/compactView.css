@@ -251,6 +251,10 @@
   filter: drop-shadow(0 3px 4px rgba(2, 8, 23, .25));
 }
 
+.bookmark-list-icon .folder-visual.is-folder-transparent {
+  filter: none;
+}
+
 .bookmark-list-icon .folder-body {
   padding: 0;
   border-radius: 4px;

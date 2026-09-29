@@ -214,27 +214,36 @@
     linear-gradient(0deg, rgba(2, 6, 23, .42), transparent 54%);
 }
 
+.folder-visual.is-folder-transparent {
+  filter: none;
+}
+
 .folder-visual.is-folder-transparent .folder-tab,
 .is-folder-transparent .folder-tab {
-  fill: light-dark(rgba(100, 100, 120, .035), rgba(255, 255, 255, .035));
-  stroke: light-dark(#bfc0ca, rgba(255, 255, 255, .24));
+  fill: none;
+  stroke: light-dark(#76879c, #a9bdcf);
 }
 
 .folder-visual.is-folder-transparent .folder-svg-body,
 .is-folder-transparent .folder-svg-body {
-  fill: transparent;
-  stroke: light-dark(#bfc0ca, rgba(255, 255, 255, .26));
+  fill: none;
+  stroke: light-dark(#76879c, #a9bdcf);
 }
 
 .folder-visual.is-folder-transparent .folder-svg-highlight,
 .is-folder-transparent .folder-svg-highlight {
-  opacity: .38;
+  display: none;
 }
 
 .folder-visual.is-folder-transparent .folder-body,
 .is-folder-transparent .folder-body {
   background-color: transparent;
   background-image: none;
+}
+
+.folder-visual.is-folder-transparent:not(.has-folder-bg-image) .folder-body::before,
+.is-folder-transparent:not(.has-folder-bg-image) .folder-body::before {
+  background: none;
 }
 
 .folder-visual.is-folder-transparent.has-folder-bg-image .folder-body,
@@ -366,6 +375,14 @@
   overflow: hidden;
 }
 
+.folder-visual.is-folder-transparent:not(.has-folder-bg-image) .folder-previews:not(:empty),
+.is-folder-transparent:not(.has-folder-bg-image) .folder-previews:not(:empty) {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
 .folder-title {
   display: block;
   grid-row: 1;
@@ -493,6 +510,10 @@
   filter:
     drop-shadow(0 4px 6px rgba(2, 8, 23, .32))
     drop-shadow(0 0 1px color-mix(in srgb, var(--folder-color, #38bdf8) 58%, transparent));
+}
+
+.folder-modal-glyph .folder-visual.is-folder-transparent {
+  filter: none;
 }
 
 .folder-modal-glyph .folder-body {
