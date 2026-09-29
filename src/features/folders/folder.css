@@ -29,7 +29,7 @@
   --folder-caption-gap: 2px;
   --folder-caption-height: calc(var(--folder-title-height) + var(--folder-count-height) + var(--folder-caption-gap));
   --folder-headroom: clamp(14px, calc(40cqh - 10px), 28px);
-  --folder-content-gap: clamp(2px, 2cqh, 6px);
+  --folder-content-gap: clamp(6px, 5cqh, 10px);
   --folder-art-height: max(0px,
     calc(100cqh - var(--folder-headroom) - var(--folder-caption-height) - var(--folder-content-gap)));
   --folder-art-width: min(94cqw,
@@ -56,7 +56,11 @@
   cursor: pointer;
 }
 
-.bookmark-folder.is-single-cell .folder-card-content {
+.bookmark-folder.is-single-cell .folder-card-content,
+.folder-editor-preview-card .folder-card-content {
+  /* Keep the folder artwork near the favicon position in a one-cell bookmark. */
+  --folder-headroom: clamp(14px, calc(30cqh - 10px), 22px);
+  --folder-art-width: min(78cqw, calc(var(--folder-art-height) * 1.36), 280px);
   justify-content: flex-start;
 }
 

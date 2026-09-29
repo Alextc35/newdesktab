@@ -132,6 +132,46 @@ test('new folders and the default recycle bin have no outer background', async (
   await expect(folder).not.toHaveClass(/is-folder-outer-transparent/);
 });
 
+test('positions a one-cell folder like a bookmark while separating its artwork and name', async ({ page }) => {
+  await start(page, [{ id: folderId, gx: 0, gy: 0, w: 1, h: 1 }]);
+  await page.evaluate(async () => {
+    const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
+    const { getState, setState } = await import('/src/state/appStore.js');
+    await setState({ data: { bookmarks: [...getState().data.bookmarks, {
+      ...DEFAULT_BOOKMARK,
+      id: 'comparison-bookmark', name: 'YouTube', url: 'https://youtube.com',
+      backgroundFavicon: true, showText: true, gx: 1, gy: 0, w: 1, h: 1
+    }] } });
+  });
+
+  const bookmark = page.locator('[data-bookmark-id="comparison-bookmark"]');
+  await expect(bookmark).toBeVisible();
+  const measurements = await page.evaluate(id => {
+    const measure = (card, icon, title) => {
+      const cardRect = card.getBoundingClientRect();
+      const iconRect = icon.getBoundingClientRect();
+      const titleRect = title.getBoundingClientRect();
+      return {
+        iconTop: iconRect.top - cardRect.top,
+        titleTop: titleRect.top - cardRect.top,
+        gap: titleRect.top - iconRect.bottom
+      };
+    };
+    const folderCard = document.querySelector(`[data-folder-id="${id}"]`);
+    const bookmarkCard = document.querySelector('[data-bookmark-id="comparison-bookmark"]');
+    return {
+      folder: measure(folderCard, folderCard.querySelector('.folder-visual'),
+        folderCard.querySelector('.folder-title')),
+      bookmark: measure(bookmarkCard, bookmarkCard.querySelector('.bookmark-favicon'),
+        bookmarkCard.querySelector('.bookmark-title'))
+    };
+  }, folderId);
+
+  expect(Math.abs(measurements.folder.iconTop - measurements.bookmark.iconTop)).toBeLessThanOrEqual(2);
+  expect(Math.abs(measurements.folder.titleTop - measurements.bookmark.titleTop)).toBeLessThanOrEqual(2);
+  expect(measurements.folder.gap).toBeGreaterThanOrEqual(5);
+});
+
 test('previews, persists and resets the exterior color without making an unchanged editor dirty', async ({ page }) => {
   await start(page);
   const originalBackground = await folderCard(page).evaluate(element => getComputedStyle(element).backgroundImage);
@@ -271,7 +311,7 @@ test('keeps folder artwork and captions aligned across visibility and editing st
   expect(Math.abs(geometry.count.x + geometry.count.width / 2 - cardCenter)).toBeLessThanOrEqual(1);
   expect(geometry.title.y).toBeGreaterThanOrEqual(geometry.visual.y + geometry.visual.height);
   expect(geometry.card.y + geometry.card.height - geometry.count.y - geometry.count.height)
-    .toBeLessThanOrEqual(8);
+    .toBeLessThanOrEqual(18);
 
   await page.keyboard.press('Control+KeyE');
   const editingWidth = await folderCard(page).locator('.folder-visual')
@@ -308,7 +348,7 @@ test('keeps folder artwork and captions aligned across visibility and editing st
   expect(
     previewGeometry.card.y + previewGeometry.card.height
       - previewGeometry.count.y - previewGeometry.count.height
-  ).toBeLessThanOrEqual(8);
+  ).toBeLessThanOrEqual(18);
 });
 
 test('hides previews and keeps the folder name and saved count independently configurable', async ({ page }) => {
