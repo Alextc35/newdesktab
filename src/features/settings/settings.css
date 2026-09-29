@@ -63,8 +63,39 @@
   flex: 0 0 20px;
   place-items: center;
   border-radius: 6px;
+  background: currentColor;
   color: color-mix(in srgb, currentColor 82%, var(--ui-accent));
+  -webkit-mask: var(--settings-tab-icon) center / 18px 18px no-repeat;
+  mask: var(--settings-tab-icon) center / 18px 18px no-repeat;
   transition: color .2s ease, transform .2s ease;
+}
+
+.settings-modal-tab-icon[data-settings-icon="general"] {
+  --settings-tab-icon: url('/src/assets/icons/settings-general.svg');
+}
+
+.settings-modal-tab-icon[data-settings-icon="sync"] {
+  --settings-tab-icon: url('/src/assets/icons/settings-sync.svg');
+}
+
+.settings-modal-tab-icon[data-settings-icon="theme"] {
+  --settings-tab-icon: url('/src/assets/icons/settings-theme.svg');
+}
+
+.settings-modal-tab-icon[data-settings-icon="bookmark"] {
+  --settings-tab-icon: url('/src/assets/icons/settings-bookmark.svg');
+}
+
+.settings-modal-tab-icon[data-settings-icon="shortcuts"] {
+  --settings-tab-icon: url('/src/assets/icons/settings-shortcuts.svg');
+}
+
+.settings-modal-tab-icon[data-settings-icon="language"] {
+  --settings-tab-icon: url('/src/assets/icons/settings-language.svg');
+}
+
+.settings-modal-tab-icon[data-settings-icon="information"] {
+  --settings-tab-icon: url('/src/assets/icons/settings-information.svg');
 }
 
 .settings-modal-tab-btn:hover .settings-modal-tab-icon,
@@ -74,18 +105,6 @@
 
 .settings-modal-tab-btn.active .settings-modal-tab-icon {
   transform: translateX(1px);
-}
-
-.settings-section-svg {
-  display: block;
-  width: 18px;
-  height: 18px;
-  overflow: visible;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.65;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
 .btn-info {

@@ -104,6 +104,15 @@
   transform: rotate(45deg);
 }
 
+#settings .settings-toggle-icon {
+  display: block;
+  width: 21px;
+  height: 21px;
+  background: currentColor;
+  -webkit-mask: url('/src/assets/icons/settings.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/settings.svg') center / contain no-repeat;
+}
+
 .floating-add {
   position: relative;
   width: 40px;

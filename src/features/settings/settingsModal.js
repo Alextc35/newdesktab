@@ -1,7 +1,6 @@
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashSuccess, flashError } from '../../shared/ui/flash.js';
 import { registerModal, openModal, closeModal } from '../../shared/ui/modalManager.js';
-import { createSettingsSectionSvg } from '../../shared/ui/svgIcons.js';
 import { initTabs } from '../../shared/ui/tabs.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 
@@ -50,10 +49,6 @@ export function initSettingsModal() {
   const settingsModal = document.getElementById('settings-modal');
   const settingsSave = document.getElementById('settings-modal-save');
   const settingsCancel = document.getElementById('settings-modal-cancel');
-
-  for (const icon of settingsModal.querySelectorAll('[data-settings-icon]')) {
-    icon.replaceChildren(createSettingsSectionSvg(icon.dataset.settingsIcon));
-  }
 
   /* ==================================================
      Helpers

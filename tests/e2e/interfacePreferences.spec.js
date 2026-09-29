@@ -22,6 +22,41 @@ const card = page => page.locator('#settings-modal > .modal-card');
 const light = 'rgb(252, 252, 252)';
 const dark = 'rgb(17, 17, 17)';
 
+test('settings launcher uses an accessible, theme-colored SVG asset', async ({ page }) => {
+  await start(page);
+  const button = page.getByRole('button', { name: 'Settings', exact: true });
+  const icon = button.locator('.settings-toggle-icon');
+  await expect(icon).toHaveAttribute('aria-hidden', 'true');
+  expect(await icon.evaluate(element => getComputedStyle(element).maskImage))
+    .toContain('/src/assets/icons/settings.svg');
+  expect(await icon.evaluate(element => getComputedStyle(element).backgroundColor)).toBe(
+    await button.evaluate(element => getComputedStyle(element).color)
+  );
+  await page.mouse.move(5, page.viewportSize().height / 2);
+  await button.click();
+  await expect(page.locator('#settings-modal')).toBeVisible();
+});
+
+test('settings navigation loads its seven SVG assets without injected markup', async ({ page }) => {
+  await start(page);
+  await openSettings(page);
+  const icons = page.locator('.settings-modal-tab-icon');
+  const kinds = ['general', 'sync', 'theme', 'bookmark', 'shortcuts', 'language', 'information'];
+  await expect(icons).toHaveCount(kinds.length);
+  for (const kind of kinds) {
+    const icon = page.locator(`.settings-modal-tab-icon[data-settings-icon="${kind}"]`);
+    await expect(icon).toHaveAttribute('aria-hidden', 'true');
+    await expect(icon.locator('svg')).toHaveCount(0);
+    const mask = await icon.evaluate(element => getComputedStyle(element).maskImage);
+    expect(mask).toContain(`/src/assets/icons/settings-${kind}.svg`);
+    const loaded = await page.evaluate(async name => {
+      const response = await fetch(`/src/assets/icons/settings-${name}.svg`);
+      return response.ok && (await response.text()).includes('<svg');
+    }, kind);
+    expect(loaded).toBe(true);
+  }
+});
+
 test('light folder grids and previews keep labels readable without changing saved colors', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'light' });
   await start(page);

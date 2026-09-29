@@ -3,28 +3,10 @@ import {
   createEditIndicatorSvg,
   createFolderSvg,
   createRecycleBinSvg,
-  createSettingsSectionSvg,
   createThemedAssetIcon
 } from '../../src/shared/ui/svgIcons.js';
 
 describe('shared NewDeskTab SVG icons', () => {
-  test.each([
-    'general',
-    'sync',
-    'theme',
-    'bookmark',
-    'shortcuts',
-    'language',
-    'information'
-  ])('creates the %s settings icon as theme-aware vector artwork', kind => {
-    const svg = createSettingsSectionSvg(kind);
-
-    expect(svg.getAttribute('viewBox')).toBe('0 0 24 24');
-    expect(svg.getAttribute('preserveAspectRatio')).toBe('xMidYMid meet');
-    expect(svg.dataset.icon).toBe(kind);
-    expect(svg.querySelectorAll('.settings-section-path').length).toBeGreaterThan(0);
-  });
-
   test('keeps folder and recycle-bin artwork at their canonical ratios', () => {
     expect(createFolderSvg().getAttribute('viewBox')).toBe('0 0 136 100');
     expect(createRecycleBinSvg().getAttribute('viewBox')).toBe('0 0 92 108');
