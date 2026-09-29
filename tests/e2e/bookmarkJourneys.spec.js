@@ -2830,6 +2830,20 @@ test('runs every bulk action on a mixed bookmark and folder selection', async ({
   await bookmark.click();
   await folder.click();
   await page.locator('#bulk-workspace-select').selectOption('work');
+  await expect(page.locator('#alert-modal-title')).toHaveText(
+    'Move 2 selected items to workspace “Work”?'
+  );
+  await expect.poll(() => page.evaluate(async () => {
+    const { getState } = await import('/src/state/appStore.js');
+    return getState().data.folders.find(item => item.id === 'mixed-folder')?.groupId;
+  })).toBeNull();
+  await page.locator('#alert-modal-cancel').click();
+  await expect(page.locator('#bulk-workspace-select')).toHaveValue('');
+  await expect(bookmark).toHaveClass(/is-selected/);
+  await expect(folder).toHaveClass(/is-selected/);
+
+  await page.locator('#bulk-workspace-select').selectOption('work');
+  await page.locator('#alert-modal-accept').click();
   await expect.poll(() => page.evaluate(async () => {
     const { getState } = await import('/src/state/appStore.js');
     const data = getState().data;

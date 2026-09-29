@@ -204,6 +204,11 @@ test('selects, moves and permanently deletes a clock through bulk actions', asyn
   await expect(bulkActions.getByRole('button', { name: 'Duplicate selection' })).toBeDisabled();
 
   await page.locator('#bulk-workspace-select').selectOption(workId);
+  await expect(page.locator('#alert-modal-title')).toHaveText(
+    'Move this item to workspace “Work”?'
+  );
+  await expect(clock).toBeVisible();
+  await page.locator('#alert-modal-accept').click();
   await expect(clock).toHaveCount(0);
   await expect.poll(() => page.evaluate(async () => {
     const { getState } = await import('/src/state/appStore.js');

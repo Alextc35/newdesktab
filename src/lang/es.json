@@ -116,6 +116,8 @@
       "confirmDeleteAll": "¿Eliminar todos los favoritos?",
       "deleteFolders": "Borrar también todas las carpetas",
       "confirmDeleteSelected": "¿Eliminar {{count}} elementos seleccionados?",
+      "confirmMoveOne": "¿Mover este elemento al espacio de trabajo «{{workspace}}»?",
+      "confirmMoveSelected": "¿Mover {{count}} elementos seleccionados al espacio de trabajo «{{workspace}}»?",
       "duplicateNoSpace": "{{count}} elementos no se pudieron clonar porque no había espacio.",
       "moveNoSpace": "{{count}} elementos no se pudieron mover porque no había espacio.",
       "no_space": "No hay espacio disponible para más favoritos 😅"

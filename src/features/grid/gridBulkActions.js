@@ -77,9 +77,21 @@ export function initGridBulkActions() {
     flashSuccess('flash.bookmarks.deletedSelected');
   });
   groupSelect.addEventListener('change', async () => {
+    const destinationId = groupSelect.value;
+    const sourceId = getActiveWorkspaceId(currentState.data) ?? '';
+    const destinationName = groupSelect.selectedOptions[0]?.textContent;
+    groupSelect.value = sourceId;
     const items = getSelectedGridItems();
-    if (!items.length) return;
-    const result = moveGridItemsToWorkspace(items, groupSelect.value || null, {
+    if (!items.length || destinationId === sourceId || !destinationName) return;
+    const confirmed = await showAlert(t(
+      items.length === 1
+        ? 'alert.bookmarks.confirmMoveOne'
+        : 'alert.bookmarks.confirmMoveSelected',
+      { count: items.length, workspace: destinationName }
+    ), { type: 'confirm', requiresWideViewport: true });
+    if (!confirmed) return;
+
+    const result = moveGridItemsToWorkspace(items, destinationId || null, {
       columns: getMaxVisibleCols(),
       rows: getMaxVisibleRows()
     });

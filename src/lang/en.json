@@ -116,6 +116,8 @@
       "confirmDeleteAll": "Delete all bookmarks?",
       "deleteFolders": "Also delete all folders",
       "confirmDeleteSelected": "Delete {{count}} selected items?",
+      "confirmMoveOne": "Move this item to workspace “{{workspace}}”?",
+      "confirmMoveSelected": "Move {{count}} selected items to workspace “{{workspace}}”?",
       "duplicateNoSpace": "{{count}} items could not be duplicated because there was not enough space.",
       "moveNoSpace": "{{count}} items could not be moved because there was not enough space.",
       "no_space": "No space available for more bookmarks 😅"
