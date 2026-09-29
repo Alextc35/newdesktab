@@ -59,6 +59,15 @@ for (const kind of ['bookmark', 'folder']) {
     const cssProperty = isBookmark ? '--bookmark-bg-image' : '--folder-bg-image';
     const colorProperty = isBookmark ? '--color-bg-bookmark' : '--folder-color';
     const card = page.locator(isBookmark ? '#bookmark-container > [data-bookmark-id="image-bookmark"]' : '#bookmark-container > [data-folder-id="image-folder"]');
+    const expectBackgroundImage = async (target, source) => {
+      if (isBookmark) {
+        await expect(target).toHaveCSS(cssProperty,
+          source instanceof RegExp ? source : `url("${source}")`);
+      } else {
+        await expect(target.locator('.folder-svg pattern image'))
+          .toHaveAttribute('href', source);
+      }
+    };
 
     const openEditor = async () => {
       if (isBookmark) {
@@ -90,20 +99,20 @@ for (const kind of ['bookmark', 'folder']) {
     await expect(localColor).toBeEnabled();
     await localColor.fill('#7c3aed');
     await expect(imageUrlColor).toHaveValue('#7c3aed');
-    await expect(preview).toHaveCSS(cssProperty, /data:image\/webp/);
+    await expectBackgroundImage(preview, /data:image\/webp/);
     await expect(preview).toHaveCSS(colorProperty, '#7c3aed');
     await imageSource.selectOption('url');
     await expect(imageUrlField).toBeVisible();
     await expect(localInput).toBeHidden();
-    await expect(preview).toHaveCSS(cssProperty, `url("${fallbackUrl}")`);
+    await expectBackgroundImage(preview, fallbackUrl);
     await imageSource.selectOption('local');
     await expect(imageUrlField).toBeHidden();
     await expect(localInput).toBeVisible();
-    await expect(preview).toHaveCSS(cssProperty, /data:image\/webp/);
+    await expectBackgroundImage(preview, /data:image\/webp/);
     await save.click();
     await expect(modal).toBeHidden();
     await page.reload();
-    await expect(card).toHaveCSS(cssProperty, /data:image\/webp/);
+    await expectBackgroundImage(card, /data:image\/webp/);
     await expect(card).toHaveCSS(colorProperty, '#7c3aed');
 
     await openEditor();
@@ -118,11 +127,11 @@ for (const kind of ['bookmark', 'folder']) {
     await expect(imageUrl).toHaveValue(fallbackUrl);
     await expect(imageUrlColor).toHaveValue('#7c3aed');
     await expect(imageUrlColor).toBeDisabled();
-    await expect(preview).toHaveCSS(cssProperty, `url("${fallbackUrl}")`);
+    await expectBackgroundImage(preview, fallbackUrl);
     await save.click();
     await expect(modal).toBeHidden();
     await page.reload();
-    await expect(card).toHaveCSS(cssProperty, `url("${fallbackUrl}")`);
+    await expectBackgroundImage(card, fallbackUrl);
     await openEditor();
     await expect(localInput).toBeHidden();
     await expect(imageUrlField).toBeVisible();

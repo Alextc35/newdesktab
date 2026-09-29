@@ -357,10 +357,18 @@ test('removes and persists the recycle bin background from the style tab', async
 
   const editor = page.locator('#edit-recycle-bin-modal');
   await editor.getByRole('tab', { name: 'Style' }).click();
-  await page.locator('#recycle-bin-editor-no-background').check();
+  await page.locator('#recycle-bin-editor-no-background').uncheck();
+  await page.locator('#recycle-bin-editor-background-color').fill('#663399');
   await page.locator('#edit-recycle-bin-modal-save').click();
 
   let recycleBin = page.locator('#bookmark-container .recycle-bin');
+  await expect(recycleBin).toHaveClass(/has-recycle-bin-background/);
+  await recycleBin.getByRole('button', { name: 'Edit recycle bin' }).click();
+  await editor.getByRole('tab', { name: 'Style' }).click();
+  await page.locator('#recycle-bin-editor-no-background').check();
+  await page.locator('#edit-recycle-bin-modal-save').click();
+
+  recycleBin = page.locator('#bookmark-container .recycle-bin');
   await expect(recycleBin).toHaveClass(/is-recycle-bin-transparent/);
   await expect(recycleBin).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await expect(recycleBin).toHaveCSS('box-shadow', 'none');
@@ -2774,13 +2782,15 @@ test('customizes a folder from its miniature and persists the appearance', async
   await expect(folder).toHaveCSS('--folder-color', '#ef4444');
   await expect(folder).toHaveCSS('--folder-text-color', '#fef3c7');
   await expect(folder).toHaveClass(/has-folder-bg-image/);
-  await expect(folder.locator('.folder-body'))
-    .toHaveCSS('background-image', /folder\.png/);
+  await expect(folder.locator('.folder-svg pattern image'))
+    .toHaveAttribute('href', 'https://images.test/folder.png');
 
   await reloadSavedPage(page);
   folder = page.locator('.bookmark-folder', { hasText: 'Games' });
   await expect(folder).toBeVisible();
   await expect(folder).toHaveCSS('--folder-color', '#ef4444');
+  await expect(folder.locator('.folder-svg pattern image'))
+    .toHaveAttribute('href', 'https://images.test/folder.png');
   await folder.getByRole('button', { name: /Open Games/ }).click();
   await page.getByRole('button', { name: 'Customize folder' }).click();
   await page.getByRole('tab', { name: 'Style' }).click();
@@ -2903,7 +2913,11 @@ test('scales folder previews and applies one centered tray style', async ({ page
       padding: style.padding
     };
   });
-  expect(await trayStyle(plain)).toEqual(await trayStyle(cover));
+  const { backgroundColor: plainBackground, ...plainLayout } = await trayStyle(plain);
+  const { backgroundColor: coverBackground, ...coverLayout } = await trayStyle(cover);
+  expect(plainLayout).toEqual(coverLayout);
+  expect(plainBackground).toBe('rgba(2, 6, 23, 0.48)');
+  expect(coverBackground).toBe('rgba(2, 6, 23, 0.32)');
   const trayBox = await visibleBox(cover.locator('.folder-previews'));
   const itemBoxes = await cover.locator('.folder-previews > *').evaluateAll(elements => (
     elements.map(element => element.getBoundingClientRect().toJSON())
