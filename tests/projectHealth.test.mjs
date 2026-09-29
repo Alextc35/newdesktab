@@ -40,7 +40,7 @@ test('all interface languages expose the same translation contract', () => {
     assert.deepEqual(contract, contracts[0]);
   }
   assert.deepEqual(dictionaries.map(dictionary => dictionary.launcher.bookmark), [
-    'Bookmark', 'Favoritos', 'Marcadores', 'Favorito'
+    'Bookmark', 'Favorito', 'Marcador', 'Favorito'
   ]);
   assert.deepEqual(dictionaries.map(dictionary => dictionary.launcher.folder), [
     'Folder', 'Carpeta', 'Carpeta', 'Pasta'
