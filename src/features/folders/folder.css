@@ -887,6 +887,10 @@
   text-align: center;
 }
 
+.folder-modal-empty.is-hidden {
+  display: none;
+}
+
 .folder-outer-color-control {
   display: flex;
   align-items: center;

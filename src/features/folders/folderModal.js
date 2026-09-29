@@ -200,6 +200,7 @@ function renderFolderContents() {
 
   const contents = bookmarks.filter(bookmark => bookmark.folderId === folder.id);
   const layout = createFolderBookmarkLayout(contents);
+  const listView = isListView();
   syncFolderEditUI();
   // The customization action remains visible even when the launcher glyph is hidden.
   const customizeAppearance = { ...folder, showFolder: true };
@@ -216,10 +217,14 @@ function renderFolderContents() {
   });
   list.replaceChildren();
   list.classList.remove('is-folder-grid-settling', 'is-folder-grid-exit-target');
+  modalCard.classList.toggle('is-empty-list', listView && contents.length === 0);
   empty.classList.toggle('is-hidden', contents.length > 0);
-  list.classList.toggle('is-list-view', isListView());
+  const emptyKey = listView ? 'folder.emptyList' : 'folder.empty';
+  empty.dataset.i18n = emptyKey;
+  empty.textContent = t(emptyKey);
+  list.classList.toggle('is-list-view', listView);
 
-  if (isListView()) {
+  if (listView) {
     const ordered = [...contents].sort((a, b) => {
       const first = layout.get(a.id);
       const second = layout.get(b.id);

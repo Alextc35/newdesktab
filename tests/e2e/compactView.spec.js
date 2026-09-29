@@ -574,6 +574,35 @@ test('folders also use readable lists and cannot enter editing in compact view',
   expect(await data(page)).toEqual(original);
 });
 
+test('empty folders show a compact list placeholder without a scrollbar', async ({ page }) => {
+  await start(page, 430);
+  await page.evaluate(async () => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    const { data } = getState();
+    await setState({ data: {
+      ...data,
+      bookmarks: data.bookmarks.filter(bookmark => bookmark.folderId !== 'compact-folder')
+    } });
+  });
+
+  await page.locator('[data-folder-id="compact-folder"] .folder-open').click();
+  const card = page.locator('#folder-modal .modal-folder');
+  const shell = page.locator('#folder-modal .folder-grid-shell');
+  await expect(card).toHaveClass(/is-empty-list/);
+  await expect(page.locator('#folder-modal-items')).toBeHidden();
+  await expect(page.locator('#folder-modal-empty')).toBeVisible();
+  await expect(page.locator('#folder-modal-empty')).toHaveText('This folder is empty.');
+  expect(await shell.evaluate(element => getComputedStyle(element).overflowY)).toBe('hidden');
+  expect(await shell.evaluate(element => element.scrollHeight <= element.clientHeight)).toBe(true);
+
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await expect(card).not.toHaveClass(/is-empty-list/);
+  await expect(page.locator('#folder-modal-items')).toBeVisible();
+  await expect(page.locator('#folder-modal-empty')).toHaveText(
+    'This folder is empty. Drag bookmarks here from edit mode.'
+  );
+});
+
 test('compact view hides unavailable tools and blocks shortcuts through 600px', async ({ page }) => {
   await start(page, 600);
   await page.mouse.move(5, 360);

@@ -256,6 +256,7 @@
     },
     "gridLabel": "Folder bookmarks",
     "empty": "This folder is empty. Drag bookmarks here from edit mode.",
+    "emptyList": "This folder is empty.",
     "dropHint": "Drop to add",
     "noSpace": "There is no free grid cell for a new folder.",
     "removeNoSpace": "There is not enough grid space to remove this bookmark from the folder.",

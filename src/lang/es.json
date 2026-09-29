@@ -256,6 +256,7 @@
     },
     "gridLabel": "Favoritos de la carpeta",
     "empty": "Esta carpeta está vacía. Arrastra favoritos hasta aquí desde el modo edición.",
+    "emptyList": "Esta carpeta está vacía.",
     "dropHint": "Suelta para añadir",
     "noSpace": "No queda ninguna celda libre para crear una carpeta.",
     "removeNoSpace": "No hay espacio suficiente en la cuadrícula para sacar este favorito de la carpeta.",

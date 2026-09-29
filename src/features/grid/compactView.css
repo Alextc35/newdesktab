@@ -346,6 +346,30 @@
     overflow-y: auto;
   }
 
+  #folder-modal .modal-folder.is-empty-list .folder-grid-shell {
+    display: grid;
+    min-height: 100px;
+    padding: 12px 0 0;
+    flex: 0 0 auto;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  #folder-modal .modal-folder.is-empty-list #folder-modal-items {
+    display: none;
+  }
+
+  #folder-modal .modal-folder.is-empty-list .folder-modal-empty {
+    position: static;
+    width: 100%;
+    padding: 22px 16px;
+    border: 1px dashed var(--ui-divider);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--ui-selected) 32%, transparent);
+    font-size: 13px;
+    box-sizing: border-box;
+  }
+
   #folder-modal-items.is-list-view {
     display: flex;
     flex-direction: column;

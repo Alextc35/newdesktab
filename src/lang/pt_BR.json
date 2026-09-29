@@ -256,6 +256,7 @@
     },
     "gridLabel": "Favoritos da pasta",
     "empty": "Esta pasta está vazia. Arraste favoritos até aqui no modo de edição.",
+    "emptyList": "Esta pasta está vazia.",
     "dropHint": "Solte para adicionar",
     "noSpace": "Não há nenhuma célula livre para criar uma pasta.",
     "removeNoSpace": "Não há espaço suficiente na grade para retirar este favorito da pasta.",
