@@ -2438,12 +2438,33 @@ test('shows selected storage and local storage availability when sync is selecte
   const usage = page.locator('[data-storage-usage-active]');
   const localUsage = page.locator('[data-storage-usage-local]');
   const summary = page.locator('#storage-usage-summary');
+  const formatToggle = page.locator('#storage-usage-format-toggle');
+  const exactLocalUsage = await page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getStorageUsage('local'));
   await expect(usage).toHaveAttribute('data-storage-usage', 'local');
   await expect(localUsage).toBeHidden();
   await expect(page.locator('#storage-usage-mode')).toHaveText('Local');
+  await expect(page.locator('#storage-sync-last-updated'))
+    .toHaveText('No synchronized NewDeskTab data is stored.');
+  await expect(page.locator('#storage-persistence-indicator')).toBeHidden();
+  await expect(page.locator('#storage-sync-help')).toBeHidden();
+  await expect(formatToggle).toHaveAttribute('aria-pressed', 'false');
+  await expect(formatToggle).toHaveText('Show exact bytes');
   await expect(summary).toContainText('of 10 MiB');
   await expect(summary).toContainText('%');
   await expect(page.locator('#storage-usage-available')).toContainText('available');
+  await expect(summary).toContainText('KiB of 10 MiB');
+  await formatToggle.click();
+  await expect(formatToggle).toHaveAttribute('aria-pressed', 'true');
+  await expect(formatToggle).toHaveText('Show readable sizes');
+  await expect(summary).toContainText(
+    `${exactLocalUsage.usedBytes.toLocaleString('en')} B of 10,485,760 B`
+  );
+  await expect(page.locator('#storage-usage-available')).toContainText(
+    `${exactLocalUsage.availableBytes.toLocaleString('en')} B available`
+  );
+  await formatToggle.click();
   const legend = page.locator('#storage-usage-legend');
   await expect(legend).toContainText('System and metadata');
   await expect(legend).toContainText('Bookmarks');
@@ -2489,6 +2510,10 @@ test('shows selected storage and local storage availability when sync is selecte
   await expect(localUsage.locator('[data-storage-image-breakdown]')).toBeVisible();
   await expect(localUsage.locator('[data-storage-image-category="bookmarks"]'))
     .toHaveText('0 B');
+  await formatToggle.click();
+  await expect(summary).toContainText('of 102,400 B');
+  await expect(localUsage.locator('#storage-usage-local-summary'))
+    .toContainText('of 10,485,760 B');
 });
 
 test('localizes sync status and confirms synchronized data deletion', async ({ page }) => {
@@ -2508,6 +2533,8 @@ test('localizes sync status and confirms synchronized data deletion', async ({ p
   const syncTooltip = page.locator('#storage-sync-notice');
   await expect(page.locator('#storage-persistence-indicator'))
     .toHaveAttribute('data-status', 'idle');
+  await expect(page.locator('#storage-persistence-indicator')).toBeVisible();
+  await expect(syncHelp).toBeVisible();
   await expect(syncTooltip).toBeHidden();
   await syncOption.hover();
   await expect(syncTooltip).toBeHidden();
@@ -2568,6 +2595,8 @@ test('localizes sync status and confirms synchronized data deletion', async ({ p
   await expect(page.locator('#storage-sync-last-updated'))
     .toHaveText('No synchronized NewDeskTab data is stored.');
   await expect(deleteSyncData).toBeDisabled();
+  await expect(page.locator('#storage-persistence-indicator')).toBeHidden();
+  await expect(syncHelp).toBeHidden();
   await expect.poll(() => page.evaluate(() => (
     Object.keys(JSON.parse(sessionStorage.getItem('newdesktab-test-sync') || '{}')).length
   ))).toBe(0);
@@ -2578,6 +2607,8 @@ test('localizes sync status and confirms synchronized data deletion', async ({ p
   await expect(page.locator('#storage-persistence-status'))
     .toHaveText('Los datos están listos.');
   await expect(page.getByText('Data is ready.')).toHaveCount(0);
+  await expect(page.locator('#storage-usage-format-toggle'))
+    .toHaveText('Ver bytes exactos');
 });
 
 test('shows local bookmarks and locks sync when cloud data needs a newer version', async ({ page }) => {
@@ -2644,8 +2675,10 @@ test('blocks synchronized storage in Brave and explains why', async ({ page }) =
 
   await expect(page.getByRole('radio', { name: /This device only/ })).toBeChecked();
   await expect(page.getByRole('radio', { name: /Synced/ })).toBeDisabled();
-  await page.locator('#storage-sync-help').hover();
-  await expect(page.getByText(/Unavailable in Brave/)).toBeVisible();
+  await expect(page.locator('#storage-sync-help')).toBeHidden();
+  await expect(page.locator('#storage-sync-unavailable-reason')).toBeVisible();
+  await expect(page.locator('#storage-sync-unavailable-reason'))
+    .toContainText('Unavailable in Brave');
   await expect(page.locator('#storage-sync-existing-notice')).toBeHidden();
 });
 

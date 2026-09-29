@@ -651,13 +651,14 @@
                   <span class="storage-mode-copy">
                     <span class="storage-mode-title">
                       <strong data-i18n="settingsModal.sync.synced.title">Sincronizado</strong>
-                      <span id="storage-persistence-indicator" class="storage-persistence-indicator"
+                      <span id="storage-persistence-indicator" class="storage-persistence-indicator" hidden
                         data-status="idle" aria-hidden="true"></span>
                     </span>
                     <small data-i18n="settingsModal.sync.synced.description">Disponible en perfiles de Google Chrome conectados a la misma cuenta.</small>
+                    <small id="storage-sync-unavailable-reason" class="storage-sync-unavailable-reason" hidden></small>
                   </span>
                 </label>
-                <button id="storage-sync-help" class="storage-sync-help" type="button"
+                <button id="storage-sync-help" class="storage-sync-help" type="button" hidden
                   aria-label="Información sobre la sincronización"
                   data-i18n-aria-label="settingsModal.sync.synced.tooltip"
                   aria-describedby="storage-sync-notice"
@@ -676,7 +677,11 @@
             </div>
 
             <section class="storage-usage" aria-labelledby="storage-usage-title">
-              <h3 id="storage-usage-title" data-i18n="settingsModal.sync.usage.title">Disponibilidad de almacenamiento</h3>
+              <div class="storage-usage-title-row">
+                <h3 id="storage-usage-title" data-i18n="settingsModal.sync.usage.title">Disponibilidad de almacenamiento</h3>
+                <button id="storage-usage-format-toggle" class="storage-usage-format-toggle" type="button"
+                  aria-pressed="false" data-i18n="settingsModal.sync.usage.showExact">Ver bytes exactos</button>
+              </div>
               <div class="storage-usage-items">
                 <article class="storage-usage-item" data-storage-usage-active>
                   <div class="storage-usage-heading">

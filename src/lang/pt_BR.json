@@ -433,6 +433,8 @@
       },
       "usage": {
         "title": "Disponibilidade de armazenamento",
+        "showExact": "Ver bytes exatos",
+        "showHuman": "Ver tamanhos legíveis",
         "local": "Local",
         "sync": "Sincronizado",
         "localSyncCopy": "Cópia local para Sync",

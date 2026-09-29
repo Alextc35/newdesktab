@@ -42,7 +42,7 @@ function formatExactBytes(bytes) {
   return `${formatted} B`;
 }
 
-function formatQuotaBytes(bytes) {
+function formatHumanBytes(bytes) {
   if (!Number.isFinite(bytes) || bytes <= 0) return '0 B';
 
   const language = document.documentElement.lang || 'en';
@@ -51,23 +51,28 @@ function formatQuotaBytes(bytes) {
     ['MiB', 1024 ** 2],
     ['KiB', 1024]
   ];
-  const exactUnit = units.find(([, size]) => bytes >= size && bytes % size === 0);
-  if (!exactUnit) return formatExactBytes(bytes);
+  const unit = units.find(([, size]) => bytes >= size);
+  if (!unit) return formatExactBytes(bytes);
 
-  const [unit, size] = exactUnit;
-  const formatted = new Intl.NumberFormat(language).format(bytes / size);
+  const [name, size] = unit;
+  const formatted = new Intl.NumberFormat(language, {
+    maximumFractionDigits: 1
+  }).format(bytes / size);
 
-  return `${formatted} ${unit}`;
+  return `${formatted} ${name}`;
 }
 
-function formatPercentage(value) {
+function formatPercentage(value, exact = false) {
   const language = document.documentElement.lang || 'en';
-  if (value > 0 && value < 0.0001) {
-    return `<${new Intl.NumberFormat(language).format(0.0001)}`;
+  const minimumVisible = exact ? 0.0001 : 0.01;
+  if (value > 0 && value < minimumVisible) {
+    return `<${new Intl.NumberFormat(language, {
+      maximumFractionDigits: exact ? 4 : 2
+    }).format(minimumVisible)}`;
   }
 
   return new Intl.NumberFormat(language, {
-    maximumFractionDigits: value < 1 ? 4 : 2
+    maximumFractionDigits: exact && value < 1 ? 4 : 2
   }).format(value);
 }
 
@@ -89,8 +94,10 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
   const settingsModal = document.getElementById('settings-modal');
   const syncHelp = document.getElementById('storage-sync-help');
   const syncNotice = document.getElementById('storage-sync-notice');
+  const usageFormatToggle = document.getElementById('storage-usage-format-toggle');
   const compatibilityNotice = document.getElementById('storage-sync-compatibility-notice');
   const browserNotice = document.getElementById('storage-sync-browser-notice');
+  const unsupportedReason = document.getElementById('storage-sync-unavailable-reason');
   const existingNotice = document.getElementById('storage-sync-existing-notice');
   const persistenceStatus = document.getElementById('storage-persistence-status');
   const persistenceIndicator = document.getElementById('storage-persistence-indicator');
@@ -158,6 +165,11 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
   let isTooltipPinned = false;
   let isHelpHovered = false;
   let suppressTooltip = false;
+  let showExactBytes = false;
+
+  function formatStorageBytes(bytes) {
+    return showExactBytes ? formatExactBytes(bytes) : formatHumanBytes(bytes);
+  }
 
   // Keep the tooltip inside the dialog for accessibility, but outside every
   // scrolling/clipping container so it can float over the complete modal.
@@ -200,6 +212,7 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
 
   function setSyncTooltipOpen(open) {
     if (!syncHelp || !syncNotice) return;
+    if (syncHelp.hidden) open = false;
     syncNotice.classList.toggle('is-open', open);
     syncHelp.setAttribute('aria-expanded', String(open));
     if (open) requestAnimationFrame(positionSyncTooltip);
@@ -299,7 +312,7 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
 
     for (const [category, bytes] of Object.entries(categories)) {
       const hasValue = Number.isFinite(bytes);
-      const formattedBytes = hasValue ? formatExactBytes(bytes) : '—';
+      const formattedBytes = hasValue ? formatStorageBytes(bytes) : '—';
       const percentage = hasValue && quotaBytes > 0
         ? Math.min(100, (bytes / quotaBytes) * 100)
         : 0;
@@ -337,14 +350,14 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
 
     if (view.imageTotal) {
       view.imageTotal.textContent = Number.isFinite(imageBreakdown?.totalBytes)
-        ? formatExactBytes(imageBreakdown.totalBytes)
+        ? formatStorageBytes(imageBreakdown.totalBytes)
         : '—';
     }
 
     for (const [category, bytes] of Object.entries(categories)) {
       if (view.imageValues[category]) {
         view.imageValues[category].textContent = Number.isFinite(bytes)
-          ? formatExactBytes(bytes)
+          ? formatStorageBytes(bytes)
           : '—';
       }
     }
@@ -381,10 +394,10 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
     const percentage = usage.quotaBytes > 0
       ? Math.min(100, (usage.usedBytes / usage.quotaBytes) * 100)
       : 0;
-    const used = formatExactBytes(usage.usedBytes);
-    const total = formatQuotaBytes(usage.quotaBytes);
-    const free = formatExactBytes(usage.availableBytes);
-    const percent = formatPercentage(percentage);
+    const used = formatStorageBytes(usage.usedBytes);
+    const total = formatStorageBytes(usage.quotaBytes);
+    const free = formatStorageBytes(usage.availableBytes);
+    const percent = formatPercentage(percentage, showExactBytes);
 
     if (view.summary) {
       view.summary.textContent = t(
@@ -401,6 +414,14 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
   }
 
   function renderStorageUsage() {
+    if (usageFormatToggle) {
+      const key = showExactBytes
+        ? 'settingsModal.sync.usage.showHuman'
+        : 'settingsModal.sync.usage.showExact';
+      usageFormatToggle.dataset.i18n = key;
+      usageFormatToggle.textContent = t(key);
+      usageFormatToggle.setAttribute('aria-pressed', String(showExactBytes));
+    }
     const modeKey = getUsageDisplayMode() === 'sync' ? 'sync' : 'local';
     const showLocalUsage = modeKey === 'sync';
 
@@ -457,6 +478,17 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
 
   function renderSyncMetadata() {
     if (!lastUpdated) return;
+
+    const hasCloudData = syncMetadata?.hasData === true;
+    if (persistenceIndicator) persistenceIndicator.hidden = !hasCloudData;
+    if (syncHelp) syncHelp.hidden = !hasCloudData;
+    if (!hasCloudData) resetSyncTooltip();
+    if (unsupportedReason) {
+      unsupportedReason.hidden = hasCloudData || browserSupport.canSync;
+      if (!unsupportedReason.hidden) {
+        unsupportedReason.textContent = t(getBrowserNoticeKey(browserSupport.browser));
+      }
+    }
 
     let key = 'settingsModal.sync.metadata.loading';
     let params = {};
@@ -534,6 +566,11 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
     if (syncNotice?.classList.contains('is-open')) {
       requestAnimationFrame(positionSyncTooltip);
     }
+  });
+
+  usageFormatToggle?.addEventListener('click', () => {
+    showExactBytes = !showExactBytes;
+    renderStorageUsage();
   });
 
   function syncUI() {
