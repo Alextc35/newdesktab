@@ -11,7 +11,17 @@ export function createFolderVisual(folder, bookmarks = [], { compact = false } =
   visual.setAttribute('aria-hidden', 'true');
   applyFolderAppearance(visual, folder);
 
-  const artwork = createFolderSvg(resolveBackgroundImage(folder));
+  const backgroundImage = resolveBackgroundImage(folder);
+  // Animated formats repaint reliably as CSS backgrounds, not SVG pattern images.
+  const useCssImageLayer = shouldUseCssImageLayer(backgroundImage);
+  const artwork = createFolderSvg(useCssImageLayer ? null : backgroundImage);
+  if (useCssImageLayer) {
+    const imageLayer = document.createElement('span');
+    imageLayer.className = 'folder-image-layer';
+    imageLayer.style.backgroundImage = `url(${JSON.stringify(backgroundImage)})`;
+    visual.classList.add('has-folder-image-layer');
+    visual.append(imageLayer);
+  }
   const body = document.createElement('span');
   body.className = 'folder-body';
   const previews = document.createElement('span');
@@ -44,6 +54,12 @@ export function createFolderVisual(folder, bookmarks = [], { compact = false } =
   body.prepend(previews);
   visual.append(artwork, body);
   return visual;
+}
+
+function shouldUseCssImageLayer(url) {
+  if (!url) return false;
+  return /^data:image\/gif(?:;|,)/i.test(url)
+    || /\.(?:gif|webp)(?:$|[?#])/i.test(url);
 }
 
 /** Applies persisted folder colors and optional imagery through CSS variables. */

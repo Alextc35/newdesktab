@@ -187,6 +187,29 @@
   overflow: visible;
 }
 
+.folder-image-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: light-dark(
+    color-mix(in srgb, var(--folder-color) 72%, white),
+    color-mix(in srgb, var(--folder-color) 62%, #182338)
+  );
+  background-position: center;
+  background-size: cover;
+  -webkit-mask: url('../../assets/icons/folder-image-mask.svg') center / 100% 100% no-repeat;
+  mask: url('../../assets/icons/folder-image-mask.svg') center / 100% 100% no-repeat;
+}
+
+.has-folder-image-layer .folder-svg {
+  z-index: 1;
+}
+
+.has-folder-image-layer .folder-tab,
+.has-folder-image-layer .folder-svg-body {
+  fill: none;
+}
+
 .folder-tab {
   fill: light-dark(
     color-mix(in srgb, var(--folder-color) 62%, white),

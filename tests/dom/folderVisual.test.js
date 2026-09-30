@@ -22,6 +22,27 @@ describe('folder visual', () => {
   });
 
   test.each([
+    'https://images.test/animated.gif',
+    'https://images.test/animated.webp?size=200',
+    'data:image/gif;base64,R0lGODlhAQABAAAAACw='
+  ])('uses a CSS image layer for animated cover %s', backgroundImageUrl => {
+    const visual = createFolderVisual({ backgroundImageUrl });
+
+    expect(visual.classList.contains('has-folder-image-layer')).toBe(true);
+    expect(visual.querySelector('.folder-image-layer').style.backgroundImage)
+      .toContain(backgroundImageUrl);
+    expect(visual.querySelector('.folder-svg pattern')).toBeNull();
+    expect(visual.querySelector('.folder-tab')).not.toBeNull();
+  });
+
+  test('keeps a compressed local WebP on the SVG image path', () => {
+    const visual = createFolderVisual({ backgroundImageUrl: 'data:image/webp;base64,AA==' });
+
+    expect(visual.querySelector('.folder-image-layer')).toBeNull();
+    expect(visual.querySelector('.folder-svg pattern image')).not.toBeNull();
+  });
+
+  test.each([
     { name: 'without a cover', backgroundImageUrl: null },
     { name: 'with a cover', backgroundImageUrl: 'https://images.test/cover.png' }
   ])('shows all four bookmarks $name', ({ backgroundImageUrl }) => {

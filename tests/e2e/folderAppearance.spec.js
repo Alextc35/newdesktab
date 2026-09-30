@@ -590,6 +590,45 @@ test('fills the entire SVG folder silhouette with one continuous image', async (
     .toHaveAttribute('href', image);
 });
 
+test('keeps animated folder covers moving inside the exact SVG silhouette', async ({ page }) => {
+  const gifUrl = '/assets/gifs/demo.gif';
+  const webpUrl = 'https://images.test/animated.webp';
+  await start(page, [
+    { id: folderId, gx: 0, gy: 0, w: 2, h: 2, backgroundImageUrl: gifUrl },
+    { id: 'webp-folder', gx: 2, gy: 0, w: 2, h: 2, backgroundImageUrl: webpUrl }
+  ]);
+
+  const gif = folderCard(page).locator('.folder-visual');
+  const webp = page.locator('[data-folder-id="webp-folder"] .folder-visual');
+  for (const [visual, source] of [[gif, gifUrl], [webp, webpUrl]]) {
+    await expect(visual).toHaveClass(/has-folder-image-layer/);
+    await expect(visual.locator('.folder-image-layer'))
+      .toHaveCSS('background-image', `url("${new URL(source, page.url()).href}")`);
+    await expect(visual.locator('.folder-image-layer'))
+      .toHaveCSS('mask-image', /folder-image-mask\.svg/);
+    await expect(visual.locator('.folder-svg pattern')).toHaveCount(0);
+    await expect(visual.locator('.folder-tab')).toHaveCSS('fill', 'none');
+    await expect(visual.locator('.folder-svg-body')).toHaveCSS('fill', 'none');
+  }
+
+  await page.evaluate(src => new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = resolve;
+    image.onerror = reject;
+    image.src = src;
+  }), gifUrl);
+  const frames = [];
+  for (let i = 0; i < 6; i += 1) {
+    frames.push((await gif.screenshot()).toString('base64'));
+    await page.waitForTimeout(170);
+  }
+  expect(new Set(frames).size).toBeGreaterThan(1);
+
+  await openEditor(page);
+  await expect(previewCard(page).locator('.folder-image-layer'))
+    .toHaveCSS('background-image', `url("${new URL(gifUrl, page.url()).href}")`);
+});
+
 test('centers the search glyph and preserves the opened-folder SVG proportions', async ({ page }) => {
   await start(page, [{
     id: folderId,
