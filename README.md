@@ -5,7 +5,7 @@ grid workspace.
 
 ![Chrome Extension](https://img.shields.io/badge/Chrome_Extension-Manifest_V3-4285F4?logo=googlechrome)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript)
-![version](https://img.shields.io/badge/version-0.23.0-blue)
+![version](https://img.shields.io/badge/version-0.24.0-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
 https://github.com/user-attachments/assets/f57533bd-2499-4ff1-9c20-4afb5c9d9c94
