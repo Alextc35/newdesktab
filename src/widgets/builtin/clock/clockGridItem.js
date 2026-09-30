@@ -11,7 +11,7 @@ import { openClockEditor } from './clockSettings.js';
 
 export const clockWidget = Object.freeze({
   type: CLOCK_WIDGET_TYPE,
-  order: { grid: 40, list: 40 },
+  order: { grid: 40, list: 15 },
   render({ view, container, widget, config, state }) {
     return view === 'list'
       ? createClockListItem(widget, config)

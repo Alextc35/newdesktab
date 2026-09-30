@@ -121,7 +121,7 @@ function validateDefinition(definition) {
     catalog,
     order: Object.freeze({
       grid: Number.isFinite(definition.order?.grid) ? definition.order.grid : 40,
-      list: Number.isFinite(definition.order?.list) ? definition.order.list : 40
+      list: Number.isFinite(definition.order?.list) ? definition.order.list : 15
     })
   });
 }

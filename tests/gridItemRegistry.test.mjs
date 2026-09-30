@@ -35,6 +35,25 @@ test('registers item adapters and orders each view without type branches', () =>
   assert.equal(registry.entries({}, { view: 'list' })[0].timezone, 'UTC');
 });
 
+test('interleaves types of the same list priority by their grid positions', () => {
+  const registry = createGridItemRegistry();
+  registry.register(definition('folder', { grid: 20, list: 20 }, [
+    { id: 'folder', gx: 0, gy: 0 }
+  ]));
+  registry.register(definition('clock', { grid: 40, list: 15 }, [
+    { id: 'clock-later', gx: 5, gy: 1 },
+    { id: 'clock-first', gx: 4, gy: 0 }
+  ]));
+  registry.register(definition('weather', { grid: 50, list: 15 }, [
+    { id: 'weather', gx: 1, gy: 1 }
+  ]));
+
+  assert.deepEqual(
+    registry.entries({}, { view: 'list' }).map(entry => entry.item.id),
+    ['clock-first', 'weather', 'clock-later', 'folder']
+  );
+});
+
 test('rejects duplicate and incomplete definitions', () => {
   const registry = createGridItemRegistry();
   registry.register(definition('notes', {}, []));

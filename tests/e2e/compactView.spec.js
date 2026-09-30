@@ -58,7 +58,7 @@ async function sideAction(page, id) {
   await page.locator(`#${id}`).click();
 }
 
-test('puts the styled recycle bin first in list view without changing its grid position', async ({ page }) => {
+test('orders recycle bin, widgets, folders and bookmarks by grid position in list view', async ({ page }) => {
   await start(page);
   const before = await data(page);
   const recycleBinId = before.recycleBin.id;
@@ -88,6 +88,12 @@ test('puts the styled recycle bin first in list view without changing its grid p
           gy: 4
         }
       ],
+      widgets: [
+        { id: 'clock-later', type: 'clock', version: 1, gx: 8, gy: 1,
+          w: 1, h: 1, groupId: null, config: {}, createdAt: 1, updatedAt: 1 },
+        { id: 'clock-first', type: 'clock', version: 1, gx: 1, gy: 1,
+          w: 1, h: 1, groupId: null, config: {}, createdAt: 1, updatedAt: 1 }
+      ],
       settings: { ...data.settings, showRecycleBin: true }
     } });
   });
@@ -109,10 +115,14 @@ test('puts the styled recycle bin first in list view without changing its grid p
     element.style.getPropertyValue('--recycle-bin-icon-color')
   ))).toBe('#ffaa00');
   await expect(list.locator('.bookmark-list-item').nth(1))
-    .toHaveAttribute('data-folder-id', 'compact-folder-2');
+    .toHaveAttribute('data-widget-id', 'clock-first');
   await expect(list.locator('.bookmark-list-item').nth(2))
-    .toHaveAttribute('data-folder-id', 'compact-folder');
+    .toHaveAttribute('data-widget-id', 'clock-later');
   await expect(list.locator('.bookmark-list-item').nth(3))
+    .toHaveAttribute('data-folder-id', 'compact-folder-2');
+  await expect(list.locator('.bookmark-list-item').nth(4))
+    .toHaveAttribute('data-folder-id', 'compact-folder');
+  await expect(list.locator('.bookmark-list-item').nth(5))
     .toHaveAttribute('data-bookmark-id', 'compact-0');
 
   await page.setViewportSize({ width: 1280, height: 720 });

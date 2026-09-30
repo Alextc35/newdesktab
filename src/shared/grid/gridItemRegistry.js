@@ -33,15 +33,16 @@ export function createGridItemRegistry() {
         if (!Array.isArray(selected)) {
           throw new TypeError(`Grid item selector must return an array: ${definition.type}`);
         }
-        const items = view === 'list'
-          ? [...selected].sort(compareByGridPosition)
-          : selected;
-        for (const entry of items) {
+        for (const entry of selected) {
           const normalizedEntry = normalizeEntry(entry, definition.type);
           result.push({ definition, ...normalizedEntry });
         }
       }
-      return result;
+      return view === 'list'
+        ? result.sort((a, b) => a.definition.order.list - b.definition.order.list
+          || compareByGridPosition(a, b)
+          || a.definition.type.localeCompare(b.definition.type))
+        : result;
     },
 
     resolveElement(element, state) {
