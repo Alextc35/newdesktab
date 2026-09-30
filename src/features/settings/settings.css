@@ -107,6 +107,72 @@
   transform: translateX(1px);
 }
 
+.settings-information-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 210px;
+  overflow: hidden;
+  margin-top: 16px;
+  padding: 28px;
+  border: 1px solid rgb(145 196 255 / 22%);
+  border-radius: 18px;
+  background:
+    linear-gradient(90deg, rgb(5 14 32 / 94%) 0%, rgb(5 14 32 / 80%) 45%, rgb(5 14 32 / 16%) 100%),
+    url('/src/assets/images/information-cosmos.png') 65% 46% / cover;
+  box-shadow: 0 20px 40px rgb(0 0 0 / 16%), inset 0 1px rgb(255 255 255 / 12%);
+  color: #f4f8ff;
+}
+
+.settings-information-logo {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  flex: 0 0 112px;
+  filter: drop-shadow(0 12px 20px rgb(0 0 0 / 35%));
+}
+
+.settings-information-copy {
+  position: relative;
+  min-width: 0;
+  text-shadow: 0 1px 12px rgb(0 0 0 / 28%);
+}
+
+.settings-information-name {
+  display: block;
+  margin-bottom: 14px;
+  font-size: clamp(22px, 4vw, 30px);
+  letter-spacing: -.035em;
+  line-height: 1.1;
+}
+
+.settings-information-copy p {
+  margin: 5px 0;
+  color: #dceafa;
+  font-size: 13px;
+}
+
+.settings-information-copy small {
+  display: block;
+  margin-top: 18px;
+  color: #bdcde2;
+  font-size: 11px;
+}
+
+@media (max-width: 620px) {
+  .settings-information-card {
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .settings-information-logo {
+    width: 72px;
+    height: 72px;
+    flex-basis: 72px;
+  }
+}
+
 .btn-info {
   background: light-dark(#f1f1f5, var(--ui-info-bg));
   color: var(--ui-info-text);

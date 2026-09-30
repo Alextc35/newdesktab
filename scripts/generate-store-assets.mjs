@@ -1,8 +1,9 @@
 import { createServer } from 'node:http';
-import { mkdir, readFile, stat } from 'node:fs/promises';
+import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { extname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
+import { DATA_SCHEMA_VERSION } from '../src/platform/storage/schemaVersion.js';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = resolve(root, 'assets/store');
@@ -53,6 +54,28 @@ try {
     return url.hostname === '127.0.0.1' ? route.continue() : route.abort();
   });
 
+  const brandSvg = await readFile(resolve(root, 'assets/icons/brand-mark.svg'));
+  const brandPage = await context.newPage();
+  for (const [size, target] of [
+    [48, 'assets/icons/icon-48.png'],
+    [128, 'assets/icons/icon-128.png'],
+    [512, 'assets/images/logo-new-desk-tab.png']
+  ]) {
+    await brandPage.setViewportSize({ width: size, height: size });
+    await brandPage.setContent(`<style>body{margin:0}</style><img src="data:image/svg+xml;base64,${brandSvg.toString('base64')}" width="${size}" height="${size}" style="display:block">`);
+    await brandPage.locator('img').evaluate(image => image.decode());
+    await brandPage.locator('img').screenshot({ path: resolve(root, target), animations: 'disabled' });
+  }
+  const logoWebp = await brandPage.locator('img').evaluate(image => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 512;
+    canvas.height = 512;
+    canvas.getContext('2d').drawImage(image, 0, 0, 512, 512);
+    return canvas.toDataURL('image/webp', .94).split(',')[1];
+  });
+  await writeFile(resolve(root, 'assets/images/logo.webp'), Buffer.from(logoWebp, 'base64'));
+  await brandPage.close();
+
   const page = await context.newPage();
   await page.goto(`http://127.0.0.1:${port}/tests/browser-harness.html`);
   await page.getByRole('link', { name: /DEVELOPED BY/ }).waitFor();
@@ -91,11 +114,11 @@ try {
     { id: 'read-2', name: 'Research', url: 'https://research.internal', folderId: 'reading', groupId: 'focus' }
   );
 
-  const starfield = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000"><defs><radialGradient id="space"><stop stop-color="#312e81"/><stop offset=".42" stop-color="#111827"/><stop offset="1" stop-color="#030712"/></radialGradient><radialGradient id="glow"><stop stop-color="#38bdf8" stop-opacity=".48"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></radialGradient><pattern id="stars" width="86" height="73" patternUnits="userSpaceOnUse"><circle cx="8" cy="11" r="1.2" fill="#fff" opacity=".72"/><circle cx="57" cy="36" r=".8" fill="#bae6fd" opacity=".62"/><circle cx="31" cy="65" r=".6" fill="#fff" opacity=".45"/></pattern></defs><rect width="1600" height="1000" fill="url(#space)"/><ellipse cx="1320" cy="170" rx="520" ry="380" fill="url(#glow)"/><rect width="1600" height="1000" fill="url(#stars)"/></svg>`)}`;
+  const storeWallpaper = `http://127.0.0.1:${port}/src/assets/images/information-cosmos.png`;
 
-  await page.evaluate(({ bookmarks, themeBackground }) => new Promise(resolveSet => {
+  await page.evaluate(({ bookmarks, themeBackground, DATA_SCHEMA_VERSION }) => new Promise(resolveSet => {
     chrome.storage.local.set({
-      schemaVersion: 9,
+      schemaVersion: DATA_SCHEMA_VERSION,
       bookmarks,
       folders: [{
         id: 'reading',
@@ -120,7 +143,13 @@ try {
           backgroundDefault: false,
           backgroundSolid: false,
           backgroundColor: '#070b18',
-          backgroundImageUrl: themeBackground
+          backgroundImageUrl: themeBackground,
+          backgroundMedia: [{
+            id: 'store-starfield',
+            type: 'image',
+            backgroundImageUrl: themeBackground,
+            backgroundColor: '#070b18'
+          }]
         },
         bookmarkGroups: [
           { id: 'focus', name: 'Focus' },
@@ -130,9 +159,10 @@ try {
         activeBookmarkGroupId: 'focus'
       }
     }, resolveSet);
-  }), { bookmarks: cards, themeBackground: starfield });
+  }), { bookmarks: cards, themeBackground: storeWallpaper, DATA_SCHEMA_VERSION });
   await page.reload();
   await page.locator('#bookmark-container .bookmark').first().waitFor();
+  await page.locator('#page-wallpaper-stage .page-wallpaper-layer.is-visible img').waitFor();
   await page.screenshot({
     path: resolve(output, 'screenshot-1280x800.png'),
     animations: 'disabled'
@@ -141,6 +171,15 @@ try {
   await page.locator('#settings-modal').waitFor({ state: 'visible' });
   await page.screenshot({
     path: resolve(output, 'screenshot-settings-1280x800.png'),
+    animations: 'disabled'
+  });
+  await page.locator('[data-tab="settings-modal-tab-info"]').click();
+  await page.locator('#settings-modal-tab-info').waitFor({ state: 'visible' });
+  const manifest = JSON.parse(await readFile(resolve(root, 'manifest.json'), 'utf8'));
+  await page.locator('#settings-modal-tab-info [data-i18n="settingsModal.information.version"]')
+    .evaluate((element, version) => { element.textContent = `Version: ${version}`; }, manifest.version);
+  await page.screenshot({
+    path: resolve(output, 'screenshot-information-1280x800.png'),
     animations: 'disabled'
   });
 
@@ -160,7 +199,7 @@ try {
       main { position: relative; width: 100%; height: 100%; padding: 32px 34px; }
       .brand { display: flex; align-items: center; gap: 18px; }
       .brand img { width: 82px; height: 82px; filter: drop-shadow(0 12px 24px rgba(0,0,0,.4)); }
-      h1 { margin: 0; font-size: 40px; letter-spacing: -.045em; line-height: 1; }
+      h1 { margin: 0; font-size: 37px; letter-spacing: -.045em; line-height: 1; white-space: nowrap; }
       p { margin: 9px 0 0; color: #cbd5e1; font-size: 16px; line-height: 1.35; }
       .cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 30px; }
       .card { height: 62px; border: 1px solid rgba(255,255,255,.13); border-radius: 13px;
@@ -175,7 +214,7 @@ try {
     </style></head><body><main>
       <div class="shine"></div>
       <div class="brand"><img src="data:image/png;base64,${icon}" alt="">
-        <div><h1>NewDeskTab</h1><p>Your new tab, organized your way.</p></div>
+        <div><h1>New DeskTab</h1><p>Your new tab, organized your way.</p></div>
       </div>
       <div class="cards"><div class="card"></div><div class="card"></div><div class="card"></div><div class="card"></div><div class="card"></div></div>
     </main></body></html>`);

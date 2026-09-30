@@ -5,7 +5,7 @@ Review it against the release ZIP before every submission.
 
 ## Listing
 
-- Product name: `NewDeskTab`
+- Product name: `New DeskTab`
 - Primary language: `English`
 - Category: `Productivity`
 - Homepage: `https://github.com/Alextc35/newdesktab`
@@ -75,6 +75,7 @@ to `PRIVACY.md`; do not claim that locally processed data is outside the policy.
 
 - `assets/store/screenshot-1280x800.png`
 - `assets/store/screenshot-settings-1280x800.png`
+- `assets/store/screenshot-information-1280x800.png`
 - `assets/store/promo-small-440x280.png`
 
 Regenerate them from the current UI with:
@@ -93,5 +94,5 @@ npm run assets:store
 6. Run `NEWDESKTAB_EXTENSION_PATH=<clean-directory> npm run test:extension`.
 7. Verify the manifest `key` matches the public key shown by the existing Store
    item. If this is a new item, decide the permanent extension ID before release.
-8. Upload the ZIP and the three listing images, complete the privacy answers,
+8. Upload the ZIP and the listing images, complete the privacy answers,
    verify contact email and two-step verification, then submit for review.

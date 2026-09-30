@@ -65,6 +65,20 @@ test('settings navigation and inline language control load their SVG assets with
   }
 });
 
+test('Information displays the New DeskTab brand artwork and keeps its text readable', async ({ page }) => {
+  await start(page);
+  await openSettings(page);
+  await page.locator('[data-tab="settings-modal-tab-info"]').click();
+  const card = page.locator('.settings-information-card');
+  await expect(card).toBeVisible();
+  await expect(card.locator('.settings-information-name')).toHaveText('New DeskTab');
+  await expect(card.locator('img')).toHaveAttribute('src', '/assets/icons/brand-mark.svg');
+  expect(await card.locator('img').evaluate(image => image.complete && image.naturalWidth > 0))
+    .toBe(true);
+  await expect(card).toHaveCSS('background-image', /information-cosmos\.png/);
+  await expect(card.locator('.settings-information-copy')).toBeVisible();
+});
+
 test('light folder grids and previews keep labels readable without changing saved colors', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'light' });
   await start(page);
