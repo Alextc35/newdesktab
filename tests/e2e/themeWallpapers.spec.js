@@ -27,6 +27,41 @@ test.beforeEach(async ({ page }) => {
   await expectAppReady(page);
 });
 
+test('personal wallpapers use the same disclosure styling as storage availability', async ({ page }) => {
+  const appearance = selector => page.locator(selector).evaluate(details => {
+    const summary = details.querySelector('summary');
+    const heading = summary.querySelector('h3');
+    const surfaceStyle = getComputedStyle(details);
+    const arrowStyle = getComputedStyle(summary, '::after');
+    return {
+      padding: surfaceStyle.padding,
+      border: surfaceStyle.border,
+      radius: surfaceStyle.borderRadius,
+      background: surfaceStyle.backgroundColor,
+      headingSize: getComputedStyle(heading).fontSize,
+      arrowWidth: arrowStyle.width,
+      arrowBorder: arrowStyle.borderRightWidth
+    };
+  });
+
+  await openTheme(page);
+  await page.locator('#settings-theme-bg-image-mode').check();
+  const wallpapers = page.locator('#settings-theme-more-wallpapers');
+  await expect(wallpapers).not.toHaveAttribute('open', '');
+  await expect(wallpapers.locator('summary')).toHaveClass(/settings-disclosure-title-row/);
+  const wallpaperAppearance = await appearance('#settings-theme-more-wallpapers');
+
+  await page.getByRole('button', { name: 'Sync' }).click();
+  const storage = page.locator('details.storage-usage');
+  await expect(storage).not.toHaveAttribute('open', '');
+  expect(wallpaperAppearance).toEqual(await appearance('details.storage-usage'));
+
+  await page.getByRole('button', { name: 'Theme' }).click();
+  await openOwnWallpapers(page);
+  await expect(wallpapers).toHaveAttribute('open', '');
+  await expect(page.locator('#settings-theme-media-url')).toBeVisible();
+});
+
 test('uses the shared URL only when no personal wallpaper is available', async ({ page }) => {
   await openTheme(page);
   await page.locator('#settings-theme-bg-image-mode').check();
