@@ -23,6 +23,8 @@ items on a desktop without relying on a NewDeskTab account or backend.
 * Keyboard grid navigation across bookmarks and folders with `Tab` and arrows
 * Arrow-key movement for a single selected bookmark outside grid navigation
 * Compact bookmark creation that expands into the shared full style editor
+* Toolbar popup to save the current web page into a workspace or folder, with
+  an existing-favorite indicator and automatic popup close after a successful save
 * Named appearance presets
 * Independent bookmark workspaces with smooth `Alt/⌥ + ↑/↓` navigation
 * Resizable folders with a clean link view and an editable 3 × 6 workspace
@@ -196,6 +198,7 @@ src/features/grid/                        grid rendering, layout, selection and 
 src/features/history/                     global undo/redo UI coordination
 src/features/keyboard/                    runtime shortcut coordination
 src/features/launcher/                    expandable edge creation dock
+src/features/quick-save/                  toolbar popup placement and save flow
 src/features/recycle-bin/                 recycle-bin actions and UI
 src/features/search/                      global and compact-list search UI
 src/features/settings/                    settings actions, draft and modal UI
@@ -360,7 +363,7 @@ npm run test:e2e
 ```
 
 The unpacked-extension smoke test uses Playwright Chromium and a fresh temporary
-profile. It checks new-tab replacement and bookmark persistence after reload:
+profile. It checks new-tab replacement, popup persistence and reload:
 
 ```sh
 npm run test:extension

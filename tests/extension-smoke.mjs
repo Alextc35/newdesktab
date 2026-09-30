@@ -73,8 +73,31 @@ try {
   await page.locator('#settings-modal').waitFor({ state: 'visible' });
   await page.keyboard.press('Escape');
 
+  // A popup is its own extension page. It must hydrate the same persisted
+  // state and be able to save without the New Tab page being in focus.
+  assert.equal(manifest.action.default_popup, 'src/popup.html');
+  assert.ok(manifest.permissions.includes('activeTab'));
+  const popup = await context.newPage();
+  popup.on('pageerror', error => errors.push(`Popup: ${error.message}`));
+  await popup.goto(new URL(`/${manifest.action.default_popup}`, page.url()).href);
+  await popup.locator('#quick-save-workspace option').first().waitFor({ state: 'attached' });
+  await popup.waitForFunction(() => document.getElementById('quick-save-tab-title').textContent !== '…');
+  assert.deepEqual(await popup.locator('#quick-save-form input, #quick-save-form select, #quick-save-submit')
+    .evaluateAll(controls => controls.map(control => control.disabled)), [true, true, true, true]);
+  const popupResult = await popup.evaluate(async () => {
+    const { saveQuickBookmark } = await import('./features/quick-save/quickSaveActions.js');
+    const sourceTab = await chrome.tabs.create({ url: 'about:blank', active: false });
+    const result = await saveQuickBookmark({ name: 'Popup smoke', url: 'https://popup.test' });
+    const tabStillOpen = await chrome.tabs.get(sourceTab.id).then(() => true, () => false);
+    return { ...result, tabStillOpen };
+  });
+  assert.equal(popupResult.reason, null);
+  assert.equal(popupResult.tabStillOpen, true);
+  await page.getByRole('link', { name: /Popup smoke/ }).waitFor({ state: 'visible' });
+  await popup.close();
+
   assert.deepEqual(errors, []);
-  console.log(`Extension smoke passed: ${manifest.version}, new tab, save, reload and shortcuts.`);
+  console.log(`Extension smoke passed: ${manifest.version}, new tab, popup save, reload and shortcuts.`);
 } finally {
   await context.close();
 }

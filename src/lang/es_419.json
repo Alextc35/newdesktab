@@ -2,6 +2,30 @@
   "html": {
     "title": "Nueva pestaña"
   },
+  "quickSave": {
+    "title": "Guardar favorito",
+    "name": "Nombre",
+    "workspace": "Espacio de trabajo",
+    "folder": "Carpeta",
+    "mainWorkspace": "Principal",
+    "noFolder": "Sin carpeta",
+    "save": "Guardar favorito",
+    "saveAnyway": "Guardar de todos modos",
+    "savedButton": "Guardado",
+    "alreadySaved": "Ya guardado",
+    "savedIn": "En {{location}}",
+    "savedInMore": "En {{location}} y {{count}} más",
+    "open": "Abrir New DeskTab",
+    "unavailableTitle": "Esta pestaña no se puede guardar",
+    "unavailable": "Abre una página web (http o https) para guardarla.",
+    "loadError": "No se pudieron cargar tus favoritos. Inténtalo de nuevo.",
+    "saving": "Guardando…",
+    "saved": "Favorito guardado correctamente.",
+    "duplicate": "Esta URL ya está guardada en ese destino.",
+    "noSpace": "No queda espacio en ese destino. Elige otro.",
+    "invalid": "Revisa el nombre y el destino seleccionados.",
+    "saveError": "No se pudo guardar. Inténtalo de nuevo."
+  },
   "launcher": {
     "bookmark": "Marcador",
     "folder": "Carpeta",

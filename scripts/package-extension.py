@@ -30,7 +30,12 @@ for path in files:
         raise ValueError(f"Unexpected runtime file: {path}")
 
 entries = {path.relative_to(root).as_posix(): path for path in files}
-required = [manifest["chrome_url_overrides"]["newtab"], *manifest["icons"].values()]
+required = [
+    manifest["chrome_url_overrides"]["newtab"],
+    manifest["action"]["default_popup"],
+    *manifest["icons"].values(),
+    *manifest["action"]["default_icon"].values(),
+]
 required.append(f'_locales/{manifest["default_locale"]}/messages.json')
 for entry in required:
     if entry not in entries:

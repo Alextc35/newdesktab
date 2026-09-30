@@ -1,0 +1,51 @@
+* { box-sizing: border-box; }
+
+html { min-width: 352px; }
+
+body {
+  width: 352px;
+  margin: 0;
+  background: var(--ui-surface);
+  color: var(--ui-text);
+  font: 13px/1.45 Arial, sans-serif;
+}
+
+button, input, select { font: inherit; }
+
+.quick-save { padding: 18px; }
+.quick-save-header { display: flex; align-items: center; gap: 11px; margin-bottom: 18px; }
+.quick-save-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: var(--ui-selected); }
+.quick-save-mark img { width: 27px; height: 27px; }
+.quick-save-brand { margin: 0; color: var(--ui-muted); font-size: 11px; }
+h1 { margin: 0; font-size: 17px; line-height: 1.25; }
+
+.quick-save-tab { display: flex; align-items: center; gap: 11px; min-width: 0; padding: 11px; border: 1px solid var(--ui-border); border-radius: 12px; background: var(--ui-card); }
+.quick-save-tab img { width: 28px; height: 28px; flex: 0 0 28px; object-fit: contain; }
+.quick-save-tab-info { display: flex; flex: 1; min-width: 0; flex-direction: column; }
+.quick-save-tab-heading { display: flex; min-width: 0; align-items: center; gap: 6px; }
+.quick-save-tab-heading strong { min-width: 0; flex: 1; }
+.quick-save-tab-info strong, .quick-save-tab-info span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.quick-save-tab-info span { color: var(--ui-muted); font-size: 11px; }
+.quick-save-match { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 4px; padding: 3px 6px; border-radius: 999px; background: var(--ui-success-bg); }
+.quick-save-tab-info .quick-save-match { color: var(--ui-success-text); font-size: 10px; font-weight: 600; }
+.quick-save-tab-info .quick-save-match span { color: inherit; }
+.quick-save-match-icon { display: inline-block; width: 14px; height: 14px; background: currentColor; -webkit-mask: url('/src/assets/icons/bookmark-saved.svg') center / contain no-repeat; mask: url('/src/assets/icons/bookmark-saved.svg') center / contain no-repeat; }
+.quick-save-match-detail { margin: 6px 2px 0; color: var(--ui-muted); font-size: 11px; }
+.quick-save-match-detail[hidden], .quick-save-match[hidden] { display: none; }
+
+form { display: grid; gap: 7px; margin-top: 16px; }
+label { color: var(--ui-muted); font-size: 12px; }
+input, select { width: 100%; height: 36px; padding: 0 10px; border: 1px solid var(--ui-border); border-radius: 8px; outline: none; color: var(--ui-text); background: var(--ui-input); }
+input:disabled, select:disabled { background: var(--ui-card); color: var(--ui-subtle); cursor: not-allowed; opacity: .65; }
+input:focus-visible, select:focus-visible, button:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 2px; }
+.quick-save-destinations { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 5px; }
+.quick-save-destinations > div { display: grid; gap: 7px; min-width: 0; }
+.quick-save-status { min-height: 18px; margin: 4px 0 0; color: var(--ui-muted); font-size: 12px; }
+.quick-save-status[data-kind="error"] { color: var(--ui-danger-text); }
+.quick-save-status[data-kind="warning"] { color: var(--ui-warning-text); }
+.quick-save-status[data-kind="success"] { color: var(--ui-success-text); }
+.quick-save-submit { width: 100%; min-height: 39px; border: 0; border-radius: 9px; background: var(--ui-accent); color: var(--ui-on-accent); font-weight: 600; cursor: pointer; }
+.quick-save-submit:not(:disabled):hover { background: var(--ui-accent-hover); }
+.quick-save-submit:disabled { cursor: default; opacity: .55; }
+.quick-save-open { display: block; margin: 11px auto 0; padding: 4px 8px; border: 0; background: transparent; color: var(--ui-muted); cursor: pointer; }
+.quick-save-open:hover { color: var(--ui-accent); }

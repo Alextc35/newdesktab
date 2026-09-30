@@ -8,13 +8,14 @@ const manifest = JSON.parse(readFileSync('manifest.json', 'utf8'));
 test('manifest uses the expected minimal Manifest V3 surface', () => {
   assert.equal(manifest.manifest_version, 3);
   assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
-  assert.deepEqual(manifest.permissions, ['storage']);
+  assert.deepEqual(manifest.permissions, ['storage', 'activeTab']);
   assert.equal(Object.hasOwn(manifest, 'web_accessible_resources'), false);
   assert.equal(Object.hasOwn(manifest, 'web_accesible_resources'), false);
 });
 
 test('all manifest entry points exist', () => {
   assert.equal(existsSync(manifest.chrome_url_overrides.newtab), true);
+  assert.equal(existsSync(manifest.action.default_popup), true);
   for (const icon of Object.values(manifest.icons)) {
     assert.equal(existsSync(icon), true, `Missing manifest icon: ${icon}`);
   }
@@ -90,9 +91,9 @@ test('the temporary JavaScript wrapper has been retired', () => {
   assert.equal(existsSync('src/main.js'), true);
 });
 
-test('the stylesheet entry reaches every source stylesheet without broken imports or cycles', () => {
+test('the stylesheet entries reach every source stylesheet without broken imports or cycles', () => {
   const sourceRoot = resolve('src');
-  const entry = resolve('src/styles/main.css');
+  const entries = [resolve('src/styles/main.css'), resolve('src/styles/popup.css')];
   const stylesheets = listFilesByExtension(sourceRoot, '.css');
   const visited = new Set();
   const active = new Set();
@@ -124,13 +125,14 @@ test('the stylesheet entry reaches every source stylesheet without broken import
     visited.add(file);
   };
 
-  visit(entry);
+  for (const entry of entries) visit(entry);
   assert.deepEqual(
     [...visited].sort(),
     stylesheets.sort(),
     'Every source stylesheet must be reachable from src/styles/main.css'
   );
   assert.match(readFileSync('src/newtab.html', 'utf8'), /href="\.\/styles\/main\.css"/);
+  assert.match(readFileSync('src/popup.html', 'utf8'), /href="\.\/styles\/popup\.css"/);
   assert.match(
     readFileSync('tests/browser-harness.html', 'utf8'),
     /href="\.\.\/src\/styles\/main\.css"/

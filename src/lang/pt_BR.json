@@ -2,6 +2,30 @@
   "html": {
     "title": "Nova guia"
   },
+  "quickSave": {
+    "title": "Salvar favorito",
+    "name": "Nome",
+    "workspace": "Espaço de trabalho",
+    "folder": "Pasta",
+    "mainWorkspace": "Principal",
+    "noFolder": "Sem pasta",
+    "save": "Salvar favorito",
+    "saveAnyway": "Salvar mesmo assim",
+    "savedButton": "Salvo",
+    "alreadySaved": "Já salvo",
+    "savedIn": "Em {{location}}",
+    "savedInMore": "Em {{location}} e mais {{count}}",
+    "open": "Abrir New DeskTab",
+    "unavailableTitle": "Esta guia não pode ser salva",
+    "unavailable": "Abra uma página da web (http ou https) para salvá-la.",
+    "loadError": "Não foi possível carregar seus favoritos. Tente novamente.",
+    "saving": "Salvando…",
+    "saved": "Favorito salvo.",
+    "duplicate": "Esta URL já está salva nesse destino.",
+    "noSpace": "Não há espaço nesse destino. Escolha outro.",
+    "invalid": "Confira o nome e o destino selecionados.",
+    "saveError": "Não foi possível salvar. Tente novamente."
+  },
   "launcher": {
     "bookmark": "Favorito",
     "folder": "Pasta",

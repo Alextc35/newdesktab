@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-interface-theme="system">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New DeskTab</title>
+  <link rel="stylesheet" href="./styles/base/variables.css">
+  <link rel="stylesheet" href="./styles/popup.css">
+  <script type="module" src="./popup.js"></script>
+</head>
+<body>
+  <main class="quick-save">
+    <header class="quick-save-header">
+      <span class="quick-save-mark" aria-hidden="true">
+        <img src="/assets/icons/icon-48.png" alt="">
+      </span>
+      <div>
+        <p class="quick-save-brand">New DeskTab</p>
+        <h1 data-i18n="quickSave.title">Guardar favorito</h1>
+      </div>
+    </header>
+
+    <div class="quick-save-tab">
+      <img id="quick-save-favicon" src="/src/assets/icons/bookmark-light.svg" alt="">
+      <div class="quick-save-tab-info">
+        <div class="quick-save-tab-heading">
+          <strong id="quick-save-tab-title">…</strong>
+          <span id="quick-save-match" class="quick-save-match" role="status" hidden>
+            <span class="quick-save-match-icon" aria-hidden="true"></span>
+            <span data-i18n="quickSave.alreadySaved">Ya guardado</span>
+          </span>
+        </div>
+        <span id="quick-save-tab-url"></span>
+      </div>
+    </div>
+    <p id="quick-save-match-detail" class="quick-save-match-detail" hidden></p>
+
+    <form id="quick-save-form">
+      <label for="quick-save-name" data-i18n="quickSave.name">Nombre</label>
+      <input id="quick-save-name" name="name" type="text" maxlength="120" autocomplete="off" required disabled>
+
+      <div class="quick-save-destinations">
+        <div>
+          <label for="quick-save-workspace" data-i18n="quickSave.workspace">Workspace</label>
+          <select id="quick-save-workspace" name="workspace" disabled></select>
+        </div>
+        <div>
+          <label for="quick-save-folder" data-i18n="quickSave.folder">Carpeta</label>
+          <select id="quick-save-folder" name="folder" disabled></select>
+        </div>
+      </div>
+
+      <p id="quick-save-status" class="quick-save-status" role="status" aria-live="polite"></p>
+      <button id="quick-save-submit" class="quick-save-submit" type="submit" disabled
+        data-i18n="quickSave.save">Guardar favorito</button>
+    </form>
+
+    <button id="quick-save-open" class="quick-save-open" type="button"
+      data-i18n="quickSave.open">Abrir New DeskTab</button>
+  </main>
+</body>
+</html>

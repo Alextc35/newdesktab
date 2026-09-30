@@ -2,6 +2,30 @@
   "html": {
     "title": "New tab"
   },
+  "quickSave": {
+    "title": "Save bookmark",
+    "name": "Name",
+    "workspace": "Workspace",
+    "folder": "Folder",
+    "mainWorkspace": "Main",
+    "noFolder": "No folder",
+    "save": "Save bookmark",
+    "saveAnyway": "Save anyway",
+    "savedButton": "Saved",
+    "alreadySaved": "Already saved",
+    "savedIn": "In {{location}}",
+    "savedInMore": "In {{location}} and {{count}} more",
+    "open": "Open New DeskTab",
+    "unavailableTitle": "This tab cannot be saved",
+    "unavailable": "Open a web page (http or https) to save it.",
+    "loadError": "Could not load your bookmarks. Try again.",
+    "saving": "Saving…",
+    "saved": "Bookmark saved.",
+    "duplicate": "This URL is already saved in that destination.",
+    "noSpace": "No space left in that destination. Choose another.",
+    "invalid": "Check the name and selected destination.",
+    "saveError": "Could not save the bookmark. Try again."
+  },
   "launcher": {
     "bookmark": "Bookmark",
     "folder": "Folder",
