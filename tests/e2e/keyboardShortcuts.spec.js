@@ -36,63 +36,69 @@ test('edit launcher swaps SVG assets and accessible labels with its mode', async
   expect(await icon.evaluate(element => getComputedStyle(element).maskImage))
     .toContain('/src/assets/icons/exit-edit-mode.svg');
 
-  await page.keyboard.press('Control+KeyE');
+  await page.keyboard.press('KeyE');
   await expect(button).toHaveAttribute('aria-label', 'Enter edit mode');
   await expect(button).toHaveAttribute('aria-pressed', 'false');
 });
 
-test('default shortcuts replace the old keys and expose accessible hints', async ({ page }) => {
+test('single-key defaults open their actions and expose accessible hints', async ({ page }) => {
   await start(page);
 
-  await expect(page.locator('#edit-toggle-mode')).toHaveAttribute('aria-keyshortcuts', 'Control+E');
-  await expect(page.locator('#add-bookmark')).toHaveAttribute('aria-keyshortcuts', 'Control+B');
-  await expect(page.locator('#add-folder')).toHaveAttribute('aria-keyshortcuts', 'Control+F');
-  await expect(page.locator('#settings')).toHaveAttribute('aria-keyshortcuts', 'Control+S');
+  await expect(page.locator('#edit-toggle-mode')).toHaveAttribute('aria-keyshortcuts', 'E');
+  await expect(page.locator('#add-bookmark')).toHaveAttribute('aria-keyshortcuts', 'B');
+  await expect(page.locator('#add-folder')).toHaveAttribute('aria-keyshortcuts', 'F');
+  await expect(page.locator('#add-widgets')).toHaveAttribute('aria-keyshortcuts', 'W');
+  await expect(page.locator('#settings')).toHaveAttribute('aria-keyshortcuts', 'S');
 
   await page.keyboard.press('Space');
   expect(await isEditing(page)).toBe(false);
   await page.keyboard.press('Enter');
   await expect(page.locator('#edit-bookmark-modal')).toBeHidden();
 
-  await page.keyboard.press('Control+KeyE');
+  await page.keyboard.press('KeyE');
   expect(await isEditing(page)).toBe(true);
-  await page.keyboard.press('Control+KeyE');
+  await page.keyboard.press('KeyE');
   expect(await isEditing(page)).toBe(false);
 
-  await page.keyboard.press('Control+KeyB');
+  await page.keyboard.press('KeyB');
   await expect(page.locator('#edit-bookmark-modal')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.locator('#edit-bookmark-modal')).toBeHidden();
 
-  await page.keyboard.press('Control+KeyF');
+  await page.keyboard.press('KeyF');
   await expect(page.locator('#edit-folder-modal')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.locator('#edit-folder-modal')).toBeHidden();
 
-  await page.keyboard.press('Control+KeyS');
+  await page.keyboard.press('KeyW');
+  await expect(page.locator('#widget-catalog-modal')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#widget-catalog-modal')).toBeHidden();
+
+  await page.keyboard.press('KeyS');
   await expect(page.locator('#settings-modal')).toBeVisible();
-  await page.keyboard.press('Control+KeyS');
+  await page.keyboard.press('KeyS');
   await expect(page.locator('#settings-modal')).toBeVisible();
   await page.locator('[data-tab="settings-modal-tab-shortcuts"]').click();
-  await expect(page.locator('.shortcut-setting-row')).toHaveCount(4);
-  await expect(page.locator('[data-shortcut-action="toggleEditing"] kbd')).toHaveText(['Ctrl', 'E']);
+  await expect(page.locator('.shortcut-setting-row')).toHaveCount(5);
+  await expect(page.locator('[data-shortcut-action="toggleEditing"] kbd')).toHaveText(['E']);
+  await expect(page.locator('[data-shortcut-action="openWidgets"] kbd')).toHaveText(['W']);
 });
 
 test('custom shortcuts reject conflicts and survive a Sync round trip', async ({ page }) => {
   await start(page);
-  await page.keyboard.press('Control+KeyS');
+  await page.keyboard.press('KeyS');
   await page.locator('[data-tab="settings-modal-tab-shortcuts"]').click();
 
   const editShortcut = page.locator('[data-shortcut-action="toggleEditing"]');
   await editShortcut.click();
-  await page.keyboard.press('Control+KeyB');
-  await expect(page.locator('#shortcut-capture-status'))
-    .toHaveText('Ctrl + B is already used by Create bookmark.');
+  await page.keyboard.press('KeyB');
+  await expect(page.locator('.flash-error').last())
+    .toHaveText('This key is already assigned to another action.');
   await expect(editShortcut).toHaveAttribute('aria-pressed', 'true');
 
   await page.keyboard.press('Control+Shift+KeyE');
-  await expect(page.locator('#shortcut-capture-status'))
-    .toHaveText('Shortcut changed to Ctrl + Shift + E.');
+  await expect(page.locator('.flash-success').last()).toHaveText('Shortcut updated.');
   await expect(editShortcut.locator('kbd')).toHaveText(['Ctrl', 'Shift', 'E']);
 
   await page.locator('[data-tab="settings-modal-tab-sync"]').click();
@@ -113,28 +119,81 @@ test('custom shortcuts reject conflicts and survive a Sync round trip', async ({
     mode: 'sync',
     shortcuts: {
       toggleEditing: 'Ctrl+Shift+E',
-      addBookmark: 'Ctrl+B',
-      addFolder: 'Ctrl+F',
-      openSettings: 'Ctrl+S'
+      addBookmark: 'B',
+      addFolder: 'F',
+      openWidgets: 'W',
+      openSettings: 'S'
     }
   });
 
-  await page.keyboard.press('Control+KeyE');
+  await page.keyboard.press('KeyE');
   expect(await isEditing(page)).toBe(false);
   await page.keyboard.press('Control+Shift+KeyE');
   expect(await isEditing(page)).toBe(true);
   await page.keyboard.press('Control+Shift+KeyE');
   expect(await isEditing(page)).toBe(false);
 
-  await page.keyboard.press('Control+KeyS');
+  await page.keyboard.press('KeyS');
   await page.locator('[data-tab="settings-modal-tab-shortcuts"]').click();
   await expect(editShortcut.locator('kbd')).toHaveText(['Ctrl', 'Shift', 'E']);
   await page.locator('#shortcut-reset-defaults').click();
-  await expect(editShortcut.locator('kbd')).toHaveText(['Ctrl', 'E']);
+  await expect(editShortcut.locator('kbd')).toHaveText(['E']);
   await page.locator('#settings-modal-save').click();
   await expect(page.locator('#settings-modal')).toBeHidden();
   await page.reload();
   await expectReady(page);
-  await page.keyboard.press('Control+KeyE');
+  await page.keyboard.press('KeyE');
   expect(await isEditing(page)).toBe(true);
+});
+
+test('single keys are editable while sensitive combinations and typing stay protected', async ({ page }) => {
+  await start(page);
+  await page.evaluate(() => {
+    const input = document.createElement('input');
+    input.id = 'shortcut-test-input';
+    document.body.append(input);
+  });
+  await page.keyboard.press('KeyS');
+  await page.locator('[data-tab="settings-modal-tab-shortcuts"]').click();
+  const widgetsShortcut = page.locator('[data-shortcut-action="openWidgets"]');
+  await widgetsShortcut.click();
+  await widgetsShortcut.evaluate(button => button.dispatchEvent(new KeyboardEvent('keydown', {
+    code: 'KeyW', key: 'w', ctrlKey: true, bubbles: true, cancelable: true
+  })));
+  await expect(page.locator('.flash-error').last())
+    .toHaveText('This shortcut is reserved by the browser or operating system. Choose another combination.');
+  await expect(widgetsShortcut).toHaveAttribute('aria-pressed', 'true');
+  await page.keyboard.press('KeyG');
+  await expect(widgetsShortcut.locator('kbd')).toHaveText(['G']);
+  await page.locator('#settings-modal-save').click();
+  await expect(page.locator('#settings-modal')).toBeHidden();
+  await page.keyboard.press('KeyG');
+  await expect(page.locator('#widget-catalog-modal')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#widget-catalog-modal')).toBeHidden();
+  await expect(page.locator('#shortcut-test-input')).not.toHaveAttribute('inert', '');
+  await page.locator('#shortcut-test-input').focus();
+  await page.keyboard.press('KeyG');
+  await expect(page.locator('#shortcut-test-input')).toHaveValue('g');
+  await expect(page.locator('#widget-catalog-modal')).toBeHidden();
+});
+
+test('right-click unassigns a shortcut and keeps it unassigned after reload', async ({ page }) => {
+  await start(page);
+  await page.keyboard.press('KeyS');
+  await page.locator('[data-tab="settings-modal-tab-shortcuts"]').click();
+  const widgetsShortcut = page.locator('[data-shortcut-action="openWidgets"]');
+  await widgetsShortcut.click({ button: 'right' });
+  await expect(widgetsShortcut).toHaveText('Unassigned');
+  await expect(page.locator('.flash-info').last()).toHaveText('Shortcut unassigned.');
+  await page.locator('#settings-modal-save').click();
+  await expect(page.locator('#settings-modal')).toBeHidden();
+  await expect(page.locator('#add-widgets')).not.toHaveAttribute('aria-keyshortcuts');
+  await page.keyboard.press('KeyW');
+  await expect(page.locator('#widget-catalog-modal')).toBeHidden();
+  await page.reload();
+  await expectReady(page);
+  await page.keyboard.press('KeyS');
+  await page.locator('[data-tab="settings-modal-tab-shortcuts"]').click();
+  await expect(widgetsShortcut).toHaveText('Unassigned');
 });

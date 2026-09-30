@@ -600,12 +600,15 @@
     },
     "shortcuts": {
       "title": "Keyboard shortcuts",
-      "description": "Select a shortcut button, then press a combination containing Ctrl, Alt, Shift, or Meta.",
+      "description": "Select a shortcut button, then press a letter or key combination. Right-click to unassign it.",
       "change": "Change the {{action}} shortcut. Current shortcut: {{shortcut}}.",
       "press": "Press shortcut…",
-      "modifierRequired": "Include Ctrl, Alt, Shift, or Meta in the shortcut.",
-      "conflict": "{{shortcut}} is already used by {{action}}.",
-      "updated": "Shortcut changed to {{shortcut}}.",
+      "unassigned": "Unassigned",
+      "unassignedFlash": "Shortcut unassigned.",
+      "modifierRequired": "Use a letter on its own, or a key combination with a modifier.",
+      "reserved": "This shortcut is reserved by the browser or operating system. Choose another combination.",
+      "conflict": "This key is already assigned to another action.",
+      "updated": "Shortcut updated.",
       "cancelled": "Shortcut change cancelled.",
       "restored": "Default shortcuts restored.",
       "reset": "Reset shortcuts",
@@ -621,6 +624,10 @@
         "addFolder": {
           "title": "Create folder",
           "description": "Open the dialog for creating a folder."
+        },
+        "openWidgets": {
+          "title": "Open widgets",
+          "description": "Open the list of available widgets."
         },
         "openSettings": {
           "title": "Open settings",

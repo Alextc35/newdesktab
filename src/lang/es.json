@@ -600,12 +600,15 @@
     },
     "shortcuts": {
       "title": "Teclas rápidas",
-      "description": "Selecciona un botón y pulsa una combinación que incluya Ctrl, Alt, Shift o Meta.",
+      "description": "Selecciona un botón y pulsa una letra o una combinación de teclas. Haz clic derecho para quitar el atajo.",
       "change": "Cambiar el atajo de {{action}}. Atajo actual: {{shortcut}}.",
       "press": "Pulsa el atajo…",
-      "modifierRequired": "Incluye Ctrl, Alt, Shift o Meta en el atajo.",
-      "conflict": "{{shortcut}} ya está asignado a {{action}}.",
-      "updated": "Atajo cambiado a {{shortcut}}.",
+      "unassigned": "Sin asignar",
+      "unassignedFlash": "Atajo sin asignar.",
+      "modifierRequired": "Usa una letra sola o una combinación con modificador.",
+      "reserved": "El navegador o el sistema reservan esta combinación. Elige otra.",
+      "conflict": "Esta tecla ya está asignada a otra acción.",
+      "updated": "Atajo actualizado.",
       "cancelled": "Cambio de atajo cancelado.",
       "restored": "Se han restaurado las teclas rápidas predeterminadas.",
       "reset": "Restablecer teclas rápidas",
@@ -621,6 +624,10 @@
         "addFolder": {
           "title": "Crear carpeta",
           "description": "Abre el diálogo para crear una carpeta."
+        },
+        "openWidgets": {
+          "title": "Abrir widgets",
+          "description": "Abre la lista de widgets disponibles."
         },
         "openSettings": {
           "title": "Abrir ajustes",

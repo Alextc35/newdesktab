@@ -99,6 +99,7 @@ const SETTINGS = {
     toggleEditing: 'Ctrl+Shift+E',
     addBookmark: 'Ctrl+Shift+B',
     addFolder: 'Ctrl+Shift+F',
+    openWidgets: 'W',
     openSettings: 'Ctrl+Shift+S'
   },
   theme: {

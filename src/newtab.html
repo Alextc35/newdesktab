@@ -1107,7 +1107,7 @@
             <h2 data-i18n="settingsModal.shortcuts.title">Teclas rápidas</h2>
             <p class="settings-section-description"
               data-i18n="settingsModal.shortcuts.description">
-              Selecciona un botón y pulsa una combinación con Ctrl, Alt, Shift o Meta.
+              Selecciona un botón y pulsa una letra o una combinación de teclas.
             </p>
             <div class="shortcut-settings-list">
               <div class="shortcut-setting-row">
@@ -1116,7 +1116,7 @@
                   <small data-i18n="settingsModal.shortcuts.actions.toggleEditing.description">Activa o desactiva la edición de la cuadrícula o de una carpeta abierta.</small>
                 </span>
                 <button class="shortcut-capture" type="button"
-                  data-shortcut-action="toggleEditing">Ctrl + E</button>
+                  data-shortcut-action="toggleEditing">E</button>
               </div>
               <div class="shortcut-setting-row">
                 <span class="shortcut-setting-copy">
@@ -1124,7 +1124,7 @@
                   <small data-i18n="settingsModal.shortcuts.actions.addBookmark.description">Abre el formulario para añadir un favorito.</small>
                 </span>
                 <button class="shortcut-capture" type="button"
-                  data-shortcut-action="addBookmark">Ctrl + B</button>
+                  data-shortcut-action="addBookmark">B</button>
               </div>
               <div class="shortcut-setting-row">
                 <span class="shortcut-setting-copy">
@@ -1132,7 +1132,15 @@
                   <small data-i18n="settingsModal.shortcuts.actions.addFolder.description">Abre el diálogo para crear una carpeta.</small>
                 </span>
                 <button class="shortcut-capture" type="button"
-                  data-shortcut-action="addFolder">Ctrl + F</button>
+                  data-shortcut-action="addFolder">F</button>
+              </div>
+              <div class="shortcut-setting-row">
+                <span class="shortcut-setting-copy">
+                  <strong data-i18n="settingsModal.shortcuts.actions.openWidgets.title">Abrir widgets</strong>
+                  <small data-i18n="settingsModal.shortcuts.actions.openWidgets.description">Abre la lista de widgets disponibles.</small>
+                </span>
+                <button class="shortcut-capture" type="button"
+                  data-shortcut-action="openWidgets">W</button>
               </div>
               <div class="shortcut-setting-row">
                 <span class="shortcut-setting-copy">
@@ -1140,11 +1148,9 @@
                   <small data-i18n="settingsModal.shortcuts.actions.openSettings.description">Abre el panel de configuración de New DeskTab.</small>
                 </span>
                 <button class="shortcut-capture" type="button"
-                  data-shortcut-action="openSettings">Ctrl + S</button>
+                  data-shortcut-action="openSettings">S</button>
               </div>
             </div>
-            <p id="shortcut-capture-status" class="shortcut-capture-status"
-              role="status" aria-live="polite"></p>
             <button id="shortcut-reset-defaults" class="btn btn-secondary" type="button"
               data-i18n="settingsModal.shortcuts.reset">Restablecer teclas rápidas</button>
           </div>

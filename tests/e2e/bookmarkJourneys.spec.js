@@ -3002,7 +3002,7 @@ test('renders a 6 by 3 folder grid and smoothly persists relocation', async ({ p
     firstCellAlignment.cardWidth - firstCellAlignment.cellWidth
   )).toBeLessThan(1);
 
-  await page.keyboard.press('Control+KeyE');
+  await page.keyboard.press('KeyE');
   await expect(page.locator('#folder-modal-edit-toggle')).toHaveText('Finish editing');
   await expect(page.locator('#folder-modal-edit-toggle')).toHaveAttribute(
     'aria-pressed',
@@ -3039,7 +3039,7 @@ test('renders a 6 by 3 folder grid and smoothly persists relocation', async ({ p
 
   await expect.poll(() => first.evaluate(element => element.style.gridColumn)).toBe('2');
   await expect.poll(() => second.evaluate(element => element.style.gridColumn)).toBe('1');
-  await page.keyboard.press('Control+KeyE');
+  await page.keyboard.press('KeyE');
   await expect(page.locator('#folder-modal-edit-toggle')).toHaveText('Edit');
   await expect(page.getByText('Edit mode disabled')).toBeVisible();
   await expect(grid.getByRole('button')).toHaveCount(0);

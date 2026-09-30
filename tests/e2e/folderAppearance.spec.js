@@ -311,7 +311,7 @@ test('shares the bookmark edit control position and adapts it to the folder surf
       backgroundColor: '#ffffff'
     }] } });
   });
-  await page.keyboard.press('Control+KeyE');
+  await page.keyboard.press('KeyE');
 
   const bookmark = page.locator('[data-bookmark-id="action-bookmark"]');
   const lightFolder = page.locator('[data-folder-id="light-folder"]');
@@ -369,7 +369,7 @@ test('keeps folder artwork and captions aligned across visibility and editing st
   expect(geometry.card.y + geometry.card.height - geometry.count.y - geometry.count.height)
     .toBeLessThanOrEqual(18);
 
-  await page.keyboard.press('Control+KeyE');
+  await page.keyboard.press('KeyE');
   const editingWidth = await folderCard(page).locator('.folder-visual')
     .evaluate(element => element.getBoundingClientRect().width);
   expect(Math.abs(editingWidth - geometry.visual.width)).toBeLessThanOrEqual(1);

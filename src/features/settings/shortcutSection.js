@@ -1,9 +1,11 @@
 import {
   DEFAULT_KEYBOARD_SHORTCUTS,
   formatShortcut,
+  isReservedShortcut,
   shortcutFromKeyboardEvent
 } from '../../shared/keyboard/keyboardShortcuts.js';
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
+import { flashError, flashInfo, flashSuccess } from '../../shared/ui/flash.js';
 import {
   getDraftKeyboardShortcuts,
   replaceDraftKeyboardShortcuts,
@@ -14,7 +16,6 @@ import {
 export function initShortcutSection({ onRequestSaveStateUpdate }) {
   const buttons = [...document.querySelectorAll('.shortcut-capture')];
   const reset = document.getElementById('shortcut-reset-defaults');
-  const status = document.getElementById('shortcut-capture-status');
   let recordingAction = null;
 
   function syncUI() {
@@ -28,14 +29,13 @@ export function initShortcutSection({ onRequestSaveStateUpdate }) {
       button.setAttribute('aria-pressed', String(isRecording));
       button.setAttribute('aria-label', t('settingsModal.shortcuts.change', {
         action: t(`settingsModal.shortcuts.actions.${action}.title`),
-        shortcut: formatShortcut(shortcuts[action])
+        shortcut: formatShortcut(shortcuts[action]) || t('settingsModal.shortcuts.unassigned')
       }));
     }
   }
 
   function startRecording(action) {
     recordingAction = action;
-    clearStatus();
     syncUI();
   }
 
@@ -44,18 +44,15 @@ export function initShortcutSection({ onRequestSaveStateUpdate }) {
     syncUI();
   }
 
-  function setStatus(key, params = {}, type = 'info') {
-    status.textContent = t(key, params);
-    status.dataset.status = type;
-  }
-
-  function clearStatus() {
-    status.textContent = '';
-    delete status.dataset.status;
-  }
-
   for (const button of buttons) {
     button.addEventListener('click', () => startRecording(button.dataset.shortcutAction));
+    button.addEventListener('contextmenu', event => {
+      event.preventDefault();
+      setDraftKeyboardShortcut(button.dataset.shortcutAction, null);
+      stopRecording();
+      flashInfo('settingsModal.shortcuts.unassignedFlash');
+      onRequestSaveStateUpdate();
+    });
     button.addEventListener('blur', () => {
       if (recordingAction === button.dataset.shortcutAction) stopRecording();
     });
@@ -67,34 +64,33 @@ export function initShortcutSection({ onRequestSaveStateUpdate }) {
       event.stopPropagation();
       if (event.key === 'Escape') {
         stopRecording();
-        setStatus('settingsModal.shortcuts.cancelled');
+        flashInfo('settingsModal.shortcuts.cancelled');
         return;
       }
       if (['Control', 'Alt', 'Shift', 'Meta'].includes(event.key)) return;
 
       const shortcut = shortcutFromKeyboardEvent(event);
       if (!shortcut) {
-        setStatus('settingsModal.shortcuts.modifierRequired', {}, 'error');
+        flashError('settingsModal.shortcuts.modifierRequired');
+        return;
+      }
+      if (isReservedShortcut(shortcut)) {
+        flashError('settingsModal.shortcuts.reserved');
         return;
       }
 
       const shortcuts = getDraftKeyboardShortcuts();
-      const conflictingAction = Object.keys(shortcuts).find(
+      const hasConflict = Object.keys(shortcuts).some(
         candidate => candidate !== action && shortcuts[candidate] === shortcut
       );
-      if (conflictingAction) {
-        setStatus('settingsModal.shortcuts.conflict', {
-          shortcut: formatShortcut(shortcut),
-          action: t(`settingsModal.shortcuts.actions.${conflictingAction}.title`)
-        }, 'error');
+      if (hasConflict) {
+        flashError('settingsModal.shortcuts.conflict');
         return;
       }
 
       setDraftKeyboardShortcut(action, shortcut);
       stopRecording();
-      setStatus('settingsModal.shortcuts.updated', {
-        shortcut: formatShortcut(shortcut)
-      }, 'success');
+      flashSuccess('settingsModal.shortcuts.updated');
       onRequestSaveStateUpdate();
     });
   }
@@ -103,7 +99,7 @@ export function initShortcutSection({ onRequestSaveStateUpdate }) {
     replaceDraftKeyboardShortcuts(DEFAULT_KEYBOARD_SHORTCUTS);
     recordingAction = null;
     syncUI();
-    setStatus('settingsModal.shortcuts.restored', {}, 'success');
+    flashSuccess('settingsModal.shortcuts.restored');
     onRequestSaveStateUpdate();
   });
 
@@ -112,6 +108,10 @@ export function initShortcutSection({ onRequestSaveStateUpdate }) {
 }
 
 function renderShortcut(button, shortcut) {
+  if (!shortcut) {
+    button.textContent = t('settingsModal.shortcuts.unassigned');
+    return;
+  }
   const parts = formatShortcut(shortcut).split(' + ').filter(Boolean);
   const fragment = document.createDocumentFragment();
   parts.forEach((part, index) => {

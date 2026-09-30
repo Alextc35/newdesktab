@@ -1,5 +1,6 @@
 import { t } from '../platform/i18n/i18n.js';
 import { closeModal, openModal, registerModal } from '../shared/ui/modalManager.js';
+import { ensurePanelFits } from '../shared/ui/viewportMode.js';
 import { widgetRegistry } from './widgetRegistry.js';
 import { createWidgetCatalogView } from './widgetCatalogView.js';
 
@@ -42,6 +43,7 @@ export function initWidgetCatalog({
 
 export function openWidgetCatalog() {
   if (!catalogView) return;
+  if (!ensurePanelFits()) return;
   openModal(MODAL_ID, {
     onCancel: closeWidgetCatalog,
     initialFocus: catalogView.list.querySelector('[data-widget-type]') || catalogView.closeButton

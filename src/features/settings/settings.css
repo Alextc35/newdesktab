@@ -574,22 +574,6 @@
   box-shadow: 0 1px 2px var(--ui-control-shadow);
 }
 
-.shortcut-capture-status {
-  min-height: 20px;
-  margin: 0 0 10px;
-  color: var(--ui-muted);
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-.shortcut-capture-status[data-status="error"] {
-  color: var(--ui-danger-text);
-}
-
-.shortcut-capture-status[data-status="success"] {
-  color: var(--ui-success-text);
-}
-
 #shortcut-reset-defaults {
   justify-self: start;
 }

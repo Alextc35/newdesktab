@@ -56,20 +56,24 @@ try {
   await page.reload();
   await page.getByRole('link', { name: /Release smoke/ }).waitFor({ state: 'visible' });
 
-  await page.keyboard.press('Control+KeyE');
+  await page.keyboard.press('KeyE');
   await page.waitForFunction(async () => (await import('./state/appStore.js')).getState().ui.isEditing);
-  await page.keyboard.press('Control+KeyE');
+  await page.keyboard.press('KeyE');
   await page.waitForFunction(async () => !(await import('./state/appStore.js')).getState().ui.isEditing);
 
-  await page.keyboard.press('Control+KeyB');
+  await page.keyboard.press('KeyB');
   await page.locator('#edit-bookmark-modal').waitFor({ state: 'visible' });
   await page.keyboard.press('Escape');
   await page.locator('#edit-bookmark-modal').waitFor({ state: 'hidden' });
-  await page.keyboard.press('Control+KeyF');
+  await page.keyboard.press('KeyF');
   await page.locator('#edit-folder-modal').waitFor({ state: 'visible' });
   await page.keyboard.press('Escape');
   await page.locator('#edit-folder-modal').waitFor({ state: 'hidden' });
-  await page.keyboard.press('Control+KeyS');
+  await page.keyboard.press('KeyW');
+  await page.locator('#widget-catalog-modal').waitFor({ state: 'visible' });
+  await page.keyboard.press('Escape');
+  await page.locator('#widget-catalog-modal').waitFor({ state: 'hidden' });
+  await page.keyboard.press('KeyS');
   await page.locator('#settings-modal').waitFor({ state: 'visible' });
   await page.keyboard.press('Escape');
 

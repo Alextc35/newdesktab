@@ -600,12 +600,15 @@
     },
     "shortcuts": {
       "title": "Atalhos de teclado",
-      "description": "Selecione um botão e pressione uma combinação que inclua Ctrl, Alt, Shift ou Meta.",
+      "description": "Selecione um botão e pressione uma letra ou combinação de teclas. Clique com o botão direito para remover o atalho.",
       "change": "Alterar o atalho de {{action}}. Atalho atual: {{shortcut}}.",
       "press": "Pressione o atalho…",
-      "modifierRequired": "Inclua Ctrl, Alt, Shift ou Meta no atalho.",
-      "conflict": "{{shortcut}} já é usado por {{action}}.",
-      "updated": "Atalho alterado para {{shortcut}}.",
+      "unassigned": "Não atribuído",
+      "unassignedFlash": "Atalho removido.",
+      "modifierRequired": "Use uma letra sozinha ou uma combinação com modificador.",
+      "reserved": "Este atalho é reservado pelo navegador ou sistema operacional. Escolha outra combinação.",
+      "conflict": "Esta tecla já está atribuída a outra ação.",
+      "updated": "Atalho atualizado.",
       "cancelled": "Alteração do atalho cancelada.",
       "restored": "Os atalhos padrão foram restaurados.",
       "reset": "Restaurar atalhos",
@@ -621,6 +624,10 @@
         "addFolder": {
           "title": "Criar pasta",
           "description": "Abre a caixa de diálogo para criar uma pasta."
+        },
+        "openWidgets": {
+          "title": "Abrir widgets",
+          "description": "Abre a lista de widgets disponíveis."
         },
         "openSettings": {
           "title": "Abrir configurações",

@@ -24,13 +24,16 @@ export function syncKeyboardShortcutAccessibility(shortcuts) {
     [SHORTCUT_ACTIONS.TOGGLE_EDITING]: ['#edit-toggle-mode', '#folder-modal-edit-toggle'],
     [SHORTCUT_ACTIONS.ADD_BOOKMARK]: ['#add-bookmark'],
     [SHORTCUT_ACTIONS.ADD_FOLDER]: ['#add-folder'],
+    [SHORTCUT_ACTIONS.OPEN_WIDGETS]: ['#add-widgets'],
     [SHORTCUT_ACTIONS.OPEN_SETTINGS]: ['#settings']
   };
 
   for (const [action, selectors] of Object.entries(targets)) {
     const ariaShortcut = formatAriaShortcut(normalized[action]);
     for (const selector of selectors) {
-      document.querySelector(selector)?.setAttribute('aria-keyshortcuts', ariaShortcut);
+      const control = document.querySelector(selector);
+      if (ariaShortcut) control?.setAttribute('aria-keyshortcuts', ariaShortcut);
+      else control?.removeAttribute('aria-keyshortcuts');
     }
   }
 }
@@ -63,6 +66,7 @@ function handleShortcut(event) {
     [SHORTCUT_ACTIONS.TOGGLE_EDITING]: 'edit-toggle-mode',
     [SHORTCUT_ACTIONS.ADD_BOOKMARK]: 'add-bookmark',
     [SHORTCUT_ACTIONS.ADD_FOLDER]: 'add-folder',
+    [SHORTCUT_ACTIONS.OPEN_WIDGETS]: 'add-widgets',
     [SHORTCUT_ACTIONS.OPEN_SETTINGS]: 'settings'
   };
   document.getElementById(targets[action])?.click();
