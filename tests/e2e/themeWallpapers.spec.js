@@ -72,6 +72,19 @@ test('rotates personal URLs, preserves their colors and preview crop after reloa
   }
   const rows = page.locator('#settings-theme-media-list .theme-wallpaper-row');
   await rows.nth(1).locator('input[type="color"]').fill('#123456');
+  const colorStyle = await page.evaluate(() => {
+    const fallback = document.querySelector('#settings-theme-bg-image-color');
+    const personal = document.querySelectorAll('.theme-wallpaper-color')[1];
+    const appearance = element => ({
+      width: getComputedStyle(element).width,
+      height: getComputedStyle(element).height,
+      padding: getComputedStyle(element, '::-webkit-color-swatch-wrapper').padding,
+      border: getComputedStyle(element, '::-webkit-color-swatch').borderTopWidth,
+      radius: getComputedStyle(element, '::-webkit-color-swatch').borderTopLeftRadius
+    });
+    return { fallback: appearance(fallback), personal: appearance(personal) };
+  });
+  expect(colorStyle.personal).toEqual(colorStyle.fallback);
   await rows.nth(1).getByRole('button', { name: 'Preview wallpaper' }).hover();
   await expect(page.locator('.theme-wallpaper-peek:visible')).toHaveCSS('background-image', /second\.png/);
   await expect(page.locator('.theme-wallpaper-peek:visible')).toHaveCSS('background-color', 'rgb(18, 52, 86)');

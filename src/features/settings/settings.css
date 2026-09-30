@@ -702,14 +702,7 @@
 .theme-wallpaper-source { width: 75px; }
 
 .theme-wallpaper-color {
-  width: 29px;
-  height: 29px;
-  flex: 0 0 29px;
-  padding: 2px;
-  border: 1px solid var(--ui-border);
-  border-radius: 6px;
-  background: var(--ui-input);
-  cursor: pointer;
+  flex: 0 0 28px;
 }
 
 .theme-wallpaper-preview-trigger {
