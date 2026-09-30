@@ -9,13 +9,20 @@ let wallpaperIndex = 0;
 let wallpaperTimer = null;
 let wallpaperSources = [];
 let wallpaperBaseColor = '#ffffff';
+let activeWallpaperLayer = null;
+let wallpaperTransitioning = false;
+let wallpaperTransitionVersion = 0;
+const WALLPAPER_FADE_MS = 850;
+const WALLPAPER_LOAD_WAIT_MS = 2000;
+const VIDEO_LOAD_WAIT_MS = 8000;
 
 if (typeof document !== 'undefined') {
   document.addEventListener('visibilitychange', () => {
-    const video = document.getElementById('page-wallpaper-video');
-    if (!video || video.hidden) return;
-    if (document.hidden) video.pause();
-    else void video.play().catch(() => {});
+    document.querySelectorAll('#page-wallpaper-stage .is-visible video:not([hidden])')
+      .forEach(video => {
+        if (document.hidden) video.pause();
+        else void video.play().catch(() => {});
+      });
   });
 }
 
@@ -46,46 +53,155 @@ export function resolveWallpaperItem(item) {
   return url ? { type: item.type, url, color: item.backgroundColor ?? null } : null;
 }
 
-function showWallpaper() {
-  const video = document.getElementById('page-wallpaper-video');
+function updatePageBackground(source) {
+  const root = document.documentElement;
+  root.style.setProperty('--color-bg-body', source?.color ?? wallpaperBaseColor);
+  root.style.setProperty('--image-bg-body', source?.type === 'image'
+    ? `url(${JSON.stringify(source.url)})` : 'none');
+}
+
+function clearWallpaperLayer(layer) {
+  const image = layer.querySelector('img');
+  const video = layer.querySelector('video');
+  image.onload = null;
+  image.onerror = null;
+  image.hidden = true;
+  image.classList.remove('is-ready');
+  image.removeAttribute('src');
+  video.onloadeddata = null;
+  video.onerror = null;
+  video.pause();
+  video.hidden = true;
+  video.classList.remove('is-ready');
+  if (video.hasAttribute('src')) {
+    video.removeAttribute('src');
+    video.load();
+  }
+  layer.style.backgroundColor = '';
+  delete layer.dataset.wallpaperKey;
+}
+
+function prepareWallpaperLayer(layer, source, color, key) {
+  clearWallpaperLayer(layer);
+  layer.style.backgroundColor = color;
+  layer.dataset.wallpaperKey = key;
+  const media = layer.querySelector(source.type === 'video' ? 'video' : 'img');
+  media.hidden = false;
+  const ready = new Promise(resolve => {
+    const onReady = () => {
+      if (layer.dataset.wallpaperKey !== key) return;
+      media.classList.add('is-ready');
+      resolve(true);
+    };
+    media[source.type === 'video' ? 'onloadeddata' : 'onload'] = source.type === 'video'
+      && typeof media.requestVideoFrameCallback === 'function'
+      ? () => media.requestVideoFrameCallback(onReady)
+      : onReady;
+    media.onerror = () => resolve(false);
+  });
+  media.src = source.url;
+  if (source.type === 'video' && !document.hidden) void media.play().catch(() => {});
+  return ready;
+}
+
+function syncActiveVideoId(layer) {
+  document.querySelectorAll('#page-wallpaper-stage video').forEach(video => video.removeAttribute('id'));
+  layer?.querySelector('video')?.setAttribute('id', 'page-wallpaper-video');
+}
+
+async function showWallpaper(animate = false) {
   const source = wallpaperSources[wallpaperIndex];
-  document.documentElement.style.setProperty('--color-bg-body', source?.color ?? wallpaperBaseColor);
-  if (source?.type === 'video' && video) {
-    document.documentElement.style.setProperty('--image-bg-body', 'none');
-    video.hidden = false;
-    if (video.src !== source.url) video.src = source.url;
-    void video.play().catch(() => {});
+  const firstVideo = source?.type === 'video' && !activeWallpaperLayer;
+  updatePageBackground(firstVideo ? { type: 'video', color: '#000000' } : source);
+  const layers = [...document.querySelectorAll('#page-wallpaper-stage .page-wallpaper-layer')];
+  if (layers.length !== 2) return;
+  const version = ++wallpaperTransitionVersion;
+  wallpaperTransitioning = false;
+  if (!source) {
+    layers.forEach(layer => {
+      layer.classList.remove('is-visible');
+      clearWallpaperLayer(layer);
+    });
+    activeWallpaperLayer = null;
+    syncActiveVideoId(layers[0]);
     return;
   }
-  if (video) {
-    video.pause();
-    video.hidden = true;
-    if (video.hasAttribute('src')) {
-      video.removeAttribute('src');
-      video.load();
+
+  const color = source.color ?? wallpaperBaseColor;
+  const key = JSON.stringify([source, color]);
+  if (activeWallpaperLayer?.dataset.wallpaperKey === key) {
+    layers.filter(layer => layer !== activeWallpaperLayer).forEach(layer => {
+      layer.classList.remove('is-visible');
+      clearWallpaperLayer(layer);
+    });
+    syncActiveVideoId(activeWallpaperLayer);
+    return;
+  }
+  const previous = activeWallpaperLayer;
+  const next = layers.find(layer => layer !== previous);
+  const instant = !animate || !previous
+    || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  next.classList.remove('is-visible');
+  next.classList.toggle('is-instant', instant);
+  const ready = prepareWallpaperLayer(next, source, firstVideo ? '#000000' : color, key);
+  if (firstVideo) void ready.then(() => {
+    if (version !== wallpaperTransitionVersion) return;
+    updatePageBackground(source);
+    next.style.backgroundColor = color;
+  });
+  document.getElementById('page-wallpaper-stage').append(next);
+
+  if (animate && previous) {
+    wallpaperTransitioning = true;
+    const loaded = await Promise.race([ready, new Promise(resolve => setTimeout(
+      () => resolve(null), source.type === 'video' ? VIDEO_LOAD_WAIT_MS : WALLPAPER_LOAD_WAIT_MS
+    ))]);
+    if (version !== wallpaperTransitionVersion) return;
+    if (source.type === 'video' && loaded === null) {
+      wallpaperIndex = (wallpaperIndex - 1 + wallpaperSources.length) % wallpaperSources.length;
+      updatePageBackground(wallpaperSources[wallpaperIndex]);
+      clearWallpaperLayer(next);
+      wallpaperTransitioning = false;
+      return;
     }
   }
-  document.documentElement.style.setProperty(
-    '--image-bg-body',
-    source ? `url(${JSON.stringify(source.url)})` : 'none'
-  );
+
+  if (instant) {
+    previous?.classList.remove('is-visible');
+    if (previous) clearWallpaperLayer(previous);
+    next.classList.add('is-visible');
+    activeWallpaperLayer = next;
+    syncActiveVideoId(next);
+    wallpaperTransitioning = false;
+    return;
+  }
+
+  void next.offsetWidth;
+  next.classList.add('is-visible');
+  syncActiveVideoId(next);
+  await new Promise(resolve => setTimeout(resolve, WALLPAPER_FADE_MS));
+  if (version !== wallpaperTransitionVersion) return;
+  previous.classList.remove('is-visible');
+  clearWallpaperLayer(previous);
+  activeWallpaperLayer = next;
+  wallpaperTransitioning = false;
 }
 
 function setWallpaperRotation(sources, intervalSeconds) {
-  const signature = JSON.stringify([sources, intervalSeconds]);
+  const signature = JSON.stringify([sources, intervalSeconds, wallpaperBaseColor]);
   if (signature !== wallpaperSignature) {
     if (wallpaperTimer !== null) clearInterval(wallpaperTimer);
     wallpaperTimer = null;
     wallpaperSignature = signature;
     wallpaperIndex = 0;
     wallpaperSources = sources;
+    void showWallpaper();
   }
-  showWallpaper();
   if (sources.length > 1 && intervalSeconds > 0 && wallpaperTimer === null) {
     wallpaperTimer = setInterval(() => {
-      if (document.hidden) return;
+      if (document.hidden || wallpaperTransitioning) return;
       wallpaperIndex = (wallpaperIndex + 1) % wallpaperSources.length;
-      showWallpaper();
+      void showWallpaper(true);
     }, intervalSeconds * 1000);
   }
 }

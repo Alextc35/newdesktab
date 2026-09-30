@@ -55,12 +55,18 @@ export function initThemeSection({
   const mediaUploadInput = document.getElementById('settings-theme-media-upload-input');
   const mediaUploadButton = document.getElementById('settings-theme-media-upload');
   const mediaInterval = document.getElementById('settings-theme-media-interval');
-  const previewVideo = document.getElementById('settings-theme-preview-video');
+  let previewVideo = document.getElementById('settings-theme-preview-video');
   const previewNavigation = document.getElementById('settings-theme-preview-navigation');
   const previewCount = document.getElementById('settings-theme-preview-count');
   const previewPrevious = document.getElementById('settings-theme-preview-prev');
   const previewNext = document.getElementById('settings-theme-preview-next');
   let previewIndex = 0;
+  let previewSourceKey = '';
+  let pendingPreviewVideo = null;
+  let pendingPreviewKey = '';
+  let pendingPreviewColor = '';
+  let previewCurrentColor = '';
+  let previewRevision = 0;
   const uploadedVideos = new Set();
   const uploadedImages = new Set();
 
@@ -257,17 +263,30 @@ export function initThemeSection({
       function showPeek() {
         const current = (getDraftTheme().backgroundMedia ?? []).find(entry => entry.id === item.id) ?? item;
         const source = resolveWallpaperItem(current);
+        peek.querySelector('video')?.pause();
         peek.replaceChildren();
         peek.style.backgroundImage = '';
-        peek.style.backgroundColor = current.backgroundColor ?? getDraftTheme().backgroundImageColor;
+        const color = current.backgroundColor ?? getDraftTheme().backgroundImageColor;
+        peek.style.backgroundColor = source?.type === 'video' ? '#000000' : color;
         if (source?.url) {
           if (source.type === 'video') {
             const media = document.createElement('video');
-            media.src = source.url;
             media.muted = true;
             media.loop = true;
             media.playsInline = true;
+            media.onloadeddata = () => {
+              const reveal = () => {
+                if (!peek.contains(media)) return;
+                peek.style.backgroundColor = color;
+                media.classList.add('is-ready');
+              };
+              if (typeof media.requestVideoFrameCallback === 'function') {
+                media.requestVideoFrameCallback(reveal);
+              } else reveal();
+            };
+            media.onerror = () => { if (peek.contains(media)) peek.style.backgroundColor = color; };
             peek.append(media);
+            media.src = source.url;
             void media.play().catch(() => {});
           } else {
             peek.style.backgroundImage = `url(${JSON.stringify(source.url)})`;
@@ -278,7 +297,12 @@ export function initThemeSection({
         peek.hidden = false;
       }
       function hidePeek() {
-        peek.querySelector('video')?.pause();
+        const video = peek.querySelector('video');
+        if (video) {
+          video.pause();
+          video.onloadeddata = null;
+          video.onerror = null;
+        }
         peek.replaceChildren();
         peek.style.backgroundImage = '';
         peek.hidden = true;
@@ -320,11 +344,31 @@ export function initThemeSection({
    * - shows the default wallpaper when neither custom mode is selected
    * - otherwise applies the selected background color and optional image
    */
+  function cancelPendingPreview() {
+    previewRevision += 1;
+    if (pendingPreviewVideo) {
+      pendingPreviewVideo.pause();
+      pendingPreviewVideo.onloadeddata = null;
+      pendingPreviewVideo.onerror = null;
+      pendingPreviewVideo.remove();
+      pendingPreviewVideo = null;
+    }
+    pendingPreviewKey = '';
+    previewVideo.id = 'settings-theme-preview-video';
+  }
+
+  function stopPreviewVideo() {
+    previewVideo.pause();
+    previewVideo.hidden = true;
+    previewVideo.classList.remove('is-ready');
+    if (previewVideo.hasAttribute('src')) {
+      previewVideo.removeAttribute('src');
+      previewVideo.load();
+    }
+  }
+
   function updatePreview() {
     const draft = getDraftTheme();
-
-    bgPreview.style.backgroundColor = '';
-    bgPreview.style.backgroundImage = '';
     bgPreview.classList.toggle('is-default-bg', draft.backgroundDefault);
     const sources = draft.backgroundDefault || draft.backgroundSolid
       ? [] : resolveThemeWallpapers(draft, { includeFallback: isSyncMode() });
@@ -332,33 +376,93 @@ export function initThemeSection({
     previewIndex = sources.length ? previewIndex % sources.length : 0;
     previewCount.textContent = sources.length ? `${previewIndex + 1} / ${sources.length}` : '';
     const source = sources[previewIndex];
-    if (source?.type === 'video') {
-      if (previewVideo.getAttribute('src') !== source.url) previewVideo.src = source.url;
-      previewVideo.hidden = false;
-      void previewVideo.play().catch(() => {});
-    } else {
-      previewVideo.pause();
-      previewVideo.hidden = true;
-      if (previewVideo.hasAttribute('src')) {
-        previewVideo.removeAttribute('src');
-        previewVideo.load();
-      }
-    }
+    const color = draft.backgroundSolid
+      ? draft.backgroundColor : source?.color ?? draft.backgroundImageColor;
+    const key = source ? `${source.type}:${source.url}`
+      : draft.backgroundDefault ? 'default' : `solid:${color}`;
 
-    if (draft.backgroundDefault) {
+    if (source?.type === 'video') {
+      if (pendingPreviewKey === key) {
+        pendingPreviewColor = color;
+        return;
+      }
+      if (previewSourceKey === key) {
+        previewCurrentColor = color;
+        bgPreview.style.backgroundColor = color;
+        if (!previewVideo.hidden) void previewVideo.play().catch(() => {});
+        return;
+      }
+
+      cancelPendingPreview();
+      const revision = previewRevision;
+      const incoming = document.createElement('video');
+      incoming.id = 'settings-theme-preview-video';
+      incoming.muted = true;
+      incoming.autoplay = true;
+      incoming.playsInline = true;
+      incoming.loop = true;
+      previewVideo.removeAttribute('id');
+      bgPreview.append(incoming);
+      pendingPreviewVideo = incoming;
+      pendingPreviewKey = key;
+      pendingPreviewColor = color;
+      if (!previewSourceKey) bgPreview.style.backgroundColor = '#000000';
+
+      const finish = loaded => {
+        if (revision !== previewRevision || pendingPreviewVideo !== incoming) return;
+        const oldVideo = previewVideo;
+        previewVideo = incoming;
+        pendingPreviewVideo = null;
+        pendingPreviewKey = '';
+        previewSourceKey = key;
+        previewCurrentColor = pendingPreviewColor;
+        if (loaded) incoming.classList.add('is-ready');
+        else {
+          incoming.hidden = true;
+          bgPreview.style.backgroundColor = pendingPreviewColor;
+        }
+        const removeOld = () => {
+          oldVideo.pause();
+          oldVideo.remove();
+          if (previewSourceKey !== key || previewVideo !== incoming) return;
+          bgPreview.style.backgroundImage = '';
+          bgPreview.style.backgroundColor = previewCurrentColor;
+        };
+        if (loaded && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          setTimeout(removeOld, 220);
+        } else removeOld();
+      };
+      incoming.onloadeddata = () => {
+        if (typeof incoming.requestVideoFrameCallback === 'function') {
+          incoming.requestVideoFrameCallback(() => finish(true));
+        } else finish(true);
+      };
+      incoming.onerror = () => finish(false);
+      incoming.src = source.url;
+      void incoming.play().catch(() => {});
       return;
     }
 
-    bgPreview.style.backgroundColor = draft.backgroundSolid
-      ? draft.backgroundColor
-      : source?.color ?? draft.backgroundImageColor;
+    cancelPendingPreview();
+    previewSourceKey = key;
+    stopPreviewVideo();
+    bgPreview.style.backgroundImage = '';
+    if (draft.backgroundDefault) {
+      bgPreview.style.backgroundColor = '';
+      return;
+    }
+
+    bgPreview.style.backgroundColor = color;
 
     if (source?.type === 'image') {
       bgPreview.style.backgroundImage = `url(${JSON.stringify(source.url)})`;
     }
   }
 
-  function pausePreview() { previewVideo.pause(); }
+  function pausePreview() {
+    cancelPendingPreview();
+    previewVideo.pause();
+  }
 
   /**
    * Updates visibility for background-image helper controls

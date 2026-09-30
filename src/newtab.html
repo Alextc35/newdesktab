@@ -7,7 +7,16 @@
   <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
-  <video id="page-wallpaper-video" muted autoplay playsinline loop aria-hidden="true" tabindex="-1" hidden></video>
+  <div id="page-wallpaper-stage" aria-hidden="true">
+    <div class="page-wallpaper-layer">
+      <img alt="" hidden>
+      <video id="page-wallpaper-video" muted autoplay playsinline loop tabindex="-1" hidden></video>
+    </div>
+    <div class="page-wallpaper-layer">
+      <img alt="" hidden>
+      <video muted autoplay playsinline loop tabindex="-1" hidden></video>
+    </div>
+  </div>
   <div id="bookmark-viewport" class="custom-scrollbar">
     <div id="bookmark-container"></div>
     <div id="grid-overlay"></div>

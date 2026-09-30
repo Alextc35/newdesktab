@@ -62,6 +62,166 @@ test('uses the shared URL only when no personal wallpaper is available', async (
   await expect(page.locator('#settings-theme-bg-image-url-field')).toBeHidden();
 });
 
+test('shows the first wallpaper instantly and crossfades on rotation to video', async ({ page }) => {
+  const imageUrl = `data:image/png;base64,${imageBytes.toString('base64')}`;
+  const videoUrl = 'http://127.0.0.1:4175/tests/missing-wallpaper.mp4';
+  await page.evaluate(async ({ imageUrl, videoUrl }) => {
+    const { applyPageTheme } = await import('/src/shared/ui/pageTheme.js');
+    applyPageTheme({ theme: {
+      backgroundDefault: false,
+      backgroundSolid: false,
+      backgroundImageColor: '#000000',
+      backgroundRotationSeconds: 5,
+      backgroundMedia: [
+        { id: 'first', type: 'image', backgroundImageUrl: imageUrl,
+          backgroundColor: '#123456' },
+        { id: 'second', type: 'video', url: videoUrl,
+          backgroundColor: '#654321' }
+      ]
+    } });
+  }, { imageUrl, videoUrl });
+
+  const visible = page.locator('#page-wallpaper-stage .page-wallpaper-layer.is-visible');
+  await expect(visible).toHaveCount(1);
+  await expect(visible.first()).toHaveClass(/is-instant/);
+  await expect(visible.first()).toHaveCSS('transition-duration', '0s');
+  await expect(visible.first().locator('img')).toHaveCSS('transition-duration', '0s');
+  await expect(visible.first().locator('img')).toHaveClass(/is-ready/);
+
+  await page.waitForTimeout(5100);
+  await expect(visible).toHaveCount(2);
+  const incoming = page.locator('#page-wallpaper-stage .page-wallpaper-layer').last();
+  await expect(incoming).not.toHaveClass(/is-instant/);
+  await expect(incoming).toHaveCSS('transition-duration', '0.85s');
+  await expect(incoming.locator('video')).toHaveAttribute('src', videoUrl);
+  await page.waitForTimeout(900);
+  await expect(visible).toHaveCount(1);
+  await expect(visible.first()).toHaveCSS('background-color', 'rgb(101, 67, 33)');
+  await expect(page.locator('#page-wallpaper-video')).toHaveAttribute('src', videoUrl);
+});
+
+test('does not flash a first video wallpaper color before a frame is ready', async ({ page }) => {
+  const videoUrl = 'http://127.0.0.1:4175/tests/first-video-slow.webm';
+  let releaseVideo;
+  const videoGate = new Promise(resolve => { releaseVideo = resolve; });
+  await page.route(videoUrl, async route => {
+    await videoGate;
+    await route.abort();
+  });
+
+  try {
+    await page.evaluate(async videoUrl => {
+      const { applyPageTheme } = await import('/src/shared/ui/pageTheme.js');
+      applyPageTheme({ theme: {
+        backgroundDefault: false,
+        backgroundSolid: false,
+        backgroundImageColor: '#ff0000',
+        backgroundMedia: [{ id: 'first', type: 'video', url: videoUrl,
+          backgroundColor: '#ff0000' }]
+      } });
+    }, videoUrl);
+    const layer = page.locator('#page-wallpaper-stage .page-wallpaper-layer.is-visible');
+    await expect(layer).toHaveCount(1);
+    await expect(layer).toHaveClass(/is-instant/);
+    await expect(layer).toHaveCSS('background-color', 'rgb(0, 0, 0)');
+    await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(0, 0, 0)');
+    await expect(page.locator('#page-wallpaper-video')).toHaveCSS('opacity', '0');
+
+    releaseVideo();
+    await expect(layer).toHaveCSS('background-color', 'rgb(255, 0, 0)');
+  } finally {
+    releaseVideo();
+  }
+});
+
+test('waits for the next video without animating when reduced motion is enabled', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  const imageUrl = `data:image/png;base64,${imageBytes.toString('base64')}`;
+  const videoUrl = 'http://127.0.0.1:4175/tests/reduced-motion-slow.webm';
+  let releaseVideo;
+  const videoGate = new Promise(resolve => { releaseVideo = resolve; });
+  await page.route(videoUrl, async route => {
+    await videoGate;
+    await route.abort();
+  });
+
+  try {
+    await page.evaluate(async ({ imageUrl, videoUrl }) => {
+      const { applyPageTheme } = await import('/src/shared/ui/pageTheme.js');
+      applyPageTheme({ theme: {
+        backgroundDefault: false,
+        backgroundSolid: false,
+        backgroundRotationSeconds: 5,
+        backgroundMedia: [
+          { id: 'first', type: 'image', backgroundImageUrl: imageUrl,
+            backgroundColor: '#123456' },
+          { id: 'second', type: 'video', url: videoUrl,
+            backgroundColor: '#654321' }
+        ]
+      } });
+    }, { imageUrl, videoUrl });
+
+    const visible = page.locator('#page-wallpaper-stage .page-wallpaper-layer.is-visible');
+    await expect(visible).toHaveCount(1);
+    await page.waitForTimeout(5100);
+    await expect(visible).toHaveCount(1);
+    await expect(visible.first().locator('img')).toHaveClass(/is-ready/);
+    releaseVideo();
+    await expect(visible).toHaveCount(1);
+    await expect(visible.first()).toHaveCSS('background-color', 'rgb(101, 67, 33)');
+    await expect(visible.first()).toHaveCSS('transition-duration', '0s');
+  } finally {
+    releaseVideo();
+  }
+});
+
+test('keeps previews clear of the video color while its first frame loads', async ({ page }) => {
+  const videoUrl = 'http://127.0.0.1:4175/tests/preview-slow.webm';
+  let releaseVideo;
+  const videoGate = new Promise(resolve => { releaseVideo = resolve; });
+  await page.route(videoUrl, async route => {
+    await videoGate;
+    await route.abort();
+  });
+
+  try {
+    await openTheme(page);
+    await page.locator('#settings-theme-bg-image-mode').check();
+    await openOwnWallpapers(page);
+    await page.locator('#settings-theme-media-url').fill('https://images.test/first.png');
+    await page.locator('#settings-theme-media-add').click();
+    await page.locator('#settings-theme-media-url').fill(videoUrl);
+    await page.locator('#settings-theme-media-add').click();
+    const videoRow = page.locator('#settings-theme-media-list .theme-wallpaper-row').nth(1);
+    await videoRow.locator('input[type="color"]').fill('#ff0000');
+    await page.locator('#settings-theme-preview-next').click();
+
+    const preview = page.locator('#settings-theme-bg-preview');
+    await expect(preview).toHaveCSS('background-image', /first\.png/);
+    await expect(preview).not.toHaveCSS('background-color', 'rgb(255, 0, 0)');
+    await expect(page.locator('#settings-theme-preview-video')).toHaveAttribute('src', videoUrl);
+    await expect(page.locator('#settings-theme-preview-video')).toHaveCSS('opacity', '0');
+
+    await videoRow.getByRole('button', { name: 'Preview wallpaper' }).hover();
+    const peek = page.locator('.theme-wallpaper-peek:visible');
+    await expect(peek).toHaveCSS('background-color', 'rgb(0, 0, 0)');
+    await expect(peek.locator('video')).toHaveCSS('opacity', '0');
+    const coverage = await peek.evaluate(element => {
+      const frame = element.getBoundingClientRect();
+      const video = element.querySelector('video').getBoundingClientRect();
+      return video.left <= frame.left && video.top <= frame.top
+        && video.right >= frame.right && video.bottom >= frame.bottom;
+    });
+    expect(coverage).toBe(true);
+
+    releaseVideo();
+    await expect(preview).toHaveCSS('background-color', 'rgb(255, 0, 0)');
+    await expect(peek).toHaveCSS('background-color', 'rgb(255, 0, 0)');
+  } finally {
+    releaseVideo();
+  }
+});
+
 test('rotates personal URLs, preserves their colors and preview crop after reload', async ({ page }) => {
   await openTheme(page);
   await page.locator('#settings-theme-bg-image-mode').check();

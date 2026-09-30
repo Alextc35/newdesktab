@@ -282,6 +282,7 @@
   flex-shrink: 0;
   border-radius: 10px;
   border: 1px solid var(--ui-border);
+  overflow: hidden;
   background-color: var(--ui-sidebar);
   transition: background-image 0.2s ease;
 }
@@ -622,13 +623,19 @@
 }
 
 .bg-preview video {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: -1px;
+  display: block;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
   border-radius: inherit;
   object-fit: cover;
   object-position: center;
+  opacity: 0;
+  transition: opacity .2s ease;
 }
 
+.bg-preview video.is-ready { opacity: 1; }
 .bg-preview video[hidden] { display: none; }
 
 .theme-wallpaper-manager {
@@ -739,7 +746,23 @@
 }
 
 .theme-wallpaper-peek[hidden] { display: none; }
-.theme-wallpaper-peek video { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.theme-wallpaper-peek video {
+  position: absolute;
+  inset: -1px;
+  display: block;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.theme-wallpaper-peek video.is-ready { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-wallpaper-peek video,
+  .bg-preview video { transition: none; }
+}
 
 .theme-wallpaper-add input { min-width: 0; flex: 1; }
 .theme-wallpaper-upload { width: 100%; }
