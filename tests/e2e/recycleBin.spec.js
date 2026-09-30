@@ -10,6 +10,62 @@ test.beforeEach(async ({ page }) => {
   await expect(page.locator('.recycle-bin')).toBeVisible();
 });
 
+test('shows saved bookmark artwork and folder appearance in trash', async ({ page }) => {
+  const cover = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScL/nwAAAABJRU5ErkJggg==';
+  await page.evaluate(async image => {
+    const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
+    const { DEFAULT_FOLDER_STYLE } = await import('/src/domain/folders/folderDefaults.js');
+    const {
+      createBookmarkTrashEntry,
+      createFolderTrashEntry
+    } = await import('/src/domain/recycle-bin/recycleBinEntries.js');
+    const { setState } = await import('/src/state/appStore.js');
+    const deletedAt = Date.now();
+    await setState({ data: { trash: [
+      createBookmarkTrashEntry({
+        ...DEFAULT_BOOKMARK,
+        id: 'trash-cover',
+        name: 'Cover bookmark',
+        url: 'https://example.internal',
+        backgroundFavicon: false,
+        backgroundImageUrl: image,
+        noBackground: false,
+        backgroundColor: '#123456'
+      }, { id: 'trash-cover-entry', deletedAt }),
+      createBookmarkTrashEntry({
+        ...DEFAULT_BOOKMARK,
+        id: 'trash-favicon',
+        name: 'Fallback bookmark',
+        url: 'https://example.internal',
+        backgroundFavicon: false,
+        backgroundImageLocal: 'newdesktab-local-image:11111111-1111-4111-8111-111111111111',
+        backgroundImageSource: 'local'
+      }, { id: 'trash-favicon-entry', deletedAt }),
+      createFolderTrashEntry({
+        ...DEFAULT_FOLDER_STYLE,
+        id: 'trash-folder',
+        name: 'Styled folder',
+        backgroundColor: '#ff8800',
+        backgroundImageUrl: image
+      }, [], { id: 'trash-folder-entry', deletedAt })
+    ] } });
+  }, cover);
+
+  await page.locator('.recycle-bin-open').click();
+  const coverIcon = page.locator('[data-trash-id="trash-cover-entry"] .recycle-bin-item-icon');
+  await expect(coverIcon.locator('img.bookmark-list-cover')).toHaveAttribute('src', cover);
+  await expect(coverIcon).toHaveCSS('background-color', 'rgb(18, 52, 86)');
+
+  const faviconIcon = page.locator('[data-trash-id="trash-favicon-entry"] .recycle-bin-item-icon');
+  await expect(faviconIcon.locator('.bookmark-favicon')).toBeVisible();
+  await expect(faviconIcon.locator('.bookmark-favicon-initials')).toBeVisible();
+
+  const folderIcon = page.locator('[data-trash-id="trash-folder-entry"] .recycle-bin-item-icon');
+  await expect(folderIcon.locator('.folder-visual')).toBeVisible();
+  await expect(folderIcon).toHaveCSS('--folder-color', '#ff8800');
+  await expect(folderIcon.locator('.folder-svg image')).toHaveAttribute('href', cover);
+});
+
 test('switches the recycle bin modal to its list layout at and below 600px', async ({ page }) => {
   await page.setViewportSize({ width: 601, height: 720 });
   await page.locator('.recycle-bin-open').click();

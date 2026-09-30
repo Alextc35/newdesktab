@@ -215,6 +215,7 @@
 .recycle-bin-item { display: grid; min-width: 0; padding: 10px 12px; align-items: center; grid-template-columns: auto 42px minmax(0, 1fr) auto; gap: 12px; border: 1px solid var(--ui-divider); border-radius: 11px; background: light-dark(rgba(248, 250, 252, .78), rgba(255, 255, 255, .035)); cursor: pointer; }
 .recycle-bin-item:hover { border-color: color-mix(in srgb, var(--ui-accent) 45%, var(--ui-divider)); background: var(--ui-selected-bg); }
 .recycle-bin-item-icon { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 10px; background: var(--ui-input); font-size: 1.25rem; }
+.recycle-bin-item-icon.is-folder-icon { padding: 4px; }
 .recycle-bin-item-copy { display: grid; min-width: 0; gap: 4px; }
 .recycle-bin-item-copy strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .recycle-bin-item-copy small,

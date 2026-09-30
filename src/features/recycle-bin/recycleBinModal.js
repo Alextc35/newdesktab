@@ -21,9 +21,10 @@ import {
 } from '../../shared/ui/modalManager.js';
 import {
   createEditIndicatorSvg,
-  createRecycleBinSvg,
-  createThemedAssetIcon
+  createRecycleBinSvg
 } from '../../shared/ui/svgIcons.js';
+import { createBookmarkListIcon } from '../bookmarks/bookmarkListItem.js';
+import { createFolderVisual } from '../folders/folderVisual.js';
 import { openRecycleBinEditor } from './recycleBinEditorModal.js';
 
 const selectedIds = new Set();
@@ -129,10 +130,11 @@ function createTrashRow(entry) {
     syncSelectionActions();
   });
 
-  const icon = document.createElement('span');
-  icon.className = 'recycle-bin-item-icon';
+  const icon = entry.type === 'folder'
+    ? createFolderThumbnail(entry.folder)
+    : createBookmarkListIcon(entry.bookmark);
+  icon.classList.add('recycle-bin-item-icon');
   icon.setAttribute('aria-hidden', 'true');
-  icon.append(createThemedAssetIcon(entry.type === 'folder' ? 'folder' : 'bookmark'));
 
   const copy = document.createElement('span');
   copy.className = 'recycle-bin-item-copy';
@@ -149,6 +151,16 @@ function createTrashRow(entry) {
   expiry.textContent = t('recycleBin.expiresIn', { days: remainingDays(entry.deletedAt) });
   row.append(checkbox, icon, copy, expiry);
   return row;
+}
+
+function createFolderThumbnail(folder) {
+  const icon = document.createElement('span');
+  icon.className = 'bookmark-list-icon is-folder-icon';
+  icon.style.setProperty('--folder-color', folder.backgroundColor || '#38bdf8');
+  if (folder.outerBackgroundColor) icon.style.backgroundColor = folder.outerBackgroundColor;
+  else if (folder.noOuterBackground) icon.style.backgroundColor = 'transparent';
+  icon.append(createFolderVisual(folder, [], { compact: true }));
+  return icon;
 }
 
 function syncSelectionActions() {
