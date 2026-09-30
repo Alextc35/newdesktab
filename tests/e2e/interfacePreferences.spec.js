@@ -37,12 +37,20 @@ test('settings launcher uses an accessible, theme-colored SVG asset', async ({ p
   await expect(page.locator('#settings-modal')).toBeVisible();
 });
 
-test('settings navigation loads its seven SVG assets without injected markup', async ({ page }) => {
+test('settings navigation and inline language control load their SVG assets without injected markup', async ({ page }) => {
   await start(page);
   await openSettings(page);
-  const icons = page.locator('.settings-modal-tab-icon');
-  const kinds = ['general', 'sync', 'theme', 'bookmark', 'shortcuts', 'language', 'information'];
-  await expect(icons).toHaveCount(kinds.length);
+  const kinds = ['general', 'sync', 'theme', 'bookmark', 'shortcuts', 'information'];
+  await expect(page.locator('.settings-modal-tabs .settings-modal-tab-icon')).toHaveCount(kinds.length);
+  await expect(page.locator('#settings-modal-tab-lang')).toHaveCount(0);
+  await expect(page.locator('#settings-modal-tab-general > .settings-language')).toBeVisible();
+  await expect(page.locator('#settings-modal-tab-general > .settings-language + .interface-appearance')).toBeVisible();
+  await expect(page.locator('.settings-language #language-select')).toBeVisible();
+  await expect(page.locator('.settings-language label[for="language-select"]')).toBeVisible();
+  const languageLabel = await page.locator('.settings-language label').boundingBox();
+  const languageSelect = await page.locator('#language-select').boundingBox();
+  expect(languageSelect.x - (languageLabel.x + languageLabel.width)).toBeLessThanOrEqual(20);
+  kinds.push('language');
   for (const kind of kinds) {
     const icon = page.locator(`.settings-modal-tab-icon[data-settings-icon="${kind}"]`);
     await expect(icon).toHaveAttribute('aria-hidden', 'true');
@@ -156,7 +164,6 @@ for (const [locale, language] of [['es-ES', 'es'], ['es-MX', 'es-419'], ['pt-BR'
       await start(page);
       await expect(page.locator('html')).toHaveAttribute('lang', language);
       await openSettings(page);
-      await page.locator('[data-tab="settings-modal-tab-lang"]').click();
       await expect(page.locator('#language-select')).toHaveValue('system');
       // A live preview also supplies a valid BCP 47 locale for storage statistics.
       await page.locator('[data-tab="settings-modal-tab-sync"]').click();
@@ -173,7 +180,6 @@ test('language preview can be cancelled, saved, and reset to the device default'
   try {
     await start(page);
     await openSettings(page);
-    await page.locator('[data-tab="settings-modal-tab-lang"]').click();
     await page.locator('#language-select').selectOption('pt_BR');
     await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
     await page.locator('#settings-modal-cancel').click();
@@ -181,7 +187,6 @@ test('language preview can be cancelled, saved, and reset to the device default'
     await expect(page.locator('html')).toHaveAttribute('lang', 'es');
     await openSettings(page);
     await preference(page, 'dark').check();
-    await page.locator('[data-tab="settings-modal-tab-lang"]').click();
     await page.locator('#language-select').selectOption('en');
     await page.locator('#settings-modal-save').click();
     await expect(page.locator('#settings-modal')).toBeHidden();

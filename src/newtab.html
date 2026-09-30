@@ -586,10 +586,6 @@
             <span class="settings-modal-tab-icon" data-settings-icon="shortcuts" aria-hidden="true"></span>
             <span data-i18n="settingsModal.sections.shortcuts">Teclas rápidas</span>
           </button>
-          <button data-tab="settings-modal-tab-lang" class="settings-modal-tab-btn" type="button">
-            <span class="settings-modal-tab-icon" data-settings-icon="language" aria-hidden="true"></span>
-            <span data-i18n="settingsModal.sections.language">Idiomas</span>
-          </button>
           <button data-tab="settings-modal-tab-info" class="settings-modal-tab-btn" type="button">
             <span class="settings-modal-tab-icon" data-settings-icon="information" aria-hidden="true"></span>
             <span data-i18n="settingsModal.sections.information">Información</span>
@@ -598,6 +594,23 @@
         <div class="settings-modal-panel">
           <div id="settings-modal-tab-general" class="settings-modal-tab-content custom-scrollbar">
             <h2 data-i18n="settingsModal.general.title">General</h2>
+            <section class="settings-language" aria-labelledby="settings-language-label">
+              <div class="settings-language-row">
+                <label id="settings-language-label" for="language-select">
+                  <span class="settings-modal-tab-icon" data-settings-icon="language" aria-hidden="true"></span>
+                  <span data-i18n="settingsModal.languages.title">Idiomas</span>
+                </label>
+                <select id="language-select">
+                  <option value="system" data-i18n="settingsModal.languages.system">Navegador</option>
+                  <option value="en">English</option>
+                  <option value="es">Español</option>
+                  <option value="es_419">Español (Latinoamérica)</option>
+                  <option value="pt_BR">Português (Brasil)</option>
+                </select>
+              </div>
+              <p id="language-system-note" class="settings-section-description is-hidden"
+                data-i18n="settingsModal.languages.systemHint">Usa el idioma del navegador; inglés si no está disponible.</p>
+            </section>
             <section class="interface-appearance" aria-labelledby="interface-theme-title">
               <h3 id="interface-theme-title" data-i18n="settingsModal.general.appearance.title">Apariencia</h3>
               <div class="interface-theme-options" role="radiogroup" aria-labelledby="interface-theme-title">
@@ -1134,21 +1147,6 @@
               role="status" aria-live="polite"></p>
             <button id="shortcut-reset-defaults" class="btn btn-secondary" type="button"
               data-i18n="settingsModal.shortcuts.reset">Restablecer teclas rápidas</button>
-          </div>
-          <div id="settings-modal-tab-lang" class="settings-modal-tab-content is-hidden custom-scrollbar">
-            <h2 data-i18n="settingsModal.languages.title">Idiomas</h2>
-            <div class="modal-field">
-              <label for="language-select" data-i18n="settingsModal.languages.text">Selecciona el idioma de la interfaz:</label>
-              <select id="language-select" class="modal-field">
-                <option value="system" data-i18n="settingsModal.languages.system">Navegador</option>
-                <option value="en">English</option>
-                <option value="es">Español</option>
-                <option value="es_419">Español (Latinoamérica)</option>
-                <option value="pt_BR">Português (Brasil)</option>
-              </select>
-            </div>
-            <p id="language-system-note" class="settings-section-description is-hidden"
-              data-i18n="settingsModal.languages.systemHint">Usa el idioma del navegador; inglés si no está disponible.</p>
           </div>
           <div id="settings-modal-tab-info" class="settings-modal-tab-content is-hidden custom-scrollbar">
             <h2 data-i18n="settingsModal.information.title">Información</h2>

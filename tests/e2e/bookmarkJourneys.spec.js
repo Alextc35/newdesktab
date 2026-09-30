@@ -2177,7 +2177,7 @@ test('localizes sync status and confirms synchronized data deletion', async ({ p
     Object.keys(JSON.parse(sessionStorage.getItem('newdesktab-test-sync') || '{}')).length
   ))).toBe(0);
 
-  await page.getByRole('button', { name: 'Languages' }).click();
+  await page.getByRole('button', { name: 'General' }).click();
   await page.locator('#language-select').selectOption('es');
   await page.getByRole('button', { name: 'Sincronización' }).click();
   await expect(page.locator('#storage-persistence-status'))
