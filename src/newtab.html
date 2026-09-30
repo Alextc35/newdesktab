@@ -688,9 +688,11 @@
               </div>
             </div>
 
-            <section class="storage-usage" aria-labelledby="storage-usage-title">
-              <div class="storage-usage-title-row">
+            <details class="storage-usage">
+              <summary class="storage-usage-title-row">
                 <h3 id="storage-usage-title" data-i18n="settingsModal.sync.usage.title">Disponibilidad de almacenamiento</h3>
+              </summary>
+              <div class="storage-usage-controls">
                 <button id="storage-usage-format-toggle" class="storage-usage-format-toggle" type="button"
                   aria-pressed="false" data-i18n="settingsModal.sync.usage.showExact">Ver bytes exactos</button>
               </div>
@@ -837,7 +839,7 @@
                   </div>
                 </article>
               </div>
-            </section>
+            </details>
 
             <div class="storage-sync-management">
               <p id="storage-sync-last-updated" class="storage-sync-last-updated" aria-live="polite">

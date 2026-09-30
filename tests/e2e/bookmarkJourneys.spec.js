@@ -2004,6 +2004,13 @@ test('shows selected storage and local storage availability when sync is selecte
   const localUsage = page.locator('[data-storage-usage-local]');
   const summary = page.locator('#storage-usage-summary');
   const formatToggle = page.locator('#storage-usage-format-toggle');
+  const usageDisclosure = page.locator('details.storage-usage');
+  await expect(usageDisclosure).not.toHaveAttribute('open', '');
+  await expect(usage).toBeHidden();
+  await expect(formatToggle).toBeHidden();
+  await usageDisclosure.locator('summary').click();
+  await expect(usageDisclosure).toHaveAttribute('open', '');
+  await expect(usage).toBeVisible();
   const exactLocalUsage = await page.evaluate(async () => (
     await import('/src/state/appStore.js')
   ).getStorageUsage('local'));
@@ -2079,6 +2086,10 @@ test('shows selected storage and local storage availability when sync is selecte
   await expect(summary).toContainText('of 102,400 B');
   await expect(localUsage.locator('#storage-usage-local-summary'))
     .toContainText('of 10,485,760 B');
+  await usageDisclosure.locator('summary').click();
+  await expect(usageDisclosure).not.toHaveAttribute('open', '');
+  await expect(usage).toBeHidden();
+  await expect(formatToggle).toBeHidden();
 });
 
 test('localizes sync status and confirms synchronized data deletion', async ({ page }) => {
