@@ -414,7 +414,8 @@ See the complete [NewDeskTab Privacy Policy](PRIVACY.md).
 * The developer cannot access synchronized data
 * Displayed favicons request site origins from Google's favicon service
 * Remote images load from their hosts, including the initial example image
-* Uploaded image files and filenames stay local; JSON backups do not embed them
+* Uploaded images stay local by default; complete JSON backups embed optimized
+  copies of referenced local images and their filenames. Local videos are not embedded
 
 Changes from tabs on the same device are combined before saving. This does not
 provide a distributed lock or guaranteed conflict recovery across devices.

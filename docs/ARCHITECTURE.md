@@ -805,7 +805,9 @@ clears it.
 
 Complete backups use the `newdesktab-backup` format; bookmark-only files use
 `newdesktab-bookmarks`. Both versioned formats preserve folders and membership.
-Legacy raw bookmark arrays remain importable without folders.
+Complete backups also embed the optimized local images referenced by their data,
+so restore can recreate them in device-local storage. Local video files remain
+outside JSON backups. Legacy raw bookmark arrays remain importable without folders.
 
 ## UI coordination
 

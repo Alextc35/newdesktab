@@ -132,8 +132,10 @@
     "backup": {
       "exported": "Backup exported",
       "exportError": "Could not export the backup",
+      "mediaUnavailable": "Some referenced local images are unavailable, so the backup was not created.",
       "imported": "Backup restored",
-      "importError": "Could not restore the backup"
+      "importError": "Could not restore the backup",
+      "mediaStorageFull": "There is not enough local storage to restore the backup images."
     }
   },
   "view": {
@@ -432,6 +434,7 @@
       "title": "General",
       "subtitle": "Settings",
       "export": "Export backup",
+      "backupHint": "Backups include the local images used by your data. Local videos are not included.",
       "import": "Restore backup",
       "resetSettings": "Reset settings",
       "deleteAllData": "Delete all local data",

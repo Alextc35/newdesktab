@@ -87,6 +87,80 @@ export async function preloadLocalImages(data) {
   }
 }
 
+/** Returns the stored files referenced by a complete backup's application data. */
+export async function exportReferencedLocalImages(data) {
+  const references = [...collectLocalImageReferences(data)];
+  if (!references.length) return {};
+
+  const keys = references.map(getStorageKey);
+  const values = await callStorage(chrome.storage.local, 'get', keys);
+  const images = {};
+
+  for (const reference of references) {
+    const stored = values[getStorageKey(reference)];
+    const dataUrl = getStoredImageData(stored);
+    const name = getStoredImageName(stored);
+    if (!isValidBackupImage(dataUrl) || (name && name.length > 1024)) {
+      throw localImageError('missing');
+    }
+
+    images[reference] = {
+      dataUrl,
+      ...(name ? { name } : {})
+    };
+  }
+
+  return images;
+}
+
+/** Restores the local image files referenced by a complete backup. */
+export async function restoreReferencedLocalImages(data, backupImages) {
+  if (backupImages === undefined) return;
+  if (!backupImages || typeof backupImages !== 'object' || Array.isArray(backupImages)) {
+    throw localImageError('invalidBackup');
+  }
+
+  const restoredImages = {};
+  for (const reference of collectLocalImageReferences(data)) {
+    const stored = backupImages[reference];
+    const dataUrl = getStoredImageData(stored);
+    const name = getStoredImageName(stored);
+    if (!isValidBackupImage(dataUrl) || (name && name.length > 1024)) {
+      throw localImageError('invalidBackup');
+    }
+
+    restoredImages[getStorageKey(reference)] = {
+      dataUrl,
+      ...(name ? { name } : {})
+    };
+  }
+
+  const keys = Object.keys(restoredImages);
+  if (!keys.length) return;
+
+  const existing = await callStorage(chrome.storage.local, 'get', keys);
+  const existingEntries = Object.fromEntries(
+    Object.entries(existing).filter(([, value]) => value !== undefined)
+  );
+  const usedBytes = await getLocalStorageBytes();
+  const replacedBytes = getStorageBytes(existingEntries);
+  const incomingBytes = getStorageBytes(restoredImages);
+  const quotaBytes = chrome.storage.local.QUOTA_BYTES ?? 10 * 1024 * 1024;
+  if (usedBytes - replacedBytes + incomingBytes > quotaBytes) {
+    throw localImageError('storageFull');
+  }
+
+  await callStorage(chrome.storage.local, 'set', restoredImages);
+
+  for (const [reference, key] of referencesToKeys(data)) {
+    const stored = restoredImages[key];
+    if (!stored) continue;
+    cachedImages.set(reference, stored.dataUrl);
+    if (stored.name) cachedImageNames.set(reference, stored.name);
+    else cachedImageNames.delete(reference);
+  }
+}
+
 /**
  * Optimizes and stores an uploaded image exclusively in chrome.storage.local.
  * The returned reference is kept in the editor draft until its device-local
@@ -182,6 +256,22 @@ function getStoredImageName(value) {
   if (typeof value?.name !== 'string') return null;
   const name = value.name.trim();
   return name || null;
+}
+
+function isValidBackupImage(value) {
+  if (typeof value !== 'string') return false;
+  const match = /^data:image\/(?:avif|gif|jpeg|png|webp);base64,([a-z\d+/]*={0,2})$/i.exec(value);
+  if (!match || match[1].length % 4 !== 0) return false;
+
+  const padding = match[1].endsWith('==') ? 2 : match[1].endsWith('=') ? 1 : 0;
+  const decodedBytes = (match[1].length / 4) * 3 - padding;
+  return decodedBytes > 0 && decodedBytes <= MAX_STORED_IMAGE_BYTES;
+}
+
+function* referencesToKeys(data) {
+  for (const reference of collectLocalImageReferences(data)) {
+    yield [reference, getStorageKey(reference)];
+  }
 }
 
 function validateImageFile(file) {

@@ -132,8 +132,10 @@
     "backup": {
       "exported": "Copia de seguridad exportada",
       "exportError": "No se pudo exportar la copia de seguridad",
+      "mediaUnavailable": "Hay imágenes locales que ya no están disponibles; no se creó la copia.",
       "imported": "Copia de seguridad restaurada",
-      "importError": "No se pudo restaurar la copia de seguridad"
+      "importError": "No se pudo restaurar la copia de seguridad",
+      "mediaStorageFull": "No hay espacio local suficiente para restaurar las imágenes de la copia."
     }
   },
   "view": {
@@ -432,6 +434,7 @@
       "title": "General",
       "subtitle": "Configuración",
       "export": "Exportar copia de seguridad",
+      "backupHint": "Las copias incluyen las imágenes locales que usan tus datos. Los vídeos locales no se incluyen.",
       "import": "Restaurar copia de seguridad",
       "resetSettings": "Restablecer configuración",
       "deleteAllData": "Eliminar todos los datos locales",

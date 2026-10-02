@@ -28,7 +28,8 @@ Review it against the release ZIP before every submission.
 >
 > Data is stored locally by default. Optional Chrome Sync uses browser-managed
 > storage so compatible Chrome profiles can share bookmark data and settings.
-> Images uploaded from your device remain local to that browser profile.
+> Images uploaded from your device remain local to that browser profile. Complete
+> backups you explicitly export include optimized copies of referenced local images.
 >
 > NewDeskTab has no account system, advertising, analytics, telemetry, or
 > developer-operated backend.
@@ -46,7 +47,8 @@ Review it against the release ZIP before every submission.
 > layout, appearance settings, optional local images, and synchronization
 > preference. When the user explicitly enables Sync, browser-managed
 > chrome.storage.sync stores the shareable workspace data; local image files
-> and filenames remain in chrome.storage.local.
+> and filenames remain in chrome.storage.local. Complete backups include copies
+> of referenced local images only when you explicitly export them.
 
 ### Remote code
 
