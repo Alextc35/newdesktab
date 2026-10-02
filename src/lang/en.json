@@ -189,6 +189,9 @@
         "reset": "Reset bookmark style?",
         "cancel": "Discard changes to the default bookmark appearance?"
       },
+      "shortcuts": {
+        "reset": "Restore the default keyboard shortcuts?"
+      },
       "sync": {
         "delete": "Delete all synchronized NewDeskTab data? This device and every other device using this cloud data will switch to Local mode when they detect the deletion. This cannot be undone."
       }

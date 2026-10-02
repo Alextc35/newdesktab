@@ -5,6 +5,7 @@ import {
   shortcutFromKeyboardEvent
 } from '../../shared/keyboard/keyboardShortcuts.js';
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
+import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashError, flashInfo, flashSuccess } from '../../shared/ui/flash.js';
 import {
   getDraftKeyboardShortcuts,
@@ -95,7 +96,13 @@ export function initShortcutSection({ onRequestSaveStateUpdate }) {
     });
   }
 
-  reset.addEventListener('click', () => {
+  reset.addEventListener('click', async () => {
+    const confirmed = await showAlert(
+      t('alert.settings.shortcuts.reset'),
+      { type: 'confirm' }
+    );
+    if (!confirmed) return;
+
     replaceDraftKeyboardShortcuts(DEFAULT_KEYBOARD_SHORTCUTS);
     recordingAction = null;
     syncUI();

@@ -189,6 +189,9 @@
         "reset": "Restaurar o estilo do favorito?",
         "cancel": "Descartar as alterações na aparência do favorito padrão?"
       },
+      "shortcuts": {
+        "reset": "Restaurar os atalhos de teclado padrão?"
+      },
       "sync": {
         "delete": "Excluir todos os dados sincronizados do NewDeskTab? Este dispositivo e todos os outros que usam esses dados na nuvem mudarão para o modo Local quando detectarem a exclusão. Esta ação não pode ser desfeita."
       }

@@ -189,6 +189,9 @@
         "reset": "¿Restablecer el estilo del favorito?",
         "cancel": "¿Descartar los cambios en el aspecto del favorito por defecto?"
       },
+      "shortcuts": {
+        "reset": "¿Restablecer las teclas rápidas predeterminadas?"
+      },
       "sync": {
         "delete": "¿Borrar todos los datos sincronizados de NewDeskTab? Este dispositivo y todos los demás que usen estos datos de la nube pasarán a modo Local cuando detecten el borrado. Esta acción no se puede deshacer."
       }

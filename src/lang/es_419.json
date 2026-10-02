@@ -189,6 +189,9 @@
         "reset": "¿Restablecer el estilo del marcador?",
         "cancel": "¿Descartar los cambios en la apariencia del marcador predeterminado?"
       },
+      "shortcuts": {
+        "reset": "¿Restablecer las teclas rápidas predeterminadas?"
+      },
       "sync": {
         "delete": "¿Eliminar todos los datos sincronizados de NewDeskTab? Este dispositivo y todos los demás que usen estos datos de la nube cambiarán al modo Local cuando detecten la eliminación. Esta acción no se puede deshacer."
       }
