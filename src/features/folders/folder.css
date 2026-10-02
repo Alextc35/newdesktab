@@ -975,8 +975,8 @@
   --folder-text-color: #f8fafc;
   --folder-preview-icon-size: 30px;
   --folder-context-text: light-dark(var(--folder-light-text, var(--ui-text)), var(--folder-text-color));
-  width: 150px;
-  height: 150px;
+  width: 210px;
+  height: 220px;
   padding: 5px;
   border: 1px solid color-mix(in srgb, var(--folder-color) 42%, transparent);
   border-radius: 14px;
