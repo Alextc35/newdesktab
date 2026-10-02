@@ -559,6 +559,7 @@
       "export": "Export bookmarks",
       "import": "Import bookmarks",
       "deleteAll": "Delete all bookmarks",
+      "preview": "Preview",
       "drag": {
         "title": "Drag behavior",
         "description": "Choose how bookmarks reorganize when you occupy their position.",

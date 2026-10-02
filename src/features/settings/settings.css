@@ -715,6 +715,276 @@
   line-height: 1.45;
 }
 
+.behavior-preview {
+  display: grid;
+  gap: 7px;
+  margin-top: 2px;
+}
+
+.drag-mode-options > .behavior-preview {
+  grid-column: 1 / -1;
+}
+
+.behavior-preview-caption {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ui-muted);
+}
+
+.behavior-preview-caption small {
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.behavior-preview-indicator {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--ui-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ui-accent) 18%, transparent);
+}
+
+.behavior-preview-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 32px);
+  gap: 5px;
+  padding: 6px;
+  overflow: hidden;
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  background: var(--ui-input);
+}
+
+.behavior-preview-grid {
+  position: absolute;
+  z-index: 0;
+  inset: 6px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+  pointer-events: none;
+}
+
+.behavior-preview-cell {
+  min-width: 0;
+  border: 1px dashed color-mix(in srgb, var(--ui-border) 75%, transparent);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--ui-card) 65%, transparent);
+}
+
+.behavior-preview-tile {
+  z-index: 1;
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--ui-accent) 68%, var(--ui-border));
+  border-radius: 6px;
+  background: var(--ui-selected);
+  color: var(--ui-text);
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .16);
+  will-change: transform;
+}
+
+.preview-tile-a {
+  grid-column: 1;
+  grid-row: 1;
+  background: color-mix(in srgb, var(--ui-accent) 20%, var(--ui-card));
+}
+
+.preview-tile-b {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.preview-tile-c {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.behavior-preview-pointer {
+  position: relative;
+  z-index: 2;
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.behavior-preview-pointer::before,
+.behavior-preview-pointer::after {
+  position: absolute;
+  content: "";
+}
+
+.behavior-preview-pointer::before {
+  top: 20px;
+  left: 30%;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #3b82f6;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .45);
+}
+
+.behavior-preview-pointer::after {
+  top: 27px;
+  left: calc(30% + 8px);
+  width: 0;
+  height: 0;
+  border-top: 5px solid #fff;
+  border-right: 4px solid transparent;
+  transform: rotate(-28deg);
+}
+
+.resize-preview-stage .preview-resize-tile {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+  width: 100%;
+  height: 25px;
+  align-self: center;
+  transform: none;
+  will-change: width;
+}
+
+.preview-resize-handle {
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  width: 8px;
+  height: 14px;
+  border: 1px solid rgba(191, 219, 254, .85);
+  border-radius: 4px;
+  background: #3b82f6;
+  transform: translateY(-50%);
+}
+
+.bookmark-behavior-settings .behavior-preview-tile,
+.bookmark-behavior-settings .behavior-preview-pointer {
+  animation-play-state: paused;
+}
+
+.bookmark-behavior-settings.is-expanded .behavior-preview-tile,
+.bookmark-behavior-settings.is-expanded .behavior-preview-pointer {
+  animation-play-state: running;
+}
+
+.bookmark-drag-settings.is-expanded [data-mode="none"] .preview-tile-a {
+  animation: drag-preview-none 4s ease-in-out infinite;
+}
+
+.bookmark-drag-settings.is-expanded [data-mode="none"] .preview-tile-b {
+  animation: drag-preview-reject 4s ease-in-out infinite;
+}
+
+.bookmark-drag-settings.is-expanded [data-mode="relocate"] .preview-tile-a {
+  animation: drag-preview-relocate-a 4s ease-in-out infinite;
+}
+
+.bookmark-drag-settings.is-expanded [data-mode="relocate"] .preview-tile-b {
+  animation: drag-preview-relocate-b 4s ease-in-out infinite;
+}
+
+.bookmark-drag-settings.is-expanded [data-mode="cascade"] .preview-tile-a {
+  animation: drag-preview-cascade-a 4s ease-in-out infinite;
+}
+
+.bookmark-drag-settings.is-expanded [data-mode="cascade"] .preview-tile-b {
+  animation: drag-preview-cascade-b 4s ease-in-out infinite;
+}
+
+.bookmark-drag-settings.is-expanded [data-mode="cascade"] .preview-tile-c {
+  animation: drag-preview-cascade-c 4s ease-in-out infinite;
+}
+
+.bookmark-drag-settings.is-expanded .behavior-preview-pointer {
+  animation: drag-preview-pointer 4s ease-in-out infinite;
+}
+
+.bookmark-drag-settings.is-expanded [data-mode="cascade"] .behavior-preview-pointer {
+  animation: drag-preview-cascade-pointer 4s ease-in-out infinite;
+}
+
+.bookmark-resize-settings.is-expanded [data-mode="smooth"] .preview-resize-tile {
+  animation: resize-preview-smooth 4s ease-in-out infinite;
+}
+
+.bookmark-resize-settings.is-expanded [data-mode="none"] .preview-resize-tile {
+  animation: resize-preview-step 4s steps(1, end) infinite;
+}
+
+@keyframes drag-preview-none {
+  0%, 15%, 82%, 100% { transform: translateX(0); }
+  42%, 62% { transform: translateX(calc(200% + 10px)); }
+}
+
+@keyframes drag-preview-reject {
+  0%, 36%, 68%, 100% { border-color: color-mix(in srgb, var(--ui-accent) 68%, var(--ui-border)); }
+  42%, 62% { border-color: var(--ui-danger-text); background: var(--ui-danger-bg); }
+}
+
+@keyframes drag-preview-relocate-a {
+  0%, 15%, 82%, 100% { transform: translateX(0); }
+  42%, 72% { transform: translateX(calc(200% + 10px)); }
+}
+
+@keyframes drag-preview-relocate-b {
+  0%, 15%, 82%, 100% { transform: translateX(0); }
+  42%, 72% { transform: translateX(calc(-200% - 10px)); }
+}
+
+@keyframes drag-preview-cascade-a {
+  0%, 10%, 100% { transform: translateX(0); }
+  30%, 72% { transform: translateX(calc(200% + 10px)); }
+  82% { transform: translateX(0); }
+}
+
+@keyframes drag-preview-cascade-b {
+  0%, 30%, 100% { transform: translateX(0); }
+  37%, 57% { transform: translateX(calc(-100% - 5px)); }
+  64% { transform: translateX(0); }
+}
+
+@keyframes drag-preview-cascade-c {
+  0%, 26%, 100% { transform: translateX(0); }
+  30%, 64% { transform: translateX(calc(-100% - 5px)); }
+  72% { transform: translateX(0); }
+}
+
+@keyframes drag-preview-pointer {
+  0%, 15%, 82%, 100% { transform: translate(0, 0); opacity: 0; }
+  24% { opacity: 1; }
+  42%, 62% { transform: translate(calc(200% + 10px), 0); opacity: 1; }
+  72% { opacity: 0; }
+}
+
+@keyframes drag-preview-cascade-pointer {
+  0%, 8%, 100% { transform: translate(0, 0); opacity: 0; }
+  12% { opacity: 1; }
+  30%, 58% { transform: translate(calc(200% + 10px), 0); opacity: 1; }
+  66% { opacity: 0; }
+}
+
+@keyframes resize-preview-smooth {
+  0%, 15%, 86%, 100% { width: 100%; }
+  72%, 80% { width: calc(200% + 5px); }
+}
+
+@keyframes resize-preview-step {
+  0%, 42%, 82%, 100% { width: 100%; }
+  43%, 76% { width: calc(200% + 5px); }
+}
+
 .bg-preview video {
   position: absolute;
   inset: -1px;
@@ -883,6 +1153,45 @@
 @media (prefers-reduced-motion: reduce) {
   .theme-wallpaper-peek video,
   .bg-preview video { transition: none; }
+
+  .bookmark-behavior-settings .behavior-preview-tile,
+  .bookmark-behavior-settings .behavior-preview-pointer {
+    animation: none !important;
+  }
+
+  .bookmark-drag-settings [data-mode="relocate"] .preview-tile-a {
+    transform: translateX(calc(200% + 10px));
+  }
+
+  .bookmark-drag-settings [data-mode="relocate"] .preview-tile-b {
+    transform: translateX(calc(-200% - 10px));
+  }
+
+  .bookmark-drag-settings [data-mode="cascade"] .preview-tile-a {
+    transform: translateX(calc(200% + 10px));
+  }
+
+  .bookmark-drag-settings [data-mode="cascade"] .preview-tile-b,
+  .bookmark-drag-settings [data-mode="cascade"] .preview-tile-c {
+    transform: translateX(calc(-100% - 5px));
+  }
+
+  .bookmark-drag-settings [data-mode="none"] .preview-tile-b {
+    border-color: var(--ui-danger-text);
+    background: var(--ui-danger-bg);
+  }
+
+  .bookmark-drag-settings .behavior-preview-pointer {
+    display: none;
+  }
+
+  .bookmark-resize-settings [data-mode="smooth"] .preview-resize-tile {
+    width: 150%;
+  }
+
+  .bookmark-resize-settings [data-mode="none"] .preview-resize-tile {
+    width: calc(200% + 5px);
+  }
 }
 
 .theme-wallpaper-add input { min-width: 0; flex: 1; }

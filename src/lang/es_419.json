@@ -559,6 +559,7 @@
       "export": "Exportar marcadores",
       "import": "Importar marcadores",
       "deleteAll": "Eliminar todos los marcadores",
+      "preview": "Vista previa",
       "drag": {
         "title": "Comportamiento al arrastrar",
         "description": "Elige cómo se reorganizan los marcadores cuando ocupas su posición.",

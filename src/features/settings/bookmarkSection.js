@@ -46,6 +46,8 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
   ));
   const dragModeSummary = document.getElementById('bookmark-drag-settings-summary');
   const resizeModeSummary = document.getElementById('bookmark-resize-settings-summary');
+  const dragPreview = document.getElementById('bookmark-drag-preview');
+  const resizePreview = document.getElementById('bookmark-resize-preview');
 
   for (const section of behaviorSections) initCollapsibleSection(section);
   collapseBehaviorSections();
@@ -159,6 +161,14 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
     if (dragModeSummary) {
       dragModeSummary.textContent = t(`settingsModal.bookmark.drag.${mode}.title`);
     }
+    if (dragPreview) dragPreview.dataset.mode = mode;
+    const selectedOption = dragModeInputs.find(input => input.checked)
+      ?.closest('.drag-mode-option');
+    if (
+      dragPreview
+      && selectedOption
+      && dragPreview.previousElementSibling !== selectedOption
+    ) selectedOption.after(dragPreview);
   }
 
   function renderResizeMode() {
@@ -173,6 +183,14 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
     if (resizeModeSummary) {
       resizeModeSummary.textContent = t(`settingsModal.bookmark.resize.${mode}.title`);
     }
+    if (resizePreview) resizePreview.dataset.mode = mode;
+    const selectedOption = resizeModeInputs.find(input => input.checked)
+      ?.closest('.drag-mode-option');
+    if (
+      resizePreview
+      && selectedOption
+      && resizePreview.previousElementSibling !== selectedOption
+    ) selectedOption.after(resizePreview);
   }
 
   function syncUI() {
