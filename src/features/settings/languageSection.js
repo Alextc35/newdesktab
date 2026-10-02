@@ -1,4 +1,5 @@
 import { changeLanguage } from '../../platform/i18n/i18n.js';
+import { refreshCustomSelect } from '../../shared/ui/customSelect.js';
 import { getInitialSnapshot } from './settingsDraft.js';
 import {
   getDraftLanguage,
@@ -39,6 +40,7 @@ export function initLanguageSection({
    */
   function syncUI() {
     languageSelect.value = getDraftLanguage();
+    refreshCustomSelect(languageSelect);
     const followsBrowser = languageSelect.value === 'system';
     systemNote.classList.toggle('is-hidden', !followsBrowser);
     if (followsBrowser) languageSelect.setAttribute('aria-describedby', systemNote.id);

@@ -1,0 +1,168 @@
+/* Theme-aware popup listbox used by settings select controls. */
+.custom-select {
+  position: relative;
+  display: inline-flex;
+  min-width: 0;
+  vertical-align: middle;
+}
+
+.custom-select-native {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+}
+
+.custom-select-trigger {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  padding: 8px 11px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--ui-border);
+  border-radius: 9px;
+  background: var(--ui-input);
+  color: var(--ui-text);
+  font: inherit;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .16s ease, background-color .16s ease,
+    box-shadow .16s ease;
+}
+
+.custom-select-trigger:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--ui-accent) 58%, var(--ui-border));
+  background: var(--ui-hover);
+}
+
+.custom-select-trigger:focus-visible {
+  border-color: var(--ui-accent);
+  outline: 2px solid var(--ui-focus-ring);
+  outline-offset: 2px;
+}
+
+.custom-select-trigger[aria-expanded="true"] {
+  border-color: var(--ui-accent);
+  box-shadow: 0 0 0 3px var(--ui-focus-ring);
+}
+
+.custom-select-trigger:disabled {
+  color: var(--ui-subtle);
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.custom-select-value {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.custom-select-chevron {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  opacity: .72;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform .16s ease;
+}
+
+.custom-select-trigger[aria-expanded="true"] .custom-select-chevron {
+  transform: translateY(2px) rotate(225deg);
+}
+
+.custom-select-menu {
+  position: fixed;
+  z-index: calc(var(--z-modal) + 20);
+  display: grid;
+  max-height: 280px;
+  padding: 6px;
+  gap: 3px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--ui-glass-border);
+  border-radius: 12px;
+  background: var(--ui-menu);
+  box-shadow: 0 18px 42px var(--ui-shadow), 0 0 0 1px var(--ui-control-shadow);
+  color: var(--ui-menu-text);
+  scrollbar-color: var(--ui-scroll-thumb) transparent;
+  transform-origin: top center;
+  animation: custom-select-open .14s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.custom-select-menu[hidden] { display: none; }
+
+.custom-select-option {
+  display: flex;
+  min-width: 0;
+  min-height: 36px;
+  padding: 8px 10px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 8px;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1.25;
+  user-select: none;
+}
+
+.custom-select-option:hover,
+.custom-select-option[data-active="true"] {
+  background: var(--ui-hover);
+}
+
+.custom-select-option[aria-selected="true"] {
+  background: var(--ui-selected);
+  color: var(--ui-accent);
+  font-weight: 600;
+}
+
+.custom-select-option[aria-selected="true"][data-active="true"] {
+  background: color-mix(in srgb, var(--ui-accent) 18%, var(--ui-selected));
+}
+
+.custom-select-option[aria-disabled="true"] {
+  color: var(--ui-subtle);
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.custom-select-option-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.custom-select-option-check {
+  flex: 0 0 auto;
+  color: var(--ui-accent);
+  opacity: 0;
+}
+
+.custom-select-option[aria-selected="true"] .custom-select-option-check {
+  opacity: 1;
+}
+
+@keyframes custom-select-open {
+  from { opacity: 0; transform: translateY(-3px) scale(.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-select-trigger,
+  .custom-select-chevron,
+  .custom-select-menu { transition: none; animation: none; }
+}

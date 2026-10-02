@@ -1,4 +1,5 @@
 import { showAlert } from '../../shared/ui/alertModal.js';
+import { refreshCustomSelect } from '../../shared/ui/customSelect.js';
 import { openBookmarkPresetEditor } from '../bookmarks/bookmarkModal.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
@@ -145,6 +146,7 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
     }
 
     presetSelect.disabled = presets.length === 0;
+    refreshCustomSelect(presetSelect);
     presetApply.disabled = presets.length === 0;
     presetDelete.disabled = presets.length === 0;
   }

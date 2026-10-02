@@ -2,6 +2,7 @@ import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashSuccess, flashError } from '../../shared/ui/flash.js';
 import { registerModal, openModal, closeModal } from '../../shared/ui/modalManager.js';
 import { initTabs } from '../../shared/ui/tabs.js';
+import { initCustomSelect } from '../../shared/ui/customSelect.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 
 import { changeLanguage, t } from '../../platform/i18n/i18n.js';
@@ -72,6 +73,9 @@ export function initSettingsModal() {
     tabButtonSelector: '.settings-modal-tab-btn',
     tabContentSelector: '.settings-modal-tab-content'
   });
+
+  settingsModal.querySelectorAll('select[data-custom-select]')
+    .forEach(initCustomSelect);
 
   /**
    * Initializes section controllers.

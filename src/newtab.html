@@ -600,7 +600,7 @@
                   <span class="settings-modal-tab-icon" data-settings-icon="language" aria-hidden="true"></span>
                   <span data-i18n="settingsModal.languages.title">Idiomas</span>
                 </label>
-                <select id="language-select">
+                <select id="language-select" data-custom-select>
                   <option value="system" data-i18n="settingsModal.languages.system">Navegador</option>
                   <option value="en">English</option>
                   <option value="es">Español</option>
@@ -940,8 +940,8 @@
                     accept="image/avif,image/gif,image/jpeg,image/png,image/webp,video/mp4,video/webm,video/ogg">
                   <button id="settings-theme-media-upload" class="btn btn-secondary theme-wallpaper-upload"
                     type="button" data-i18n="settingsModal.theme.addFiles">Añadir archivos locales</button>
-                  <label for="settings-theme-media-interval" data-i18n="settingsModal.theme.rotationInterval">Rotación de fondos</label>
-                  <select id="settings-theme-media-interval">
+                  <label id="settings-theme-media-interval-label" for="settings-theme-media-interval" data-i18n="settingsModal.theme.rotationInterval">Rotación de fondos</label>
+                  <select id="settings-theme-media-interval" data-custom-select>
                     <option value="0" data-i18n="settingsModal.theme.noRotation">No cambiar automáticamente</option>
                     <option value="5" data-i18n="settingsModal.theme.interval5">5 segundos</option>
                     <option value="15" data-i18n="settingsModal.theme.interval15">15 segundos</option>
@@ -1127,7 +1127,7 @@
               <div class="preset-manage-row">
                 <label class="is-hidden" for="settings-preset-select"
                   data-i18n="settingsModal.bookmark.presets.saved">Presets guardados</label>
-                <select id="settings-preset-select" aria-label="Saved presets"></select>
+                <select id="settings-preset-select" data-custom-select></select>
                 <button id="settings-preset-apply" class="btn btn-secondary" type="button"
                   data-i18n="settingsModal.bookmark.presets.apply">Usar</button>
                 <button id="settings-preset-delete" class="btn btn-danger" type="button"

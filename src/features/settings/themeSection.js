@@ -1,4 +1,5 @@
 import { showAlert } from '../../shared/ui/alertModal.js';
+import { refreshCustomSelect } from '../../shared/ui/customSelect.js';
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
@@ -152,6 +153,7 @@ export function initThemeSection({
       mediaInterval.insertBefore(option, nextOption ?? null);
     }
     mediaInterval.value = String(interval);
+    refreshCustomSelect(mediaInterval);
   }
 
   function setBackgroundMode(mode) {
@@ -512,6 +514,7 @@ export function initThemeSection({
     mediaUploadInput.disabled = imagesDisabled || additionalUploadPending;
     mediaUploadButton.disabled = imagesDisabled || additionalUploadPending;
     mediaInterval.disabled = imagesDisabled;
+    refreshCustomSelect(mediaInterval);
 
     updatePreview();
   }
