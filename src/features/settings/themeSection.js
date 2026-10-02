@@ -251,7 +251,7 @@ export function initThemeSection({
         updatePreview();
         onRequestSaveStateUpdate();
       });
-      row.prepend(color);
+      row.append(color);
 
       const peekButton = document.createElement('button');
       peekButton.type = 'button';
@@ -311,7 +311,8 @@ export function initThemeSection({
       peekButton.addEventListener('mouseleave', hidePeek);
       peekButton.addEventListener('focus', showPeek);
       peekButton.addEventListener('blur', hidePeek);
-      row.append(peekButton, peek);
+      row.prepend(peekButton);
+      row.append(peek);
       for (const [symbol, key, offset] of [
         ['↑', 'moveUp', -1], ['↓', 'moveDown', 1], ['×', 'remove', 0]
       ]) {
