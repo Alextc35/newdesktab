@@ -256,7 +256,10 @@ export function initCustomSelect(select) {
   select.addEventListener('change', sync);
 
   function onOutsidePointer(event) {
-    if (isOpen && !wrapper.contains(event.target) && !menu.contains(event.target)) close();
+    const isInside = wrapper.contains(event.target)
+      || menu.contains(event.target)
+      || labels.some(label => label.contains(event.target));
+    if (isOpen && !isInside) close();
   }
   function onViewportChange(event) {
     if (event?.type === 'scroll' && (event.target === menu || menu.contains(event.target))) return;
