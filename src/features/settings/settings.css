@@ -339,7 +339,21 @@
 }
 
 .interface-theme-swatch[data-mode="system"] {
-  background: linear-gradient(115deg, #fbfbfc 50%, #161c28 50%);
+  background: #161c28;
+}
+
+.interface-theme-swatch[data-mode="system"]::before {
+  inset: 0;
+  width: auto;
+  background:
+    linear-gradient(90deg, rgba(116, 138, 173, .2) 0 25%, transparent 25%),
+    #fbfbfc;
+  clip-path: polygon(
+    0 0,
+    calc(50% + 12px) 0,
+    calc(50% - 12px) 100%,
+    0 100%
+  );
 }
 
 .theme-solid-background-color {
