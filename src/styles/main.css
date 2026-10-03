@@ -13,6 +13,7 @@
 @import '../shared/ui/itemActionButton.css';
 @import '../shared/ui/localImageUpload.css';
 @import '../shared/ui/customSelect.css';
+@import '../shared/ui/colorPicker.css';
 @import '../features/grid/gridMotion.css';
 @import '../features/bookmarks/bookmarkPreview.css';
 @import '../shared/ui/modal.css';

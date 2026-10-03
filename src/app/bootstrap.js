@@ -29,6 +29,7 @@ import { initGridBulkActions } from '../features/grid/gridBulkActions.js';
 import { initGridKeyboardNavigation } from '../features/grid/gridKeyboardController.js';
 import { initGridKeyboardMovement } from '../features/grid/gridKeyboardMovement.js';
 import { initAlertModal } from '../shared/ui/alertModal.js';
+import { initCustomColorPickers } from '../shared/ui/colorPicker.js';
 import { flashInfo } from '../shared/ui/flash.js';
 import { initFloatingMenu } from '../features/launcher/floatingMenu.js';
 import { initKeyboardShortcuts } from '../features/keyboard/keyboardShortcutController.js';
@@ -108,6 +109,7 @@ function getApplicationElements() {
 }
 
 function initializeUserInterface({ container, gridOverlay, toggleButton }) {
+  initCustomColorPickers(document);
   initAppShell({ container, gridOverlay, toggleButton });
   initializeWidgets({
     modalHost: document.body

@@ -1,0 +1,259 @@
+/* Shared color picker popover used by every application color control. */
+input[data-app-color-picker] {
+  cursor: pointer;
+  transition: outline-color .14s ease, box-shadow .14s ease;
+}
+
+input[data-app-color-picker]:focus-visible,
+input[data-app-color-picker][aria-expanded="true"] {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 2px;
+}
+
+input[data-app-color-picker]:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.app-color-picker {
+  position: fixed;
+  z-index: calc(var(--z-modal) + 20);
+  display: grid;
+  width: 284px;
+  padding: 10px;
+  gap: 7px;
+  overflow: visible;
+  overscroll-behavior: contain;
+  border: 1px solid var(--ui-glass-border);
+  border-radius: 14px;
+  background: var(--ui-menu);
+  box-shadow: 0 18px 42px var(--ui-shadow), 0 0 0 1px var(--ui-control-shadow);
+  color: var(--ui-menu-text);
+  scrollbar-color: var(--ui-scroll-thumb) transparent;
+  transform-origin: top center;
+  animation: app-color-picker-open .15s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.app-color-picker[hidden] { display: none; }
+.app-color-picker-palette[hidden],
+.app-color-picker-section-label[hidden] { display: none; }
+
+.app-color-picker-header,
+.app-color-picker-header-actions,
+.app-color-picker-value-row {
+  display: flex;
+  align-items: center;
+}
+
+.app-color-picker-header { justify-content: space-between; }
+
+.app-color-picker-header strong {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.app-color-picker-header-actions { gap: 6px; }
+
+.app-color-picker-header button {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  place-items: center;
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  background: var(--ui-input);
+  color: inherit;
+  cursor: pointer;
+}
+
+.app-color-picker-header button:hover,
+.app-color-picker-header button:focus-visible {
+  border-color: var(--ui-accent);
+  background: var(--ui-hover);
+}
+
+.app-color-picker-sample svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.app-color-picker-close { font-size: 20px; line-height: 1; }
+
+.app-color-picker-field {
+  position: relative;
+  height: 104px;
+  border: 1px solid var(--ui-border);
+  border-radius: 9px;
+  background-color: hsl(var(--picker-hue, 0deg) 100% 50%);
+  background-image: linear-gradient(to top, #000, transparent),
+    linear-gradient(to right, #fff, transparent);
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+}
+
+.app-color-picker-field:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 2px;
+}
+
+.app-color-picker-thumb {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 14px;
+  height: 12px;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .75), inset 0 0 0 1px rgba(0, 0, 0, .25);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.app-color-picker-hue {
+  width: 100%;
+  height: 14px;
+  margin: 0;
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+  cursor: pointer;
+}
+
+.app-color-picker-hue:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 3px;
+}
+
+.app-color-picker-hue::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  appearance: none;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--ui-menu);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .55);
+}
+
+.app-color-picker-hue::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--ui-menu);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .55);
+}
+
+.app-color-picker-section-label {
+  margin-bottom: -6px;
+  color: var(--ui-menu-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.app-color-picker-palette {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.app-color-picker-preset {
+  width: 100%;
+  height: 21px;
+  padding: 2px;
+  border: 1px solid var(--ui-border);
+  border-radius: 7px;
+  background: var(--ui-input);
+  cursor: pointer;
+}
+
+.app-color-picker-preset::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(128, 128, 128, .38);
+  border-radius: 4px;
+  background: var(--swatch-color);
+  content: "";
+}
+
+.app-color-picker-preset:hover,
+.app-color-picker-preset:focus-visible,
+.app-color-picker-preset[aria-pressed="true"] {
+  border-color: var(--ui-accent);
+  box-shadow: 0 0 0 2px var(--ui-focus-ring);
+  outline: none;
+}
+
+.app-color-picker-value-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) 30px;
+  gap: 8px;
+}
+
+.app-color-picker-value-row label {
+  color: var(--ui-menu-muted);
+  font-size: 12px;
+}
+
+.app-color-picker-hex {
+  width: 100%;
+  min-width: 0;
+  height: 30px;
+  padding: 6px 8px;
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  background: var(--ui-input);
+  color: var(--ui-text);
+  font: 600 13px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+  text-transform: uppercase;
+}
+
+.app-color-picker-hex:focus-visible {
+  border-color: var(--ui-accent);
+  outline: 2px solid var(--ui-focus-ring);
+  outline-offset: 1px;
+}
+
+.app-color-picker-copy {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  background: var(--ui-input);
+  color: var(--ui-menu-text);
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.app-color-picker-copy:hover,
+.app-color-picker-copy:focus-visible {
+  border-color: var(--ui-accent);
+  background: var(--ui-hover);
+}
+
+.app-color-picker button:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 2px;
+}
+
+@keyframes app-color-picker-open {
+  from { opacity: 0; transform: translateY(4px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  input[data-app-color-picker],
+  .app-color-picker { transition: none; animation: none; }
+}

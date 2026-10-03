@@ -423,6 +423,20 @@
     "preview": "Preview",
     "previewName": "Preview"
   },
+  "colorPicker": {
+    "title": "Color picker",
+    "sample": "Pick a color from the screen",
+    "close": "Close color picker",
+    "saturationBrightness": "Saturation and brightness",
+    "hue": "Hue",
+    "quickColors": "Quick colors",
+    "saturation": "Saturation",
+    "brightness": "Brightness",
+    "hex": "Hex code",
+    "copy": "Copy hex code",
+    "copied": "Hex code copied",
+    "copyFailed": "Could not copy the hex code"
+  },
   "settingsModal": {
     "sections": {
       "general": "General",

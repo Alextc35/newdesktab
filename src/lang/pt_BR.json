@@ -423,6 +423,20 @@
     "preview": "Pré-visualização",
     "previewName": "Prévia"
   },
+  "colorPicker": {
+    "title": "Seletor de cores",
+    "sample": "Selecionar uma cor da tela",
+    "close": "Fechar seletor de cores",
+    "saturationBrightness": "Saturação e brilho",
+    "hue": "Matiz",
+    "quickColors": "Cores rápidas",
+    "saturation": "Saturação",
+    "brightness": "Brilho",
+    "hex": "Código hexadecimal",
+    "copy": "Copiar código hexadecimal",
+    "copied": "Código hexadecimal copiado",
+    "copyFailed": "Não foi possível copiar o código hexadecimal"
+  },
   "settingsModal": {
     "sections": {
       "general": "Geral",

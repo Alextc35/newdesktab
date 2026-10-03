@@ -4,6 +4,7 @@ import {
   validateBookmarkDraft
 } from '../../domain/bookmarks/bookmarkModel.js';
 import { applyI18n, t } from '../../platform/i18n/i18n.js';
+import { initCustomColorPickers } from '../../shared/ui/colorPicker.js';
 import { initTabs } from '../../shared/ui/tabs.js';
 import { createBookmarkEditor } from './bookmarkEditor.js';
 
@@ -48,6 +49,7 @@ export function createBookmarkEditorPanel({
   root.dataset.editorMode = currentMode;
   host.replaceChildren(root);
   applyI18n(root);
+  initCustomColorPickers(root);
 
   const panels = Object.fromEntries(ALL_SECTIONS.map(section => [
     section,

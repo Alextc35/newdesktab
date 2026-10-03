@@ -2,6 +2,7 @@ import { showAlert } from '../../shared/ui/alertModal.js';
 import { refreshCustomSelect } from '../../shared/ui/customSelect.js';
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { t } from '../../platform/i18n/i18n.js';
+import { initCustomColorPicker } from '../../shared/ui/colorPicker.js';
 import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { getImageInputValue, setImageInputValue } from '../../shared/ui/localImageUpload.js';
@@ -254,6 +255,7 @@ export function initThemeSection({
         onRequestSaveStateUpdate();
       });
       row.append(color);
+      initCustomColorPicker(color);
 
       const peekButton = document.createElement('button');
       peekButton.type = 'button';
