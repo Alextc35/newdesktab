@@ -1132,10 +1132,20 @@
 .theme-wallpaper-manager:not([open]) > :not(summary) { display: none; }
 .theme-wallpaper-manager[open] > :not(summary) { margin-top: 10px; }
 
-.theme-wallpaper-manager > .custom-select {
+.theme-wallpaper-rotation-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-wallpaper-rotation-row > label {
+  flex: 0 0 auto;
+}
+
+.theme-wallpaper-rotation-row > .custom-select {
   width: min(230px, 100%);
-  margin-left: 6px;
-  vertical-align: middle;
+  margin-left: 0;
 }
 
 .preset-manage-row > .custom-select {

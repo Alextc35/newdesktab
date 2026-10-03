@@ -55,6 +55,7 @@ export function initThemeSection({
   const resetBgBtn = document.getElementById('settings-theme-reset-bg');
   const mediaList = document.getElementById('settings-theme-media-list');
   const mediaDetails = document.getElementById('settings-theme-more-wallpapers');
+  const wallpaperHint = document.getElementById('settings-theme-wallpaper-hint');
   const mediaUrl = document.getElementById('settings-theme-media-url');
   const mediaAdd = document.getElementById('settings-theme-media-add');
   const mediaUploadInput = document.getElementById('settings-theme-media-upload-input');
@@ -581,6 +582,7 @@ export function initThemeSection({
     const syncMode = isSyncMode();
 
     syncPrimaryInputs();
+    wallpaperHint.hidden = !syncMode;
 
     bgSolidColorField.classList.toggle('is-hidden', !backgroundSolid);
     bgColorInput.disabled = !backgroundSolid;

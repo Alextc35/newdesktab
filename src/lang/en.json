@@ -543,7 +543,7 @@
       "subtitle": "Page background",
       "backgroundImageMode": "Image/video",
       "wallpapersTitle": "My own wallpapers",
-      "ownWallpapersHint": "These wallpapers and their rotation stay on this device. In Sync mode, the shared URL is used when no personal wallpaper is available.",
+      "ownWallpapersHint": "These wallpapers and their rotation are stored on this device only.",
       "mediaUrl": "Wallpaper URL",
       "image": "Image",
       "video": "Video",

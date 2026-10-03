@@ -543,7 +543,7 @@
       "subtitle": "Fondo de la página",
       "backgroundImageMode": "Imagen/vídeo",
       "wallpapersTitle": "Mis fondos propios",
-      "ownWallpapersHint": "Estos fondos y su rotación solo se guardan en este dispositivo. En modo sincronizado, la URL compartida se usa si no hay fondos propios.",
+      "ownWallpapersHint": "Estos fondos y su rotación solo se guardan en este dispositivo.",
       "mediaUrl": "URL del fondo",
       "image": "Imagen",
       "video": "Vídeo",

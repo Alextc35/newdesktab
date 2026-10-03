@@ -953,7 +953,8 @@
                   <summary class="settings-disclosure-title-row">
                     <h3 data-i18n="settingsModal.theme.wallpapersTitle">Mis fondos propios</h3>
                   </summary>
-                  <p class="theme-wallpaper-device-hint" data-i18n="settingsModal.theme.ownWallpapersHint">Estos fondos y su rotación solo se guardan en este dispositivo. En modo sincronizado, la URL compartida se usa si no hay fondos propios.</p>
+                  <p id="settings-theme-wallpaper-hint" class="theme-wallpaper-device-hint"
+                    data-i18n="settingsModal.theme.ownWallpapersHint">Estos fondos y su rotación solo se guardan en este dispositivo.</p>
                   <div id="settings-theme-media-list" class="theme-wallpaper-list"></div>
                   <div class="theme-wallpaper-add">
                     <input id="settings-theme-media-url" type="url" placeholder="https://..." aria-label="URL del fondo" data-i18n-aria-label="settingsModal.theme.mediaUrl">
@@ -963,17 +964,20 @@
                     accept="image/avif,image/gif,image/jpeg,image/png,image/webp,video/mp4,video/webm,video/ogg">
                   <button id="settings-theme-media-upload" class="btn btn-secondary theme-wallpaper-upload"
                     type="button" data-i18n="settingsModal.theme.addFiles">Añadir archivos locales</button>
-                  <label id="settings-theme-media-interval-label" for="settings-theme-media-interval" data-i18n="settingsModal.theme.rotationInterval">Rotación de fondos</label>
-                  <select id="settings-theme-media-interval" data-custom-select>
-                    <option value="0" data-i18n="settingsModal.theme.noRotation">No cambiar automáticamente</option>
-                    <option value="5" data-i18n="settingsModal.theme.interval5">5 segundos</option>
-                    <option value="15" data-i18n="settingsModal.theme.interval15">15 segundos</option>
-                    <option value="30" data-i18n="settingsModal.theme.interval30">30 segundos</option>
-                    <option value="60" data-i18n="settingsModal.theme.interval60">1 minuto</option>
-                    <option value="300" data-i18n="settingsModal.theme.interval300">5 minutos</option>
-                    <option value="600" data-i18n="settingsModal.theme.interval600">10 minutos</option>
-                    <option value="1800" data-i18n="settingsModal.theme.interval1800">30 minutos</option>
-                  </select>
+                  <div class="theme-wallpaper-rotation-row">
+                    <label id="settings-theme-media-interval-label" for="settings-theme-media-interval"
+                      data-i18n="settingsModal.theme.rotationInterval">Rotación de fondos</label>
+                    <select id="settings-theme-media-interval" data-custom-select>
+                      <option value="0" data-i18n="settingsModal.theme.noRotation">No cambiar automáticamente</option>
+                      <option value="5" data-i18n="settingsModal.theme.interval5">5 segundos</option>
+                      <option value="15" data-i18n="settingsModal.theme.interval15">15 segundos</option>
+                      <option value="30" data-i18n="settingsModal.theme.interval30">30 segundos</option>
+                      <option value="60" data-i18n="settingsModal.theme.interval60">1 minuto</option>
+                      <option value="300" data-i18n="settingsModal.theme.interval300">5 minutos</option>
+                      <option value="600" data-i18n="settingsModal.theme.interval600">10 minutos</option>
+                      <option value="1800" data-i18n="settingsModal.theme.interval1800">30 minutos</option>
+                    </select>
+                  </div>
                 </details>
               </div>
               <div id="settings-theme-bg-preview" class="bg-preview" tabindex="-1">
