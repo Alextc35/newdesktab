@@ -518,11 +518,11 @@
         "error": "Uso no disponible"
       },
       "browserSupport": {
-        "chrome": "Google Chrome sincroniza NewDeskTab mediante tu cuenta de Google. NewDeskTab no utiliza un servidor propio de sincronización.",
-        "brave": "No disponible en Brave: puede guardar datos de NewDeskTab en chrome.storage.sync, pero actualmente no los propaga entre dispositivos.",
+        "chrome": "Google Chrome sincroniza New DeskTab mediante tu cuenta de Google. New DeskTab no utiliza un servidor propio de sincronización.",
+        "brave": "No disponible en Brave: puede guardar datos de New DeskTab en chrome.storage.sync, pero actualmente no los propaga entre dispositivos.",
         "unsupported": "Por ahora, el almacenamiento sincronizado solo está disponible en Google Chrome. Los demás navegadores seguirán bloqueados hasta verificar su sincronización entre dispositivos."
       },
-      "existingNotice": "Si ya existen datos sincronizados de NewDeskTab, se cargarán al guardar.",
+      "existingNotice": "Si ya existen datos sincronizados de New DeskTab, se cargarán al guardar.",
       "deleteData": "Eliminar datos sincronizados",
       "metadata": {
         "loading": "Comprobando datos sincronizados…",

@@ -518,11 +518,11 @@
         "error": "Usage unavailable"
       },
       "browserSupport": {
-        "chrome": "Google Chrome syncs NewDeskTab through your Google Account. NewDeskTab does not run its own sync server.",
-        "brave": "Unavailable in Brave: it can store NewDeskTab data in chrome.storage.sync, but currently does not propagate it between devices.",
+        "chrome": "Google Chrome syncs New DeskTab through your Google Account. New DeskTab does not run its own sync server.",
+        "brave": "Unavailable in Brave: it can store New DeskTab data in chrome.storage.sync, but currently does not propagate it between devices.",
         "unsupported": "Synced storage is only available in Google Chrome for now. Other browsers remain disabled until cross-device support is verified."
       },
-      "existingNotice": "If synced NewDeskTab data already exists, it will be loaded when you save.",
+      "existingNotice": "If synced New DeskTab data already exists, it will be loaded when you save.",
       "deleteData": "Delete synced data",
       "metadata": {
         "loading": "Checking synchronized data…",
