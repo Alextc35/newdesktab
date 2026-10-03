@@ -602,12 +602,18 @@
 
 .settings-bookmark-reset {
   width: 100%;
+  margin-bottom: 12px;
 }
 
 .preset-library {
   margin-top: 18px;
   padding-top: 16px;
   border-top: 1px solid var(--ui-hover);
+}
+
+.preset-library h3 {
+  margin: 0;
+  font-size: 14px;
 }
 
 .preset-create-row,

@@ -1,9 +1,7 @@
 import { showAlert } from '../../shared/ui/alertModal.js';
-import { refreshCustomSelect } from '../../shared/ui/customSelect.js';
 import { openBookmarkPresetEditor } from '../bookmarks/bookmarkModal.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
-import { normalizeBookmarkPreset } from '../../domain/bookmarks/bookmarkModel.js';
 import { deleteAllBookmarks } from '../bookmarks/bookmarkDestructiveActions.js';
 import { initImportExportButtons } from '../bookmarks/bookmarkImportExport.js';
 import {
@@ -31,11 +29,6 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
   const importBtn = document.getElementById('import-btn');
   const importInput = document.getElementById('import-input');
   const deleteAllBtn = document.getElementById('delete-all-btn');
-  const presetName = document.getElementById('settings-preset-name');
-  const presetSelect = document.getElementById('settings-preset-select');
-  const presetSave = document.getElementById('settings-preset-save');
-  const presetApply = document.getElementById('settings-preset-apply');
-  const presetDelete = document.getElementById('settings-preset-delete');
   const dragModeInputs = Array.from(document.querySelectorAll(
     'input[name="bookmark-drag-mode"]'
   ));
@@ -60,7 +53,10 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
       onApply: preset => {
         replaceDraftBookmarkDefault(preset);
         onRequestSaveStateUpdate();
-      }
+      },
+      getPresets: getDraftBookmarkPresets,
+      replacePresets: replaceDraftBookmarkPresets,
+      onPresetsChange: onRequestSaveStateUpdate
     });
   });
 
@@ -74,30 +70,6 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
     replaceDraftBookmarkDefault(structuredClone(DEFAULT_SETTINGS.bookmarkDefault));
     onRequestSaveStateUpdate();
   });
-
-  presetSave.addEventListener('click', () => {
-    const name = presetName.value.trim();
-    if (!name) {
-      presetName.setCustomValidity(t('validation.preset.name'));
-      presetName.reportValidity();
-      return;
-    }
-
-    presetName.setCustomValidity('');
-    const presets = structuredClone(getDraftBookmarkPresets());
-    const preset = {
-      id: crypto.randomUUID(),
-      name,
-      style: normalizeBookmarkPreset(getDraftBookmarkDefault())
-    };
-    presets.push(preset);
-    replaceDraftBookmarkPresets(presets);
-    presetName.value = '';
-    renderPresetOptions(preset.id);
-    onRequestSaveStateUpdate();
-  });
-
-  presetName.addEventListener('input', () => presetName.setCustomValidity(''));
 
   for (const input of dragModeInputs) {
     input.addEventListener('change', () => {
@@ -115,40 +87,6 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
       renderResizeMode();
       onRequestSaveStateUpdate();
     });
-  }
-
-  presetApply.addEventListener('click', () => {
-    const selected = getDraftBookmarkPresets().find(preset => preset.id === presetSelect.value);
-    if (!selected) return;
-    replaceDraftBookmarkDefault(normalizeBookmarkPreset(selected.style));
-    onRequestSaveStateUpdate();
-  });
-
-  presetDelete.addEventListener('click', () => {
-    const presets = getDraftBookmarkPresets().filter(preset => preset.id !== presetSelect.value);
-    replaceDraftBookmarkPresets(presets);
-    renderPresetOptions();
-    onRequestSaveStateUpdate();
-  });
-
-  function renderPresetOptions(selectedId) {
-    const presets = getDraftBookmarkPresets();
-    presetSelect.replaceChildren();
-
-    if (!presets.length) {
-      const option = new Option(t('settingsModal.bookmark.presets.empty'), '');
-      presetSelect.add(option);
-    } else {
-      for (const preset of presets) presetSelect.add(new Option(preset.name, preset.id));
-      presetSelect.value = selectedId && presets.some(preset => preset.id === selectedId)
-        ? selectedId
-        : presets[0].id;
-    }
-
-    presetSelect.disabled = presets.length === 0;
-    refreshCustomSelect(presetSelect);
-    presetApply.disabled = presets.length === 0;
-    presetDelete.disabled = presets.length === 0;
   }
 
   function renderDragMode() {
@@ -198,7 +136,6 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
   function syncUI() {
     renderDragMode();
     renderResizeMode();
-    renderPresetOptions();
     onRequestSaveStateUpdate();
   }
 

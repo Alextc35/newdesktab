@@ -7,6 +7,18 @@ export function initCustomSelect(select) {
   if (instances.has(select)) return instances.get(select);
 
   const labels = [...(select.labels ?? [])];
+  const originalSelectState = {
+    id: select.getAttribute('id'),
+    tabIndex: select.getAttribute('tabindex'),
+    ariaHidden: select.getAttribute('aria-hidden'),
+    className: select.className
+  };
+  const originalLabelState = labels.map(label => ({
+    label,
+    id: label.getAttribute('id'),
+    htmlFor: label.getAttribute('for')
+  }));
+  const listenerController = new AbortController();
   const id = select.id || `settings-select-${++generatedId}`;
   if (!select.id) select.id = id;
 
@@ -251,9 +263,11 @@ export function initCustomSelect(select) {
     }
   }
 
-  trigger.addEventListener('click', () => (isOpen ? close() : open()));
-  trigger.addEventListener('keydown', onKeyDown);
-  select.addEventListener('change', sync);
+  trigger.addEventListener('click', () => (isOpen ? close() : open()), {
+    signal: listenerController.signal
+  });
+  trigger.addEventListener('keydown', onKeyDown, { signal: listenerController.signal });
+  select.addEventListener('change', sync, { signal: listenerController.signal });
 
   function onOutsidePointer(event) {
     const isInside = wrapper.contains(event.target)
@@ -265,9 +279,15 @@ export function initCustomSelect(select) {
     if (event?.type === 'scroll' && (event.target === menu || menu.contains(event.target))) return;
     if (isOpen) close();
   }
-  document.addEventListener('pointerdown', onOutsidePointer, true);
-  document.addEventListener('scroll', onViewportChange, true);
-  window.addEventListener('resize', onViewportChange);
+  document.addEventListener('pointerdown', onOutsidePointer, {
+    capture: true,
+    signal: listenerController.signal
+  });
+  document.addEventListener('scroll', onViewportChange, {
+    capture: true,
+    signal: listenerController.signal
+  });
+  window.addEventListener('resize', onViewportChange, { signal: listenerController.signal });
 
   const observer = new MutationObserver(sync);
   observer.observe(select, {
@@ -278,10 +298,35 @@ export function initCustomSelect(select) {
     attributeFilter: ['aria-describedby', 'aria-label', 'disabled', 'hidden', 'label', 'selected']
   });
 
-  const instance = { close, refresh: sync };
+  function destroy() {
+    close();
+    window.clearTimeout(searchTimer);
+    observer.disconnect();
+    listenerController.abort();
+    menu.remove();
+    wrapper.before(select);
+    wrapper.remove();
+
+    select.className = originalSelectState.className;
+    restoreAttribute(select, 'id', originalSelectState.id);
+    restoreAttribute(select, 'tabindex', originalSelectState.tabIndex);
+    restoreAttribute(select, 'aria-hidden', originalSelectState.ariaHidden);
+    for (const { label, id: labelId, htmlFor } of originalLabelState) {
+      restoreAttribute(label, 'id', labelId);
+      restoreAttribute(label, 'for', htmlFor);
+    }
+    instances.delete(select);
+  }
+
+  const instance = { close, refresh: sync, destroy };
   instances.set(select, instance);
   sync();
   return instance;
+}
+
+function restoreAttribute(element, name, value) {
+  if (value === null) element.removeAttribute(name);
+  else element.setAttribute(name, value);
 }
 
 /** Refreshes the visible value after a settings controller updates select.value. */

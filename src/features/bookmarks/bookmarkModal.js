@@ -1,8 +1,12 @@
 import { getState, waitForPersistence } from '../../state/appStore.js';
-import { createBookmarkDraft } from '../../domain/bookmarks/bookmarkModel.js';
+import {
+  createBookmarkDraft,
+  normalizeBookmarkPreset
+} from '../../domain/bookmarks/bookmarkModel.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { findFirstFreeSlot } from '../../shared/grid/gridPlacement.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
+import { initCustomSelect, refreshCustomSelect } from '../../shared/ui/customSelect.js';
 import { flashSuccess } from '../../shared/ui/flash.js';
 import { getMaxVisibleCols, getMaxVisibleRows } from '../grid/gridLayout.js';
 import {
@@ -37,6 +41,11 @@ let form = null;
 
 /** @type {((preset: BookmarkPreset) => void)|null} */
 let applyPreset = null;
+
+/** @type {{getPresets: () => BookmarkPreset[], replacePresets: (presets: BookmarkPreset[]) => void, onPresetsChange?: () => void}|null} */
+let presetLibrary = null;
+let presetLibraryAbortController = null;
+let presetLibrarySelectInstance = null;
 
 let submitting = false;
 let registered = false;
@@ -113,15 +122,23 @@ export function openEditBookmark(bookmarkId) {
  * @param {Partial<BookmarkPreset>} preset
  * @param {Object} options
  * @param {(preset: BookmarkPreset) => void} options.onApply
+ * @param {() => BookmarkPreset[]} options.getPresets
+ * @param {(presets: BookmarkPreset[]) => void} options.replacePresets
+ * @param {() => void} [options.onPresetsChange]
  */
-export function openBookmarkPresetEditor(preset, { onApply } = {}) {
+export function openBookmarkPresetEditor(preset, options = {}) {
   if (!ensurePanelFits()) return;
+  const { onApply, getPresets, replacePresets, onPresetsChange } = options;
   if (typeof onApply !== 'function') {
     throw new TypeError('Preset editor requires an onApply callback');
+  }
+  if (typeof getPresets !== 'function' || typeof replacePresets !== 'function') {
+    throw new TypeError('Preset editor requires preset library callbacks');
   }
 
   editingId = null;
   applyPreset = onApply;
+  presetLibrary = { getPresets, replacePresets, onPresetsChange };
   openBookmarkModal('preset', structuredClone(preset));
 }
 
@@ -131,6 +148,7 @@ export function openBookmarkPresetEditor(preset, { onApply } = {}) {
  */
 function openBookmarkModal(nextMode, bookmark) {
   mode = nextMode;
+  destroyPresetLibraryControls();
   form?.destroy();
   form = createBookmarkEditorPanel({
     host: modalHost,
@@ -158,6 +176,7 @@ function openBookmarkModal(nextMode, bookmark) {
   );
 
   setAddCompactMode(nextMode === 'add');
+  if (nextMode === 'preset') initPresetLibraryControls();
   updateSaveButtonState();
   form.activateDefaultTab();
 
@@ -166,6 +185,87 @@ function openBookmarkModal(nextMode, bookmark) {
     onCancel: handleCancel,
     initialFocus: form.elements.name ?? form.elements.backgroundColor
   });
+}
+
+function initPresetLibraryControls() {
+  const library = form?.root.querySelector('[data-bookmark-preset-library]');
+  const nameInput = library?.querySelector('[data-preset-name]');
+  const select = library?.querySelector('[data-preset-select]');
+  const saveButton = library?.querySelector('[data-preset-save]');
+  const applyButton = library?.querySelector('[data-preset-apply]');
+  const deleteButton = library?.querySelector('[data-preset-delete]');
+  if (!library || !nameInput || !select || !saveButton || !applyButton || !deleteButton) return;
+
+  library.hidden = false;
+  presetLibraryAbortController = new AbortController();
+  presetLibrarySelectInstance = initCustomSelect(select);
+  const { signal } = presetLibraryAbortController;
+
+  nameInput.addEventListener('input', () => nameInput.setCustomValidity(''), { signal });
+  saveButton.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    if (!name) {
+      nameInput.setCustomValidity(t('validation.preset.name'));
+      nameInput.reportValidity();
+      return;
+    }
+
+    nameInput.setCustomValidity('');
+    const presets = structuredClone(presetLibrary.getPresets());
+    const preset = {
+      id: crypto.randomUUID(),
+      name,
+      style: normalizeBookmarkPreset(form.getState())
+    };
+    presets.push(preset);
+    presetLibrary.replacePresets(presets);
+    nameInput.value = '';
+    renderPresetLibraryOptions(select, applyButton, deleteButton, preset.id);
+    presetLibrary.onPresetsChange?.();
+  }, { signal });
+
+  applyButton.addEventListener('click', () => {
+    const selected = presetLibrary.getPresets().find(preset => preset.id === select.value);
+    if (!selected) return;
+    form.setValue(normalizeBookmarkPreset(selected.style));
+    updateSaveButtonState();
+  }, { signal });
+
+  deleteButton.addEventListener('click', () => {
+    const presets = presetLibrary.getPresets()
+      .filter(preset => preset.id !== select.value);
+    presetLibrary.replacePresets(presets);
+    renderPresetLibraryOptions(select, applyButton, deleteButton);
+    presetLibrary.onPresetsChange?.();
+  }, { signal });
+
+  renderPresetLibraryOptions(select, applyButton, deleteButton);
+}
+
+function renderPresetLibraryOptions(select, applyButton, deleteButton, selectedId) {
+  const presets = presetLibrary.getPresets();
+  select.replaceChildren();
+
+  if (!presets.length) {
+    select.add(new Option(t('settingsModal.bookmark.presets.empty'), ''));
+  } else {
+    for (const preset of presets) select.add(new Option(preset.name, preset.id));
+    select.value = selectedId && presets.some(preset => preset.id === selectedId)
+      ? selectedId
+      : presets[0].id;
+  }
+
+  select.disabled = presets.length === 0;
+  refreshCustomSelect(select);
+  applyButton.disabled = presets.length === 0;
+  deleteButton.disabled = presets.length === 0;
+}
+
+function destroyPresetLibraryControls() {
+  presetLibraryAbortController?.abort();
+  presetLibraryAbortController = null;
+  presetLibrarySelectInstance?.destroy();
+  presetLibrarySelectInstance = null;
 }
 
 function getCurrentFormState() {
@@ -333,10 +433,12 @@ function resetAddForm() {
 }
 
 function closeBookmarkModal() {
+  destroyPresetLibraryControls();
   modal.classList.remove('is-add-compact');
   densityToggle.classList.add('is-hidden');
   mode = null;
   editingId = null;
   applyPreset = null;
+  presetLibrary = null;
   closeModal('bookmark-modal');
 }
