@@ -7,7 +7,7 @@ import { t } from '../../platform/i18n/i18n.js';
 import { findFirstFreeSlot } from '../../shared/grid/gridPlacement.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { initCustomSelect, refreshCustomSelect } from '../../shared/ui/customSelect.js';
-import { flashSuccess } from '../../shared/ui/flash.js';
+import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { getMaxVisibleCols, getMaxVisibleRows } from '../grid/gridLayout.js';
 import {
   closeModal,
@@ -121,7 +121,7 @@ export function openEditBookmark(bookmarkId) {
  *
  * @param {Partial<BookmarkPreset>} preset
  * @param {Object} options
- * @param {(preset: BookmarkPreset) => void} options.onApply
+ * @param {(preset: BookmarkPreset) => void|Promise<void>} options.onApply
  * @param {() => BookmarkPreset[]} options.getPresets
  * @param {(presets: BookmarkPreset[]) => void} options.replacePresets
  * @param {() => void} [options.onPresetsChange]
@@ -297,7 +297,7 @@ async function handleAccept() {
   } else if (mode === 'edit') {
     await handleEditAccept();
   } else {
-    handlePresetAccept();
+    await handlePresetAccept();
   }
 }
 
@@ -382,14 +382,25 @@ async function handleEditAccept() {
   closeBookmarkModal();
 }
 
-function handlePresetAccept() {
-  if (!hasChanges()) return;
+async function handlePresetAccept() {
+  if (!hasChanges() || submitting) return;
 
   const validation = form.validate();
   if (!validation.isValid) return;
 
-  applyPreset?.(validation.value);
-  closeBookmarkModal();
+  submitting = true;
+  modalSave.disabled = true;
+
+  try {
+    await applyPreset?.(validation.value);
+    closeBookmarkModal();
+  } catch (error) {
+    console.error('[BOOKMARK] Could not apply default bookmark style:', error);
+    flashError('flash.settings.bookmarkDefaultError');
+  } finally {
+    submitting = false;
+    if (mode === 'preset') updateSaveButtonState();
+  }
 }
 
 async function handleCancel() {

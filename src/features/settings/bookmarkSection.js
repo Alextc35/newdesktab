@@ -1,10 +1,13 @@
 import { showAlert } from '../../shared/ui/alertModal.js';
+import { flashSuccess } from '../../shared/ui/flash.js';
 import { openBookmarkPresetEditor } from '../bookmarks/bookmarkModal.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
 import { deleteAllBookmarks } from '../bookmarks/bookmarkDestructiveActions.js';
 import { initImportExportButtons } from '../bookmarks/bookmarkImportExport.js';
+import { getState } from '../../state/appStore.js';
 import {
+  commitDraftBookmarkDefault,
   getDraftBookmarkDefault,
   getDraftBookmarkDragMode,
   getDraftBookmarkPresets,
@@ -14,6 +17,7 @@ import {
   setDraftBookmarkDragMode,
   setDraftBookmarkResizeMode
 } from './settingsDraft.js';
+import { updateSettings } from './settingsActions.js';
 
 /**
  * Initializes the bookmark settings section.
@@ -50,9 +54,15 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
 
   bookmarkConfigureBtn.addEventListener('click', () => {
     openBookmarkPresetEditor(getDraftBookmarkDefault(), {
-      onApply: preset => {
-        replaceDraftBookmarkDefault(preset);
+      onApply: async preset => {
+        await updateSettings({ bookmarkDefault: preset });
+        if (getState().ui.persistence.status === 'error') {
+          throw new Error('Could not persist the default bookmark style.');
+        }
+
+        commitDraftBookmarkDefault(preset);
         onRequestSaveStateUpdate();
+        flashSuccess('flash.settings.bookmarkDefaultSaved');
       },
       getPresets: getDraftBookmarkPresets,
       replacePresets: replaceDraftBookmarkPresets,

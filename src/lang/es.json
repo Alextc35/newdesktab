@@ -103,6 +103,8 @@
     },
     "settings": {
       "saved": "Configuración guardada",
+      "bookmarkDefaultSaved": "Aspecto del favorito por defecto guardado",
+      "bookmarkDefaultError": "No se pudo guardar el aspecto del favorito por defecto",
       "copied": "Valor copiado al portapapeles",
       "resetBg": "Tema restablecido",
       "deletedAllData": "Todos los datos locales de NewDeskTab eliminados",

@@ -103,6 +103,8 @@
     },
     "settings": {
       "saved": "Configurações salvas",
+      "bookmarkDefaultSaved": "Aparência do favorito padrão salva",
+      "bookmarkDefaultError": "Não foi possível salvar a aparência do favorito padrão",
       "copied": "Valor copiado para a área de transferência",
       "resetBg": "Tema restaurado",
       "deletedAllData": "Todos os dados locais do NewDeskTab foram excluídos",

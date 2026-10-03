@@ -103,6 +103,8 @@
     },
     "settings": {
       "saved": "Settings saved",
+      "bookmarkDefaultSaved": "Default bookmark appearance saved",
+      "bookmarkDefaultError": "Could not save the default bookmark appearance",
       "copied": "Value copied to clipboard",
       "resetBg": "Theme reset",
       "deletedAllData": "All local NewDeskTab data deleted",

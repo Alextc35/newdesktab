@@ -285,6 +285,19 @@ export function replaceDraftBookmarkDefault(newBookmarkDefault) {
   draftBookmarkDefault = structuredClone(newBookmarkDefault);
 }
 
+/**
+ * Commits the bookmark default that was persisted independently of the
+ * settings modal's other draft changes.
+ *
+ * @param {Object} newBookmarkDefault
+ */
+export function commitDraftBookmarkDefault(newBookmarkDefault) {
+  draftBookmarkDefault = structuredClone(newBookmarkDefault);
+  if (initialSnapshot) {
+    initialSnapshot.bookmarkDefault = structuredClone(newBookmarkDefault);
+  }
+}
+
 export function replaceDraftBookmarkPresets(presets) {
   draftBookmarkPresets = structuredClone(presets);
 }
