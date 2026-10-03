@@ -83,7 +83,22 @@ input[data-app-color-picker]:disabled {
   stroke-width: 2;
 }
 
-.app-color-picker-close { font-size: 20px; line-height: 1; }
+.app-color-picker-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.app-color-picker-close svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
 
 .app-color-picker-field {
   position: relative;

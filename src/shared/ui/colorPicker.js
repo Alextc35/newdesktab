@@ -58,7 +58,7 @@ export function initCustomColorPicker(input) {
   const closeButton = document.createElement('button');
   closeButton.type = 'button';
   closeButton.className = 'app-color-picker-close';
-  closeButton.textContent = '×';
+  closeButton.append(createCloseIcon());
   closeButton.setAttribute('aria-label', t('colorPicker.close'));
 
   headerActions.append(sampleButton, closeButton);
@@ -494,6 +494,17 @@ function createPipetteIcon() {
   svg.setAttribute('aria-hidden', 'true');
   const path = document.createElementNS(namespace, 'path');
   path.setAttribute('d', 'm2 22 1-1h3l9-9M3 21v-3l9-9m2-3 4-4 4 4-4 4m-5-1 4 4');
+  svg.append(path);
+  return svg;
+}
+
+function createCloseIcon() {
+  const namespace = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(namespace, 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('aria-hidden', 'true');
+  const path = document.createElementNS(namespace, 'path');
+  path.setAttribute('d', 'M6 6l12 12M18 6 6 18');
   svg.append(path);
   return svg;
 }
