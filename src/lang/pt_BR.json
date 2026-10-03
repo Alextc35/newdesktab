@@ -619,10 +619,12 @@
       },
       "presets": {
         "title": "Biblioteca de estilos",
+        "tab": "Biblioteca",
+        "description": "Salve estilos e reutilize-os ao configurar o favorito padrão.",
         "name": "Nome do estilo",
         "saved": "Estilos salvos",
         "save": "Salvar estilo",
-        "apply": "Usar",
+        "apply": "Carregar",
         "delete": "Excluir",
         "empty": "Não há estilos salvos"
       }

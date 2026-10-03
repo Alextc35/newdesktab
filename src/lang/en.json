@@ -619,10 +619,12 @@
       },
       "presets": {
         "title": "Style library",
+        "tab": "Library",
+        "description": "Save styles and reuse them when setting up the default bookmark.",
         "name": "Preset name",
         "saved": "Saved presets",
         "save": "Save preset",
-        "apply": "Use",
+        "apply": "Load",
         "delete": "Delete",
         "empty": "No saved presets"
       }

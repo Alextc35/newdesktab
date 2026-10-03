@@ -9,7 +9,7 @@ import { initTabs } from '../../shared/ui/tabs.js';
 import { createBookmarkEditor } from './bookmarkEditor.js';
 
 const TEMPLATE_ID = 'bookmark-form-template';
-const ALL_SECTIONS = Object.freeze(['general', 'style', 'text', 'icon']);
+const ALL_SECTIONS = Object.freeze(['general', 'style', 'text', 'icon', 'presets']);
 const VALID_MODES = new Set(['create', 'edit', 'preset']);
 let instanceCount = 0;
 
@@ -179,9 +179,12 @@ export function createBookmarkEditorPanel({
 }
 
 function resolveSections(mode, sections) {
+  const availableSections = mode === 'preset'
+    ? ALL_SECTIONS.filter(section => section !== 'general')
+    : ALL_SECTIONS.filter(section => section !== 'presets');
   const requested = Array.isArray(sections)
-    ? sections.filter(section => ALL_SECTIONS.includes(section))
-    : (mode === 'preset' ? ALL_SECTIONS.filter(section => section !== 'general') : ALL_SECTIONS);
+    ? sections.filter(section => availableSections.includes(section))
+    : availableSections;
 
   return requested.length ? [...new Set(requested)] : ['style'];
 }

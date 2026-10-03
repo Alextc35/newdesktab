@@ -606,14 +606,42 @@
 }
 
 .preset-library {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px solid var(--ui-hover);
+  display: grid;
+  width: 100%;
+  align-content: start;
+  gap: 16px;
 }
 
-.preset-library h3 {
+.preset-library-heading {
+  display: grid;
+  gap: 6px;
+}
+
+.preset-library-heading h3 {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
+}
+
+.preset-library-heading p {
+  margin: 0;
+  color: var(--ui-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.preset-library-card {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--ui-border);
+  border-radius: 10px;
+  background: var(--ui-card);
+}
+
+.preset-library-label {
+  color: var(--ui-muted);
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .preset-create-row,
@@ -630,11 +658,17 @@
 
 .preset-library :is(input, .custom-select-trigger) {
   min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
   padding: 8px 10px;
   border: 1px solid var(--ui-border);
   border-radius: 8px;
   background: var(--ui-input);
   color: var(--ui-text);
+}
+
+.preset-library .btn {
+  white-space: nowrap;
 }
 
 .settings-section-description {

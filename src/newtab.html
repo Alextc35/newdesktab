@@ -1264,6 +1264,11 @@
                 type="button"
                 data-i18n="editModal.sections.icon">Icono
         </button>
+        <button data-tab-button="presets"
+                class="edit-bookmark-modal-tab-btn"
+                type="button"
+                data-i18n="settingsModal.bookmark.presets.tab">Biblioteca
+        </button>
       </div>
       <div class="edit-bookmark-modal-layout">
         <div class="edit-bookmark-modal-panel">
@@ -1356,28 +1361,6 @@
               <input data-field="invertBg" type="checkbox">
               <label data-i18n="editModal.invertColorBg">Invertir colores</label>
             </div>
-            <section class="preset-library" data-bookmark-preset-library
-              aria-labelledby="bookmark-preset-library-title" hidden>
-              <h3 id="bookmark-preset-library-title"
-                data-i18n="settingsModal.bookmark.presets.title">Biblioteca de estilos</h3>
-              <div class="preset-create-row">
-                <label class="is-hidden" for="bookmark-preset-name"
-                  data-i18n="settingsModal.bookmark.presets.name">Nombre del estilo</label>
-                <input id="bookmark-preset-name" data-preset-name type="text" maxlength="40"
-                  data-i18n="settingsModal.bookmark.presets.name" placeholder="Nombre del estilo">
-                <button data-preset-save class="btn btn-primary" type="button"
-                  data-i18n="settingsModal.bookmark.presets.save">Guardar estilo</button>
-              </div>
-              <div class="preset-manage-row">
-                <label class="is-hidden" for="bookmark-preset-select"
-                  data-i18n="settingsModal.bookmark.presets.saved">Estilos guardados</label>
-                <select id="bookmark-preset-select" data-preset-select data-custom-select></select>
-                <button data-preset-apply class="btn btn-secondary" type="button"
-                  data-i18n="settingsModal.bookmark.presets.apply">Usar</button>
-                <button data-preset-delete class="btn btn-danger" type="button"
-                  data-i18n="settingsModal.bookmark.presets.delete">Eliminar</button>
-              </div>
-            </section>
           </div>
           <div data-tab-panel="text"
               class="modal-field edit-bookmark-modal-tab-content is-hidden custom-scrollbar">
@@ -1404,6 +1387,39 @@
               <input data-field="invertIcon" type="checkbox">
               <label data-i18n="editModal.invertColorIcon">Invertir colores</label>
             </div>
+          </div>
+          <div data-tab-panel="presets"
+              class="modal-field edit-bookmark-modal-tab-content preset-library-panel is-hidden custom-scrollbar">
+            <section class="preset-library" data-bookmark-preset-library
+              aria-labelledby="bookmark-preset-library-title">
+              <div class="preset-library-heading">
+                <h3 id="bookmark-preset-library-title"
+                  data-i18n="settingsModal.bookmark.presets.title">Biblioteca de estilos</h3>
+                <p data-i18n="settingsModal.bookmark.presets.description">
+                  Guarda estilos y reutilízalos al configurar el favorito por defecto.
+                </p>
+              </div>
+              <div class="preset-library-card">
+                <label class="preset-library-label" for="bookmark-preset-name"
+                  data-i18n="settingsModal.bookmark.presets.name">Nombre del estilo</label>
+                <div class="preset-create-row">
+                  <input id="bookmark-preset-name" data-preset-name type="text" maxlength="40">
+                  <button data-preset-save class="btn btn-primary" type="button"
+                    data-i18n="settingsModal.bookmark.presets.save">Guardar estilo</button>
+                </div>
+              </div>
+              <div class="preset-library-card">
+                <label class="preset-library-label" for="bookmark-preset-select"
+                  data-i18n="settingsModal.bookmark.presets.saved">Estilos guardados</label>
+                <div class="preset-manage-row">
+                  <select id="bookmark-preset-select" data-preset-select data-custom-select></select>
+                  <button data-preset-apply class="btn btn-secondary" type="button"
+                    data-i18n="settingsModal.bookmark.presets.apply">Usar</button>
+                  <button data-preset-delete class="btn btn-danger" type="button"
+                    data-i18n="settingsModal.bookmark.presets.delete">Eliminar</button>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
         <div class="edit-bookmark-modal-preview-panel">
