@@ -528,7 +528,7 @@
         "loading": "Verificando dados sincronizados…",
         "updatedAt": "Última atualização sincronizada: {{date}}",
         "unknown": "Existem dados sincronizados, mas o horário da atualização não está disponível.",
-        "empty": "Não há dados sincronizados do NewDeskTab armazenados.",
+        "empty": "Não há dados sincronizados do New DeskTab armazenados.",
         "error": "Não foi possível carregar as informações dos dados sincronizados."
       },
       "status": {

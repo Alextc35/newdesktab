@@ -528,7 +528,7 @@
         "loading": "Checking synchronized data…",
         "updatedAt": "Last synchronized update: {{date}}",
         "unknown": "Synchronized data exists, but its update time is unavailable.",
-        "empty": "No synchronized NewDeskTab data is stored.",
+        "empty": "No synchronized New DeskTab data is stored.",
         "error": "Synchronized data information could not be loaded."
       },
       "status": {
