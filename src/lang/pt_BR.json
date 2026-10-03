@@ -132,10 +132,10 @@
     "backup": {
       "exported": "Backup exportado",
       "exportError": "Não foi possível exportar o backup",
-      "mediaUnavailable": "Algumas imagens locais referenciadas não estão disponíveis; o backup não foi criado.",
+      "mediaUnavailable": "Algumas imagens ou vídeos locais referenciados não estão disponíveis; o backup não foi criado.",
       "imported": "Backup restaurado",
       "importError": "Não foi possível restaurar o backup",
-      "mediaStorageFull": "Não há espaço local suficiente para restaurar as imagens do backup."
+      "mediaStorageFull": "Não há espaço local suficiente para restaurar as imagens e os vídeos do backup."
     }
   },
   "view": {
@@ -451,7 +451,6 @@
       "title": "Geral",
       "subtitle": "Configurações",
       "export": "Exportar backup",
-      "backupHint": "Os backups incluem as imagens locais usadas pelos seus dados. Vídeos locais não são incluídos.",
       "import": "Restaurar backup",
       "resetSettings": "Restaurar configurações",
       "deleteAllData": "Excluir todos os dados locais",

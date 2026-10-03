@@ -9,20 +9,25 @@ import {
   exportReferencedLocalImages,
   restoreReferencedLocalImages
 } from '../../platform/images/localImages.js';
+import {
+  exportReferencedLocalVideos,
+  restoreReferencedLocalVideos
+} from '../../platform/images/localVideos.js';
 import { ensureRecycleBinPosition } from '../recycle-bin/recycleBinActions.js';
 
 export async function exportBackup() {
   try {
     const data = getState().data;
     const localImages = await exportReferencedLocalImages(data);
+    const localVideos = await exportReferencedLocalVideos(data);
     downloadJson(
-      createBackupEnvelope(data, { localImages }),
+      createBackupEnvelope(data, { localImages, localVideos }),
       `newdesktab-backup-${new Date().toISOString().slice(0, 10)}.json`
     );
     flashSuccess('flash.backup.exported');
   } catch (error) {
     console.error('[BACKUP] Export failed:', error);
-    flashError(error?.code === 'LOCAL_IMAGE_MISSING'
+    flashError(['LOCAL_IMAGE_MISSING', 'LOCAL_VIDEO_MISSING'].includes(error?.code)
       ? 'flash.backup.mediaUnavailable'
       : 'flash.backup.exportError');
   }
@@ -42,13 +47,17 @@ export async function importBackup(file) {
       data,
       payload?.format === 'newdesktab-backup' ? payload.localImages : undefined
     );
+    await restoreReferencedLocalVideos(
+      data,
+      payload?.format === 'newdesktab-backup' ? payload.localVideos : undefined
+    );
     await setState({ data });
     ensureRecycleBinPosition();
     flashSuccess('flash.backup.imported');
     return true;
   } catch (error) {
     console.error('[BACKUP] Import failed:', error);
-    flashError(error?.code === 'LOCAL_IMAGE_STORAGEFULL'
+    flashError(['LOCAL_IMAGE_STORAGEFULL', 'LOCAL_VIDEO_STORAGEFULL'].includes(error?.code)
       ? 'flash.backup.mediaStorageFull'
       : 'flash.backup.importError');
     return false;

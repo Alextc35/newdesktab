@@ -4,6 +4,11 @@ const DATABASE = 'newdesktab-local-videos';
 const STORE = 'videos';
 const MAX_VIDEO_BYTES = 200 * 1024 * 1024;
 const TYPES = new Set(['video/mp4', 'video/webm', 'video/ogg']);
+const BASE64_ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+const BASE64_LOOKUP = new Int16Array(128).fill(-1);
+for (let index = 0; index < BASE64_ALPHABET.length; index += 1) {
+  BASE64_LOOKUP[BASE64_ALPHABET.charCodeAt(index)] = index;
+}
 const urls = new Map();
 const names = new Map();
 
@@ -23,8 +28,10 @@ async function withStore(mode, action) {
       const transaction = database.transaction(STORE, mode);
       const request = action(transaction.objectStore(STORE));
       let result;
-      request.onsuccess = () => { result = request.result; };
-      request.onerror = () => reject(request.error);
+      if (request) {
+        request.onsuccess = () => { result = request.result; };
+        request.onerror = () => reject(request.error);
+      }
       transaction.oncomplete = () => resolve(result);
       transaction.onerror = () => reject(transaction.error);
       transaction.onabort = () => reject(transaction.error);
@@ -63,6 +70,71 @@ export async function preloadLocalVideoReferences(references) {
     if (!(record?.blob instanceof Blob)) continue;
     urls.set(reference, URL.createObjectURL(record.blob));
     names.set(reference, record.name || 'Video');
+  }
+}
+
+/** Exports only video files referenced by the supplied application data. */
+export async function exportReferencedLocalVideos(data) {
+  const references = [...collectLocalVideoReferences(data)];
+  const videos = {};
+
+  for (const reference of references) {
+    const stored = await withStore('readonly', store => store.get(reference));
+    if (!(stored?.blob instanceof Blob)
+      || !TYPES.has(stored.blob.type)
+      || !stored.blob.size
+      || stored.blob.size > MAX_VIDEO_BYTES) {
+      throw localVideoError('missing');
+    }
+    const name = typeof stored.name === 'string' ? stored.name.trim() : '';
+    if (name.length > 1024) {
+      throw localVideoError('missing');
+    }
+
+    videos[reference] = {
+      dataUrl: await readAsDataUrl(stored.blob),
+      ...(name ? { name } : {})
+    };
+  }
+
+  return videos;
+}
+
+/** Restores the videos referenced by a complete backup into this device's IndexedDB. */
+export async function restoreReferencedLocalVideos(data, backupVideos) {
+  if (backupVideos === undefined) return;
+  if (!backupVideos || typeof backupVideos !== 'object' || Array.isArray(backupVideos)) {
+    throw localVideoError('invalidBackup');
+  }
+
+  const restoredVideos = new Map();
+  for (const reference of collectLocalVideoReferences(data)) {
+    const stored = backupVideos[reference];
+    const name = typeof stored?.name === 'string' ? stored.name.trim() : '';
+    if (name.length > 1024) throw localVideoError('invalidBackup');
+    const blob = await decodeVideoDataUrl(stored?.dataUrl);
+    restoredVideos.set(reference, { blob, name });
+  }
+  if (!restoredVideos.size) return;
+
+  try {
+    await withStore('readwrite', store => {
+      for (const [reference, record] of restoredVideos) {
+        store.put(record, reference);
+      }
+      return null;
+    });
+  } catch (error) {
+    if (error?.name === 'QuotaExceededError') throw localVideoError('storageFull');
+    throw error;
+  }
+
+  for (const [reference, record] of restoredVideos) {
+    const previousUrl = urls.get(reference);
+    if (previousUrl) URL.revokeObjectURL(previousUrl);
+    urls.set(reference, URL.createObjectURL(record.blob));
+    if (record.name) names.set(reference, record.name);
+    else names.delete(reference);
   }
 }
 
@@ -111,4 +183,77 @@ export async function clearLocalVideos() {
   urls.clear();
   names.clear();
   await withStore('readwrite', store => store.clear());
+}
+
+function collectLocalVideoReferences(value, references = new Set()) {
+  if (isLocalVideoReference(value)) {
+    references.add(value);
+    return references;
+  }
+  if (Array.isArray(value)) {
+    for (const entry of value) collectLocalVideoReferences(entry, references);
+    return references;
+  }
+  if (!value || typeof value !== 'object') return references;
+  for (const entry of Object.values(value)) collectLocalVideoReferences(entry, references);
+  return references;
+}
+
+function readAsDataUrl(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => resolve(reader.result), { once: true });
+    reader.addEventListener('error', () => reject(reader.error), { once: true });
+    reader.readAsDataURL(blob);
+  });
+}
+
+async function decodeVideoDataUrl(value) {
+  const match = typeof value === 'string'
+    ? /^data:(video\/(?:mp4|webm|ogg));base64,([a-z\d+/]*={0,2})$/i.exec(value)
+    : null;
+  if (!match || match[2].length % 4 !== 0) throw localVideoError('invalidBackup');
+
+  const encoded = match[2];
+  const padding = encoded.endsWith('==') ? 2 : encoded.endsWith('=') ? 1 : 0;
+  const byteLength = (encoded.length / 4) * 3 - padding;
+  if (!byteLength || byteLength > MAX_VIDEO_BYTES) throw localVideoError('invalidBackup');
+
+  const bytes = new Uint8Array(byteLength);
+  let outputIndex = 0;
+  let nextYield = 4 * 1024 * 1024;
+  for (let index = 0; index < encoded.length; index += 4) {
+    const first = lookupBase64(encoded.charCodeAt(index));
+    const second = lookupBase64(encoded.charCodeAt(index + 1));
+    const thirdCode = encoded.charCodeAt(index + 2);
+    const fourthCode = encoded.charCodeAt(index + 3);
+    const third = thirdCode === 61 ? 0 : lookupBase64(thirdCode);
+    const fourth = fourthCode === 61 ? 0 : lookupBase64(fourthCode);
+    if (first < 0 || second < 0 || third < 0 || fourth < 0) {
+      throw localVideoError('invalidBackup');
+    }
+
+    bytes[outputIndex++] = (first << 2) | (second >> 4);
+    if (thirdCode !== 61) {
+      bytes[outputIndex++] = ((second & 15) << 4) | (third >> 2);
+      if (fourthCode !== 61) bytes[outputIndex++] = ((third & 3) << 6) | fourth;
+    }
+
+    if (outputIndex >= nextYield) {
+      await new Promise(resolve => setTimeout(resolve, 0));
+      nextYield = outputIndex + 4 * 1024 * 1024;
+    }
+  }
+
+  return new Blob([bytes], { type: match[1].toLowerCase() });
+}
+
+function lookupBase64(code) {
+  return code < BASE64_LOOKUP.length ? BASE64_LOOKUP[code] : -1;
+}
+
+function localVideoError(code) {
+  const error = new Error(`Local video ${code}`);
+  error.code = `LOCAL_VIDEO_${code.toUpperCase()}`;
+  return error;
 }

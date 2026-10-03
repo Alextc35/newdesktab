@@ -259,16 +259,17 @@ function normalizeNamedPresets(value) {
  * Creates the versioned envelope used for complete backups.
  *
  * @param {PersistedData} data
- * @param {{localImages?: Record<string, {dataUrl: string, name?: string}>}} [media]
- * @returns {{format: string, schemaVersion: number, exportedAt: string, data: PersistedData, localImages: Record<string, {dataUrl: string, name?: string}>}}
+ * @param {{localImages?: Record<string, {dataUrl: string, name?: string}>, localVideos?: Record<string, {dataUrl: string, name?: string}>}} [media]
+ * @returns {{format: string, schemaVersion: number, exportedAt: string, data: PersistedData, localImages: Record<string, {dataUrl: string, name?: string}>, localVideos: Record<string, {dataUrl: string, name?: string}>}}
  */
-export function createBackupEnvelope(data, { localImages = {} } = {}) {
+export function createBackupEnvelope(data, { localImages = {}, localVideos = {} } = {}) {
   return {
     format: 'newdesktab-backup',
     schemaVersion: DATA_SCHEMA_VERSION,
     exportedAt: new Date().toISOString(),
     data: migratePersistedData(data),
-    localImages
+    localImages,
+    localVideos
   };
 }
 
