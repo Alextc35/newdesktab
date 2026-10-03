@@ -148,11 +148,12 @@ function getLocalImageCategories(values) {
       continue;
     }
 
-    const category = slot.startsWith('trash:')
+    const category = slot.startsWith('trash:') || slot === 'recycleBin'
       ? 'trash'
       : slot === 'theme' || slot.startsWith('theme:') ? 'theme'
         : slot.startsWith('folder:') ? 'folder'
-          : 'bookmark';
+          : slot === 'bookmarkDefault' || slot.startsWith('bookmark:') || slot.startsWith('preset:') ? 'bookmark'
+            : 'other';
     const previous = categories.get(reference);
     categories.set(reference, !previous || previous === category ? category : 'other');
   }
@@ -505,7 +506,8 @@ async function writeSyncData(data) {
  *     folderBytes: number,
  *     trashBytes: number,
  *     otherBytes: number
- *   }
+ *   },
+ *   widgetBytes: number
  * }>}
  */
 async function getStorageUsage(mode) {
@@ -537,9 +539,13 @@ async function getStorageUsage(mode) {
         usedBytes
       )
     : undefined;
-  const imageBreakdown = mode === STORAGE_MODES.LOCAL
-    ? getLocalImageBreakdown(values, entryBytes, getLocalImageCategories(values))
+  const imageCategories = mode === STORAGE_MODES.LOCAL
+    ? getLocalImageCategories(values)
     : undefined;
+  const imageBreakdown = imageCategories
+    ? getLocalImageBreakdown(values, entryBytes, imageCategories)
+    : undefined;
+  const widgetBytes = getWidgetStorageBytes(mode, values, entryBytes);
 
   return {
     mode,
@@ -548,8 +554,29 @@ async function getStorageUsage(mode) {
     availableBytes: Math.max(0, quotaBytes - usedBytes),
     breakdown: reconcileStorageBreakdown(measuredBreakdown, usedBytes),
     ...(localBreakdown ? { localBreakdown } : {}),
-    ...(imageBreakdown ? { imageBreakdown } : {})
+    ...(imageBreakdown ? { imageBreakdown } : {}),
+    widgetBytes
   };
+}
+
+function getWidgetStorageBytes(mode, values, entryBytes) {
+  if (mode === STORAGE_MODES.SYNC && values[SYNC_META_KEY]) {
+    const payload = tryDecodeSyncPayload(values);
+    if (!Array.isArray(payload?.widgets) || !payload.widgets.length) return 0;
+
+    const withoutWidgets = Object.fromEntries(
+      Object.entries(payload).filter(([key]) => key !== 'widgets')
+    );
+    const chunkBytes = Object.keys(values)
+      .filter(key => key.startsWith(SYNC_CHUNK_PREFIX))
+      .reduce((sum, key) => sum + getMeasuredEntryBytes(entryBytes, key, values[key]), 0);
+    const estimatedBytes = getEscapedPayloadWeight(payload) - getEscapedPayloadWeight(withoutWidgets);
+    return Math.min(chunkBytes, Math.max(0, estimatedBytes));
+  }
+
+  return Array.isArray(values.widgets) && values.widgets.length
+    ? getMeasuredEntryBytes(entryBytes, 'widgets', values.widgets)
+    : 0;
 }
 
 function isNewDeskTabSyncKey(key) {

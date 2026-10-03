@@ -512,9 +512,8 @@
         "folderImages": "Pastas",
         "trashImages": "Lixeira",
         "otherImages": "Outras",
-        "localImagesHint": "Incluídas nos totais acima. As imagens remotas ocupam apenas o espaço necessário para o endereço.",
-        "localVideos": "Vídeos locais",
-        "localVideosHint": "Armazenados separadamente neste dispositivo; não incluídos nos totais acima nem sincronizados.",
+        "widgets": "Widgets",
+        "widgetsHint": "O tamanho dos widgets no Sync é aproximado e não inclui conteúdo dinâmico carregado de serviços externos.",
         "error": "Uso indisponível"
       },
       "browserSupport": {

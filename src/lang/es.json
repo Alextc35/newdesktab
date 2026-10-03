@@ -512,9 +512,8 @@
         "folderImages": "Carpetas",
         "trashImages": "Papelera",
         "otherImages": "Otras",
-        "localImagesHint": "Incluidas en los totales anteriores. Las imágenes remotas solo ocupan el texto de su dirección.",
-        "localVideos": "Vídeos locales",
-        "localVideosHint": "Guardados aparte en este dispositivo; no están incluidos en los totales anteriores ni se sincronizan.",
+        "widgets": "Widgets",
+        "widgetsHint": "El tamaño de los widgets en Sync es aproximado y no incluye el contenido dinámico de servicios externos.",
         "error": "Uso no disponible"
       },
       "browserSupport": {

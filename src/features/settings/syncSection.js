@@ -12,7 +12,6 @@ import {
   subscribe
 } from '../../state/appStore.js';
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
-import { getLocalVideoStorageBytes } from '../../platform/images/localVideos.js';
 import {
   getSyncBrowserSupport,
   SYNC_BROWSERS
@@ -115,16 +114,16 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
       progress: query('progress', '[role="progressbar"]'),
       imageBreakdown: query('imageBreakdown', '[data-storage-image-breakdown]'),
       imageTotal: query('imageTotal', '[data-storage-image-total]'),
-      videoUsage: query('videoUsage', '[data-storage-video-usage]'),
-      videoTotal: query('videoTotal', '[data-storage-video-total]'),
       segments: {
         system: query('systemSegment', '[data-storage-segment="system"]'),
+        widgets: query('widgetsSegment', '[data-storage-segment="widgets"]'),
         bookmarks: query('bookmarksSegment', '[data-storage-segment="bookmarks"]'),
         synced: query('syncedSegment', '[data-storage-segment="synced"]'),
         trash: query('trashSegment', '[data-storage-segment="trash"]')
       },
       categoryValues: {
         system: query('systemValue', '[data-storage-category="system"]'),
+        widgets: query('widgetsValue', '[data-storage-category="widgets"]'),
         bookmarks: query('bookmarksValue', '[data-storage-category="bookmarks"]'),
         synced: query('syncedValue', '[data-storage-category="synced"]'),
         trash: query('trashValue', '[data-storage-category="trash"]')
@@ -162,8 +161,7 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
   let storageUsageError = false;
   let localStorageUsage = null;
   let localStorageUsageError = false;
-  let localVideoBytes = null;
-  let localVideoUsageError = false;
+  let localImageUsageError = false;
   let usageRequestId = 0;
   let isDeleting = false;
   let observedStorageMode = getStorageMode();
@@ -280,8 +278,13 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
   function getUsageBreakdown(view, usage) {
     if (view.categoryValues.synced) {
       const localBreakdown = usage?.localBreakdown;
+      const systemBytes = localBreakdown?.localSystemBytes;
+      const widgetBytes = Number.isFinite(systemBytes) && Number.isFinite(usage?.widgetBytes)
+        ? Math.min(systemBytes, Math.max(0, usage.widgetBytes))
+        : undefined;
       return {
-        systemBytes: localBreakdown?.localSystemBytes,
+        systemBytes: Number.isFinite(widgetBytes) ? systemBytes - widgetBytes : systemBytes,
+        widgetBytes,
         syncedBytes: Number.isFinite(localBreakdown?.syncSystemBytes)
           && Number.isFinite(localBreakdown?.syncBookmarkBytes)
           ? localBreakdown.syncSystemBytes + localBreakdown.syncBookmarkBytes
@@ -290,8 +293,13 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
       };
     }
 
+    const systemBytes = usage?.breakdown?.systemBytes;
+    const widgetBytes = Number.isFinite(systemBytes) && Number.isFinite(usage?.widgetBytes)
+      ? Math.min(systemBytes, Math.max(0, usage.widgetBytes))
+      : undefined;
     return {
-      systemBytes: usage?.breakdown?.systemBytes,
+      systemBytes: Number.isFinite(widgetBytes) ? systemBytes - widgetBytes : systemBytes,
+      widgetBytes,
       bookmarkBytes: usage?.breakdown?.bookmarkBytes,
       trashBytes: usage?.breakdown?.trashBytes
     };
@@ -302,35 +310,47 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
     const categories = view.categoryValues.synced
       ? {
           system: breakdown?.systemBytes,
+          widgets: breakdown?.widgetBytes,
           synced: breakdown?.syncedBytes,
           trash: breakdown?.trashBytes
         }
       : {
           system: breakdown?.systemBytes,
+          widgets: breakdown?.widgetBytes,
           bookmarks: breakdown?.bookmarkBytes,
           trash: breakdown?.trashBytes
         };
 
-    view.segments.trash?.toggleAttribute('hidden', !showTrash);
-    view.categoryValues.trash?.closest('.storage-usage-legend-item')
-      ?.toggleAttribute('hidden', !showTrash);
-
     for (const [category, bytes] of Object.entries(categories)) {
       const hasValue = Number.isFinite(bytes);
+      const isEmpty = hasValue && bytes === 0;
+      const isHidden = (category === 'trash' && !showTrash) || isEmpty;
       const formattedBytes = hasValue ? formatStorageBytes(bytes) : '—';
       const percentage = hasValue && quotaBytes > 0
         ? Math.min(100, (bytes / quotaBytes) * 100)
         : 0;
       const segment = view.segments[category];
+      const legendItem = view.categoryValues[category]
+        ?.closest('.storage-usage-legend-item');
 
       if (segment) {
+        segment.toggleAttribute('hidden', isHidden);
         segment.style.width = `${percentage}%`;
         segment.title = hasValue
           ? `${t(`settingsModal.sync.usage.${category === 'synced' ? 'localSyncCopy' : category}`)}: ${formattedBytes}`
           : '';
       }
+      legendItem?.toggleAttribute('hidden', isHidden);
       if (view.categoryValues[category]) {
         view.categoryValues[category].textContent = formattedBytes;
+        if (category === 'widgets') {
+          const item = view.categoryValues[category].closest('.storage-usage-legend-item');
+          if (modeKey === 'sync') {
+            item?.setAttribute('title', t('settingsModal.sync.usage.widgetsHint'));
+          } else {
+            item?.removeAttribute('title');
+          }
+        }
       }
     }
   }
@@ -354,9 +374,8 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
     };
 
     if (view.imageTotal) {
-      view.imageTotal.textContent = Number.isFinite(imageBreakdown?.totalBytes)
-        ? formatStorageBytes(imageBreakdown.totalBytes)
-        : '—';
+      view.imageTotal.textContent = localImageUsageError ? '—'
+        : Number.isFinite(imageBreakdown?.totalBytes) ? formatStorageBytes(imageBreakdown.totalBytes) : '—';
     }
 
     for (const [category, bytes] of Object.entries(categories)) {
@@ -371,11 +390,7 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
   function renderStorageUsageView(view, modeKey, usage, usageError) {
     if (!view.item) return;
 
-    view.videoUsage?.toggleAttribute('hidden', modeKey !== 'local');
-    if (view.videoTotal && modeKey === 'local') {
-      view.videoTotal.textContent = localVideoUsageError ? '—'
-        : Number.isFinite(localVideoBytes) ? formatStorageBytes(localVideoBytes) : '…';
-    }
+    renderLocalImageBreakdown(view, usage?.imageBreakdown, modeKey === 'local');
 
     view.item.dataset.storageUsage = modeKey;
     if (view.mode) view.mode.textContent = t(`settingsModal.sync.usage.${modeKey}`);
@@ -389,7 +404,6 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
       if (view.available) view.available.textContent = '';
       setStorageProgress(view, 0);
       renderStorageBreakdown(view, null, 0, modeKey);
-      renderLocalImageBreakdown(view, null, modeKey === 'local');
       return;
     }
 
@@ -398,7 +412,6 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
       if (view.available) view.available.textContent = '';
       setStorageProgress(view, 0);
       renderStorageBreakdown(view, null, 0, modeKey);
-      renderLocalImageBreakdown(view, null, modeKey === 'local');
       return;
     }
 
@@ -421,7 +434,6 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
     }
     setStorageProgress(view, percentage);
     renderStorageBreakdown(view, getUsageBreakdown(view, usage), usage.quotaBytes, modeKey);
-    renderLocalImageBreakdown(view, usage.imageBreakdown, modeKey === 'local');
   }
 
   function renderStorageUsage() {
@@ -461,15 +473,11 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
     storageUsageError = false;
     localStorageUsage = null;
     localStorageUsageError = false;
-    localVideoBytes = null;
-    localVideoUsageError = false;
+    localImageUsageError = false;
     renderStorageUsage();
 
     const modes = modeKey === 'sync' ? ['sync', 'local'] : ['local'];
-    const results = await Promise.allSettled([
-      ...modes.map(mode => getStorageUsage(mode)),
-      getLocalVideoStorageBytes()
-    ]);
+    const results = await Promise.allSettled(modes.map(mode => getStorageUsage(mode)));
     if (requestId !== usageRequestId || modeKey !== getUsageDisplayMode()) return;
 
     const [activeResult, localResult] = results;
@@ -489,14 +497,12 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
       }
     }
 
-    const videoResult = results[modes.length];
-    if (videoResult.status === 'fulfilled') {
-      localVideoBytes = videoResult.value;
-    } else {
-      console.error('[SETTINGS] Could not read local video storage usage:', videoResult.reason);
-      localVideoUsageError = true;
+    const localUsageResult = modeKey === 'sync' ? localResult : activeResult;
+    if (localUsageResult.status !== 'fulfilled') {
+      localImageUsageError = true;
     }
 
+    if (requestId !== usageRequestId || modeKey !== getUsageDisplayMode()) return;
     renderStorageUsage();
   }
 

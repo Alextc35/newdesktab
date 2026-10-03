@@ -512,9 +512,8 @@
         "folderImages": "Folders",
         "trashImages": "Recycle bin",
         "otherImages": "Other",
-        "localImagesHint": "Included in the totals above. Remote images only use the space required by their address.",
-        "localVideos": "Local videos",
-        "localVideosHint": "Stored separately on this device; not included in the totals above and not synced.",
+        "widgets": "Widgets",
+        "widgetsHint": "The size shown for Sync is an estimate and excludes live content fetched from external services.",
         "error": "Usage unavailable"
       },
       "browserSupport": {
