@@ -505,6 +505,7 @@
         "available": "{{free}} available",
         "system": "System and metadata",
         "bookmarks": "Bookmarks",
+        "folders": "Folders",
         "trash": "Recycle bin data",
         "localImages": "Local images",
         "themeImages": "Theme",

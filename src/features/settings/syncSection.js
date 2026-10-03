@@ -116,6 +116,7 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
       imageTotal: query('imageTotal', '[data-storage-image-total]'),
       segments: {
         system: query('systemSegment', '[data-storage-segment="system"]'),
+        folders: query('foldersSegment', '[data-storage-segment="folders"]'),
         widgets: query('widgetsSegment', '[data-storage-segment="widgets"]'),
         bookmarks: query('bookmarksSegment', '[data-storage-segment="bookmarks"]'),
         synced: query('syncedSegment', '[data-storage-segment="synced"]'),
@@ -123,6 +124,7 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
       },
       categoryValues: {
         system: query('systemValue', '[data-storage-category="system"]'),
+        folders: query('foldersValue', '[data-storage-category="folders"]'),
         widgets: query('widgetsValue', '[data-storage-category="widgets"]'),
         bookmarks: query('bookmarksValue', '[data-storage-category="bookmarks"]'),
         synced: query('syncedValue', '[data-storage-category="synced"]'),
@@ -285,6 +287,7 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
       return {
         systemBytes: Number.isFinite(widgetBytes) ? systemBytes - widgetBytes : systemBytes,
         widgetBytes,
+        folderBytes: 0,
         syncedBytes: Number.isFinite(localBreakdown?.syncSystemBytes)
           && Number.isFinite(localBreakdown?.syncBookmarkBytes)
           ? localBreakdown.syncSystemBytes + localBreakdown.syncBookmarkBytes
@@ -297,10 +300,17 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
     const widgetBytes = Number.isFinite(systemBytes) && Number.isFinite(usage?.widgetBytes)
       ? Math.min(systemBytes, Math.max(0, usage.widgetBytes))
       : undefined;
+    const combinedBookmarkBytes = usage?.breakdown?.bookmarkBytes;
+    const folderBytes = Number.isFinite(combinedBookmarkBytes) && Number.isFinite(usage?.folderBytes)
+      ? Math.min(combinedBookmarkBytes, Math.max(0, usage.folderBytes))
+      : undefined;
     return {
       systemBytes: Number.isFinite(widgetBytes) ? systemBytes - widgetBytes : systemBytes,
       widgetBytes,
-      bookmarkBytes: usage?.breakdown?.bookmarkBytes,
+      bookmarkBytes: Number.isFinite(folderBytes)
+        ? combinedBookmarkBytes - folderBytes
+        : combinedBookmarkBytes,
+      folderBytes,
       trashBytes: usage?.breakdown?.trashBytes
     };
   }
@@ -310,14 +320,16 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
     const categories = view.categoryValues.synced
       ? {
           system: breakdown?.systemBytes,
-          widgets: breakdown?.widgetBytes,
           synced: breakdown?.syncedBytes,
+          folders: breakdown?.folderBytes,
+          widgets: breakdown?.widgetBytes,
           trash: breakdown?.trashBytes
         }
       : {
           system: breakdown?.systemBytes,
-          widgets: breakdown?.widgetBytes,
           bookmarks: breakdown?.bookmarkBytes,
+          folders: breakdown?.folderBytes,
+          widgets: breakdown?.widgetBytes,
           trash: breakdown?.trashBytes
         };
 
@@ -362,9 +374,6 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
   }
 
   function renderLocalImageBreakdown(view, imageBreakdown, show) {
-    view.imageBreakdown?.toggleAttribute('hidden', !show);
-    if (!show) return;
-
     const categories = {
       theme: imageBreakdown?.themeBytes,
       bookmarks: imageBreakdown?.bookmarkBytes,
@@ -372,6 +381,16 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
       trash: imageBreakdown?.trashBytes,
       other: imageBreakdown?.otherBytes
     };
+    const hasCompleteBreakdown = Number.isFinite(imageBreakdown?.totalBytes)
+      && Object.values(categories).every(Number.isFinite);
+    const hasStoredImages = Number.isFinite(imageBreakdown?.totalBytes)
+      && imageBreakdown.totalBytes > 0;
+    const hasStoredCategoryImages = Object.values(categories)
+      .some(bytes => Number.isFinite(bytes) && bytes > 0);
+    const isEmpty = hasCompleteBreakdown && !hasStoredImages && !hasStoredCategoryImages;
+
+    view.imageBreakdown?.toggleAttribute('hidden', !show || isEmpty);
+    if (!show) return;
 
     if (view.imageTotal) {
       view.imageTotal.textContent = localImageUsageError ? '—'
@@ -379,6 +398,8 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
     }
 
     for (const [category, bytes] of Object.entries(categories)) {
+      const item = view.imageValues[category]?.closest('.storage-image-item');
+      item?.toggleAttribute('hidden', Number.isFinite(bytes) && bytes <= 0);
       if (view.imageValues[category]) {
         view.imageValues[category].textContent = Number.isFinite(bytes)
           ? formatStorageBytes(bytes)

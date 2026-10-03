@@ -86,7 +86,7 @@ function normalizePersistedData(data) {
 }
 
 function emptyStorageBreakdown() {
-  return { systemBytes: 0, bookmarkBytes: 0, trashBytes: 0 };
+  return { systemBytes: 0, bookmarkBytes: 0, folderBytes: 0, trashBytes: 0 };
 }
 
 function getEntryBytes(key, value) {
@@ -122,7 +122,10 @@ function hasTrashData(data) {
 }
 
 function reconcileStorageBreakdown(breakdown, usedBytes) {
-  const bookmarkBytes = Math.min(usedBytes, Math.max(0, breakdown.bookmarkBytes));
+  const bookmarkBytes = Math.min(
+    usedBytes,
+    Math.max(0, breakdown.bookmarkBytes) + Math.max(0, breakdown.folderBytes)
+  );
   const trashBytes = Math.min(
     usedBytes - bookmarkBytes,
     Math.max(0, breakdown.trashBytes)
@@ -202,7 +205,6 @@ function getDirectStorageBreakdown(values, entryBytes, {
   includeTrash = true
 } = {}) {
   const breakdown = emptyStorageBreakdown();
-  const containsBookmarks = hasBookmarkData(values);
   const containsDirectTrash = !deviceTrashOnly && hasTrashData(values);
   const containsDeviceTrash = deviceTrashOnly
     && Array.isArray(values[DEVICE_TRASH_KEY])
@@ -213,16 +215,20 @@ function getDirectStorageBreakdown(values, entryBytes, {
 
   for (const [key, value] of Object.entries(values)) {
     let category = 'system';
-    if ((key === 'bookmarks' || key === 'folders') && containsBookmarks) {
+    if (key === 'bookmarks' && Array.isArray(value) && value.length > 0) {
       category = 'bookmark';
+    } else if (key === 'folders' && Array.isArray(value) && value.length > 0) {
+      category = 'folder';
     } else if (includeTrash && ((key === 'trash' && containsDirectTrash)
       || (key === DEVICE_TRASH_KEY && containsDeviceTrash))) {
       category = 'trash';
     } else if (includeLocalImages && key.startsWith(LOCAL_IMAGE_STORAGE_PREFIX)) {
       const reference = `newdesktab-local-image:${key.slice(LOCAL_IMAGE_STORAGE_PREFIX.length)}`;
       const imageCategory = imageCategories.get(reference);
-      if (imageCategory === 'bookmark' || imageCategory === 'folder') {
+      if (imageCategory === 'bookmark') {
         category = 'bookmark';
+      } else if (imageCategory === 'folder') {
+        category = 'folder';
       } else if (includeTrash && imageCategory === 'trash') {
         category = 'trash';
       }
@@ -306,13 +312,24 @@ function getChunkedSyncBreakdown(values, entryBytes) {
     Object.entries(payload).filter(([key]) => !['bookmarks', 'folders'].includes(key))
   );
   if (hasBookmarkData(payload)) {
-    breakdown.bookmarkBytes = Math.min(
-      chunkBytes,
-      Math.max(0, getEscapedPayloadWeight(payload) - getEscapedPayloadWeight(nonBookmarkPayload))
+    const withoutBookmarks = Object.fromEntries(
+      Object.entries(payload).filter(([key]) => key !== 'bookmarks')
     );
+    const includesBookmarks = Array.isArray(payload.bookmarks) && payload.bookmarks.length > 0;
+    const includesFolders = Array.isArray(payload.folders) && payload.folders.length > 0;
+    const bookmarkBytes = includesBookmarks
+      ? getEscapedPayloadWeight(payload) - getEscapedPayloadWeight(withoutBookmarks)
+      : 0;
+    const folderBytes = includesFolders
+      ? (includesBookmarks ? getEscapedPayloadWeight(withoutBookmarks) : getEscapedPayloadWeight(payload))
+        - getEscapedPayloadWeight(nonBookmarkPayload)
+      : 0;
+    const totalEntryBytes = Math.min(chunkBytes, Math.max(0, bookmarkBytes + folderBytes));
+    breakdown.folderBytes = Math.min(totalEntryBytes, Math.max(0, folderBytes));
+    breakdown.bookmarkBytes = totalEntryBytes - breakdown.folderBytes;
   }
   breakdown.systemBytes = Array.from(entryBytes.values()).reduce((sum, bytes) => sum + bytes, 0)
-    - breakdown.bookmarkBytes;
+    - breakdown.bookmarkBytes - breakdown.folderBytes;
   return breakdown;
 }
 
@@ -493,6 +510,7 @@ async function writeSyncData(data) {
  *     bookmarkBytes: number,
  *     trashBytes: number
  *   },
+ *   folderBytes: number,
  *   localBreakdown?: {
  *     localSystemBytes: number,
  *     syncSystemBytes: number,
@@ -546,13 +564,19 @@ async function getStorageUsage(mode) {
     ? getLocalImageBreakdown(values, entryBytes, imageCategories)
     : undefined;
   const widgetBytes = getWidgetStorageBytes(mode, values, entryBytes);
+  const breakdown = reconcileStorageBreakdown(measuredBreakdown, usedBytes);
+  const folderBytes = Math.min(
+    breakdown.bookmarkBytes,
+    Math.max(0, measuredBreakdown.folderBytes)
+  );
 
   return {
     mode,
     usedBytes,
     quotaBytes,
     availableBytes: Math.max(0, quotaBytes - usedBytes),
-    breakdown: reconcileStorageBreakdown(measuredBreakdown, usedBytes),
+    breakdown,
+    folderBytes,
     ...(localBreakdown ? { localBreakdown } : {}),
     ...(imageBreakdown ? { imageBreakdown } : {}),
     widgetBytes

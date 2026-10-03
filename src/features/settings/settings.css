@@ -1388,6 +1388,7 @@
 .storage-usage-item {
   --storage-system-color: #4aa8ff;
   --storage-bookmarks-color: #8b7cf6;
+  --storage-folders-color: #e3a34c;
   --storage-trash-color: #ff7a6b;
   --storage-widgets-color: #43bd91;
 
@@ -1459,6 +1460,11 @@
   background: var(--storage-bookmarks-color);
 }
 
+.storage-usage-segment-folders,
+.storage-usage-dot-folders {
+  background: var(--storage-folders-color);
+}
+
 .storage-usage-segment-synced,
 .storage-usage-dot-synced {
   background: var(--storage-bookmarks-color);
@@ -1480,7 +1486,7 @@
 }
 
 .storage-usage-item[data-storage-usage="local"] .storage-usage-legend {
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
 
 .storage-usage-legend-item {
@@ -1570,6 +1576,10 @@
   color: var(--ui-muted);
   font-size: 10px;
   line-height: 1.25;
+}
+
+.storage-image-item[hidden] {
+  display: none;
 }
 
 .storage-image-item > span {
