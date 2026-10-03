@@ -81,6 +81,9 @@ export function initThemeSection({
   const clearBgImageBtn = document.getElementById('settings-theme-clear-bg-image');
   const copyBgImageBtn = document.getElementById('settings-theme-copy-bg-image');
   const toggleBtn = document.getElementById('settings-theme-toggle-bg-image');
+  const bgImagePreviewBtn = document.getElementById('settings-theme-bg-image-preview');
+  const bgImagePeek = document.getElementById('settings-theme-bg-image-peek');
+  const bgImageInputActions = bgImageInput.closest('.settings-theme-bg-image-input');
 
   /**
    * Theme background preview element.
@@ -205,6 +208,25 @@ export function initThemeSection({
       ?? item.backgroundImageUrl ?? t('settingsModal.theme.unavailableLocal');
   }
 
+  function placeWallpaperPeek(peek, anchor) {
+    const anchorRect = anchor.getBoundingClientRect();
+    const scrollArea = peek.closest('.settings-modal-tab-content');
+    const scrollAreaRect = scrollArea?.getBoundingClientRect();
+    const visibleTop = scrollAreaRect
+      ? scrollAreaRect.top + scrollArea.clientTop
+      : 0;
+    const visibleBottom = scrollAreaRect
+      ? visibleTop + scrollArea.clientHeight
+      : window.innerHeight;
+    const peekHeight = peek.getBoundingClientRect().height;
+    const spaceAbove = anchorRect.top - visibleTop;
+    const spaceBelow = visibleBottom - anchorRect.bottom;
+    const placement = spaceAbove < peekHeight + 12 && spaceBelow > spaceAbove
+      ? 'below' : 'above';
+
+    peek.dataset.placement = placement;
+  }
+
   function renderMediaList() {
     mediaList.querySelectorAll('video').forEach(video => video.pause());
     mediaList.replaceChildren();
@@ -303,6 +325,7 @@ export function initThemeSection({
           peek.textContent = t('settingsModal.theme.unavailableLocal');
         }
         peek.hidden = false;
+        placeWallpaperPeek(peek, row);
       }
       function hidePeek() {
         const video = peek.querySelector('video');
@@ -313,6 +336,7 @@ export function initThemeSection({
         }
         peek.replaceChildren();
         peek.style.backgroundImage = '';
+        delete peek.dataset.placement;
         peek.hidden = true;
       }
       peekButton.addEventListener('mouseenter', showPeek);
@@ -473,6 +497,55 @@ export function initThemeSection({
     previewVideo.pause();
   }
 
+  function hideBackgroundImagePeek() {
+    const video = bgImagePeek.querySelector('video');
+    if (video) {
+      video.pause();
+      video.onloadeddata = null;
+      video.onerror = null;
+      video.removeAttribute('src');
+      video.load();
+    }
+    bgImagePeek.replaceChildren();
+    bgImagePeek.style.backgroundImage = '';
+    delete bgImagePeek.dataset.previewUrl;
+    delete bgImagePeek.dataset.placement;
+    bgImagePeek.hidden = true;
+  }
+
+  function showBackgroundImagePeek() {
+    const url = primaryUrl();
+    if (!hasImageValue(url)) return;
+    if (!bgImagePeek.hidden && bgImagePeek.dataset.previewUrl === url) return;
+
+    hideBackgroundImagePeek();
+    bgImagePeek.dataset.previewUrl = url;
+    const type = inferWallpaperType(url);
+    const color = getDraftTheme().backgroundImageColor;
+    bgImagePeek.style.backgroundColor = type === 'video' ? '#000000' : color;
+
+    if (type === 'video') {
+      const video = document.createElement('video');
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.onloadeddata = () => {
+        if (bgImagePeek.contains(video)) video.classList.add('is-ready');
+      };
+      video.onerror = () => {
+        if (bgImagePeek.contains(video)) bgImagePeek.style.backgroundColor = color;
+      };
+      bgImagePeek.append(video);
+      video.src = url;
+      void video.play().catch(() => {});
+    } else {
+      bgImagePeek.style.backgroundImage = `url(${JSON.stringify(url)})`;
+    }
+
+    bgImagePeek.hidden = false;
+    placeWallpaperPeek(bgImagePeek, bgImageInputActions);
+  }
+
   /**
    * Updates visibility for background-image helper controls
    * depending on whether an image exists and whether the field is locked.
@@ -482,6 +555,9 @@ export function initThemeSection({
     const hasImage = hasImageValue(primaryUrl(draft));
     const isLocked = bgController?.isLocked?.() ?? false;
 
+    bgImageInputActions.classList.toggle('has-image-value', hasImage);
+    bgImageInputActions.classList.toggle('is-url-locked', isLocked);
+    bgImagePreviewBtn.style.display = hasImage ? 'grid' : 'none';
     clearBgImageBtn.style.display = hasImage && !isLocked ? 'block' : 'none';
     copyBgImageBtn.style.display = hasImage ? 'block' : 'none';
     toggleBtn.style.display = hasImage ? 'block' : 'none';
@@ -529,6 +605,7 @@ export function initThemeSection({
     bgImageUrlField.classList.toggle('is-hidden', !syncMode);
     bgImageColorInput.disabled = imagesDisabled || !syncMode || (bgController?.isLocked() ?? false);
     bgImageInput.disabled = imagesDisabled || !syncMode;
+    bgImagePreviewBtn.disabled = imagesDisabled || !syncMode;
     toggleBtn.disabled = imagesDisabled || !syncMode;
     clearBgImageBtn.disabled = imagesDisabled || !syncMode;
     copyBgImageBtn.disabled = imagesDisabled || !syncMode;
@@ -538,6 +615,8 @@ export function initThemeSection({
     mediaUploadButton.disabled = imagesDisabled || additionalUploadPending;
     mediaInterval.disabled = imagesDisabled;
     refreshCustomSelect(mediaInterval);
+
+    if (imagesDisabled || !syncMode) hideBackgroundImagePeek();
 
     updatePreview();
   }
@@ -599,6 +678,11 @@ export function initThemeSection({
   /* ==================================================
      Events
   ================================================== */
+
+  bgImagePreviewBtn.addEventListener('mouseenter', showBackgroundImagePeek);
+  bgImagePreviewBtn.addEventListener('mouseleave', hideBackgroundImagePeek);
+  bgImagePreviewBtn.addEventListener('focus', showBackgroundImagePeek);
+  bgImagePreviewBtn.addEventListener('blur', hideBackgroundImagePeek);
 
   /**
    * Updates the draft background color on input

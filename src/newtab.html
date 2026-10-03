@@ -925,12 +925,16 @@
                   <label for="settings-theme-bg-image"
                     data-i18n="settingsModal.theme.backgroundImage">URL de reserva (imagen o vídeo):
                   </label>
-                  <div class="input-with-actions background-image-input">
-                    <div class="background-image-color">
+                  <div class="input-with-actions background-image-input settings-theme-bg-image-input">
+                    <div class="background-image-color settings-theme-bg-image-color">
                       <input id="settings-theme-bg-image-color" type="color"
                         aria-label="Image background color"
                         data-i18n-aria-label="settingsModal.theme.backgroundImageColor">
                     </div>
+                    <button id="settings-theme-bg-image-preview"
+                      class="input-action theme-wallpaper-preview-trigger settings-theme-bg-image-preview"
+                      type="button" aria-label="Preview wallpaper"
+                      data-i18n-aria-label="settingsModal.theme.mediaPreview"></button>
                     <input id="settings-theme-bg-image" type="text" placeholder="https://...">
                     <button id="settings-theme-toggle-bg-image" class="input-action input-toggle" type="button"
                       title="Hide URL">🔓
@@ -941,6 +945,8 @@
                     <button id="settings-theme-clear-bg-image" class="input-action input-clear" type="button"
                       title="Clear input">✕
                     </button>
+                    <div id="settings-theme-bg-image-peek"
+                      class="theme-wallpaper-peek settings-theme-bg-image-peek" aria-hidden="true" hidden></div>
                   </div>
                 </div>
                 <details id="settings-theme-more-wallpapers" class="theme-wallpaper-manager settings-disclosure">
