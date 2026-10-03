@@ -572,7 +572,7 @@
       "editSolidColor": "Change solid background color",
       "changeSolidColor": "Change color",
       "backgroundImageColor": "Color behind the image/video",
-      "backgroundImage": "Fallback URL (image or video):",
+      "backgroundImage": "URL shared between devices",
       "urlHidden": "URL hidden",
       "resetBackground": "Reset theme"
     },

@@ -572,7 +572,7 @@
       "editSolidColor": "Cambiar el color del fondo sólido",
       "changeSolidColor": "Cambiar color",
       "backgroundImageColor": "Color detrás de la imagen o el video",
-      "backgroundImage": "URL de reserva (imagen o video):",
+      "backgroundImage": "URL compartida entre dispositivos",
       "urlHidden": "URL oculta",
       "resetBackground": "Restablecer tema"
     },
