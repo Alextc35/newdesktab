@@ -1,6 +1,7 @@
 import { getState, hydrateStore } from './state/appStore.js';
 import { initI18n, t, applyI18n } from './platform/i18n/i18n.js';
 import { applyInterfaceTheme } from './shared/ui/interfaceTheme.js';
+import { initCustomSelect } from './shared/ui/customSelect.js';
 import { getActiveWorkspaceId } from './features/workspaces/workspaceSelectors.js';
 import { saveQuickBookmark } from './features/quick-save/quickSaveActions.js';
 import {
@@ -54,6 +55,8 @@ async function initialize() {
     await initI18n(data.settings);
     applyI18n();
     renderWorkspaces(data);
+    initCustomSelect(workspaceSelect);
+    initCustomSelect(folderSelect);
 
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (!tab || !isSaveableTabUrl(tab.url)) {
