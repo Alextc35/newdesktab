@@ -124,6 +124,7 @@
  * @property {Workspace[]} bookmarkGroups Legacy persisted field for workspaces.
  * @property {string|null} activeBookmarkGroupId
  * @property {boolean} showRecycleBin
+ * @property {number} recycleBinRetentionDays Zero means items never expire.
  */
 
 /**

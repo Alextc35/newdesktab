@@ -1,6 +1,7 @@
 import '../../types/types.js';
 import { DEFAULT_RECYCLE_BIN } from '../../domain/recycle-bin/recycleBinDefaults.js';
 import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
+import { normalizeRecycleBinRetentionDays } from '../../domain/settings/recycleBinRetention.js';
 import { createDefaultPersistedData } from './persistedDataDefaults.js';
 import { DATA_SCHEMA_VERSION } from './schemaVersion.js';
 import {
@@ -116,6 +117,7 @@ export function migratePersistedData(input, { useDefaultsWhenEmpty = true } = {}
       bookmarkResizeMode: normalizeBookmarkResizeMode(rawSettings.bookmarkResizeMode),
       keyboardShortcuts: normalizeKeyboardShortcuts(rawSettings.keyboardShortcuts),
       showRecycleBin: rawSettings.showRecycleBin !== false,
+      recycleBinRetentionDays: normalizeRecycleBinRetentionDays(rawSettings.recycleBinRetentionDays),
       bookmarkPresets: normalizeNamedPresets(rawSettings.bookmarkPresets),
       bookmarkGroups: workspaces,
       activeBookmarkGroupId: activeWorkspaceId

@@ -343,13 +343,15 @@
     "countOne": "1 item",
     "count": "{{count}} items",
     "dropHint": "Drop to delete",
-    "summary": "{{count}} items · Automatically deleted after {{days}} days",
+    "summary": "{{count}} items · Automatic deletion: {{retention}}",
     "empty": "The recycle bin is empty.",
     "selected": "{{count}} selected",
     "select": "Select {{name}}",
     "folderDetail": "Folder · {{count}} bookmarks",
     "deletedAt": "Deleted {{date}}",
     "expiresIn": "{{days}} days left",
+    "expiresInOne": "1 day left",
+    "neverExpires": "Never deleted automatically",
     "restoreAll": "Restore all",
     "deleteAll": "Delete all",
     "restoreSelected": "Restore selected",
@@ -457,7 +459,14 @@
       "recycleBin": {
         "title": "Recycle bin",
         "show": "Show the recycle bin on the Main grid",
-        "hint": "Deleted items are retained for 28 days and kept on this device; they are not included in Sync."
+        "retentionLabel": "Automatically delete items:",
+        "retentionOptions": {
+          "oneDay": "1 day",
+          "sevenDays": "7 days",
+          "fourteenDays": "14 days",
+          "twentyEightDays": "28 days",
+          "never": "Never"
+        }
       },
       "appearance": {
         "title": "Appearance",

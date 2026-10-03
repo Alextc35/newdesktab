@@ -266,6 +266,24 @@
   box-shadow: 0 0 0 3px var(--ui-focus-ring);
 }
 
+.settings-recycle-bin-retention {
+  display: flex;
+  margin-top: 14px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.settings-recycle-bin-retention label {
+  color: var(--ui-text);
+  font-size: 13px;
+}
+
+.settings-recycle-bin-retention .custom-select {
+  width: 200px;
+  flex: 0 0 200px;
+}
+
 .settings-recycle-bin-icon {
   display: grid;
   width: 42px;
@@ -292,12 +310,6 @@
   color: var(--ui-text);
   font-size: 13px;
   line-height: 1.35;
-}
-
-.settings-recycle-bin-copy small {
-  color: var(--ui-muted);
-  font-size: 12px;
-  line-height: 1.45;
 }
 
 .settings-recycle-bin-switch {
@@ -348,6 +360,17 @@
 }
 
 @media (width <= 600px) {
+  .settings-recycle-bin-retention {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .settings-recycle-bin-retention .custom-select {
+    width: 100%;
+    flex-basis: auto;
+  }
+
   .modal-recycle-bin {
     width: calc(100vw - 16px);
     max-width: none;

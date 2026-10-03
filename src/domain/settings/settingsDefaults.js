@@ -6,6 +6,7 @@ import {
 } from './gridInteractionModes.js';
 import { DEFAULT_KEYBOARD_SHORTCUTS } from '../../shared/keyboard/keyboardShortcuts.js';
 import { DEFAULT_WALLPAPER_INTERVAL } from './wallpaperMedia.js';
+import { DEFAULT_RECYCLE_BIN_RETENTION_DAYS } from './recycleBinRetention.js';
 
 /** Default settings used when no persisted preference exists. */
 export const DEFAULT_SETTINGS = {
@@ -15,6 +16,7 @@ export const DEFAULT_SETTINGS = {
   bookmarkResizeMode: BOOKMARK_RESIZE_MODES.SMOOTH,
   keyboardShortcuts: structuredClone(DEFAULT_KEYBOARD_SHORTCUTS),
   showRecycleBin: true,
+  recycleBinRetentionDays: DEFAULT_RECYCLE_BIN_RETENTION_DAYS,
 
   theme: {
     backgroundDefault: true,

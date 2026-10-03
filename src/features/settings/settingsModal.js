@@ -13,7 +13,10 @@ import {
   getState,
   getStorageMode
 } from '../../state/appStore.js';
-import { ensureRecycleBinPosition } from '../recycle-bin/recycleBinActions.js';
+import {
+  ensureRecycleBinPosition,
+  purgeExpiredRecycleBinEntries
+} from '../recycle-bin/recycleBinActions.js';
 
 
 import { initGeneralSection } from './generalSection.js';
@@ -273,6 +276,7 @@ export function initSettingsModal() {
         flashSuccess('flash.settings.saved');
       }
 
+      purgeExpiredRecycleBinEntries();
       ensureRecycleBinPosition();
 
       try {

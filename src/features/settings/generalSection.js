@@ -2,14 +2,17 @@ import { applyInterfaceTheme } from '../../shared/ui/interfaceTheme.js';
 import {
   getDraftInterfaceTheme,
   getDraftShowRecycleBin,
+  getDraftRecycleBinRetentionDays,
   setDraftInterfaceTheme,
   setDraftShowRecycleBin,
+  setDraftRecycleBinRetentionDays,
   getInitialSnapshot
 } from './settingsDraft.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { exportBackup, importBackup } from './backupActions.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { createRecycleBinSvg } from '../../shared/ui/svgIcons.js';
+import { refreshCustomSelect } from '../../shared/ui/customSelect.js';
 
 /** Connects complete backup/restore and destructive reset actions. */
 export function initGeneralSection({
@@ -20,6 +23,7 @@ export function initGeneralSection({
 }) {
   const themeInputs = document.querySelectorAll('input[name="interface-theme"]');
   const showRecycleBinInput = document.getElementById('settings-show-recycle-bin');
+  const recycleBinRetentionSelect = document.getElementById('settings-recycle-bin-retention');
   document.querySelector('.settings-recycle-bin-icon')
     .replaceChildren(createRecycleBinSvg());
 
@@ -28,10 +32,18 @@ export function initGeneralSection({
     for (const input of themeInputs) input.checked = input.value === preference;
     applyInterfaceTheme(preference);
     showRecycleBinInput.checked = getDraftShowRecycleBin();
+    recycleBinRetentionSelect.value = String(getDraftRecycleBinRetentionDays());
+    refreshCustomSelect(recycleBinRetentionSelect);
   }
 
   showRecycleBinInput.addEventListener('change', () => {
     setDraftShowRecycleBin(showRecycleBinInput.checked);
+    onRequestSaveStateUpdate();
+  });
+
+  recycleBinRetentionSelect.addEventListener('change', () => {
+    setDraftRecycleBinRetentionDays(recycleBinRetentionSelect.value);
+    refreshCustomSelect(recycleBinRetentionSelect);
     onRequestSaveStateUpdate();
   });
 

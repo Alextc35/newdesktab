@@ -8,9 +8,13 @@ import {
 } from '../folders/folderGrid.js';
 import { findFirstFreeSlot, isAreaFree } from '../../shared/grid/gridPlacement.js';
 import { resolveWorkspaceId } from '../workspaces/workspaceModel.js';
+import {
+  DEFAULT_RECYCLE_BIN_RETENTION_DAYS,
+  getRecycleBinRetentionMs
+} from '../settings/recycleBinRetention.js';
 
-export const RECYCLE_BIN_RETENTION_DAYS = 28;
-export const RECYCLE_BIN_RETENTION_MS = RECYCLE_BIN_RETENTION_DAYS * 24 * 60 * 60 * 1000;
+export const RECYCLE_BIN_RETENTION_DAYS = DEFAULT_RECYCLE_BIN_RETENTION_DAYS;
+export const RECYCLE_BIN_RETENTION_MS = getRecycleBinRetentionMs(RECYCLE_BIN_RETENTION_DAYS);
 
 /** Creates a detached trash entry without mutating the bookmark. */
 export function createBookmarkTrashEntry(bookmark, { id, deletedAt }) {
@@ -61,6 +65,7 @@ export function removeExpiredTrashEntries(
   now,
   retentionMs = RECYCLE_BIN_RETENTION_MS
 ) {
+  if (retentionMs === Infinity) return { trash, removed: 0 };
   const retained = trash.filter(entry => now - entry.deletedAt < retentionMs);
   return { trash: retained, removed: trash.length - retained.length };
 }

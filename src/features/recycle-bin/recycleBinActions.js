@@ -2,6 +2,7 @@ import '../../types/types.js';
 import { DEFAULT_RECYCLE_BIN } from '../../domain/recycle-bin/recycleBinDefaults.js';
 import { clearBookmarkHistory, getState, setState } from '../../state/appStore.js';
 import { normalizeRecycleBinStyle } from '../../domain/recycle-bin/recycleBinModel.js';
+import { getRecycleBinRetentionMs } from '../../domain/settings/recycleBinRetention.js';
 import {
   createBookmarkTrashEntry,
   createCollectionTrashEntries,
@@ -212,7 +213,8 @@ export function emptyRecycleBin() {
 /** Permanently removes entries after their retention period. */
 export function purgeExpiredRecycleBinEntries(now = Date.now()) {
   const { data } = getState();
-  const result = removeExpiredTrashEntries(data.trash, now);
+  const retentionMs = getRecycleBinRetentionMs(data.settings.recycleBinRetentionDays);
+  const result = removeExpiredTrashEntries(data.trash, now, retentionMs);
   if (result.removed) {
     setState({ data: { trash: result.trash } }, { recordHistory: false });
     clearBookmarkHistory();

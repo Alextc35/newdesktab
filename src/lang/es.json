@@ -343,13 +343,15 @@
     "countOne": "1 elemento",
     "count": "{{count}} elementos",
     "dropHint": "Suelta para eliminar",
-    "summary": "{{count}} elementos · Se borran automáticamente tras {{days}} días",
+    "summary": "{{count}} elementos · Eliminación automática: {{retention}}",
     "empty": "La papelera está vacía.",
     "selected": "{{count}} seleccionados",
     "select": "Seleccionar {{name}}",
     "folderDetail": "Carpeta · {{count}} favoritos",
     "deletedAt": "Eliminado el {{date}}",
     "expiresIn": "Quedan {{days}} días",
+    "expiresInOne": "Queda 1 día",
+    "neverExpires": "No se elimina automáticamente",
     "restoreAll": "Recuperar todo",
     "deleteAll": "Borrar todo",
     "restoreSelected": "Recuperar seleccionados",
@@ -457,7 +459,14 @@
       "recycleBin": {
         "title": "Papelera de reciclaje",
         "show": "Mostrar la papelera en la grilla Principal",
-        "hint": "Los elementos eliminados se conservan 28 días y se guardan solo en este dispositivo; no se sincronizan."
+        "retentionLabel": "Eliminar elementos automáticamente:",
+        "retentionOptions": {
+          "oneDay": "1 día",
+          "sevenDays": "7 días",
+          "fourteenDays": "14 días",
+          "twentyEightDays": "28 días",
+          "never": "Nunca"
+        }
       },
       "appearance": {
         "title": "Apariencia",

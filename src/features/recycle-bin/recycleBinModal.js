@@ -8,9 +8,9 @@ import {
   restoreTrashEntries
 } from './recycleBinActions.js';
 import {
-  RECYCLE_BIN_RETENTION_DAYS,
-  RECYCLE_BIN_RETENTION_MS
-} from '../../domain/recycle-bin/recycleBinEntries.js';
+  RECYCLE_BIN_DAY_MS,
+  normalizeRecycleBinRetentionDays
+} from '../../domain/settings/recycleBinRetention.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashSuccess } from '../../shared/ui/flash.js';
 import {
@@ -96,7 +96,7 @@ function renderRecycleBin() {
 
   summary.textContent = t('recycleBin.summary', {
     count: trash.length,
-    days: RECYCLE_BIN_RETENTION_DAYS
+    retention: getRetentionLabel(getRecycleBinRetentionDays())
   });
   selectedCount.textContent = t('recycleBin.selected', { count: selectedIds.size });
   empty.hidden = trash.length > 0;
@@ -148,7 +148,10 @@ function createTrashRow(entry) {
 
   const expiry = document.createElement('span');
   expiry.className = 'recycle-bin-item-expiry';
-  expiry.textContent = t('recycleBin.expiresIn', { days: remainingDays(entry.deletedAt) });
+  const retentionDays = getRecycleBinRetentionDays();
+  expiry.textContent = retentionDays === 0
+    ? t('recycleBin.neverExpires')
+    : formatExpiry(remainingDays(entry.deletedAt, retentionDays));
   row.append(checkbox, icon, copy, expiry);
   return row;
 }
@@ -182,9 +185,32 @@ function formatDeletedAt(timestamp) {
   });
 }
 
-function remainingDays(deletedAt) {
-  const remaining = RECYCLE_BIN_RETENTION_MS - (Date.now() - deletedAt);
-  return Math.max(0, Math.ceil(remaining / (24 * 60 * 60 * 1000)));
+function getRecycleBinRetentionDays() {
+  return normalizeRecycleBinRetentionDays(
+    getState().data.settings.recycleBinRetentionDays
+  );
+}
+
+function getRetentionLabel(days) {
+  const option = {
+    0: 'never',
+    1: 'oneDay',
+    7: 'sevenDays',
+    14: 'fourteenDays',
+    28: 'twentyEightDays'
+  }[days];
+  return t(`settingsModal.general.recycleBin.retentionOptions.${option}`);
+}
+
+function remainingDays(deletedAt, retentionDays) {
+  const remaining = retentionDays * RECYCLE_BIN_DAY_MS - (Date.now() - deletedAt);
+  return Math.max(0, Math.ceil(remaining / RECYCLE_BIN_DAY_MS));
+}
+
+function formatExpiry(days) {
+  return days === 1
+    ? t('recycleBin.expiresInOne')
+    : t('recycleBin.expiresIn', { days });
 }
 
 async function restoreAll() {

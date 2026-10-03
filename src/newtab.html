@@ -635,12 +635,23 @@
                 <span class="settings-recycle-bin-icon" aria-hidden="true"></span>
                 <span class="settings-recycle-bin-copy">
                   <strong data-i18n="settingsModal.general.recycleBin.show">Mostrar la papelera en la grilla principal</strong>
-                  <small id="settings-recycle-bin-hint" data-i18n="settingsModal.general.recycleBin.hint">Los elementos eliminados se conservan durante 28 días.</small>
                 </span>
                 <span class="checkbox-wrapper settings-recycle-bin-switch">
-                  <input id="settings-show-recycle-bin" type="checkbox" aria-describedby="settings-recycle-bin-hint">
+                  <input id="settings-show-recycle-bin" type="checkbox">
                 </span>
               </label>
+              <div class="settings-recycle-bin-retention">
+                <label for="settings-recycle-bin-retention" data-i18n="settingsModal.general.recycleBin.retentionLabel">
+                  Eliminar los elementos después de
+                </label>
+                <select id="settings-recycle-bin-retention" data-custom-select>
+                  <option value="1" data-i18n="settingsModal.general.recycleBin.retentionOptions.oneDay">1 día</option>
+                  <option value="7" data-i18n="settingsModal.general.recycleBin.retentionOptions.sevenDays">7 días</option>
+                  <option value="14" data-i18n="settingsModal.general.recycleBin.retentionOptions.fourteenDays">14 días</option>
+                  <option value="28" selected data-i18n="settingsModal.general.recycleBin.retentionOptions.twentyEightDays">28 días</option>
+                  <option value="0" data-i18n="settingsModal.general.recycleBin.retentionOptions.never">Nunca</option>
+                </select>
+              </div>
             </section>
             <h3 data-i18n="settingsModal.general.subtitle">Ajustes</h3>
             <div id="settings-modal-background-settings" class="modal-field">
