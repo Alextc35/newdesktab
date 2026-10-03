@@ -1,6 +1,5 @@
 import { resolveBackgroundImage } from '../../platform/images/localImages.js';
 import { createFavicon } from '../bookmarks/bookmarkFavicon.js';
-import { lightSurfaceTextColor } from '../../shared/ui/surfaceContrast.js';
 import { createFolderSvg } from '../../shared/ui/svgIcons.js';
 
 /** Creates the shared folder glyph used by cards, previews and headers. */
@@ -64,7 +63,6 @@ function shouldUseCssImageLayer(url) {
 
 /** Applies persisted folder colors and optional imagery through CSS variables. */
 export function applyFolderAppearance(element, folder = {}) {
-  element.style.setProperty('--folder-light-text', lightSurfaceTextColor(folder.textColor));
   element.classList.toggle('is-folder-transparent', folder.noBackground === true);
   element.classList.toggle('is-folder-outer-transparent', folder.noOuterBackground === true);
   element.classList.toggle('is-folder-hidden', folder.showFolder === false);

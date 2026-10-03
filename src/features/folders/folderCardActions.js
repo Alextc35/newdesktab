@@ -26,9 +26,5 @@ function isFolderActionSurfaceDark(folder) {
   if (folder.outerBackgroundColor && !folder.noOuterBackground) {
     return isGridItemSurfaceDark({ backgroundColor: folder.outerBackgroundColor });
   }
-
-  const interfaceTheme = document.documentElement.dataset.interfaceTheme;
-  if (interfaceTheme === 'light') return false;
-  if (interfaceTheme === 'dark') return true;
-  return globalThis.matchMedia?.('(prefers-color-scheme: dark)')?.matches ?? true;
+  return true;
 }

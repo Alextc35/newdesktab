@@ -2,19 +2,17 @@
 .bookmark-folder {
   --folder-color: #38bdf8;
   --folder-text-color: #f8fafc;
-  --folder-context-text: light-dark(var(--folder-light-text, var(--ui-text)), var(--folder-text-color));
+  --folder-context-text: var(--folder-text-color);
   --folder-preview-icon-size: clamp(12px, min(16cqw, 16cqh), 52px);
   container-type: size;
   overflow: visible;
   border: 1px solid color-mix(in srgb, var(--folder-color) 42%, transparent);
   background:
     radial-gradient(circle at 25% 15%,
-      light-dark(color-mix(in srgb, var(--folder-color) 7%, transparent),
-        color-mix(in srgb, var(--folder-color) 24%, transparent)), transparent 45%),
-    linear-gradient(145deg, light-dark(#fff, rgba(15, 36, 58, .96)),
-      light-dark(#f4f4f5, rgba(12, 20, 34, .96)));
+      color-mix(in srgb, var(--folder-color) 24%, transparent), transparent 45%),
+    linear-gradient(145deg, rgba(15, 36, 58, .96), rgba(12, 20, 34, .96));
   box-shadow:
-    0 12px 28px var(--ui-control-shadow),
+    0 12px 28px rgba(0, 0, 0, .3),
     inset 0 1px rgba(255, 255, 255, .06);
   color: #f8fafc;
   transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
@@ -76,14 +74,14 @@
 
 .bookmark-folder:not(.bookmark-list-item).is-folder-outer-transparent,
 .folder-editor-preview-card.is-folder-outer-transparent {
-  --folder-context-text: var(--ui-text);
+  --folder-context-text: var(--folder-text-color);
   border-color: transparent;
   background: none;
   box-shadow: none;
 }
 
 .is-folder-outer-transparent .folder-count {
-  color: var(--ui-muted);
+  color: color-mix(in srgb, var(--folder-text-color) 72%, transparent);
 }
 
 .has-folder-outer-color .folder-count {
@@ -191,10 +189,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-color: light-dark(
-    color-mix(in srgb, var(--folder-color) 72%, white),
-    color-mix(in srgb, var(--folder-color) 62%, #182338)
-  );
+  background-color: color-mix(in srgb, var(--folder-color) 62%, #182338);
   background-position: center;
   background-size: cover;
   -webkit-mask: url('../../assets/icons/folder-image-mask.svg') center / 100% 100% no-repeat;
@@ -211,43 +206,28 @@
 }
 
 .folder-tab {
-  fill: light-dark(
-    color-mix(in srgb, var(--folder-color) 62%, white),
-    color-mix(in srgb, var(--folder-color) 58%, #334155)
-  );
-  stroke: light-dark(
-    color-mix(in srgb, var(--folder-color) 62%, #334155),
-    color-mix(in srgb, var(--folder-color) 38%, #dbeafe)
-  );
+  fill: color-mix(in srgb, var(--folder-color) 58%, #334155);
+  stroke: color-mix(in srgb, var(--folder-color) 38%, #dbeafe);
   stroke-width: 1.4;
   stroke-linejoin: round;
 }
 
 .folder-svg-body {
-  fill: light-dark(
-    color-mix(in srgb, var(--folder-color) 72%, white),
-    color-mix(in srgb, var(--folder-color) 62%, #182338)
-  );
-  stroke: light-dark(
-    color-mix(in srgb, var(--folder-color) 64%, #25304d),
-    color-mix(in srgb, var(--folder-color) 34%, #cde6ff)
-  );
+  fill: color-mix(in srgb, var(--folder-color) 62%, #182338);
+  stroke: color-mix(in srgb, var(--folder-color) 34%, #cde6ff);
   stroke-width: 1.55;
   stroke-linejoin: round;
 }
 
 .folder-svg-highlight {
   fill: none;
-  stroke: light-dark(rgba(255, 255, 255, .56), rgba(226, 240, 255, .19));
+  stroke: rgba(226, 240, 255, .19);
   stroke-width: 1.25;
   stroke-linecap: round;
 }
 
 .folder-svg-image-fallback {
-  fill: light-dark(
-    color-mix(in srgb, var(--folder-color) 72%, white),
-    color-mix(in srgb, var(--folder-color) 62%, #182338)
-  );
+  fill: color-mix(in srgb, var(--folder-color) 62%, #182338);
 }
 
 .folder-body {
@@ -288,13 +268,13 @@
 .folder-visual.is-folder-transparent .folder-tab,
 .is-folder-transparent .folder-tab {
   fill: none;
-  stroke: light-dark(#76879c, #a9bdcf);
+  stroke: #a9bdcf;
 }
 
 .folder-visual.is-folder-transparent .folder-svg-body,
 .is-folder-transparent .folder-svg-body {
   fill: none;
-  stroke: light-dark(#76879c, #a9bdcf);
+  stroke: #a9bdcf;
 }
 
 .folder-visual.is-folder-transparent .folder-svg-highlight,
@@ -469,7 +449,7 @@
   width: 100%;
   min-width: 0;
   overflow: hidden;
-  color: light-dark(var(--ui-muted), color-mix(in srgb, var(--folder-text-color) 72%, transparent));
+  color: color-mix(in srgb, var(--folder-text-color) 72%, transparent);
   font-size: var(--folder-count-size, 11px);
   line-height: 1.2;
   text-align: center;
@@ -974,7 +954,7 @@
   --folder-color: #38bdf8;
   --folder-text-color: #f8fafc;
   --folder-preview-icon-size: 30px;
-  --folder-context-text: light-dark(var(--folder-light-text, var(--ui-text)), var(--folder-text-color));
+  --folder-context-text: var(--folder-text-color);
   width: 210px;
   height: 220px;
   padding: 5px;
@@ -982,10 +962,8 @@
   border-radius: 14px;
   background:
     radial-gradient(circle at 25% 15%,
-      light-dark(color-mix(in srgb, var(--folder-color) 7%, transparent),
-        color-mix(in srgb, var(--folder-color) 24%, transparent)), transparent 45%),
-    linear-gradient(145deg, light-dark(#fff, rgba(15, 36, 58, .96)),
-      light-dark(#f4f4f5, rgba(12, 20, 34, .96)));
+      color-mix(in srgb, var(--folder-color) 24%, transparent), transparent 45%),
+    linear-gradient(145deg, rgba(15, 36, 58, .96), rgba(12, 20, 34, .96));
   box-sizing: border-box;
   container-type: size;
 }

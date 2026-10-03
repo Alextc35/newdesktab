@@ -136,7 +136,7 @@ function createRecycleBinListItem({ recycleBin, count, active, onOpen }) {
 function addRecycleBinActions(container, recycleBin) {
   const themeClass = recycleBin.backgroundColor && !recycleBin.noBackground
     ? (isGridItemSurfaceDark(recycleBin) ? 'is-dark' : 'is-light')
-    : defaultActionTheme();
+    : 'is-dark';
   const actions = document.createElement('div');
   actions.className = 'item-actions recycle-bin-item-actions';
   actions.setAttribute('role', 'group');
@@ -146,11 +146,4 @@ function addRecycleBinActions(container, recycleBin) {
   editButton.setAttribute('aria-label', t('recycleBin.editor.edit'));
   actions.append(editButton);
   container.append(actions);
-}
-
-function defaultActionTheme() {
-  const interfaceTheme = document.documentElement.dataset.interfaceTheme;
-  if (interfaceTheme === 'light') return 'is-light';
-  if (interfaceTheme === 'dark') return 'is-dark';
-  return globalThis.matchMedia?.('(prefers-color-scheme: dark)')?.matches ? 'is-dark' : 'is-light';
 }

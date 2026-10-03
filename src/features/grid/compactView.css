@@ -150,6 +150,21 @@
   box-shadow: inset 3px 0 var(--ui-accent);
 }
 
+.bookmark-list-item.bookmark-folder,
+.recycle-bin-list-item.bookmark {
+  border-color: rgba(148, 163, 184, .2);
+  background: rgba(15, 20, 31, .86);
+  color: #f8fafc;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .6);
+}
+
+.bookmark-list-item.bookmark-folder:is(:hover, :focus-within, .is-keyboard-active),
+.recycle-bin-list-item.bookmark:is(:hover, :focus-within, .is-keyboard-active) {
+  border-color: rgba(77, 163, 255, .8);
+  background: rgba(24, 36, 56, .96);
+  box-shadow: inset 3px 0 #4da3ff;
+}
+
 .bookmark-list-item.bookmark-folder {
   border-color: color-mix(in srgb, var(--folder-color) 42%, transparent);
 }
@@ -207,7 +222,7 @@
 .bookmark-list-icon.is-folder-icon {
   padding: 7px;
   border: 1px solid color-mix(in srgb, var(--folder-color) 42%, transparent);
-  background: var(--ui-selected);
+  background: #182438;
 }
 
 .bookmark-list-icon.recycle-bin-list-icon {
@@ -284,14 +299,22 @@
   white-space: nowrap;
 }
 
+.bookmark-list-item.bookmark-folder .bookmark-list-detail {
+  color: color-mix(in srgb, var(--folder-text-color, #f8fafc) 72%, transparent);
+}
+
+:is(.bookmark-list-item.bookmark-folder, .recycle-bin-list-item) .bookmark-list-arrow {
+  color: rgba(248, 250, 252, .62);
+}
+
 .recycle-bin-list-item.bookmark {
-  color: var(--recycle-bin-text-color, var(--ui-text));
+  color: var(--recycle-bin-text-color, #f8fafc);
 }
 
 .recycle-bin-list-item .bookmark-list-detail {
   color: color-mix(
     in srgb,
-    var(--recycle-bin-text-color, var(--ui-text)) 68%,
+    var(--recycle-bin-text-color, #f8fafc) 68%,
     transparent
   );
 }
