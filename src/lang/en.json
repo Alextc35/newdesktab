@@ -567,7 +567,6 @@
       "mediaColor": "Color behind this wallpaper",
       "mediaPreview": "Preview wallpaper",
       "activeSource": "Active source",
-      "backgroundDefaultHint": "When neither option is selected, the default NewDeskTab background is used.",
       "backgroundSolid": "Solid color",
       "backgroundColor": "Color:",
       "editSolidColor": "Change solid background color",

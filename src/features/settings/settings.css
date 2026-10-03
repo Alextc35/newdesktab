@@ -212,14 +212,6 @@
   margin-bottom: 6px;
 }
 
-.theme-background-default-hint {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--ui-muted);
-  font-size: 11px;
-  line-height: 1.4;
-}
-
 .interface-appearance {
   margin-bottom: 16px;
 }

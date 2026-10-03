@@ -567,7 +567,6 @@
       "mediaColor": "Color detrás de este fondo",
       "mediaPreview": "Vista previa del fondo",
       "activeSource": "Fuente activa",
-      "backgroundDefaultHint": "Si no seleccionas ninguna opción, se usa el fondo predeterminado de NewDeskTab.",
       "backgroundSolid": "Color sólido",
       "backgroundColor": "Color:",
       "editSolidColor": "Cambiar el color del fondo sólido",
