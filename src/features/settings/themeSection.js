@@ -2,7 +2,10 @@ import { showAlert } from '../../shared/ui/alertModal.js';
 import { refreshCustomSelect } from '../../shared/ui/customSelect.js';
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { t } from '../../platform/i18n/i18n.js';
-import { initCustomColorPicker } from '../../shared/ui/colorPicker.js';
+import {
+  initCustomColorPicker,
+  openCustomColorPicker
+} from '../../shared/ui/colorPicker.js';
 import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { getImageInputValue, setImageInputValue } from '../../shared/ui/localImageUpload.js';
@@ -83,6 +86,7 @@ export function initThemeSection({
    * Theme background preview element.
    */
   const bgPreview = document.getElementById('settings-theme-bg-preview');
+  const bgPreviewColorHint = document.getElementById('settings-theme-preview-color-hint');
   const themeTab = bgPreview.closest('#settings-modal-tab-theme');
 
   function syncPreviewAspectRatio() {
@@ -504,6 +508,23 @@ export function initThemeSection({
 
     bgSolidColorField.classList.toggle('is-hidden', !backgroundSolid);
     bgColorInput.disabled = !backgroundSolid;
+    bgPreview.classList.toggle('is-solid-color-trigger', backgroundSolid);
+    bgPreviewColorHint.hidden = !backgroundSolid;
+    if (backgroundSolid) {
+      bgPreview.setAttribute('role', 'button');
+      bgPreview.setAttribute('aria-label',
+        `${t('settingsModal.theme.editSolidColor')}: ${bgColorInput.value.toUpperCase()}`);
+      bgPreview.setAttribute('aria-haspopup', 'dialog');
+      const pickerId = bgColorInput.getAttribute('aria-controls');
+      if (pickerId) bgPreview.setAttribute('aria-controls', pickerId);
+      bgPreview.tabIndex = 0;
+    } else {
+      bgPreview.removeAttribute('role');
+      bgPreview.removeAttribute('aria-label');
+      bgPreview.removeAttribute('aria-haspopup');
+      bgPreview.removeAttribute('aria-controls');
+      bgPreview.tabIndex = -1;
+    }
     bgImageControls.classList.toggle('is-hidden', imagesDisabled);
     bgImageUrlField.classList.toggle('is-hidden', !syncMode);
     bgImageColorInput.disabled = imagesDisabled || !syncMode || (bgController?.isLocked() ?? false);
@@ -587,9 +608,28 @@ export function initThemeSection({
     if (bgColorInput.disabled) return;
 
     setDraftThemeValue('backgroundColor', bgColorInput.value);
+    bgPreview.setAttribute('aria-label',
+      `${t('settingsModal.theme.editSolidColor')}: ${bgColorInput.value.toUpperCase()}`);
 
     updatePreview();
     onRequestSaveStateUpdate();
+  });
+
+  function openSolidColorPicker() {
+    if (bgColorInput.disabled) return;
+    openCustomColorPicker(bgColorInput, {
+      anchor: bgPreview,
+      returnFocusTo: bgPreview,
+      onOpen: () => { bgPreviewColorHint.hidden = true; },
+      onClose: () => { bgPreviewColorHint.hidden = bgColorInput.disabled; }
+    });
+  }
+
+  bgPreview.addEventListener('click', openSolidColorPicker);
+  bgPreview.addEventListener('keydown', event => {
+    if (bgColorInput.disabled || !['Enter', ' '].includes(event.key)) return;
+    event.preventDefault();
+    openSolidColorPicker();
   });
 
   /**

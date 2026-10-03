@@ -562,6 +562,8 @@
       "backgroundDefaultHint": "Quando nenhuma opção é selecionada, o fundo padrão do NewDeskTab é usado.",
       "backgroundSolid": "Cor sólida",
       "backgroundColor": "Cor:",
+      "editSolidColor": "Alterar a cor sólida do plano de fundo",
+      "changeSolidColor": "Alterar cor",
       "backgroundImageColor": "Cor atrás da imagem ou do vídeo",
       "backgroundImage": "URL de reserva (imagem ou vídeo):",
       "urlHidden": "URL oculta",

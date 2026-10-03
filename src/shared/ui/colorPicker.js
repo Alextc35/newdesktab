@@ -139,6 +139,9 @@ export function initCustomColorPicker(input) {
   let isOpen = false;
   let hasChanges = false;
   let dragging = false;
+  let focusReturnTarget = input;
+  let activeAnchor = input;
+  let onCloseCallback = null;
 
   function syncFromInput() {
     const color = normalizeHex(input.value);
@@ -187,8 +190,8 @@ export function initCustomColorPicker(input) {
     setColor(hsvToHex(hueValue, saturation, brightness));
   }
 
-  function positionPopover() {
-    const rect = input.getBoundingClientRect();
+  function positionPopover(anchor = input) {
+    const rect = anchor.getBoundingClientRect();
     const width = Math.min(284, window.innerWidth - 16);
     popover.style.width = `${width}px`;
     popover.style.maxHeight = 'none';
@@ -226,7 +229,7 @@ export function initCustomColorPicker(input) {
     popover.style.top = `${top}px`;
   }
 
-  function open() {
+  function open({ anchor = input, returnFocusTo = input, onOpen, onClose } = {}) {
     if (input.disabled || isOpen) return;
     openInstance?.close({ commit: true, restoreFocus: false });
     updateLabels();
@@ -235,9 +238,13 @@ export function initCustomColorPicker(input) {
     hasChanges = false;
     isOpen = true;
     openInstance = instance;
+    focusReturnTarget = returnFocusTo;
+    activeAnchor = anchor;
+    onCloseCallback = onClose ?? null;
     popover.hidden = false;
     input.setAttribute('aria-expanded', 'true');
-    positionPopover();
+    positionPopover(anchor);
+    onOpen?.();
     field.focus({ preventScroll: true });
   }
 
@@ -253,7 +260,15 @@ export function initCustomColorPicker(input) {
     popover.hidden = true;
     input.setAttribute('aria-expanded', 'false');
     if (openInstance === instance) openInstance = null;
-    if (restoreFocus) input.focus({ preventScroll: true });
+    activeAnchor = input;
+    const onClose = onCloseCallback;
+    onCloseCallback = null;
+    onClose?.();
+    if (restoreFocus) {
+      const target = focusReturnTarget?.isConnected ? focusReturnTarget : input;
+      target.focus({ preventScroll: true });
+    }
+    focusReturnTarget = input;
   }
 
   function updateLabels() {
@@ -278,12 +293,14 @@ export function initCustomColorPicker(input) {
   }
 
   function onOutsidePointer(event) {
-    if (!isOpen || input === event.target || popover.contains(event.target)) return;
+    if (!isOpen || input === event.target || popover.contains(event.target)
+      || activeAnchor === event.target || activeAnchor.contains(event.target)) return;
     close({ commit: true });
   }
 
   function onFocusIn(event) {
-    if (isOpen && event.target !== input && !popover.contains(event.target)) {
+    if (isOpen && event.target !== input && !popover.contains(event.target)
+      && activeAnchor !== event.target && !activeAnchor.contains(event.target)) {
       close({ commit: true });
     }
   }
@@ -419,6 +436,7 @@ export function initCustomColorPicker(input) {
   disabledObserver.observe(input, { attributes: true, attributeFilter: ['disabled'] });
 
   const instance = {
+    open: options => open(options),
     close: options => close(options),
     destroy() {
       close({ commit: true });
@@ -435,6 +453,11 @@ export function initCustomColorPicker(input) {
   instances.set(input, instance);
   watchForRemovedInputs();
   return instance;
+}
+
+/** Opens an initialized app color picker from another, more visible trigger. */
+export function openCustomColorPicker(input, options = {}) {
+  instances.get(input)?.open(options);
 }
 
 function watchForRemovedInputs() {

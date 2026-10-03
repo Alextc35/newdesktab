@@ -893,10 +893,10 @@
               <small class="theme-background-default-hint"
                 data-i18n="settingsModal.theme.backgroundDefaultHint">Sin seleccionar ninguna opción se usa el fondo predeterminado de New DeskTab.</small>
               <div id="settings-theme-bg-solid-color-field"
-                class="theme-solid-background-color is-hidden">
+                class="theme-solid-background-color is-color-picker-proxy is-hidden">
                 <label for="settings-theme-bg-color"
                   data-i18n="settingsModal.theme.backgroundColor">Color:</label>
-                <input id="settings-theme-bg-color" type="color">
+                <input id="settings-theme-bg-color" type="color" tabindex="-1" aria-hidden="true">
               </div>
               <div id="settings-theme-bg-image-controls"
                 class="theme-background-image-controls is-hidden">
@@ -949,7 +949,11 @@
                   </select>
                 </details>
               </div>
-              <div id="settings-theme-bg-preview" class="bg-preview"><video id="settings-theme-preview-video" muted autoplay playsinline loop hidden></video></div>
+              <div id="settings-theme-bg-preview" class="bg-preview" tabindex="-1">
+                <video id="settings-theme-preview-video" muted autoplay playsinline loop hidden></video>
+                <span id="settings-theme-preview-color-hint" class="theme-preview-color-hint"
+                  data-i18n="settingsModal.theme.changeSolidColor" hidden>Cambiar color</span>
+              </div>
               <div id="settings-theme-preview-navigation" class="theme-preview-navigation is-hidden">
                 <button id="settings-theme-preview-prev" class="btn btn-secondary" type="button" aria-label="Anterior" data-i18n-aria-label="settingsModal.theme.previous">‹</button>
                 <span id="settings-theme-preview-count"></span>

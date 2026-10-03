@@ -562,6 +562,8 @@
       "backgroundDefaultHint": "When neither option is selected, the default NewDeskTab background is used.",
       "backgroundSolid": "Solid color",
       "backgroundColor": "Color:",
+      "editSolidColor": "Change solid background color",
+      "changeSolidColor": "Change color",
       "backgroundImageColor": "Color behind the image/video",
       "backgroundImage": "Fallback URL (image or video):",
       "urlHidden": "URL hidden",
