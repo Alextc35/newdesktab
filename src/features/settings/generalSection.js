@@ -19,7 +19,6 @@ export function initGeneralSection({
   onRequestSaveStateUpdate
 }) {
   const themeInputs = document.querySelectorAll('input[name="interface-theme"]');
-  const systemNote = document.getElementById('interface-theme-system-note');
   const showRecycleBinInput = document.getElementById('settings-show-recycle-bin');
   document.querySelector('.settings-recycle-bin-icon')
     .replaceChildren(createRecycleBinSvg());
@@ -27,7 +26,6 @@ export function initGeneralSection({
   function syncUI() {
     const preference = getDraftInterfaceTheme();
     for (const input of themeInputs) input.checked = input.value === preference;
-    systemNote.classList.toggle('is-hidden', preference !== 'system');
     applyInterfaceTheme(preference);
     showRecycleBinInput.checked = getDraftShowRecycleBin();
   }

@@ -462,7 +462,6 @@
       "appearance": {
         "title": "Aparência",
         "system": "Navegador",
-        "systemHint": "Usa a aparência do navegador.",
         "light": "Claro",
         "dark": "Escuro"
       }
@@ -660,8 +659,7 @@
     "languages": {
       "title": "Idiomas",
       "text": "Selecione o idioma da interface:",
-      "system": "Navegador",
-      "systemHint": "Usa o idioma do navegador; inglês se não estiver disponível."
+      "system": "Navegador"
     },
     "information": {
       "title": "Informações",

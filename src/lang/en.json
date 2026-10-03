@@ -462,7 +462,6 @@
       "appearance": {
         "title": "Appearance",
         "system": "Browser",
-        "systemHint": "Uses the browser's appearance.",
         "light": "Light",
         "dark": "Dark"
       }
@@ -660,8 +659,7 @@
     "languages": {
       "title": "Languages",
       "text": "Select the interface language:",
-      "system": "Browser",
-      "systemHint": "Uses the browser's language, or English if unavailable."
+      "system": "Browser"
     },
     "information": {
       "title": "Information",

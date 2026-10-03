@@ -29,7 +29,6 @@ export function initLanguageSection({
    * Language selector used to switch the current UI language.
    */
   const languageSelect = document.getElementById('language-select');
-  const systemNote = document.getElementById('language-system-note');
 
   /* ==================================================
      Sync
@@ -41,10 +40,6 @@ export function initLanguageSection({
   function syncUI() {
     languageSelect.value = getDraftLanguage();
     refreshCustomSelect(languageSelect);
-    const followsBrowser = languageSelect.value === 'system';
-    systemNote.classList.toggle('is-hidden', !followsBrowser);
-    if (followsBrowser) languageSelect.setAttribute('aria-describedby', systemNote.id);
-    else languageSelect.removeAttribute('aria-describedby');
   }
 
   /**
