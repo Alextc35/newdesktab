@@ -85,6 +85,19 @@ for (const type of Object.keys(editors)) {
     await expect(modal.locator('.editor-preview-surfaces')).toHaveCount(0);
     await expect(modal.locator('.bookmark-preview, .edit-item-modal-preview'))
       .toHaveCSS('background-image', /conic-gradient/);
+    const frame = await modal.locator('.bookmark-preview, .edit-item-modal-preview').boundingBox();
+    const card = await modal.locator(editors[type].preview).boundingBox();
+    expect(Math.abs(card.width - card.height)).toBeLessThanOrEqual(1);
+    expect(card.width / frame.width).toBeGreaterThan(.8);
+    expect(card.y).toBeGreaterThan(frame.y);
+    expect(card.y + card.height).toBeLessThan(frame.y + frame.height);
+    if (type === 'bookmark') {
+      for (const selector of ['.bookmark-favicon-image', '.bookmark-title']) {
+        const content = await modal.locator(`.bookmark-preview ${selector}`).boundingBox();
+        expect(content.y).toBeGreaterThanOrEqual(card.y);
+        expect(content.y + content.height).toBeLessThanOrEqual(card.y + card.height);
+      }
+    }
     await modal.locator('[data-appearance-look="midnight"]').click();
     await expect(save).toBeEnabled();
     await expect(modal.locator(editors[type].preview)).toHaveCSS('background-color', 'rgb(23, 23, 23)');
@@ -199,4 +212,8 @@ test('Spanish labels and the complete item fit inside each taller look', async (
   }
   await page.mouse.move(0, 0);
   await modal.locator('.modal-card').screenshot({ path: testInfo.outputPath('editor-es.png') });
+  await modal.locator('[data-appearance-look="original"]').click();
+  await modal.getByRole('tab', { name: 'General', exact: true }).click();
+  await page.mouse.move(0, 0);
+  await modal.locator('.modal-card').screenshot({ path: testInfo.outputPath('editor-general-es.png') });
 });

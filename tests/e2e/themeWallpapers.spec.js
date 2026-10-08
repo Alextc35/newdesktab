@@ -62,13 +62,14 @@ test('personal wallpapers use the same disclosure styling as storage availabilit
   await expect(page.locator('#settings-theme-media-url')).toBeVisible();
 });
 
-test('uses the shared URL only when no personal wallpaper is available', async ({ page }) => {
+test('uses the shared URL only when no personal wallpaper is available', async ({ page }, testInfo) => {
   await openTheme(page);
   await page.locator('#settings-theme-bg-image-mode').check();
   await expect(page.locator('#settings-theme-bg-image-url-field')).toBeHidden();
   await enableSyncDraft(page);
   await expect(page.locator('#settings-theme-bg-image-url-field')).toBeVisible();
   await page.locator('#settings-theme-bg-image').fill('https://images.test/fallback.png');
+  await page.locator('.settings-theme-bg-image-input').screenshot({ path: testInfo.outputPath('shared-url-actions.png') });
   await expect(page.locator('#settings-theme-bg-upload')).toHaveCount(0);
   await expect(page.locator('#settings-theme-more-wallpapers')).not.toHaveAttribute('open', '');
   await openOwnWallpapers(page);

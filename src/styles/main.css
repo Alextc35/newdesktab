@@ -29,6 +29,7 @@
 @import '../widgets/builtin/clock/clock.css';
 @import '../widgets/widgetCatalog.css';
 @import '../shared/ui/itemAppearanceEditor.css';
+@import '../shared/ui/lockableInput.css';
 
 @import './utilities/disabled.css';
 @import './utilities/hidden.css';

@@ -178,18 +178,6 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
     description.dataset.i18n = 'itemEditor.description';
     header.append(description);
   }
-  for (const panel of root.querySelectorAll('.edit-bookmark-modal-tab-content')) {
-    const sectionName = panel.dataset.tabPanel || panel.id.split('-panel-').at(-1);
-    if (sectionName !== 'general') continue;
-    const intro = document.createElement('div');
-    intro.className = 'editor-panel-intro';
-    const heading = document.createElement('h3');
-    heading.dataset.i18n = `itemEditor.section.${sectionName}`;
-    const note = document.createElement('p');
-    note.dataset.i18n = `itemEditor.hint.${type}.${sectionName}`;
-    intro.append(heading, note);
-    panel.prepend(intro);
-  }
 
   const reset = document.createElement('button');
   reset.type = 'button';

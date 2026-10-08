@@ -389,7 +389,7 @@ test('keeps folder artwork and captions aligned across visibility and editing st
   });
   const previewCenter = previewGeometry.card.x + previewGeometry.card.width / 2;
   expect(Math.abs(previewGeometry.card.width - previewGeometry.card.height)).toBeLessThanOrEqual(1);
-  expect(previewGeometry.card.width).toBeLessThanOrEqual(150);
+  expect(previewGeometry.card.width).toBeLessThanOrEqual(200);
   expect(Math.abs(
     previewGeometry.visual.x + previewGeometry.visual.width / 2 - previewCenter
   )).toBeLessThanOrEqual(1);
@@ -404,7 +404,7 @@ test('keeps folder artwork and captions aligned across visibility and editing st
   expect(
     previewGeometry.card.y + previewGeometry.card.height
       - previewGeometry.count.y - previewGeometry.count.height
-  ).toBeLessThanOrEqual(18);
+  ).toBeLessThanOrEqual(previewGeometry.card.height * .125);
 });
 
 test('hides previews and keeps the folder name and saved count independently configurable', async ({ page }) => {

@@ -45,18 +45,10 @@
   scrollbar-gutter: stable;
 }
 
-.editor-panel-intro { margin-bottom: 4px; }
-.editor-panel-intro h3, .editor-section-heading h3 {
+.editor-section-heading h3 {
   margin: 0;
   font-size: 13px;
   font-weight: 600;
-}
-
-.editor-panel-intro p {
-  margin: 7px 0 0;
-  color: var(--ui-muted);
-  font-size: 12px;
-  line-height: 1.65;
 }
 
 .editor-section-heading {
@@ -268,11 +260,12 @@ h3.editor-section-heading { margin: 0 0 6px; font-size: 13px; font-weight: 600; 
 }
 
 .item-appearance-editor :is(.bookmark-preview, .edit-item-modal-preview) {
+  --editor-preview-item-size: 200px;
   display: grid;
   width: 236px;
   height: 236px;
   min-height: 236px;
-  padding: 24px;
+  padding: 16px;
   place-items: center;
   border: 1px solid var(--ui-border);
   border-radius: 14px;
@@ -285,14 +278,31 @@ h3.editor-section-heading { margin: 0 0 6px; font-size: 13px; font-weight: 600; 
   position: relative;
   left: auto;
   top: auto;
-  width: 144px;
-  height: 144px;
+  width: var(--editor-preview-item-size);
+  height: var(--editor-preview-item-size);
   margin: 0;
   padding: 5px;
   box-sizing: border-box;
-  font-size: 12px;
+  font-size: 14px;
 }
-.item-appearance-editor .edit-item-modal-preview > .folder-editor-preview-card { --folder-preview-icon-size: 22px; }
+.item-appearance-editor .bookmark-preview > .is-favicon-bg .bookmark-favicon {
+  display: flex;
+  width: 76%;
+  height: 76%;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+.item-appearance-editor .bookmark-preview > .is-favicon-bg .bookmark-favicon-image {
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+.item-appearance-editor .edit-item-modal-preview > .folder-editor-preview-card { --folder-preview-icon-size: 28px; }
+.item-appearance-editor .edit-item-modal-preview > .recycle-bin-editor-preview-card .recycle-bin-glyph {
+  width: min(66cqw, 72cqh, 132px);
+}
 .item-appearance-editor .bookmark-preview .has-transparent-background { --bookmark-context-text: var(--color-text-bookmark); }
 .item-appearance-editor .bookmark-preview .bookmark-link { pointer-events: none; }
 .editor-reset-appearance { margin-right: auto; font-size: 12px; }
@@ -305,30 +315,8 @@ h3.editor-section-heading { margin: 0 0 6px; font-size: 13px; font-weight: 600; 
 .item-appearance-editor #folder-editor-outer-color-reset { padding: 6px; font-size: 10px; }
 .item-appearance-editor .local-image-field .background-image-color { display: none; }
 .item-appearance-editor .local-image-field input[type="text"] { padding-left: 12px; }
-.item-appearance-editor .input-action { font-size: 0; color: var(--ui-muted); }
-.item-appearance-editor .input-action::after {
-  content: '';
-  display: block;
-  width: 15px;
-  height: 15px;
-  background: currentColor;
-  mask: var(--editor-action-icon) center / contain no-repeat;
-}
-.item-appearance-editor .input-toggle {
-  --editor-action-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0M12 15v2'/%3E%3C/svg%3E");
-}
-.item-appearance-editor .input-toggle.is-locked {
-  --editor-action-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4M12 15v2'/%3E%3C/svg%3E");
-}
-.item-appearance-editor .input-copy {
-  --editor-action-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'%3E%3Crect x='8' y='8' width='12' height='13' rx='2'/%3E%3Cpath d='M16 8V3H3v13h5'/%3E%3C/svg%3E");
-}
-.item-appearance-editor .input-clear {
-  --editor-action-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round'%3E%3Cpath d='m6 6 12 12M18 6 6 18'/%3E%3C/svg%3E");
-}
 .modal-actions:has(.bookmark-modal-density-toggle:not(.is-hidden)) .editor-reset-appearance { margin-right: 0; }
 .modal.is-add-compact .editor-reset-appearance { display: none; }
-.modal.is-add-compact .editor-panel-intro { display: none; }
 .modal.is-add-compact .editor-description { display: none; }
 .modal.is-add-compact .item-appearance-editor .edit-bookmark-modal-tabs { padding-top: 0; padding-bottom: 0; max-height: 0; }
 .modal.is-add-compact .item-appearance-editor .edit-bookmark-modal-preview-panel { width: 0; padding-right: 0; padding-left: 0; }
@@ -337,7 +325,7 @@ h3.editor-section-heading { margin: 0 0 6px; font-size: 13px; font-weight: 600; 
 
 @media (max-width: 760px) {
   .item-appearance-editor .edit-bookmark-modal-preview-panel { width: 228px; padding: 18px; }
-  .item-appearance-editor :is(.bookmark-preview, .edit-item-modal-preview) { width: 190px; height: 210px; min-height: 210px; padding: 16px; }
+  .item-appearance-editor :is(.bookmark-preview, .edit-item-modal-preview) { --editor-preview-item-size: 156px; width: 190px; height: 210px; min-height: 210px; padding: 16px; }
   .item-appearance-editor .edit-bookmark-modal-panel { padding: 20px 16px; }
   .editor-content-groups { grid-template-columns: 1fr; gap: 18px; }
   .editor-content-groups .editor-background-controls { flex-wrap: nowrap; }
