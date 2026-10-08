@@ -465,7 +465,7 @@ function watchForRemovedInputs() {
   removedInputObserver = new MutationObserver(records => {
     for (const record of records) {
       for (const node of record.removedNodes) {
-        if (node.nodeType !== Node.ELEMENT_NODE) continue;
+        if (node.nodeType !== node.ELEMENT_NODE) continue;
         const inputs = [];
         if (node.matches?.('input[type="color"][data-app-color-picker]')) inputs.push(node);
         inputs.push(...node.querySelectorAll('input[type="color"][data-app-color-picker]'));

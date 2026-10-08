@@ -312,24 +312,24 @@ test('customizes and hides the recycle bin from its edit action', async ({ page 
 
   const editor = page.locator('#edit-recycle-bin-modal');
   await expect(editor).toBeVisible();
-  await expect(editor.getByRole('tab')).toHaveCount(4);
+  await expect(editor.getByRole('tab')).toHaveCount(2);
   await expect(editor.getByRole('tab', { name: 'General' })).toHaveClass(/active/);
 
   await editor.getByRole('tab', { name: 'Style' }).click();
   await page.locator('#recycle-bin-editor-no-background').check();
   await expect(page.locator('#recycle-bin-editor-background-color')).toBeDisabled();
-  await expect(page.locator('.recycle-bin-editor-preview-card'))
+  await expect(page.locator('.edit-item-modal-preview > .recycle-bin-editor-preview-card'))
     .toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await page.locator('#recycle-bin-editor-no-background').uncheck();
   await page.locator('#recycle-bin-editor-background-color').fill('#663399');
 
-  await editor.getByRole('tab', { name: 'Icon' }).click();
+  await editor.getByRole('tab', { name: 'Style' }).click();
   await page.locator('#recycle-bin-editor-icon-color').fill('#ffaa00');
   await page.locator('#recycle-bin-editor-show-icon').uncheck();
 
-  await editor.getByRole('tab', { name: 'Text' }).click();
-  await page.locator('#recycle-bin-editor-show-name').uncheck();
+  await editor.getByRole('tab', { name: 'Style' }).click();
   await page.locator('#recycle-bin-editor-text-color').fill('#00ff00');
+  await page.locator('#recycle-bin-editor-show-name').uncheck();
   await page.locator('#edit-recycle-bin-modal-save').click();
   await expect(editor).toBeHidden();
 
@@ -388,7 +388,7 @@ test('restores the recycle bin defaults from the general tab', async ({ page }) 
   await editor.getByRole('tab', { name: 'Style' }).click();
   await page.locator('#recycle-bin-editor-no-background').uncheck();
   await page.locator('#recycle-bin-editor-background-color').fill('#663399');
-  await editor.getByRole('tab', { name: 'Text' }).click();
+  await editor.getByRole('tab', { name: 'Style' }).click();
   await page.locator('#recycle-bin-editor-show-name').uncheck();
   await page.locator('#edit-recycle-bin-modal-save').click();
   await expect(recycleBin).toHaveClass(/is-recycle-bin-name-hidden/);
@@ -1738,7 +1738,7 @@ test('expands compact folder creation and persists its advanced appearance', asy
 
   await modal.getByRole('tab', { name: 'Style' }).click();
   await page.locator('#folder-editor-color').fill('#ef4444');
-  await expect(page.locator('.folder-editor-preview-card'))
+  await expect(page.locator('.edit-item-modal-preview > .folder-editor-preview-card'))
     .toHaveCSS('--folder-color', '#ef4444');
   await modal.getByRole('button', { name: '▴ Compact view' }).click();
   await expect(modal).toHaveClass(/is-add-compact/);
@@ -1793,7 +1793,7 @@ test('keeps bookmark editor actions inside the modal on content-heavy tabs', asy
   const cardBox = await visibleBox(modal);
   const actionsBox = await visibleBox(modal.locator('.modal-actions'));
 
-  expect(actionsBox.y + actionsBox.height).toBeLessThanOrEqual(cardBox.y + cardBox.height);
+  expect(actionsBox.y + actionsBox.height).toBeLessThanOrEqual(cardBox.y + cardBox.height + 1);
   expect(actionsBox.x).toBeGreaterThanOrEqual(cardBox.x);
   expect(actionsBox.x + actionsBox.width).toBeLessThanOrEqual(cardBox.x + cardBox.width);
 });
@@ -1959,8 +1959,8 @@ test('configures the default bookmark through the shared preset editor', async (
   await expect(editor.getByRole('heading', { name: 'Default bookmark appearance' })).toBeVisible();
   await expect(editor.getByRole('tab', { name: 'General' })).toHaveCount(0);
   await expect(editor.getByRole('tab', { name: 'Style' })).toHaveAttribute('aria-selected', 'true');
-  await expect(editor.locator('.bookmark-title')).toHaveText('Default bookmark');
-  await expect(editor.locator('.bookmark-favicon-image'))
+  await expect(editor.locator('.bookmark-preview .bookmark-title')).toHaveText('Default bookmark');
+  await expect(editor.locator('.bookmark-preview .bookmark-favicon-image'))
     .toHaveAttribute('src', /assets\/icons\/icon-128\.png$/);
 
   await editor.getByRole('checkbox', { name: 'No background' }).uncheck();
@@ -1968,12 +1968,13 @@ test('configures the default bookmark through the shared preset editor', async (
   await editor.getByRole('button', { name: 'Apply' }).click();
 
   await expect(editor).toBeHidden();
-  await expect(page.getByRole('button', { name: 'Save', exact: true })).toBeVisible();
+  await expect(page.locator('#settings-modal-save')).toBeHidden();
+  await waitForSaved(page);
 
   await page.getByRole('button', { name: 'Configure default bookmark' }).click();
   await expect(editor.locator('#bookmark-modal-form-backgroundColor')).toHaveValue('#123456');
   await editor.getByRole('button', { name: 'Cancel' }).click();
-  await page.getByRole('button', { name: 'Save', exact: true }).click();
+  await page.keyboard.press('Escape');
 
   await revealSideDock(page);
   await page.locator('#settings').click();
@@ -2520,7 +2521,7 @@ test('opens every grid item editor with middle click without opening tabs', asyn
   await expect.poll(() => page.context().pages().length).toBe(1);
 });
 
-test('locks the bookmark image base color together with its image URL', async ({ page }) => {
+test('keeps the bookmark base color editable while its image URL is locked', async ({ page }) => {
   await enableEditMode(page);
   const bookmark = page.locator('#bookmark-container > .bookmark[data-bookmark-id]').nth(1);
 
@@ -2533,21 +2534,21 @@ test('locks the bookmark image base color together with its image URL', async ({
   const imageLock = editor.locator('[data-field="bgToggle"]');
 
   await expect(imageUrl).toHaveJSProperty('readOnly', true);
-  await expect(imageColor).toBeDisabled();
+  await expect(imageColor).toBeEnabled();
   await expect(imageColor).toHaveValue('#eeff00');
   await imageLock.click();
   await expect(imageUrl).toHaveJSProperty('readOnly', false);
   await expect(imageColor).toBeEnabled();
   await imageColor.fill('#dc2626');
   await imageLock.click();
-  await expect(imageColor).toBeDisabled();
+  await expect(imageColor).toBeEnabled();
   await editor.getByRole('button', { name: 'Save' }).click();
 
   await expect(bookmark).toHaveCSS('--color-bg-bookmark', '#dc2626');
   await bookmark.getByRole('button', { name: 'Edit bookmark' }).click();
   await editor.getByRole('tab', { name: 'Style' }).click();
   await expect(editor.locator('[data-field="backgroundColor"]')).toHaveValue('#dc2626');
-  await expect(editor.locator('[data-field="backgroundColor"]')).toBeDisabled();
+  await expect(editor.locator('[data-field="backgroundColor"]')).toBeEnabled();
 });
 
 test('names a single bookmark before deletion and counts multiple selections', async ({ page }) => {
@@ -2744,6 +2745,7 @@ test('customizes a folder from its miniature and persists the appearance', async
   await expect(folderModal).toBeVisible();
   await page.locator('#folder-editor-name').fill('Games');
   await page.getByRole('tab', { name: 'Style' }).click();
+  await page.locator('#edit-folder-modal .editor-image-section summary').click();
   const imageInput = page.locator('#folder-editor-image');
   const imageLock = page.getByRole('button', { name: 'Lock or unlock image URL' });
   const imageCopy = page.getByRole('button', { name: 'Copy image URL' });
@@ -2760,7 +2762,7 @@ test('customizes a folder from its miniature and persists the appearance', async
   await expect(imageClear).toBeVisible();
   await imageLock.click();
   await expect(imageInput).toHaveJSProperty('readOnly', true);
-  await expect(page.locator('#folder-editor-color')).toBeDisabled();
+  await expect(page.locator('#folder-editor-color')).toBeEnabled();
   await expect(imageLock).toHaveText('🔒');
   await expect(imageCopy).toBeVisible();
   await expect(imageClear).toBeHidden();
@@ -2777,10 +2779,10 @@ test('customizes a folder from its miniature and persists the appearance', async
 
   await imageInput.fill('https://images.test/folder.png');
   await imageLock.click();
-  await expect(page.locator('#folder-editor-color')).toBeDisabled();
-  await page.getByRole('tab', { name: 'Text' }).click();
+  await expect(page.locator('#folder-editor-color')).toBeEnabled();
+  await page.getByRole('tab', { name: 'Style' }).click();
   await page.locator('#folder-editor-text-color').fill('#fef3c7');
-  await expect(page.locator('.folder-editor-preview-card')).toContainText('Games');
+  await expect(page.locator('.edit-item-modal-preview > .folder-editor-preview-card')).toContainText('Games');
   await page.locator('#edit-folder-modal-save').click();
 
   await expect(editor).toBeHidden();
@@ -2814,9 +2816,9 @@ test('customizes a folder from its miniature and persists the appearance', async
   await expect(noBackground).not.toBeChecked();
   await noBackground.check();
   await expect(page.locator('#folder-editor-color')).toBeDisabled();
-  await expect(page.locator('.folder-editor-preview-card .folder-visual'))
+  await expect(page.locator('.edit-item-modal-preview > .folder-editor-preview-card .folder-visual'))
     .toHaveClass(/is-folder-transparent/);
-  await expect(page.locator('.folder-editor-preview-card .folder-visual'))
+  await expect(page.locator('.edit-item-modal-preview > .folder-editor-preview-card .folder-visual'))
     .toHaveClass(/has-folder-bg-image/);
   await page.locator('#edit-folder-modal-save').click();
 

@@ -207,6 +207,10 @@
             data-tab="folder-editor-panel-text" role="tab"
             aria-controls="folder-editor-panel-text"
             data-i18n="folder.editor.sections.text">Text</button>
+          <button class="edit-bookmark-modal-tab-btn" type="button"
+            data-tab="folder-editor-panel-icon" role="tab"
+            aria-controls="folder-editor-panel-icon"
+            data-i18n="editModal.sections.icon">Icon</button>
         </div>
         <div class="edit-bookmark-modal-layout">
           <div class="edit-bookmark-modal-panel">
@@ -221,16 +225,6 @@
             <div id="folder-editor-panel-style"
               class="modal-field edit-bookmark-modal-tab-content is-hidden custom-scrollbar"
               role="tabpanel">
-              <div class="checkbox-wrapper">
-                <input id="folder-editor-show-folder" type="checkbox" checked>
-                <label for="folder-editor-show-folder"
-                  data-i18n="folder.editor.showFolder">Show folder icon</label>
-              </div>
-              <div class="checkbox-wrapper">
-                <input id="folder-editor-show-previews" type="checkbox" checked>
-                <label for="folder-editor-show-previews"
-                  data-i18n="folder.editor.showPreviews">Show bookmark previews</label>
-              </div>
               <div class="checkbox-wrapper">
                 <input id="folder-editor-no-outer-background" type="checkbox">
                 <label for="folder-editor-no-outer-background"
@@ -325,6 +319,20 @@
                 <label for="folder-editor-text-color"
                   data-i18n="folder.editor.textColor">Text color:</label>
                 <input id="folder-editor-text-color" type="color">
+              </div>
+            </div>
+            <div id="folder-editor-panel-icon"
+              class="modal-field edit-bookmark-modal-tab-content is-hidden custom-scrollbar"
+              role="tabpanel">
+              <div class="checkbox-wrapper">
+                <input id="folder-editor-show-folder" type="checkbox" checked>
+                <label for="folder-editor-show-folder"
+                  data-i18n="folder.editor.showFolder">Show folder icon</label>
+              </div>
+              <div class="checkbox-wrapper">
+                <input id="folder-editor-show-previews" type="checkbox" checked>
+                <label for="folder-editor-show-previews"
+                  data-i18n="folder.editor.showPreviews">Show bookmark previews</label>
               </div>
             </div>
           </div>

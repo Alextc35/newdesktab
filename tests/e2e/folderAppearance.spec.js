@@ -3,7 +3,7 @@ import { expectAppReady } from './helpers/appReady.js';
 
 const folderId = 'appearance-folder';
 const folderCard = page => page.locator(`#bookmark-container [data-folder-id="${folderId}"]`);
-const previewCard = page => page.locator('.folder-editor-preview-card');
+const previewCard = page => page.locator('.edit-item-modal-preview > .folder-editor-preview-card');
 const saveButton = page => page.locator('#edit-folder-modal-save');
 
 async function start(page, layouts = [{ id: folderId, gx: 0, gy: 0, w: 2, h: 2 }]) {
@@ -54,7 +54,7 @@ async function openEditor(page) {
   await expect(page.locator('#folder-modal-customize .edit-indicator-svg')).toBeVisible();
   await page.locator('#folder-modal-customize').click();
   await expect(page.locator('#edit-folder-modal')).toBeVisible();
-  await expect(saveButton(page)).toBeHidden();
+  await expect(saveButton(page)).toBeDisabled();
 }
 
 async function tab(page, name) {
@@ -150,7 +150,7 @@ test('new folders and the default recycle bin have no outer background', async (
   await expect(noOuterBackground).toBeChecked();
   await expect(page.locator('#folder-editor-outer-color')).toBeDisabled();
   await expect(page.locator('#folder-editor-no-background')).not.toBeChecked();
-  await page.locator('#edit-folder-modal').getByRole('tab', { name: 'Text' }).click();
+  await page.locator('#edit-folder-modal').getByRole('tab', { name: 'Style' }).click();
   await expect(page.locator('#folder-editor-show-count')).not.toBeChecked();
   await page.locator('#edit-folder-modal').getByRole('tab', { name: 'Style' }).click();
   await noOuterBackground.uncheck();
@@ -241,7 +241,7 @@ test('previews, persists and resets the exterior color without making an unchang
   await expect(previewCard(page)).toHaveCSS('background-image', 'none');
   await expectBorder(previewCard(page));
   await reset.click();
-  await expect(saveButton(page)).toBeHidden();
+  await expect(saveButton(page)).toBeDisabled();
   await color.fill('#2468ac');
   await saveAndClose(page);
 
@@ -254,7 +254,7 @@ test('previews, persists and resets the exterior color without making an unchang
   await openEditor(page);
   await tab(page, 'Style');
   await expect(color).toHaveValue('#2468ac');
-  await expect(saveButton(page)).toBeHidden();
+  await expect(saveButton(page)).toBeDisabled();
   await reset.click();
   await saveAndClose(page);
   await page.reload();
@@ -263,7 +263,7 @@ test('previews, persists and resets the exterior color without making an unchang
   expect((await savedFolder(page)).outerBackgroundColor).toBeNull();
   await openEditor(page);
   await tab(page, 'Style');
-  await expect(saveButton(page)).toBeHidden();
+  await expect(saveButton(page)).toBeDisabled();
 });
 
 test('shows the automatic light folder background in the exterior color picker', async ({ page }) => {
@@ -289,7 +289,7 @@ test('shows the automatic light folder background in the exterior color picker',
   await reset.click();
   await expect(color).toHaveValue('#f4f4f5');
   await expect(reset).toBeDisabled();
-  await expect(saveButton(page)).toBeHidden();
+  await expect(saveButton(page)).toBeDisabled();
 });
 
 test('shares the bookmark edit control position and adapts it to the folder surface', async ({ page }) => {
@@ -415,7 +415,7 @@ test('hides previews and keeps the folder name and saved count independently con
   await page.locator('#folder-editor-show-previews').uncheck();
   await expect(previewCard(page).locator('.folder-previews')).toBeHidden();
   await expect(previewCard(page).locator('.folder-visual')).toBeVisible();
-  await tab(page, 'Text');
+  await tab(page, 'Style');
   await page.locator('#folder-editor-show-name').uncheck();
   await expect(previewCard(page).locator('.folder-title')).toBeHidden();
   await expect(previewCard(page).locator('.folder-count')).toBeVisible();
@@ -432,7 +432,7 @@ test('hides previews and keeps the folder name and saved count independently con
   await tab(page, 'Style');
   await expect(page.locator('#folder-editor-show-previews')).not.toBeChecked();
   await expect(page.locator('#folder-editor-show-previews')).toBeEnabled();
-  await tab(page, 'Text');
+  await tab(page, 'Style');
   await expect(page.locator('#folder-editor-show-name')).not.toBeChecked();
   await expect(page.locator('#folder-editor-show-count')).toBeChecked();
   await page.locator('#folder-editor-show-name').check();
@@ -445,7 +445,7 @@ test('hides previews and keeps the folder name and saved count independently con
   await expect(folderCard(page).locator('.folder-title')).toBeVisible();
   await expect(folderCard(page).locator('.folder-count')).toBeHidden();
   await openEditor(page);
-  await tab(page, 'Text');
+  await tab(page, 'Style');
   await expect(page.locator('#folder-editor-show-name')).toBeChecked();
   await expect(page.locator('#folder-editor-show-count')).not.toBeChecked();
 });
@@ -462,7 +462,7 @@ test('hiding the glyph also hides previews while an empty bordered card still op
   await expect(showPreviews).toBeDisabled();
   await expect(previewCard(page).locator('.folder-visual')).toBeHidden();
   await expect(previewCard(page).locator('.folder-previews')).toBeHidden();
-  await tab(page, 'Text');
+  await tab(page, 'Style');
   await page.locator('#folder-editor-show-name').uncheck();
   await page.locator('#folder-editor-show-count').uncheck();
   await expectBorder(previewCard(page));
@@ -482,7 +482,7 @@ test('hiding the glyph also hides previews while an empty bordered card still op
   await expect(page.locator('#folder-modal')).toBeVisible();
   await expect(page.locator('#folder-modal-items [data-bookmark-id]')).toHaveCount(3);
   await page.locator('#folder-modal-customize').click();
-  await expect(saveButton(page)).toBeHidden();
+  await expect(saveButton(page)).toBeDisabled();
   await tab(page, 'Style');
   await expect(showFolder).not.toBeChecked();
   await expect(showPreviews).not.toBeChecked();

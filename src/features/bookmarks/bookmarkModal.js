@@ -65,7 +65,7 @@ export function initBookmarkModal() {
   });
 
   modal.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && e.target.matches('input:not([type="checkbox"]):not([type="color"])')) {
       e.preventDefault();
       e.stopPropagation();
       handleAccept();
@@ -287,7 +287,7 @@ function updateSaveButtonState() {
 
   const changed = hasChanges();
   modalSave.disabled = !changed;
-  modalSave.classList.toggle('is-hidden', !changed);
+  modalSave.classList.remove('is-hidden');
   modalSave.classList.remove('is-disabled');
 }
 

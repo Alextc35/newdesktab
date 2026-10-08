@@ -1,4 +1,47 @@
 {
+  "itemEditor": {
+    "description": "Personaliza cómo aparece en tu espacio.",
+    "looks": "Elige un estilo",
+    "custom": "Personalizado",
+    "look": {
+      "original": "Original",
+      "midnight": "Negro",
+      "paper": "Claro",
+      "ocean": "Azul"
+    },
+    "reset": "Restablecer aspecto",
+    "cardColor": "Color de la tarjeta",
+    "folderFill": "Color de la carpeta",
+    "image": "Imagen de fondo",
+    "lock": "Bloquear o desbloquear URL",
+    "copy": "Copiar URL",
+    "clear": "Borrar",
+    "section": {
+      "general": "Lo esencial",
+      "text": "Nombre y etiquetas",
+      "icon": "Icono",
+      "card": "Tarjeta"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "El nombre que verás y la página que se abrirá.",
+        "text": "Elige si mostrar el nombre y ajusta su color.",
+        "icon": "Usa un favicon grande y centrado, o un icono pequeño junto al nombre para las tarjetas con imagen."
+      },
+      "folder": {
+        "general": "Un nombre para agrupar tus favoritos.",
+        "text": "Muestra el nombre, el número de favoritos o ambos.",
+        "icon": "Personaliza el icono de la carpeta y las miniaturas de sus favoritos."
+      },
+      "recycleBin": {
+        "general": "Decide si la papelera aparece en tu espacio principal.",
+        "text": "Muestra el nombre, el número de elementos o ambos.",
+        "icon": "Elige si mostrar el icono y dale tu propio color."
+      }
+    },
+    "addImage": "Añadir imagen de fondo",
+    "changeImage": "Editar imagen de fondo"
+  },
   "html": {
     "title": "Nueva pestaña"
   },
@@ -321,7 +364,7 @@
       "showCount": "Mostrar número de guardados",
       "outerBackgroundColor": "Color del fondo exterior:",
       "noOuterBackground": "Sin fondo exterior",
-      "resetOuterBackground": "Usar fondo predeterminado",
+      "resetOuterBackground": "Automático",
       "noBackground": "Relleno de carpeta transparente",
       "backgroundColor": "Color de la carpeta:",
       "backgroundImage": "Imagen de fondo (URL):",
@@ -410,7 +453,7 @@
     "name": "Nombre:",
     "url": "URL:",
     "backgroundImage": "Imagen de fondo (URL):",
-    "backgroundFavicon": "Usar ícono como fondo",
+    "backgroundFavicon": "Icono grande y centrado",
     "invertColorBg": "Invertir colores",
     "noBackground": "Sin fondo",
     "backgroundColor": "Color del marcador:",

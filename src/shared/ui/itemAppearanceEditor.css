@@ -1,0 +1,349 @@
+/* A single visual language for bookmarks, folders and the recycle bin. */
+.modal:is(.item-appearance-editor, :has(.item-appearance-editor)) .modal-card.modal-xl {
+  width: 820px;
+  height: min(700px, 90dvh);
+  border-radius: 18px;
+}
+
+.editor-description {
+  margin: 7px 0 5px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.item-appearance-editor .edit-bookmark-modal-tabs {
+  gap: 4px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  max-height: 60px;
+}
+
+.item-appearance-editor .edit-bookmark-modal-tab-btn {
+  padding: 8px 14px;
+  font-weight: 500;
+}
+
+.item-appearance-editor .edit-bookmark-modal-tab-btn.active {
+  background: var(--ui-input);
+  box-shadow: inset 0 0 0 1px var(--ui-border), 0 1px 2px var(--ui-control-shadow);
+}
+
+.item-appearance-editor :is(button, input):focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 3px;
+}
+
+.item-appearance-editor .edit-bookmark-modal-panel {
+  padding: 20px 24px;
+}
+
+.item-appearance-editor .edit-bookmark-modal-tab-content {
+  margin: 0;
+  padding-right: 8px;
+  gap: 12px;
+  scrollbar-gutter: stable;
+}
+
+.editor-panel-intro { margin-bottom: 4px; }
+.editor-panel-intro h3, .editor-section-heading h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.editor-panel-intro p {
+  margin: 7px 0 0;
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.editor-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+h3.editor-section-heading { margin: 0 0 6px; font-size: 13px; font-weight: 600; }
+
+.editor-look-status {
+  color: var(--ui-muted);
+  font-size: 11px;
+}
+
+.editor-looks {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ui-divider);
+}
+
+.editor-look-options {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.editor-look {
+  display: flex;
+  min-width: 0;
+  padding: 4px 4px 8px;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid var(--ui-border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ui-muted);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition: border-color .15s ease, background .15s ease;
+}
+
+.editor-look:hover { background: var(--ui-hover); }
+.editor-look[aria-pressed="true"] {
+  border-color: var(--ui-accent);
+  background: var(--ui-selected);
+  color: var(--ui-text);
+  box-shadow: 0 0 0 1px var(--ui-accent);
+}
+
+.editor-look-sample {
+  --editor-look-height: 96px;
+  display: grid;
+  width: 100%;
+  height: var(--editor-look-height);
+  place-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.editor-look-sample-original {
+  background: repeating-conic-gradient(var(--ui-input) 0 25%, var(--ui-card) 0 50%) 0 / 12px 12px;
+}
+
+.item-appearance-editor .editor-look-item {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: var(--editor-look-height);
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 3px;
+  border-radius: 6px;
+  font-size: 9px;
+  --folder-preview-icon-size: 13px;
+}
+.item-appearance-editor .editor-look-item .bookmark-title { font-size: 9px; }
+.editor-look-item .bookmark-favicon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.editor-look-item .bookmark-favicon-image { min-width: 0; min-height: 0; max-width: 100%; max-height: 100%; }
+.editor-look-item .folder-card-content { --folder-headroom: 10px; --folder-content-gap: 4px; --folder-title-size: 10px; }
+.editor-look-item .recycle-bin-open { padding-top: 4px; padding-bottom: 3px; }
+.editor-look-item .bookmark-link { pointer-events: none; }
+
+.item-appearance-editor .checkbox-wrapper {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 24px;
+}
+.item-appearance-editor .checkbox-wrapper label { flex: 1; min-width: 0; cursor: pointer; line-height: 1.4; opacity: 1; }
+.item-appearance-editor .checkbox-wrapper input[type="checkbox"] { flex: 0 0 36px; padding: 0; margin: 0; }
+.item-appearance-editor :is(input, .editor-color-chip):disabled::after,
+.item-appearance-editor .editor-color-chip.is-disabled::after { content: none; }
+
+.editor-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.editor-control-group > h3 { margin: 0; font-size: 12px; font-weight: 600; color: var(--ui-muted); }
+.editor-content-groups {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 22px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ui-divider);
+}
+.editor-background-controls { display: flex; align-items: center; gap: 14px; }
+.editor-background-controls > .checkbox-wrapper { flex: 1; min-width: 0; }
+.editor-content-groups .editor-background-controls { gap: 8px; }
+.editor-icon-group .editor-background-controls .editor-color-code { display: none; }
+.item-appearance-editor .editor-control-group .edit-bookmark-modal-color-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.editor-color-chip {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  padding: 3px 6px 3px 3px;
+  gap: 5px;
+  border: 1px solid var(--ui-border);
+  border-radius: 7px;
+  background: var(--ui-input);
+}
+.item-appearance-editor .editor-color-chip input[type="color"] {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+}
+.editor-color-code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ui-muted);
+  font: inherit;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+.editor-color-chip.is-disabled { opacity: .4; }
+.editor-background-controls .edit-bookmark-modal-color-options > label { display: none; }
+.editor-image-section { flex: none; padding-top: 10px; border-top: 1px solid var(--ui-divider); }
+.editor-image-section > summary {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 4px 0;
+  color: var(--ui-text);
+  font-size: 12px;
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+}
+.editor-image-section > summary::-webkit-details-marker { display: none; }
+.editor-image-section > summary::before {
+  content: '+';
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background: var(--ui-input);
+  color: var(--ui-muted);
+  font-size: 16px;
+  font-weight: 400;
+}
+.editor-image-section[open] > summary::before { content: '−'; }
+.editor-image-section[open] > .modal-field { margin: 14px 0 0; gap: 12px; }
+.editor-image-section summary:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 3px; border-radius: 4px; }
+.item-appearance-editor .local-image-upload .btn { font-size: 12px; }
+.item-appearance-editor .background-image-url-field .input-with-actions input[type="text"] { padding-left: 12px; }
+
+.item-appearance-editor .edit-bookmark-modal-preview-panel {
+  display: flex;
+  width: 292px;
+  flex: 0 0 auto;
+  padding: 24px;
+  gap: 15px;
+  background: var(--ui-card);
+}
+
+.item-appearance-editor .edit-bookmark-modal-preview-panel h3 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 1;
+}
+.item-appearance-editor .edit-bookmark-modal-preview-panel h3::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ui-success-text);
+}
+
+.item-appearance-editor :is(.bookmark-preview, .edit-item-modal-preview) {
+  display: grid;
+  width: 236px;
+  height: 236px;
+  min-height: 236px;
+  padding: 24px;
+  place-items: center;
+  border: 1px solid var(--ui-border);
+  border-radius: 14px;
+  box-sizing: border-box;
+  background: repeating-conic-gradient(
+    var(--ui-preview-square) 0% 25%, var(--ui-preview-base) 0% 50%
+  ) 0 0 / 16px 16px;
+}
+.item-appearance-editor :is(.bookmark-preview, .edit-item-modal-preview) > :is(.bookmark.is-preview, .folder-editor-preview-card, .recycle-bin-editor-preview-card) {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 144px;
+  height: 144px;
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+.item-appearance-editor .edit-item-modal-preview > .folder-editor-preview-card { --folder-preview-icon-size: 22px; }
+.item-appearance-editor .bookmark-preview .has-transparent-background { --bookmark-context-text: var(--color-text-bookmark); }
+.item-appearance-editor .bookmark-preview .bookmark-link { pointer-events: none; }
+.editor-reset-appearance { margin-right: auto; font-size: 12px; }
+.item-appearance-editor .edit-bookmark-modal-color-options:has(#folder-editor-outer-color) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.item-appearance-editor .folder-outer-color-control { gap: 6px; }
+.item-appearance-editor #folder-editor-outer-color-reset { padding: 6px; font-size: 10px; }
+.item-appearance-editor .local-image-field .background-image-color { display: none; }
+.item-appearance-editor .local-image-field input[type="text"] { padding-left: 12px; }
+.item-appearance-editor .input-action { font-size: 0; color: var(--ui-muted); }
+.item-appearance-editor .input-action::after {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: currentColor;
+  mask: var(--editor-action-icon) center / contain no-repeat;
+}
+.item-appearance-editor .input-toggle {
+  --editor-action-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0M12 15v2'/%3E%3C/svg%3E");
+}
+.item-appearance-editor .input-toggle.is-locked {
+  --editor-action-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4M12 15v2'/%3E%3C/svg%3E");
+}
+.item-appearance-editor .input-copy {
+  --editor-action-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'%3E%3Crect x='8' y='8' width='12' height='13' rx='2'/%3E%3Cpath d='M16 8V3H3v13h5'/%3E%3C/svg%3E");
+}
+.item-appearance-editor .input-clear {
+  --editor-action-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round'%3E%3Cpath d='m6 6 12 12M18 6 6 18'/%3E%3C/svg%3E");
+}
+.modal-actions:has(.bookmark-modal-density-toggle:not(.is-hidden)) .editor-reset-appearance { margin-right: 0; }
+.modal.is-add-compact .editor-reset-appearance { display: none; }
+.modal.is-add-compact .editor-panel-intro { display: none; }
+.modal.is-add-compact .editor-description { display: none; }
+.modal.is-add-compact .item-appearance-editor .edit-bookmark-modal-tabs { padding-top: 0; padding-bottom: 0; max-height: 0; }
+.modal.is-add-compact .item-appearance-editor .edit-bookmark-modal-preview-panel { width: 0; padding-right: 0; padding-left: 0; }
+.modal.is-add-compact:is(.item-appearance-editor, :has(.item-appearance-editor)) .modal-card.modal-xl { width: 420px; height: 330px; }
+#edit-folder-modal.is-add-compact.item-appearance-editor .modal-card.modal-xl { height: 270px; }
+
+@media (max-width: 760px) {
+  .item-appearance-editor .edit-bookmark-modal-preview-panel { width: 228px; padding: 18px; }
+  .item-appearance-editor :is(.bookmark-preview, .edit-item-modal-preview) { width: 190px; height: 210px; min-height: 210px; padding: 16px; }
+  .item-appearance-editor .edit-bookmark-modal-panel { padding: 20px 16px; }
+  .editor-content-groups { grid-template-columns: 1fr; gap: 18px; }
+  .editor-content-groups .editor-background-controls { flex-wrap: nowrap; }
+  .editor-content-groups .editor-background-controls > .checkbox-wrapper { flex-basis: auto; }
+  .editor-background-controls { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .editor-look, .item-appearance-editor :is(.bookmark-preview, .edit-item-modal-preview) { transition: none; }
+}

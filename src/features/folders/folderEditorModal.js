@@ -20,6 +20,7 @@ import {
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { closeModal, openModal, registerModal } from '../../shared/ui/modalManager.js';
 import { initTabs } from '../../shared/ui/tabs.js';
+import { createItemAppearanceEditor } from '../../shared/ui/itemAppearanceEditor.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 import { applyFolderAppearance, createFolderVisual } from './folderVisual.js';
 
@@ -59,6 +60,7 @@ let nameError;
 let imageError;
 let imageController;
 let submitting = false;
+let appearanceEditor;
 
 export function initFolderEditorModal() {
   if (initialized) return;
@@ -92,6 +94,18 @@ export function initFolderEditorModal() {
   densityToggle = document.getElementById('folder-modal-density-toggle');
   nameError = document.getElementById('folder-editor-name-error');
   imageError = document.getElementById('folder-editor-image-error');
+
+  appearanceEditor = createItemAppearanceEditor({
+    root: modal,
+    type: 'folder',
+    stylePanel: document.getElementById('folder-editor-panel-style'),
+    getValue: currentValue,
+    renderSample: value => createFolderPreviewCard(value),
+    onApply: appearance => {
+      populateForm({ ...currentValue(), ...appearance });
+      handleInput();
+    }
+  });
 
   initTabs({
     root: modal,
@@ -227,6 +241,7 @@ function fallbackOuterBackgroundColor() {
 }
 
 function prepareEditor() {
+  appearanceEditor?.refresh();
   setLocalImageSyncNoticeVisibility(imageUploadNotice, getStorageMode());
   clearErrors();
   syncStyleControls();
@@ -292,14 +307,14 @@ function syncStyleControls() {
   imageSourceField.classList.toggle('is-hidden', !hasLocalImage);
   imageUrlField.classList.toggle('is-hidden', hasLocalImage && activeSource === 'local');
   localImageField.classList.toggle('is-hidden', !hasLocalImage || activeSource === 'url');
-  colorInput.disabled = noBackgroundInput.checked
-    || activeSource !== 'url'
-    || (imageController?.isLocked() ?? false);
+  colorInput.disabled = noBackgroundInput.checked;
   localColorInput.disabled = noBackgroundInput.checked || activeSource !== 'local';
   if (!showFolderInput.checked) showPreviewsInput.checked = false;
   showPreviewsInput.disabled = !showFolderInput.checked;
   outerColorResetButton.disabled = outerBackgroundColor === null;
   outerColorInput.disabled = noOuterBackgroundInput.checked;
+  textColorInput.disabled = !showNameInput.checked && !showCountInput.checked;
+  appearanceEditor?.sync();
 }
 
 function syncSaveButton() {
@@ -313,12 +328,15 @@ function syncSaveButton() {
 
   const changed = isDirty();
   saveButton.disabled = !changed;
-  saveButton.classList.toggle('is-hidden', !changed);
+  saveButton.classList.remove('is-hidden');
   saveButton.classList.remove('is-disabled');
 }
 
 function renderPreview() {
-  const folder = currentValue();
+  preview.replaceChildren(createFolderPreviewCard(currentValue()));
+}
+
+function createFolderPreviewCard(folder) {
   const bookmarks = activeFolderId
     ? getState().data.bookmarks.filter(bookmark => bookmark.folderId === activeFolderId)
     : [];
@@ -345,7 +363,7 @@ function renderPreview() {
   caption.append(title, saved);
   content.append(caption);
   card.append(content);
-  preview.replaceChildren(card);
+  return card;
 }
 
 async function handleSave() {
@@ -422,6 +440,13 @@ function renderErrors(errors) {
       `validation.backgroundImageUrl.${errors.backgroundImageUrl}`
     );
     imageError.classList.remove('is-hidden');
+  }
+  appearanceEditor?.sync();
+  const invalidInput = errors.name ? nameInput : errors.backgroundImageUrl ? imageInput : null;
+  if (invalidInput) {
+    const tab = errors.name ? 'general' : 'style';
+    modal.querySelector(`[data-tab="folder-editor-panel-${tab}"]`)?.click();
+    invalidInput.focus();
   }
 }
 

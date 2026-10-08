@@ -1,4 +1,47 @@
 {
+  "itemEditor": {
+    "description": "Personalize como aparece no seu espaço.",
+    "looks": "Escolha um estilo",
+    "custom": "Personalizado",
+    "look": {
+      "original": "Original",
+      "midnight": "Preto",
+      "paper": "Claro",
+      "ocean": "Azul"
+    },
+    "reset": "Restaurar aparência",
+    "cardColor": "Cor do cartão",
+    "folderFill": "Cor da pasta",
+    "image": "Imagem de fundo",
+    "lock": "Bloquear ou desbloquear URL",
+    "copy": "Copiar URL",
+    "clear": "Limpar",
+    "section": {
+      "general": "O essencial",
+      "text": "Nome e etiquetas",
+      "icon": "Ícone",
+      "card": "Cartão"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "O nome que você vê e a página que será aberta.",
+        "text": "Escolha se deseja mostrar o nome e ajuste sua cor.",
+        "icon": "Use um favicon grande e centralizado ou um ícone pequeno ao lado do nome nos cartões com imagem."
+      },
+      "folder": {
+        "general": "Um nome para agrupar seus favoritos.",
+        "text": "Mostre o nome, a quantidade de favoritos ou ambos.",
+        "icon": "Personalize o ícone da pasta e as miniaturas dos favoritos."
+      },
+      "recycleBin": {
+        "general": "Escolha se a lixeira aparece no seu espaço principal.",
+        "text": "Mostre o nome, a quantidade de itens ou ambos.",
+        "icon": "Escolha se deseja mostrar o ícone e dê a ele sua própria cor."
+      }
+    },
+    "addImage": "Adicionar imagem de fundo",
+    "changeImage": "Editar imagem de fundo"
+  },
   "html": {
     "title": "Nova guia"
   },
@@ -321,7 +364,7 @@
       "showCount": "Mostrar quantidade de salvos",
       "outerBackgroundColor": "Cor do fundo externo:",
       "noOuterBackground": "Sem fundo externo",
-      "resetOuterBackground": "Usar fundo padrão",
+      "resetOuterBackground": "Automático",
       "noBackground": "Preenchimento da pasta transparente",
       "backgroundColor": "Cor da pasta:",
       "backgroundImage": "Imagem de fundo (URL):",
@@ -410,7 +453,7 @@
     "name": "Nome:",
     "url": "URL:",
     "backgroundImage": "Imagem de fundo (URL):",
-    "backgroundFavicon": "Usar ícone como fundo",
+    "backgroundFavicon": "Ícone grande e centralizado",
     "invertColorBg": "Inverter cores",
     "noBackground": "Sem fundo",
     "backgroundColor": "Cor do favorito:",

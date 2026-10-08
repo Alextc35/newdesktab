@@ -22,6 +22,7 @@ import {
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { closeModal, openModal, registerModal } from '../../shared/ui/modalManager.js';
 import { initTabs } from '../../shared/ui/tabs.js';
+import { createItemAppearanceEditor } from '../../shared/ui/itemAppearanceEditor.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 
 let initialized = false;
@@ -53,6 +54,7 @@ let preview;
 let saveButton;
 let resetButton;
 let tabs;
+let appearanceEditor;
 
 export function initRecycleBinEditorModal() {
   if (initialized) return;
@@ -81,6 +83,18 @@ export function initRecycleBinEditorModal() {
   preview = document.getElementById('recycle-bin-editor-preview');
   saveButton = document.getElementById('edit-recycle-bin-modal-save');
   resetButton = document.getElementById('recycle-bin-editor-reset');
+
+  appearanceEditor = createItemAppearanceEditor({
+    root: modal,
+    type: 'recycleBin',
+    stylePanel: document.getElementById('recycle-bin-editor-panel-style'),
+    getValue: currentValue,
+    renderSample: value => createRecycleBinPreviewCard(value),
+    onApply: appearance => {
+      setControlValues(appearance, visibleInput.checked);
+      handleInput();
+    }
+  });
 
   tabs = initTabs({
     root: modal,
@@ -154,6 +168,7 @@ export function openRecycleBinEditor() {
   setLocalImageSyncNoticeVisibility(imageUploadNotice, getStorageMode());
   clearErrors();
   tabs.activate('recycle-bin-editor-panel-general');
+  appearanceEditor?.refresh();
   syncControls();
   renderPreview();
   syncSaveButton();
@@ -196,11 +211,12 @@ function syncControls() {
   imageSourceField.classList.toggle('is-hidden', !hasLocalImage);
   imageUrlField.classList.toggle('is-hidden', hasLocalImage && activeSource === 'local');
   localImageField.classList.toggle('is-hidden', !hasLocalImage || activeSource === 'url');
-  backgroundColorInput.disabled = noBackgroundInput.checked
-    || activeSource !== 'url'
-    || (imageController?.isLocked() ?? false);
+  backgroundColorInput.disabled = noBackgroundInput.checked;
   localColorInput.disabled = noBackgroundInput.checked || activeSource !== 'local';
   resetButton.disabled = JSON.stringify(currentValue()) === JSON.stringify(defaultValue());
+  iconColorInput.disabled = !showIconInput.checked;
+  textColorInput.disabled = !showNameInput.checked && !showCountInput.checked;
+  appearanceEditor?.sync();
 }
 
 function setControlValues(style, showRecycleBin) {
@@ -245,11 +261,14 @@ function isDirty() {
 function syncSaveButton() {
   const changed = isDirty();
   saveButton.disabled = !changed;
-  saveButton.classList.toggle('is-hidden', !changed);
+  saveButton.classList.remove('is-hidden');
 }
 
 function renderPreview() {
-  const value = currentValue();
+  preview.replaceChildren(createRecycleBinPreviewCard(currentValue()));
+}
+
+function createRecycleBinPreviewCard(value) {
   const countValue = getState().data.trash.length;
   const card = document.createElement('div');
   card.className = 'recycle-bin recycle-bin-editor-preview-card';
@@ -268,7 +287,7 @@ function renderPreview() {
   caption.append(title, count);
   content.append(createRecycleBinGlyph(), caption);
   card.append(content);
-  preview.replaceChildren(card);
+  return card;
 }
 
 async function handleSave() {
@@ -320,6 +339,11 @@ function renderErrors(errors) {
       `validation.backgroundImageUrl.${errors.backgroundImageUrl}`
     );
     imageError.classList.remove('is-hidden');
+  }
+  appearanceEditor?.sync();
+  if (errors.backgroundImageUrl) {
+    tabs.activate('recycle-bin-editor-panel-style');
+    imageInput.focus();
   }
 }
 

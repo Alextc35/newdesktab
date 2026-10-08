@@ -134,7 +134,9 @@ document.addEventListener('keydown', (e) => {
     modal.onCancel?.();
   }
 
-  if (e.key === 'Enter' && modal.acceptOnEnter) {
+  if (e.key === 'Enter' && modal.acceptOnEnter
+    && !e.target.closest?.('button, summary, select, textarea, [role="slider"], .app-color-picker')
+    && !e.target.matches?.('input[type="checkbox"], input[type="color"], input[type="file"]')) {
     e.preventDefault();
     e.stopPropagation();
     modal.onAccept?.();

@@ -6,7 +6,9 @@ import {
 import { applyI18n, t } from '../../platform/i18n/i18n.js';
 import { initCustomColorPickers } from '../../shared/ui/colorPicker.js';
 import { initTabs } from '../../shared/ui/tabs.js';
+import { createItemAppearanceEditor } from '../../shared/ui/itemAppearanceEditor.js';
 import { createBookmarkEditor } from './bookmarkEditor.js';
+import { createBookmarkElement } from './bookmarkCard.js';
 
 const TEMPLATE_ID = 'bookmark-form-template';
 const ALL_SECTIONS = Object.freeze(['general', 'style', 'text', 'icon', 'presets']);
@@ -67,6 +69,7 @@ export function createBookmarkEditorPanel({
     if (!enabledSections.includes(section)) {
       panel?.remove();
       button?.remove();
+      panels[section] = null;
       continue;
     }
 
@@ -91,15 +94,9 @@ export function createBookmarkEditorPanel({
   connectLabels(root, elements, idPrefix);
   const errorElements = createErrorElements(elements, idPrefix);
 
-  const tabs = initTabs({
-    root,
-    tabButtonSelector: '.edit-bookmark-modal-tab-btn',
-    tabContentSelector: '.edit-bookmark-modal-tab-content',
-    signal: abortController.signal
-  });
-
   let currentValue = prepareEditorValue(currentMode, value, previewName);
   let initialValue = getPublicValue(currentMode, currentValue);
+  let appearanceEditor;
 
   const editor = createBookmarkEditor({
     elements,
@@ -108,8 +105,29 @@ export function createBookmarkEditorPanel({
     onChange: nextValue => {
       currentValue = prepareEditorValue(currentMode, nextValue, previewName);
       clearValidationErrors(elements, errorElements);
+      appearanceEditor?.sync();
       onChange?.(getPublicValue(currentMode, currentValue));
     }
+  });
+
+  appearanceEditor = createItemAppearanceEditor({
+    root,
+    type: 'bookmark',
+    stylePanel: panels.style,
+    getValue: () => editor.getState(),
+    renderSample: value => createBookmarkElement(value, { isPreview: true, faviconUrl: previewFaviconUrl }),
+    onApply: appearance => {
+      setValue({ ...editor.getState(), ...appearance });
+      onChange?.(getPublicValue(currentMode, currentValue));
+    },
+    signal: abortController.signal
+  });
+
+  const tabs = initTabs({
+    root,
+    tabButtonSelector: '.edit-bookmark-modal-tab-btn',
+    tabContentSelector: '.edit-bookmark-modal-tab-content',
+    signal: abortController.signal
   });
 
   function activateDefaultTab() {
@@ -126,6 +144,7 @@ export function createBookmarkEditorPanel({
     currentValue = prepareEditorValue(currentMode, nextValue, previewName);
     editor.setState(currentValue);
     clearValidationErrors(elements, errorElements);
+    appearanceEditor?.sync();
   }
 
   function reset(nextValue = {}) {
@@ -141,6 +160,13 @@ export function createBookmarkEditorPanel({
   function validate() {
     const result = validatePanelValue(currentMode, editor.getState());
     renderValidationErrors(elements, errorElements, result.errors);
+    appearanceEditor?.sync();
+    const invalidField = result.errors.name ? 'name' : result.errors.url ? 'url'
+      : result.errors.backgroundImageUrl ? 'backgroundImage' : null;
+    if (invalidField) {
+      tabs?.activate(`${idPrefix}-tab-${invalidField === 'backgroundImage' ? 'style' : 'general'}`);
+      elements[invalidField]?.focus();
+    }
     return result;
   }
 
@@ -154,6 +180,7 @@ export function createBookmarkEditorPanel({
   function destroy() {
     abortController.abort();
     tabs?.destroy?.();
+    appearanceEditor?.destroy();
     editor.destroy();
     if (root.parentElement === host) host.replaceChildren();
   }
@@ -164,7 +191,7 @@ export function createBookmarkEditorPanel({
     root,
     elements,
     get mode() { return currentMode; },
-    sections: [...enabledSections],
+    sections: enabledSections.filter(section => !['text', 'icon'].includes(section)),
     getValue,
     getState: getValue,
     setValue,
@@ -183,10 +210,16 @@ function resolveSections(mode, sections) {
     ? ALL_SECTIONS.filter(section => section !== 'general')
     : ALL_SECTIONS.filter(section => section !== 'presets');
   const requested = Array.isArray(sections)
-    ? sections.filter(section => availableSections.includes(section))
+    ? sections.map(section => ['text', 'icon'].includes(section) ? 'style' : section)
+      .filter(section => availableSections.includes(section))
     : availableSections;
-
-  return requested.length ? [...new Set(requested)] : ['style'];
+  const resolved = requested.length ? [...new Set(requested)] : ['style'];
+  if (resolved.includes('style')) {
+    for (const section of ['text', 'icon']) {
+      if (!resolved.includes(section)) resolved.push(section);
+    }
+  }
+  return resolved;
 }
 
 function prepareEditorValue(mode, value, previewName) {

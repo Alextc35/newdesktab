@@ -30,6 +30,7 @@ for (const kind of ['bookmark', 'folder']) {
       }, resolve);
     }));
     await page.reload();
+    await expectAppReady(page);
 
     const isBookmark = kind === 'bookmark';
     const modal = page.locator(isBookmark ? '#edit-bookmark-modal' : '#edit-folder-modal');
@@ -48,14 +49,14 @@ for (const kind of ['bookmark', 'folder']) {
     );
     const localInput = modal.locator(isBookmark ? '[data-field="backgroundImageLocal"]' : '#folder-editor-image-local');
     const localColor = modal.locator(
-      isBookmark ? '[data-field="backgroundImageLocalColor"]' : '#folder-editor-local-color'
+      isBookmark ? '[data-field="backgroundColor"]' : '#folder-editor-color'
     );
     const imageLock = modal.locator(
       isBookmark ? '[data-field="bgToggle"]' : '#folder-editor-image-toggle'
     );
     const upload = modal.locator(isBookmark ? '[data-field="bgUploadInput"]' : '#folder-editor-image-upload-input');
     const save = modal.locator(isBookmark ? '#edit-bookmark-modal-save' : '#edit-folder-modal-save');
-    const preview = modal.locator(isBookmark ? '.bookmark-preview .bookmark' : '.folder-editor-preview-card');
+    const preview = modal.locator(isBookmark ? '.bookmark-preview .bookmark' : '.edit-item-modal-preview > .folder-editor-preview-card');
     const cssProperty = isBookmark ? '--bookmark-bg-image' : '--folder-bg-image';
     const colorProperty = isBookmark ? '--color-bg-bookmark' : '--folder-color';
     const card = page.locator(isBookmark ? '#bookmark-container > [data-bookmark-id="image-bookmark"]' : '#bookmark-container > [data-folder-id="image-folder"]');
@@ -81,6 +82,9 @@ for (const kind of ['bookmark', 'folder']) {
         await page.getByRole('button', { name: 'Customize folder' }).click();
       }
       await modal.getByRole('tab', { name: 'Style' }).click();
+      if (!await modal.locator('.editor-image-section').evaluate(element => element.open)) {
+        await modal.locator('.editor-image-section summary').click();
+      }
     };
 
     await openEditor();
@@ -88,7 +92,7 @@ for (const kind of ['bookmark', 'folder']) {
     await expect(imageUrlField).toBeVisible();
     await imageUrl.fill(fallbackUrl);
     await imageLock.click();
-    await expect(imageUrlColor).toBeDisabled();
+    await expect(imageUrlColor).toBeEnabled();
     await upload.setInputFiles(imageFile);
     await expect(localInput).toHaveValue(imageFile.name);
     await expect(imageSourceField).toBeVisible();
@@ -112,6 +116,7 @@ for (const kind of ['bookmark', 'folder']) {
     await save.click();
     await expect(modal).toBeHidden();
     await page.reload();
+    await expectAppReady(page);
     await expectBackgroundImage(card, /data:image\/webp/);
     await expect(card).toHaveCSS(colorProperty, '#7c3aed');
 
@@ -126,17 +131,18 @@ for (const kind of ['bookmark', 'folder']) {
     await expect(imageUrlField).toBeVisible();
     await expect(imageUrl).toHaveValue(fallbackUrl);
     await expect(imageUrlColor).toHaveValue('#7c3aed');
-    await expect(imageUrlColor).toBeDisabled();
+    await expect(imageUrlColor).toBeEnabled();
     await expectBackgroundImage(preview, fallbackUrl);
     await save.click();
     await expect(modal).toBeHidden();
     await page.reload();
+    await expectAppReady(page);
     await expectBackgroundImage(card, fallbackUrl);
     await openEditor();
     await expect(localInput).toBeHidden();
     await expect(imageUrlField).toBeVisible();
     await expect(imageUrl).toHaveValue(fallbackUrl);
     await expect(imageUrlColor).toHaveValue('#7c3aed');
-    await expect(imageUrlColor).toBeDisabled();
+    await expect(imageUrlColor).toBeEnabled();
   });
 }

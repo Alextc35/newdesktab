@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
   await page.evaluate(() => sessionStorage.clear());
   await page.reload();
   await expectAppReady(page);
-  await expect(page.locator('.recycle-bin')).toBeVisible();
+  await expect(page.locator('#bookmark-container > .recycle-bin')).toBeVisible();
 });
 
 test('shows saved bookmark artwork and folder appearance in trash', async ({ page }) => {
@@ -51,7 +51,7 @@ test('shows saved bookmark artwork and folder appearance in trash', async ({ pag
     ] } });
   }, cover);
 
-  await page.locator('.recycle-bin-open').click();
+  await page.locator('#bookmark-container .recycle-bin-open').click();
   const coverIcon = page.locator('[data-trash-id="trash-cover-entry"] .recycle-bin-item-icon');
   await expect(coverIcon.locator('img.bookmark-list-cover')).toHaveAttribute('src', cover);
   await expect(coverIcon).toHaveCSS('background-color', 'rgb(18, 52, 86)');
@@ -68,7 +68,7 @@ test('shows saved bookmark artwork and folder appearance in trash', async ({ pag
 
 test('switches the recycle bin modal to its list layout at and below 600px', async ({ page }) => {
   await page.setViewportSize({ width: 601, height: 720 });
-  await page.locator('.recycle-bin-open').click();
+  await page.locator('#bookmark-container .recycle-bin-open').click();
   const card = page.locator('#recycle-bin-modal .modal-recycle-bin');
   const footer = page.locator('.recycle-bin-modal-footer');
   await expect(card).toBeVisible();
@@ -84,7 +84,7 @@ test('switches the recycle bin modal to its list layout at and below 600px', asy
 
 test('opens the recycle-bin editor from its modal artwork and restores the modal afterwards', async ({ page }) => {
   await page.setViewportSize({ width: 900, height: 720 });
-  await page.locator('.recycle-bin-open').click();
+  await page.locator('#bookmark-container .recycle-bin-open').click();
 
   const customize = page.locator('#recycle-bin-modal-customize');
   await expect(customize).toBeVisible();
@@ -111,7 +111,7 @@ test('shows the automatic light recycle-bin background in its color picker', asy
   });
   await expect(page.locator('html')).toHaveAttribute('data-interface-theme', 'light');
 
-  await page.locator('.recycle-bin-open').click();
+  await page.locator('#bookmark-container .recycle-bin-open').click();
   await page.locator('#recycle-bin-modal-customize').click();
   const editor = page.locator('#edit-recycle-bin-modal');
   await editor.getByRole('tab', { name: 'Style' }).click();
@@ -195,7 +195,7 @@ async function expectStackedDropPreview(source, target, feedback) {
 
 test('moves, resizes, hides and shows the recycle bin', async ({ page }) => {
   await toggleEditMode(page);
-  const bin = page.locator('.recycle-bin');
+  const bin = page.locator('#bookmark-container > .recycle-bin');
   const grid = await page.locator('#bookmark-container').boundingBox();
   const before = await bin.boundingBox();
 
@@ -250,7 +250,7 @@ test('moves, resizes, hides and shows the recycle bin', async ({ page }) => {
   await page.locator('#settings').click();
   await showBin.check();
   await page.locator('#settings-modal-save').click();
-  await expect(page.locator('.recycle-bin')).toBeVisible();
+  await expect(page.locator('#bookmark-container > .recycle-bin')).toBeVisible();
   await expect.poll(() => page.evaluate(async () => {
     const { recycleBin } = (await import('/src/state/appStore.js')).getState().data;
     return { gx: recycleBin.gx, gy: recycleBin.gy };
@@ -262,7 +262,7 @@ test('drops a bookmark into the bin and restores the selected item', async ({ pa
   await toggleEditMode(page);
   const bookmark = page.locator('.bookmark[data-bookmark-id="drop-bookmark"]');
   const bookmarkId = await bookmark.getAttribute('data-bookmark-id');
-  const bin = page.locator('.recycle-bin');
+  const bin = page.locator('#bookmark-container > .recycle-bin');
   await hoverCenterTo(page, bookmark, bin);
   await expectStackedDropPreview(
     bookmark,
@@ -306,7 +306,7 @@ test('asks before dropping a folder with contents and supports permanent deletio
 
   await toggleEditMode(page);
   const folder = page.locator('.bookmark-folder[data-folder-id="trash-folder"]');
-  const bin = page.locator('.recycle-bin');
+  const bin = page.locator('#bookmark-container > .recycle-bin');
   await hoverCenterTo(page, folder, bin);
   await expectStackedDropPreview(
     folder,

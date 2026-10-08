@@ -27,15 +27,14 @@ beforeEach(() => {
 });
 
 describe('BookmarkEditorPanel', () => {
-  test('groups favicon controls in the icon tab', () => {
-    const template = document.getElementById('bookmark-form-template').content;
-    const iconPanel = template.querySelector('[data-tab-panel="icon"]');
-    const stylePanel = template.querySelector('[data-tab-panel="style"]');
-
-    expect(iconPanel.querySelector('[data-field="backgroundFavicon"]')).not.toBeNull();
-    expect(iconPanel.querySelector('[data-field="showFavicon"]')).not.toBeNull();
-    expect(stylePanel.querySelector('[data-field="backgroundFavicon"]')).toBeNull();
-    expect(stylePanel.querySelector('[data-field="showFavicon"]')).toBeNull();
+  test('groups card, icon and text controls together in Style', () => {
+    const panel = createBookmarkEditorPanel({ host: document.getElementById('bookmark-modal-form-host') });
+    const style = panel.root.querySelector('[data-tab-panel="style"]');
+    expect(style.querySelector('.editor-icon-group [data-field="backgroundFavicon"]')).not.toBeNull();
+    expect(style.querySelector('.editor-icon-group [data-field="showFavicon"]')).not.toBeNull();
+    expect(style.querySelector('.editor-text-group [data-field="showText"]')).not.toBeNull();
+    expect(panel.root.querySelectorAll('[role="tab"]')).toHaveLength(2);
+    panel.destroy();
   });
 
   test('uses one panel contract for create and preset modes', () => {
@@ -52,8 +51,8 @@ describe('BookmarkEditorPanel', () => {
       previewFaviconUrl: '/assets/icons/icon-128.png'
     });
 
-    expect(createPanel.sections).toEqual(['general', 'style', 'text', 'icon']);
-    expect(presetPanel.sections).toEqual(['style', 'text', 'icon']);
+    expect(createPanel.sections).toEqual(['general', 'style']);
+    expect(presetPanel.sections).toEqual(['style', 'presets']);
     expect(presetPanel.elements.name).toBeNull();
     expect(presetPanel.getValue()).not.toHaveProperty('name');
     expect(presetPanel.getValue().backgroundColor).toBe('#abcdef');
@@ -63,6 +62,69 @@ describe('BookmarkEditorPanel', () => {
 
     createPanel.destroy();
     presetPanel.destroy();
+  });
+
+  test('quick looks preserve identity and layout, and original restores only appearance', () => {
+    const onChange = vi.fn();
+    const panel = createBookmarkEditorPanel({
+      host: document.getElementById('bookmark-modal-form-host'),
+      mode: 'edit',
+      value: { id: 'saved', name: 'My bookmark', url: 'https://example.test',
+        folderId: 'reading', groupId: 'work', gx: 3, gy: 2, w: 2, h: 3, urlLocked: true },
+      onChange
+    });
+    const original = panel.getValue();
+    panel.root.querySelector('[data-appearance-look="midnight"]').click();
+    expect(panel.getValue()).toMatchObject({
+      ...original, noBackground: false, backgroundColor: '#171717', textColor: '#f5f5f5'
+    });
+    expect(panel.isDirty()).toBe(true);
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(panel.root.querySelector('[data-appearance-look="midnight"]').getAttribute('aria-pressed')).toBe('true');
+    panel.root.querySelector('[data-appearance-look="original"]').click();
+    expect(panel.getValue()).toEqual(original);
+    expect(panel.isDirty()).toBe(false);
+    panel.destroy();
+  });
+
+  test('an image can replace the default large favicon without changing the URL or locking its color', () => {
+    const panel = createBookmarkEditorPanel({
+      host: document.getElementById('bookmark-modal-form-host'),
+      value: { name: 'Example', url: 'https://example.test', noBackground: false }
+    });
+    const { backgroundImage, backgroundFavicon, backgroundColor } = panel.elements;
+    expect(backgroundImage.disabled).toBe(false);
+    backgroundImage.value = 'https://images.test/cover.png';
+    backgroundImage.dispatchEvent(new Event('input', { bubbles: true }));
+    expect(backgroundFavicon.checked).toBe(false);
+    expect(panel.getValue()).toMatchObject({
+      url: 'https://example.test', backgroundFavicon: false,
+      backgroundImageUrl: 'https://images.test/cover.png'
+    });
+    panel.elements.bgToggleBtn.click();
+    expect(backgroundImage.readOnly).toBe(true);
+    expect(backgroundColor.disabled).toBe(false);
+    panel.destroy();
+  });
+
+  test('previews only the current item, and tabs support arrow navigation', () => {
+    const panel = createBookmarkEditorPanel({
+      host: document.getElementById('bookmark-modal-form-host'),
+      value: { name: 'Example', url: 'example.test' }
+    });
+    const original = panel.getValue();
+    expect(panel.root.querySelector('.editor-preview-surfaces')).toBeNull();
+    expect(panel.elements.preview.querySelectorAll('.bookmark')).toHaveLength(1);
+    expect(panel.getValue()).toEqual(original);
+    expect(panel.isDirty()).toBe(false);
+    panel.elements.name.value = 'Updated live';
+    panel.elements.name.dispatchEvent(new Event('input', { bubbles: true }));
+    expect(panel.elements.preview.querySelector('.bookmark-title').textContent).toBe('Updated live');
+    const general = panel.root.querySelector('[data-tab-button="general"]');
+    general.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+    expect(panel.root.querySelector('[data-tab-button="style"]').getAttribute('aria-selected')).toBe('true');
+    expect(panel.root.querySelector('[data-tab-panel="style"]').classList.contains('is-hidden')).toBe(false);
+    panel.destroy();
   });
 
   test('each field emits a single change and editors remain isolated', () => {

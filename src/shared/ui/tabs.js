@@ -41,8 +41,26 @@ export function initTabs({
   const buttons = rootEl.querySelectorAll(tabButtonSelector);
   const contents = rootEl.querySelectorAll(tabContentSelector);
 
+  for (const button of buttons) {
+    if (button.getAttribute('role') !== 'tab') continue;
+    button.id ||= `${button.dataset.tab}-button`;
+    button.setAttribute('aria-controls', button.dataset.tab);
+    const active = button.classList.contains(activeClass);
+    button.setAttribute('aria-selected', String(active));
+    button.tabIndex = active ? 0 : -1;
+    const content = rootEl.querySelector(`#${button.dataset.tab}`);
+    content?.setAttribute('aria-labelledby', button.id);
+  }
+
   function activate(tabId) {
-    buttons.forEach(btn => btn.classList.remove(activeClass));
+    buttons.forEach(btn => {
+      const active = btn.dataset.tab === tabId;
+      btn.classList.toggle(activeClass, active);
+      if (btn.getAttribute('role') === 'tab') {
+        btn.setAttribute('aria-selected', String(active));
+        btn.tabIndex = active ? 0 : -1;
+      }
+    });
 
     contents.forEach(tab => {
       tab.classList.add(hiddenClass);
@@ -68,6 +86,20 @@ export function initTabs({
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       activate(btn.dataset.tab);
+    }, eventOptions);
+    btn.addEventListener('keydown', event => {
+      if (btn.getAttribute('role') !== 'tab') return;
+      const index = [...buttons].indexOf(btn);
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % buttons.length;
+      if (event.key === 'ArrowLeft') next = (index + buttons.length - 1) % buttons.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = buttons.length - 1;
+      if (next === undefined) return;
+      event.preventDefault();
+      event.stopPropagation();
+      activate(buttons[next].dataset.tab);
+      buttons[next].focus();
     }, eventOptions);
   });
 

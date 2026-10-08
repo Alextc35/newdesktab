@@ -1,4 +1,47 @@
 {
+  "itemEditor": {
+    "description": "Make it feel at home in your workspace.",
+    "looks": "Choose a look",
+    "custom": "Custom",
+    "look": {
+      "original": "Original",
+      "midnight": "Black",
+      "paper": "Light",
+      "ocean": "Blue"
+    },
+    "reset": "Reset appearance",
+    "cardColor": "Card color",
+    "folderFill": "Folder color",
+    "image": "Background image",
+    "lock": "Lock or unlock URL",
+    "copy": "Copy URL",
+    "clear": "Clear",
+    "section": {
+      "general": "The essentials",
+      "text": "Name and labels",
+      "icon": "Icon",
+      "card": "Card"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "The name you see and the page it opens.",
+        "text": "Choose whether to show the name and adjust its color.",
+        "icon": "Use a large, centered favicon, or a small icon beside the name for image cards."
+      },
+      "folder": {
+        "general": "A name to bring your bookmarks together.",
+        "text": "Show the name, the saved count, or both.",
+        "icon": "Customize the folder icon and its bookmark thumbnails."
+      },
+      "recycleBin": {
+        "general": "Choose whether the recycle bin appears in your main workspace.",
+        "text": "Show the name, the item count, or both.",
+        "icon": "Choose whether to show the icon and give it your own color."
+      }
+    },
+    "addImage": "Add a background image",
+    "changeImage": "Edit background image"
+  },
   "html": {
     "title": "New tab"
   },
@@ -321,7 +364,7 @@
       "showCount": "Show saved count",
       "outerBackgroundColor": "Outer background color:",
       "noOuterBackground": "No outer background",
-      "resetOuterBackground": "Use default background",
+      "resetOuterBackground": "Automatic",
       "noBackground": "Transparent folder fill",
       "backgroundColor": "Folder color:",
       "backgroundImage": "Background image (URL):",
@@ -410,7 +453,7 @@
     "name": "Name:",
     "url": "URL:",
     "backgroundImage": "Background image (URL):",
-    "backgroundFavicon": "Use icon as background",
+    "backgroundFavicon": "Large, centered icon",
     "invertColorBg": "Invert colors",
     "noBackground": "No background",
     "backgroundColor": "Bookmark color:",

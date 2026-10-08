@@ -100,16 +100,14 @@ export function createBookmarkEditor({ elements, bookmark, onChange, previewFavi
 
     if (backgroundFavicon) backgroundFavicon.disabled = hasBgImage;
     if (backgroundColor) {
-      backgroundColor.disabled = bookmark.noBackground
-        || activeSource !== 'url'
-        || (bgController?.isLocked() ?? false);
+      backgroundColor.disabled = bookmark.noBackground;
     }
     if (backgroundImageLocalColor) {
       backgroundImageLocalColor.disabled = bookmark.noBackground || activeSource !== 'local';
     }
     if (backgroundImageSource) {
       backgroundImageSource.value = activeSource;
-      backgroundImageSource.disabled = bookmark.backgroundFavicon;
+      backgroundImageSource.disabled = false;
     }
     backgroundImageSourceField?.classList.toggle('is-hidden', !hasLocalImage);
     backgroundImageUrlField?.classList.toggle(
@@ -121,10 +119,9 @@ export function createBookmarkEditor({ elements, bookmark, onChange, previewFavi
       !hasLocalImage || activeSource === 'url'
     );
     if (textColor) textColor.disabled = !bookmark.showText;
-    if (backgroundImage) backgroundImage.disabled = bookmark.backgroundFavicon;
-    if (backgroundImageLocal) backgroundImageLocal.disabled = bookmark.backgroundFavicon;
-    if (bgLocalClearBtn) bgLocalClearBtn.disabled = bookmark.backgroundFavicon;
-    if (bgUploadBtn) bgUploadBtn.disabled = bookmark.backgroundFavicon;
+    if (backgroundImageLocal) backgroundImageLocal.disabled = false;
+    if (bgLocalClearBtn) bgLocalClearBtn.disabled = false;
+    if (bgUploadBtn) bgUploadBtn.disabled = false;
     if (showFavicon) showFavicon.disabled = bookmark.backgroundFavicon;
     if (invertBg) invertBg.disabled = bookmark.backgroundFavicon || !hasBgImage;
     if (invertIcon) invertIcon.disabled = !bookmark.backgroundFavicon && !bookmark.showFavicon;
@@ -152,6 +149,8 @@ export function createBookmarkEditor({ elements, bookmark, onChange, previewFavi
 
         bookmark.backgroundImageUrl = getImageInputValue(backgroundImage) || null;
         bookmark.backgroundImageUrlLocked = bgController?.isLocked() ?? false;
+        if (hasImage(bookmark.backgroundImageUrl)) bookmark.backgroundFavicon = false;
+        if (backgroundFavicon) backgroundFavicon.checked = bookmark.backgroundFavicon;
 
         updateStates();
         emitChange();
@@ -169,6 +168,8 @@ export function createBookmarkEditor({ elements, bookmark, onChange, previewFavi
       if (syncing) return;
       bookmark.backgroundImageLocal = getImageInputValue(backgroundImageLocal) || null;
       bookmark.backgroundImageSource = bookmark.backgroundImageLocal ? 'local' : 'url';
+      if (hasImage(bookmark.backgroundImageLocal)) bookmark.backgroundFavicon = false;
+      if (backgroundFavicon) backgroundFavicon.checked = bookmark.backgroundFavicon;
       updateStates();
       emitChange();
     }
