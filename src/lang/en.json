@@ -1,4 +1,9 @@
 {
+  "persistence": {
+    "unsaved": "Your latest changes could not be saved.",
+    "retry": "Retry save",
+    "saved": "Pending changes saved."
+  },
   "itemEditor": {
     "description": "Make it feel at home in your workspace.",
     "looks": "Choose a look",

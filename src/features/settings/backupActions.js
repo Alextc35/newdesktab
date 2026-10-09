@@ -2,7 +2,7 @@ import {
   createBackupEnvelope,
   parseBackupPayload
 } from '../../platform/storage/dataSchema.js';
-import { getState, setState } from '../../state/appStore.js';
+import { getState, setState, requirePersistence } from '../../state/appStore.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { downloadJson } from '../../shared/ui/jsonDownload.js';
 import {
@@ -52,6 +52,7 @@ export async function importBackup(file) {
       payload?.format === 'newdesktab-backup' ? payload.localVideos : undefined
     );
     await setState({ data });
+    await requirePersistence();
     ensureRecycleBinPosition();
     flashSuccess('flash.backup.imported');
     return true;

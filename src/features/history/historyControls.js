@@ -1,6 +1,7 @@
 import { redoBookmarks, subscribe, undoBookmarks } from '../../state/appStore.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { flash } from '../../shared/ui/flash.js';
+import { runPersistedAction } from '../persistence/persistedAction.js';
 
 let initialized = false;
 
@@ -13,10 +14,14 @@ export function initHistoryControls() {
   const redoButton = document.getElementById('history-redo');
 
   undoButton.addEventListener('click', async () => {
-    if (await undoBookmarks()) flash(t('flash.history.undone'), 'info', 1000);
+    await runPersistedAction('history-undo', undoBookmarks, changed => {
+      if (changed) flash(t('flash.history.undone'), 'info', 1000);
+    });
   });
   redoButton.addEventListener('click', async () => {
-    if (await redoBookmarks()) flash(t('flash.history.redone'), 'info', 1000);
+    await runPersistedAction('history-redo', redoBookmarks, changed => {
+      if (changed) flash(t('flash.history.redone'), 'info', 1000);
+    });
   });
 
   subscribe(state => {

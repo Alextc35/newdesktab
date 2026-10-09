@@ -14,6 +14,7 @@ import { gridItemRegistry } from '../../shared/grid/gridItemRegistry.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashSuccess } from '../../shared/ui/flash.js';
+import { runPersistedAction } from '../persistence/persistedAction.js';
 import { makeToolbarDraggable } from '../../shared/ui/draggableToolbar.js';
 import { getMaxVisibleCols, getMaxVisibleRows } from './gridLayout.js';
 import {
@@ -37,30 +38,30 @@ export function initGridBulkActions() {
   let selectionIsVisible = false;
 
   document.getElementById('bulk-clear').addEventListener('click', clearGridItemSelection);
-  applyPresetButton.addEventListener('click', () => {
+  applyPresetButton.addEventListener('click', async () => {
     const items = getSelectedGridItems();
     if (!items.length) return;
-    applyDefaultStylesToGridItems(items, currentState.data.settings.bookmarkDefault);
-    clearGridItemSelection();
-    flashSuccess('flash.bookmarks.presetApplied');
+    await runPersistedAction('bulk-style', () =>
+      applyDefaultStylesToGridItems(items, currentState.data.settings.bookmarkDefault), () => {
+      clearGridItemSelection();
+      flashSuccess('flash.bookmarks.presetApplied');
+    });
   });
   duplicateButton.addEventListener('click', async () => {
     const items = getSelectedGridItems();
     if (!items.length) return;
 
-    const result = duplicateGridItems(items, {
+    await runPersistedAction('bulk-duplicate', () => duplicateGridItems(items, {
       columns: getMaxVisibleCols(),
       rows: getMaxVisibleRows(),
       nameSuffix: t('bookmarkActions.copySuffix')
-    });
-    clearGridItemSelection();
-
-    if (result.duplicates.length) flashSuccess('flash.bookmarks.duplicatedSelected');
-    if (result.skipped) {
-      await showAlert(t('alert.bookmarks.duplicateNoSpace', { count: result.skipped }), {
+    }), result => {
+      clearGridItemSelection();
+      if (result.duplicates.length) flashSuccess('flash.bookmarks.duplicatedSelected');
+      if (result.skipped) void showAlert(t('alert.bookmarks.duplicateNoSpace', { count: result.skipped }), {
         type: 'info'
       });
-    }
+    });
   });
   document.getElementById('bulk-delete').addEventListener('click', async () => {
     const items = getSelectedGridItems();
@@ -70,11 +71,14 @@ export function initGridBulkActions() {
       { type: 'confirm', requiresWideViewport: true }
     );
     if (!confirmed) return;
-    const ids = getSelectionIds(items);
-    moveGridItemsToRecycleBin(ids);
-    await permanentlyDeleteSelectedWidgets(ids.widgetIds);
-    clearGridItemSelection();
-    flashSuccess('flash.bookmarks.deletedSelected');
+    await runPersistedAction('bulk-delete', async () => {
+      const ids = getSelectionIds(items);
+      moveGridItemsToRecycleBin(ids);
+      await permanentlyDeleteSelectedWidgets(ids.widgetIds);
+    }, () => {
+      clearGridItemSelection();
+      flashSuccess('flash.bookmarks.deletedSelected');
+    });
   });
   groupSelect.addEventListener('change', async () => {
     const destinationId = groupSelect.value;
@@ -91,17 +95,16 @@ export function initGridBulkActions() {
     ), { type: 'confirm', requiresWideViewport: true });
     if (!confirmed) return;
 
-    const result = moveGridItemsToWorkspace(items, destinationId || null, {
+    await runPersistedAction('bulk-move', () => moveGridItemsToWorkspace(items, destinationId || null, {
       columns: getMaxVisibleCols(),
       rows: getMaxVisibleRows()
-    });
-    clearGridItemSelection();
-    if (result.moved) flashSuccess('flash.bookmarks.moved');
-    if (result.skipped) {
-      await showAlert(t('alert.bookmarks.moveNoSpace', { count: result.skipped }), {
+    }), result => {
+      clearGridItemSelection();
+      if (result.moved) flashSuccess('flash.bookmarks.moved');
+      if (result.skipped) void showAlert(t('alert.bookmarks.moveNoSpace', { count: result.skipped }), {
         type: 'info'
       });
-    }
+    });
   });
 
   subscribe(state => {

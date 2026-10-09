@@ -1,5 +1,5 @@
 import { debug } from '../../shared/diagnostics/debug.js';
-import { getState } from '../../state/appStore.js';
+import { getState, requirePersistence } from '../../state/appStore.js';
 import {
   createBookmarksEnvelope,
   parseBookmarksPayload
@@ -50,6 +50,7 @@ export async function importBookmarks(file) {
     const currentData = getState().data;
     const { bookmarks, folders } = parseBookmarksPayload(payload, currentData);
     await replaceGridDataThroughRecycleBin(bookmarks, folders);
+    await requirePersistence();
     ensureRecycleBinPosition();
 
     debug.info('Bookmarks imported', { bookmarks: bookmarks.length, folders: folders.length });

@@ -9,6 +9,9 @@ const mocks = vi.hoisted(() => ({
 }));
 
 vi.mock('../../src/state/appStore.js', () => ({
+  getState: () => ({ ui: { persistence: { status: 'saved' } } }),
+  requirePersistence: vi.fn().mockResolvedValue(undefined),
+  retryPersistence: vi.fn().mockResolvedValue(undefined),
   redoBookmarks: mocks.redoBookmarks,
   subscribe: mocks.subscribe,
   undoBookmarks: mocks.undoBookmarks

@@ -1933,15 +1933,21 @@ test('saves a named appearance preset', async ({ page }) => {
   await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Save', exact: true })).toBeHidden();
+  await page.getByRole('button', { name: 'Configure default bookmark' }).click();
+  const editor = page.locator('#edit-bookmark-modal');
+  await editor.getByRole('tab', { name: 'Library', exact: true }).click();
   await page.getByRole('textbox', { name: 'Preset name' }).fill('Dark');
   await page.getByRole('button', { name: 'Save preset' }).click();
-  await expect(page.getByRole('combobox', { name: 'Saved presets' })).toHaveValue(/.+/);
+  await expect(editor.locator('[data-preset-select]')).toHaveValue(/.+/);
+  await editor.getByRole('button', { name: 'Cancel', exact: true }).click();
   await page.getByRole('button', { name: 'Save', exact: true }).click();
 
   await revealSideDock(page);
   await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
-  await expect(page.getByRole('combobox', { name: 'Saved presets' })).toContainText('Dark');
+  await page.getByRole('button', { name: 'Configure default bookmark' }).click();
+  await page.locator('#edit-bookmark-modal').getByRole('tab', { name: 'Library', exact: true }).click();
+  await expect(page.locator('#edit-bookmark-modal [data-preset-select]')).toContainText('Dark');
 });
 
 test('configures the default bookmark through the shared preset editor', async ({ page }) => {
@@ -2019,7 +2025,7 @@ test('shows selected storage and local storage availability when sync is selecte
   await expect(localUsage).toBeHidden();
   await expect(page.locator('#storage-usage-mode')).toHaveText('Local');
   await expect(page.locator('#storage-sync-last-updated'))
-    .toHaveText('No synchronized NewDeskTab data is stored.');
+    .toHaveText('No synchronized New DeskTab data is stored.');
   await expect(page.locator('#storage-persistence-indicator')).toBeHidden();
   await expect(page.locator('#storage-sync-help')).toBeHidden();
   await expect(formatToggle).toHaveAttribute('aria-pressed', 'false');
@@ -2047,7 +2053,7 @@ test('shows selected storage and local storage availability when sync is selecte
   await expect(page.locator('[data-storage-segment="bookmarks"]'))
     .not.toHaveAttribute('style', /width: 0%/);
   const activeImages = usage.locator('[data-storage-image-breakdown]');
-  await expect(activeImages).toBeVisible();
+  await expect(activeImages).toBeHidden();
   await expect(activeImages).toContainText('Local images');
   await expect(activeImages).toContainText('Theme');
   await expect(activeImages).toContainText('Folders');
@@ -2075,12 +2081,12 @@ test('shows selected storage and local storage availability when sync is selecte
   await expect(localUsage.locator('#storage-usage-local-progress [data-storage-segment="synced"]'))
     .not.toHaveAttribute('style', /width: 0%/);
   await expect(localUsage.locator('#storage-usage-local-progress [data-storage-segment="trash"]'))
-    .not.toHaveAttribute('hidden', '');
+    .toHaveAttribute('hidden', '');
   await expect(localUsage.locator('[role="progressbar"]')).toHaveCount(1);
   await expect(localUsage.locator('.storage-usage-legend')).toContainText('System and metadata');
   await expect(localUsage.locator('.storage-usage-legend')).toContainText('Local Sync copy');
   await expect(localUsage.locator('.storage-usage-legend')).toContainText('Recycle bin data');
-  await expect(localUsage.locator('[data-storage-image-breakdown]')).toBeVisible();
+  await expect(localUsage.locator('[data-storage-image-breakdown]')).toBeHidden();
   await expect(localUsage.locator('[data-storage-image-category="bookmarks"]'))
     .toHaveText('0 B');
   await formatToggle.click();
@@ -2117,7 +2123,7 @@ test('localizes sync status and confirms synchronized data deletion', async ({ p
   await expect(syncTooltip).toBeHidden();
   await syncHelp.hover();
   await expect(syncTooltip).toBeVisible();
-  await expect(syncTooltip).toContainText('Google Chrome syncs NewDeskTab');
+  await expect(syncTooltip).toContainText('Google Chrome syncs New DeskTab');
   await expect(syncHelp).toHaveAttribute('aria-expanded', 'true');
   expect(await syncTooltip.evaluate(element => element.parentElement.id)).toBe('settings-modal');
   const tooltipBox = await syncTooltip.boundingBox();
@@ -2170,7 +2176,7 @@ test('localizes sync status and confirms synchronized data deletion', async ({ p
 
   await expect(page.getByRole('radio', { name: /This device only/ })).toBeChecked();
   await expect(page.locator('#storage-sync-last-updated'))
-    .toHaveText('No synchronized NewDeskTab data is stored.');
+    .toHaveText('No synchronized New DeskTab data is stored.');
   await expect(deleteSyncData).toBeDisabled();
   await expect(page.locator('#storage-persistence-indicator')).toBeHidden();
   await expect(syncHelp).toBeHidden();

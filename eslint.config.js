@@ -32,7 +32,7 @@ export default [
     rules: sharedRules
   },
   {
-    files: ['tests/**/*.{js,mjs}', '*.config.js'],
+    files: ['tests/**/*.{js,mjs}', 'scripts/**/*.mjs', '*.config.js'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',

@@ -91,6 +91,10 @@ test('a failed storage write is reported as an error and later writes still succ
   await expect.poll(() => page.evaluate(() => window.NewDeskTabDebug.history().some(record => (
     record.label === 'Create bookmark' && record.status === 'ok' && record.details.persisted
   )))).toBe(true);
+  await page.reload();
+  await expectAppReady(page);
+  await expect(page.getByRole('link', { name: /^Failure/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /^Recovery/ })).toBeVisible();
 });
 
 test('shows startup guidance and command help, reports on demand and clears the console', async ({ page }) => {

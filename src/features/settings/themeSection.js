@@ -3,17 +3,16 @@ import { refreshCustomSelect } from '../../shared/ui/customSelect.js';
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { t } from '../../platform/i18n/i18n.js';
 import {
-  initCustomColorPicker,
   openCustomColorPicker
 } from '../../shared/ui/colorPicker.js';
 import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { getImageInputValue, setImageInputValue } from '../../shared/ui/localImageUpload.js';
-import { deleteLocalImage, getLocalImageName, saveLocalImage } from '../../platform/images/localImages.js';
-import { deleteLocalVideo, getLocalVideoName, saveLocalVideo } from '../../platform/images/localVideos.js';
 import { inferWallpaperType, MAX_WALLPAPER_ITEMS, normalizeWallpaperInterval, normalizeWallpaperUrl } from '../../domain/settings/wallpaperMedia.js';
-import { resolveThemeWallpapers, resolveWallpaperItem } from '../../shared/ui/pageTheme.js';
-import { getStorageMode } from '../../state/appStore.js';
+import { createWallpaperPreview } from './wallpaperPreview.js';
+import { createWallpaperFiles } from './wallpaperFiles.js';
+import { createWallpaperLibrary } from './wallpaperLibrary.js';
+import { getState, getStorageMode } from '../../state/appStore.js';
 import {
   getDraftTheme,
   getDraftStorageMode,
@@ -53,7 +52,6 @@ export function initThemeSection({
   const bgImageColorInput = document.getElementById('settings-theme-bg-image-color');
   const bgImageInput = document.getElementById('settings-theme-bg-image');
   const resetBgBtn = document.getElementById('settings-theme-reset-bg');
-  const mediaList = document.getElementById('settings-theme-media-list');
   const mediaDetails = document.getElementById('settings-theme-more-wallpapers');
   const wallpaperHint = document.getElementById('settings-theme-wallpaper-hint');
   const mediaUrl = document.getElementById('settings-theme-media-url');
@@ -61,20 +59,6 @@ export function initThemeSection({
   const mediaUploadInput = document.getElementById('settings-theme-media-upload-input');
   const mediaUploadButton = document.getElementById('settings-theme-media-upload');
   const mediaInterval = document.getElementById('settings-theme-media-interval');
-  let previewVideo = document.getElementById('settings-theme-preview-video');
-  const previewNavigation = document.getElementById('settings-theme-preview-navigation');
-  const previewCount = document.getElementById('settings-theme-preview-count');
-  const previewPrevious = document.getElementById('settings-theme-preview-prev');
-  const previewNext = document.getElementById('settings-theme-preview-next');
-  let previewIndex = 0;
-  let previewSourceKey = '';
-  let pendingPreviewVideo = null;
-  let pendingPreviewKey = '';
-  let pendingPreviewColor = '';
-  let previewCurrentColor = '';
-  let previewRevision = 0;
-  const uploadedVideos = new Set();
-  const uploadedImages = new Set();
 
   /**
    * Lockable background-image controls.
@@ -91,16 +75,15 @@ export function initThemeSection({
    */
   const bgPreview = document.getElementById('settings-theme-bg-preview');
   const bgPreviewColorHint = document.getElementById('settings-theme-preview-color-hint');
-  const themeTab = bgPreview.closest('#settings-modal-tab-theme');
-
-  function syncPreviewAspectRatio() {
-    const viewport = document.getElementById('bookmark-viewport')?.getBoundingClientRect();
-    if (!viewport?.width || !viewport?.height) return;
-    themeTab.style.setProperty('--theme-wallpaper-preview-ratio',
-      String(viewport.width / viewport.height));
-  }
-
-  window.addEventListener('resize', syncPreviewAspectRatio);
+  const preview = createWallpaperPreview({ bgPreview, getTheme: getDraftTheme, includeFallback: isSyncMode });
+  const { update: updatePreview, pause: pausePreview, syncAspectRatio: syncPreviewAspectRatio } = preview;
+  const localFiles = createWallpaperFiles({ getRetainedTheme: () => getState().data.settings.theme });
+  const { cleanupLocalMedia, discardUploadedMedia } = localFiles;
+  const library = createWallpaperLibrary({
+    getTheme: getDraftTheme, setMedia, updatePreview, onRequestSaveStateUpdate,
+    resetPreviewIndex: preview.resetIndex
+  });
+  const { render: renderMediaList, placePeek: placeWallpaperPeek } = library;
 
   /**
    * Controller used to manage the lockable background-image input.
@@ -177,325 +160,6 @@ export function initThemeSection({
     renderMediaList();
     updatePreview();
     onRequestSaveStateUpdate();
-  }
-
-  async function cleanupLocalMedia(previousTheme, savedTheme) {
-    const previous = [previousTheme?.backgroundVideo?.local, ...(previousTheme?.backgroundMedia ?? [])
-      .filter(item => item.type === 'video').map(item => item.local)];
-    const retained = new Set([savedTheme?.backgroundVideo?.local, ...(savedTheme?.backgroundMedia ?? [])
-      .filter(item => item.type === 'video').map(item => item.local)]);
-    const unused = new Set([...previous, ...uploadedVideos].filter(ref => ref && !retained.has(ref)));
-    await Promise.all([...unused].map(deleteLocalVideo));
-    uploadedVideos.clear();
-    const retainedImages = new Set([savedTheme?.backgroundImageLocal,
-      ...(savedTheme?.backgroundMedia ?? []).map(item => item.backgroundImageLocal)]);
-    await Promise.all([...uploadedImages]
-      .filter(ref => !retainedImages.has(ref)).map(deleteLocalImage));
-    uploadedImages.clear();
-  }
-
-  async function discardUploadedMedia() {
-    await Promise.all([...uploadedVideos].map(deleteLocalVideo));
-    await Promise.all([...uploadedImages].map(deleteLocalImage));
-    uploadedVideos.clear();
-    uploadedImages.clear();
-  }
-
-  function mediaLabel(item) {
-    if (item.type === 'video') {
-      return getLocalVideoName(item.local) ?? item.url ?? t('settingsModal.theme.unavailableLocal');
-    }
-    return getLocalImageName(item.backgroundImageLocal)
-      ?? item.backgroundImageUrl ?? t('settingsModal.theme.unavailableLocal');
-  }
-
-  function placeWallpaperPeek(peek, anchor) {
-    const anchorRect = anchor.getBoundingClientRect();
-    const scrollArea = peek.closest('.settings-modal-tab-content');
-    const scrollAreaRect = scrollArea?.getBoundingClientRect();
-    const visibleTop = scrollAreaRect
-      ? scrollAreaRect.top + scrollArea.clientTop
-      : 0;
-    const visibleBottom = scrollAreaRect
-      ? visibleTop + scrollArea.clientHeight
-      : window.innerHeight;
-    const peekHeight = peek.getBoundingClientRect().height;
-    const spaceAbove = anchorRect.top - visibleTop;
-    const spaceBelow = visibleBottom - anchorRect.bottom;
-    const placement = spaceAbove < peekHeight + 12 && spaceBelow > spaceAbove
-      ? 'below' : 'above';
-
-    peek.dataset.placement = placement;
-  }
-
-  function renderMediaList() {
-    mediaList.querySelectorAll('video').forEach(video => video.pause());
-    mediaList.replaceChildren();
-    const entries = getDraftTheme().backgroundMedia ?? [];
-    entries.forEach((item, index) => {
-      const updateItem = changes => {
-        const next = [...(getDraftTheme().backgroundMedia ?? [])];
-        const position = next.findIndex(entry => entry.id === item.id);
-        if (position < 0) return;
-        next[position] = { ...next[position], ...changes };
-        setMedia(next);
-      };
-      const row = document.createElement('div');
-      row.className = 'theme-wallpaper-row';
-      const label = document.createElement('span');
-      label.className = 'theme-wallpaper-label';
-      label.textContent = `${item.type === 'video' ? t('settingsModal.theme.video') : t('settingsModal.theme.image')} · ${mediaLabel(item)}`;
-      label.title = mediaLabel(item);
-      row.append(label);
-      const localReference = item.type === 'video' ? item.local : item.backgroundImageLocal;
-      const remoteUrl = item.type === 'video' ? item.url : item.backgroundImageUrl;
-      if (localReference && remoteUrl) {
-        const source = document.createElement('select');
-        source.className = 'theme-wallpaper-source';
-        source.setAttribute('aria-label', t('settingsModal.theme.activeSource'));
-        for (const [value, text] of [
-          ['local', t('localImage.sourceLocal')], ['url', t('localImage.sourceUrl')]
-        ]) {
-          const option = document.createElement('option');
-          option.value = value;
-          option.textContent = text;
-          source.append(option);
-        }
-        source.value = item.type === 'video' ? item.source : item.backgroundImageSource;
-        source.addEventListener('change', () => {
-          updateItem({ [item.type === 'video' ? 'source' : 'backgroundImageSource']: source.value });
-        });
-        row.append(source);
-      }
-      const color = document.createElement('input');
-      color.type = 'color';
-      color.className = 'theme-wallpaper-color';
-      color.value = item.backgroundColor ?? getDraftTheme().backgroundImageColor;
-      color.setAttribute('aria-label', t('settingsModal.theme.mediaColor'));
-      color.addEventListener('input', () => {
-        const next = [...(getDraftTheme().backgroundMedia ?? [])];
-        const position = next.findIndex(entry => entry.id === item.id);
-        if (position < 0) return;
-        next[position] = { ...next[position], backgroundColor: color.value };
-        setDraftThemeValue('backgroundMedia', next);
-        updatePreview();
-        onRequestSaveStateUpdate();
-      });
-      row.append(color);
-      initCustomColorPicker(color);
-
-      const peekButton = document.createElement('button');
-      peekButton.type = 'button';
-      peekButton.className = 'theme-wallpaper-preview-trigger';
-      peekButton.setAttribute('aria-label', t('settingsModal.theme.mediaPreview'));
-      const peek = document.createElement('div');
-      peek.className = 'theme-wallpaper-peek';
-      peek.hidden = true;
-      function showPeek() {
-        const current = (getDraftTheme().backgroundMedia ?? []).find(entry => entry.id === item.id) ?? item;
-        const source = resolveWallpaperItem(current);
-        peek.querySelector('video')?.pause();
-        peek.replaceChildren();
-        peek.style.backgroundImage = '';
-        const color = current.backgroundColor ?? getDraftTheme().backgroundImageColor;
-        peek.style.backgroundColor = source?.type === 'video' ? '#000000' : color;
-        if (source?.url) {
-          if (source.type === 'video') {
-            const media = document.createElement('video');
-            media.muted = true;
-            media.loop = true;
-            media.playsInline = true;
-            media.onloadeddata = () => {
-              const reveal = () => {
-                if (!peek.contains(media)) return;
-                peek.style.backgroundColor = color;
-                media.classList.add('is-ready');
-              };
-              if (typeof media.requestVideoFrameCallback === 'function') {
-                media.requestVideoFrameCallback(reveal);
-              } else reveal();
-            };
-            media.onerror = () => { if (peek.contains(media)) peek.style.backgroundColor = color; };
-            peek.append(media);
-            media.src = source.url;
-            void media.play().catch(() => {});
-          } else {
-            peek.style.backgroundImage = `url(${JSON.stringify(source.url)})`;
-          }
-        } else {
-          peek.textContent = t('settingsModal.theme.unavailableLocal');
-        }
-        peek.hidden = false;
-        placeWallpaperPeek(peek, row);
-      }
-      function hidePeek() {
-        const video = peek.querySelector('video');
-        if (video) {
-          video.pause();
-          video.onloadeddata = null;
-          video.onerror = null;
-        }
-        peek.replaceChildren();
-        peek.style.backgroundImage = '';
-        delete peek.dataset.placement;
-        peek.hidden = true;
-      }
-      peekButton.addEventListener('mouseenter', showPeek);
-      peekButton.addEventListener('mouseleave', hidePeek);
-      peekButton.addEventListener('focus', showPeek);
-      peekButton.addEventListener('blur', hidePeek);
-      row.prepend(peekButton);
-      row.append(peek);
-      for (const [symbol, key, offset] of [
-        ['↑', 'moveUp', -1], ['↓', 'moveDown', 1], ['×', 'remove', 0]
-      ]) {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'theme-wallpaper-row-action';
-        button.textContent = symbol;
-        button.setAttribute('aria-label', t(`settingsModal.theme.${key}`));
-        button.disabled = offset !== 0 && (index + offset < 0 || index + offset >= entries.length);
-        button.addEventListener('click', () => {
-          const next = [...(getDraftTheme().backgroundMedia ?? [])];
-          const position = next.findIndex(entry => entry.id === item.id);
-          if (position < 0) return;
-          if (offset === 0) next.splice(position, 1);
-          else [next[position], next[position + offset]] = [next[position + offset], next[position]];
-          previewIndex = 0;
-          setMedia(next);
-        });
-        row.append(button);
-      }
-      mediaList.append(row);
-    });
-  }
-
-  /**
-   * Updates the theme background preview based on the current draft state.
-   *
-   * Behavior:
-   * - clears previous inline styles
-   * - shows the default wallpaper when neither custom mode is selected
-   * - otherwise applies the selected background color and optional image
-   */
-  function cancelPendingPreview() {
-    previewRevision += 1;
-    if (pendingPreviewVideo) {
-      pendingPreviewVideo.pause();
-      pendingPreviewVideo.onloadeddata = null;
-      pendingPreviewVideo.onerror = null;
-      pendingPreviewVideo.remove();
-      pendingPreviewVideo = null;
-    }
-    pendingPreviewKey = '';
-    previewVideo.id = 'settings-theme-preview-video';
-  }
-
-  function stopPreviewVideo() {
-    previewVideo.pause();
-    previewVideo.hidden = true;
-    previewVideo.classList.remove('is-ready');
-    if (previewVideo.hasAttribute('src')) {
-      previewVideo.removeAttribute('src');
-      previewVideo.load();
-    }
-  }
-
-  function updatePreview() {
-    const draft = getDraftTheme();
-    bgPreview.classList.toggle('is-default-bg', draft.backgroundDefault);
-    const sources = draft.backgroundDefault || draft.backgroundSolid
-      ? [] : resolveThemeWallpapers(draft, { includeFallback: isSyncMode() });
-    previewNavigation.classList.toggle('is-hidden', sources.length < 2);
-    previewIndex = sources.length ? previewIndex % sources.length : 0;
-    previewCount.textContent = sources.length ? `${previewIndex + 1} / ${sources.length}` : '';
-    const source = sources[previewIndex];
-    const color = draft.backgroundSolid
-      ? draft.backgroundColor : source?.color ?? draft.backgroundImageColor;
-    const key = source ? `${source.type}:${source.url}`
-      : draft.backgroundDefault ? 'default' : `solid:${color}`;
-
-    if (source?.type === 'video') {
-      if (pendingPreviewKey === key) {
-        pendingPreviewColor = color;
-        return;
-      }
-      if (previewSourceKey === key) {
-        previewCurrentColor = color;
-        bgPreview.style.backgroundColor = color;
-        if (!previewVideo.hidden) void previewVideo.play().catch(() => {});
-        return;
-      }
-
-      cancelPendingPreview();
-      const revision = previewRevision;
-      const incoming = document.createElement('video');
-      incoming.id = 'settings-theme-preview-video';
-      incoming.muted = true;
-      incoming.autoplay = true;
-      incoming.playsInline = true;
-      incoming.loop = true;
-      previewVideo.removeAttribute('id');
-      bgPreview.append(incoming);
-      pendingPreviewVideo = incoming;
-      pendingPreviewKey = key;
-      pendingPreviewColor = color;
-      if (!previewSourceKey) bgPreview.style.backgroundColor = '#000000';
-
-      const finish = loaded => {
-        if (revision !== previewRevision || pendingPreviewVideo !== incoming) return;
-        const oldVideo = previewVideo;
-        previewVideo = incoming;
-        pendingPreviewVideo = null;
-        pendingPreviewKey = '';
-        previewSourceKey = key;
-        previewCurrentColor = pendingPreviewColor;
-        if (loaded) incoming.classList.add('is-ready');
-        else {
-          incoming.hidden = true;
-          bgPreview.style.backgroundColor = pendingPreviewColor;
-        }
-        const removeOld = () => {
-          oldVideo.pause();
-          oldVideo.remove();
-          if (previewSourceKey !== key || previewVideo !== incoming) return;
-          bgPreview.style.backgroundImage = '';
-          bgPreview.style.backgroundColor = previewCurrentColor;
-        };
-        if (loaded && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          setTimeout(removeOld, 220);
-        } else removeOld();
-      };
-      incoming.onloadeddata = () => {
-        if (typeof incoming.requestVideoFrameCallback === 'function') {
-          incoming.requestVideoFrameCallback(() => finish(true));
-        } else finish(true);
-      };
-      incoming.onerror = () => finish(false);
-      incoming.src = source.url;
-      void incoming.play().catch(() => {});
-      return;
-    }
-
-    cancelPendingPreview();
-    previewSourceKey = key;
-    stopPreviewVideo();
-    bgPreview.style.backgroundImage = '';
-    if (draft.backgroundDefault) {
-      bgPreview.style.backgroundColor = '';
-      return;
-    }
-
-    bgPreview.style.backgroundColor = color;
-
-    if (source?.type === 'image') {
-      bgPreview.style.backgroundImage = `url(${JSON.stringify(source.url)})`;
-    }
-  }
-
-  function pausePreview() {
-    cancelPendingPreview();
-    previewVideo.pause();
   }
 
   function hideBackgroundImagePeek() {
@@ -644,7 +308,7 @@ export function initThemeSection({
     syncPrimaryInputs();
     syncIntervalSelect(draft.backgroundRotationSeconds);
     mediaDetails.open = false;
-    previewIndex = 0;
+    preview.resetIndex();
     renderMediaList();
 
     if (!bgController) {
@@ -779,10 +443,7 @@ export function initThemeSection({
     updateStates();
     try {
       for (const file of files) {
-        const type = file.type.startsWith('video/') ? 'video' : 'image';
-        const reference = type === 'video'
-          ? await saveLocalVideo(file) : await saveLocalImage(file);
-        created.push({ type, reference });
+        created.push(await localFiles.save(file));
         if (getDraftTheme() !== draftAtStart) return;
       }
       const current = getDraftTheme().backgroundMedia ?? [];
@@ -795,18 +456,14 @@ export function initThemeSection({
         : { id: crypto.randomUUID(), type, backgroundImageUrl: null,
           backgroundImageLocal: reference, backgroundImageSource: 'local' });
       setMedia([...current, ...items]);
-      for (const { type, reference } of created) {
-        (type === 'video' ? uploadedVideos : uploadedImages).add(reference);
-      }
+      localFiles.retain(created);
       created.length = 0;
     } catch (error) {
       console.error('[THEME] Could not add local wallpapers:', error);
       flashError('flash.settings.invalidWallpaperFile');
     } finally {
       additionalUploadPending = false;
-      await Promise.all(created.map(({ type, reference }) => (
-        type === 'video' ? deleteLocalVideo(reference) : deleteLocalImage(reference)
-      )));
+      await localFiles.discardCreated(created);
       if (getDraftTheme() === draftAtStart) updateStates();
       onRequestSaveStateUpdate();
     }
@@ -823,15 +480,6 @@ export function initThemeSection({
     setDraftThemeValue('backgroundRotationSeconds', Number(mediaInterval.value));
     onRequestSaveStateUpdate();
   });
-
-  for (const [button, offset] of [[previewPrevious, -1], [previewNext, 1]]) {
-    button.addEventListener('click', () => {
-      const count = resolveThemeWallpapers(getDraftTheme(), { includeFallback: isSyncMode() }).length;
-      if (count < 2) return;
-      previewIndex = (previewIndex + offset + count) % count;
-      updatePreview();
-    });
-  }
 
   /**
    * Resets theme background settings to defaults after confirmation.
@@ -857,7 +505,7 @@ export function initThemeSection({
     bgImageColorInput.value = draft.backgroundImageColor;
     syncPrimaryInputs();
     syncIntervalSelect(draft.backgroundRotationSeconds);
-    previewIndex = 0;
+    preview.resetIndex();
     renderMediaList();
 
     setDraftThemeValue('backgroundImageUrlLocked', false);

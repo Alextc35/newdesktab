@@ -16,6 +16,7 @@ import { t } from '../../platform/i18n/i18n.js';
 import { clearGridItemSelection } from '../grid/gridSelection.js';
 import { showAlert, showPrompt } from '../../shared/ui/alertModal.js';
 import { flashInfo, flashSuccess } from '../../shared/ui/flash.js';
+import { runPersistedAction } from '../persistence/persistedAction.js';
 import { hasOpenModal } from '../../shared/ui/modalManager.js';
 
 const WORKSPACE_EXIT_DURATION = 120;
@@ -88,9 +89,9 @@ export function initWorkspaceToolbar() {
     const name = await showPrompt(t('workspace.prompt'), {
       placeholder: t('workspace.namePlaceholder')
     });
-    if (name && createWorkspace(name)) {
-      flashSuccess('flash.workspace.created');
-    }
+    if (name) await runPersistedAction('workspace-create', () => createWorkspace(name), created => {
+      if (created) flashSuccess('flash.workspace.created');
+    });
   });
   deleteButton.addEventListener('click', async () => {
     setWorkspaceOptionsOpen(false);
@@ -108,9 +109,10 @@ export function initWorkspaceToolbar() {
       bookmarkCount,
       folderCount
     }), { type: 'confirm' });
-    if (confirmed && deleteWorkspace(workspace.id)) {
-      flashSuccess('flash.workspace.deleted');
-    }
+    if (confirmed) await runPersistedAction(`workspace-delete:${workspace.id}`,
+      () => deleteWorkspace(workspace.id), deleted => {
+        if (deleted) flashSuccess('flash.workspace.deleted');
+      });
   });
   subscribe(state => {
     const workspaces = getWorkspaces(state.data);

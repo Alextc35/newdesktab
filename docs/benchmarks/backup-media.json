@@ -1,0 +1,164 @@
+{
+  "recordedAt": "2026-10-08T23:40:31.369Z",
+  "browser": "Chrome/151.0.7922.34",
+  "platform": "win32",
+  "methodology": "Fresh persistent Chromium profile for each size; actual export/import actions and IndexedDB; synthetic WebM MIME payload; byte length and boundary verification; JS heap sampled at stringify/parse and CDP checkpoints. Video decoding, download I/O and whole-process RSS are excluded.",
+  "results": [
+    {
+      "sizeMiB": 10,
+      "exportMs": 109.70000004768372,
+      "importMs": 123.29999995231628,
+      "jsonBytes": 13984500,
+      "restored": true,
+      "restoredBytes": 10485760,
+      "blobUrlAvailable": true,
+      "boundaryBytesMatch": true,
+      "samples": [
+        {
+          "phase": "export",
+          "point": "after JSON.stringify",
+          "jsHeapBytes": 45881836
+        },
+        {
+          "phase": "export",
+          "point": "JSON Blob created",
+          "jsHeapBytes": 45883636
+        },
+        {
+          "phase": "import",
+          "point": "before JSON.parse",
+          "jsHeapBytes": 60654288
+        },
+        {
+          "phase": "import",
+          "point": "after JSON.parse",
+          "jsHeapBytes": 74641944
+        }
+      ],
+      "heap": {
+        "baseline": {
+          "usedSize": 3064284,
+          "totalSize": 3465216,
+          "embedderHeapUsedSize": 3577504,
+          "backingStorageSize": 779485
+        },
+        "afterExport": {
+          "usedSize": 31462876,
+          "totalSize": 33533952,
+          "embedderHeapUsedSize": 4231872,
+          "backingStorageSize": 14777023
+        },
+        "afterImport": {
+          "usedSize": 17658712,
+          "totalSize": 19808256,
+          "embedderHeapUsedSize": 4338656,
+          "backingStorageSize": 795985
+        }
+      }
+    },
+    {
+      "sizeMiB": 50,
+      "exportMs": 568.3000000715256,
+      "importMs": 547.5,
+      "jsonBytes": 69908552,
+      "restored": true,
+      "restoredBytes": 52428800,
+      "blobUrlAvailable": true,
+      "boundaryBytesMatch": true,
+      "samples": [
+        {
+          "phase": "export",
+          "point": "after JSON.stringify",
+          "jsHeapBytes": 213654136
+        },
+        {
+          "phase": "export",
+          "point": "JSON Blob created",
+          "jsHeapBytes": 283532383
+        },
+        {
+          "phase": "import",
+          "point": "before JSON.parse",
+          "jsHeapBytes": 214393464
+        },
+        {
+          "phase": "import",
+          "point": "after JSON.parse",
+          "jsHeapBytes": 284305868
+        }
+      ],
+      "heap": {
+        "baseline": {
+          "usedSize": 3064428,
+          "totalSize": 3727360,
+          "embedderHeapUsedSize": 3582624,
+          "backingStorageSize": 779485
+        },
+        "afterExport": {
+          "usedSize": 3443944,
+          "totalSize": 5042176,
+          "embedderHeapUsedSize": 4372872,
+          "backingStorageSize": 140609631
+        },
+        "afterImport": {
+          "usedSize": 73666252,
+          "totalSize": 76255232,
+          "embedderHeapUsedSize": 4331400,
+          "backingStorageSize": 123133334
+        }
+      }
+    },
+    {
+      "sizeMiB": 200,
+      "exportMs": 2096.2000000476837,
+      "importMs": 2637.6999999284744,
+      "jsonBytes": 279623753,
+      "restored": true,
+      "restoredBytes": 209715200,
+      "blobUrlAvailable": true,
+      "boundaryBytesMatch": true,
+      "samples": [
+        {
+          "phase": "export",
+          "point": "after JSON.stringify",
+          "jsHeapBytes": 843177374
+        },
+        {
+          "phase": "export",
+          "point": "JSON Blob created",
+          "jsHeapBytes": 1122449328
+        },
+        {
+          "phase": "import",
+          "point": "before JSON.parse",
+          "jsHeapBytes": 843313053
+        },
+        {
+          "phase": "import",
+          "point": "after JSON.parse",
+          "jsHeapBytes": 1122939985
+        }
+      ],
+      "heap": {
+        "baseline": {
+          "usedSize": 3064428,
+          "totalSize": 3727360,
+          "embedderHeapUsedSize": 3578096,
+          "backingStorageSize": 779486
+        },
+        "afterExport": {
+          "usedSize": 3168060,
+          "totalSize": 5304320,
+          "embedderHeapUsedSize": 3649432,
+          "backingStorageSize": 560028081
+        },
+        "afterImport": {
+          "usedSize": 283381776,
+          "totalSize": 285446144,
+          "embedderHeapUsedSize": 4280792,
+          "backingStorageSize": 490134935
+        }
+      }
+    }
+  ]
+}

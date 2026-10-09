@@ -1,0 +1,146 @@
+import { mkdir, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { chromium } from '@playwright/test';
+import { createStaticServer } from './lib/staticServer.mjs';
+import { expectAppReady } from '../tests/e2e/helpers/appReady.js';
+
+const root = fileURLToPath(new URL('..', import.meta.url));
+const sizes = (process.argv.find(value => value.startsWith('--sizes='))?.slice(8) ?? '10,50,200')
+  .split(',').map(Number);
+if (sizes.some(size => !Number.isInteger(size) || size < 1 || size > 200)) {
+  throw new Error('Video sizes must be whole MiB between 1 and 200.');
+}
+const server = createStaticServer(root);
+await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+let browserVersion;
+const results = [];
+
+try {
+  for (const sizeMiB of sizes) {
+    const context = await chromium.launchPersistentContext('', {
+      channel: 'chromium', headless: true, args: ['--enable-precise-memory-info']
+    });
+    try {
+      await context.route(/^https?:/, route => new URL(route.request().url()).hostname === '127.0.0.1'
+        ? route.continue() : route.abort());
+      const page = await context.newPage();
+      const errors = [];
+      page.on('console', message => {
+        if (message.type() === 'error') errors.push(message.text());
+      });
+      await page.goto(`http://127.0.0.1:${server.address().port}/tests/browser-harness.html`);
+      await expectAppReady(page);
+      const cdp = await context.newCDPSession(page);
+      browserVersion = (await cdp.send('Browser.getVersion')).product;
+      await page.evaluate(async size => {
+        const videos = await import('/src/platform/images/localVideos.js');
+        const { getState, setState, requirePersistence } = await import('/src/state/appStore.js');
+        const block = new Uint8Array(1024 * 1024).fill(90);
+        const file = new File(Array(size).fill(block), `benchmark-${size}MiB.webm`, { type: 'video/webm' });
+        const reference = await videos.saveLocalVideo(file);
+        await setState({ data: { bookmarks: [{ id: 'benchmark', name: 'Vídeo 🎬', url: 'https://benchmark.internal' }],
+          settings: { ...getState().data.settings, theme: { ...getState().data.settings.theme,
+            backgroundDefault: true, backgroundMedia: [{ id: 'video', type: 'video', local: reference, source: 'local' }]
+          } }
+        } });
+        await requirePersistence();
+        window.backupBenchmark = { sizeBytes: file.size, reference, samples: [], phase: 'baseline', output: null };
+        const sample = point => {
+          window.backupBenchmark.samples.push({ phase: window.backupBenchmark.phase, point,
+            jsHeapBytes: performance.memory?.usedJSHeapSize ?? null });
+        };
+        const originalStringify = JSON.stringify;
+        JSON.stringify = (...args) => {
+          const output = originalStringify(...args);
+          if (output?.length > 1024 * 1024) sample('after JSON.stringify');
+          return output;
+        };
+        const originalParse = JSON.parse;
+        JSON.parse = (...args) => {
+          const large = args[0]?.length > 1024 * 1024;
+          if (large) sample('before JSON.parse');
+          const output = originalParse(...args);
+          if (large) sample('after JSON.parse');
+          return output;
+        };
+        const originalCreateUrl = URL.createObjectURL;
+        URL.createObjectURL = blob => {
+          if (blob.type === 'application/json') {
+            window.backupBenchmark.output = blob;
+            sample('JSON Blob created');
+          }
+          return originalCreateUrl(blob);
+        };
+        const originalClick = HTMLAnchorElement.prototype.click;
+        HTMLAnchorElement.prototype.click = function () {
+          if (!this.download) originalClick.call(this);
+        };
+      }, sizeMiB);
+      await cdp.send('HeapProfiler.collectGarbage');
+      const baseline = await cdp.send('Runtime.getHeapUsage');
+      const exported = await page.evaluate(async () => {
+        window.backupBenchmark.phase = 'export';
+        const start = performance.now();
+        await (await import('/src/features/settings/backupActions.js')).exportBackup();
+        if (!window.backupBenchmark.output) throw new Error('Backup export produced no JSON Blob.');
+        return { durationMs: performance.now() - start, jsonBytes: window.backupBenchmark.output.size };
+      });
+      const afterExport = await cdp.send('Runtime.getHeapUsage');
+      const imported = await page.evaluate(async () => {
+        await (await import('/src/state/appStore.js')).clearAllLocalData();
+        window.backupBenchmark.phase = 'import';
+        const file = new File([window.backupBenchmark.output], 'benchmark.json', { type: 'application/json' });
+        const start = performance.now();
+        const restored = await (await import('/src/features/settings/backupActions.js')).importBackup(file);
+        return { durationMs: performance.now() - start, restored };
+      });
+      const afterImport = await cdp.send('Runtime.getHeapUsage');
+      if (!imported.restored) {
+        results.push({ sizeMiB, exportMs: exported.durationMs, importMs: imported.durationMs,
+          jsonBytes: exported.jsonBytes, restored: false, errors, heap: { baseline, afterExport, afterImport } });
+        throw new Error(`Import failed for ${sizeMiB} MiB: ${errors.join(' | ')}`);
+      }
+      const verification = await page.evaluate(async () => {
+        const { resolveLocalVideo } = await import('/src/platform/images/localVideos.js');
+        const record = window.backupBenchmark;
+        const stored = await new Promise((resolve, reject) => {
+          const open = indexedDB.open('newdesktab-local-videos', 1);
+          open.onerror = () => reject(open.error);
+          open.onsuccess = () => {
+            const database = open.result;
+            const transaction = database.transaction('videos', 'readonly');
+            const request = transaction.objectStore('videos').get(record.reference);
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = () => reject(request.error);
+            transaction.oncomplete = () => database.close();
+          };
+        });
+        const blob = stored.blob;
+        const first = new Uint8Array(await blob.slice(0, 64).arrayBuffer());
+        const last = new Uint8Array(await blob.slice(-64).arrayBuffer());
+        return { restoredBytes: blob.size, blobUrlAvailable: Boolean(resolveLocalVideo(record.reference)),
+          boundaryBytesMatch: [...first, ...last].every(value => value === 90),
+          samples: record.samples };
+      });
+      if (!imported.restored || verification.restoredBytes !== sizeMiB * 1024 * 1024 || !verification.boundaryBytesMatch) {
+        throw new Error('Backup round-trip verification failed.');
+      }
+      const result = { sizeMiB, exportMs: exported.durationMs, importMs: imported.durationMs,
+        jsonBytes: exported.jsonBytes, restored: imported.restored, ...verification,
+        heap: { baseline, afterExport, afterImport } };
+      results.push(result);
+      console.log(`${sizeMiB} MiB: export ${(exported.durationMs / 1000).toFixed(2)}s; import ${(imported.durationMs / 1000).toFixed(2)}s; JSON ${(exported.jsonBytes / 1024 / 1024).toFixed(2)} MiB.`);
+    } finally {
+      await context.close();
+    }
+  }
+} finally {
+  await new Promise(resolve => server.close(resolve));
+  const output = new URL('../docs/benchmarks/', import.meta.url);
+  await mkdir(output, { recursive: true });
+  await writeFile(new URL('backup-media.json', output), JSON.stringify({
+    recordedAt: new Date().toISOString(), browser: browserVersion, platform: process.platform,
+    methodology: 'Fresh persistent Chromium profile for each size; actual export/import actions and IndexedDB; synthetic WebM MIME payload; byte length and boundary verification; JS heap sampled at stringify/parse and CDP checkpoints. Video decoding, download I/O and whole-process RSS are excluded.',
+    results
+  }, null, 2) + '\n');
+}

@@ -26,6 +26,8 @@
 .settings-modal-panel .settings-modal-tab-content {
   flex: 1;
   overflow-y: auto;
+  /* Responsive reflow must not shift a suspended draft's scroll position. */
+  overflow-anchor: none;
   padding-right: 10px;
 }
 

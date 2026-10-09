@@ -1,4 +1,4 @@
-/* A single visual language for bookmarks, folders and the recycle bin. */
+/* Appearance editing for bookmarks, folders and the recycle bin. */
 .modal:is(.item-appearance-editor, :has(.item-appearance-editor)) .modal-card.modal-xl {
   width: 820px;
   height: min(700px, 90dvh);

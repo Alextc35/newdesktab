@@ -6,7 +6,7 @@ import {
 import { applyI18n, t } from '../../platform/i18n/i18n.js';
 import { initCustomColorPickers } from '../../shared/ui/colorPicker.js';
 import { initTabs } from '../../shared/ui/tabs.js';
-import { createItemAppearanceEditor } from '../../shared/ui/itemAppearanceEditor.js';
+import { createItemAppearanceEditor } from '../item-editor/itemAppearanceEditor.js';
 import { createBookmarkEditor } from './bookmarkEditor.js';
 import { createBookmarkElement } from './bookmarkCard.js';
 

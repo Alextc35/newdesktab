@@ -310,7 +310,7 @@ test('dragging and resizing use the new cell size after shrinking to 601px', asy
   const item = page.locator('[data-bookmark-id="compact-19"]');
   await expect(item.locator('.resizer')).toHaveCount(8);
   await page.setViewportSize({ width: 601, height: 720 });
-  await expect.poll(async () => (await item.boundingBox()).width).toBeCloseTo(601 / 12 - 10, 1);
+  await expect.poll(async () => (await item.boundingBox())?.width ?? 0).toBeCloseTo(601 / 12 - 10, 1);
   const bounds = await item.boundingBox();
   await page.mouse.move(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
   await page.mouse.down();
@@ -391,13 +391,16 @@ test('folder artwork scales continuously without typography or thumbnail shape j
       ...data.folders[0], id, name: id, gx: 10 + index, gy: 0, w: 1, h: 1,
       backgroundImageUrl: id === 'cover' ? 'http://127.0.0.1:4175/folder-cover.svg' : null
     }));
-    await setState({ data: { ...data,
+    void setState({ data: { ...data,
       folders: [...data.folders, ...smallFolders],
       bookmarks: [...data.bookmarks, ...smallFolders.flatMap(folder => children.map(item => ({
         ...item, id: `${folder.id}-${item.id}`, folderId: folder.id
       })))]
     } });
   });
+  await expect.poll(() => page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getState().ui.persistence.status)).toBe('saved');
   await expect(page.locator('[data-folder-id="cover"].has-folder-bg-image')).toBeVisible();
   const original = await data(page);
   const measure = () => page.locator('#bookmark-container > .bookmark-folder').evaluateAll(cards => cards.map(card => {
@@ -510,7 +513,7 @@ test('resizing the viewport cancels an active resize without leaving stale card 
 
   // A subsequent click must still resize by exactly one of the new cells.
   await item.locator('.resizer.right').click();
-  await expect.poll(async () => (await item.boundingBox()).width).toBeCloseTo(601 / 6 - 10, 1);
+  await expect.poll(async () => (await item.boundingBox())?.width ?? 0).toBeCloseTo(601 / 6 - 10, 1);
 });
 
 test('list navigation follows rows, scrolls and opens the selected bookmark', async ({ page }) => {
@@ -667,7 +670,8 @@ test('suspends settings drafts and restores their tab, scroll and appearance', a
   await page.locator('input[name="interface-theme"][value="light"]').check();
   await page.locator('[data-tab="settings-modal-tab-bookmark"]').click();
   await page.locator('#bookmark-drag-settings-title').click();
-  await page.locator('#settings-preset-name').fill('Unfinished preset');
+  const dragMode = page.locator('input[name="bookmark-drag-mode"][value="relocate"]');
+  await dragMode.check();
   const panel = page.locator('#settings-modal-tab-bookmark');
   await panel.evaluate(element => { element.scrollTop = 120; });
   const scroll = await panel.evaluate(element => element.scrollTop);
@@ -691,7 +695,7 @@ test('suspends settings drafts and restores their tab, scroll and appearance', a
   await page.keyboard.press('Escape');
   await expect(page.locator('#search-modal')).toBeHidden();
   await expect(panel).toBeVisible();
-  await expect(page.locator('#settings-preset-name')).toHaveValue('Unfinished preset');
+  await expect(dragMode).toBeChecked();
   await expect(page.locator('input[name="interface-theme"][value="light"]')).toBeChecked();
   expect(await panel.evaluate(element => element.scrollTop)).toBe(scroll);
   await page.locator('#settings-modal-save').click();

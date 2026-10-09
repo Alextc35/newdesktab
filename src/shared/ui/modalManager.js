@@ -1,5 +1,7 @@
 import { debug } from '../diagnostics/debug.js';
 
+const modalChangeListeners = new Set();
+
 /**
  * Stack of currently open modals.
  *
@@ -307,8 +309,12 @@ export function closeModal(id) {
 }
 
 function focusModal(modal, preferred) {
+  const focusBeforeScheduling = document.activeElement;
   requestAnimationFrame(() => {
     if (getActive() !== modal || modal?.suspended) return;
+    // Closing a dialog schedules restoration for the next frame. A user may
+    // already have focused an input by then; preserve that newer interaction.
+    if (document.activeElement !== focusBeforeScheduling && document.activeElement !== document.body) return;
     const target = preferred?.isConnected && !preferred.closest('[hidden], [inert]')
       ? preferred
       : modal?.element || document.getElementById('bookmark-container');
@@ -329,7 +335,7 @@ function syncModalStacking() {
 function trapFocus(event, modalElement) {
   const focusable = Array.from(modalElement.querySelectorAll(
     'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-  )).filter(element => !element.hidden && !element.classList.contains('is-hidden'));
+  )).filter(element => !element.closest('[hidden], [inert], .is-hidden'));
 
   if (!focusable.length) {
     event.preventDefault();
@@ -368,4 +374,12 @@ function syncPageAccessibility() {
       delete child.dataset.modalInert;
     }
   }
+  for (const listener of modalChangeListeners) listener(activeElement);
+}
+
+/** Allows auxiliary controls to follow the active dialog and its focus boundary. */
+export function subscribeModalChanges(listener) {
+  modalChangeListeners.add(listener);
+  listener(getActive()?.element ?? null);
+  return () => modalChangeListeners.delete(listener);
 }

@@ -11,7 +11,8 @@ import {
   changeStorageMode,
   clearAllLocalData,
   getState,
-  getStorageMode
+  getStorageMode,
+  requirePersistence
 } from '../../state/appStore.js';
 import {
   ensureRecycleBinPosition,
@@ -273,6 +274,7 @@ export function initSettingsModal() {
         }
       } else {
         await updateSettings(newSettings);
+        await requirePersistence();
         flashSuccess('flash.settings.saved');
       }
 
@@ -296,7 +298,9 @@ export function initSettingsModal() {
         flashError('flash.sync.versionBlocked');
       } else {
         flashError(
-          err?.code === 'SYNC_QUOTA_EXCEEDED'
+          err?.code === 'PERSISTENCE_FAILED'
+            ? 'settingsModal.sync.status.error'
+            : err?.code === 'SYNC_QUOTA_EXCEEDED'
             ? 'flash.sync.quotaError'
             : 'flash.sync.error'
         );

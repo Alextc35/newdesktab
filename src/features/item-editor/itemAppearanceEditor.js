@@ -2,7 +2,7 @@ import { DEFAULT_BOOKMARK_STYLE } from '../../domain/bookmarks/bookmarkDefaults.
 import { DEFAULT_FOLDER_STYLE } from '../../domain/folders/folderDefaults.js';
 import { DEFAULT_RECYCLE_BIN_STYLE } from '../../domain/recycle-bin/recycleBinDefaults.js';
 import { applyI18n } from '../../platform/i18n/i18n.js';
-import { openCustomColorPicker } from './colorPicker.js';
+import { openCustomColorPicker } from '../../shared/ui/colorPicker.js';
 
 const DEFAULTS = {
   bookmark: DEFAULT_BOOKMARK_STYLE,

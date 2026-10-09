@@ -1,39 +1,14 @@
-import { createServer } from 'node:http';
-import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
-import { extname, relative, resolve, sep } from 'node:path';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
 import { DATA_SCHEMA_VERSION } from '../src/platform/storage/schemaVersion.js';
+import { createStaticServer } from './lib/staticServer.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = resolve(root, 'assets/store');
 await mkdir(output, { recursive: true });
-const mimeTypes = new Map([
-  ['.css', 'text/css'],
-  ['.gif', 'image/gif'],
-  ['.html', 'text/html'],
-  ['.js', 'text/javascript'],
-  ['.json', 'application/json'],
-  ['.png', 'image/png'],
-  ['.svg', 'image/svg+xml'],
-  ['.webp', 'image/webp']
-]);
-
-const server = createServer(async (request, response) => {
-  try {
-    const pathname = decodeURIComponent(new URL(request.url, 'http://127.0.0.1').pathname);
-    const file = resolve(root, `.${pathname}`);
-    if (relative(root, file).startsWith(`..${sep}`) || relative(root, file) === '..') {
-      response.writeHead(403).end();
-      return;
-    }
-    if (!(await stat(file)).isFile()) throw new Error('Not a file');
-    response.writeHead(200, { 'Content-Type': mimeTypes.get(extname(file)) ?? 'application/octet-stream' });
-    response.end(await readFile(file));
-  } catch {
-    response.writeHead(404).end();
-  }
-});
+const server = createStaticServer(root);
 
 await new Promise((resolveListen, rejectListen) => {
   server.once('error', rejectListen);

@@ -344,6 +344,13 @@ Playwright journeys protect both search surfaces.
 
 ## Bookmark editor feature boundary
 
+The common appearance experience lives in `features/item-editor`: its looks,
+reset behavior, content grouping and preview styling know about bookmarks,
+folders and the recycle bin. It is composed by each item editor and is not a
+generic Shared UI primitive. `shared/ui` still owns color pickers, tabs,
+lockable inputs and modal coordination. Project-health tests protect this
+ownership and follow domain imports transitively to keep runtime adapters out.
+
 The complete bookmark editing flow is owned by `features/bookmarks`: its modal
 coordinates create, edit and preset use cases; the reusable editor panel owns
 draft validation and lifecycle; and the editor plus preview keep form state and
@@ -805,9 +812,15 @@ clears it.
 
 Complete backups use the `newdesktab-backup` format; bookmark-only files use
 `newdesktab-bookmarks`. Both versioned formats preserve folders and membership.
-Complete backups also embed the optimized local images referenced by their data,
-so restore can recreate them in device-local storage. Local video files remain
-outside JSON backups. Legacy raw bookmark arrays remain importable without folders.
+Complete backups also embed the optimized local images and local video files
+referenced by their data, so restore can recreate images in device-local storage
+and videos in IndexedDB. Legacy raw bookmark arrays remain importable without folders.
+
+The store retains the base of failed optimistic writes until a commit succeeds.
+Later writes include those unsaved changes; storage refreshes merge them with
+incoming data instead of replacing them. Save and import controllers call
+`requirePersistence()` before announcing success. Item editors retain failed
+drafts, and create flows reuse the pending record's id when retrying.
 
 ## UI coordination
 
@@ -857,3 +870,40 @@ The project has four complementary checks:
 Project-health tests also protect the source boundaries, import graphs and
 literal DOM id contracts used by JavaScript and CSS. This keeps path and
 selector drift visible before browser journeys run.
+
+The Playwright harness and Store artwork generator use
+`scripts/lib/staticServer.mjs`, with a loopback listener, explicit MIME types,
+uncached responses and no directory listing. The test server requires Node only;
+Python remains an explicit dependency of Store ZIP packaging. ESLint includes
+the Node tooling scripts as well as runtime and test modules.
+
+## Publication hardening: command and module ownership
+
+`features/persistence/persistedAction.js` owns durable UI command feedback.
+Bulk commands, recycle-bin actions, workspace deletion, item removal and history
+controls announce success only after the store confirms the write. A failed
+command retains its result and retries persistence without executing its mutation
+again. Each acknowledgement belongs to its own command, including concurrent
+commands. The persistent retry control follows the active modal through the
+generic `subscribeModalChanges` lifecycle, preserving its accessibility and
+focus boundary. Unannounced writes such as pointer movement also expose a retry
+when storage fails.
+
+The storage facade composes `storageIO` for local/sync representations,
+`storageCoordination` for device locks and notifications, and `storageUsage`
+for quota measurement. `concurrentPlacement` handles collisions between new
+items committed by different tabs. These modules keep the existing `storage`
+API and persisted schema unchanged.
+
+Theme settings compose `wallpaperLibrary`, `wallpaperFiles` and
+`wallpaperPreview`. The section retains draft orchestration; file tracking and
+cleanup, list editing and video readiness belong to their individual controllers.
+
+Grid pointer controls compose `gridDragSession` for movement planning and
+preview ownership, `gridResizeGesture` for resize lifecycle,
+`gridPointerGeometry` for visual coordinates, and `gridGestureState` for the
+single active gesture. Placement algorithms remain in `shared/grid`.
+
+Large-backup measurements run separately from the test suite using
+`scripts/benchmark-backups.mjs`; see
+[the methodology and format decision](benchmarks/BACKUP_MEDIA.md).

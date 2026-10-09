@@ -18,6 +18,7 @@ import { calculateSmartDragLayout } from '../../shared/grid/smartDragLayout.js';
 import { createBookmarkListItem } from '../bookmarks/bookmarkListItem.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashInfo, flashSuccess } from '../../shared/ui/flash.js';
+import { runPersistedAction } from '../persistence/persistedAction.js';
 import { getMaxVisibleCols, getMaxVisibleRows } from '../grid/gridLayout.js';
 import {
   closeModal,
@@ -277,12 +278,13 @@ function finishInlineFolderRename({ cancel = false } = {}) {
     return;
   }
 
-  const renamed = renameBookmarkFolder(activeFolderId, nextName);
-  if (renamed) {
-    flashSuccess('flash.folder.renamed');
-  } else {
-    title.textContent = originalName;
-  }
+  void runPersistedAction(`folder-rename:${activeFolderId}`, () => renameBookmarkFolder(activeFolderId, nextName), renamed => {
+    if (renamed) {
+      flashSuccess('flash.folder.renamed');
+    } else {
+      title.textContent = originalName;
+    }
+  });
 }
 
 function enforceInlineFolderNameLimit() {
@@ -342,9 +344,9 @@ function createFolderBookmarkItem(bookmark, position) {
     );
     if (!confirmed) return;
 
-    if (deleteBookmarksByIds([bookmark.id])) {
-      flashSuccess('flash.bookmark.deleted');
-    }
+    await runPersistedAction(`folder-delete-bookmark:${bookmark.id}`, () => deleteBookmarksByIds([bookmark.id]), deleted => {
+      if (deleted) flashSuccess('flash.bookmark.deleted');
+    });
   });
   deleteButton.classList.add('folder-item-delete');
   deleteButton.setAttribute('aria-label', t('folder.actions.deleteBookmark', {
@@ -541,18 +543,21 @@ function cancelFolderDrag() {
 }
 
 async function moveBookmarkToGrid(bookmarkId) {
-  const result = removeBookmarkFromFolder(bookmarkId, {
+  let moved = false;
+  await runPersistedAction(`folder-exit:${bookmarkId}`, () => removeBookmarkFromFolder(bookmarkId, {
     columns: getMaxVisibleCols(),
     rows: getMaxVisibleRows()
-  });
-  if (result.reason === 'no-space') {
-    await showAlert(t('folder.removeNoSpace'), { type: 'info' });
-    return false;
-  }
-  if (!result.bookmark) return false;
+  }), result => {
+    if (result.reason === 'no-space') {
+      void showAlert(t('folder.removeNoSpace'), { type: 'info' });
+      return;
+    }
+    if (!result.bookmark) return;
 
-  flashSuccess('flash.folder.bookmarkRemoved');
-  return true;
+    flashSuccess('flash.folder.bookmarkRemoved');
+    moved = true;
+  });
+  return moved;
 }
 
 function previewFolderExit(session) {

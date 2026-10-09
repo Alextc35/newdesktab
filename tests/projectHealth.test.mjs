@@ -232,6 +232,30 @@ test('source modules resolve relative imports and do not contain static cycles',
   for (const file of files) visit(file);
 });
 
+test('domain dependencies stay portable and shared mechanisms do not own item editors', () => {
+  const root = resolve('src');
+  const files = listJavaScriptFiles(root);
+  const graph = new Map(files.map(file => [file, readStaticDependencies(file)]));
+  const owner = file => relative(root, file).replaceAll('\\', '/').split('/')[0];
+  const visit = (file, origin, visited = new Set()) => {
+    if (visited.has(file)) return;
+    visited.add(file);
+    assert.ok(['domain', 'shared', 'types'].includes(owner(file)),
+      `Domain module ${relative(root, origin)} depends on runtime module ${relative(root, file)}`);
+    for (const dependency of graph.get(file) ?? []) visit(dependency, origin, visited);
+  };
+  for (const file of files.filter(file => owner(file) === 'domain')) visit(file, file);
+  for (const file of files.filter(file => owner(file) === 'shared')) {
+    for (const dependency of graph.get(file)) {
+      const path = relative(root, dependency).replaceAll('\\', '/');
+      assert.doesNotMatch(path, /^(?:app|features|state|widgets)\//,
+        `Shared module ${relative(root, file)} depends on application behavior: ${path}`);
+      assert.doesNotMatch(path, /^domain\/(?:bookmarks|folders|recycle-bin)\//,
+        `Item-specific rules need a feature owner: ${relative(root, file)} -> ${path}`);
+    }
+  }
+});
+
 function listJavaScriptFiles(directory) {
   return listFilesByExtension(directory, '.js');
 }

@@ -196,6 +196,7 @@ async function expectStackedDropPreview(source, target, feedback) {
 test('moves, resizes, hides and shows the recycle bin', async ({ page }) => {
   await toggleEditMode(page);
   const bin = page.locator('#bookmark-container > .recycle-bin');
+  await expect(bin).toBeVisible();
   const grid = await page.locator('#bookmark-container').boundingBox();
   const before = await bin.boundingBox();
 
@@ -203,11 +204,13 @@ test('moves, resizes, hides and shows the recycle bin', async ({ page }) => {
   await page.mouse.down();
   await page.mouse.move(before.x + grid.width / 12 * 3, before.y, { steps: 12 });
   await page.mouse.up();
-  await expect.poll(async () => (await bin.boundingBox()).x).toBeGreaterThan(before.x + grid.width / 6);
+  await expect.poll(async () => (await bin.boundingBox())?.x ?? -1).toBeGreaterThan(before.x + grid.width / 6);
 
+  await waitForSaved(page);
+  await expect(bin).toBeVisible();
   const moved = await bin.boundingBox();
   await bin.locator('.resizer.left').click({ position: { x: 2, y: 10 } });
-  await expect.poll(async () => (await bin.boundingBox()).width).toBeGreaterThan(moved.width * 1.7);
+  await expect.poll(async () => (await bin.boundingBox())?.width ?? 0).toBeGreaterThan(moved.width * 1.7);
   await waitForSaved(page);
 
   await toggleEditMode(page);

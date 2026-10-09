@@ -1,4 +1,4 @@
-import { getState, waitForPersistence } from '../../../state/appStore.js';
+import { getState, requirePersistence, retryPersistence } from '../../../state/appStore.js';
 import { getMaxVisibleCols, getMaxVisibleRows } from '../../../features/grid/gridLayout.js';
 import { t } from '../../../platform/i18n/i18n.js';
 import { showAlert } from '../../../shared/ui/alertModal.js';
@@ -20,6 +20,7 @@ let mode = null;
 let activeWidgetId = null;
 let initialConfig = null;
 let submitting = false;
+let pendingDeletion = false;
 let modal;
 let modalTitle;
 let hourCycleSelect;
@@ -129,7 +130,7 @@ async function handleSave() {
   syncControls(true);
   const config = readConfig();
 
-  const result = mode === 'create'
+  const result = mode === 'create' && !activeWidgetId
     ? addWidget({
       type: CLOCK_WIDGET_TYPE,
       version: CLOCK_WIDGET_VERSION,
@@ -149,15 +150,23 @@ async function handleSave() {
     return;
   }
 
-  await waitForPersistence();
-  closeModal(MODAL_ID);
-  flashSuccess(mode === 'create' ? 'flash.clock.added' : 'flash.clock.updated');
-  resetEditor();
+  activeWidgetId = result.id;
+  try {
+    await requirePersistence();
+    closeModal(MODAL_ID);
+    flashSuccess(mode === 'create' ? 'flash.clock.added' : 'flash.clock.updated');
+    resetEditor();
+  } catch {
+    flashError('settingsModal.sync.status.error');
+  } finally {
+    submitting = false;
+    syncControls(false);
+  }
 }
 
 async function handleDelete() {
   if (submitting || mode !== 'edit' || !activeWidgetId) return;
-  const confirmed = await showAlert(t('clock.confirmDelete'), {
+  const confirmed = pendingDeletion || await showAlert(t('clock.confirmDelete'), {
     type: 'confirm',
     requiresWideViewport: false
   });
@@ -165,15 +174,23 @@ async function handleDelete() {
 
   submitting = true;
   syncControls(true);
-  if (!deleteWidgetById(activeWidgetId)) {
+  try {
+    if (pendingDeletion) {
+      await retryPersistence();
+    } else {
+      if (!deleteWidgetById(activeWidgetId)) return;
+      pendingDeletion = true;
+      await requirePersistence();
+    }
+    closeModal(MODAL_ID);
+    flashSuccess('flash.clock.deleted');
+    resetEditor();
+  } catch {
+    flashError('settingsModal.sync.status.error');
+  } finally {
     submitting = false;
     syncControls(false);
-    return;
   }
-  await waitForPersistence();
-  closeModal(MODAL_ID);
-  flashSuccess('flash.clock.deleted');
-  resetEditor();
 }
 
 async function handleCancel() {
@@ -204,6 +221,7 @@ function resetEditor() {
   stopPreviewTicker = null;
   submitting = false;
   mode = null;
+  pendingDeletion = false;
   activeWidgetId = null;
   initialConfig = null;
   createCancelHandler = null;

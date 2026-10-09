@@ -13,6 +13,7 @@ import {
 } from '../../domain/settings/recycleBinRetention.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashSuccess } from '../../shared/ui/flash.js';
+import { runPersistedAction } from '../persistence/persistedAction.js';
 import {
   closeModal,
   isModalActive,
@@ -214,15 +215,18 @@ function formatExpiry(days) {
 }
 
 async function restoreAll() {
-  const result = restoreAllTrashEntries();
-  selectedIds.clear();
-  showRestoreResult(result);
+  await runPersistedAction('trash-restore-all', restoreAllTrashEntries, result => {
+    selectedIds.clear();
+    showRestoreResult(result);
+  });
 }
 
 async function restoreSelected() {
-  const result = restoreTrashEntries(selectedIds);
-  selectedIds.clear();
-  showRestoreResult(result);
+  const ids = new Set(selectedIds);
+  await runPersistedAction('trash-restore-selected', () => restoreTrashEntries(ids), result => {
+    selectedIds.clear();
+    showRestoreResult(result);
+  });
 }
 
 function showRestoreResult(result) {
@@ -236,10 +240,11 @@ function showRestoreResult(result) {
 async function deleteAll() {
   const confirmed = await showAlert(t('alert.recycleBin.empty'), { type: 'confirm' });
   if (!confirmed) return;
-  emptyRecycleBin();
-  selectedIds.clear();
-  flashSuccess('flash.recycleBin.deletedPermanently');
-  renderRecycleBin();
+  await runPersistedAction('trash-empty', emptyRecycleBin, () => {
+    selectedIds.clear();
+    flashSuccess('flash.recycleBin.deletedPermanently');
+    renderRecycleBin();
+  });
 }
 
 async function deleteSelected() {
@@ -247,8 +252,10 @@ async function deleteSelected() {
     count: selectedIds.size
   }), { type: 'confirm' });
   if (!confirmed) return;
-  permanentlyDeleteTrashEntries(selectedIds);
-  selectedIds.clear();
-  flashSuccess('flash.recycleBin.deletedPermanently');
-  renderRecycleBin();
+  const ids = new Set(selectedIds);
+  await runPersistedAction('trash-delete-selected', () => permanentlyDeleteTrashEntries(ids), () => {
+    selectedIds.clear();
+    flashSuccess('flash.recycleBin.deletedPermanently');
+    renderRecycleBin();
+  });
 }

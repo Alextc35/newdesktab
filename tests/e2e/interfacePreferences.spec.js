@@ -46,9 +46,9 @@ test('settings navigation and inline language control load their SVG assets with
   await expect(page.locator('#settings-modal-tab-general > .settings-language')).toBeVisible();
   await expect(page.locator('#settings-modal-tab-general > .settings-language + .interface-appearance')).toBeVisible();
   await expect(page.locator('.settings-language #language-select')).toBeVisible();
-  await expect(page.locator('.settings-language label[for="language-select"]')).toBeVisible();
+  await expect(page.locator('#settings-language-label')).toBeVisible();
   const languageLabel = await page.locator('.settings-language label').boundingBox();
-  const languageSelect = await page.locator('#language-select').boundingBox();
+  const languageSelect = await page.locator('.settings-language .custom-select-trigger').boundingBox();
   expect(languageSelect.x - (languageLabel.x + languageLabel.width)).toBeLessThanOrEqual(20);
   kinds.push('language');
   for (const kind of kinds) {
@@ -79,7 +79,7 @@ test('Information displays the New DeskTab brand artwork and keeps its text read
   await expect(card.locator('.settings-information-copy')).toBeVisible();
 });
 
-test('light folder grids and previews keep labels readable without changing saved colors', async ({ page }) => {
+test('light folder grids keep labels readable and editors preview the saved appearance', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'light' });
   await start(page);
   await page.evaluate(async () => {
@@ -120,12 +120,12 @@ test('light folder grids and previews keep labels readable without changing save
   await page.locator('#folder-modal-edit-toggle').click();
   await grid.getByRole('button', { name: 'Edit White', exact: true }).click();
   const preview = page.locator('#edit-bookmark-modal .bookmark-preview');
-  await expect(preview).toHaveCSS('background-color', 'rgb(248, 248, 249)');
-  await expect(preview.locator('.bookmark-title')).toHaveCSS('color', 'rgb(36, 36, 40)');
+  await expect(preview).toHaveCSS('background-image', /conic-gradient/);
+  await expect(preview.locator('.bookmark-title')).toHaveCSS('color', 'rgb(255, 255, 255)');
   await page.keyboard.press('Escape');
   await page.locator('#folder-modal-customize').click();
-  await expect(page.locator('#folder-editor-preview')).toHaveCSS('background-color', 'rgb(248, 248, 249)');
-  await expect(page.locator('#folder-editor-preview .folder-title')).toHaveCSS('color', 'rgb(36, 36, 40)');
+  await expect(page.locator('#folder-editor-preview')).toHaveCSS('background-image', /conic-gradient/);
+  await expect(page.locator('#folder-editor-preview .folder-title')).toHaveCSS('color', 'rgb(248, 250, 252)');
   await page.keyboard.press('Escape');
   await grid.locator('[data-bookmark-id="White"] .folder-item-remove').click();
   await page.locator('#folder-modal-close').click();

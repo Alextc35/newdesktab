@@ -1,4 +1,9 @@
 {
+  "persistence": {
+    "unsaved": "No se han podido guardar los últimos cambios.",
+    "retry": "Reintentar guardado",
+    "saved": "Cambios pendientes guardados."
+  },
   "itemEditor": {
     "description": "Personaliza cómo aparece en tu espacio.",
     "looks": "Elige un estilo",

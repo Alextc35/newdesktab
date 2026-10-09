@@ -6,9 +6,9 @@ import {
 import { DEFAULT_FOLDER_STYLE } from '../../domain/folders/folderDefaults.js';
 import { validateFolderDraft } from '../../domain/folders/folderModel.js';
 import { t } from '../../platform/i18n/i18n.js';
-import { getState, getStorageMode, waitForPersistence } from '../../state/appStore.js';
+import { getState, getStorageMode, requirePersistence } from '../../state/appStore.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
-import { flashSuccess } from '../../shared/ui/flash.js';
+import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { isDarkInterfaceActive } from '../../shared/ui/interfaceTheme.js';
 import { getMaxVisibleCols, getMaxVisibleRows } from '../grid/gridLayout.js';
 import {
@@ -20,7 +20,7 @@ import {
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { closeModal, openModal, registerModal } from '../../shared/ui/modalManager.js';
 import { initTabs } from '../../shared/ui/tabs.js';
-import { createItemAppearanceEditor } from '../../shared/ui/itemAppearanceEditor.js';
+import { createItemAppearanceEditor } from '../item-editor/itemAppearanceEditor.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 import { applyFolderAppearance, createFolderVisual } from './folderVisual.js';
 
@@ -318,6 +318,10 @@ function syncStyleControls() {
 }
 
 function syncSaveButton() {
+  if (submitting) {
+    saveButton.disabled = true;
+    return;
+  }
   if (mode === 'create') {
     const hasName = currentValue().name.trim().length > 0;
     saveButton.disabled = !hasName;
@@ -379,12 +383,20 @@ async function handleSave() {
     return;
   }
 
-  const updated = updateBookmarkFolder(activeFolderId, result.value);
-  if (!updated) return;
-  await waitForPersistence();
-
-  flashSuccess('flash.folder.updated');
-  closeFolderEditor();
+  submitting = true;
+  saveButton.disabled = true;
+  try {
+    const updated = updateBookmarkFolder(activeFolderId, result.value);
+    if (!updated) return;
+    await requirePersistence();
+    flashSuccess('flash.folder.updated');
+    closeFolderEditor();
+  } catch {
+    flashError('settingsModal.sync.status.error');
+  } finally {
+    submitting = false;
+    syncSaveButton();
+  }
 }
 
 async function handleCreate() {
@@ -395,11 +407,14 @@ async function handleCreate() {
   }
 
   submitting = true;
+  saveButton.disabled = true;
   try {
-    const created = createBookmarkFolder(result.value.name, {
-      columns: getMaxVisibleCols(),
-      rows: getMaxVisibleRows()
-    }, result.value);
+    const created = activeFolderId
+      ? updateBookmarkFolder(activeFolderId, result.value)
+      : createBookmarkFolder(result.value.name, {
+        columns: getMaxVisibleCols(),
+        rows: getMaxVisibleRows()
+      }, result.value);
     if (!created) {
       closeFolderEditor();
       await new Promise(requestAnimationFrame);
@@ -407,11 +422,15 @@ async function handleCreate() {
       return;
     }
 
-    await waitForPersistence();
+    activeFolderId = created.id;
+    await requirePersistence();
     flashSuccess('flash.folder.created');
     closeFolderEditor();
+  } catch {
+    flashError('settingsModal.sync.status.error');
   } finally {
     submitting = false;
+    syncSaveButton();
     imageUploadInput.value = '';
   }
 }

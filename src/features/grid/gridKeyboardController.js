@@ -1,3 +1,4 @@
+import { runPersistedAction } from '../persistence/persistedAction.js';
 import { getState, toggleEditing } from '../../state/appStore.js';
 import {
   findGridKeyboardRoute,
@@ -229,15 +230,16 @@ async function confirmFocusedGridItemDeletion(item, { permanent = false } = {}) 
     return;
   }
 
-  const deleted = item.definition.remove
+  await runPersistedAction(`keyboard-delete:${item.id}`, async () => item.definition.remove
     ? await item.definition.remove(context)
-    : permanentlyDeleteGridItem('widget', item.id).deleted;
-  if (!deleted) return;
-  keepGridKeyboardNavigationAfterDeletion(deletedItemIndex);
-  const successMessage = item.definition.getRemovalSuccessMessage?.(context) ?? (permanent
-    ? 'flash.recycleBin.deletedPermanently'
-    : 'flash.recycleBin.moved');
-  flashSuccess(successMessage);
+    : permanentlyDeleteGridItem('widget', item.id).deleted, deleted => {
+    if (!deleted) return;
+    keepGridKeyboardNavigationAfterDeletion(deletedItemIndex);
+    const successMessage = item.definition.getRemovalSuccessMessage?.(context) ?? (permanent
+      ? 'flash.recycleBin.deletedPermanently'
+      : 'flash.recycleBin.moved');
+    flashSuccess(successMessage);
+  });
 }
 
 function keepGridKeyboardNavigationAfterDeletion(deletedItemIndex) {

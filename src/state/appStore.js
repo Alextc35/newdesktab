@@ -36,6 +36,9 @@ let unsubscribeFromStorage = null;
 /** @type {Promise<void>} */
 let persistenceQueue = Promise.resolve();
 
+/** Base of optimistic changes that have not reached durable storage yet. */
+let pendingPersistenceBase = null;
+
 const gridHistory = createGridHistory();
 
 /**
@@ -122,7 +125,9 @@ export async function setState(partial, { recordHistory = true, debugTrace } = {
           trace.mark('Queue wait');
           persistenceMode = storage.getMode();
           try {
-            const result = await storage.commit(prevState.data, dataToPersist);
+            pendingPersistenceBase ??= structuredClone(prevState.data);
+            const result = await storage.commit(pendingPersistenceBase, dataToPersist);
+            pendingPersistenceBase = null;
             if (result.rebased) {
               // Keep operations queued locally since this snapshot was taken.
               state.data = mergeChanges(dataToPersist, state.data, result.data);
@@ -234,6 +239,25 @@ export async function waitForPersistence() {
   return structuredClone(state.ui.persistence);
 }
 
+/** Save flows must confirm durable storage before closing or announcing success. */
+export async function requirePersistence() {
+  const persistence = await waitForPersistence();
+  if (persistence.status !== 'saved') {
+    const error = new Error(persistence.error || 'Could not save the latest changes.');
+    error.code = 'PERSISTENCE_FAILED';
+    throw error;
+  }
+}
+
+/** Retries unsaved changes without creating another item or history entry. */
+export async function retryPersistence() {
+  await waitForPersistence();
+  if (pendingPersistenceBase) {
+    await setState({ data: structuredClone(state.data) }, { recordHistory: false });
+  }
+  await requirePersistence();
+}
+
 /**
  * Permanently removes the remote NewDeskTab payload. If synchronized storage is
  * active, the current state is copied locally before the remote data is
@@ -309,6 +333,7 @@ export async function changeStorageMode(mode, nextData = state.data) {
     await persistenceQueue.catch(() => undefined);
     trace.mark('Queue wait');
     const result = await storage.changeMode(mode, nextData);
+    pendingPersistenceBase = null;
     trace.mark('Storage switch');
     const dataChanged = replacePersistedData(result.data);
     if (!dataChanged && storage.getMode() !== previousMode) notify(state, state);
@@ -463,7 +488,13 @@ function subscribeToStorageChanges() {
         // Another edit may have started while the asynchronous read ran. Its
         // storage event will refresh again after it finishes.
         if (queue !== persistenceQueue) return;
-        const dataChanged = replacePersistedData(persisted);
+        // A failed write remains an unsaved local change. A refresh must not
+        // erase it; merge remote changes and retain a base for the next retry.
+        const refreshed = pendingPersistenceBase
+          ? mergeChanges(pendingPersistenceBase, state.data, persisted)
+          : persisted;
+        if (pendingPersistenceBase) pendingPersistenceBase = structuredClone(persisted);
+        const dataChanged = replacePersistedData(refreshed);
         if (dataChanged) debug.info('Data refreshed from storage', refreshChange);
 
         if (

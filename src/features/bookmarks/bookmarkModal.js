@@ -1,4 +1,4 @@
-import { getState, waitForPersistence } from '../../state/appStore.js';
+import { getState, requirePersistence } from '../../state/appStore.js';
 import {
   createBookmarkDraft,
   normalizeBookmarkPreset
@@ -48,6 +48,7 @@ let presetLibraryAbortController = null;
 let presetLibrarySelectInstance = null;
 
 let submitting = false;
+let pendingCreationId = null;
 let registered = false;
 
 /**
@@ -148,6 +149,7 @@ export function openBookmarkPresetEditor(preset, options = {}) {
  */
 function openBookmarkModal(nextMode, bookmark) {
   mode = nextMode;
+  pendingCreationId = null;
   destroyPresetLibraryControls();
   form?.destroy();
   form = createBookmarkEditorPanel({
@@ -277,6 +279,10 @@ function hasChanges() {
 }
 
 function updateSaveButtonState() {
+  if (submitting) {
+    modalSave.disabled = true;
+    return;
+  }
   if (mode === 'add') {
     const hasName = getCurrentFormState().name?.trim().length > 0;
     modalSave.disabled = !hasName;
@@ -333,34 +339,36 @@ async function handleAddAccept() {
     if (!validation.isValid) return;
     const bookmark = validation.value;
 
-    const groupItems = getOccupiedGridItems(bookmark.groupId);
-    const maxRows = getMaxVisibleRows();
-    const maxCols = getMaxVisibleCols();
-
-    const position = findFirstFreeSlot(groupItems, {
-      columns: maxCols,
-      rows: maxRows
-    });
-
-    if (!position) {
-      closeBookmarkModal();
-
-      await new Promise(requestAnimationFrame);
-
-      await showAlert(t('alert.bookmarks.no_space'), { type: 'info' });
-      return;
+    let created;
+    if (pendingCreationId) {
+      created = updateBookmarkById(pendingCreationId, bookmark);
+    } else {
+      const position = findFirstFreeSlot(getOccupiedGridItems(bookmark.groupId), {
+        columns: getMaxVisibleCols(), rows: getMaxVisibleRows()
+      });
+      if (!position) {
+        closeBookmarkModal();
+        await new Promise(requestAnimationFrame);
+        await showAlert(t('alert.bookmarks.no_space'), { type: 'info' });
+        return;
+      }
+      created = addBookmark({ ...bookmark, ...position });
+      pendingCreationId = created?.id ?? null;
     }
-
-    const created = addBookmark({ ...bookmark, ...position });
-    await waitForPersistence();
+    if (!created) return;
+    modalSave.disabled = true;
+    await requirePersistence();
 
     if (created) {
       flashSuccess('flash.bookmark.added');
     }
 
     closeBookmarkModal();
+  } catch {
+    flashError('settingsModal.sync.status.error');
   } finally {
     submitting = false;
+    updateSaveButtonState();
     if (form.elements.backgroundImage) {
       form.elements.backgroundImage.value = '';
     }
@@ -368,18 +376,24 @@ async function handleAddAccept() {
 }
 
 async function handleEditAccept() {
-  if (!editingId || !hasChanges()) return;
+  if (submitting || !editingId || !hasChanges()) return;
 
   const validation = form.validate();
   if (!validation.isValid) return;
-  const bookmark = updateBookmarkById(editingId, validation.value);
-  await waitForPersistence();
-
-  if (bookmark) {
+  submitting = true;
+  modalSave.disabled = true;
+  try {
+    const bookmark = updateBookmarkById(editingId, validation.value);
+    if (!bookmark) return;
+    await requirePersistence();
     flashSuccess('flash.bookmark.updated');
+    closeBookmarkModal();
+  } catch {
+    flashError('settingsModal.sync.status.error');
+  } finally {
+    submitting = false;
+    updateSaveButtonState();
   }
-
-  closeBookmarkModal();
 }
 
 async function handlePresetAccept() {
@@ -449,6 +463,7 @@ function closeBookmarkModal() {
   densityToggle.classList.add('is-hidden');
   mode = null;
   editingId = null;
+  pendingCreationId = null;
   applyPreset = null;
   presetLibrary = null;
   closeModal('bookmark-modal');

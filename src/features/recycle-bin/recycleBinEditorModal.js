@@ -5,9 +5,9 @@ import {
   validateRecycleBinStyle
 } from '../../domain/recycle-bin/recycleBinModel.js';
 import { updateRecycleBinAppearance } from './recycleBinActions.js';
-import { getState, getStorageMode, waitForPersistence } from '../../state/appStore.js';
+import { getState, getStorageMode, requirePersistence } from '../../state/appStore.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
-import { flashSuccess } from '../../shared/ui/flash.js';
+import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { isDarkInterfaceActive } from '../../shared/ui/interfaceTheme.js';
 import {
   getImageInputValue,
@@ -22,10 +22,11 @@ import {
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { closeModal, openModal, registerModal } from '../../shared/ui/modalManager.js';
 import { initTabs } from '../../shared/ui/tabs.js';
-import { createItemAppearanceEditor } from '../../shared/ui/itemAppearanceEditor.js';
+import { createItemAppearanceEditor } from '../item-editor/itemAppearanceEditor.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 
 let initialized = false;
+let submitting = false;
 let initialValue = null;
 let modal;
 let noBackgroundInput;
@@ -260,7 +261,7 @@ function isDirty() {
 
 function syncSaveButton() {
   const changed = isDirty();
-  saveButton.disabled = !changed;
+  saveButton.disabled = submitting || !changed;
   saveButton.classList.remove('is-hidden');
 }
 
@@ -291,7 +292,7 @@ function createRecycleBinPreviewCard(value) {
 }
 
 async function handleSave() {
-  if (!isDirty()) return;
+  if (submitting || !isDirty()) return;
   const draft = currentValue();
   const result = validateRecycleBinStyle(draft);
   if (!result.isValid) {
@@ -300,13 +301,21 @@ async function handleSave() {
   }
 
   saveButton.disabled = true;
-  await updateRecycleBinAppearance({
-    ...result.value,
-    showRecycleBin: draft.showRecycleBin
-  });
-  await waitForPersistence();
-  flashSuccess('flash.recycleBin.updated');
-  closeRecycleBinEditor();
+  submitting = true;
+  try {
+    await updateRecycleBinAppearance({
+      ...result.value,
+      showRecycleBin: draft.showRecycleBin
+    });
+    await requirePersistence();
+    flashSuccess('flash.recycleBin.updated');
+    closeRecycleBinEditor();
+  } catch {
+    flashError('settingsModal.sync.status.error');
+  } finally {
+    submitting = false;
+    syncSaveButton();
+  }
 }
 
 function handleReset() {

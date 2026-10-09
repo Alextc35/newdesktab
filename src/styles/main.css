@@ -28,8 +28,9 @@
 @import '../features/recycle-bin/recycleBin.css';
 @import '../widgets/builtin/clock/clock.css';
 @import '../widgets/widgetCatalog.css';
-@import '../shared/ui/itemAppearanceEditor.css';
+@import '../features/item-editor/itemAppearanceEditor.css';
 @import '../shared/ui/lockableInput.css';
 
 @import './utilities/disabled.css';
 @import './utilities/hidden.css';
+@import '../features/persistence/persistence.css';

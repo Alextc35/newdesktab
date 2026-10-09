@@ -29,7 +29,8 @@ Review it against the release ZIP before every submission.
 > Data is stored locally by default. Optional Chrome Sync uses browser-managed
 > storage so compatible Chrome profiles can share bookmark data and settings.
 > Images uploaded from your device remain local to that browser profile. Complete
-> backups you explicitly export include optimized copies of referenced local images.
+> backups you explicitly export include optimized copies of referenced local images
+> and the referenced local video files.
 >
 > NewDeskTab has no account system, advertising, analytics, telemetry, or
 > developer-operated backend.
@@ -48,7 +49,14 @@ Review it against the release ZIP before every submission.
 > preference. When the user explicitly enables Sync, browser-managed
 > chrome.storage.sync stores the shareable workspace data; local image files
 > and filenames remain in chrome.storage.local. Complete backups include copies
-> of referenced local images only when you explicitly export them.
+> of referenced local images and videos only when you explicitly export them;
+> local videos are stored separately in IndexedDB.
+
+### Permission justification: activeTab
+
+> When the user clicks the extension's toolbar button, the quick-save popup reads
+> that active tab's title and URL to prefill a bookmark. It does not read page
+> contents, access general browsing history or close the source tab.
 
 ### Remote code
 
@@ -60,8 +68,8 @@ not executed as code.
 
 - User-entered bookmark names and URLs, workspace data and settings are stored
   by the extension to provide its single purpose.
-- Files selected as local images are processed and stored locally in the
-  browser profile.
+- Files selected as local images and videos are stored locally in the browser
+  profile. Complete backups explicitly exported by the user include referenced files.
 - When a favicon is shown, the bookmark origin may be requested from Google's
   `t3.gstatic.com` favicon service as documented in the privacy policy.
 - User-configured remote images are requested directly from their image hosts.
@@ -89,6 +97,8 @@ npm run assets:store
 ## Release procedure
 
 1. Run `npm run check`.
+   Run `npm audit --audit-level=high` as well; dependencies stay outside the
+   extension ZIP, but development tooling should have no known high/critical issues.
 2. Run `npm run test:e2e`.
 3. Run `npm run assets:store` and visually inspect every generated image.
 4. Run `npm run package:store`.
@@ -98,3 +108,10 @@ npm run assets:store
    item. If this is a new item, decide the permanent extension ID before release.
 8. Upload the ZIP and the listing images, complete the privacy answers,
    verify contact email and two-step verification, then submit for review.
+
+Browser tests and Store screenshots use the same Node loopback server. Packaging
+requires Python 3.9 or newer; if your platform calls it `python` or `py`, invoke
+that interpreter with `scripts/package-extension.py` instead of the npm alias.
+Before submission, verify Chrome Sync between two real browser profiles/devices
+and open the unpacked ZIP in Brave. Automated tests cover data merging and browser
+storage, but do not verify propagation through Google's profile service.

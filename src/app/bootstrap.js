@@ -26,6 +26,7 @@ import { initWorkspaceToolbar } from '../features/workspaces/workspaceToolbar.js
 import { preloadLocalImages } from '../platform/images/localImages.js';
 import { preloadLocalVideos } from '../platform/images/localVideos.js';
 import { initGridBulkActions } from '../features/grid/gridBulkActions.js';
+import { initPersistenceFeedback } from '../features/persistence/persistedAction.js';
 import { initGridKeyboardNavigation } from '../features/grid/gridKeyboardController.js';
 import { initGridKeyboardMovement } from '../features/grid/gridKeyboardMovement.js';
 import { initAlertModal } from '../shared/ui/alertModal.js';
@@ -109,6 +110,7 @@ function getApplicationElements() {
 }
 
 function initializeUserInterface({ container, gridOverlay, toggleButton }) {
+  initPersistenceFeedback();
   initCustomColorPickers(document);
   initAppShell({ container, gridOverlay, toggleButton });
   initializeWidgets({

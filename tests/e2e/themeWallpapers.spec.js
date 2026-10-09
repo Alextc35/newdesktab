@@ -292,7 +292,8 @@ test('rotates personal URLs, preserves their colors and preview crop after reloa
     const preview = previewElement.getBoundingClientRect();
     const peek = peekElement.getBoundingClientRect();
     return {
-      colorFirst: row.firstElementChild.matches('input[type="color"]'),
+      previewBeforeColor: row.querySelector('.theme-wallpaper-preview-trigger').getBoundingClientRect().right
+        <= row.querySelector('input[type="color"]').getBoundingClientRect().left,
       viewportRatio: viewport.width / viewport.height,
       previewRatio: preview.width / preview.height,
       peekRatio: peek.width / peek.height,
@@ -300,7 +301,7 @@ test('rotates personal URLs, preserves their colors and preview crop after reloa
         getComputedStyle(previewElement)[property] === getComputedStyle(peekElement)[property])
     };
   });
-  expect(previewLayout.colorFirst).toBe(true);
+  expect(previewLayout.previewBeforeColor).toBe(true);
   expect(previewLayout.previewRatio).toBeCloseTo(previewLayout.viewportRatio, 1);
   expect(previewLayout.peekRatio).toBeCloseTo(previewLayout.viewportRatio, 1);
   expect(previewLayout.sameCrop).toBe(true);
