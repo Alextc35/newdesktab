@@ -501,24 +501,26 @@
 }
 
 .modal-folder {
-  --folder-contents-text: #f8fafc;
+  --folder-contents-text: light-dark(#242428, #f8fafc);
   --folder-contents-text-shadow: none;
-  --folder-grid-line: color-mix(in srgb, var(--folder-contents-text) 8%, transparent);
+  --folder-grid-line: light-dark(rgba(36, 36, 40, .08), rgba(248, 250, 252, .08));
   display: flex;
   width: min(900px, 96vw);
   max-height: min(680px, 92vh);
   padding: 20px;
   flex-direction: column;
   border: 1px solid var(--folder-contents-border);
-  background: var(--folder-contents-background, #18181a);
-  box-shadow: inset 0 1px rgba(255, 255, 255, .05), 0 24px 72px rgba(0, 0, 0, .24);
+  background: var(--folder-contents-background, light-dark(#f6f6f7, #18181a));
+  box-shadow: inset 0 1px light-dark(rgba(255, 255, 255, .65), rgba(255, 255, 255, .05)),
+    0 24px 72px light-dark(rgba(24, 24, 40, .14), rgba(0, 0, 0, .24));
   color: var(--folder-contents-text);
   animation: folderModalIn .36s cubic-bezier(.22, 1, .36, 1);
 }
 
 .modal-folder.is-folder-contents-transparent {
-  --folder-contents-text-shadow: 0 1px 3px rgba(0, 0, 0, .8), 0 2px 12px rgba(0, 0, 0, .5);
-  background: rgba(24, 24, 26, .62);
+  --folder-contents-text-shadow: 0 1px 3px light-dark(transparent, rgba(0, 0, 0, .8)),
+    0 2px 12px light-dark(transparent, rgba(0, 0, 0, .5));
+  background: light-dark(rgba(246, 246, 247, .62), rgba(24, 24, 26, .62));
   backdrop-filter: blur(18px) saturate(.7);
 }
 
@@ -764,7 +766,7 @@
   grid-template-rows: repeat(3, minmax(0, 1fr));
   grid-auto-rows: calc(100% / 3);
   gap: var(--folder-grid-gap);
-  border: 1px solid color-mix(in srgb, var(--folder-contents-text) 16%, transparent);
+  border: 1px solid light-dark(rgba(36, 36, 40, .16), rgba(248, 250, 252, .16));
   border-radius: 12px;
   background-color: transparent;
   background-image:

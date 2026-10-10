@@ -913,17 +913,20 @@ action returns to the workspace instead of opening an unavailable editor.
 
 `features/folders/folderAppearance.js` applies saved appearance to cards, artwork,
 previews and open contents without accessing the store. The contents surface is
-always neutral gray: `noBackground` enables a gray veil, local blur and a faint
-neutral border. Otherwise, `backgroundColor` accents only the outer border.
-Dark accent borders are adjusted to stay visible while retaining their hue. `noOuterBackground` and
+neutral gray in the active light or dark interface theme: `noBackground` enables
+a matching gray veil, local blur and a faint neutral border. Otherwise,
+`backgroundColor` accents only the outer border. Accent borders are adjusted to
+stay visible while retaining their hue. `noOuterBackground` and
 `outerBackgroundColor` remain launcher-card settings. Display contrast is derived
 without changing saved folder or bookmark colors. Browsing and editing share the
 same contents surface and geometry.
 `shared/ui/surfaceContrast.js` derives foreground, secondary text and control
 states from the neutral contents surface, targeting 4.5:1 text contrast and 3:1 control
-boundaries. Transparent contents use the brightest possible composite of their
-gray veil as the contrast baseline, so wallpaper and interface theme do not
-change readability. Grid lines remain decorative and intentionally faint.
+boundaries. Paired colors use `light-dark()` so explicit and system theme changes
+update open folders and tutorial previews immediately. Transparent contents use
+the darkest light veil or brightest dark veil as their contrast baseline, so any
+wallpaper stays readable. Grid lines remain neutral, decorative and intentionally
+faint within each theme, independently of the saved color or transparency.
 `features/folders/folderCard.js` owns the folder card and previews, while
 `features/folders/folderModal.js` reuses the production bookmark renderer in a
 compact 3 × 6 workspace. The modal starts in a link-only view with no action or

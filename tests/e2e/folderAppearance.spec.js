@@ -103,8 +103,11 @@ async function expectContentsContrast(page, { editing = false, renaming = false 
       const values = [luminance(a), luminance(b)].sort((first, second) => first - second);
       return (values[1] + .05) / (values[0] + .05);
     };
-    // Ignore the dimming overlay: white is the conservative transparent baseline.
-    const canvas = composite(channels(getComputedStyle(surface).backgroundColor), [255, 255, 255]);
+    // Ignore the overlay: black is the worst wallpaper for a light veil, white
+    // for a dark veil. Opaque contents are unaffected by the wallpaper.
+    const surfaceColor = channels(getComputedStyle(surface).backgroundColor);
+    const wallpaper = surfaceColor[0] > 127 ? [0, 0, 0] : [255, 255, 255];
+    const canvas = composite(surfaceColor, wallpaper);
     const measurements = [...surface.querySelectorAll(selector)].map(element => {
       const style = getComputedStyle(element);
       const background = composite(channels(style.backgroundColor), canvas);
@@ -236,9 +239,10 @@ test('folder colors keep readable labels and coherent controls in browse, hover,
     const style = getComputedStyle(grid);
     return { background: style.backgroundColor, lines: style.backgroundImage, border: style.borderTopColor };
   });
-  const neutralGrid = await gridAppearance();
+  const neutralGrids = new Map([['dark', await gridAppearance()]]);
   for (const [index, color] of ['#38bdf8', '#ffffff', '#000000', '#101820', '#777777',
     '#737373', '#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#a78bfa'].entries()) {
+    const theme = index % 2 ? 'light' : 'dark';
     await page.evaluate(async ({ id, color, theme }) => {
       const { getState, setState } = await import('/src/state/appStore.js');
       const data = getState().data;
@@ -246,14 +250,16 @@ test('folder colors keep readable labels and coherent controls in browse, hover,
         folders: data.folders.map(folder => folder.id === id ? { ...folder, backgroundColor: color } : folder),
         settings: { ...data.settings, interfaceTheme: theme }
       } });
-    }, { id: folderId, color, theme: index % 2 ? 'light' : 'dark' });
-    await expect(page.locator('#folder-modal .modal-folder')).toHaveCSS('background-color', 'rgb(24, 24, 26)');
-    expect(await gridAppearance()).toEqual(neutralGrid);
+    }, { id: folderId, color, theme });
+    await expect(page.locator('#folder-modal .modal-folder')).toHaveCSS('background-color',
+      theme === 'light' ? 'rgb(246, 246, 247)' : 'rgb(24, 24, 26)');
+    if (!neutralGrids.has(theme)) neutralGrids.set(theme, await gridAppearance());
+    expect(await gridAppearance()).toEqual(neutralGrids.get(theme));
     await expectContentsContrast(page);
     await edit.hover();
     await expectContentsContrast(page);
     await edit.click();
-    expect(await gridAppearance()).toEqual(neutralGrid);
+    expect(await gridAppearance()).toEqual(neutralGrids.get(theme));
     await expectContentsContrast(page, { editing: true });
     const actions = page.locator('#folder-modal-items .folder-bookmark-actions').first();
     for (const button of await actions.locator('button').all()) {
@@ -271,13 +277,22 @@ test('folder colors keep readable labels and coherent controls in browse, hover,
       folder.id === id ? { ...folder, noBackground: true } : folder
     )) } });
   }, folderId);
-  expect(await gridAppearance()).toEqual(neutralGrid);
-  await expectContentsContrast(page);
-  await edit.click();
-  await expectContentsContrast(page, { editing: true });
-  await title.click();
-  await expectContentsContrast(page, { editing: true, renaming: true });
-  await page.keyboard.press('Escape');
+  for (const theme of ['light', 'dark']) {
+    await page.evaluate(async theme => {
+      const { getState, setState } = await import('/src/state/appStore.js');
+      await setState({ data: { settings: { ...getState().data.settings, interfaceTheme: theme } } });
+    }, theme);
+    await expect(page.locator('#folder-modal .modal-folder')).toHaveCSS('background-color',
+      theme === 'light' ? 'rgba(246, 246, 247, 0.62)' : 'rgba(24, 24, 26, 0.62)');
+    expect(await gridAppearance()).toEqual(neutralGrids.get(theme));
+    await expectContentsContrast(page);
+    await edit.click();
+    await expectContentsContrast(page, { editing: true });
+    await title.click();
+    await expectContentsContrast(page, { editing: true, renaming: true });
+    await page.keyboard.press('Escape');
+    await edit.click();
+  }
   expect(await page.evaluate(async () => (
     (await import('/src/state/appStore.js')).getState().data.bookmarks.map(bookmark => bookmark.textColor)
   ))).toEqual(originalColors);

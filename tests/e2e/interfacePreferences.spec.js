@@ -88,10 +88,12 @@ test('neutral folder grids keep readable labels across themes and editor preview
   });
   await page.locator('.bookmark-folder .folder-open').click();
   const grid = page.locator('#folder-modal-items');
+  const contents = page.locator('#folder-modal .modal-folder');
+  await expect(contents).toHaveCSS('background-color', 'rgb(246, 246, 247)');
   await expect(grid).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await page.locator('#folder-modal-edit-toggle').click();
   await expect(grid).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
-  await expect(page.locator('#folder-modal-empty')).toHaveCSS('color', 'rgb(248, 250, 252)');
+  await expect(page.locator('#folder-modal-empty')).toHaveCSS('color', 'rgb(36, 36, 40)');
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
     const { getState, setState } = await import('/src/state/appStore.js');
@@ -111,14 +113,18 @@ test('neutral folder grids keep readable labels across themes and editor preview
   const purple = grid.locator('[data-bookmark-id="Purple"] .bookmark-title');
   const filled = grid.locator('[data-bookmark-id="Filled"] .bookmark-title');
   const cover = grid.locator('[data-bookmark-id="Cover"] .bookmark-title');
-  await expect(white).toHaveCSS('color', 'rgb(255, 255, 255)');
-  await expect(purple).toHaveCSS('color', 'rgb(248, 250, 252)');
+  await expect(white).toHaveCSS('color', 'rgb(36, 36, 40)');
+  await expect(purple).toHaveCSS('color', 'rgb(85, 49, 168)');
   await expect(filled).toHaveCSS('color', 'rgb(255, 255, 255)');
   await expect(cover).toHaveCSS('color', 'rgb(255, 255, 255)');
   await page.emulateMedia({ colorScheme: 'dark' });
+  await expect(contents).toHaveCSS('background-color', 'rgb(24, 24, 26)');
   await expect(grid).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await expect(white).toHaveCSS('color', 'rgb(255, 255, 255)');
+  await expect(purple).toHaveCSS('color', 'rgb(248, 250, 252)');
   await page.emulateMedia({ colorScheme: 'light' });
+  await expect(contents).toHaveCSS('background-color', 'rgb(246, 246, 247)');
+  await expect(white).toHaveCSS('color', 'rgb(36, 36, 40)');
   await grid.getByRole('button', { name: 'Edit White', exact: true }).click();
   const preview = page.locator('#edit-bookmark-modal .bookmark-preview');
   await expect(preview).toHaveCSS('background-image', /conic-gradient/);

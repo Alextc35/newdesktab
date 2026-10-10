@@ -3038,6 +3038,7 @@ test('scales folder previews and applies one centered tray style', async ({ page
 });
 
 test('renders a 6 by 3 folder grid and smoothly persists relocation', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'dark' });
   await setBookmarkDragMode(page, 'relocate');
   await revealSideDock(page);
   await page.locator('#add-toggle').click();

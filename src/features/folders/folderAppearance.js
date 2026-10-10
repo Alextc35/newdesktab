@@ -6,9 +6,12 @@ import {
   readableSurfaceTextColor
 } from '../../shared/ui/surfaceContrast.js';
 
-const CONTENTS_SURFACE = '#18181a';
-// The 62% neutral veil remains readable even over an entirely white wallpaper.
-const TRANSPARENT_CONTENTS_SURFACE = '#707071';
+// Contrast baselines use the darkest light veil and the brightest dark veil
+// possible over a wallpaper, with the same 62% opacity as the contents CSS.
+const LIGHT_CONTENTS = { surface: '#f6f6f7', transparentSurface: '#989899',
+  transparentBorder: 'rgba(36, 36, 40, .2)' };
+const DARK_CONTENTS = { surface: '#18181a', transparentSurface: '#707071',
+  transparentBorder: 'rgba(255, 255, 255, .16)' };
 
 /** Applies saved artwork and card appearance without reading application state. */
 export function applyFolderAppearance(element, folder = {}) {
@@ -30,31 +33,43 @@ export function applyFolderAppearance(element, folder = {}) {
 /** Opaque folders accent their border; transparent folders stay entirely neutral. */
 export function applyFolderContentsAppearance(element, folder = {}) {
   const transparent = folder.noBackground === true;
-  const color = folder.backgroundColor || DEFAULT_FOLDER_STYLE.backgroundColor;
-  const background = transparent ? TRANSPARENT_CONTENTS_SURFACE : CONTENTS_SURFACE;
-  const palette = readableSurfacePalette(background, {
-    controlBackgroundColor: CONTENTS_SURFACE
-  });
+  const light = createContentsPalette(folder, LIGHT_CONTENTS);
+  const dark = createContentsPalette(folder, DARK_CONTENTS);
   element.classList.toggle('is-folder-contents-transparent', transparent);
-  element.style.setProperty('--folder-contents-background', CONTENTS_SURFACE);
-  element.style.setProperty('--folder-contents-border', transparent
-    ? 'rgba(255, 255, 255, .16)'
-    : readableSurfaceBorderColor(color, background));
-  element.style.setProperty('--folder-contents-text', palette.text);
-  element.style.setProperty('--folder-contents-muted', palette.muted);
-  element.style.setProperty('--folder-control-text', palette.controlText);
-  element.style.setProperty('--folder-control-background', palette.controlBackground);
-  element.style.setProperty('--folder-control-hover', palette.controlHover);
-  element.style.setProperty('--folder-control-active', palette.controlActive);
-  element.style.setProperty('--folder-control-border', palette.controlBorder);
+  for (const [variable, key] of Object.entries({
+    '--folder-contents-background': 'background',
+    '--folder-contents-border': 'border',
+    '--folder-contents-text': 'text',
+    '--folder-contents-muted': 'muted',
+    '--folder-control-text': 'controlText',
+    '--folder-control-background': 'controlBackground',
+    '--folder-control-hover': 'controlHover',
+    '--folder-control-active': 'controlActive',
+    '--folder-control-border': 'controlBorder'
+  })) {
+    element.style.setProperty(variable, `light-dark(${light[key]}, ${dark[key]})`);
+  }
 }
 
 /** Keeps bookmark colors where they contrast with the neutral contents surface. */
 export function applyFolderBookmarkContrast(element, bookmark, folder = {}) {
   element.style.removeProperty('--folder-bookmark-text');
   if (!element.classList.contains('has-transparent-background')) return;
-  element.style.setProperty('--folder-bookmark-text', readableSurfaceTextColor(
-    bookmark.textColor,
-    folder.noBackground === true ? TRANSPARENT_CONTENTS_SURFACE : CONTENTS_SURFACE
-  ));
+  const light = readableSurfaceTextColor(bookmark.textColor, contentsContrastSurface(folder, LIGHT_CONTENTS));
+  const dark = readableSurfaceTextColor(bookmark.textColor, contentsContrastSurface(folder, DARK_CONTENTS));
+  element.style.setProperty('--folder-bookmark-text', `light-dark(${light}, ${dark})`);
+}
+
+function contentsContrastSurface(folder, theme) {
+  return folder.noBackground === true ? theme.transparentSurface : theme.surface;
+}
+
+function createContentsPalette(folder, theme) {
+  const background = contentsContrastSurface(folder, theme);
+  return {
+    ...readableSurfacePalette(background, { controlBackgroundColor: theme.surface }),
+    background: theme.surface,
+    border: folder.noBackground === true ? theme.transparentBorder
+      : readableSurfaceBorderColor(folder.backgroundColor || DEFAULT_FOLDER_STYLE.backgroundColor, background)
+  };
 }

@@ -26,7 +26,7 @@ test('folder palettes keep readable text and controls across saturated colors an
     }
   }
   for (const background of backgrounds) {
-    for (const surface of ['#18181a', '#707071']) {
+    for (const surface of ['#f6f6f7', '#989899', '#18181a', '#707071']) {
       assert.ok(contrast(readableSurfaceBorderColor(background, surface), surface) >= 3,
         `${background}: accent border on ${surface}`);
     }
@@ -51,17 +51,22 @@ test('custom labels are preserved when readable and adjusted across the midtone 
   }
 });
 
-test('transparent folder text remains readable over its brightest possible veil composite', () => {
-  const palette = readableSurfacePalette('#707071', { controlBackgroundColor: '#18181a' });
-  assert.ok(contrast(palette.text, '#707071') >= 4.5);
-  assert.ok(contrast(palette.muted, '#707071') >= 4.5);
-  for (const wallpaper of ['#000000', '#ffffff', '#ff0000', '#00ff00', '#0000ff']) {
-    const channels = wallpaper.match(/[\da-f]{2}/gi).map(channel => parseInt(channel, 16));
-    const composite = `#${channels.map((channel, index) => (
-      Math.round(channel * .38 + [24, 24, 26][index] * .62).toString(16).padStart(2, '0')
-    )).join('')}`;
-    for (const text of [palette.text, palette.muted, readableSurfaceTextColor('#000000', '#707071')]) {
-      assert.ok(contrast(text, composite) >= 4.5, `${wallpaper}: transparent text`);
+test('transparent folder text remains readable across wallpapers in both interface themes', () => {
+  for (const [surface, baseline] of [['#f6f6f7', '#989899'], ['#18181a', '#707071']]) {
+    const palette = readableSurfacePalette(baseline, { controlBackgroundColor: surface });
+    assert.ok(contrast(palette.text, baseline) >= 4.5);
+    assert.ok(contrast(palette.muted, baseline) >= 4.5);
+    const surfaceChannels = surface.match(/[\da-f]{2}/gi).map(channel => parseInt(channel, 16));
+    for (const wallpaper of ['#000000', '#ffffff', '#ff0000', '#00ff00', '#0000ff']) {
+      const channels = wallpaper.match(/[\da-f]{2}/gi).map(channel => parseInt(channel, 16));
+      const composite = `#${channels.map((channel, index) => (
+        Math.round(channel * .38 + surfaceChannels[index] * .62).toString(16).padStart(2, '0')
+      )).join('')}`;
+      const labels = ['#000000', '#ffffff', '#5531a8', '#38bdf8']
+        .map(color => readableSurfaceTextColor(color, baseline));
+      for (const text of [palette.text, palette.muted, ...labels]) {
+        assert.ok(contrast(text, composite) >= 4.5, `${wallpaper}: transparent text on ${surface}`);
+      }
     }
   }
 });
