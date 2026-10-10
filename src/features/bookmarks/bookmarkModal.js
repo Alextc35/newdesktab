@@ -185,7 +185,9 @@ function openBookmarkModal(nextMode, bookmark) {
   openManagedModal('bookmark-modal', {
     onAccept: handleAccept,
     onCancel: handleCancel,
-    initialFocus: form.elements.name ?? form.elements.backgroundColor
+    initialFocus: nextMode === 'preset'
+      ? form.root.querySelector('[role="tab"][aria-selected="true"]')
+      : form.elements.name ?? form.elements.backgroundColor
   });
 }
 

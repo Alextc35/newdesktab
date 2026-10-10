@@ -88,7 +88,9 @@ export function createBookmarkEditorPanel({
     }
   }
 
-  const defaultSection = enabledSections[0];
+  const defaultSection = currentMode === 'preset' && enabledSections.includes('presets')
+    ? 'presets'
+    : enabledSections[0];
   const defaultTab = `${idPrefix}-tab-${defaultSection}`;
   const elements = resolveElements(root);
   connectLabels(root, elements, idPrefix);
@@ -172,7 +174,7 @@ export function createBookmarkEditorPanel({
 
   function focus() {
     const preferred = currentMode === 'preset'
-      ? elements.backgroundColor
+      ? root.querySelector('[role="tab"][aria-selected="true"]')
       : elements.name;
     preferred?.focus();
   }

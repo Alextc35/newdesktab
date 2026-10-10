@@ -748,8 +748,9 @@ animates the same panel to full size, preserving the draft while exposing the
 appearance tabs and live preview. Edit and preset modes always open expanded.
 
 Settings opens the same panel in `preset` mode to configure the default bookmark
-appearance. The settings tab owns only the button and draft preset; it does not
-embed a second editor implementation.
+appearance, starting with the Library tab selected and focused. Users can choose
+a saved preset there or switch to Style to customize it. The settings tab owns
+only the button and draft preset; it does not embed a second editor implementation.
 
 ## Grid interaction
 
