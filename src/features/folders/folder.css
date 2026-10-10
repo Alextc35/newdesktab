@@ -497,6 +497,7 @@
 #folder-modal .modal-overlay {
   background: rgba(0, 0, 0, .22);
   backdrop-filter: blur(3px);
+  animation: folderBackdropIn .36s cubic-bezier(.2, 0, .2, 1);
 }
 
 .modal-folder {
@@ -512,7 +513,7 @@
   background: var(--folder-contents-background, #18181a);
   box-shadow: inset 0 1px rgba(255, 255, 255, .05), 0 24px 72px rgba(0, 0, 0, .24);
   color: var(--folder-contents-text);
-  animation: folderModalIn .24s cubic-bezier(.22, 1, .36, 1);
+  animation: folderModalIn .36s cubic-bezier(.22, 1, .36, 1);
 }
 
 .modal-folder.is-folder-contents-transparent {
@@ -975,12 +976,17 @@
 @keyframes folderModalIn {
   from {
     opacity: 0;
-    transform: translateY(8px) scale(.985);
+    transform: translateY(12px) scale(.975);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+@keyframes folderBackdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .folder-modal-empty {
@@ -1048,7 +1054,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .modal-folder {
+  .modal-folder,
+  #folder-modal .modal-overlay {
     animation: none;
   }
 
