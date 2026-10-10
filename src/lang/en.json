@@ -283,7 +283,6 @@
         "reset": "Reset theme settings?"
       },
       "bookmark": {
-        "reset": "Reset bookmark style?",
         "cancel": "Discard changes to the default bookmark appearance?"
       },
       "shortcuts": {
@@ -680,7 +679,6 @@
       "configure": "Configure default bookmark",
       "editorTitle": "Default bookmark appearance",
       "previewName": "Default bookmark",
-      "reset": "Reset default bookmark",
       "export": "Export bookmarks",
       "import": "Import bookmarks",
       "deleteAll": "Delete all bookmarks",

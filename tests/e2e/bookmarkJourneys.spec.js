@@ -2142,13 +2142,14 @@ test('configures the default bookmark through the shared preset editor', async (
   await page.getByRole('button', { name: 'Bookmarks', exact: true }).click();
 
   await expect(page.locator('#settings-modal-tab-bookmark .default-bookmark-settings')).toBeVisible();
-  await expect(page.locator('.default-bookmark-settings + #settings-bookmark-reset')).toBeVisible();
+  await expect(page.locator('#settings-bookmark-reset')).toHaveCount(0);
   await expect(page.locator('#settings-modal-tab-bookmark .bookmark-drag-settings')).toBeVisible();
   await expect(page.locator('#settings-bookmark-form-host')).toHaveCount(0);
   await page.getByRole('button', { name: 'Configure default bookmark' }).click();
 
   const editor = page.locator('#edit-bookmark-modal');
   await expect(editor.getByRole('heading', { name: 'Default bookmark appearance' })).toBeVisible();
+  await expect(editor.locator('.editor-reset-appearance')).toBeVisible();
   await expect(editor.getByRole('tab', { name: 'General' })).toHaveCount(0);
   await expect(editor.getByRole('tab', { name: 'Style' })).toHaveAttribute('aria-selected', 'true');
   await expect(editor.locator('.bookmark-preview .bookmark-title')).toHaveText('Default bookmark');

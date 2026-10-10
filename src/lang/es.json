@@ -283,7 +283,6 @@
         "reset": "¿Restablecer la configuración del tema?"
       },
       "bookmark": {
-        "reset": "¿Restablecer el estilo del favorito?",
         "cancel": "¿Descartar los cambios en el aspecto del favorito por defecto?"
       },
       "shortcuts": {
@@ -680,7 +679,6 @@
       "configure": "Configurar favorito por defecto",
       "editorTitle": "Aspecto del favorito por defecto",
       "previewName": "Favorito por defecto",
-      "reset": "Restablecer favorito por defecto",
       "export": "Exportar favoritos",
       "import": "Importar favoritos",
       "deleteAll": "Borrar todos los favoritos",

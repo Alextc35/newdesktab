@@ -1,8 +1,6 @@
-import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashSuccess } from '../../shared/ui/flash.js';
 import { openBookmarkPresetEditor } from '../bookmarks/bookmarkModal.js';
 import { t } from '../../platform/i18n/i18n.js';
-import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
 import { deleteAllBookmarks } from '../bookmarks/bookmarkDestructiveActions.js';
 import { initImportExportButtons } from '../bookmarks/bookmarkImportExport.js';
 import { getState } from '../../state/appStore.js';
@@ -12,7 +10,6 @@ import {
   getDraftBookmarkDragMode,
   getDraftBookmarkPresets,
   getDraftBookmarkResizeMode,
-  replaceDraftBookmarkDefault,
   replaceDraftBookmarkPresets,
   setDraftBookmarkDragMode,
   setDraftBookmarkResizeMode
@@ -28,7 +25,6 @@ import { updateSettings } from './settingsActions.js';
  */
 export function initBookmarkSection({ onRequestSaveStateUpdate }) {
   const bookmarkConfigureBtn = document.getElementById('settings-bookmark-configure');
-  const bookmarkResetBtn = document.getElementById('settings-bookmark-reset');
   const exportBtn = document.getElementById('export-btn');
   const importBtn = document.getElementById('import-btn');
   const importInput = document.getElementById('import-input');
@@ -68,17 +64,6 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
       replacePresets: replaceDraftBookmarkPresets,
       onPresetsChange: onRequestSaveStateUpdate
     });
-  });
-
-  bookmarkResetBtn.addEventListener('click', async () => {
-    const ok = await showAlert(
-      t('alert.settings.bookmark.reset'),
-      { type: 'confirm' }
-    );
-    if (!ok) return;
-
-    replaceDraftBookmarkDefault(structuredClone(DEFAULT_SETTINGS.bookmarkDefault));
-    onRequestSaveStateUpdate();
   });
 
   for (const input of dragModeInputs) {

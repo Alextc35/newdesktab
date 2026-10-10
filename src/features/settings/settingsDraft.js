@@ -277,15 +277,6 @@ export function replaceDraftTheme(newTheme) {
 }
 
 /**
- * Replaces the entire draft bookmark default object.
- *
- * @param {Object} newBookmarkDefault
- */
-export function replaceDraftBookmarkDefault(newBookmarkDefault) {
-  draftBookmarkDefault = structuredClone(newBookmarkDefault);
-}
-
-/**
  * Commits the bookmark default that was persisted independently of the
  * settings modal's other draft changes.
  *
