@@ -1,0 +1,301 @@
+@import './onboardingAnimation.css';
+@import './onboardingStylePreview.css';
+
+/* Miniature desktop: production artwork with local, illustrative geometry. */
+.onboarding-demo {
+  --demo-accent: #60c5ff;
+  position: relative;
+  box-sizing: border-box;
+  height: 280px;
+  overflow: hidden;
+  border: 1px solid var(--ui-canvas-border);
+  border-radius: 16px;
+  background: var(--default-wallpaper-background);
+  color: #f1f5f9;
+  isolation: isolate;
+}
+
+.onboarding-demo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(110deg, rgba(3, 7, 18, .72), rgba(3, 7, 18, .15)),
+    url('../../assets/images/information-cosmos.png') 60% center / cover;
+  opacity: 0;
+  transition: opacity .45s ease;
+}
+
+.onboarding-demo-default-brand {
+  position: absolute;
+  top: 69%;
+  left: 50%;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  transform: translate(-50%, -50%);
+  transition: opacity .45s ease;
+}
+
+.onboarding-demo-wordmark {
+  background: var(--default-wallpaper-wordmark);
+  background-clip: text;
+  color: transparent;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.onboarding-demo-version {
+  color: rgba(255, 255, 255, .55);
+  font-size: 9px;
+  letter-spacing: .2em;
+}
+
+.onboarding-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 18px 12px 0 34px;
+  gap: 9px 3px;
+}
+
+.onboarding-demo .onboarding-demo-item {
+  position: relative;
+  inset: auto;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  height: 67px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  box-shadow: none;
+  transition: transform .25s ease, background-color .25s ease;
+}
+
+.onboarding-demo-item > .bookmark-link {
+  gap: 5px;
+}
+
+.onboarding-demo-item > .bookmark-link > .bookmark-favicon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.onboarding-demo .bookmark-title,
+.onboarding-demo-label {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #f1f5f9;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 3px #000;
+  white-space: nowrap;
+}
+
+.onboarding-demo-item .folder-visual {
+  --folder-preview-icon-size: 9px;
+  width: 52px;
+  max-width: 90%;
+}
+
+.onboarding-demo-item .folder-body {
+  padding: 1px;
+}
+
+.onboarding-demo-item .folder-previews:not(:empty) {
+  padding: 1px;
+  gap: 1px;
+  border-radius: 3px;
+}
+
+.onboarding-demo-trash .recycle-bin-glyph {
+  --recycle-bin-icon-color: #475569;
+  width: 29px;
+  height: 34px;
+  flex: 0 0 auto;
+}
+
+.onboarding-demo-workspaces svg,
+.onboarding-demo-search svg {
+  display: block;
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.onboarding-demo-workspaces {
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  display: flex;
+  box-sizing: border-box;
+  height: 38px;
+  padding: 13px 11px 8px;
+  align-items: center;
+  gap: 9px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(203, 213, 225, .22);
+  border-radius: 10px 10px 0 0;
+  background: rgba(14, 18, 29, .96);
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, .15);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.onboarding-demo-handle {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  width: 28px;
+  height: 3px;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  background: #7e8796;
+}
+
+.onboarding-demo-workspace-name {
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.onboarding-demo-workspaces .onboarding-demo-chevron {
+  width: 8px;
+  height: 8px;
+  margin-left: -5px;
+  color: #a4afbf;
+}
+
+.onboarding-demo-separator {
+  height: 12px;
+  border-left: 1px solid rgba(203, 213, 225, .2);
+}
+
+.onboarding-demo-resize {
+  position: absolute;
+  inset: 0;
+  display: none;
+  border: 1px solid var(--demo-accent);
+  border-radius: 5px;
+}
+
+.onboarding-demo-clock {
+  position: absolute;
+  right: 24px;
+  bottom: 58px;
+  display: none;
+  font-size: 27px;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .5);
+}
+
+.onboarding-demo-clock i {
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin-top: 6px;
+  border-radius: 3px;
+  background: rgba(241, 245, 249, .5);
+}
+
+[data-step="style"] .onboarding-demo-dock .launcher-settings {
+  border-color: var(--demo-accent);
+  background: #1e3548;
+  box-shadow: 0 0 0 1px var(--demo-accent), 0 0 12px rgba(96, 197, 255, .25);
+  color: #e0f2fe;
+}
+
+[data-step="organize"] .onboarding-demo-add-workspace {
+  color: var(--demo-accent);
+  filter: drop-shadow(0 0 4px rgba(96, 197, 255, .8));
+}
+
+[data-step="style"] .onboarding-demo::before,
+[data-step="ready"] .onboarding-demo::before {
+  opacity: 1;
+}
+
+[data-step="style"] .onboarding-demo-default-brand,
+[data-step="ready"] .onboarding-demo-default-brand {
+  opacity: 0;
+}
+
+[data-step="style"] .onboarding-demo-clock {
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .onboarding-demo {
+    height: 210px;
+  }
+
+  .onboarding-demo-grid {
+    padding-top: 12px;
+    padding-right: 8px;
+    gap: 4px 0;
+  }
+
+  .onboarding-demo-wordmark {
+    font-size: 27px;
+  }
+
+  .onboarding-demo-version {
+    font-size: 8px;
+  }
+
+  .onboarding-demo .onboarding-demo-item {
+    height: 58px;
+  }
+
+  .onboarding-demo-item > .bookmark-link > .bookmark-favicon {
+    width: 29px;
+    height: 29px;
+  }
+
+  .onboarding-demo-item .folder-visual {
+    width: 45px;
+  }
+
+  .onboarding-demo-trash .recycle-bin-glyph {
+    width: 25px;
+    height: 29px;
+  }
+
+  .onboarding-demo-clock {
+    right: 22px;
+    bottom: 50px;
+    font-size: 24px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onboarding-demo::before,
+  .onboarding-demo-default-brand,
+  .onboarding-demo .onboarding-demo-item {
+    transition: none;
+  }
+}

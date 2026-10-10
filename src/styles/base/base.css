@@ -60,10 +60,7 @@ body {
 
 html.is-default-bg body,
 .bg-preview.is-default-bg {
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(0,150,255,0.08), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(255,0,150,0.08), transparent 40%),
-    linear-gradient(135deg, #0d0d0d, #111111);
+  background-image: var(--default-wallpaper-background);
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -80,7 +77,7 @@ html.is-default-bg body::after,
   font-weight: 800;
   white-space: nowrap;
   width: max-content;
-  background: linear-gradient(90deg, #00c6ff, #ff00aa);
+  background: var(--default-wallpaper-wordmark);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   pointer-events: none;

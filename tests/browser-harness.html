@@ -9,6 +9,7 @@
     <script type="module">
       import { DEFAULT_BOOKMARK } from '../src/domain/bookmarks/bookmarkDefaults.js';
       import { createDefaultPersistedData } from '../src/platform/storage/persistedDataDefaults.js';
+      import { DEVICE_ONBOARDING_KEY } from '../src/platform/storage/deviceOnboarding.js';
 
       const listeners = [];
       const isFreshProfile = !sessionStorage.getItem('newdesktab-test-local')
@@ -84,9 +85,10 @@
       // Production intentionally starts with an empty grid. Browser journeys
       // use two stable fixtures so tests can exercise existing-item behavior
       // without coupling the product defaults to test data.
-      if (isFreshProfile) {
+      if (isFreshProfile && !new URLSearchParams(location.search).has('fresh')) {
         chrome.storage.local.set({
           ...createDefaultPersistedData(),
+          [DEVICE_ONBOARDING_KEY]: { version: 1, status: 'completed' },
           bookmarks: [
             {
               ...DEFAULT_BOOKMARK,

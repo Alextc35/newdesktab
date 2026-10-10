@@ -1,0 +1,75 @@
+@import './onboardingEditAnimation.css';
+@import './onboardingFolderAnimation.css';
+@import './onboardingReadyAnimation.css';
+
+/* The real launcher is scaled as a visual only; the guide owns its demo states. */
+.onboarding-demo-dock {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 4;
+  width: 232px;
+  height: 0;
+  color-scheme: dark;
+  transform: scale(.55);
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+.onboarding-demo-dock .launcher-dock {
+  position: absolute;
+  top: 0;
+}
+
+.onboarding-demo-dock .launcher-dock.is-demo-revealed,
+#onboarding-modal:not([data-step="start"]) .onboarding-demo-dock .launcher-dock {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.onboarding-demo-dock .launcher-add.is-demo-hovered {
+  color: #fff;
+  background: rgba(22, 163, 74, .82);
+}
+
+.onboarding-demo-dock .launcher-options button {
+  font-size: 16px;
+}
+
+.onboarding-demo-dock .launcher-options button.is-demo-hovered {
+  background: var(--ui-glass-hover);
+}
+
+.onboarding-demo-cursor,
+.onboarding-demo-click {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.onboarding-demo-cursor {
+  width: 19px;
+  height: 25px;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .5));
+}
+
+.onboarding-demo-cursor svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+  stroke: #0f172a;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.onboarding-demo-click {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--demo-accent);
+  border-radius: 50%;
+}

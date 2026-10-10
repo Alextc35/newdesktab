@@ -1,4 +1,51 @@
 {
+  "onboarding": {
+    "eyebrow": "SEU PRIMEIRO MINUTO",
+    "skip": "Pular guia",
+    "back": "Voltar",
+    "next": "Próximo",
+    "finish": "Voltar às configurações",
+    "explore": "Explorar meu espaço",
+    "addFirst": "Adicionar meu primeiro favorito",
+    "progress": "Etapa {{current}} de {{total}}",
+    "compactHint": "Amplie a janela quando quiser adicionar favoritos e editar seu espaço.",
+    "reopenTitle": "Guia rápido",
+    "reopenDescription": "Redescubra o essencial em um minuto.",
+    "reopen": "Ver guia",
+    "demo": {
+      "work": "Trabalho",
+      "media": "Mídia",
+      "trash": "Lixeira",
+      "search": "Encontre seus favoritos"
+    },
+    "steps": {
+      "start": {
+        "title": "Suas páginas. Seu próprio espaço.",
+        "body": "Boas-vindas ao New DeskTab. Tenha suas páginas favoritas à mão sempre que abrir uma aba. Para adicionar uma, vá até a borda esquerda e escolha + → Favorito.",
+        "hint": "Você também pode salvar a página que está visitando pelo ícone da extensão no navegador."
+      },
+      "edit": {
+        "title": "Dê um lugar a cada favorito.",
+        "body": "Ative o lápis no menu esquerdo para editar. Mantenha um item pressionado e arraste para movê-lo; use suas alças para mudar o tamanho.",
+        "hint": "O lápis de cada favorito abre seu editor: nome, cores, ícone e imagem. Salve estilos para reutilizá-los."
+      },
+      "organize": {
+        "title": "Menos distrações. Mais organização.",
+        "body": "Crie uma pasta pelo + e arraste favoritos para dentro no modo de edição. Ela abre em uma grade simples com até 18 favoritos.",
+        "hint": "Use o + na barra de espaços para separar trabalho e lazer. A lupa também busca dentro das pastas."
+      },
+      "style": {
+        "title": "Deixe tudo com a sua cara.",
+        "body": "Em Configurações → Tema, escolha uma cor, imagem ou vídeo de fundo e alterne seus papéis de parede favoritos. Em Configurações → Sincronização, sincronize seu espaço entre dispositivos com a conta do seu perfil do Chrome.",
+        "hint": "Adicione um relógio em + → Widgets. Você também pode personalizar a aparência das pastas."
+      },
+      "ready": {
+        "title": "Você já sabe o essencial.",
+        "body": "Pressione / para encontrar um favorito. Use as setas de desfazer e refazer para recuperar alterações; os favoritos excluídos vão para a lixeira.",
+        "hint": "As alterações são salvas automaticamente. Nas Configurações, exporte um backup ou ative a sincronização opcional do Google Chrome."
+      }
+    }
+  },
   "persistence": {
     "unsaved": "Não foi possível salvar as últimas alterações.",
     "retry": "Tentar salvar novamente",

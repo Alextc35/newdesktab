@@ -1,0 +1,152 @@
+/* The settings step shows the same inert items with a personalized grid layout. */
+[data-step="style"] .onboarding-demo-grid {
+  position: absolute;
+  inset: 20px 16px 49px 38px;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  padding: 0;
+  gap: 8px;
+}
+
+[data-step="style"] .onboarding-demo .onboarding-demo-item {
+  --bookmark-context-text: var(--demo-style-text, #f1f5f9);
+  box-sizing: border-box;
+  height: 100%;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 10px;
+  background: var(--demo-style-background);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .18);
+}
+
+[data-step="style"] .onboarding-demo .bookmark-title,
+[data-step="style"] .onboarding-demo-label {
+  color: var(--demo-style-text, #f1f5f9);
+  flex-shrink: 0;
+  font-size: 8px;
+  font-weight: 600;
+  text-shadow: none;
+}
+
+[data-step="style"] .onboarding-demo-item > .bookmark-link > .bookmark-favicon {
+  width: 28px;
+  height: 28px;
+}
+
+[data-step="style"] .onboarding-demo-trash {
+  --demo-style-background: #263447;
+  grid-area: 1 / 1;
+}
+
+[data-step="style"] .onboarding-demo-trash .recycle-bin-glyph {
+  --recycle-bin-icon-color: #9badc5;
+  width: 24px;
+  height: 28px;
+}
+
+[data-step="style"] .onboarding-demo-favorite {
+  --demo-style-background: #ffe2b7;
+  --demo-style-text: #392812;
+  grid-area: 1 / 2 / 2 / 4;
+}
+
+[data-step="style"] .onboarding-demo .onboarding-demo-work {
+  --demo-style-background: #a3e1ef;
+  --demo-style-text: #173d4b;
+  grid-area: 1 / 4 / 3 / 5;
+  gap: 10px;
+}
+
+[data-step="style"] .onboarding-demo .onboarding-demo-media {
+  --demo-style-background: #d1c0f6;
+  --demo-style-text: #35204f;
+  grid-area: 2 / 1 / 3 / 3;
+  gap: 4px;
+}
+
+[data-step="style"] .onboarding-demo-media .folder-visual {
+  width: 38px;
+  flex: 0 0 auto;
+}
+
+[data-step="style"] .onboarding-demo-video {
+  --demo-style-background: #f7a7b6;
+  --demo-style-text: #51212f;
+  grid-area: 2 / 3;
+}
+
+[data-step="style"] .onboarding-demo-brand {
+  --demo-style-background: #263e67;
+  grid-area: 3 / 1;
+}
+
+[data-step="style"] .onboarding-demo .onboarding-demo-clock {
+  position: static;
+  display: flex;
+  box-sizing: border-box;
+  grid-area: 3 / 2 / 4 / 5;
+  padding: 8px 14px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid rgba(140, 203, 248, .3);
+  border-radius: 10px;
+  background: rgba(15, 30, 51, .85);
+  backdrop-filter: blur(8px);
+  color: #ecf5ff;
+  font-size: 30px;
+  line-height: 1;
+  text-shadow: none;
+}
+
+[data-step="style"] .onboarding-demo-clock i {
+  width: 26px;
+  height: 2px;
+  margin-top: 7px;
+  background: #8ccbf8;
+}
+
+@media (max-width: 700px) {
+  [data-step="style"] .onboarding-demo-grid {
+    inset: 12px 12px 45px 34px;
+    gap: 5px;
+  }
+
+  [data-step="style"] .onboarding-demo .onboarding-demo-item {
+    padding: 4px;
+    border-radius: 8px;
+    gap: 4px;
+  }
+
+  [data-step="style"] .onboarding-demo .bookmark-title,
+  [data-step="style"] .onboarding-demo-label {
+    font-size: 7px;
+  }
+
+  [data-step="style"] .onboarding-demo-item > .bookmark-link > .bookmark-favicon {
+    width: 23px;
+    height: 23px;
+  }
+
+  [data-step="style"] .onboarding-demo-item .folder-visual {
+    width: 37px;
+  }
+
+  [data-step="style"] .onboarding-demo-media .folder-visual {
+    width: 29px;
+  }
+
+  [data-step="style"] .onboarding-demo-trash .recycle-bin-glyph {
+    width: 19px;
+    height: 23px;
+  }
+
+  [data-step="style"] .onboarding-demo .onboarding-demo-clock {
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 25px;
+  }
+
+  [data-step="style"] .onboarding-demo-clock i {
+    margin-top: 5px;
+  }
+}

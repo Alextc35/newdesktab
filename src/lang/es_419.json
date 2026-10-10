@@ -1,4 +1,51 @@
 {
+  "onboarding": {
+    "eyebrow": "TU PRIMER MINUTO",
+    "skip": "Omitir guía",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "finish": "Volver a configuración",
+    "explore": "Explorar mi espacio",
+    "addFirst": "Añadir mi primer marcador",
+    "progress": "Paso {{current}} de {{total}}",
+    "compactHint": "Amplía la ventana cuando quieras añadir marcadores y editar tu espacio.",
+    "reopenTitle": "Guía rápida",
+    "reopenDescription": "Redescubre lo esencial en un minuto.",
+    "reopen": "Ver guía",
+    "demo": {
+      "work": "Trabajo",
+      "media": "Multimedia",
+      "trash": "Papelera",
+      "search": "Encuentra tus marcadores"
+    },
+    "steps": {
+      "start": {
+        "title": "Tus páginas. Tu propio espacio.",
+        "body": "Bienvenido a New DeskTab. Ten tus páginas favoritas a mano cada vez que abras una pestaña. Para añadir una, acerca el cursor al borde izquierdo y elige + → Marcador.",
+        "hint": "También puedes guardar la página que estás visitando desde el ícono de la extensión en el navegador."
+      },
+      "edit": {
+        "title": "Dale a cada marcador su lugar.",
+        "body": "Activa el lápiz del menú izquierdo para editar. Mantén presionado un elemento y arrástralo; usa sus controles de tamaño para redimensionarlo.",
+        "hint": "El lápiz de cada marcador abre su editor: nombre, colores, ícono e imagen. Guarda estilos para reutilizarlos."
+      },
+      "organize": {
+        "title": "Menos ruido. Más orden.",
+        "body": "Crea una carpeta desde + y arrastra marcadores dentro en modo edición. Se abrirá en una cuadrícula limpia con hasta 18 marcadores.",
+        "hint": "Usa el + de la barra de espacios para separar trabajo y ocio. La lupa busca también dentro de las carpetas."
+      },
+      "style": {
+        "title": "Haz que se sienta tuyo.",
+        "body": "En Configuración → Tema puedes elegir un color, una imagen o un video de fondo y rotar tus fondos favoritos. En Configuración → Sincronización puedes sincronizar tu espacio entre dispositivos con la cuenta de tu perfil de Chrome.",
+        "hint": "Desde + → Widgets puedes añadir un reloj. También puedes personalizar la apariencia de tus carpetas."
+      },
+      "ready": {
+        "title": "Ya tienes lo esencial.",
+        "body": "Presiona / para buscar un marcador. Usa las flechas de deshacer y rehacer para recuperar cambios; los marcadores eliminados van a la papelera.",
+        "hint": "Los cambios se guardan automáticamente. En Configuración puedes exportar un respaldo y activar la sincronización opcional de Google Chrome."
+      }
+    }
+  },
   "persistence": {
     "unsaved": "No se pudieron guardar los últimos cambios.",
     "retry": "Reintentar guardado",

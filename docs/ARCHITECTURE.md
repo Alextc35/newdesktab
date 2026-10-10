@@ -81,6 +81,24 @@ src/
 │   ├── gridHistory.js
 │   └── stateChangeDescription.js
 ├── features/
+│   ├── onboarding/
+│   │   ├── assets/
+│   │   ├── onboarding.js
+│   │   ├── onboarding.css
+│   │   ├── onboardingAnimation.js
+│   │   ├── onboardingAnimation.css
+│   │   ├── onboardingEditAnimation.js
+│   │   ├── onboardingEditAnimation.css
+│   │   ├── onboardingFolderAnimation.js
+│   │   ├── onboardingFolderAnimation.css
+│   │   ├── onboardingFolderPreview.js
+│   │   ├── onboardingReadyAnimation.js
+│   │   ├── onboardingReadyAnimation.css
+│   │   ├── onboardingReadyPreview.js
+│   │   ├── onboardingTimeline.js
+│   │   ├── onboardingStylePreview.css
+│   │   ├── onboardingPreview.js
+│   │   └── onboardingPreview.css
 │   ├── bookmarks/
 │   │   ├── bookmarkActions.js
 │   │   ├── bookmarkCard.js
@@ -121,7 +139,8 @@ src/
 │   ├── keyboard/
 │   │   └── keyboardShortcutController.js
 │   ├── launcher/
-│   │   └── floatingMenu.js
+│   │   ├── floatingMenu.js
+│   │   └── launcherVisual.js
 │   ├── recycle-bin/
 │   │   ├── recycleBinActions.js
 │   │   ├── recycleBinAppearance.js
@@ -848,6 +867,46 @@ modal manager owns stacking, focus trapping, background isolation and focus
 restoration.
 
 The renderer displays top-level bookmarks and folders in the active workspace.
+`features/onboarding/` owns a five-step optional welcome and its illustrative
+workspace, with live localization and the existing modal focus lifecycle. Its
+inert desktop preview reuses the production bookmark, folder and recycle-bin
+visuals with bundled example icons; it never adds items or fetches site favicons.
+It starts with the shared default wallpaper palette and installed version, then
+fades to a bundled example wallpaper for the settings step and the final screen.
+The settings illustration uses a scoped colorful layout of one-by-one,
+two-by-one and one-by-two cards, with a clock in the grid and a bundled landscape
+inside the shared Multimedia folder artwork. Icons and captions keep the main
+grid's vertical alignment. These shapes and colors remain
+preview-only; the guide explains Chrome profile synchronization there.
+The opening step loops a cursor demonstration over an inert copy of the real launcher,
+using its shared component styles and localized labels. The edit step activates its
+pencil, reveals the shared grid pattern, moves the example Gmail to a free cell and
+resizes it with the production corner handles, then returns to the edit toggle and
+turns editing off. The cursor disappears and the changed result remains visible for
+two seconds before fading back to the initial layout. The organize step opens the
+Multimedia example, showing the real neutral contents palette and six-by-three grid.
+It enables folder editing, moves YouTube to a free cell and disables editing before
+holding the result and closing. The nested surface stays inert and never registers
+a modal or calls application actions; localized control widths are measured again
+when the language changes.
+The final step starts with the clean desktop, deletes YouTube by dragging it to
+the recycle bin in edit mode, restores it using Undo, and types a query in an
+inert search surface using the real modal and results classes. It holds the
+filtered result, clicks Close, then fades the search surface and its backdrop
+together while the restored desktop stays visible for the next loop. Toolbar states and the query
+belong only to this preview; no search, history or trash action runs in the app.
+Each sequence synchronizes pointer, clicks and demo states on one clock, fading
+before resetting. Responsive geometry is measured inside the preview;
+demonstrations stop when hidden or on another step. Reduced-motion mode shows
+static examples, including the filtered search result. The
+application supplies the action that opens the first-bookmark editor. Settings →
+Information can reopen the guide over a settings draft without discarding it.
+`platform/storage/deviceOnboarding.js` atomically claims the first welcome with
+a Web Lock and stores offered/completed/dismissed status in a device-only key;
+it never enters application data, Chrome Sync or backups. This optional storage
+read does not block startup. The guide adapts to compact view, where its final
+action returns to the workspace instead of opening an unavailable editor.
+
 `features/folders/folderAppearance.js` applies saved appearance to cards, artwork,
 previews and open contents without accessing the store. The contents surface is
 always neutral gray: `noBackground` enables a gray veil, local blur and a faint

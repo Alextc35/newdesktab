@@ -1,0 +1,178 @@
+/* Folder contents share their real palette, six-column grid and editing controls. */
+.onboarding-demo-folder-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: rgba(0, 0, 0, .22);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+
+.onboarding-demo.is-demo-folder-open .onboarding-demo-folder-backdrop {
+  opacity: 1;
+}
+
+.onboarding-demo .onboarding-demo-folder {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  left: 18px;
+  z-index: 5;
+  width: auto;
+  max-height: none;
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  animation: none;
+}
+
+.onboarding-demo .onboarding-demo-folder.is-demo-folder-static {
+  opacity: 1;
+}
+
+.onboarding-demo-folder .folder-modal-header {
+  min-height: 31px;
+  padding: 0 0 7px;
+  gap: 6px;
+}
+
+.onboarding-demo-folder .onboarding-demo-folder-title {
+  display: block;
+  margin: 0 0 2px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.onboarding-demo-folder .folder-modal-heading small {
+  display: block;
+  font-size: 7px;
+}
+
+.onboarding-demo-folder .folder-modal-edit-toggle {
+  min-height: 20px;
+  padding: 4px 6px;
+  font-size: 8px;
+}
+
+.onboarding-demo-folder .folder-grid-shell {
+  padding: 4px 0 0;
+}
+
+.onboarding-demo-folder .folder-modal-grid {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.onboarding-demo-folder .folder-grid-bookmark.bookmark {
+  padding: 3px;
+  border-radius: 0;
+}
+
+.onboarding-demo-folder .folder-grid-bookmark .bookmark-link {
+  gap: 3px;
+}
+
+.onboarding-demo-folder .bookmark-link > .bookmark-favicon {
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}
+
+.onboarding-demo .onboarding-demo-folder .folder-grid-bookmark .bookmark-title {
+  margin: 0;
+  color: var(--folder-contents-text);
+  font-size: 7px;
+  line-height: 1.2;
+  text-shadow: var(--folder-contents-text-shadow);
+}
+
+.onboarding-demo-folder .folder-bookmark-actions {
+  top: 3px;
+  right: 3px;
+  left: 3px;
+  display: none;
+  gap: 2px;
+}
+
+.onboarding-demo-folder.is-folder-editing .folder-bookmark-actions {
+  display: flex;
+}
+
+.onboarding-demo-folder.is-folder-editing .folder-grid-bookmark .bookmark-link {
+  transform: translateY(4px);
+}
+
+.onboarding-demo-folder .folder-bookmark-actions .item-action-button {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--folder-control-border);
+  border-radius: 3px;
+  background: var(--folder-control-background);
+  box-shadow: none;
+  color: var(--folder-control-text);
+  font-size: 7px;
+}
+
+.onboarding-demo-folder .folder-modal-glyph {
+  display: none;
+  width: 18px;
+  height: 18px;
+  flex-basis: 18px;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.onboarding-demo-folder.is-folder-editing .folder-modal-glyph {
+  display: grid;
+}
+
+.onboarding-demo-folder .folder-modal-glyph .folder-visual {
+  width: 14px;
+  height: calc(14px / 1.36);
+}
+
+.onboarding-demo-folder .folder-modal-glyph .edit-indicator-svg {
+  right: -2px;
+  bottom: -2px;
+  width: 9px;
+  height: 9px;
+  padding: 1px;
+  border-width: 1px;
+}
+
+.onboarding-demo-folder .folder-grid-bookmark.is-folder-grid-dragging {
+  box-shadow: inset 0 0 0 1px var(--folder-contents-text), 0 4px 8px rgba(0, 0, 0, .3);
+}
+
+.onboarding-demo .onboarding-demo-media.is-demo-folder-selected {
+  outline: 1px solid var(--demo-accent);
+  background: rgba(96, 197, 255, .08);
+}
+
+@media (max-width: 700px) {
+  .onboarding-demo .onboarding-demo-folder {
+    right: 12px;
+    left: 12px;
+    padding: 8px;
+  }
+
+  .onboarding-demo-folder .bookmark-link > .bookmark-favicon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .onboarding-demo .onboarding-demo-folder .folder-grid-bookmark .bookmark-title {
+    font-size: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onboarding-demo-folder-backdrop {
+    transition: none;
+  }
+}

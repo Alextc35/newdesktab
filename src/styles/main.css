@@ -21,6 +21,7 @@
 
 @import '../shared/ui/editModal.css';
 @import '../features/settings/settings.css';
+@import '../features/onboarding/onboarding.css';
 @import '../features/search/search.css';
 @import '../features/folders/folder.css';
 @import '../features/grid/responsiveGrid.css';

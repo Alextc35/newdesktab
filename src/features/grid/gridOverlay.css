@@ -1,5 +1,5 @@
 /* Editing overlay aligned to the logical grid cells. */
-#grid-overlay {
+.grid-edit-overlay {
   position: absolute;
   top: 0;
   left: 0;

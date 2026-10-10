@@ -19,7 +19,7 @@
   </div>
   <div id="bookmark-viewport" class="custom-scrollbar">
     <div id="bookmark-container"></div>
-    <div id="grid-overlay"></div>
+    <div id="grid-overlay" class="grid-edit-overlay"></div>
   </div>
 
   <nav id="workspace-toolbar" aria-label="Workspace controls" data-i18n-aria-label="workspace.ariaLabel">
@@ -66,20 +66,20 @@
       data-i18n="bulk.clear">Cancelar selección</button>
   </div>
 
-  <div id="floating-menu">
-    <button id="edit-toggle-mode" type="button" aria-label="Enter edit mode"
+  <div id="floating-menu" class="launcher-dock">
+    <button id="edit-toggle-mode" class="launcher-edit" type="button" aria-label="Enter edit mode"
       data-i18n-aria-label="launcher.editMode.enter" aria-pressed="false">
       <span class="edit-toggle-icon" aria-hidden="true"></span>
     </button>
     <div class="floating-add">
-      <button id="add-toggle" type="button" aria-label="Add" data-i18n-aria-label="buttons.add"
+      <button id="add-toggle" class="launcher-add" type="button" aria-label="Add" data-i18n-aria-label="buttons.add"
         aria-expanded="false" aria-controls="add-options">
         <svg class="add-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <circle cx="12" cy="12" r="8.25"></circle>
           <path d="M12 8v8M8 12h8"></path>
         </svg>
       </button>
-      <div id="add-options" hidden>
+      <div id="add-options" class="launcher-options" hidden>
         <button id="add-bookmark" type="button">
           <span class="newdesktab-themed-icon" aria-hidden="true">
             <img class="newdesktab-themed-icon-light" src="/src/assets/icons/bookmark-light.svg" alt="" draggable="false">
@@ -100,13 +100,80 @@
         </button>
       </div>
     </div>
-    <button id="settings" type="button" aria-label="Settings"
+    <button id="settings" class="launcher-settings" type="button" aria-label="Settings"
       data-i18n-aria-label="settingsModal.general.subtitle">
       <span class="settings-toggle-icon" aria-hidden="true"></span>
     </button>
   </div>
 
   <div id="flash-container" class="flash-container"></div>
+
+  <div id="onboarding-modal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-card onboarding-card custom-scrollbar">
+      <header class="onboarding-header">
+        <span class="onboarding-brand">
+          <img src="/assets/icons/brand-mark.svg" alt="" aria-hidden="true">
+          <span>New DeskTab</span>
+        </span>
+        <button id="onboarding-skip" class="onboarding-skip" type="button"
+          data-i18n="onboarding.skip">Omitir guía</button>
+      </header>
+      <div class="onboarding-content">
+        <div class="onboarding-demo" aria-hidden="true" inert>
+          <div class="onboarding-demo-default-brand">
+            <span class="onboarding-demo-wordmark">New DeskTab</span>
+            <span class="onboarding-demo-version"></span>
+          </div>
+          <div class="grid-edit-overlay onboarding-demo-edit-grid"></div>
+          <div class="onboarding-demo-grid"></div>
+          <div class="onboarding-demo-clock"><span>10:08</span><i></i></div>
+          <div class="onboarding-demo-dock"></div>
+          <span class="onboarding-demo-click"></span>
+          <span class="onboarding-demo-cursor">
+            <svg class="onboarding-demo-pointer" viewBox="0 0 24 32"><path d="M2 2v23l5.8-6 4.9 10 4.3-2-4.9-10H22Z"/></svg>
+            <svg class="onboarding-demo-resize-cursor" viewBox="0 0 24 24"><path d="M5 11V5h6M13 19h6v-6M5 5l14 14"/></svg>
+          </span>
+          <div class="onboarding-demo-workspaces">
+            <span class="onboarding-demo-handle"></span>
+            <button class="onboarding-demo-loupe" type="button" tabindex="-1" data-i18n-aria-label="search.title">
+              <svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg>
+            </button>
+            <span class="onboarding-demo-workspace-name" data-i18n="workspace.main">Principal</span>
+            <svg class="onboarding-demo-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+            <span class="onboarding-demo-add-workspace">+</span>
+            <span class="onboarding-demo-remove-workspace">−</span>
+            <span class="onboarding-demo-separator"></span>
+            <button class="onboarding-demo-undo" type="button" tabindex="-1" disabled data-i18n-aria-label="workspace.undo">
+              <svg viewBox="0 0 24 24"><path d="M9 5 4 10l5 5M4 10h9a6 6 0 0 1 6 6"/></svg>
+            </button>
+            <button class="onboarding-demo-redo" type="button" tabindex="-1" disabled data-i18n-aria-label="workspace.redo">
+              <svg viewBox="0 0 24 24"><path d="m15 5 5 5-5 5m5-5h-9a6 6 0 0 0-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="onboarding-copy" aria-live="polite" aria-atomic="true">
+          <span class="onboarding-eyebrow" data-i18n="onboarding.eyebrow">TU PRIMER MINUTO</span>
+          <h2 id="onboarding-title"></h2>
+          <p id="onboarding-description"></p>
+          <p id="onboarding-hint" class="onboarding-hint"></p>
+        </div>
+      </div>
+      <footer class="onboarding-footer">
+        <div class="onboarding-progress">
+          <ol class="onboarding-dots" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li></ol>
+          <span id="onboarding-progress"></span>
+        </div>
+        <div class="onboarding-actions">
+          <button id="onboarding-back" class="btn btn-ghost" type="button"
+            data-i18n="onboarding.back" hidden>Atrás</button>
+          <button id="onboarding-explore" class="btn btn-ghost" type="button"
+            data-i18n="onboarding.explore" hidden>Explorar mi espacio</button>
+          <button id="onboarding-next" class="btn btn-primary" type="button"></button>
+        </div>
+      </footer>
+    </div>
+  </div>
 
   <div id="alert-modal" class="modal">
     <div class="modal-overlay"></div>
@@ -1244,6 +1311,14 @@
                 <small>© 2026</small>
               </div>
             </div>
+            <section class="settings-guide">
+              <div>
+                <strong data-i18n="onboarding.reopenTitle">Guía rápida</strong>
+                <p data-i18n="onboarding.reopenDescription">Redescubre lo esencial en un minuto.</p>
+              </div>
+              <button id="settings-open-guide" class="btn btn-secondary" type="button"
+                data-i18n="onboarding.reopen">Ver guía</button>
+            </section>
           </div>
           <div class="modal-actions">
             <button id="settings-modal-cancel" class="btn btn-ghost" type="button"

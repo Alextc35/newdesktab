@@ -1,0 +1,113 @@
+/* The edit sequence reuses the grid pattern and corner handles at preview scale. */
+.onboarding-demo-grid {
+  position: relative;
+  z-index: 2;
+}
+
+.onboarding-demo-workspaces {
+  z-index: 3;
+}
+
+.onboarding-demo-edit-grid {
+  --color-to-right-grid-overlay: rgba(203, 213, 225, .13);
+  --color-to-bottom-grid-overlay: rgba(203, 213, 225, .13);
+  z-index: 1;
+  display: block;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.onboarding-demo.is-demo-editing .onboarding-demo-edit-grid {
+  opacity: 1;
+}
+
+.onboarding-demo.is-demo-editing .onboarding-demo-default-brand {
+  opacity: .24;
+}
+
+.onboarding-demo .onboarding-demo-favorite.is-demo-selected {
+  z-index: 3;
+  background: rgba(96, 197, 255, .06);
+}
+
+.onboarding-demo-favorite.is-demo-selected .onboarding-demo-resize {
+  display: block;
+}
+
+.onboarding-demo-favorite:is(.is-demo-dragging, .is-demo-resizing) .onboarding-demo-resize {
+  border-color: coral;
+}
+
+.onboarding-demo .onboarding-demo-favorite .resizer {
+  display: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+}
+
+.onboarding-demo .onboarding-demo-favorite.is-demo-selected .resizer {
+  display: block;
+}
+
+.onboarding-demo .onboarding-demo-favorite .resizer::before {
+  inset: 1px;
+}
+
+.onboarding-demo .resizer.top-left {
+  top: -3.5px;
+  left: -3.5px;
+}
+
+.onboarding-demo .resizer.top-right {
+  top: -3.5px;
+  right: -3.5px;
+}
+
+.onboarding-demo .resizer.bottom-left {
+  bottom: -3.5px;
+  left: -3.5px;
+}
+
+.onboarding-demo .resizer.bottom-right {
+  right: -3.5px;
+  bottom: -3.5px;
+}
+
+.onboarding-demo .resize-indicator {
+  padding: 3px 5px;
+  background: #101622;
+  color: #f1f5f9;
+  font-size: 8px;
+}
+
+.onboarding-demo .is-demo-resizing .resize-indicator {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.onboarding-demo-cursor .onboarding-demo-resize-cursor {
+  position: absolute;
+  top: -7.5px;
+  left: -7.5px;
+  display: none;
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.onboarding-demo-cursor.is-demo-resize .onboarding-demo-pointer {
+  display: none;
+}
+
+.onboarding-demo-cursor.is-demo-resize .onboarding-demo-resize-cursor {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onboarding-demo-edit-grid {
+    transition: none;
+  }
+}

@@ -16,6 +16,7 @@ items on a desktop without relying on a NewDeskTab account or backend.
 
 ## Features
 
+* Optional five-step first-visit guide, replayable from Settings → Information
 * Smooth eight-direction drag and resize on a collision-aware grid
 * Configurable drag behavior: None (default), Relocation and experimental
   Sequence

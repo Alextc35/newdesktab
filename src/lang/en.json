@@ -1,4 +1,51 @@
 {
+  "onboarding": {
+    "eyebrow": "YOUR FIRST MINUTE",
+    "skip": "Skip guide",
+    "back": "Back",
+    "next": "Next",
+    "finish": "Back to settings",
+    "explore": "Explore my space",
+    "addFirst": "Add my first bookmark",
+    "progress": "Step {{current}} of {{total}}",
+    "compactHint": "Widen the window when you want to add bookmarks and edit your space.",
+    "reopenTitle": "Quick guide",
+    "reopenDescription": "Rediscover the essentials in a minute.",
+    "reopen": "View guide",
+    "demo": {
+      "work": "Work",
+      "media": "Media",
+      "trash": "Recycle bin",
+      "search": "Find your bookmarks"
+    },
+    "steps": {
+      "start": {
+        "title": "Your pages. Your own space.",
+        "body": "Welcome to New DeskTab. Keep your favorite pages at hand whenever you open a tab. To add one, move to the left edge and choose + → Bookmark.",
+        "hint": "You can also save the page you're visiting from the extension icon in your browser."
+      },
+      "edit": {
+        "title": "Give every bookmark its place.",
+        "body": "Turn on the pencil in the left menu to edit. Hold and drag an item to move it; use its handles to change its size.",
+        "hint": "Each bookmark's pencil opens its editor: name, colors, icon and image. Save styles to reuse them."
+      },
+      "organize": {
+        "title": "Less clutter. More order.",
+        "body": "Create a folder from + and drag bookmarks into it in edit mode. It opens in a clean grid with room for up to 18 bookmarks.",
+        "hint": "Use the + in the workspace bar to separate work and play. The magnifying glass also searches inside folders."
+      },
+      "style": {
+        "title": "Make it feel like you.",
+        "body": "In Settings → Theme, choose a color, image or video background and rotate your favorite wallpapers. In Settings → Synchronization, sync your space across devices using the account signed into your Chrome profile.",
+        "hint": "Add a clock from + → Widgets. You can customize your folders' appearance too."
+      },
+      "ready": {
+        "title": "You know the essentials.",
+        "body": "Press / to find a bookmark. Use the undo and redo arrows to recover changes; deleted bookmarks go to the recycle bin.",
+        "hint": "Changes save automatically. In Settings, export a backup or enable optional Google Chrome synchronization."
+      }
+    }
+  },
   "persistence": {
     "unsaved": "Your latest changes could not be saved.",
     "retry": "Retry save",
