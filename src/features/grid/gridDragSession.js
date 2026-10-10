@@ -108,6 +108,12 @@ export function applySmartDragPreview(container, session, layout) {
   }
 }
 
+/** Shows a rejected cell without changing the valid layout or its neighbors. */
+export function applyInvalidSmartDragPreview(container, session, target) {
+  const element = session.elements.get(session.draggedId);
+  if (element) applyPreviewPosition(container, session, session.draggedId, element, target);
+}
+
 export function restoreSmartDragPreview(container, session) {
   if (!session) return;
 
@@ -116,7 +122,10 @@ export function restoreSmartDragPreview(container, session) {
     const element = session.elements.get(id);
     if (!element) continue;
 
-    if (id !== session.draggedId) prepareSmartMovement(element);
+    const preview = session.previewPositions.get(id);
+    if (id !== session.draggedId || (preview && !sameGridPosition(preview, original))) {
+      prepareSmartMovement(element);
+    }
     applyPreviewPosition(container, session, id, element, original);
     element.classList.remove('is-smart-displaced');
   }

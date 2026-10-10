@@ -759,6 +759,10 @@ eight-direction resize handles, previews and atomic commits through
 `updateGridItemsByIds()`. Resize geometry lives in the pure
 `shared/grid/resizeGeometry.js` module. An invalid gesture restores the original
 rectangle, not the last valid intermediate preview.
+Rejected drag cells still show the dragged item over the target with red
+feedback, without changing the valid layout or neighboring items. Releasing
+there animates back to the original cell; leaving a folder or trash landing pose
+revalidates the cell even when its snapped coordinates have not changed.
 
 `shared/grid/smartDragLayout.js` is a pure layout planner. Persisted state
 remains the baseline while pointer previews are reversible:

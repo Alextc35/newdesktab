@@ -13,7 +13,7 @@ import { toggleGridItemSelection } from './gridSelection.js';
 import { RESIZE_DIRECTIONS } from '../../shared/grid/resizeGeometry.js';
 import { gridGesture, SMART_MOVE_DURATION } from './gridGestureState.js';
 import { handleResize } from './gridResizeGesture.js';
-import { createSmartDragSession, applySmartDragPreview, restoreSmartDragPreview, commitSmartDragLayout,
+import { createSmartDragSession, applySmartDragPreview, applyInvalidSmartDragPreview, restoreSmartDragPreview, commitSmartDragLayout,
   sameGridPosition, suppressFolderOpen, scheduleSmartPreviewCleanup, planSmartDragSession } from './gridDragSession.js';
 import { findFolderTarget, findRectangleTarget, applyDropLandingGeometry, clearDropLandingGeometry } from './gridPointerGeometry.js';
 import {
@@ -129,6 +129,7 @@ export function addGridItemPointerControls(container, div, item, {
     newGX = Math.max(0, Math.min(newGX, GRID_COLS - item.w));
     newGY = Math.max(0, Math.min(newGY, GRID_ROWS - item.h));
 
+    const wasOverDropTarget = Boolean(recycleBinTarget || folderTarget);
     const nextRecycleBinTarget = kind !== 'recycle-bin'
       ? findRectangleTarget(e.clientX, e.clientY, dragSession.recycleBinTargets)
       : null;
@@ -153,8 +154,9 @@ export function addGridItemPointerControls(container, div, item, {
     const target = { gx: newGX, gy: newGY };
     // Pointer events can fire dozens of times while the pointer remains inside
     // one grid cell. The smart-layout calculation is the expensive part of a
-    // drag, so there is no visual or logical work to do until that cell changes.
-    if (sameGridPosition(target, dragSession.lastPreviewTarget)) return;
+    // drag. Leaving a folder/trash target also needs validation, even when the
+    // snapped cell is unchanged, because landing feedback cleared the warning.
+    if (!wasOverDropTarget && sameGridPosition(target, dragSession.lastPreviewTarget)) return;
 
     const layout = planSmartDragSession(dragSession, target);
     if (layout.isValid) {
@@ -164,6 +166,7 @@ export function addGridItemPointerControls(container, div, item, {
       div.classList.remove('is-invalid');
     } else {
       dragSession.dropIsValid = false;
+      applyInvalidSmartDragPreview(container, dragSession, target);
       div.classList.add('is-invalid');
     }
   });
