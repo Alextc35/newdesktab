@@ -759,12 +759,12 @@ eight-direction resize handles, previews and atomic commits through
 `updateGridItemsByIds()`. Resize geometry lives in the pure
 `shared/grid/resizeGeometry.js` module. An invalid gesture restores the original
 rectangle, not the last valid intermediate preview.
-The dragged card follows the pointer continuously above other cards; only
-collision planning and displaced neighbors use snapped cells. A valid release
-settles the card into its planned cell. Rejected drag cells still show the
-dragged item over the target with red feedback, without changing the valid
-layout or neighboring items. Releasing
-there animates back to the original cell; leaving a folder or trash landing pose
+Dragging stays aligned to grid cells, including rejected targets. The dragged
+card stays above occupied cells with red feedback and preserves its own
+appearance, including transparency. Underlying cards remain visible and
+stationary. Releasing an invalid drop returns the dragged card smoothly to its
+original cell, keeping it above its neighbors throughout that return.
+Leaving a folder or trash landing pose
 revalidates the cell even when its snapped coordinates have not changed.
 
 `shared/grid/smartDragLayout.js` is a pure layout planner. Persisted state

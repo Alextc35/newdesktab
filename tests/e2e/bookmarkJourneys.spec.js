@@ -1148,7 +1148,16 @@ test('defaults to none, warns about sequence, and persists drag modes', async ({
   await page.mouse.up();
 });
 
-test('none drag mode follows the pointer over occupied cells and restores rejected drops', async ({ page }) => {
+test('none drag mode preserves transparency and underlying items during drag and rollback', async ({ page }) => {
+  await page.evaluate(async () => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    await setState({ data: { bookmarks: getState().data.bookmarks.map(bookmark => (
+      bookmark.id === 'test-banana' ? { ...bookmark, noBackground: true,
+        backgroundColor: '#000000', backgroundImageUrl: '', backgroundFavicon: true,
+        showFavicon: true, showText: true } : bookmark
+    )) } });
+  });
+  await reloadSavedPage(page);
   await setBookmarkDragMode(page, 'none');
   await enableEditMode(page);
 
@@ -1170,37 +1179,41 @@ test('none drag mode follows the pointer over occupied cells and restores reject
   await page.mouse.move(pointer.x, pointer.y);
   await page.mouse.down();
   await page.mouse.move(pointer.x - 6, pointer.y);
-  expect((await visibleBox(dragged)).x).toBeCloseTo(draggedStart.x - 6, 0);
+  expect((await visibleBox(dragged)).x).toBeCloseTo(draggedStart.x, 0);
 
-  // Crossing the boundary changes validity, not the grab point or movement.
+  // Movement stays snapped; transparent cards keep showing the item behind them.
   const boundary = pointer.x - gridBox.width / 24;
   await page.mouse.move(boundary + 2, pointer.y);
   await expect(dragged).not.toHaveClass(/is-invalid/);
-  const beforeBoundary = await visibleBox(dragged);
+  expect((await visibleBox(dragged)).x).toBeCloseTo(draggedStart.x, 0);
   await page.mouse.move(boundary - 2, pointer.y);
   await expect(dragged).toHaveClass(/is-invalid/);
-  expect((await visibleBox(dragged)).x).toBeCloseTo(beforeBoundary.x - 4, 0);
+  expect((await visibleBox(dragged)).x).toBeCloseTo(occupiedStart.x, 0);
+  await expect(occupied).toBeVisible();
   await page.mouse.move(pointer.x - gridBox.width / 12, pointer.y, { steps: 8 });
 
   await expect(dragged).toHaveClass(/is-invalid/);
-  await expect.poll(async () => (await visibleBox(occupied)).x)
-    .toBeCloseTo(occupiedStart.x, 0);
+  await expect(dragged).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+  await expect(occupied).toHaveCSS('opacity', '1');
+  expect(await visibleBox(occupied)).toEqual(occupiedStart);
   await expect.poll(async () => (await visibleBox(dragged)).x)
     .toBeCloseTo(occupiedStart.x, 0);
   await expect(dragged).toHaveCSS('outline-color', 'rgb(255, 0, 0)');
+  await expect(dragged).toHaveCSS('opacity', '1');
   expect(await page.evaluate(({ x, y }) => (
     document.elementFromPoint(x, y)?.closest('[data-bookmark-id]')?.dataset.bookmarkId
   ), { x: occupiedStart.x + occupiedStart.width / 2,
     y: occupiedStart.y + occupiedStart.height / 2 })).toBe('test-banana');
 
-  // Small movements in a blocked cell keep tracking the pointer. Returning to
-  // the source or an empty cell resumes valid dragging without a new press.
+  // Small movements keep the same snapped position. The occupied item remains
+  // intact when the dragged card moves to its source or an empty cell.
   await page.mouse.move(pointer.x - gridBox.width / 12 + 3, pointer.y);
   await expect(dragged).toHaveClass(/is-invalid/);
   await expect.poll(async () => (await visibleBox(dragged)).x)
-    .toBeCloseTo(occupiedStart.x + 3, 0);
+    .toBeCloseTo(occupiedStart.x, 0);
   await page.mouse.move(pointer.x, pointer.y, { steps: 8 });
   await expect(dragged).not.toHaveClass(/is-invalid/);
+  await expect(occupied).toBeVisible();
   await expect.poll(async () => (await visibleBox(dragged)).x)
     .toBeCloseTo(draggedStart.x, 0);
   await page.mouse.move(pointer.x - gridBox.width / 12, pointer.y + gridBox.height / 6, { steps: 8 });
@@ -1215,9 +1228,46 @@ test('none drag mode follows the pointer over occupied cells and restores reject
     (await import('/src/state/appStore.js')).getState().data.bookmarks
       .map(({ id, gx, gy }) => ({ id, gx, gy }))
   ))).toEqual(originalPositions);
+  await dragged.evaluate(element => {
+    const underlying = document.querySelector('[data-bookmark-id="test-developed-by"]');
+    window.invalidDropFrames = new Promise(resolve => {
+      element.addEventListener('pointerup', () => {
+        const started = performance.now();
+        const frames = [];
+        const sample = () => {
+          const style = getComputedStyle(underlying);
+          const rect = underlying.getBoundingClientRect();
+          const draggedRect = element.getBoundingClientRect();
+          frames.push({ x: rect.x, y: rect.y, visibility: style.visibility,
+            opacity: style.opacity, connected: underlying.isConnected,
+            draggedX: draggedRect.x, raised: element.classList.contains('is-drag-returning'),
+            background: getComputedStyle(element).backgroundColor,
+            above: Number(getComputedStyle(element).zIndex) > Number(style.zIndex) });
+          if (performance.now() - started < 250) requestAnimationFrame(sample);
+          else resolve(frames);
+        };
+        sample();
+      }, { once: true });
+    });
+  });
   await page.mouse.up();
+  const frames = await page.evaluate(() => window.invalidDropFrames);
+  expect(frames.length).toBeGreaterThan(2);
+  for (const frame of frames) {
+    expect(frame.connected).toBe(true);
+    expect(frame.visibility).toBe('visible');
+    expect(frame.opacity).toBe('1');
+    expect(frame.background).toBe('rgba(0, 0, 0, 0)');
+    expect(frame.x).toBeCloseTo(occupiedStart.x, 0);
+    expect(frame.y).toBeCloseTo(occupiedStart.y, 0);
+    if (frame.raised) expect(frame.above).toBe(true);
+  }
+  expect(frames.some(frame => frame.draggedX > occupiedStart.x + 1
+    && frame.draggedX < draggedStart.x - 1 && frame.raised)).toBe(true);
 
   await expect(dragged).not.toHaveClass(/is-invalid/);
+  await expect(occupied).toBeVisible();
+  await expect(dragged).not.toHaveClass(/is-drag-returning/);
   await expect.poll(async () => (await visibleBox(dragged)).x)
     .toBeCloseTo(draggedStart.x, 0);
   await expect.poll(async () => (await visibleBox(dragged)).y)
@@ -1227,7 +1277,7 @@ test('none drag mode follows the pointer over occupied cells and restores reject
     .toBeCloseTo(draggedStart.x, 0);
 });
 
-test('continuous drag snaps valid releases and restores movement within the source cell', async ({ page }) => {
+test('dragging stays snapped to cells and ignores small pointer movements', async ({ page }) => {
   await setBookmarkDragMode(page, 'none');
   await enableEditMode(page);
   const dragged = page.locator('[data-bookmark-id="test-banana"]');
@@ -1239,8 +1289,8 @@ test('continuous drag snaps valid releases and restores movement within the sour
   await page.mouse.move(pointer.x, pointer.y);
   await page.mouse.down();
   await page.mouse.move(pointer.x + cellWidth * .7, pointer.y + cellHeight * .2, { steps: 8 });
-  expect((await visibleBox(dragged)).x).toBeCloseTo(source.x + cellWidth * .7, 0);
-  expect((await visibleBox(dragged)).y).toBeCloseTo(source.y + cellHeight * .2, 0);
+  expect((await visibleBox(dragged)).x).toBeCloseTo(source.x + cellWidth, 0);
+  expect((await visibleBox(dragged)).y).toBeCloseTo(source.y, 0);
   await page.mouse.up();
   await expect.poll(async () => (await visibleBox(dragged)).x)
     .toBeCloseTo(source.x + cellWidth, 0);
@@ -1253,7 +1303,8 @@ test('continuous drag snaps valid releases and restores movement within the sour
   await page.mouse.down();
   await page.mouse.move(settled.x + settled.width / 2 + cellWidth * .2,
     settled.y + settled.height / 2 + cellHeight * .2, { steps: 8 });
-  expect((await visibleBox(dragged)).x).toBeCloseTo(settled.x + cellWidth * .2, 0);
+  expect((await visibleBox(dragged)).x).toBeCloseTo(settled.x, 0);
+  expect((await visibleBox(dragged)).y).toBeCloseTo(settled.y, 0);
   await page.mouse.up();
   await expect.poll(async () => (await visibleBox(dragged)).x).toBeCloseTo(settled.x, 0);
   await expect.poll(async () => (await visibleBox(dragged)).y).toBeCloseTo(settled.y, 0);
@@ -1290,10 +1341,15 @@ test('none drag mode revalidates a blocked cell after leaving a folder landing p
   await page.mouse.move(blocked.x, blocked.y, { steps: 8 });
   await expect(dragged).toHaveClass(/is-invalid/);
   await expect.poll(async () => (await visibleBox(dragged)).x)
-    .toBeCloseTo(source.x + blocked.x - pointer.x, 0);
-  expect((await visibleBox(occupied)).x).toBeCloseTo(occupiedStart.x, 0);
+    .toBeCloseTo(occupiedStart.x, 0);
+  await expect(occupied).toBeVisible();
+  await expect(folder).toBeVisible();
+  expect(await visibleBox(occupied)).toEqual(occupiedStart);
+  expect(await visibleBox(folder)).toEqual(target);
   await page.mouse.move(blocked.x, target.y + target.height / 2, { steps: 8 });
   await expect(folder).toHaveClass(/is-drop-target/);
+  await expect(folder).toBeVisible();
+  await expect(occupied).toBeVisible();
   await expect(dragged).toHaveClass(/is-drop-landing/);
   await expect(dragged).not.toHaveClass(/is-invalid/);
   await page.mouse.move(blocked.x, blocked.y, { steps: 8 });
@@ -1301,6 +1357,8 @@ test('none drag mode revalidates a blocked cell after leaving a folder landing p
   await expect(dragged).not.toHaveClass(/is-drop-landing/);
   await expect(dragged).toHaveClass(/is-invalid/);
   await page.mouse.up();
+  await expect(occupied).toBeVisible();
+  await expect(folder).toBeVisible();
   await expect.poll(async () => (await visibleBox(dragged)).x).toBeCloseTo(source.x, 0);
   await reloadSavedPage(page);
   expect(await page.evaluate(async () => (

@@ -38,7 +38,10 @@ export function createSmartDragSession(container, item, kind) {
     .filter(([, element]) => element.classList.contains('is-smart-moving'))
     .map(([id]) => id));
   const owner = {};
-  for (const element of elements.values()) smartDragOwners.set(element, owner);
+  for (const element of elements.values()) {
+    element.classList.remove('is-drag-returning');
+    smartDragOwners.set(element, owner);
+  }
   const currentItem = items.find(gridItem => gridItem.id === item.id) ?? item;
   const gridMetrics = {
     rowWidth: container.clientWidth / GRID_COLS,
@@ -89,9 +92,13 @@ export function applySmartDragPreview(container, session, layout) {
   const displaced = new Set(layout.displacedIds);
 
   for (const [id, original] of session.originals) {
-    if (id === session.draggedId) continue;
     const element = session.elements.get(id);
     if (!element) continue;
+
+    if (id === session.draggedId) {
+      applyPreviewPosition(container, session, id, element, positions.get(id) ?? original);
+      continue;
+    }
 
     if (!positions.has(id) && !session.touchedIds.has(id)) continue;
 
@@ -103,23 +110,11 @@ export function applySmartDragPreview(container, session, layout) {
   }
 }
 
-/** Keeps pointer motion independent of the planner's integer cell positions. */
-export function applyPointerDragPreview(container, session, left, top) {
+/** Previews a rejected cell without changing either card's appearance. */
+export function applyInvalidSmartDragPreview(container, session, target) {
   const element = session.elements.get(session.draggedId);
   if (!element) return;
-  applyPreviewPosition(container, session, session.draggedId, element, {
-    gx: left / session.gridMetrics.rowWidth,
-    gy: top / session.gridMetrics.rowHeight
-  });
-}
-
-/** Settles the pointer preview into the validated cell only after release. */
-export function snapSmartDragPreview(container, session) {
-  const element = session.elements.get(session.draggedId);
-  const position = session.activeLayout.positions.find(({ id }) => id === session.draggedId);
-  if (!element || !position) return;
-  prepareSmartMovement(element);
-  applyPreviewPosition(container, session, session.draggedId, element, position);
+  applyPreviewPosition(container, session, session.draggedId, element, target);
 }
 
 export function restoreSmartDragPreview(container, session) {
@@ -132,6 +127,7 @@ export function restoreSmartDragPreview(container, session) {
 
     const preview = session.previewPositions.get(id);
     if (id !== session.draggedId || (preview && !sameGridPosition(preview, original))) {
+      if (id === session.draggedId) element.classList.add('is-drag-returning');
       prepareSmartMovement(element);
     }
     applyPreviewPosition(container, session, id, element, original);
@@ -211,7 +207,7 @@ export function scheduleSmartPreviewCleanup(session, removeInlinePositions) {
   setTimeout(() => {
     for (const element of elements) {
       if (smartDragOwners.get(element) !== session.owner) continue;
-      element.classList.remove('is-smart-moving', 'is-smart-displaced');
+      element.classList.remove('is-smart-moving', 'is-smart-displaced', 'is-drag-returning');
       if (removeInlinePositions) {
         element.style.removeProperty('left');
         element.style.removeProperty('top');

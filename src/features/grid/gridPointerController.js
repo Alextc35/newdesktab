@@ -13,7 +13,7 @@ import { toggleGridItemSelection } from './gridSelection.js';
 import { RESIZE_DIRECTIONS } from '../../shared/grid/resizeGeometry.js';
 import { gridGesture, SMART_MOVE_DURATION } from './gridGestureState.js';
 import { handleResize } from './gridResizeGesture.js';
-import { createSmartDragSession, applySmartDragPreview, applyPointerDragPreview, snapSmartDragPreview, restoreSmartDragPreview, commitSmartDragLayout,
+import { createSmartDragSession, applySmartDragPreview, applyInvalidSmartDragPreview, restoreSmartDragPreview, commitSmartDragLayout,
   sameGridPosition, suppressFolderOpen, scheduleSmartPreviewCleanup, planSmartDragSession } from './gridDragSession.js';
 import { findFolderTarget, findRectangleTarget, applyDropLandingGeometry, clearDropLandingGeometry } from './gridPointerGeometry.js';
 import {
@@ -152,10 +152,6 @@ export function addGridItemPointerControls(container, div, item, {
     }
     setFolderTarget(null);
 
-    // The card follows the grab point on every event. Only collision planning
-    // and neighboring items use snapped cells, so crossing an occupied cell
-    // changes the warning without making the card jump under the pointer.
-    applyPointerDragPreview(container, dragSession, newLeft, newTop);
     const target = { gx: newGX, gy: newGY };
     // Pointer events can fire dozens of times while the pointer remains inside
     // one grid cell. The smart-layout calculation is the expensive part of a
@@ -171,6 +167,7 @@ export function addGridItemPointerControls(container, div, item, {
       div.classList.remove('is-invalid');
     } else {
       dragSession.dropIsValid = false;
+      applyInvalidSmartDragPreview(container, dragSession, target);
       div.classList.add('is-invalid');
     }
   });
@@ -262,7 +259,6 @@ export function addGridItemPointerControls(container, div, item, {
       return;
     }
 
-    snapSmartDragPreview(container, dragSession);
     const changed = commitSmartDragLayout(dragSession);
     if (changed) {
       scheduleSmartPreviewCleanup(dragSession, false);

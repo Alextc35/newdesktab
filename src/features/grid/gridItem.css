@@ -89,7 +89,6 @@
       &.is-invalid {
         outline-color: red;
         box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.4);
-        opacity: 0.5;
       }
     }
 
@@ -125,6 +124,10 @@
   &.is-smart-displaced {
     z-index: calc(var(--z-bookmark) + 1);
     filter: drop-shadow(0 0 6px rgba(96, 165, 250, .7));
+  }
+
+  &.is-drag-returning {
+    z-index: calc(var(--z-bookmark) + 2);
   }
 
   &.is-drop-committed {
