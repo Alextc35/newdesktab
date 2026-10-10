@@ -5,7 +5,8 @@ import { addGridItemPointerControls } from '../grid/gridPointerController.js';
 import { isGridItemSelected } from '../grid/gridSelection.js';
 import { addFolderActions } from './folderCardActions.js';
 import { openFolderModal } from './folderModal.js';
-import { applyFolderAppearance, createFolderVisual } from './folderVisual.js';
+import { applyFolderAppearance } from './folderAppearance.js';
+import { createFolderVisual } from './folderVisual.js';
 
 /** Creates a resizable folder card for the bookmark grid. */
 export function createFolderElement({ container, folder, bookmarks, isEditing }) {

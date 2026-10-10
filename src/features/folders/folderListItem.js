@@ -1,5 +1,6 @@
 import { t } from '../../platform/i18n/i18n.js';
-import { applyFolderAppearance, createFolderVisual } from './folderVisual.js';
+import { applyFolderAppearance } from './folderAppearance.js';
+import { createFolderVisual } from './folderVisual.js';
 
 /** Creates one read-only folder row for the compact workspace list. */
 export function createFolderListItem(folder, {

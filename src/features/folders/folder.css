@@ -494,43 +494,81 @@
   opacity: .64;
 }
 
+#folder-modal .modal-overlay {
+  background: rgba(0, 0, 0, .22);
+  backdrop-filter: blur(3px);
+}
+
 .modal-folder {
+  --folder-contents-text: #f8fafc;
+  --folder-contents-text-shadow: none;
+  --folder-grid-line: color-mix(in srgb, var(--folder-contents-text) 8%, transparent);
   display: flex;
   width: min(900px, 96vw);
   max-height: min(680px, 92vh);
   padding: 20px;
   flex-direction: column;
-  border: 1px solid light-dark(#e2e2e7, rgba(148, 163, 184, .18));
-  background: linear-gradient(150deg, light-dark(#fff, #121a27), light-dark(#fcfcfc, #0c111b));
+  border: 1px solid var(--folder-contents-border);
+  background: var(--folder-contents-background, #18181a);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .05), 0 24px 72px rgba(0, 0, 0, .24);
+  color: var(--folder-contents-text);
+  animation: folderModalIn .24s cubic-bezier(.22, 1, .36, 1);
+}
+
+.modal-folder.is-folder-contents-transparent {
+  --folder-contents-text-shadow: 0 1px 3px rgba(0, 0, 0, .8), 0 2px 12px rgba(0, 0, 0, .5);
+  background: rgba(24, 24, 26, .62);
+  backdrop-filter: blur(18px) saturate(.7);
 }
 
 .folder-modal-header {
   display: flex;
   min-width: 0;
+  min-height: 56px;
   align-items: center;
   gap: 12px;
-  padding: 2px 4px 16px;
-  border-bottom: 1px solid var(--ui-divider);
+  padding: 2px 4px 12px;
+}
+
+#folder-modal [hidden] {
+  display: none;
+}
+
+#folder-modal .folder-grid-bookmark.has-transparent-background {
+  --bookmark-context-text: var(--folder-bookmark-text, var(--color-text-bookmark));
+}
+
+#folder-modal .folder-grid-bookmark:is(.is-folder-grid-exiting, .is-folder-grid-invalid).has-transparent-background {
+  --bookmark-context-text: #f8fafc;
+}
+
+#folder-modal .folder-grid-bookmark .bookmark-title,
+#folder-modal .folder-modal-empty {
+  text-shadow: var(--folder-contents-text-shadow);
+}
+
+#folder-modal .folder-modal-empty {
+  color: var(--folder-contents-text);
+}
+
+#folder-modal:not(.is-folder-editing) .folder-grid-bookmark:is(:hover, :focus-within) {
+  box-shadow: none;
 }
 
 .folder-modal-glyph {
   position: relative;
   display: grid;
-  width: 48px;
-  height: 48px;
-  flex: 0 0 48px;
-  padding: 4px;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  order: 1;
+  padding: 2px;
   place-items: center;
   overflow: visible;
-  border: 1px solid color-mix(in srgb, var(--folder-color, #38bdf8) 34%, var(--ui-border));
-  border-radius: 15px;
-  background:
-    radial-gradient(circle at 28% 16%, rgba(255, 255, 255, .18), transparent 42%),
-    color-mix(in srgb, var(--folder-color, #38bdf8) 15%, var(--ui-card));
-  box-shadow:
-    inset 0 1px rgba(255, 255, 255, .08),
-    0 7px 16px rgba(2, 8, 23, .16);
-  color: inherit;
+  border: 1px solid var(--folder-control-border);
+  border-radius: 10px;
+  background: var(--folder-control-background);
+  color: var(--folder-control-text);
   cursor: pointer;
   transition: border-color .15s ease, background-color .15s ease,
     box-shadow .15s ease, transform .15s ease;
@@ -538,27 +576,35 @@
 
 .folder-modal-glyph:hover,
 .folder-modal-glyph:focus-visible {
-  border-color: color-mix(in srgb, var(--folder-color, #38bdf8) 58%, transparent);
-  background: color-mix(in srgb, var(--folder-color, #38bdf8) 18%, transparent);
-  box-shadow:
-    0 0 0 3px color-mix(in srgb, var(--folder-color, #38bdf8) 14%, transparent),
-    0 9px 20px rgba(2, 8, 23, .22);
-  outline: none;
+  background: var(--folder-control-hover);
   transform: translateY(-1px);
 }
 
 .folder-modal-glyph .folder-visual {
   display: block;
-  width: 40px;
-  height: calc(40px / 1.36);
+  width: 28px;
+  height: calc(28px / 1.36);
   margin: 0;
-  filter:
-    drop-shadow(0 4px 6px rgba(2, 8, 23, .32))
-    drop-shadow(0 0 1px color-mix(in srgb, var(--folder-color, #38bdf8) 58%, transparent));
+  filter: none;
 }
 
-.folder-modal-glyph .folder-visual.is-folder-transparent {
-  filter: none;
+/* The customization glyph is a control; its outline follows the control palette. */
+.folder-modal-glyph .folder-tab,
+.folder-modal-glyph .folder-svg-body {
+  fill: none;
+  stroke: currentColor;
+}
+
+.folder-modal-glyph .folder-svg-highlight,
+.folder-modal-glyph .folder-image-layer,
+.folder-modal-glyph .folder-body::before {
+  display: none;
+}
+
+.folder-modal-glyph .edit-indicator-svg {
+  border-color: var(--folder-control-border);
+  background: var(--folder-control-background);
+  color: var(--folder-control-text);
 }
 
 .folder-modal-glyph .folder-body {
@@ -569,6 +615,7 @@
 .folder-modal-heading {
   min-width: 0;
   flex: 1;
+  text-shadow: var(--folder-contents-text-shadow);
 }
 
 .folder-modal-heading h2 {
@@ -577,7 +624,7 @@
   margin: 0 0 4px;
   align-items: center;
   gap: 8px;
-  font-size: 1.12rem;
+  font-size: .875rem;
   white-space: nowrap;
 }
 
@@ -596,16 +643,16 @@
 }
 
 .folder-modal-title:hover {
-  color: var(--ui-accent);
+  box-shadow: 0 1px var(--folder-contents-muted);
 }
 
 .folder-modal-title.is-renaming {
   min-width: min(96px, 100%);
   padding: 1px 5px;
   margin: -1px -5px;
-  background: rgba(14, 165, 233, .12);
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, .45);
-  color: light-dark(var(--ui-info-text), #e0f2fe);
+  background: var(--folder-control-background);
+  box-shadow: 0 0 0 2px var(--folder-contents-text);
+  color: var(--folder-control-text);
   user-select: text;
 }
 
@@ -613,68 +660,59 @@
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
-  gap: 6px;
+  margin-inline-start: 5px;
+  gap: 8px;
 }
 
 .folder-modal-rename-button {
   display: grid;
-  width: 22px;
-  height: 22px;
-  flex: 0 0 22px;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  box-sizing: border-box;
   padding: 0;
-  border: 1px solid transparent;
+  border: 1px solid var(--folder-control-border);
   border-radius: 50%;
+  background: var(--folder-control-background);
+  color: var(--folder-control-text);
   cursor: pointer;
-  font: inherit;
-  font-size: .9rem;
-  line-height: 1;
   place-items: center;
   transition: background-color .15s ease, border-color .15s ease,
     transform .15s ease;
 }
 
-.folder-modal-rename-button.is-accept {
-  border-color: rgba(74, 222, 128, .48);
-  background: var(--ui-success-bg);
-  color: var(--ui-success-text);
-}
-
-.folder-modal-rename-button.is-accept:hover,
-.folder-modal-rename-button.is-accept:focus-visible {
-  border-color: #4ade80;
-  background: light-dark(#c9ead6, rgba(21, 128, 61, .72));
-}
-
-.folder-modal-rename-button.is-cancel {
-  border-color: rgba(248, 113, 113, .42);
-  background: var(--ui-danger-bg);
-  color: var(--ui-danger-text);
-}
-
-.folder-modal-rename-button.is-cancel:hover,
-.folder-modal-rename-button.is-cancel:focus-visible {
-  border-color: #f87171;
-  background: var(--ui-danger-hover);
+.folder-modal-rename-icon {
+  display: block;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
 }
 
 .folder-modal-rename-button:hover,
 .folder-modal-rename-button:focus-visible {
-  outline: none;
+  background: var(--folder-control-hover);
   transform: scale(1.06);
 }
 
 .folder-modal-heading small {
-  color: var(--ui-muted);
+  color: var(--folder-contents-muted);
+  font-size: .6875rem;
 }
 
 .folder-modal-edit-toggle {
   display: inline-flex;
+  order: 2;
   padding: 7px 10px;
   align-items: center;
-  border: 1px solid rgba(125, 211, 252, .18);
+  border: 1px solid var(--folder-control-border);
   border-radius: 999px;
-  background: var(--ui-info-bg);
-  color: var(--ui-info-text);
+  background: var(--folder-control-background);
+  color: var(--folder-control-text);
   cursor: pointer;
   font: inherit;
   font-size: .74rem;
@@ -685,16 +723,22 @@
 
 .folder-modal-edit-toggle:hover,
 .folder-modal-edit-toggle:focus-visible {
-  border-color: rgba(125, 211, 252, .58);
-  background: rgba(14, 165, 233, .18);
-  outline: none;
+  background: var(--folder-control-hover);
 }
 
 .folder-modal-edit-toggle[aria-pressed="true"] {
-  border-color: var(--ui-accent);
-  background: var(--ui-selected);
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, .12);
-  color: light-dark(#154b76, #e0f2fe);
+  background: var(--folder-control-active);
+}
+
+.folder-modal-edit-toggle[aria-pressed="true"]:hover {
+  background: var(--folder-control-hover);
+}
+
+.folder-modal-glyph:focus-visible,
+.folder-modal-edit-toggle:focus-visible,
+.folder-modal-rename-button:focus-visible {
+  outline: 2px solid var(--folder-contents-text);
+  outline-offset: 3px;
 }
 
 .folder-grid-shell {
@@ -719,12 +763,12 @@
   grid-template-rows: repeat(3, minmax(0, 1fr));
   grid-auto-rows: calc(100% / 3);
   gap: var(--folder-grid-gap);
-  border: 1px solid var(--ui-canvas-border);
+  border: 1px solid color-mix(in srgb, var(--folder-contents-text) 16%, transparent);
   border-radius: 12px;
-  background-color: var(--ui-canvas);
+  background-color: transparent;
   background-image:
-    linear-gradient(var(--ui-grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--ui-grid-line) 1px, transparent 1px);
+    linear-gradient(var(--folder-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--folder-grid-line) 1px, transparent 1px);
   background-size: calc(100% / 6) calc(100% / 3);
   background-position: 0 0;
   overflow-x: hidden;
@@ -732,10 +776,8 @@
 }
 
 .folder-modal-grid.is-folder-grid-exit-target {
-  border-color: rgba(56, 189, 248, .58);
-  box-shadow:
-    inset 0 0 0 1px rgba(56, 189, 248, .12),
-    0 0 20px rgba(14, 165, 233, .1);
+  border-color: var(--folder-contents-text);
+  box-shadow: inset 0 0 0 1px var(--folder-contents-text);
 }
 
 .folder-grid-bookmark.bookmark {
@@ -776,9 +818,7 @@
 
 .folder-grid-bookmark.bookmark:hover,
 .folder-grid-bookmark.bookmark:focus-within {
-  border-color: var(--ui-accent);
-  box-shadow: inset 0 0 0 1px rgba(56, 189, 248, .14),
-    0 10px 24px var(--ui-control-shadow);
+  box-shadow: inset 0 0 0 1px var(--folder-control-border);
 }
 
 .folder-grid-bookmark .bookmark-link {
@@ -796,7 +836,7 @@
 }
 
 .folder-grid-bookmark .bookmark-link:focus-visible {
-  outline: 2px solid var(--ui-accent);
+  outline: 2px solid var(--folder-contents-text);
   outline-offset: -2px;
   border-radius: 10px;
 }
@@ -832,13 +872,6 @@
   z-index: 5;
   display: flex;
   gap: 4px;
-  opacity: .9;
-  transition: opacity .15s ease;
-}
-
-.folder-grid-bookmark:hover .folder-bookmark-actions,
-.folder-grid-bookmark:focus-within .folder-bookmark-actions {
-  opacity: 1;
 }
 
 .folder-bookmark-actions .item-action-button {
@@ -846,18 +879,31 @@
   height: 22px;
   border-radius: 8px;
   font-size: .7rem;
+  font-variant-emoji: text;
 }
 
-.folder-bookmark-actions .folder-item-remove:hover {
-  background: #7c3aed;
-  color: #fff;
+#folder-modal .folder-bookmark-actions .item-action-button {
+  border-color: var(--folder-control-border);
+  background: var(--folder-control-background);
+  box-shadow: none;
+  color: var(--folder-control-text);
+}
+
+#folder-modal .folder-bookmark-actions .item-action-button:hover {
+  background: var(--folder-control-hover);
+}
+
+#folder-modal .folder-bookmark-actions .item-action-button:focus-visible {
+  outline-color: var(--folder-control-text);
+  box-shadow: 0 0 0 2px var(--folder-control-background);
 }
 
 .folder-bookmark-actions .folder-item-remove {
   margin-left: auto;
 }
 
-.folder-bookmark-actions .folder-item-delete:hover {
+#folder-modal .folder-bookmark-actions .folder-item-delete:hover {
+  border-color: #fff;
   background: #b91c1c;
   color: #fff;
 }
@@ -865,8 +911,7 @@
 .folder-grid-bookmark.is-folder-grid-dragging {
   --folder-scale: .96;
   z-index: 4;
-  border-color: #fbbf24;
-  box-shadow: 0 0 0 2px rgba(251, 191, 36, .34),
+  box-shadow: inset 0 0 0 2px var(--folder-contents-text),
     0 16px 30px rgba(2, 8, 23, .42);
   cursor: grabbing;
 }
@@ -876,6 +921,10 @@
 }
 
 .folder-grid-bookmark.is-folder-grid-exiting {
+  --folder-control-text: #f8fafc;
+  --folder-control-background: #18181a;
+  --folder-control-hover: #252528;
+  --folder-control-border: #77777a;
   --folder-scale: .93;
   z-index: 5;
   border-color: #38bdf8;
@@ -886,16 +935,16 @@
     0 16px 30px rgba(2, 8, 23, .46);
 }
 
-.folder-grid-bookmark.is-folder-grid-exiting .folder-item-remove.item-action-button {
-  background: #0284c7;
+#folder-modal .folder-grid-bookmark.is-folder-grid-exiting .folder-item-remove.item-action-button {
+  border-color: #f8fafc;
+  background: #075985;
   box-shadow: 0 0 0 2px rgba(125, 211, 252, .24);
   color: #fff;
 }
 
 .folder-grid-bookmark.is-folder-grid-displaced {
   --folder-scale: .97;
-  border-color: #7dd3fc;
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, .22);
+  box-shadow: inset 0 0 0 2px var(--folder-contents-text);
 }
 
 .folder-grid-bookmark.is-folder-grid-moving {
@@ -904,6 +953,10 @@
 }
 
 .folder-grid-bookmark.is-folder-grid-invalid {
+  --folder-control-text: #f8fafc;
+  --folder-control-background: #18181a;
+  --folder-control-hover: #252528;
+  --folder-control-border: #77777a;
   --folder-scale: .94;
   z-index: 5;
   border-color: #f87171;
@@ -917,6 +970,17 @@
 
 .folder-modal-grid.is-folder-grid-settling {
   pointer-events: none;
+}
+
+@keyframes folderModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .folder-modal-empty {
@@ -984,6 +1048,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .modal-folder {
+    animation: none;
+  }
+
   .bookmark-folder,
   .folder-drop-feedback,
   .folder-grid-bookmark,

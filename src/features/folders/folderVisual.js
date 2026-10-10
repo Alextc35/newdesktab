@@ -1,6 +1,7 @@
 import { resolveBackgroundImage } from '../../platform/images/localImages.js';
 import { createFavicon } from '../bookmarks/bookmarkFavicon.js';
 import { createFolderSvg } from '../../shared/ui/svgIcons.js';
+import { applyFolderAppearance } from './folderAppearance.js';
 
 /** Creates the shared folder glyph used by cards, previews and headers. */
 export function createFolderVisual(folder, bookmarks = [], { compact = false } = {}) {
@@ -59,29 +60,4 @@ function shouldUseCssImageLayer(url) {
   if (!url) return false;
   return /^data:image\/gif(?:;|,)/i.test(url)
     || /\.(?:gif|webp)(?:$|[?#])/i.test(url);
-}
-
-/** Applies persisted folder colors and optional imagery through CSS variables. */
-export function applyFolderAppearance(element, folder = {}) {
-  element.classList.toggle('is-folder-transparent', folder.noBackground === true);
-  element.classList.toggle('is-folder-outer-transparent', folder.noOuterBackground === true);
-  element.classList.toggle('is-folder-hidden', folder.showFolder === false);
-  element.classList.toggle('is-folder-preview-hidden', folder.showFolder === false || folder.showPreviews === false);
-  element.classList.toggle('is-folder-name-hidden', folder.showName === false);
-  element.classList.toggle('is-folder-count-hidden', folder.showCount === false);
-  const outerColor = folder.outerBackgroundColor;
-  element.classList.toggle('has-folder-outer-color', Boolean(outerColor));
-  if (outerColor) element.style.setProperty('--folder-outer-color', outerColor);
-  else element.style.removeProperty('--folder-outer-color');
-  element.style.setProperty(
-    '--folder-color',
-    folder.backgroundColor || '#38bdf8'
-  );
-  element.style.setProperty(
-    '--folder-text-color',
-    folder.textColor || '#f8fafc'
-  );
-
-  const backgroundImage = resolveBackgroundImage(folder) ?? '';
-  element.classList.toggle('has-folder-bg-image', Boolean(backgroundImage));
 }

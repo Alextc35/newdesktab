@@ -79,7 +79,7 @@ test('Information displays the New DeskTab brand artwork and keeps its text read
   await expect(card.locator('.settings-information-copy')).toBeVisible();
 });
 
-test('light folder grids keep labels readable and editors preview the saved appearance', async ({ page }) => {
+test('neutral folder grids keep readable labels across themes and editor previews', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'light' });
   await start(page);
   await page.evaluate(async () => {
@@ -88,8 +88,10 @@ test('light folder grids keep labels readable and editors preview the saved appe
   });
   await page.locator('.bookmark-folder .folder-open').click();
   const grid = page.locator('#folder-modal-items');
-  await expect(grid).toHaveCSS('background-color', 'rgb(247, 247, 248)');
-  await expect(page.locator('#folder-modal-empty')).toHaveCSS('color', 'rgb(100, 100, 111)');
+  await expect(grid).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+  await page.locator('#folder-modal-edit-toggle').click();
+  await expect(grid).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+  await expect(page.locator('#folder-modal-empty')).toHaveCSS('color', 'rgb(248, 250, 252)');
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
     const { getState, setState } = await import('/src/state/appStore.js');
@@ -109,15 +111,14 @@ test('light folder grids keep labels readable and editors preview the saved appe
   const purple = grid.locator('[data-bookmark-id="Purple"] .bookmark-title');
   const filled = grid.locator('[data-bookmark-id="Filled"] .bookmark-title');
   const cover = grid.locator('[data-bookmark-id="Cover"] .bookmark-title');
-  await expect(white).toHaveCSS('color', 'rgb(36, 36, 40)');
-  await expect(purple).toHaveCSS('color', 'rgb(85, 49, 168)');
+  await expect(white).toHaveCSS('color', 'rgb(255, 255, 255)');
+  await expect(purple).toHaveCSS('color', 'rgb(248, 250, 252)');
   await expect(filled).toHaveCSS('color', 'rgb(255, 255, 255)');
   await expect(cover).toHaveCSS('color', 'rgb(255, 255, 255)');
   await page.emulateMedia({ colorScheme: 'dark' });
-  await expect(grid).toHaveCSS('background-color', 'rgba(2, 6, 23, 0.32)');
+  await expect(grid).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await expect(white).toHaveCSS('color', 'rgb(255, 255, 255)');
   await page.emulateMedia({ colorScheme: 'light' });
-  await page.locator('#folder-modal-edit-toggle').click();
   await grid.getByRole('button', { name: 'Edit White', exact: true }).click();
   const preview = page.locator('#edit-bookmark-modal .bookmark-preview');
   await expect(preview).toHaveCSS('background-image', /conic-gradient/);
@@ -128,7 +129,7 @@ test('light folder grids keep labels readable and editors preview the saved appe
   await expect(page.locator('#folder-editor-preview .folder-title')).toHaveCSS('color', 'rgb(248, 250, 252)');
   await page.keyboard.press('Escape');
   await grid.locator('[data-bookmark-id="White"] .folder-item-remove').click();
-  await page.locator('#folder-modal-close').click();
+  await page.keyboard.press('Escape');
   await expect(page.locator('#bookmark-container [data-bookmark-id="White"] .bookmark-title'))
     .toHaveCSS('color', 'rgb(255, 255, 255)');
   expect(await page.evaluate(async () => {

@@ -31,7 +31,12 @@ import { ensurePanelFits, isListView } from '../../shared/ui/viewportMode.js';
 import { createBookmarkElement } from '../bookmarks/bookmarkCard.js';
 import { openEditBookmark } from '../bookmarks/bookmarkModal.js';
 import { openFolderEditor } from './folderEditorModal.js';
-import { applyFolderAppearance, createFolderVisual } from './folderVisual.js';
+import { createFolderVisual } from './folderVisual.js';
+import {
+  applyFolderAppearance,
+  applyFolderBookmarkContrast,
+  applyFolderContentsAppearance
+} from './folderAppearance.js';
 
 const FOLDER_MOVE_DURATION = 220;
 let initialized = false;
@@ -67,12 +72,11 @@ export function initFolderModal() {
   editToggle = document.getElementById('folder-modal-edit-toggle');
   customizeButton = document.getElementById('folder-modal-customize');
 
-  document.getElementById('folder-modal-close').addEventListener('click', closeFolderModal);
   editToggle.addEventListener('click', () => toggleFolderEditMode());
   customizeButton.addEventListener('click', () => {
     if (activeFolderId) openFolderEditor(activeFolderId);
   });
-  title.addEventListener('dblclick', startInlineFolderRename);
+  title.addEventListener('click', startInlineFolderRename);
   title.addEventListener('blur', () => {
     if (!isModalSuspended('folder')) finishInlineFolderRename();
   });
@@ -152,6 +156,7 @@ export function openFolderModal(folderId) {
   folderIsEditing = false;
   renderFolderContents();
   openModal('folder', { onCancel: closeFolderModal });
+  if (!isListView()) editToggle.focus({ preventScroll: true });
 }
 
 function closeFolderModal() {
@@ -182,8 +187,10 @@ function setFolderEditMode(isEditing, { announce = false } = {}) {
   }
 }
 
-function syncFolderEditUI() {
+function syncFolderEditUI(listView) {
   modal.classList.toggle('is-folder-editing', folderIsEditing);
+  customizeButton.hidden = !folderIsEditing;
+  editToggle.hidden = listView;
   editToggle.setAttribute('aria-pressed', String(folderIsEditing));
   editToggle.textContent = t(
     folderIsEditing ? 'folder.editMode.disable' : 'folder.editMode.enable'
@@ -202,8 +209,9 @@ function renderFolderContents() {
   const contents = bookmarks.filter(bookmark => bookmark.folderId === folder.id);
   const layout = createFolderBookmarkLayout(contents);
   const listView = isListView();
-  syncFolderEditUI();
-  // The customization action remains visible even when the launcher glyph is hidden.
+  syncFolderEditUI(listView);
+  applyFolderContentsAppearance(modalCard, folder);
+  // The edit action keeps its glyph even when the launcher artwork is hidden.
   const customizeAppearance = { ...folder, showFolder: true };
   customizeButton.replaceChildren(
     createFolderVisual(customizeAppearance, [], { compact: true }),
@@ -237,16 +245,17 @@ function renderFolderContents() {
 
   for (const bookmark of contents) {
     const position = layout.get(bookmark.id);
-    if (position) list.append(createFolderBookmarkItem(bookmark, position));
+    if (position) list.append(createFolderBookmarkItem(bookmark, position, folder));
   }
 }
 
 function startInlineFolderRename(event) {
+  if (title.isContentEditable) return;
   event.preventDefault();
   event.stopPropagation();
   if (!ensurePanelFits()) return;
   const folder = getState().data.folders.find(item => item.id === activeFolderId);
-  if (!folder || title.isContentEditable) return;
+  if (!folder) return;
 
   title.dataset.originalName = folder.name;
   title.contentEditable = 'true';
@@ -305,12 +314,13 @@ function enforceInlineFolderNameLimit() {
   selection.addRange(range);
 }
 
-function createFolderBookmarkItem(bookmark, position) {
+function createFolderBookmarkItem(bookmark, position, folder) {
   const item = createBookmarkElement(
     { ...bookmark, w: 1, h: 1 },
     { isEditing: folderIsEditing }
   );
   item.classList.add('folder-grid-bookmark');
+  applyFolderBookmarkContrast(item, bookmark, folder);
   item.dataset.bookmarkId = bookmark.id;
   item.setAttribute('role', 'listitem');
   applyFolderCell(item, position);

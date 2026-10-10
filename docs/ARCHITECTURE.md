@@ -95,6 +95,7 @@ src/
 │   │   └── bookmarkPreview.js
 │   ├── folders/
 │   │   ├── folderActions.js
+│   │   ├── folderAppearance.js
 │   │   ├── folderCard.js
 │   │   ├── folderCardActions.js
 │   │   ├── folderController.js
@@ -847,6 +848,19 @@ modal manager owns stacking, focus trapping, background isolation and focus
 restoration.
 
 The renderer displays top-level bookmarks and folders in the active workspace.
+`features/folders/folderAppearance.js` applies saved appearance to cards, artwork,
+previews and open contents without accessing the store. The contents surface is
+always neutral gray: `noBackground` enables a gray veil, local blur and a faint
+neutral border. Otherwise, `backgroundColor` accents only the outer border.
+Dark accent borders are adjusted to stay visible while retaining their hue. `noOuterBackground` and
+`outerBackgroundColor` remain launcher-card settings. Display contrast is derived
+without changing saved folder or bookmark colors. Browsing and editing share the
+same contents surface and geometry.
+`shared/ui/surfaceContrast.js` derives foreground, secondary text and control
+states from the neutral contents surface, targeting 4.5:1 text contrast and 3:1 control
+boundaries. Transparent contents use the brightest possible composite of their
+gray veil as the contrast baseline, so wallpaper and interface theme do not
+change readability. Grid lines remain decorative and intentionally faint.
 `features/folders/folderCard.js` owns the folder card and previews, while
 `features/folders/folderModal.js` reuses the production bookmark renderer in a
 compact 3 × 6 workspace. The modal starts in a link-only view with no action or
@@ -862,6 +876,8 @@ a source/destination flash. `src/domain/folders/folderGrid.js` owns the pure
 local layout contract and normalizes legacy or colliding positions
 deterministically. Main-grid bookmark drag logic detects folder hit targets and
 delegates membership changes to the folder feature actions.
+Clicking the contents title once starts inline renaming in the current surface;
+Enter or the confirmation control saves, and Escape or Cancel restores the name.
 
 `features/search/searchModal.js` indexes all workspaces and contained bookmarks,
 showing folder context when present. `features/search/listSearch.js` filters the

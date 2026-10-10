@@ -160,11 +160,21 @@
               <button id="folder-modal-rename-cancel"
                 class="folder-modal-rename-button is-cancel" type="button"
                 aria-label="Cancel folder rename"
-                data-i18n-aria-label="folder.actions.cancelRename">×</button>
+                data-i18n-aria-label="folder.actions.cancelRename">
+                <svg class="folder-modal-rename-icon" viewBox="0 0 24 24"
+                  aria-hidden="true" focusable="false">
+                  <path d="m6 6 12 12M18 6 6 18"/>
+                </svg>
+              </button>
               <button id="folder-modal-rename-accept"
                 class="folder-modal-rename-button is-accept" type="button"
                 aria-label="Save folder name"
-                data-i18n-aria-label="folder.actions.acceptRename">✓</button>
+                data-i18n-aria-label="folder.actions.acceptRename">
+                <svg class="folder-modal-rename-icon" viewBox="0 0 24 24"
+                  aria-hidden="true" focusable="false">
+                  <path d="m5 13 4 4L19 7"/>
+                </svg>
+              </button>
             </span>
           </h2>
           <small id="folder-modal-summary"></small>
@@ -179,10 +189,6 @@
         <p id="folder-modal-empty" class="folder-modal-empty" data-i18n="folder.empty">
           This folder is empty. Drag bookmarks here from edit mode.
         </p>
-      </div>
-      <div class="modal-actions">
-        <button id="folder-modal-close" class="btn btn-ghost" type="button"
-          data-i18n="buttons.close">Close</button>
       </div>
     </div>
   </div>

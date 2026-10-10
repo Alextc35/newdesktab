@@ -51,6 +51,7 @@ async function start(page, layouts = [{ id: folderId, gx: 0, gy: 0, w: 2, h: 2 }
 
 async function openEditor(page) {
   await folderCard(page).locator('.folder-open').click();
+  await page.locator('#folder-modal-edit-toggle').click();
   await expect(page.locator('#folder-modal-customize .edit-indicator-svg')).toBeVisible();
   await page.locator('#folder-modal-customize').click();
   await expect(page.locator('#edit-folder-modal')).toBeVisible();
@@ -64,7 +65,7 @@ async function tab(page, name) {
 async function saveAndClose(page) {
   await saveButton(page).click();
   await expect(page.locator('#edit-folder-modal')).toBeHidden();
-  await page.locator('#folder-modal-close').click();
+  await page.keyboard.press('Escape');
 }
 
 async function savedFolder(page) {
@@ -78,6 +79,56 @@ async function expectBorder(card) {
   expect(await card.evaluate(element => parseFloat(getComputedStyle(element).borderTopWidth)))
     .toBeGreaterThan(0);
   await expect(card).not.toHaveCSS('border-top-color', 'rgba(0, 0, 0, 0)');
+}
+
+async function expectContentsContrast(page, { editing = false, renaming = false } = {}) {
+  const selectors = ['#folder-modal-title', '#folder-modal-summary',
+    '#folder-modal-items .bookmark-title', '#folder-modal-edit-toggle'];
+  if (editing) selectors.push('#folder-modal-customize', '.folder-bookmark-actions button');
+  if (renaming) selectors.push('.folder-modal-rename-button');
+  const measurements = await page.locator('#folder-modal .modal-folder').evaluate(async (surface, selector) => {
+    await Promise.all(surface.getAnimations({ subtree: true }).map(animation => animation.finished));
+    const channels = color => {
+      const values = color.match(/[\d.]+/g).map(Number);
+      return [...values.slice(0, 3), values[3] ?? 1];
+    };
+    const composite = (color, canvas) => color.slice(0, 3).map((value, index) => (
+      value * color[3] + canvas[index] * (1 - color[3])
+    ));
+    const luminance = color => color.map(value => {
+      value /= 255;
+      return value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4;
+    }).reduce((sum, value, index) => sum + value * [.2126, .7152, .0722][index], 0);
+    const contrast = (a, b) => {
+      const values = [luminance(a), luminance(b)].sort((first, second) => first - second);
+      return (values[1] + .05) / (values[0] + .05);
+    };
+    // Ignore the dimming overlay: white is the conservative transparent baseline.
+    const canvas = composite(channels(getComputedStyle(surface).backgroundColor), [255, 255, 255]);
+    const measurements = [...surface.querySelectorAll(selector)].map(element => {
+      const style = getComputedStyle(element);
+      const background = composite(channels(style.backgroundColor), canvas);
+      return {
+        name: element.getAttribute('aria-label') || element.textContent,
+        text: contrast(composite(channels(style.color), background), background),
+        border: element.matches('button')
+          ? contrast(composite(channels(style.borderTopColor), background), background) : null
+      };
+    });
+    if (!surface.classList.contains('is-folder-contents-transparent')) {
+      measurements.push({ name: 'Folder outline', text: null,
+        border: contrast(channels(getComputedStyle(surface).borderTopColor).slice(0, 3), canvas) });
+    }
+    return measurements;
+  }, selectors.join(', '));
+  for (const measurement of measurements) {
+    if (measurement.text !== null) {
+      expect(measurement.text, `${measurement.name}: text contrast`).toBeGreaterThanOrEqual(4.5);
+    }
+    if (measurement.border !== null) {
+      expect(measurement.border, `${measurement.name}: control border contrast`).toBeGreaterThanOrEqual(3);
+    }
+  }
 }
 
 async function measureGridCardAlignment(page) {
@@ -112,6 +163,126 @@ async function measureGridCardAlignment(page) {
   }, folderId);
 }
 
+test('open folder contents keep a neutral surface and use the saved color only on the border', async ({ page }) => {
+  await start(page, [
+    { id: folderId, gx: 0, gy: 0, w: 2, h: 2, noBackground: true,
+      backgroundColor: '#38bdf8', outerBackgroundColor: '#ff0000' },
+    { id: 'dark-contents-folder', gx: 2, gy: 0, w: 1, h: 1,
+      backgroundColor: '#101820', noOuterBackground: true }
+  ]);
+  await folderCard(page).locator('.folder-open').click();
+  const surface = page.locator('#folder-modal .modal-folder');
+  const edit = page.locator('#folder-modal-edit-toggle');
+  const label = page.locator('#folder-modal-items .bookmark-title').first();
+  await expect(surface).toHaveCSS('background-color', 'rgba(24, 24, 26, 0.62)');
+  await expect(surface).toHaveCSS('backdrop-filter', /blur\(18px\)/);
+  await expect(surface).toHaveCSS('border-top-color', 'rgba(255, 255, 255, 0.16)');
+  await surface.evaluate(element => Promise.all(element.getAnimations().map(animation => animation.finished)));
+  const geometry = await surface.boundingBox();
+  await edit.click();
+  expect(await surface.boundingBox()).toEqual(geometry);
+  await expect(surface).toHaveCSS('background-color', 'rgba(24, 24, 26, 0.62)');
+
+  await page.locator('#folder-modal-customize').click();
+  await tab(page, 'Style');
+  await page.locator('#folder-editor-no-background').uncheck();
+  await page.locator('#folder-editor-color').fill('#e2e8f0');
+  await saveButton(page).click();
+  await expect(page.locator('#edit-folder-modal')).toBeHidden();
+  await expect(surface).toHaveCSS('background-color', 'rgb(24, 24, 26)');
+  await expect(surface).toHaveCSS('border-top-color', 'rgb(226, 232, 240)');
+  await expect(surface).toHaveCSS('backdrop-filter', 'none');
+  await expect(label).toHaveCSS('color', 'rgb(255, 255, 255)');
+  await edit.click();
+  await expect(surface).toHaveCSS('background-color', 'rgb(24, 24, 26)');
+  expect(await surface.boundingBox()).toEqual(geometry);
+  await page.keyboard.press('Escape');
+  await page.reload();
+  await expectAppReady(page);
+  await folderCard(page).locator('.folder-open').click();
+  await expect(surface).toHaveCSS('background-color', 'rgb(24, 24, 26)');
+  await expect(surface).toHaveCSS('border-top-color', 'rgb(226, 232, 240)');
+
+  await edit.click();
+  await page.locator('#folder-modal-customize').click();
+  await tab(page, 'Style');
+  await page.locator('#folder-editor-no-background').check();
+  await saveButton(page).click();
+  await expect(page.locator('#edit-folder-modal')).toBeHidden();
+  await expect(surface).toHaveCSS('background-color', 'rgba(24, 24, 26, 0.62)');
+  await expect(surface).toHaveCSS('border-top-color', 'rgba(255, 255, 255, 0.16)');
+  await expect(label).toHaveCSS('color', 'rgb(255, 255, 255)');
+  await page.keyboard.press('Escape');
+
+  await page.locator('[data-folder-id="dark-contents-folder"] .folder-open').click();
+  await expect(surface).toHaveCSS('background-color', 'rgb(24, 24, 26)');
+  await expect(surface).toHaveCSS('backdrop-filter', 'none');
+  await expect(label).toHaveCSS('color', 'rgb(255, 255, 255)');
+});
+
+test('folder colors keep readable labels and coherent controls in browse, hover, edit and rename', async ({ page }) => {
+  await start(page);
+  const originalColors = ['#ffffff', '#000000', '#5531a8'];
+  await page.evaluate(async colors => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    await setState({ data: { bookmarks: getState().data.bookmarks.map((bookmark, index) => ({
+      ...bookmark, textColor: colors[index]
+    })) } });
+  }, originalColors);
+  await folderCard(page).locator('.folder-open').click();
+  const edit = page.locator('#folder-modal-edit-toggle');
+  const title = page.locator('#folder-modal-title');
+  const gridAppearance = () => page.locator('#folder-modal-items').evaluate(grid => {
+    const style = getComputedStyle(grid);
+    return { background: style.backgroundColor, lines: style.backgroundImage, border: style.borderTopColor };
+  });
+  const neutralGrid = await gridAppearance();
+  for (const [index, color] of ['#38bdf8', '#ffffff', '#000000', '#101820', '#777777',
+    '#737373', '#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#a78bfa'].entries()) {
+    await page.evaluate(async ({ id, color, theme }) => {
+      const { getState, setState } = await import('/src/state/appStore.js');
+      const data = getState().data;
+      await setState({ data: {
+        folders: data.folders.map(folder => folder.id === id ? { ...folder, backgroundColor: color } : folder),
+        settings: { ...data.settings, interfaceTheme: theme }
+      } });
+    }, { id: folderId, color, theme: index % 2 ? 'light' : 'dark' });
+    await expect(page.locator('#folder-modal .modal-folder')).toHaveCSS('background-color', 'rgb(24, 24, 26)');
+    expect(await gridAppearance()).toEqual(neutralGrid);
+    await expectContentsContrast(page);
+    await edit.hover();
+    await expectContentsContrast(page);
+    await edit.click();
+    expect(await gridAppearance()).toEqual(neutralGrid);
+    await expectContentsContrast(page, { editing: true });
+    const actions = page.locator('#folder-modal-items .folder-bookmark-actions').first();
+    for (const button of await actions.locator('button').all()) {
+      await button.hover();
+      await expectContentsContrast(page, { editing: true });
+    }
+    await title.click();
+    await expectContentsContrast(page, { editing: true, renaming: true });
+    await page.keyboard.press('Escape');
+    await edit.click();
+  }
+  await page.evaluate(async id => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    await setState({ data: { folders: getState().data.folders.map(folder => (
+      folder.id === id ? { ...folder, noBackground: true } : folder
+    )) } });
+  }, folderId);
+  expect(await gridAppearance()).toEqual(neutralGrid);
+  await expectContentsContrast(page);
+  await edit.click();
+  await expectContentsContrast(page, { editing: true });
+  await title.click();
+  await expectContentsContrast(page, { editing: true, renaming: true });
+  await page.keyboard.press('Escape');
+  expect(await page.evaluate(async () => (
+    (await import('/src/state/appStore.js')).getState().data.bookmarks.map(bookmark => bookmark.textColor)
+  ))).toEqual(originalColors);
+});
+
 test('new folders and the default recycle bin have no outer background', async ({ page }) => {
   await page.goto('/tests/browser-harness.html');
   await expectAppReady(page);
@@ -144,6 +315,7 @@ test('new folders and the default recycle bin have no outer background', async (
   await expect(folder).toHaveCSS('box-shadow', 'none');
 
   await folder.locator('.folder-open').click();
+  await page.locator('#folder-modal-edit-toggle').click();
   await page.locator('#folder-modal-customize').click();
   await page.locator('#edit-folder-modal').getByRole('tab', { name: 'Style' }).click();
   const noOuterBackground = page.locator('#folder-editor-no-outer-background');
@@ -157,7 +329,7 @@ test('new folders and the default recycle bin have no outer background', async (
   await expect(previewCard(page)).not.toHaveCSS('background-image', 'none');
   await page.locator('#edit-folder-modal-save').click();
   await expect(page.locator('#edit-folder-modal')).toBeHidden();
-  await page.locator('#folder-modal-close').click();
+  await page.keyboard.press('Escape');
   await expect(folder).not.toHaveClass(/is-folder-outer-transparent/);
   await page.reload();
   await expectAppReady(page);
@@ -481,6 +653,7 @@ test('hiding the glyph also hides previews while an empty bordered card still op
   await folderCard(page).getByRole('button', { name: /Open Reading/ }).click();
   await expect(page.locator('#folder-modal')).toBeVisible();
   await expect(page.locator('#folder-modal-items [data-bookmark-id]')).toHaveCount(3);
+  await page.locator('#folder-modal-edit-toggle').click();
   await page.locator('#folder-modal-customize').click();
   await expect(saveButton(page)).toBeDisabled();
   await tab(page, 'Style');
@@ -536,6 +709,7 @@ test('transparent SVG tabs meet the folder face at small, normal and large sizes
     await assertTabBounds(visual);
   }
   await folderCard(page).locator('.folder-open').click();
+  await page.locator('#folder-modal-edit-toggle').click();
   await assertTabBounds(page.locator('#folder-modal-customize .folder-visual'));
   await page.locator('#folder-modal-customize').click();
   await assertTabBounds(previewCard(page).locator('.folder-visual'));
@@ -655,6 +829,7 @@ test('centers the search glyph and preserves the opened-folder SVG proportions',
       - searchGeometry.control.y - searchGeometry.control.height / 2
   )).toBeLessThanOrEqual(1);
   await folderCard(page).locator('.folder-open').click();
+  await page.locator('#folder-modal-edit-toggle').click();
   const previewGeometry = await page.locator('#folder-modal-customize').evaluate(button => {
     const control = button.getBoundingClientRect();
     const preview = button.querySelector('.folder-visual').getBoundingClientRect();

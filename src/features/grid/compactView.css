@@ -386,9 +386,6 @@
     position: static;
     width: 100%;
     padding: 22px 16px;
-    border: 1px dashed var(--ui-divider);
-    border-radius: 12px;
-    background: color-mix(in srgb, var(--ui-selected) 32%, transparent);
     font-size: 13px;
     box-sizing: border-box;
   }

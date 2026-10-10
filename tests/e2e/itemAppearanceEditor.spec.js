@@ -43,6 +43,7 @@ async function openEditor(page, type) {
     await page.locator('[data-bookmark-id="editor-bookmark"] .item-action-button.edit').click();
   } else if (type === 'folder') {
     await page.locator('[data-folder-id="editor-folder"] .folder-open').click();
+    await page.locator('#folder-modal-edit-toggle').click();
     await page.locator('#folder-modal-customize').click();
   } else {
     await page.locator('#bookmark-container .recycle-bin-open').click();

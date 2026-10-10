@@ -7,8 +7,9 @@ let folderImagePatternId = 0;
 export function createFolderSvg(backgroundImageUrl = null) {
   const svg = createSvg('0 0 136 100', 'folder-svg');
   svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+  // Join the open tab contour to the body's top edge without a second seam.
   const tab = createPath(
-    'M12 26V14a8 8 0 0 1 8-8h32a10 10 0 0 1 8 4l12 16H12Z',
+    'M12 24V14a8 8 0 0 1 8-8h32a10 10 0 0 1 8 4l10.5 14',
     'folder-tab'
   );
   const body = createPath(

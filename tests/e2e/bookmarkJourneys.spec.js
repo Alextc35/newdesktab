@@ -2716,7 +2716,7 @@ test('creates a folder, accepts a dragged bookmark and persists its contents', a
   const persistedFolderBox = await visibleBox(persistedFolder);
   expect(Math.abs(persistedFolderBox.height - resizedFolderBox.height)).toBeLessThan(2);
   await persistedFolder.getByRole('button', { name: /Open Reading/ }).click();
-  await expect(page.getByRole('heading', { name: 'Reading' })).toBeVisible();
+  await expect(page.getByRole('dialog', { name: 'Reading' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Reading item/ })).toBeVisible();
   const folderGrid = page.getByRole('list', { name: 'Folder bookmarks' });
   await expect(folderGrid).toBeVisible();
@@ -2727,7 +2727,7 @@ test('creates a folder, accepts a dragged bookmark and persists its contents', a
   await enableFolderEditMode(page);
   await page.getByRole('button', { name: /Move Reading item out of the folder/ }).click();
   await expect(page.getByText('0 of 18 spaces used')).toBeVisible();
-  await page.getByRole('button', { name: 'Close' }).click();
+  await page.keyboard.press('Escape');
   await expect(page.getByRole('link', { name: /Reading item/ })).toBeVisible();
 });
 
@@ -2743,6 +2743,7 @@ test('customizes a folder from its miniature and persists the appearance', async
 
   const folderModal = page.locator('#folder-modal');
   const editor = page.locator('#edit-folder-modal');
+  await enableFolderEditMode(page);
   const miniature = page.getByRole('button', { name: 'Customize folder' });
   await expect(miniature.locator('.folder-visual')).toBeVisible();
   await miniature.click();
@@ -2795,7 +2796,7 @@ test('customizes a folder from its miniature and persists the appearance', async
   await expect(folderModal).toBeVisible();
   await expect(page.locator('#folder-modal-title')).toHaveText('Games');
   await expect(miniature).toHaveCSS('--folder-color', '#ef4444');
-  await page.locator('#folder-modal-close').click();
+  await page.keyboard.press('Escape');
 
   folder = page.locator('.bookmark-folder', { hasText: 'Games' });
   await expect(folder).toHaveCSS('--folder-color', '#ef4444');
@@ -2811,6 +2812,7 @@ test('customizes a folder from its miniature and persists the appearance', async
   await expect(folder.locator('.folder-svg pattern image'))
     .toHaveAttribute('href', 'https://images.test/folder.png');
   await folder.getByRole('button', { name: /Open Games/ }).click();
+  await enableFolderEditMode(page);
   await page.getByRole('button', { name: 'Customize folder' }).click();
   await page.getByRole('tab', { name: 'Style' }).click();
   await expect(page.locator('#folder-editor-image')).toHaveJSProperty('readOnly', true);
@@ -2829,7 +2831,7 @@ test('customizes a folder from its miniature and persists the appearance', async
   await page.locator('#edit-folder-modal-save').click();
 
   await expect(editor).toBeHidden();
-  await page.locator('#folder-modal-close').click();
+  await page.keyboard.press('Escape');
   folder = page.locator('.bookmark-folder', { hasText: 'Games' });
   await expect(folder).toHaveClass(/is-folder-transparent/);
   await expect(folder.locator('.folder-body'))
@@ -3006,6 +3008,23 @@ test('renders a 6 by 3 folder grid and smoothly persists relocation', async ({ p
   await expect(grid.getByRole('button')).toHaveCount(0);
   await expect(first.getByRole('link')).toHaveCSS('cursor', 'pointer');
   await expect(page.locator('#folder-modal-edit-toggle')).toHaveText('Edit');
+  await expect(page.locator('#folder-modal-edit-toggle')).toBeFocused();
+  const folderSurface = page.locator('#folder-modal .modal-folder');
+  await folderSurface.evaluate(element => Promise.all(
+    element.getAnimations().map(animation => animation.finished)
+  ));
+  const browseGeometry = await folderSurface.boundingBox();
+  const browseBackground = await folderSurface.evaluate(element => getComputedStyle(element).backgroundImage);
+  await expect(folderSurface).toHaveCSS('background-color', 'rgb(24, 24, 26)');
+  await expect(folderSurface).toHaveCSS('border-top-color', 'rgb(56, 189, 248)');
+  await expect(grid).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+  await expect(grid).toHaveCSS('background-image', /linear-gradient/);
+  await expect(page.locator('#folder-modal-customize')).toBeHidden();
+  await expect(page.locator('#folder-modal-title')).toBeVisible();
+  await page.keyboard.press('Shift+Tab');
+  await expect(grid.getByRole('link').last()).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.locator('#folder-modal-edit-toggle')).toBeFocused();
   expect(Math.abs(
     firstCellAlignment.cardWidth - firstCellAlignment.cellWidth
   )).toBeLessThan(1);
@@ -3016,6 +3035,12 @@ test('renders a 6 by 3 folder grid and smoothly persists relocation', async ({ p
     'aria-pressed',
     'true'
   );
+  await expect(page.locator('#folder-modal-customize')).toBeVisible();
+  await expect(page.locator('#folder-modal-title')).toBeVisible();
+  await expect(folderSurface).toHaveCSS('background-image', browseBackground);
+  expect(await folderSurface.boundingBox()).toEqual(browseGeometry);
+  await expect(grid).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+  await expect(grid).not.toHaveCSS('background-image', 'none');
   await expect(page.getByText('Edit mode enabled')).toBeVisible();
   await expect(grid.getByRole('button')).toHaveCount(6);
   await expect(first.getByRole('link')).toHaveCSS('cursor', 'grab');
@@ -3052,7 +3077,7 @@ test('renders a 6 by 3 folder grid and smoothly persists relocation', async ({ p
   await expect(page.getByText('Edit mode disabled')).toBeVisible();
   await expect(grid.getByRole('button')).toHaveCount(0);
   await expect(first.getByRole('link')).toHaveCSS('cursor', 'pointer');
-  await page.getByRole('button', { name: 'Close' }).click();
+  await page.keyboard.press('Escape');
   await reloadSavedPage(page);
   await page.locator('.bookmark-folder', { hasText: 'Visual grid' })
     .getByRole('button', { name: /Open Visual grid/ })
@@ -3131,8 +3156,9 @@ test('moves a bookmark back to the workspace when dragged outside its folder', a
   await expect(item).toHaveClass(/is-folder-grid-exiting/);
   await expect(item.locator('.folder-item-remove')).toHaveCSS(
     'background-color',
-    'rgb(2, 132, 199)'
+    'rgb(7, 89, 133)'
   );
+  await expect(item.locator('.bookmark-title')).toHaveCSS('color', 'rgb(255, 255, 255)');
   await expect.poll(() => item.evaluate(element => (
     element.style.getPropertyValue('--folder-shift-x')
   ))).toBe(shiftedX);
@@ -3175,7 +3201,7 @@ test('moves a bookmark back to the workspace when dragged outside its folder', a
   }, bookmarkId)).toBeNull();
   await expect(page.getByText('Bookmark moved back to the grid')).toBeVisible();
 
-  await page.getByRole('button', { name: 'Close' }).click();
+  await page.keyboard.press('Escape');
   await expect(page.locator(
     `#bookmark-container > .bookmark[data-bookmark-id="${bookmarkId}"]`
   )).toBeVisible();
@@ -3235,6 +3261,7 @@ test('honors None and Sequence inside a folder', async ({ page }) => {
   await expect(items.nth(0)).toHaveClass(/is-folder-grid-invalid/);
   await expect(items.nth(0)).toHaveCSS('opacity', '1');
   await expect(items.nth(0)).toHaveCSS('background-color', 'rgba(69, 10, 10, 0.96)');
+  await expect(items.nth(0).locator('.bookmark-title')).toHaveCSS('color', 'rgb(255, 255, 255)');
   await expect(grid.locator('.is-folder-grid-displaced')).toHaveCount(0);
   expect(await items.nth(0).evaluate(element => (
     element.style.getPropertyValue('--folder-shift-x')
@@ -3251,7 +3278,7 @@ test('honors None and Sequence inside a folder', async ({ page }) => {
     element.style.getPropertyValue('--folder-shift-x')
   ))).toBe('');
 
-  await page.getByRole('button', { name: 'Close' }).click();
+  await page.keyboard.press('Escape');
   await setBookmarkDragMode(page, 'cascade');
   await openFolder();
   await enableFolderEditMode(page);
@@ -3359,14 +3386,14 @@ test('deletes a bookmark permanently from an open folder after confirmation', as
   await page.getByRole('button', { name: 'Accept', exact: true }).click();
   await expect(grid.locator('[data-bookmark-id]')).toHaveCount(0);
 
-  await page.getByRole('button', { name: 'Close' }).click();
+  await page.keyboard.press('Escape');
   await reloadSavedPage(page);
   await openFolder();
   await expect(page.getByRole('list', { name: 'Folder bookmarks' })
     .locator('[data-bookmark-id]')).toHaveCount(0);
 });
 
-test('renames an open folder by double-clicking its title', async ({ page }) => {
+test('renames an open folder with one click on its title', async ({ page }) => {
   await revealSideDock(page);
   await page.locator('#add-toggle').click();
   await page.locator('#add-folder').click();
@@ -3377,26 +3404,46 @@ test('renames an open folder by double-clicking its title', async ({ page }) => 
     .getByRole('button', { name: /Open PokeMMO/ })
     .click();
   const title = page.locator('#folder-modal-title');
+  await expect(title).not.toHaveAttribute('contenteditable');
+  await expect(page.locator('#folder-modal-edit-toggle')).toHaveAttribute('aria-pressed', 'false');
   await expect(title).not.toHaveAttribute('role');
   await expect(title).not.toHaveAttribute('tabindex');
-  await title.dblclick();
+  await title.click();
   await expect(title).toHaveAttribute('contenteditable', 'true');
   await expect(title).toBeFocused();
   const cancelRename = page.getByRole('button', { name: 'Cancel folder rename' });
   await expect(cancelRename).toBeVisible();
+  const renameButtons = page.locator('.folder-modal-rename-button');
+  await expect(renameButtons.locator('svg')).toHaveCount(2);
+  const controls = await renameButtons.evaluateAll(buttons => buttons.map(button => {
+    const circle = button.getBoundingClientRect();
+    const icon = button.querySelector('svg').getBoundingClientRect();
+    return {
+      width: circle.width, height: circle.height, left: circle.left, right: circle.right,
+      offsetX: (icon.left + icon.right - circle.left - circle.right) / 2,
+      offsetY: (icon.top + icon.bottom - circle.top - circle.bottom) / 2
+    };
+  }));
+  for (const control of controls) {
+    expect(control.width).toBeCloseTo(control.height);
+    expect(Math.abs(control.offsetX)).toBeLessThan(.5);
+    expect(Math.abs(control.offsetY)).toBeLessThan(.5);
+  }
+  expect(controls[0].width).toBeCloseTo(controls[1].width);
+  expect(controls[1].left - controls[0].right).toBeGreaterThanOrEqual(6);
   await title.fill('');
   await cancelRename.click();
   await expect(title).toHaveText('PokeMMO');
   await expect(title).not.toHaveAttribute('contenteditable');
   await expect(cancelRename).toBeHidden();
 
-  await title.dblclick();
+  await title.click();
   await title.fill('Accepted rename');
   await page.getByRole('button', { name: 'Save folder name' }).click();
   await expect(title).toHaveText('Accepted rename');
   await expect(title).not.toHaveAttribute('contenteditable');
 
-  await title.dblclick();
+  await title.click();
   const requestedName = `Pokémon tools ${'x'.repeat(60)}`;
   const expectedName = requestedName.slice(0, 60);
   await title.fill(requestedName);

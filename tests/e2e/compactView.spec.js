@@ -735,10 +735,11 @@ for (const mode of ['add', 'edit']) {
   });
 }
 
-test('preserves nested folder edits and confirmations while the readable folder stays usable', async ({ page }) => {
+test('preserves nested folder edits and confirmations while edit tools are suspended', async ({ page }) => {
   await start(page);
   const original = await data(page);
   await page.locator('[data-folder-id="compact-folder"] .folder-open').click();
+  await page.locator('#folder-modal-edit-toggle').click();
   await page.locator('#folder-modal-customize').click();
   await page.locator('#folder-editor-name').fill('Draft folder name');
   await page.locator('#edit-folder-modal-cancel').click();
@@ -746,10 +747,8 @@ test('preserves nested folder edits and confirmations while the readable folder 
   await page.setViewportSize({ width: 430, height: 720 });
   await expect(page.locator('#alert-modal')).toBeHidden();
   await expect(page.locator('#edit-folder-modal')).toBeHidden();
-  await expect(page.locator('#folder-modal-items .bookmark-list-item')).toHaveCount(3);
   await expect(page.locator('.flash-info')).toHaveCount(1);
-  // Closing the visible parent must not pop or discard a suspended child.
-  await page.locator('#folder-modal-close').click();
+  // The parent and its edit tools remain suspended until the window is widened.
   await expect(page.locator('#folder-modal')).toBeHidden();
   await page.keyboard.press('Escape');
   expect(await data(page)).toEqual(original);
@@ -788,7 +787,7 @@ test('suspends folder editing and inline renaming without saving or discarding t
   const original = await data(page);
   await page.locator('[data-folder-id="compact-folder"] .folder-open').click();
   await page.locator('#folder-modal-edit-toggle').click();
-  await page.locator('#folder-modal-title').dblclick();
+  await page.locator('#folder-modal-title').click();
   await page.locator('#folder-modal-title').fill('Unfinished rename');
   await page.setViewportSize({ width: 430, height: 720 });
   await expect(page.locator('#folder-modal')).toBeHidden();

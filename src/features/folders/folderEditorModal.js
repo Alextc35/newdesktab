@@ -22,7 +22,8 @@ import { closeModal, openModal, registerModal } from '../../shared/ui/modalManag
 import { initTabs } from '../../shared/ui/tabs.js';
 import { createItemAppearanceEditor } from '../item-editor/itemAppearanceEditor.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
-import { applyFolderAppearance, createFolderVisual } from './folderVisual.js';
+import { applyFolderAppearance } from './folderAppearance.js';
+import { createFolderVisual } from './folderVisual.js';
 
 let initialized = false;
 /** @type {'create'|'edit'|null} */
