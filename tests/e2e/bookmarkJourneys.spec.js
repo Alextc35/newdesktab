@@ -2154,6 +2154,7 @@ test('configures the default bookmark through the shared preset editor', async (
   await expect(editor.getByRole('heading', { name: 'Default bookmark appearance' })).toBeVisible();
   await expect(editor.locator('.editor-reset-appearance')).toBeVisible();
   await expect(editor.getByRole('tab', { name: 'General' })).toHaveCount(0);
+  await expect(editor.getByRole('tab')).toHaveText(['Library', 'Style']);
   await expect(editor.getByRole('tab', { name: 'Library', exact: true }))
     .toHaveAttribute('aria-selected', 'true');
   await expect(editor.getByRole('tab', { name: 'Library', exact: true })).toBeFocused();
@@ -2163,7 +2164,9 @@ test('configures the default bookmark through the shared preset editor', async (
   await expect(editor.locator('.bookmark-preview .bookmark-favicon-image'))
     .toHaveAttribute('src', /assets\/icons\/icon-128\.png$/);
 
-  await editor.getByRole('tab', { name: 'Style' }).click();
+  await page.keyboard.press('ArrowRight');
+  await expect(editor.getByRole('tab', { name: 'Style' })).toBeFocused();
+  await expect(editor.getByRole('tab', { name: 'Style' })).toHaveAttribute('aria-selected', 'true');
   await editor.getByRole('checkbox', { name: 'No background' }).uncheck();
   await editor.locator('#bookmark-modal-form-backgroundColor').fill('#123456');
   await editor.getByRole('button', { name: 'Apply' }).click();
