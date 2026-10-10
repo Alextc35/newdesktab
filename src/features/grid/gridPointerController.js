@@ -13,7 +13,7 @@ import { toggleGridItemSelection } from './gridSelection.js';
 import { RESIZE_DIRECTIONS } from '../../shared/grid/resizeGeometry.js';
 import { gridGesture, SMART_MOVE_DURATION } from './gridGestureState.js';
 import { handleResize } from './gridResizeGesture.js';
-import { createSmartDragSession, applySmartDragPreview, applyInvalidSmartDragPreview, restoreSmartDragPreview, commitSmartDragLayout,
+import { createSmartDragSession, applySmartDragPreview, applyPointerDragPreview, snapSmartDragPreview, restoreSmartDragPreview, commitSmartDragLayout,
   sameGridPosition, suppressFolderOpen, scheduleSmartPreviewCleanup, planSmartDragSession } from './gridDragSession.js';
 import { findFolderTarget, findRectangleTarget, applyDropLandingGeometry, clearDropLandingGeometry } from './gridPointerGeometry.js';
 import {
@@ -85,8 +85,9 @@ export function addGridItemPointerControls(container, div, item, {
 
     startX = e.clientX;
     startY = e.clientY;
-    startLeft = div.offsetLeft;
-    startTop = div.offsetTop;
+    const style = getComputedStyle(div);
+    startLeft = parseFloat(style.left);
+    startTop = parseFloat(style.top);
     rowWidth = container.clientWidth / GRID_COLS;
     rowHeight = container.clientHeight / GRID_ROWS;
     startScrollX = viewport?.scrollLeft ?? 0;
@@ -120,8 +121,8 @@ export function addGridItemPointerControls(container, div, item, {
       startDragFeedback();
     }
 
-    let newLeft = startLeft + dx;
-    let newTop = startTop + dy;
+    const newLeft = Math.max(0, Math.min(startLeft + dx, (GRID_COLS - item.w) * rowWidth));
+    const newTop = Math.max(0, Math.min(startTop + dy, (GRID_ROWS - item.h) * rowHeight));
 
     let newGX = Math.round(newLeft / rowWidth);
     let newGY = Math.round(newTop / rowHeight);
@@ -151,6 +152,10 @@ export function addGridItemPointerControls(container, div, item, {
     }
     setFolderTarget(null);
 
+    // The card follows the grab point on every event. Only collision planning
+    // and neighboring items use snapped cells, so crossing an occupied cell
+    // changes the warning without making the card jump under the pointer.
+    applyPointerDragPreview(container, dragSession, newLeft, newTop);
     const target = { gx: newGX, gy: newGY };
     // Pointer events can fire dozens of times while the pointer remains inside
     // one grid cell. The smart-layout calculation is the expensive part of a
@@ -166,7 +171,6 @@ export function addGridItemPointerControls(container, div, item, {
       div.classList.remove('is-invalid');
     } else {
       dragSession.dropIsValid = false;
-      applyInvalidSmartDragPreview(container, dragSession, target);
       div.classList.add('is-invalid');
     }
   });
@@ -258,6 +262,7 @@ export function addGridItemPointerControls(container, div, item, {
       return;
     }
 
+    snapSmartDragPreview(container, dragSession);
     const changed = commitSmartDragLayout(dragSession);
     if (changed) {
       scheduleSmartPreviewCleanup(dragSession, false);

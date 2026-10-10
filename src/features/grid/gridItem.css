@@ -61,10 +61,10 @@
       outline-offset: -2px;
       box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.35);
       cursor: grabbing;
-      z-index: calc(var(--z-bookmark) + 1);
+      z-index: calc(var(--z-bookmark) + 2);
       transition: opacity .18s ease, filter .18s ease,
         transform .24s cubic-bezier(.22, 1, .36, 1);
-      will-change: transform;
+      will-change: left, top, transform;
 
       &.is-drop-landing {
         outline-style: solid;

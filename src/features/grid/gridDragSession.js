@@ -89,14 +89,9 @@ export function applySmartDragPreview(container, session, layout) {
   const displaced = new Set(layout.displacedIds);
 
   for (const [id, original] of session.originals) {
+    if (id === session.draggedId) continue;
     const element = session.elements.get(id);
     if (!element) continue;
-
-    if (id === session.draggedId) {
-      const position = positions.get(id) ?? original;
-      applyPreviewPosition(container, session, id, element, position);
-      continue;
-    }
 
     if (!positions.has(id) && !session.touchedIds.has(id)) continue;
 
@@ -108,10 +103,23 @@ export function applySmartDragPreview(container, session, layout) {
   }
 }
 
-/** Shows a rejected cell without changing the valid layout or its neighbors. */
-export function applyInvalidSmartDragPreview(container, session, target) {
+/** Keeps pointer motion independent of the planner's integer cell positions. */
+export function applyPointerDragPreview(container, session, left, top) {
   const element = session.elements.get(session.draggedId);
-  if (element) applyPreviewPosition(container, session, session.draggedId, element, target);
+  if (!element) return;
+  applyPreviewPosition(container, session, session.draggedId, element, {
+    gx: left / session.gridMetrics.rowWidth,
+    gy: top / session.gridMetrics.rowHeight
+  });
+}
+
+/** Settles the pointer preview into the validated cell only after release. */
+export function snapSmartDragPreview(container, session) {
+  const element = session.elements.get(session.draggedId);
+  const position = session.activeLayout.positions.find(({ id }) => id === session.draggedId);
+  if (!element || !position) return;
+  prepareSmartMovement(element);
+  applyPreviewPosition(container, session, session.draggedId, element, position);
 }
 
 export function restoreSmartDragPreview(container, session) {
