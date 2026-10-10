@@ -810,11 +810,28 @@ Sync and explain the required update. The marker expires automatically when the
 installed schema/format catches up, and explicit remote-data deletion also
 clears it.
 
-Complete backups use the `newdesktab-backup` format; bookmark-only files use
-`newdesktab-bookmarks`. Both versioned formats preserve folders and membership.
-Complete backups also embed the optimized local images and local video files
-referenced by their data, so restore can recreate images in device-local storage
-and videos in IndexedDB. Legacy raw bookmark arrays remain importable without folders.
+Complete backups without local videos use the `newdesktab-backup` JSON format;
+bookmark-only files use `newdesktab-bookmarks`. Both preserve folders and membership.
+When referenced local videos exist, Settings exports a ZIP whose `backup.json`
+manifest uses `newdesktab-backup-zip`, archive version 1. Its `backup` property
+contains the existing JSON envelope and optimized local images; its `videos`
+map links local references to binary `videos/<number>.<extension>` entries,
+MIME types and original filenames. Video URLs alone do not switch the format.
+
+`platform/backup/backupArchive.js` owns this container. Videos use ZIP STORE and
+256 KiB streams rather than base64. Blob output is browser managed; no entire
+video is read into a JavaScript array or string. Import bounds both declared and
+actual decoded bytes, verifies CRCs and archive structure, and validates every
+video before any persistence operation. Entries are read sequentially. Local
+video storage accepts the resulting Blobs directly; legacy JSON video decoding
+remains available. Legacy raw bookmark arrays remain importable without folders.
+
+The locally shipped zip.js core is generated from pinned development dependencies
+with `npm run vendor:zip`. Its BSD license is shipped beside the bundle. The
+runtime disables workers and uses no external code or WASM. The
+[zip.js documentation](https://gildas-lormeau.github.io/zip.js/) describes its stream
+and ZIP64 support. Manifest V3 ZIP export/restore is exercised by the extension
+smoke check.
 
 The store retains the base of failed optimistic writes until a commit succeeds.
 Later writes include those unsaved changes; storage refreshes merge them with

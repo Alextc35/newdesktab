@@ -1,6 +1,6 @@
 # NewDeskTab Privacy Policy
 
-Last updated: October 2, 2026
+Last updated: October 10, 2026
 
 NewDeskTab replaces the browser's new tab page with a customizable bookmark
 workspace. It does not require a NewDeskTab account or use a NewDeskTab-operated
@@ -72,13 +72,14 @@ apply. External media is displayed as images or videos, not executed as extensio
 
 ## Exports, retention and deletion
 
-Import reads a file you select; export creates a JSON download on your device.
+Import reads a file you select; export creates a JSON or ZIP download on your device.
 NewDeskTab does not upload these files to the developer. Complete backups embed
 optimized copies of referenced local images and their filenames so they can be
 restored after local data is deleted or moved to another browser profile. Complete
-backups also embed referenced local video files and their filenames, allowing
-restore to recreate them in this device's IndexedDB. Exported
-JSON files are not encrypted by NewDeskTab.
+backups containing local videos use ZIP, with JSON configuration and separate
+binary video files. Restore recreates those files in this device's IndexedDB.
+Backups without local videos remain JSON, and older JSON backups with embedded
+videos remain importable. Exported files are not encrypted by NewDeskTab.
 
 Workspace data is retained in the browser until you change or remove it.
 Deleting a bookmark removes the record but does not necessarily erase unused

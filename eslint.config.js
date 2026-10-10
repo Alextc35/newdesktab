@@ -13,6 +13,7 @@ export default [
   {
     ignores: [
       'node_modules/**',
+      'src/platform/backup/vendor/**',
       'coverage/**',
       'playwright-report/**',
       'dist/**',

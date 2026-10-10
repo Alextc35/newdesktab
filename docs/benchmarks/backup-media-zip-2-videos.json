@@ -1,0 +1,2622 @@
+{
+  "recordedAt": "2026-10-10T00:55:39.573Z",
+  "browser": "Chrome/151.0.7922.34",
+  "platform": "win32",
+  "methodology": "Fresh persistent Chromium profile for each size; actual ZIP export/import actions and IndexedDB; synthetic WebM MIME payloads; byte length and boundary verification of every video; JS heap sampled every 10ms, at Blob creation, stringify/parse and CDP checkpoints. Video decoding, download I/O and whole-process RSS are excluded.",
+  "results": [
+    {
+      "sizeMiB": 200,
+      "exportMs": 2093.8000000715256,
+      "importMs": 3199.399999976158,
+      "videoCount": 2,
+      "backupBytes": 419435152,
+      "format": "application/zip",
+      "filename": "newdesktab-backup-2026-10-10.zip",
+      "restored": true,
+      "restoredVideos": [
+        {
+          "restoredBytes": 209715200,
+          "blobUrlAvailable": true,
+          "boundaryBytesMatch": true
+        },
+        {
+          "restoredBytes": 209715200,
+          "blobUrlAvailable": true,
+          "boundaryBytesMatch": true
+        }
+      ],
+      "samples": [
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 15839983
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 16232201
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13787807
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 25733819
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 17559892
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 24490996
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 30875444
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 42823540
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 15216492
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 21054872
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 33277332
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 39935116
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 46866244
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 52977372
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 59192168
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 17559536
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 25037304
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 31426352
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 36444348
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 48666556
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 55051016
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 62528784
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 68093256
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 75571024
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13581820
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 15221836
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 26627128
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 32464928
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 39396040
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 46053824
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 58002712
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 59916056
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 71318280
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 77702736
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 83544724
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13598528
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 20529640
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 26094112
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 38042992
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 38863024
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 44427496
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 51358608
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 52725296
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 63580864
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 70238984
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 76350112
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 82749324
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13601380
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 18892524
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 26643620
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 32754748
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 39959188
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 46343648
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 51088136
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 59112560
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 64403704
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 69968176
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 77172616
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 82748600
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13328324
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 19712780
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 26097236
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 33301676
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 39959460
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 46348020
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 58023572
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 63588044
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 71612468
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 77176940
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13335164
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 18899516
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 25283780
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 32214652
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 38598916
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 45529788
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 51640756
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 63589324
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 65502500
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 76357852
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 82788492
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13608044
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 20538916
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 27196484
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 38052404
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 45256580
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 51640856
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 59118336
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 64409384
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 71886864
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 77451216
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13606524
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 19170876
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 25281836
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 32486012
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 38870276
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 45527844
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 52458724
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 57014620
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 69951613
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 69951661
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 69951709
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 78140669
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13339929
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 14433193
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 19450937
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 26928417
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 32492769
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 39150337
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 46354521
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 52465481
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 63867441
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 69978401
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 77729185
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 82793081
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13884237
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 20815109
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 26652765
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 38054725
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 39967901
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 51369873
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 58027441
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 65504921
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 71889185
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 77726841
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13339889
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 19450849
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 25564881
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 33588969
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 39426625
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 50828637
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 57486205
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 65510293
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 71347949
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 82796161
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13343461
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 20274333
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 27205205
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 33589469
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 45264733
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 51102401
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 59126489
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 69982757
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 76913629
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 82796789
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13343717
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 20547893
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 26385549
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 38060813
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 44445077
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 51649265
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 52742529
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 63597881
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 70255449
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 71622017
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 82797085
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13344225
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 18908577
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 26112753
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 32497017
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 38607977
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 46358773
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 46358821
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 52196477
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 59127349
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 64691701
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 71349269
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 77733533
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 78280189
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 82277277
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 14164525
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 20822093
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 26113141
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 31950797
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 38608365
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 44446021
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 51376957
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 58034525
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 63598877
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 69983141
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 71896317
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 76640757
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 83111613
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13616157
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 19453813
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 19727165
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 26111429
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 33588909
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 38333349
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 45264221
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 51648549
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 51648597
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 57759557
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 64963733
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 65510389
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 70528133
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 77459005
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13345297
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 13345345
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 20002913
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 26933785
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 31951529
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 39429009
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 45266665
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 45813321
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 51924297
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 58855169
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 61771241
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 64238305
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 66503838
+        },
+        {
+          "phase": "export",
+          "point": "application/zip Blob created",
+          "jsHeapBytes": 66505356
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 66984202
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 66984250
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 66984298
+        },
+        {
+          "phase": "export",
+          "point": "interval",
+          "jsHeapBytes": 66984346
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 67015718
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 68221759
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79370727
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13871892
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 14419132
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 21079328
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 26097948
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 33305336
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 39144744
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 45804940
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 52191552
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 53012388
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 59125392
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 64964800
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 71079244
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 76645056
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 83125264
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13583161
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19422569
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 26356361
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 32469365
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 38582369
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 45242565
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 46884193
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 52176409
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 59383797
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 64949609
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 72433537
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 78820165
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 83926869
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 14136801
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 25541973
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 26362809
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 26910049
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 38315221
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 39956845
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 40230489
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 51088481
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 58022273
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 58843109
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 65503305
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 72163501
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 78002909
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 82796021
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19155817
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 20250249
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 26363253
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 33297045
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 38589261
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 45249457
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 51909665
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 52183309
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 59390697
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 65503701
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 65777345
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 71890349
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 78003353
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 82796125
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19155921
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 26089713
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 27457741
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 33844341
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 44702321
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 46343949
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 57475525
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 59390745
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 64956557
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 71069561
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 77456161
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 83391577
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13592581
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 20252777
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 25818589
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 32752381
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 39138981
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 44978389
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 51912185
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 53009265
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 57754289
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 64689553
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 71076153
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 76915561
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 82261601
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 14138565
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 14959401
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19978021
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 27185409
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 33024817
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 38864225
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 45524421
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 46892449
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 53279049
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 64137029
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 66052249
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 72165397
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 78825609
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13868437
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19160653
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 26094445
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 31933853
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 38594049
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 40235673
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 45801485
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 52735289
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 58301101
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 63866913
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 70800705
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 72168733
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 76640161
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 83094517
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13597321
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19983921
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 21078353
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 31936333
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 33851553
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 39417365
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 46624757
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 51916973
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 53011405
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 59398005
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 65784605
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 69248505
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 71731177
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 73130886
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 81631290
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13100740
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19487340
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 25873940
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 31986944
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 38099948
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 43939356
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 50599556
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 57533348
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 62551968
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 69759356
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 75872040
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 76692876
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13874652
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19714060
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 21629280
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 21629328
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 27468736
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 34128932
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 39694744
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 39694792
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 46630808
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 53291004
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 53564648
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 59404056
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 66337848
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 71630064
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 78563856
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13613540
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 14707972
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 14708020
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 21094620
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 31952600
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 32773436
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 33320676
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 40254468
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 46367472
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 46641116
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 57772692
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 64706484
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 70272296
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 76932492
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 78574220
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13608324
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 14976352
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 25834332
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 27475956
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 38607532
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 40522752
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 46088568
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 53295956
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 58588172
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 58861816
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 70540584
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 72455804
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 78295232
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13614624
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19180436
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 20001272
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 21095704
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 32227280
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 33868904
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 44726884
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 51660688
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 51934332
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 57500144
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 64433936
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 65801964
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 65802012
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 71915016
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 83046684
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13608996
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13882640
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19448452
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 25835052
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 27750272
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 38608252
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 45268448
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 46362892
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 53023088
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 59683284
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 64975500
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 71362100
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 77748700
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 83435640
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13886324
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19999328
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 25838736
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 32772528
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 38885532
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 44724940
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 51658736
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 53026764
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 57498192
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 64431984
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 71092180
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 76931588
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 83206140
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 14159980
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19452196
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 26385988
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 32772588
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 33867020
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 44998596
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 46640224
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 57498204
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 59413424
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 64705640
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 70271452
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 76931648
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 78573292
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 13886680
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 19452492
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 25839092
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 27207120
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 38338696
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 40253916
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 46093328
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 53027120
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 58319336
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 64158744
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 71092536
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 74829980
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 77018812
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79497960
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79536990
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537038
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537086
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537134
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537182
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537230
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537278
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537326
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537374
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537422
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537470
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537518
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537566
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537614
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537662
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537710
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537758
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537806
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537854
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537902
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537950
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79537998
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79538046
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79538094
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79538142
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79538190
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79538815
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79538863
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79538911
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79538959
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539007
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539055
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539103
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539151
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539199
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539247
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539295
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539343
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539391
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539439
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539487
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539535
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539583
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539631
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539679
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539727
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539775
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539823
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79539871
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 79963534
+        },
+        {
+          "phase": "import",
+          "point": "interval",
+          "jsHeapBytes": 80210188
+        }
+      ],
+      "heap": {
+        "baseline": {
+          "usedSize": 3215404,
+          "totalSize": 3989504,
+          "embedderHeapUsedSize": 3588768,
+          "backingStorageSize": 932110
+        },
+        "afterExport": {
+          "usedSize": 4498872,
+          "totalSize": 7659520,
+          "embedderHeapUsedSize": 4560304,
+          "backingStorageSize": 62016983
+        },
+        "afterImport": {
+          "usedSize": 5351224,
+          "totalSize": 8970240,
+          "embedderHeapUsedSize": 5213344,
+          "backingStorageSize": 74612326
+        }
+      }
+    }
+  ]
+}

@@ -65,7 +65,11 @@ export function initGeneralSection({
   const resetButton = document.getElementById('reset-settings-btn-general');
   const deleteAllDataButton = document.getElementById('delete-all-data-btn-general');
 
-  exportButton.addEventListener('click', exportBackup);
+  exportButton.addEventListener('click', async () => {
+    exportButton.disabled = true;
+    try { await exportBackup(); }
+    finally { exportButton.disabled = false; }
+  });
   importButton.addEventListener('click', () => importInput.click());
 
   importInput.addEventListener('change', async () => {

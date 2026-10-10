@@ -1,6 +1,6 @@
 # Revisión de preparación para publicar — 0.27.0
 
-Revisión local del 9 de octubre de 2026. Este informe distingue la validación
+Revisión local del 9 y el 10 de octubre de 2026. Este informe distingue la validación
 automatizada de las comprobaciones que necesitan perfiles y cuentas reales.
 
 ## Cambios aplicados
@@ -46,8 +46,9 @@ automatizada de las comprobaciones que necesitan perfiles y cuentas reales.
   importación y recarga con imagen y vídeo locales. La documentación refleja
   que los backups completos incluyen esos archivos y describe `activeTab`.
   Se midieron exportación y restauración con archivos sintéticos de 10, 50 y
-  200 MiB. El formato JSON sigue siendo compatible; la expansión y el coste de
-  memoria justifican estudiar un contenedor binario para una versión posterior.
+  200 MiB y con dos vídeos de 200 MiB. Con vídeos locales se exporta un ZIP
+  binario por partes; sin ellos se conserva JSON. También se siguen importando
+  los JSON antiguos con vídeos base64. El ZIP se valida antes de restaurar datos.
 - **Material de publicación.** Se regeneraron las imágenes de la Store y se
   revisaron visualmente. Se preparó el ZIP y se probó su contenido extraído
   como extensión real en un perfil nuevo de Chromium.
@@ -56,23 +57,23 @@ automatizada de las comprobaciones que necesitan perfiles y cuentas reales.
 
 | Comprobación | Resultado |
 | --- | --- |
-| ESLint, tests unitarios y DOM | 209 tests unitarios y 57 tests DOM correctos; ESLint correcto tras las últimas correcciones. |
-| `npm run test:e2e` | 188 escenarios correctos en la ejecución completa final (7,3 minutos). |
-| Validación dirigida de las últimas correcciones | 51 escenarios correctos: cuadrícula, atajos, fondos y recuperación de escrituras. Diez escenarios masivos/destructivos también correctos. |
-| `node scripts/benchmark-backups.mjs` | Ciclos de exportación/restauración correctos con 10, 50 y 200 MiB; medidas registradas. |
+| ESLint, tests unitarios y DOM | 222 tests unitarios y 57 tests DOM correctos; ESLint correcto. |
+| `npm run test:e2e` | 191 escenarios correctos en 7,9 minutos. |
+| Validación ZIP | 13 pruebas de formato y entradas inválidas; cuatro recorridos de navegador correctos, incluida compatibilidad JSON, selector ZIP y rechazo de vídeos dañados. Un lector ZIP independiente de Python también verifica el archivo descargado. |
+| `node scripts/benchmark-backups.mjs` | ZIP exportado/restaurado con 10, 50, 200 MiB y dos vídeos de 200 MiB; tamaños, tiempos y muestras de memoria registrados. |
 | `npm audit --audit-level=high` | Cero vulnerabilidades tras la actualización de herramientas de desarrollo. |
 | `npm run assets:store` | Generación correcta; cuatro imágenes inspeccionadas. |
-| ZIP extraído + `npm run test:extension` | Nueva pestaña, guardado desde el popup, recarga y atajos correctos; sin errores de página. |
+| `npm run test:extension` | Nueva pestaña, popup, recarga, atajos y exportación/restauración de un backup ZIP con vídeo correctos bajo Manifest V3, tanto desde el origen como desde el paquete extraído; sin errores de página. |
 | `git diff --check` | Sin errores de espacios o conflictos. |
 
-Artefacto: `dist/newdesktab-0.27.0.zip`, 2.254.186 bytes y 221 archivos.
+Artefacto: `dist/newdesktab-0.27.0.zip`, 2.320.562 bytes y 225 archivos.
 Incluye únicamente recursos de la extensión, licencia y política de privacidad.
 El empaquetador comprueba cada entrada y su contenido contra el origen.
 
 SHA-256:
 
 ```text
-15943b0dd2eadc9a8fb14e9a0a2c4b5d2e9631f4da4c2b614e35c15db45fa795
+75e056c0388562f285f599ee01fa3a2d9dabe7663a79ee6d6584685b1d49064b
 ```
 
 El procedimiento reproducible de publicación está en
@@ -93,11 +94,13 @@ criterios de cierre. Las responsabilidades quedan distribuidas así:
   `gridGestureState`; la geometría y la planificación dejan de mezclarse con
   los comandos de arrastrar y soltar.
 
-La [medición de backups](benchmarks/BACKUP_MEDIA.md) registra 266,67 MiB de JSON
-y una muestra de 1.070,9 MiB de memoria JS para un vídeo de 200 MiB. La medición
-verifica almacenamiento y transporte, no reproducción ni toda la RAM del
-proceso. No valida varias películas grandes ni sesiones de incógnito. Un nuevo
-formato binario no forma parte de estos cambios.
+La [medición de backups](benchmarks/BACKUP_MEDIA.md) compara el JSON anterior con
+el ZIP aplicado. Un vídeo de 200 MiB pasa de un backup de 266,67 a 200,00 MiB;
+la mayor muestra de memoria JS baja de 1.070,9 a 79,5 MiB. Dos vídeos de 200 MiB
+también se restauran correctamente, con una muestra de 80,0 MiB. Se verifica
+almacenamiento y transporte, no reproducción ni toda la RAM del proceso.
+La frecuencia de muestreo difiere entre las mediciones; no se garantiza capturar
+el máximo absoluto ni se valida toda biblioteca o sesión de incógnito posible.
 
 ## Comprobaciones antes de enviar a la Store
 

@@ -2,7 +2,7 @@ import { isLocalVideoReference, LOCAL_VIDEO_PROTOCOL } from '../../domain/settin
 
 const DATABASE = 'newdesktab-local-videos';
 const STORE = 'videos';
-const MAX_VIDEO_BYTES = 200 * 1024 * 1024;
+export const MAX_VIDEO_BYTES = 200 * 1024 * 1024;
 const TYPES = new Set(['video/mp4', 'video/webm', 'video/ogg']);
 const BASE64_ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const BASE64_LOOKUP = new Int16Array(128).fill(-1);
@@ -73,8 +73,8 @@ export async function preloadLocalVideoReferences(references) {
   }
 }
 
-/** Exports only video files referenced by the supplied application data. */
-export async function exportReferencedLocalVideos(data) {
+/** Returns file-backed Blobs without reading entire videos into JavaScript memory. */
+export async function getReferencedLocalVideoFiles(data) {
   const references = [...collectLocalVideoReferences(data)];
   const videos = {};
 
@@ -91,12 +91,18 @@ export async function exportReferencedLocalVideos(data) {
       throw localVideoError('missing');
     }
 
-    videos[reference] = {
-      dataUrl: await readAsDataUrl(stored.blob),
-      ...(name ? { name } : {})
-    };
+    videos[reference] = { blob: stored.blob, name };
   }
 
+  return videos;
+}
+
+/** Legacy JSON representation, retained for compatibility tests and migrations. */
+export async function exportReferencedLocalVideos(data) {
+  const videos = {};
+  for (const [reference, { blob, name }] of Object.entries(await getReferencedLocalVideoFiles(data))) {
+    videos[reference] = { dataUrl: await readAsDataUrl(blob), ...(name ? { name } : {}) };
+  }
   return videos;
 }
 
@@ -107,13 +113,28 @@ export async function restoreReferencedLocalVideos(data, backupVideos) {
     throw localVideoError('invalidBackup');
   }
 
-  const restoredVideos = new Map();
+  const restoredVideos = {};
   for (const reference of collectLocalVideoReferences(data)) {
     const stored = backupVideos[reference];
     const name = typeof stored?.name === 'string' ? stored.name.trim() : '';
     if (name.length > 1024) throw localVideoError('invalidBackup');
     const blob = await decodeVideoDataUrl(stored?.dataUrl);
-    restoredVideos.set(reference, { blob, name });
+    restoredVideos[reference] = { blob, name };
+  }
+  await restoreReferencedLocalVideoFiles(data, restoredVideos);
+}
+
+/** Restores binary ZIP entries directly into IndexedDB, without base64 copies. */
+export async function restoreReferencedLocalVideoFiles(data, backupVideos) {
+  const restoredVideos = new Map();
+  for (const reference of collectLocalVideoReferences(data)) {
+    const record = backupVideos?.[reference];
+    if (!(record?.blob instanceof Blob) || !TYPES.has(record.blob.type)
+      || !record.blob.size || record.blob.size > MAX_VIDEO_BYTES
+      || typeof record.name !== 'string' || record.name.length > 1024) {
+      throw localVideoError('invalidBackup');
+    }
+    restoredVideos.set(reference, record);
   }
   if (!restoredVideos.size) return;
 
@@ -185,7 +206,7 @@ export async function clearLocalVideos() {
   await withStore('readwrite', store => store.clear());
 }
 
-function collectLocalVideoReferences(value, references = new Set()) {
+export function collectLocalVideoReferences(value, references = new Set()) {
   if (isLocalVideoReference(value)) {
     references.add(value);
     return references;

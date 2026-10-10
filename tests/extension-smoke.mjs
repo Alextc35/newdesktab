@@ -100,8 +100,42 @@ try {
   await page.getByRole('link', { name: /Popup smoke/ }).waitFor({ state: 'visible' });
   await popup.close();
 
+  // Exercise ZIP generation and restoration under the real Manifest V3 CSP.
+  const backupDownload = page.waitForEvent('download');
+  await page.evaluate(async () => {
+    const { saveLocalVideo } = await import('./platform/images/localVideos.js');
+    const { getState, setState, requirePersistence } = await import('./state/appStore.js');
+    const local = await saveLocalVideo(new File(['extension video fixture'], 'smoke.webm', { type: 'video/webm' }));
+    const data = getState().data;
+    await setState({ data: { settings: { ...data.settings, theme: {
+      ...data.settings.theme, backgroundDefault: true,
+      backgroundMedia: [{ id: 'smoke-video', type: 'video', local, source: 'local' }]
+    } } } });
+    await requirePersistence();
+    await (await import('./features/settings/backupActions.js')).exportBackup();
+  });
+  const downloaded = await backupDownload;
+  assert.match(downloaded.suggestedFilename(), /\.zip$/);
+  const zipBytes = readFileSync(await downloaded.path());
+  assert.equal(zipBytes.readUInt32LE(0), 0x04034b50);
+  const restored = await page.evaluate(async bytes => {
+    const { clearAllLocalData } = await import('./state/appStore.js');
+    await clearAllLocalData();
+    return (await import('./features/settings/backupActions.js')).importBackup(
+      new File([new Uint8Array(bytes)], 'smoke.zip', { type: 'application/zip' }));
+  }, [...zipBytes]);
+  assert.equal(restored, true);
+  await page.reload();
+  await page.getByRole('link', { name: /Popup smoke/ }).waitFor({ state: 'visible' });
+  assert.deepEqual(await page.evaluate(async () => {
+    const { getState } = await import('./state/appStore.js');
+    const { resolveLocalVideo, getLocalVideoName } = await import('./platform/images/localVideos.js');
+    const local = getState().data.settings.theme.backgroundMedia[0].local;
+    return { name: getLocalVideoName(local), text: await (await fetch(resolveLocalVideo(local))).text() };
+  }), { name: 'smoke.webm', text: 'extension video fixture' });
+
   assert.deepEqual(errors, []);
-  console.log(`Extension smoke passed: ${manifest.version}, new tab, popup save, reload and shortcuts.`);
+  console.log(`Extension smoke passed: ${manifest.version}, new tab, popup save, reload, shortcuts and ZIP video backup.`);
 } finally {
   await context.close();
 }
