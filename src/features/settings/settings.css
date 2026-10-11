@@ -157,6 +157,18 @@
   font-size: 13px;
 }
 
+.settings-information-author {
+  text-decoration: underline;
+  text-decoration-color: rgb(220 234 250 / 50%);
+  text-underline-offset: 3px;
+}
+
+.settings-information-author:hover,
+.settings-information-author:focus-visible {
+  color: #fff;
+  text-decoration-color: currentColor;
+}
+
 .settings-information-copy small {
   display: block;
   margin-top: 18px;

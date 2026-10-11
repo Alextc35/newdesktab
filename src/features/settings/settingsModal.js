@@ -211,6 +211,7 @@ export function initSettingsModal() {
    */
   settingsBtn.addEventListener('click', () => {
     if (!ensurePanelFits()) return;
+    settingsModal.querySelector('#settings-information-year').textContent = String(new Date().getFullYear());
     const { data: { settings } } = getState();
 
     initDraft(settings, getStorageMode());
