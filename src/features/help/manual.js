@@ -1,6 +1,7 @@
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
-import { closeModal, isModalActive, openModal, registerModal } from '../../shared/ui/modalManager.js';
-import { getManualTopic, MANUAL_GROUPS, searchManual } from './manualCatalog.js';
+import { closeModal, isModalActive, openModal, registerModal, subscribeModalChanges } from '../../shared/ui/modalManager.js';
+import { getManualTopic, MANUAL_GROUPS, MANUAL_TOPICS, searchManual } from './manualCatalog.js';
+import { createManualDemo } from './manualDemo.js';
 
 function textElement(tag, className, text) {
   const element = document.createElement(tag);
@@ -19,6 +20,7 @@ export function createManual(modal) {
   const reader = modal.querySelector('.manual-reader');
   const back = modal.querySelector('#manual-back');
   let selected = null;
+  let demo = null;
 
   registerModal({ id: 'manual', element: modal, initialFocus: search, independentViewport: true });
 
@@ -67,20 +69,42 @@ export function createManual(modal) {
       textElement('h3', 'manual-article-title', t(`${key}.title`)),
       textElement('p', 'manual-summary', t(`${key}.summary`))
     );
+    demo = createManualDemo(topic.id, t);
+    article.append(demo.element);
+    demo.setActive(isModalActive('manual'));
     const steps = document.createElement('ol');
     steps.className = 'manual-steps';
     for (let i = 0; i < 3; i++) steps.append(textElement('li', '', t(`${key}.steps.${i}`)));
     const note = document.createElement('aside');
     note.className = 'manual-note';
     note.append(textElement('strong', '', t('manual.remember')), textElement('p', '', t(`${key}.note`)));
-    const related = document.createElement('nav');
-    related.className = 'manual-related';
-    related.setAttribute('aria-label', t('manual.related'));
-    related.append(textElement('h4', '', t('manual.related')), ...topic.related.map(id => topicButton(id, false)));
-    article.append(steps, note, related);
+    const navigation = document.createElement('nav');
+    navigation.className = 'manual-sequence';
+    navigation.setAttribute('aria-label', t('manual.demo.browse'));
+    const position = MANUAL_TOPICS.findIndex(item => item.id === topic.id);
+    const adjacent = [['previous', MANUAL_TOPICS[position - 1]], ['next', MANUAL_TOPICS[position + 1]]]
+      .filter(([, item]) => item);
+    for (const [direction, item] of adjacent) {
+      const button = topicButton(item.id, false);
+      button.className = `manual-sequence-${direction}`;
+      button.prepend(textElement('span', '', t(`manual.demo.${direction}`)));
+      navigation.append(button);
+    }
+    article.append(steps, note, navigation);
+    const adjacentIds = new Set(adjacent.map(([, item]) => item.id));
+    const relatedIds = topic.related.filter(id => !adjacentIds.has(id));
+    if (relatedIds.length) {
+      const related = document.createElement('nav');
+      related.className = 'manual-related';
+      related.setAttribute('aria-label', t('manual.related'));
+      related.append(textElement('h4', '', t('manual.related')), ...relatedIds.map(id => topicButton(id, false)));
+      article.append(related);
+    }
   }
 
   function render() {
+    demo?.destroy();
+    demo = null;
     index.hidden = Boolean(selected);
     reader.hidden = !selected;
     if (selected) renderArticle();
@@ -104,6 +128,7 @@ export function createManual(modal) {
   const unsubscribe = subscribeLanguageChange(() => {
     if (isModalActive('manual')) render();
   });
+  const unsubscribeModal = subscribeModalChanges(() => demo?.setActive(isModalActive('manual')));
 
   return {
     open(topic = null) {
@@ -114,6 +139,8 @@ export function createManual(modal) {
     destroy() {
       events.abort();
       unsubscribe();
+      unsubscribeModal();
+      demo?.destroy();
       closeModal('manual');
     }
   };

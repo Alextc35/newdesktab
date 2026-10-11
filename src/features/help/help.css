@@ -1,3 +1,5 @@
+@import './manualDemo.css';
+
 /* One learning surface, from the short welcome to a section of the manual. */
 .manual-eyebrow {
   color: var(--ui-info-text);
@@ -44,7 +46,7 @@
 .settings-help-result strong { color: var(--ui-info-text); font-weight: 500; line-height: 1.5; }
 .settings-help-result span { color: var(--ui-muted); font-size: 11px; line-height: 1.7; }
 .settings-help-result:hover { border-color: var(--ui-accent); background: var(--ui-selected); }
-.manual-search-results { grid-column: 1 / -1; }
+.manual-group.manual-search-results { float: none; width: 100%; }
 .onboarding-manual-link {
   display: inline;
   padding: 0;
@@ -97,8 +99,11 @@
 .manual-search-label { display: block; margin-bottom: 8px; font-size: 12px; }
 #manual-search { box-sizing: border-box; width: 100%; padding: 13px 15px; border-radius: 10px; font-size: 13px; }
 .manual-count { min-height: 16px; margin: 12px 0 20px; color: var(--ui-muted); font-size: 11px; }
-.manual-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
-.manual-group { overflow: hidden; border: 1px solid var(--ui-border); border-radius: 13px; background: var(--ui-card); }
+/* Stack each column independently while keeping the sections in reading order. */
+.manual-groups { display: flow-root; }
+.manual-group { float: left; width: calc(50% - 9px); overflow: hidden; border: 1px solid var(--ui-border); border-radius: 13px; background: var(--ui-card); }
+.manual-group:nth-child(even) { float: right; }
+.manual-group:nth-child(n + 3) { margin-top: 18px; }
 .manual-group-heading { display: flex; align-items: center; gap: 10px; margin: 0; padding: 15px; border-bottom: 1px solid var(--ui-divider); font-size: 13px; }
 .manual-group-number { color: var(--ui-info-text); font-size: 10px; letter-spacing: .05em; }
 .manual-topic {
@@ -119,7 +124,7 @@
 .manual-topic:hover { background: var(--ui-hover); }
 .manual-topic strong { font-size: 12px; font-weight: 600; }
 .manual-topic span { color: var(--ui-muted); font-size: 11px; line-height: 1.6; }
-.manual-empty { grid-column: 1 / -1; color: var(--ui-muted); font-size: 14px; padding: 20px 0; }
+.manual-empty { color: var(--ui-muted); font-size: 14px; padding: 20px 0; }
 .manual-reader { max-width: 640px; margin-inline: auto; }
 .manual-article { overflow-wrap: anywhere; }
 #manual-back { margin: 0 0 30px -10px; font-size: 12px; }
@@ -175,7 +180,8 @@
   .manual-card { height: calc(100dvh - 32px); border-radius: 15px; }
   .manual-header { padding: 16px 18px; }
   .manual-body { padding: 22px 18px; }
-  .manual-groups { grid-template-columns: 1fr; }
+  .manual-group:nth-child(n) { float: none; width: 100%; margin-top: 0; }
+  .manual-group + .manual-group { margin-top: 18px; }
   .manual-footer { padding: 13px 18px; }
   .daily-tip { right: 16px; bottom: 16px; }
 }

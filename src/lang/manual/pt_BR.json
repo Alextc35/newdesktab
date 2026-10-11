@@ -23,6 +23,170 @@
   "footer": "Sempre disponível em Configurações → Informações.",
   "guideLinks": "Saiba mais no manual",
   "groups": { "start": "Comece aqui", "organize": "Organize", "personalize": "Deixe com a sua cara", "protect": "Cuide do seu espaço" },
+  "demo": {
+    "browse": "Percorrer as seções",
+    "previous": "← Seção anterior",
+    "next": "Próxima seção →",
+    "title": "Veja em ação",
+    "example": "Exemplo de demonstração",
+    "steps": "Etapas da demonstração",
+    "step": "Etapa {{step}} de {{count}}",
+    "play": "Reproduzir",
+    "pause": "Pausar",
+    "replay": "Repetir",
+    "progress": "Progresso da demonstração",
+    "mode": "Comportamento",
+    "nextStep": "Próxima etapa",
+    "reducedMotion": "Movimento reduzido: percorra as etapas sem animação.",
+    "labels": {
+      "settings": "Configurações",
+      "saved": "Alterações salvas",
+      "page": "Página",
+      "selection": "Seleção",
+      "selected": "itens selecionados",
+      "color": "Cor",
+      "styleName": "Meu estilo violeta",
+      "wallpaper": "Planos de fundo",
+      "rotation": "Rotação",
+      "format": "Formato",
+      "seconds": "Segundos",
+      "language": "Idioma",
+      "system": "Sistema",
+      "currentLanguage": "Português",
+      "restore": "Restaurar",
+      "copy": "Backup",
+      "restoreCopy": "Revise antes de restaurar",
+      "switchSync": "Mudar para Sincronizado?",
+      "applyNow": "Aplicado ao confirmar",
+      "status": "Estado",
+      "synchronized": "Sincronizado",
+      "retry": "Salvamento pendente · Tentar novamente",
+      "keyboardQuery": "teclado",
+      "deleteExample": "Os favoritos e as pastas serão excluídos. A lixeira ficará vazia."
+    },
+    "topics": {
+      "bookmarks": [
+        "Abra o menu esquerdo e escolha + → Favorito.",
+        "Digite o nome e o endereço da página.",
+        "Confirme: o favorito aparece em uma célula livre."
+      ],
+      "quick-save": [
+        "Abra o New DeskTab pelo ícone da extensão.",
+        "Confira o nome, endereço e destino sugeridos.",
+        "Salve: o favorito estará no espaço ao abrir uma aba."
+      ],
+      "keyboard": [
+        "Pressione Tab para focar o primeiro item.",
+        "As setas movem o foco. Enter abre o item focado.",
+        "Esc ou outro Tab encerra a navegação."
+      ],
+      "shortcuts": [
+        "Abra Configurações → Atalhos de teclado.",
+        "Clique no atalho de uma ação e digite sua combinação.",
+        "Salve para aplicar o novo atalho."
+      ],
+      "search": [
+        "A lupa da barra ou / abre a busca.",
+        "Digite parte do nome ou endereço.",
+        "Abra o resultado. Esc ou Fechar retorna ao espaço."
+      ],
+      "editing": [
+        "O lápis do menu mostra a grade e os controles.",
+        "O lápis do Gmail abre o editor de nome e URL.",
+        "Salve a alteração e clique no lápis do menu novamente para terminar."
+      ],
+      "movement": [
+        "Ative a edição e mantenha o cartão pressionado.",
+        "O cursor e o cartão se movem juntos até uma célula livre.",
+        "Solte: a posição final é salva."
+      ],
+      "resizing": [
+        "Ative a edição e encontre a alça do canto.",
+        "Arraste na diagonal para mudar largura e altura.",
+        "Solte em 2 × 2. Compare Nenhum e Suave pelo seletor."
+      ],
+      "drag-modes": [
+        "Use o seletor para comparar os três modos de arraste.",
+        "Arraste para uma célula ocupada e observe os outros cartões.",
+        "Nenhum usa uma célula livre; Realocação e Cascata reorganizam."
+      ],
+      "folders": [
+        "Dê um nome a uma pasta para reunir suas páginas.",
+        "Durante a edição, arraste um favorito até ela.",
+        "Abra a pasta para encontrar o favorito na grade."
+      ],
+      "workspaces": [
+        "O + da barra cria um espaço com o nome escolhido.",
+        "O novo espaço tem sua própria grade.",
+        "Alt + ↑ e Alt + ↓ percorrem seus espaços."
+      ],
+      "selection": [
+        "Ative a edição e selecione um cartão com um clique curto.",
+        "Selecione outro: a barra oferece ações para o grupo.",
+        "Clonar cria cópias em células livres de uma só vez."
+      ],
+      "history": [
+        "Mova um cartão: essa alteração entra no histórico.",
+        "Desfazer devolve o cartão à posição anterior.",
+        "Refazer recupera o movimento que acabou de desfazer."
+      ],
+      "appearance": [
+        "O lápis do cartão abre seu editor.",
+        "Mude a cor e observe a prévia.",
+        "Salve para aplicar essa aparência ao cartão."
+      ],
+      "presets": [
+        "Abra a biblioteca em Configurações → Favoritos.",
+        "Dê um nome a um estilo e salve para reutilizar.",
+        "Carregue como padrão e salve para novos favoritos."
+      ],
+      "wallpapers": [
+        "Abra Configurações → Tema para escolher o plano de fundo.",
+        "Confira a prévia e o intervalo de rotação da biblioteca.",
+        "Salve: o plano de fundo escolhido aparece no espaço."
+      ],
+      "clock": [
+        "Escolha + → Widgets → Relógio no menu esquerdo.",
+        "Configure o formato e os segundos usando a prévia.",
+        "Adicione o relógio a uma célula livre do espaço."
+      ],
+      "interface": [
+        "Abra Geral e escolha o idioma dos menus.",
+        "Compare a interface clara e a escura.",
+        "Salve suas preferências de idioma e aparência."
+      ],
+      "trash": [
+        "Abra a lixeira para encontrar um favorito excluído.",
+        "Selecione e clique em Restaurar: ele volta à grade.",
+        "Em Geral, escolha o tempo de retenção."
+      ],
+      "backup": [
+        "Encontre as opções de backup em Configurações → Geral.",
+        "Exportar baixa um ZIP com dados e arquivos locais.",
+        "Importar pede confirmação antes de substituir os dados."
+      ],
+      "sync": [
+        "Abra Configurações → Sincronização para conferir o modo.",
+        "Escolha Sincronizado e revise a confirmação.",
+        "Aceitar aplica o modo imediatamente, sem clicar em Salvar."
+      ],
+      "compact": [
+        "Quando a janela fica estreita, a grade vira uma lista.",
+        "Os favoritos continuam acessíveis pela lista.",
+        "Amplie a janela para retornar à grade e à edição."
+      ],
+      "data": [
+        "O exemplo usa outro idioma, interface clara e cartões personalizados.",
+        "Redefinir restaura as configurações padrão e mantém os favoritos e seus estilos.",
+        "Excluir remove favoritos e pastas; só permanece a lixeira vazia."
+      ],
+      "learning": [
+        "A dica diária convida você a descobrir uma função. Clique em Ver como.",
+        "Digite “tecl” na busca para encontrar Navegar com o teclado.",
+        "Clique no resultado para consultar suas instruções."
+      ]
+    }
+  },
   "daily": {
     "eyebrow": "UMA DICA PARA HOJE", "dismiss": "Fechar a dica de hoje", "read": "Ver como",
     "pace": "Passe o cursor para pausar.", "enabled": "Dicas diárias",
@@ -187,7 +351,7 @@
       "question": "Como apago meus dados ou restauro as configurações?", "searchTerms": "apagar dados; restaurar configurações; excluir tudo; começar zero; reset",
       "title": "Salvar e restaurar padrões", "summary": "Entenda o que é salvo e o que cada ação remove.",
       "steps": ["As ações do espaço são salvas automaticamente. Nos editores e configurações, confirme com Salvar; Cancelar descarta o rascunho daquele painel.", "Se aparecer um aviso de salvamento pendente, clique em Tentar novamente e aguarde a confirmação antes de fechar a aba.", "Em Configurações → Geral, restaure os ajustes ou exclua todos os dados. Leia a confirmação e exporte um backup do que quiser manter."],
-      "note": "Restaurar configurações e excluir todos os dados são ações diferentes. Desfazer não substitui um backup dos dados.",
+      "note": "Restaurar configurações mantém seus favoritos, seus tamanhos e seus estilos. Excluir todos os dados locais remove os itens e esvazia a lixeira. Exporte uma cópia antes de excluir: Desfazer não substitui um backup.",
       "tip": "Se aparecer um aviso de alterações não salvas, tente salvar novamente antes de fechar a aba. Proteja seu espaço com um backup completo."
     },
     "learning": {

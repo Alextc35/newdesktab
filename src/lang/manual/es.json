@@ -23,6 +23,170 @@
   "footer": "Siempre disponible en Ajustes → Información.",
   "guideLinks": "Profundiza en el manual",
   "groups": { "start": "Empieza por aquí", "organize": "Pon orden", "personalize": "Hazlo tuyo", "protect": "Cuida tu espacio" },
+  "demo": {
+    "browse": "Recorrer las secciones",
+    "previous": "← Sección anterior",
+    "next": "Siguiente sección →",
+    "title": "Ver en acción",
+    "example": "Ejemplo de demostración",
+    "steps": "Pasos de la demostración",
+    "step": "Paso {{step}} de {{count}}",
+    "play": "Reproducir",
+    "pause": "Pausar",
+    "replay": "Repetir",
+    "progress": "Progreso de la demostración",
+    "mode": "Comportamiento",
+    "nextStep": "Siguiente paso",
+    "reducedMotion": "Movimiento reducido: recorre los pasos sin animación.",
+    "labels": {
+      "settings": "Ajustes",
+      "saved": "Cambios guardados",
+      "page": "Página",
+      "selection": "Selección",
+      "selected": "elementos seleccionados",
+      "color": "Color",
+      "styleName": "Mi estilo violeta",
+      "wallpaper": "Fondos",
+      "rotation": "Rotación",
+      "format": "Formato",
+      "seconds": "Segundos",
+      "language": "Idioma",
+      "system": "Sistema",
+      "currentLanguage": "Español",
+      "restore": "Restaurar",
+      "copy": "Copia",
+      "restoreCopy": "Revisa antes de restaurar",
+      "switchSync": "¿Cambiar a Sincronizado?",
+      "applyNow": "Se aplica al aceptar",
+      "status": "Estado",
+      "synchronized": "Sincronizado",
+      "retry": "Guardado pendiente · Reintentar",
+      "keyboardQuery": "teclado",
+      "deleteExample": "Se eliminarán los favoritos y las carpetas. La papelera quedará vacía."
+    },
+    "topics": {
+      "bookmarks": [
+        "Abre el menú izquierdo y elige + → Favorito.",
+        "Escribe el nombre y la dirección de la página.",
+        "Confirma: el favorito aparece en un hueco libre."
+      ],
+      "quick-save": [
+        "Abre New DeskTab desde el icono de la extensión.",
+        "Revisa el nombre, la dirección y el destino propuestos.",
+        "Guarda: el favorito estará en tu espacio al abrir una pestaña."
+      ],
+      "keyboard": [
+        "Pulsa Tab para enfocar el primer elemento.",
+        "Las flechas cambian el foco. Enter abre el elemento enfocado.",
+        "Esc o un segundo Tab termina la navegación."
+      ],
+      "shortcuts": [
+        "Abre Ajustes → Teclas rápidas.",
+        "Pulsa el atajo de una acción y escribe tu combinación.",
+        "Guarda para aplicar el nuevo atajo."
+      ],
+      "search": [
+        "La lupa de la barra o la tecla / abren la búsqueda.",
+        "Escribe parte del nombre o de la dirección.",
+        "Abre el resultado. Esc o Cerrar te devuelve al espacio."
+      ],
+      "editing": [
+        "El lápiz del menú activa la cuadrícula y los controles.",
+        "El lápiz de Gmail abre su editor de nombre y URL.",
+        "Guarda el cambio y pulsa otra vez el lápiz para terminar."
+      ],
+      "movement": [
+        "Activa la edición y mantén pulsada la tarjeta.",
+        "El cursor y la tarjeta se desplazan juntos hasta un hueco libre.",
+        "Suelta: la posición final queda guardada."
+      ],
+      "resizing": [
+        "Activa la edición y busca el tirador de la esquina.",
+        "Arrastra en diagonal para cambiar ancho y alto.",
+        "Suelta en 2 × 2. Compara Ninguno y Suave con el selector."
+      ],
+      "drag-modes": [
+        "El selector permite comparar los tres modos de arrastre.",
+        "Arrastra hacia una celda ocupada y observa las otras tarjetas.",
+        "Ninguna busca un hueco libre; Recolocación y Sucesión reorganizan."
+      ],
+      "folders": [
+        "Dale nombre a una carpeta para reunir tus páginas.",
+        "En edición, arrastra un favorito sobre ella.",
+        "Abre la carpeta para encontrar el favorito en su cuadrícula."
+      ],
+      "workspaces": [
+        "El + de la barra crea un espacio con el nombre que elijas.",
+        "El espacio nuevo tiene su propia cuadrícula.",
+        "Alt + ↑ y Alt + ↓ recorren tus espacios."
+      ],
+      "selection": [
+        "Activa la edición y selecciona una tarjeta con un clic corto.",
+        "Selecciona otra: la barra ofrece acciones para el grupo.",
+        "Clonar crea copias en huecos libres de una sola vez."
+      ],
+      "history": [
+        "Mueve una tarjeta: ese cambio entra en el historial.",
+        "Deshacer devuelve la tarjeta a su posición anterior.",
+        "Rehacer recupera el movimiento que acabas de deshacer."
+      ],
+      "appearance": [
+        "El lápiz de la tarjeta abre su editor.",
+        "Cambia el color y observa la vista previa.",
+        "Guarda para aplicar ese aspecto a la tarjeta."
+      ],
+      "presets": [
+        "Abre la biblioteca desde Ajustes → Favoritos.",
+        "Dale nombre a un estilo y guárdalo para reutilizarlo.",
+        "Carga el estilo como predeterminado y guarda para los favoritos nuevos."
+      ],
+      "wallpapers": [
+        "Abre Ajustes → Tema para elegir el fondo.",
+        "Revisa la vista previa y el intervalo de la biblioteca.",
+        "Guarda: el fondo elegido se muestra en tu espacio."
+      ],
+      "clock": [
+        "Elige + → Widgets → Reloj en el menú izquierdo.",
+        "Configura el formato y los segundos usando la vista previa.",
+        "Añade el reloj a un hueco libre del espacio."
+      ],
+      "interface": [
+        "Abre General y elige el idioma de los menús.",
+        "Compara la interfaz clara y la oscura.",
+        "Guarda tus preferencias de idioma y aspecto."
+      ],
+      "trash": [
+        "Abre la papelera para encontrar un favorito eliminado.",
+        "Selecciónalo y pulsa Restaurar: vuelve a la cuadrícula.",
+        "En General puedes ajustar el tiempo de conservación."
+      ],
+      "backup": [
+        "Localiza las opciones de copia en Ajustes → General.",
+        "Exportar descarga un ZIP con datos y archivos locales.",
+        "Importar pide confirmación antes de reemplazar los datos."
+      ],
+      "sync": [
+        "Abre Ajustes → Sincronización para consultar el modo actual.",
+        "Elige Sincronizado y revisa la confirmación.",
+        "Aceptar aplica el modo inmediatamente, sin pulsar Guardar."
+      ],
+      "compact": [
+        "Al estrechar la ventana, la cuadrícula se convierte en lista.",
+        "Los favoritos siguen accesibles desde la lista.",
+        "Amplía la ventana para recuperar la cuadrícula y la edición."
+      ],
+      "data": [
+        "El ejemplo tiene otro idioma, interfaz clara y tarjetas personalizadas.",
+        "Restablecer recupera los ajustes predeterminados y conserva los favoritos y sus estilos.",
+        "Borrar elimina los favoritos y las carpetas; solo queda la papelera vacía."
+      ],
+      "learning": [
+        "El consejo diario te invita a descubrir una función. Pulsa Ver cómo.",
+        "Escribe «tecl» en el buscador: aparece Navegar con el teclado.",
+        "Pulsa el resultado para consultar sus instrucciones."
+      ]
+    }
+  },
   "daily": {
     "eyebrow": "UN TRUCO PARA HOY",
     "dismiss": "Cerrar el consejo de hoy",
@@ -190,7 +354,7 @@
       "question": "¿Cómo borro mis datos o restablezco los ajustes?", "searchTerms": "borrar datos; restablecer ajustes; eliminar todo; empezar cero; reset",
       "title": "Guardar y restablecer", "summary": "Conoce qué se guarda y qué elimina cada acción.",
       "steps": ["Las acciones del espacio se guardan automáticamente. En los editores y Ajustes, confirma con Guardar; Cancelar descarta el borrador de ese panel.", "Si aparece un aviso de guardado pendiente, pulsa Reintentar y espera la confirmación antes de cerrar la pestaña.", "En Ajustes → General puedes restablecer los ajustes o eliminar todos los datos. Lee la confirmación y exporta antes una copia de lo que quieras conservar."],
-      "note": "Restablecer ajustes y eliminar todos los datos son acciones distintas. Deshacer no reemplaza una copia de seguridad de tus datos.",
+      "note": "Restablecer ajustes conserva tus favoritos, sus tamaños y sus estilos. Borrar todos los datos locales elimina los elementos y vacía la papelera. Exporta una copia antes de borrar: Deshacer no sustituye una copia de seguridad.",
       "tip": "Si ves un aviso de cambios sin guardar, usa Reintentar antes de cerrar la pestaña. Puedes proteger tu espacio con una copia completa."
     },
     "learning": {

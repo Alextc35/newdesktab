@@ -23,6 +23,170 @@
   "footer": "Always available in Settings → Information.",
   "guideLinks": "Learn more in the manual",
   "groups": { "start": "Start here", "organize": "Get organized", "personalize": "Make it yours", "protect": "Look after your space" },
+  "demo": {
+    "browse": "Browse sections",
+    "previous": "← Previous section",
+    "next": "Next section →",
+    "title": "See it in action",
+    "example": "Demonstration example",
+    "steps": "Demonstration steps",
+    "step": "Step {{step}} of {{count}}",
+    "play": "Play",
+    "pause": "Pause",
+    "replay": "Replay",
+    "progress": "Demonstration progress",
+    "mode": "Behavior",
+    "nextStep": "Next step",
+    "reducedMotion": "Reduced motion: explore the steps without animation.",
+    "labels": {
+      "settings": "Settings",
+      "saved": "Changes saved",
+      "page": "Page",
+      "selection": "Selection",
+      "selected": "items selected",
+      "color": "Color",
+      "styleName": "My purple style",
+      "wallpaper": "Wallpapers",
+      "rotation": "Rotation",
+      "format": "Format",
+      "seconds": "Seconds",
+      "language": "Language",
+      "system": "System",
+      "currentLanguage": "English",
+      "restore": "Restore",
+      "copy": "Backup",
+      "restoreCopy": "Review before restoring",
+      "switchSync": "Switch to Synced?",
+      "applyNow": "Applies when confirmed",
+      "status": "Status",
+      "synchronized": "Synced",
+      "retry": "Save pending · Retry",
+      "keyboardQuery": "keyboard",
+      "deleteExample": "Bookmarks and folders will be deleted. The recycle bin will be empty."
+    },
+    "topics": {
+      "bookmarks": [
+        "Open the left menu and choose + → Bookmark.",
+        "Enter the page name and address.",
+        "Confirm: the bookmark appears in a free cell."
+      ],
+      "quick-save": [
+        "Open New DeskTab from its extension icon.",
+        "Review the suggested name, address and destination.",
+        "Save: the bookmark will be in your workspace when you open a tab."
+      ],
+      "keyboard": [
+        "Press Tab to focus the first item.",
+        "Arrow keys move focus. Enter opens the focused item.",
+        "Esc or another Tab ends navigation."
+      ],
+      "shortcuts": [
+        "Open Settings → Keyboard shortcuts.",
+        "Click an action's shortcut and type your combination.",
+        "Save to apply the new shortcut."
+      ],
+      "search": [
+        "The toolbar magnifier or / opens search.",
+        "Type part of the name or address.",
+        "Open the result. Esc or Close returns to your workspace."
+      ],
+      "editing": [
+        "The menu pencil reveals the grid and controls.",
+        "Gmail's pencil opens its name and URL editor.",
+        "Save the change and click the menu pencil again to finish."
+      ],
+      "movement": [
+        "Enable editing and hold the tile.",
+        "The cursor and tile move together to a free cell.",
+        "Release: the final position is saved."
+      ],
+      "resizing": [
+        "Enable editing and find the corner handle.",
+        "Drag diagonally to change width and height.",
+        "Release at 2 × 2. Compare None and Smooth using the selector."
+      ],
+      "drag-modes": [
+        "Use the selector to compare the three drag modes.",
+        "Drag toward an occupied cell and watch the other tiles.",
+        "None uses a free cell; Relocation and Cascade reorganize the tiles."
+      ],
+      "folders": [
+        "Name a folder to group your pages.",
+        "While editing, drag a bookmark onto it.",
+        "Open the folder to find the bookmark in its grid."
+      ],
+      "workspaces": [
+        "The toolbar + creates a workspace with your chosen name.",
+        "The new workspace has its own grid.",
+        "Alt + ↑ and Alt + ↓ cycle through your workspaces."
+      ],
+      "selection": [
+        "Enable editing and select a tile with a short click.",
+        "Select another: the toolbar offers group actions.",
+        "Clone creates copies in free cells in one action."
+      ],
+      "history": [
+        "Move a tile: that change enters the history.",
+        "Undo returns the tile to its previous position.",
+        "Redo restores the move you just undid."
+      ],
+      "appearance": [
+        "The tile's pencil opens its editor.",
+        "Change the color and watch the preview.",
+        "Save to apply that appearance to the tile."
+      ],
+      "presets": [
+        "Open the library from Settings → Bookmarks.",
+        "Name and save a style to reuse it.",
+        "Load it as the default and save for new bookmarks."
+      ],
+      "wallpapers": [
+        "Open Settings → Theme to choose a wallpaper.",
+        "Review the preview and library rotation interval.",
+        "Save: the chosen wallpaper appears in your workspace."
+      ],
+      "clock": [
+        "Choose + → Widgets → Clock in the left menu.",
+        "Configure the format and seconds using the preview.",
+        "Add the clock to a free workspace cell."
+      ],
+      "interface": [
+        "Open General and choose the menu language.",
+        "Compare the light and dark interface.",
+        "Save your language and appearance preferences."
+      ],
+      "trash": [
+        "Open the recycle bin to find a deleted bookmark.",
+        "Select it and click Restore: it returns to the grid.",
+        "In General, choose how long deleted items are kept."
+      ],
+      "backup": [
+        "Find the backup options in Settings → General.",
+        "Export downloads a ZIP with data and local files.",
+        "Import asks for confirmation before replacing data."
+      ],
+      "sync": [
+        "Open Settings → Synchronization to check the current mode.",
+        "Choose Synced and review the confirmation.",
+        "Accept applies the mode immediately, without clicking Save."
+      ],
+      "compact": [
+        "As the window narrows, the grid becomes a list.",
+        "Bookmarks remain accessible from the list.",
+        "Widen the window to return to the grid and editing."
+      ],
+      "data": [
+        "The example uses another language, a light interface and customized tiles.",
+        "Reset restores default settings while keeping bookmarks and their styles.",
+        "Delete removes bookmarks and folders, leaving only the empty recycle bin."
+      ],
+      "learning": [
+        "The daily tip invites you to discover a feature. Click Show me how.",
+        "Type “keyb” in the search box to find Navigate with the keyboard.",
+        "Click the result to read its instructions."
+      ]
+    }
+  },
   "daily": {
     "eyebrow": "A LITTLE TIP FOR TODAY",
     "dismiss": "Dismiss today's tip",
@@ -190,7 +354,7 @@
       "question": "How do I delete my data or reset settings?", "searchTerms": "delete data; reset settings; remove everything; start over",
       "title": "Saving and resetting", "summary": "Understand what is saved and what each action removes.",
       "steps": ["Workspace actions save automatically. In editors and Settings, confirm with Save; Cancel discards that panel's draft.", "If a pending-save notice appears, click Retry save and wait for confirmation before closing the tab.", "In Settings → General you can reset settings or delete all data. Read the confirmation and export a backup of anything you want to keep."],
-      "note": "Resetting settings and deleting all data are different actions. Undo isn't a replacement for a data backup.",
+      "note": "Resetting settings keeps your bookmarks, their sizes and their styles. Deleting all local data removes the items and empties the recycle bin. Export a backup before deleting: Undo does not replace a backup.",
       "tip": "If you see an unsaved-changes notice, use Retry save before closing the tab. Protect your space with a full backup."
     },
     "learning": {

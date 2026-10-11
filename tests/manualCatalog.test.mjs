@@ -14,12 +14,15 @@ test('all manual destinations resolve to complete localized sections', () => {
   assert.equal(new Set(ids).size, ids.length);
   for (const language of languages) {
     assert.deepEqual(Object.keys(translations[language].topics).sort(), [...ids].sort());
+    assert.deepEqual(Object.keys(translations[language].demo.topics).sort(), [...ids].sort());
     for (const topic of MANUAL_TOPICS) {
       assert.ok(MANUAL_GROUPS.includes(topic.group));
       assert.ok(topic.related.every(id => ids.includes(id) && id !== topic.id));
       const section = translations[language].topics[topic.id];
       assert.equal(section.steps.length, 3);
-      for (const text of [section.title, section.question, section.searchTerms, section.summary, section.note, section.tip, ...section.steps]) {
+      const captions = translations[language].demo.topics[topic.id];
+      assert.equal(captions.length, 3);
+      for (const text of [section.title, section.question, section.searchTerms, section.summary, section.note, section.tip, ...section.steps, ...captions]) {
         assert.equal(typeof text, 'string');
         assert.ok(text.trim().length > 0);
       }
