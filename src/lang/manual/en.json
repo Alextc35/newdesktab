@@ -4,6 +4,14 @@
   "intro": "Get to know every little feature.",
   "description": "Find what you need or discover something new. Take your time.",
   "settingsDescription": "Every feature, with simple steps and little tricks to try whenever you like.",
+  "search": {
+    "label": "What can we help you with?",
+    "placeholder": "For example: recover a deleted bookmark",
+    "common": "Common questions",
+    "found": "Answers for your search · {{count}}",
+    "empty": "No help found for that search. Try “keyboard”, “move bookmarks” or “backup”.",
+    "resultsLabel": "Manual questions and answers"
+  },
   "open": "Explore the manual",
   "searchLabel": "Search the manual",
   "searchPlaceholder": "Try “keyboard”, “wallpaper” or “backup”",
@@ -25,144 +33,168 @@
   },
   "topics": {
     "bookmarks": {
+      "question": "How do I add a page to my bookmarks?", "searchTerms": "add page; create bookmark; save website; new favorite",
       "title": "Add bookmarks", "summary": "Your favorite pages at hand in every new tab.",
       "steps": ["Move to the left edge to reveal the menu. Choose + → Bookmark.", "Enter the page name and address. You can adjust its appearance before adding it.", "Confirm to place the bookmark in a free slot in the current workspace. Outside edit mode, click it to open the page."],
       "note": "To change an existing bookmark, turn on editing and use its pencil. You can lock the address to avoid accidental changes.",
       "tip": "The menu for adding bookmarks is at the left edge. Move your cursor there and choose + → Bookmark."
     },
     "quick-save": {
+      "question": "How do I save the page I am visiting?", "searchTerms": "save current page; save open tab; extension icon; capture URL",
       "title": "Save the current page", "summary": "Add a page from the extension icon.",
       "steps": ["While visiting a page, open New DeskTab from the browser's extensions menu.", "Check the proposed name and address, and choose an available destination.", "Save the bookmark and open a new tab to find it in your space."],
       "note": "Pin the extension icon to your browser toolbar to keep this shortcut within reach.",
       "tip": "No need to copy the URL: New DeskTab's browser icon lets you save the page you're visiting."
     },
     "keyboard": {
+      "question": "How do I navigate without a mouse?", "searchTerms": "without mouse; use keyboard; arrow navigation; tab enter",
       "title": "Navigate with the keyboard", "summary": "Tab, arrow keys and Enter to explore your space.",
       "steps": ["On the main page, without typing in a field or having a dialog open, press Tab to start navigating the items.", "Use the arrow keys to reach the closest item in each direction. Enter opens the bookmark or folder; in edit mode, it opens its editor.", "Press Tab again or Esc to leave navigation. Inside dialogs, Tab and Shift + Tab move between controls normally."],
       "note": "In edit mode, S selects the focused item. Delete or Backspace removes it after confirmation. Widgets are deleted permanently.",
       "tip": "Try Tab in your space: arrows move between items and Enter opens them. Another Tab leaves this mode."
     },
     "shortcuts": {
+      "question": "How do I change my keyboard shortcuts?", "searchTerms": "change shortcuts; customize keys; key combinations; hotkey",
       "title": "Make shortcuts your own", "summary": "Check and change your shortcuts in Settings.",
       "steps": ["Open Settings → Shortcuts to see your bindings for editing, adding bookmarks, folders and widgets, and opening settings.", "Click an action's key combination and press a new shortcut. Esc cancels recording; right-click leaves the action unassigned.", "Save settings to apply your changes. Reset shortcuts restores the original combinations."],
       "note": "Initially: E edits, B adds a bookmark, F a folder, W opens widgets and S opens settings. Shortcuts respect text fields and dialogs.",
       "tip": "You can change shortcuts in Settings. Click a combination to record your own; Esc cancels and right-click unassigns it."
     },
     "search": {
+      "question": "How do I find a bookmark I cannot see?", "searchTerms": "find bookmark; locate page; missing bookmark; search URL",
       "title": "Find a bookmark", "summary": "Search by name or address, including inside folders.",
       "steps": ["Press / when you aren't typing, or use the magnifying glass on the workspace bar.", "Type part of a name or address. Search includes bookmarks in other workspaces and inside folders.", "Open the result you need. Esc or Close takes you back to your space."],
       "note": "You don't need to remember where you saved a page to find it.",
       "tip": "The / key opens search. It also finds bookmarks inside folders and in other workspaces."
     },
     "editing": {
+      "question": "How do I turn on editing?", "searchTerms": "enable editing; edit desktop; pencil editor; modify bookmark",
       "title": "Edit mode", "summary": "Turn on the pencil to organize and customize.",
       "steps": ["Click the pencil in the left menu, or use your editing shortcut, to reveal the grid and item controls.", "Move, resize or select items. Each card's pencil opens its name, address and appearance editor.", "Click the pencil again when you're done. Workspace changes save automatically; editors have their own Save button."],
       "note": "Esc first clears selection or keyboard navigation. When neither is active, it can leave edit mode.",
       "tip": "The menu pencil starts editing: card handles and controls appear. Click it again to finish."
     },
     "movement": {
+      "question": "How do I move a bookmark?", "searchTerms": "move bookmark; drag favorite; change position; arrange grid",
       "title": "Move items", "summary": "Drag cards into place on the grid.",
       "steps": ["Turn on edit mode and hold the card you want to move.", "Drag it to its destination. The result depends on free space and the drag mode chosen in Settings → Bookmarks.", "Release to save its position. You can also select a single item with a click and move it one cell with arrows, outside Tab navigation."],
       "note": "Blocked destinations show visual feedback and the item returns to a valid position. You can undo changes.",
       "tip": "In edit mode, click to select one card and use arrows to move it cell by cell. Leave Tab navigation first."
     },
     "resizing": {
+      "question": "How do I change the size of a tile?", "searchTerms": "resize tile; enlarge bookmark; reduce size; resize handles; width height; 2x2",
       "title": "Change the size", "summary": "Use the sides and corners of a card.",
       "steps": ["Turn on editing and move to an item's side or corner to use its resize handles.", "Drag the handle. A corner changes width and height; a side changes just one dimension.", "In Settings → Bookmarks, choose None to jump between cells after crossing 50%, or Smooth to stretch the card and snap on release."],
       "note": "The final size respects the grid and valid positions. Settings previews show the difference before you choose.",
       "tip": "Corners resize diagonally. In Settings → Bookmarks you can compare cell-by-cell resizing with smooth stretching."
     },
     "drag-modes": {
+      "question": "Why can I not drop on an occupied cell?", "searchTerms": "occupied cell; move over another; blocked drop; relocate cascade; drag collision",
       "title": "Drag modes", "summary": "Choose what happens at an occupied bookmark position.",
       "steps": ["Open Settings → Bookmarks and expand drag behavior.", "None moves into free slots. Relocation finds a position for bookmarks at the destination. Cascade rearranges bookmarks in sequence.", "Watch each option's animation and save the mode that feels comfortable to organize with."],
       "note": "A move is rejected if no valid arrangement exists. A transparent background doesn't make an occupied cell free.",
       "tip": "Want to move a bookmark into an occupied cell? Look at Relocation and Cascade in Settings → Bookmarks and watch their previews."
     },
     "folders": {
+      "question": "How do I group bookmarks into folders?", "searchTerms": "create folder; group bookmarks; organize favorites; remove from folder; rename folder",
       "title": "Organize with folders", "summary": "Gather up to 18 bookmarks in one folder.",
       "steps": ["Choose + → Folder in the left menu and give it a name.", "In edit mode, drag bookmarks onto it to put them inside. Open the folder to see its grid.", "Use the folder's edit mode to arrange its bookmarks. Click its name to rename it and its icon to customize its appearance."],
       "note": "Deleting a folder affects its bookmarks too. Review the confirmation before continuing; the recycle bin can restore deleted items.",
       "tip": "A folder holds up to 18 bookmarks. Turn on editing and drag a card onto the folder to add it."
     },
     "workspaces": {
+      "question": "How do I keep personal and work pages separate?", "searchTerms": "personal work; create workspace; switch workspace; desktops",
       "title": "Separate your workspaces", "summary": "One grid for work and another for everything else.",
       "steps": ["The workspace bar switches between Main and your custom workspaces. Its + creates a new one.", "Choose a workspace before adding items. To transfer existing items, select them and choose a destination in the action bar.", "Alt + ↑ and Alt + ↓ cycle through workspaces. The − button deletes the current custom workspace after confirmation."],
       "note": "Deleting a workspace also deletes its contents. Main stays available and can't be deleted.",
       "tip": "Alt + ↑ and Alt + ↓ switch workspaces without opening the selector. Separate work, hobbies or projects with the bar's +."
     },
     "selection": {
+      "question": "How do I change several items at once?", "searchTerms": "select multiple; bulk selection; move several; clone selection; duplicate bookmarks",
       "title": "Select and act in bulk", "summary": "Fewer repeated actions when organizing several cards.",
       "steps": ["Turn on editing and briefly click each card to select it. Click again to deselect; in Tab navigation you can use S.", "The selection bar lets you duplicate, apply the default appearance, move to another workspace or delete, depending on the item type.", "Check the destination or confirmation. Esc or the clear-selection button cancels your selection."],
       "note": "Moving and duplicating need free slots. The app tells you if some items won't fit. Widgets don't go into the recycle bin.",
       "tip": "In edit mode, select several cards with short clicks to move, duplicate or restyle them together. Esc clears selection."
     },
     "history": {
+      "question": "How do I undo my last change?", "searchTerms": "undo change; redo change; go back; restore position",
       "title": "Undo and redo", "summary": "Recover a position or a recent change.",
       "steps": ["Use the undo arrow on the workspace bar to return to the previous state.", "The redo arrow recovers a change you just undid. You can also use Ctrl/Cmd + Z and Ctrl/Cmd + Shift + Z.", "Check the result before continuing to organize. Arrows are disabled when no more changes are available."],
       "note": "History is temporary and isn't a backup. A new session or updates from another tab can reset it.",
       "tip": "If a change doesn't feel right, use the undo arrow or Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z redoes it."
     },
     "appearance": {
+      "question": "How do I change the color, icon or text?", "searchTerms": "change color; change icon; change text; bookmark appearance; folder color; favicon",
       "title": "Customize your cards", "summary": "Colors, images, text and icons your way.",
       "steps": ["Turn on editing and open a bookmark's pencil, or the appearance control for a folder or the recycle bin.", "Explore the editor: background, color, image, text and icon. Available controls depend on the item type; the preview shows the result.", "Save when you're happy. You can use images from a URL or a local file where the editor offers that option."],
       "note": "Local images belong to this browser. Add an alternative URL if you want the image to appear on other synchronized devices.",
       "tip": "A bookmark's pencil opens its visual editor. Change colors, text, icon or image and check the preview."
     },
     "presets": {
+      "question": "How do I reuse a style I like?", "searchTerms": "save style; reuse appearance; default styles; preset library; apply style",
       "title": "Reuse appearances", "summary": "Save a look and apply it to other bookmarks.",
       "steps": ["Open the editor's Library to choose a look from the available collection.", "Save a custom appearance as a preset to reuse its colors, text and icon without copying the bookmark's name or address.", "In Settings → Bookmarks configure the default appearance for new bookmarks. The selection bar can apply it to compatible items."],
       "note": "A preset changes appearance, not the bookmark's identity, destination or position.",
       "tip": "Save a look you like in the appearance library. Reuse it on other cards without changing their names or addresses."
     },
     "wallpapers": {
+      "question": "How do I use an image or video as my background?", "searchTerms": "change background; video background; wallpaper rotation; theme",
       "title": "Wallpapers and rotation", "summary": "Color, image or video to set the mood.",
       "steps": ["Open Settings → Theme and choose the default background, a color or a media background.", "Add images or videos from the sources offered in the panel. The library collects multiple backgrounds with a rotation interval.", "Check the preview and save. You can pair a local file with an alternative URL for other devices."],
       "note": "Local files stay in this browser. Synchronization doesn't transfer them; a full backup can preserve them.",
       "tip": "Your background can change automatically: add several to the Settings → Theme library and set a rotation interval."
     },
     "clock": {
+      "question": "How do I add a clock?", "searchTerms": "add clock; show time; seconds; 24 hour format; clock widget",
       "title": "Add a clock", "summary": "A widget showing your device's time.",
       "steps": ["Choose + → Widgets in the left menu and select Clock.", "Choose a 12- or 24-hour format and whether to show seconds. The preview helps you decide.", "Add it to a free slot. In edit mode you can move, resize or reopen its options."],
       "note": "The clock follows your device's time. Deleting a widget is permanent; it doesn't enter the recycle bin.",
       "tip": "In + → Widgets you can add a 12- or 24-hour clock with optional seconds and resize it to suit your space."
     },
     "interface": {
+      "question": "How do I change the language or use dark mode?", "searchTerms": "change language; dark mode; light mode; interface appearance",
       "title": "Language and interface theme", "summary": "Make menus, dialogs and controls comfortable.",
       "steps": ["In Settings → General choose a language or let it follow your system.", "Choose a light, dark or automatic interface according to your preference.", "Save settings. The interface theme works alongside the background you chose in Theme."],
       "note": "System language and automatic appearance follow your device preferences.",
       "tip": "Choose a light or dark interface while keeping your wallpaper. Find this option and language in Settings → General."
     },
     "trash": {
+      "question": "How do I recover a deleted bookmark?", "searchTerms": "recover deleted bookmark; restore removed; recycle bin; accidentally deleted; recover folder",
       "title": "Restore from the recycle bin", "summary": "A second chance for bookmarks and folders.",
       "steps": ["Open your space's recycle bin to review deleted bookmarks and folders.", "Select what you want back and use Restore. You can also permanently delete items or empty the bin after confirmation.", "In Settings → General choose whether to show it and how long it keeps items: 1, 7, 14 or 28 days, or never delete them automatically."],
       "note": "The recycle bin belongs to this device. Expired or permanently deleted items can no longer be restored from it.",
       "tip": "Deleted a bookmark by mistake? Open the recycle bin and restore it. Adjust the retention period in Settings → General."
     },
     "backup": {
+      "question": "How do I back up or transfer my data?", "searchTerms": "backup copy; export data; import copy; restore backup; another browser; transfer data",
       "title": "Backups and imports", "summary": "Keep a copy of your space and take it with you.",
       "steps": ["In Settings → General export a full backup to preserve data and the local files included in the ZIP archive.", "To restore, import a backup and review the confirmation before replacing data. Compatible JSON backups are also supported.", "In Settings → Bookmarks you can export or import just bookmarks and folders when you don't need a full backup."],
       "note": "A bookmark export isn't a full backup of settings and local media. Save a backup before restoring or deleting data.",
       "tip": "A full backup from Settings → General includes local files in a ZIP. It's useful before switching browsers or restoring data."
     },
     "sync": {
+      "question": "How do I use the same space on another computer?", "searchTerms": "another computer; synchronize devices; synchronization; cloud; local sync",
       "title": "Synchronize across devices", "summary": "Share your space using browser synchronization.",
       "steps": ["Sign in and enable extension synchronization in your Google Chrome profile.", "In Settings → Synchronization choose Synced and accept the confirmation. The switch takes effect immediately: existing synchronized bookmarks and settings are loaded, or your saved local data is synchronized if none exists.", "Use the same profile on the other device. Check synchronization status and available space in the panel."],
       "note": "Local files, the recycle bin and daily tips belong to each device. Synchronization has storage limits; use alternative URLs for local images and videos.",
       "tip": "Synchronization shares your space across devices, but local files need an alternative URL. See Settings → Synchronization."
     },
     "compact": {
+      "question": "Why do I see a list instead of the grid?", "searchTerms": "small window; list view; grid disappeared; hidden panel; mobile",
       "title": "Use a smaller window", "summary": "Keep reaching your bookmarks when space is limited.",
       "steps": ["When the window narrows, the app switches to a list to keep your items accessible.", "Open bookmarks, folders or search in this view. The manual also adapts to the available size.", "Widen the window to bring back the grid and editing panels. A suspended editing dialog preserves its draft."],
       "note": "Compact view helps you browse your space; reorganizing needs a sufficiently wide window.",
       "tip": "In a narrow window your bookmarks stay available as a list. Widen it when you want to edit or reorganize the grid."
     },
     "data": {
+      "question": "How do I delete my data or reset settings?", "searchTerms": "delete data; reset settings; remove everything; start over",
       "title": "Saving and resetting", "summary": "Understand what is saved and what each action removes.",
       "steps": ["Workspace actions save automatically. In editors and Settings, confirm with Save; Cancel discards that panel's draft.", "If a pending-save notice appears, click Retry save and wait for confirmation before closing the tab.", "In Settings → General you can reset settings or delete all data. Read the confirmation and export a backup of anything you want to keep."],
       "note": "Resetting settings and deleting all data are different actions. Undo isn't a replacement for a data backup.",
       "tip": "If you see an unsaved-changes notice, use Retry save before closing the tab. Protect your space with a full backup."
     },
     "learning": {
+      "question": "How do I reopen the guide or turn off daily tips?", "searchTerms": "disable tips; turn off help; daily alert; reopen guide; user manual",
       "title": "Learn at your own pace", "summary": "A quick guide, a manual and a little daily tip.",
       "steps": ["Revisit the quick guide from Settings → Information. Each step links to the corresponding explanations in the manual.", "Explore the index or search for a word. A section's related links take you to other features when you're ready.", "Your first new tab each day shows a random tip. Dismiss it or open its explanation; you can disable tips in Information."],
       "note": "Tips visit the sections without repeating until the collection is complete. They last 20 seconds and pause while hovering or focusing their buttons. They follow the local day and this browser's preference.",

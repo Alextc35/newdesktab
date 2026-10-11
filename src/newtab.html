@@ -1370,11 +1370,15 @@
               <span class="manual-eyebrow" data-i18n="manual.eyebrow">TU ESPACIO, A TU RITMO</span>
               <h3 data-i18n="manual.title">Manual de uso</h3>
               <p data-i18n="manual.settingsDescription">Descubre todas las funciones, con pasos sencillos y trucos que puedes probar cuando quieras.</p>
-              <div class="settings-manual-shortcuts">
-                <button type="button" data-help-topic="keyboard" data-i18n="manual.topics.keyboard.title">Navegar con el teclado</button>
-                <button type="button" data-help-topic="folders" data-i18n="manual.topics.folders.title">Carpetas</button>
-                <button type="button" data-help-topic="wallpapers" data-i18n="manual.topics.wallpapers.title">Fondos</button>
-              </div>
+              <form class="settings-help-search">
+                <label for="settings-manual-search" data-i18n="manual.search.label">¿En qué podemos ayudarte?</label>
+                <input id="settings-manual-search" type="search" autocomplete="off"
+                  aria-controls="settings-help-results" aria-describedby="settings-help-status"
+                  data-i18n="manual.search.placeholder" placeholder="Por ejemplo: recuperar un favorito borrado">
+                <p id="settings-help-status" class="help-search-status" role="status" aria-live="polite"></p>
+                <div id="settings-help-results" class="settings-help-results" role="group"
+                  data-i18n-aria-label="manual.search.resultsLabel"></div>
+              </form>
               <button id="settings-open-manual" class="btn btn-primary" type="button" data-i18n="manual.open">Explorar el manual</button>
             </section>
             <section class="settings-daily-tips">

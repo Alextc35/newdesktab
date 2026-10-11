@@ -1,3 +1,5 @@
+import { rankManualTopics } from './manualSearch.js';
+
 /** Stable destinations shared by the manual, welcome guide and daily tips. */
 export const MANUAL_GROUPS = ['start', 'organize', 'personalize', 'protect'];
 
@@ -33,12 +35,5 @@ export function getManualTopic(id) {
 }
 
 export function searchManual(query, translate) {
-  const normalize = value => value.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLocaleLowerCase();
-  const words = normalize(query.trim()).split(/\s+/u).filter(Boolean);
-  return MANUAL_TOPICS.filter(topic => {
-    const key = `manual.topics.${topic.id}`;
-    const text = normalize(['title', 'summary', 'note', 'tip', 'steps.0', 'steps.1', 'steps.2']
-      .map(part => translate(`${key}.${part}`)).join(' '));
-    return words.every(word => text.includes(word));
-  });
+  return rankManualTopics(MANUAL_TOPICS, query, translate);
 }

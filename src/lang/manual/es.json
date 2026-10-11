@@ -4,6 +4,14 @@
   "intro": "Cada función, un poco más cerca.",
   "description": "Encuentra lo que necesitas o descubre algo nuevo. Sin prisas.",
   "settingsDescription": "Todas las funciones, con pasos sencillos y trucos que puedes probar cuando quieras.",
+  "search": {
+    "label": "¿En qué podemos ayudarte?",
+    "placeholder": "Por ejemplo: recuperar un favorito borrado",
+    "common": "Ayudas habituales",
+    "found": "Ayudas para tu consulta · {{count}}",
+    "empty": "No encuentro una ayuda para esa consulta. Prueba con «teclado», «mover favoritos» o «copias».",
+    "resultsLabel": "Preguntas y respuestas del manual"
+  },
   "open": "Explorar el manual",
   "searchLabel": "Buscar en el manual",
   "searchPlaceholder": "Prueba «teclado», «fondos» o «copias»",
@@ -25,144 +33,168 @@
   },
   "topics": {
     "bookmarks": {
+      "question": "¿Cómo añado una página a mis favoritos?", "searchTerms": "añadir página; agregar favorito; crear marcador; guardar sitio web; nuevo favorito",
       "title": "Añadir favoritos", "summary": "Tus páginas a mano cada vez que abres una pestaña.",
       "steps": ["Acerca el cursor al borde izquierdo para mostrar el menú. Elige + → Favorito.", "Escribe el nombre y la dirección de la página. Puedes ajustar su aspecto antes de añadirla.", "Confirma y el favorito ocupará un hueco libre del espacio actual. Fuera del modo edición, un clic abre la página."],
       "note": "Para cambiar un favorito existente, activa la edición y utiliza su lápiz. La dirección puede bloquearse para evitar cambios accidentales.",
       "tip": "El menú para añadir favoritos está en el borde izquierdo. Acerca el cursor y elige + → Favorito."
     },
     "quick-save": {
+      "question": "¿Cómo guardo la página que estoy visitando?", "searchTerms": "guardar página actual; guardar pestaña abierta; icono extensión; capturar URL",
       "title": "Guardar la página actual", "summary": "Añade una página desde el icono de la extensión.",
       "steps": ["Mientras visitas una página, abre New DeskTab desde el icono de extensiones del navegador.", "Revisa el nombre y la dirección que propone el panel y elige el destino disponible.", "Guarda el favorito y abre una nueva pestaña para encontrarlo en tu espacio."],
       "note": "Puedes fijar el icono de la extensión en la barra del navegador para tener este acceso siempre a mano.",
       "tip": "No hace falta copiar la URL: el icono de New DeskTab en el navegador permite guardar la página que estás visitando."
     },
     "keyboard": {
+      "question": "¿Cómo navego sin usar el ratón?", "searchTerms": "sin ratón; usar teclado; navegar flechas; tab enter; navegación teclado",
       "title": "Navegar con el teclado", "summary": "Tab, flechas y Enter para recorrer tu espacio.",
       "steps": ["Con la página principal activa, sin escribir en un campo ni tener un diálogo abierto, pulsa Tab para iniciar la navegación por los elementos.", "Usa las flechas para pasar al elemento más cercano en cada dirección. Enter abre el favorito o la carpeta; en modo edición, abre su editor.", "Pulsa Tab de nuevo o Esc para salir de la navegación. Dentro de los diálogos, Tab y Mayús + Tab recorren los controles normalmente."],
       "note": "En modo edición, S selecciona el elemento enfocado. Supr o Retroceso permite eliminarlo tras confirmar. Los widgets se eliminan definitivamente.",
       "tip": "Prueba Tab en tu espacio: las flechas te llevan de un elemento a otro y Enter lo abre. Otro Tab sale de este modo."
     },
     "shortcuts": {
+      "question": "¿Cómo cambio las teclas rápidas?", "searchTerms": "cambiar atajos; personalizar teclas; combinaciones teclado; shortcut",
       "title": "Teclas rápidas a tu gusto", "summary": "Consulta y cambia tus atajos desde Ajustes.",
       "steps": ["Abre Ajustes → Teclas rápidas para ver las combinaciones que tienes asignadas a editar, añadir favoritos, carpetas, widgets y abrir ajustes.", "Pulsa la combinación de una acción y escribe el nuevo atajo. Esc cancela la captura; el clic derecho deja esa acción sin atajo.", "Guarda los ajustes para aplicar los cambios. Restablecer teclas rápidas recupera las combinaciones originales."],
       "note": "De inicio: E edita, B añade un favorito, F una carpeta, W abre widgets y S abre ajustes. Los atajos respetan los campos de texto y los diálogos.",
       "tip": "Puedes cambiar las teclas rápidas en Ajustes. Pulsa una combinación para capturar la tuya; Esc cancela y el clic derecho la desasigna."
     },
     "search": {
+      "question": "¿Cómo encuentro un favorito que no veo?", "searchTerms": "encontrar favorito; buscar marcador; localizar página; no encuentro; buscar URL",
       "title": "Encontrar un favorito", "summary": "Busca por nombre o dirección, también dentro de carpetas.",
       "steps": ["Pulsa / cuando no estés escribiendo o utiliza la lupa de la barra de espacios.", "Escribe parte del nombre o de la dirección. La búsqueda incluye favoritos de otros espacios y de las carpetas.", "Abre el resultado que necesitas. Esc o Cerrar te devuelve al espacio."],
       "note": "No necesitas recordar dónde guardaste una página para encontrarla.",
       "tip": "La tecla / abre la búsqueda. También encuentra favoritos guardados dentro de carpetas y en otros espacios."
     },
     "editing": {
+      "question": "¿Cómo activo la edición de mi espacio?", "searchTerms": "activar edición; editar escritorio; lápiz editor; modificar favorito",
       "title": "El modo edición", "summary": "Activa el lápiz para organizar y personalizar.",
       "steps": ["Pulsa el lápiz del menú izquierdo, o tu atajo de edición, para mostrar la cuadrícula y los controles de cada elemento.", "Mueve, redimensiona o selecciona elementos. El lápiz de cada tarjeta abre su editor de nombre, dirección y aspecto.", "Vuelve a pulsar el lápiz al terminar. Los cambios del espacio se guardan automáticamente; los editores tienen su propio botón Guardar."],
       "note": "Esc limpia primero la selección o la navegación por teclado. Si no hay ninguna activa, permite salir del modo edición.",
       "tip": "El lápiz del menú activa la edición: aparecen los tiradores y los controles de tus tarjetas. Púlsalo otra vez para terminar."
     },
     "movement": {
+      "question": "¿Cómo muevo un favorito de sitio?", "searchTerms": "mover favorito; arrastrar marcador; cambiar posición; ordenar cuadrícula",
       "title": "Mover los elementos", "summary": "Arrastra tarjetas a su lugar en la cuadrícula.",
       "steps": ["Activa el modo edición y mantén pulsada la tarjeta que quieres mover.", "Arrástrala hasta el destino. El resultado depende del espacio libre y del modo de arrastre elegido en Ajustes → Favoritos.", "Suéltala para guardar su posición. También puedes seleccionar un único elemento con un clic y moverlo una celda con las flechas, fuera de la navegación con Tab."],
       "note": "Los destinos bloqueados muestran una respuesta visual y el elemento vuelve a una posición válida. Los cambios se pueden deshacer.",
       "tip": "En edición, selecciona una sola tarjeta con un clic y usa las flechas para moverla de celda en celda. Sal antes del modo de navegación con Tab."
     },
     "resizing": {
+      "question": "¿Cómo cambio el tamaño de un elemento?", "searchTerms": "redimensionar; agrandar favorito; reducir tamaño; tiradores; ancho alto; 2x2",
       "title": "Cambiar el tamaño", "summary": "Usa los lados y las esquinas de una tarjeta.",
       "steps": ["Activa la edición y acerca el cursor a un lado o una esquina del elemento para utilizar sus tiradores.", "Arrastra el tirador. Una esquina cambia ancho y alto; un lateral cambia solo una dimensión.", "En Ajustes → Favoritos elige Ninguno para saltar entre celdas al superar el 50 %, o Suave para estirar la tarjeta y encajarla al soltar."],
       "note": "El tamaño final respeta la cuadrícula y las posiciones válidas. Las vistas previas de los ajustes enseñan la diferencia antes de elegir.",
       "tip": "Las esquinas redimensionan en diagonal. En Ajustes → Favoritos puedes comparar el salto entre celdas con el estirado suave."
     },
     "drag-modes": {
+      "question": "¿Por qué no puedo soltar sobre una celda ocupada?", "searchTerms": "celda ocupada; mover encima de otro; soltar ocupado; recolocación sucesión; colisión arrastre",
       "title": "Modos de arrastre", "summary": "Decide qué ocurre al ocupar la posición de otro favorito.",
       "steps": ["Abre Ajustes → Favoritos y despliega el comportamiento del arrastre.", "Ninguna permite mover a huecos libres. Recolocación busca una posición para los favoritos que ocupan el destino. Sucesión reorganiza los favoritos en secuencia.", "Observa la animación de cada opción y guarda el modo con el que te resulte más cómodo organizar."],
       "note": "Si no hay una distribución válida, el movimiento se rechaza. Un fondo transparente no convierte una celda ocupada en un hueco libre.",
       "tip": "¿Quieres mover un favorito a una celda ocupada? Revisa Recolocación y Sucesión en Ajustes → Favoritos y mira sus animaciones."
     },
     "folders": {
+      "question": "¿Cómo agrupo mis favoritos en carpetas?", "searchTerms": "crear carpeta; agrupar favoritos; organizar marcadores; sacar de carpeta; renombrar carpeta",
       "title": "Organizar en carpetas", "summary": "Reúne hasta 18 favoritos en una misma carpeta.",
       "steps": ["Elige + → Carpeta en el menú izquierdo y dale un nombre.", "En modo edición, arrastra favoritos sobre ella para guardarlos dentro. Abre la carpeta para ver su cuadrícula.", "Usa la edición de la carpeta para ordenar sus favoritos. Pulsa su nombre para renombrarla y su icono para personalizar el aspecto."],
       "note": "Eliminar una carpeta afecta también a sus favoritos. Revisa la confirmación antes de continuar; la papelera permite recuperar los elementos eliminados.",
       "tip": "Una carpeta guarda hasta 18 favoritos. Activa la edición y arrastra una tarjeta sobre la carpeta para añadirla."
     },
     "workspaces": {
+      "question": "¿Cómo separo mi espacio personal del trabajo?", "searchTerms": "personal trabajo; crear espacio; cambiar espacio; escritorios; workspace",
       "title": "Separar en espacios", "summary": "Una cuadrícula para trabajar y otra para lo demás.",
       "steps": ["La barra de espacios permite cambiar entre Principal y tus espacios personalizados. Su + crea uno nuevo.", "Selecciona el espacio antes de añadir elementos. Para trasladar los existentes, usa la selección y el destino de la barra de acciones.", "Alt + ↑ y Alt + ↓ recorren los espacios. El botón − elimina el espacio personalizado actual tras confirmar."],
       "note": "Eliminar un espacio elimina también sus contenidos. Principal permanece disponible y no se puede eliminar.",
       "tip": "Alt + ↑ y Alt + ↓ cambian de espacio sin abrir el selector. Puedes separar trabajo, ocio o proyectos desde el + de la barra."
     },
     "selection": {
+      "question": "¿Cómo cambio varios elementos a la vez?", "searchTerms": "seleccionar varios; selección múltiple; mover varios; clonar selección; duplicar favoritos",
       "title": "Seleccionar y actuar en grupo", "summary": "Menos repeticiones al organizar varias tarjetas.",
       "steps": ["Activa la edición y haz clic corto en cada tarjeta que quieres seleccionar. Otro clic la deselecciona; en navegación con Tab puedes usar S.", "La barra de selección permite duplicar, aplicar el estilo predeterminado, mover a otro espacio o eliminar, según el tipo de elemento.", "Revisa el destino o la confirmación de la acción. Esc o el botón para limpiar la selección la cancela."],
       "note": "Los movimientos y duplicados necesitan huecos disponibles. La aplicación avisa si no caben todos. Los widgets no pasan por la papelera.",
       "tip": "En edición, selecciona varias tarjetas con clics cortos para moverlas, duplicarlas o cambiar su estilo de una vez. Esc limpia la selección."
     },
     "history": {
+      "question": "¿Cómo deshago el último cambio?", "searchTerms": "deshacer cambio; rehacer cambio; undo redo; volver atrás; recuperar posición",
       "title": "Deshacer y rehacer", "summary": "Recupera una posición o un cambio reciente.",
       "steps": ["Usa la flecha de deshacer de la barra de espacios para volver al estado anterior.", "La flecha de rehacer recupera un cambio que acabas de deshacer. También puedes usar Ctrl/Cmd + Z y Ctrl/Cmd + Mayús + Z.", "Comprueba el resultado antes de seguir organizando. Las flechas se desactivan cuando no hay más cambios disponibles."],
       "note": "El historial es temporal y no sustituye a una copia de seguridad. Una nueva sesión o los cambios que llegan de otra pestaña pueden reiniciarlo.",
       "tip": "Si un cambio no te convence, usa la flecha de deshacer o Ctrl/Cmd + Z. Ctrl/Cmd + Mayús + Z lo rehace."
     },
     "appearance": {
+      "question": "¿Cómo cambio el color, el icono o el texto?", "searchTerms": "cambiar color; cambiar icono; cambiar texto; aspecto favorito; color carpeta; favicon",
       "title": "Personalizar las tarjetas", "summary": "Colores, imágenes, texto e iconos a tu gusto.",
       "steps": ["Activa la edición y abre el lápiz de un favorito, o el control de apariencia de una carpeta o de la papelera.", "Explora el editor: fondo y color, imagen, texto e icono. Los controles disponibles dependen del tipo de elemento; la vista previa muestra el resultado.", "Guarda cuando estés conforme. Puedes usar imágenes desde una URL o un archivo local donde el editor ofrezca esa opción."],
       "note": "Las imágenes locales pertenecen a este navegador. En sincronización, añade una URL alternativa si quieres mostrar la imagen en otros dispositivos.",
       "tip": "El lápiz de un favorito abre su editor visual. Cambia colores, texto, icono o imagen y comprueba el resultado en la vista previa."
     },
     "presets": {
+      "question": "¿Cómo reutilizo un estilo que me gusta?", "searchTerms": "guardar estilo; reutilizar apariencia; estilos predeterminados; biblioteca presets; aplicar estilo",
       "title": "Reutilizar estilos", "summary": "Guarda un aspecto y aplícalo a otros favoritos.",
       "steps": ["Abre la Biblioteca del editor para elegir un estilo de la colección disponible.", "Guarda un aspecto personalizado como estilo para reutilizar sus colores, texto e icono sin copiar el nombre ni la dirección del favorito.", "En Ajustes → Favoritos configura el aspecto predeterminado de los nuevos favoritos. La barra de selección permite aplicarlo a los elementos compatibles."],
       "note": "Un estilo modifica la apariencia, no la identidad, el destino ni la posición del favorito.",
       "tip": "Guarda el aspecto que te guste en la biblioteca de estilos. Podrás reutilizarlo en otras tarjetas sin cambiar sus nombres o direcciones."
     },
     "wallpapers": {
+      "question": "¿Cómo pongo una imagen o un vídeo de fondo?", "searchTerms": "cambiar fondo; poner vídeo; imagen fondo; rotación fondos; wallpaper; tema",
       "title": "Fondos y rotación", "summary": "Color, imagen o vídeo para dar ambiente a tu espacio.",
       "steps": ["Abre Ajustes → Tema y elige el fondo predeterminado, un color o un fondo multimedia.", "Añade imágenes o vídeos desde las fuentes que ofrece el panel. La biblioteca permite reunir varios fondos y elegir su intervalo de rotación.", "Comprueba la vista previa y guarda. Puedes combinar un archivo local con una URL alternativa para otros dispositivos."],
       "note": "Los archivos locales se guardan en este navegador. La sincronización no transporta esos archivos; una copia completa puede conservarlos.",
       "tip": "Tu fondo puede cambiar solo: añade varios a la biblioteca de Ajustes → Tema y configura el intervalo de rotación."
     },
     "clock": {
+      "question": "¿Cómo añado un reloj a mi espacio?", "searchTerms": "añadir reloj; mostrar hora; hora segundos; formato 24 horas; widget reloj",
       "title": "Añadir un reloj", "summary": "Un widget con la hora de tu dispositivo.",
       "steps": ["Elige + → Widgets en el menú izquierdo y selecciona Reloj.", "Configura el formato de 12 o 24 horas y si quieres mostrar los segundos. La vista previa te ayuda a elegir.", "Añádelo a un hueco libre. En edición puedes moverlo, redimensionarlo o abrir de nuevo sus opciones."],
       "note": "El reloj sigue la hora del dispositivo. Eliminar un widget es definitivo; no se envía a la papelera.",
       "tip": "En + → Widgets puedes añadir un reloj de 12 o 24 horas, con segundos opcionales, y darle el tamaño que te guste."
     },
     "interface": {
+      "question": "¿Cómo cambio el idioma o pongo el modo oscuro?", "searchTerms": "cambiar idioma; modo oscuro; modo claro; apariencia interfaz; lenguaje",
       "title": "Idioma y tema de la interfaz", "summary": "Haz cómodos los menús, diálogos y controles.",
       "steps": ["En Ajustes → General elige el idioma, o deja que siga el del sistema.", "Selecciona una interfaz clara, oscura o automática según tu preferencia.", "Guarda los ajustes. El tema de la interfaz se combina con el fondo que hayas elegido en Tema."],
       "note": "El idioma del sistema y el modo automático siguen las preferencias del dispositivo.",
       "tip": "Puedes elegir una interfaz clara u oscura sin renunciar a tu fondo. Encontrarás esa opción y el idioma en Ajustes → General."
     },
     "trash": {
+      "question": "¿Cómo recupero un favorito que he borrado?", "searchTerms": "recuperar favorito borrado; restaurar eliminado; papelera; borré sin querer; recuperar carpeta",
       "title": "Recuperar desde la papelera", "summary": "Una segunda oportunidad para favoritos y carpetas.",
       "steps": ["Abre la papelera del espacio para revisar los favoritos y carpetas eliminados.", "Selecciona lo que quieras recuperar y utiliza Restaurar. También puedes eliminar elementos definitivamente o vaciarla tras confirmar.", "En Ajustes → General decide si se muestra la papelera y cuánto tiempo conserva los elementos: 1, 7, 14 o 28 días, o nunca eliminarlos automáticamente."],
       "note": "La papelera pertenece a este dispositivo. Los elementos caducados o eliminados definitivamente ya no se pueden restaurar desde ella.",
       "tip": "¿Borraste un favorito por error? Abre la papelera y restáuralo. En Ajustes → General puedes cambiar el tiempo de conservación."
     },
     "backup": {
+      "question": "¿Cómo hago una copia o me llevo mis datos?", "searchTerms": "copia seguridad; exportar datos; importar copia; restaurar backup; otro navegador; transferir datos",
       "title": "Copias e importación", "summary": "Conserva tu espacio y llévalo contigo.",
       "steps": ["En Ajustes → General exporta una copia completa para conservar los datos y los archivos locales incluidos en el respaldo ZIP.", "Para restaurar, importa una copia y revisa la confirmación antes de reemplazar los datos. También se admiten las copias JSON compatibles.", "En Ajustes → Favoritos puedes exportar o importar solo favoritos y carpetas cuando no necesites una copia completa."],
       "note": "Una exportación de favoritos no sustituye a una copia completa de ajustes y multimedia local. Guarda una copia antes de restaurar o borrar datos.",
       "tip": "La copia completa de Ajustes → General incluye los archivos locales en un ZIP. Es útil antes de cambiar de navegador o restaurar datos."
     },
     "sync": {
+      "question": "¿Cómo uso el mismo espacio en otro ordenador?", "searchTerms": "otro ordenador; sincronizar dispositivos; sincronización; nube; local sync; otro equipo",
       "title": "Sincronizar entre dispositivos", "summary": "Comparte tu espacio usando la sincronización del navegador.",
       "steps": ["Inicia sesión y habilita la sincronización de extensiones en tu perfil de Google Chrome.", "En Ajustes → Sincronización elige Sincronizado y acepta la confirmación. El cambio se aplica inmediatamente: si ya hay datos sincronizados, se cargan sus favoritos y ajustes; si no, se sincronizan tus datos locales guardados.", "Usa el mismo perfil en el otro dispositivo. Consulta el estado y el espacio disponible en el panel de sincronización."],
       "note": "Los archivos locales, la papelera y los consejos diarios pertenecen a cada dispositivo. La sincronización tiene límites de espacio; usa URLs alternativas para las imágenes y vídeos locales.",
       "tip": "La sincronización comparte tu espacio entre dispositivos, pero los archivos locales necesitan una URL alternativa. Consulta Ajustes → Sincronización."
     },
     "compact": {
+      "question": "¿Por qué veo una lista en lugar de la cuadrícula?", "searchTerms": "ventana pequeña; vista lista; cuadrícula desaparecida; panel oculto; móvil",
       "title": "Usar una ventana pequeña", "summary": "Sigue accediendo a tus favoritos cuando falta espacio.",
       "steps": ["Al estrechar la ventana, la aplicación cambia a una lista para mantener accesibles tus elementos.", "Abre favoritos, carpetas o la búsqueda desde esta vista. El manual también se adapta al tamaño disponible.", "Amplía la ventana para recuperar la cuadrícula y los paneles de edición. Un diálogo de edición suspendido conserva su borrador."],
       "note": "La vista compacta facilita consultar tu espacio; para reorganizarlo necesitas una ventana suficientemente amplia.",
       "tip": "En una ventana estrecha tus favoritos siguen disponibles como lista. Amplíala cuando quieras editar o reorganizar la cuadrícula."
     },
     "data": {
+      "question": "¿Cómo borro mis datos o restablezco los ajustes?", "searchTerms": "borrar datos; restablecer ajustes; eliminar todo; empezar cero; reset",
       "title": "Guardar y restablecer", "summary": "Conoce qué se guarda y qué elimina cada acción.",
       "steps": ["Las acciones del espacio se guardan automáticamente. En los editores y Ajustes, confirma con Guardar; Cancelar descarta el borrador de ese panel.", "Si aparece un aviso de guardado pendiente, pulsa Reintentar y espera la confirmación antes de cerrar la pestaña.", "En Ajustes → General puedes restablecer los ajustes o eliminar todos los datos. Lee la confirmación y exporta antes una copia de lo que quieras conservar."],
       "note": "Restablecer ajustes y eliminar todos los datos son acciones distintas. Deshacer no reemplaza una copia de seguridad de tus datos.",
       "tip": "Si ves un aviso de cambios sin guardar, usa Reintentar antes de cerrar la pestaña. Puedes proteger tu espacio con una copia completa."
     },
     "learning": {
+      "question": "¿Cómo vuelvo a la guía o quito los consejos diarios?", "searchTerms": "quitar consejos; desactivar ayudas; alerta diaria; volver guía; manual uso",
       "title": "Aprender a tu ritmo", "summary": "Guía rápida, manual y un pequeño consejo diario.",
       "steps": ["Vuelve a la guía rápida desde Ajustes → Información. Los enlaces de cada paso abren la explicación correspondiente del manual.", "Explora el índice o busca una palabra en el manual. Al terminar una sección, sus enlaces te llevan a funciones relacionadas.", "La primera vez que abres una pestaña cada día aparece un consejo aleatorio. Puedes cerrarlo o abrir su explicación; en Información puedes desactivar los consejos."],
       "note": "Los consejos recorren las secciones sin repetirlas hasta completar la colección. Duran 20 segundos y se pausan al pasar el cursor o enfocar sus botones. Siguen el día local y la preferencia de este navegador.",

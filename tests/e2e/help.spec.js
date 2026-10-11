@@ -55,6 +55,61 @@ test('Information opens a searchable manual and all sections have instructions',
   await expect(page.locator('#settings-modal-tab-info')).toBeVisible();
 });
 
+test('Information suggests useful answers as you type and keeps the query when returning', async ({ page }) => {
+  await start(page);
+  await information(page);
+  const input = page.locator('#settings-manual-search');
+  const results = page.locator('.settings-help-results');
+  await expect(results.locator('button')).toHaveCount(3);
+  await input.fill('how can I recover a deleted bookmark');
+  await expect(results.locator('button').first()).toHaveAttribute('data-manual-topic', 'trash');
+  await expect(results.locator('button span').first()).not.toBeEmpty();
+  await page.evaluate(() => document.documentElement.dataset.interfaceTheme = 'dark');
+  await input.scrollIntoViewIfNeeded();
+  await page.screenshot({ path: 'test-results/help-search-dark.png' });
+  await input.press('ArrowDown');
+  await expect(results.locator('button').first()).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.manual-article')).toHaveAttribute('data-topic', 'trash');
+  await page.keyboard.press('Escape');
+  await expect(input).toHaveValue('how can I recover a deleted bookmark');
+  await input.fill('astronaut volcano submarine');
+  await expect(results.locator('button')).toHaveCount(0);
+  await input.press('Enter');
+  await expect(page.locator('#manual-modal')).toBeHidden();
+  await input.press('Escape');
+  await expect(input).toHaveValue('');
+  await expect(page.locator('#settings-modal')).toBeVisible();
+  await expect(results.locator('button')).toHaveCount(3);
+});
+
+test('help suggestions resolve natural questions in all available languages', async ({ page }) => {
+  await start(page);
+  await information(page);
+  const input = page.locator('#settings-manual-search');
+  for (const [language, query] of [['es', 'quiero navegar sin raton'], ['es_419', 'quiero navegar sin raton'],
+    ['pt_BR', 'quero navegar sem mouse'], ['en', 'navigate without a mouse']]) {
+    await page.evaluate(async language => (await import('/src/platform/i18n/i18n.js')).changeLanguage({ language }), language);
+    await input.fill(query);
+    await expect(page.locator('.settings-help-result').first()).toHaveAttribute('data-manual-topic', 'keyboard');
+    await input.press('Enter');
+    await expect(page.locator('.manual-article')).toHaveAttribute('data-topic', 'keyboard');
+    await page.locator('#manual-back').click();
+    await page.locator('#manual-search').fill(query);
+    await expect(page.locator('.manual-index [data-manual-topic]').first()).toHaveAttribute('data-manual-topic', 'keyboard');
+    await page.keyboard.press('Escape');
+  }
+  await input.fill('how do I change the size of a tile');
+  await input.press('Enter');
+  await expect(page.locator('.manual-article')).toHaveAttribute('data-topic', 'resizing');
+  await page.setViewportSize({ width: 390, height: 600 });
+  await expect(page.locator('#manual-modal')).toBeVisible();
+  await page.locator('#manual-back').click();
+  await page.locator('#manual-search').fill('how do I change the size of a tile');
+  const overflow = await page.locator('.manual-body').evaluate(element => element.scrollWidth > element.clientWidth);
+  expect(overflow).toBe(false);
+});
+
 test('welcome links open the right section and return to the same guide step', async ({ page }) => {
   await start(page, { fresh: true });
   await page.locator('#onboarding-next').click();
@@ -74,7 +129,7 @@ test('welcome links open the right section and return to the same guide step', a
 test('manual translates live, fits small windows and keeps scrolling inside its panel', async ({ page }) => {
   await start(page);
   await information(page);
-  await page.locator('[data-help-topic="keyboard"]').click();
+  await page.locator('.settings-help-result[data-manual-topic="keyboard"]').click();
   for (const [language, title] of [['es', 'Navegar con el teclado'], ['es_419', 'Navegar con el teclado'], ['pt_BR', 'Navegar com o teclado'], ['en', 'Navigate with the keyboard']]) {
     await page.evaluate(async language => (await import('/src/platform/i18n/i18n.js')).changeLanguage({ language }), language);
     await expect(page.locator('.manual-article-title')).toHaveText(title);
@@ -148,6 +203,7 @@ test('countdown pauses for hover, focus and dialogs, then departs with an empty 
   await expect.poll(async () => (await timing(page)).state).toBe('paused');
   await page.locator('#settings-modal-cancel').click();
   await expect(card).toBeVisible();
+  await page.mouse.move(0, 0);
   await expect.poll(async () => (await timing(page)).state).toBe('running');
   await page.waitForTimeout(300);
   await page.screenshot({ path: 'test-results/daily-tip-dark.png' });

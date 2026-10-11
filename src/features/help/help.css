@@ -21,19 +21,30 @@
 .settings-daily-tips { padding: 16px 0 8px; }
 .settings-daily-tips p { margin: 8px 0 0; }
 .settings-daily-tips label { font-size: 13px; font-weight: 600; }
-.settings-manual-shortcuts { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-.settings-manual-shortcuts button {
-  padding: 7px 9px;
+.settings-help-search { margin: 18px 0; }
+.settings-help-search label { display: block; margin-bottom: 9px; font-size: 12px; font-weight: 600; }
+#settings-manual-search { box-sizing: border-box; width: 100%; padding: 12px; border-radius: 9px; font-size: 12px; }
+.settings-help-search .help-search-status { margin: 10px 0 8px; font-size: 11px; line-height: 1.6; }
+.settings-help-results { display: grid; gap: 6px; }
+.settings-help-result {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+  padding: 12px;
   border: 1px solid var(--ui-border);
   border-radius: 7px;
   background: var(--ui-surface);
-  color: var(--ui-info-text);
+  color: var(--ui-text);
   text-align: left;
   font: inherit;
-  font-size: 11px;
+  font-size: 12px;
   cursor: pointer;
 }
-.settings-manual-shortcuts button:hover { border-color: var(--ui-accent); background: var(--ui-selected); }
+.settings-help-result strong { color: var(--ui-info-text); font-weight: 500; line-height: 1.5; }
+.settings-help-result span { color: var(--ui-muted); font-size: 11px; line-height: 1.7; }
+.settings-help-result:hover { border-color: var(--ui-accent); background: var(--ui-selected); }
+.manual-search-results { grid-column: 1 / -1; }
 .onboarding-manual-link {
   display: inline;
   padding: 0;

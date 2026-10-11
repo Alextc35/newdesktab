@@ -22,13 +22,13 @@ export function createManual(modal) {
 
   registerModal({ id: 'manual', element: modal, initialFocus: search, independentViewport: true });
 
-  function topicButton(id, showSummary = true) {
+  function topicButton(id, showSummary = true, showAnswer = false) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'manual-topic';
     button.dataset.manualTopic = id;
-    button.append(textElement('strong', '', t(`manual.topics.${id}.title`)));
-    if (showSummary) button.append(textElement('span', '', t(`manual.topics.${id}.summary`)));
+    button.append(textElement('strong', '', t(`manual.topics.${id}.${showAnswer ? 'question' : 'title'}`)));
+    if (showSummary) button.append(textElement('span', '', t(`manual.topics.${id}.${showAnswer ? 'tip' : 'summary'}`)));
     return button;
   }
 
@@ -36,6 +36,14 @@ export function createManual(modal) {
     const matches = searchManual(search.value, t);
     count.textContent = t('manual.count', { count: matches.length });
     groups.replaceChildren();
+    if (search.value.trim() && matches.length) {
+      const section = document.createElement('section');
+      section.className = 'manual-group manual-search-results';
+      section.append(textElement('h3', 'manual-group-heading', t('manual.search.resultsLabel')),
+        ...matches.map(topic => topicButton(topic.id, true, true)));
+      groups.append(section);
+      return;
+    }
     for (const [number, group] of MANUAL_GROUPS.entries()) {
       const topics = matches.filter(topic => topic.group === group);
       if (!topics.length) continue;
