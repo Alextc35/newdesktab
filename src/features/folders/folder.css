@@ -84,6 +84,17 @@
   color: color-mix(in srgb, var(--folder-text-color) 72%, transparent);
 }
 
+#bookmark-container:not(.is-list-view) > .bookmark-folder.is-folder-outer-transparent .folder-title {
+  justify-self: center;
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: var(--folder-caption-background);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 16%);
+}
+
 .has-folder-outer-color .folder-count {
   color: color-mix(in srgb, var(--folder-text-color) 72%, transparent);
 }

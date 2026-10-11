@@ -35,6 +35,18 @@ async function seek(page, time) {
   }, time);
 }
 
+function contrast(first, second) {
+  const luminance = css => {
+    const [r, g, b] = css.match(/[\d.]+/g).slice(0, 3).map(Number).map(channel => {
+      const value = channel / 255;
+      return value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4;
+    });
+    return r * .2126 + g * .7152 + b * .0722;
+  };
+  const values = [luminance(first), luminance(second)].sort((a, b) => a - b);
+  return (values[1] + .05) / (values[0] + .05);
+}
+
 for (const [theme, colorScheme] of [['dark', 'light'], ['light', 'dark'], ['system', 'dark'], ['system', 'light']]) {
   test(`${theme}/${colorScheme}: default wallpaper stays consistent across the desktop, settings, manual and guide`, async ({ page }, testInfo) => {
     await start(page, theme, colorScheme);
@@ -146,4 +158,84 @@ test('changing appearance leaves grid items intact and their text colors remain 
   await expect(page.locator('#settings-modal')).toBeHidden();
   expect(await items()).toEqual(edited);
   await expect(title).toHaveCSS('color', 'rgb(255, 0, 255)');
+});
+
+test('transparent items have readable name badges over any wallpaper and filled cards retain their appearance', async ({ page }, testInfo) => {
+  await start(page, 'dark', 'dark');
+  await page.evaluate(async () => {
+    const { getState } = await import('/src/state/appStore.js');
+    const data = getState().data;
+    await new Promise(resolve => chrome.storage.local.set({
+      bookmarks: [...data.bookmarks, { ...data.bookmarks[0], id: 'filled', name: 'Filled', gx: 2,
+        noBackground: false, backgroundColor: '#ff0033', textColor: '#ffffff' },
+      { ...data.bookmarks[0], id: 'short', name: 'Gmail', gx: 4 }],
+      folders: [{ ...data.folders[0], name: 'Nubes', w: 1, h: 2, showCount: false },
+      { ...data.folders[0], id: 'long-folder', name: 'Una carpeta con un nombre muy largo',
+        gx: 3, w: 1, h: 2, showCount: false }]
+    }, resolve));
+  });
+  await page.reload();
+  await expectAppReady(page);
+  const labels = [page.locator('[data-bookmark-id="default-bookmark"] .bookmark-title'),
+    page.locator('[data-folder-id="default-folder"] .folder-title'),
+    page.locator('#bookmark-container .recycle-bin-caption > strong')];
+  const originalColors = await Promise.all(labels.map(label => label.evaluate(element => getComputedStyle(element).color)));
+  for (const theme of ['dark', 'light']) {
+    if (await page.locator('html').getAttribute('data-interface-theme') !== theme) {
+      await openSettings(page, 'general');
+      await page.locator(`input[name="interface-theme"][value="${theme}"]`).check();
+      await expect(page.locator('#alert-modal')).toBeHidden();
+      await page.locator('#settings-modal-save').click();
+      await expect(page.locator('#settings-modal')).toBeHidden();
+    }
+    for (const wallpaper of ['#ffffff', '#000000', '#ff00ff']) {
+      await page.locator('body').evaluate((body, wallpaper) => {
+        body.style.backgroundImage = 'none';
+        body.style.backgroundColor = wallpaper;
+      }, wallpaper);
+      for (const [index, label] of labels.entries()) {
+        const style = await label.evaluate(element => ({ color: getComputedStyle(element).color,
+          background: getComputedStyle(element).backgroundColor, radius: getComputedStyle(element).borderRadius }));
+        expect(style.color).toBe(originalColors[index]);
+        expect(contrast(style.color, style.background)).toBeGreaterThanOrEqual(4.5);
+        expect(style.radius).not.toBe('0px');
+      }
+    }
+    await expect(page.locator('[data-bookmark-id="filled"] .bookmark-title')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+    await page.screenshot({ path: testInfo.outputPath(`name-badges-${theme}.png`) });
+  }
+  const fittedLabels = [labels[1], labels[2],
+    page.locator('[data-folder-id="long-folder"] .folder-title'),
+    page.locator('[data-bookmark-id="short"] .bookmark-title')];
+  for (const width of [1280, 601]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const label of fittedLabels) {
+      const sizes = await label.evaluate(element => {
+        const rect = element.getBoundingClientRect();
+        const parent = element.parentElement.getBoundingClientRect();
+        const style = getComputedStyle(element);
+        const text = document.createRange();
+        text.selectNodeContents(element);
+        return { width: rect.width, available: parent.width,
+          content: text.getBoundingClientRect().width,
+          padding: parseFloat(style.paddingLeft) + parseFloat(style.paddingRight),
+          center: rect.x + rect.width / 2, parentCenter: parent.x + parent.width / 2,
+          overflow: style.textOverflow };
+      });
+      expect(Math.abs(sizes.width - Math.min(sizes.content + sizes.padding, sizes.available)))
+        .toBeLessThanOrEqual(1);
+      expect(Math.abs(sizes.center - sizes.parentCenter)).toBeLessThanOrEqual(1);
+      expect(sizes.overflow).toBe('ellipsis');
+    }
+  }
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.locator('body').evaluate(body => {
+    body.style.removeProperty('background-image');
+    body.style.removeProperty('background-color');
+  });
+  await page.screenshot({ path: testInfo.outputPath('fitted-folder-badges.png') });
+  await page.setViewportSize({ width: 430, height: 720 });
+  await expect(page.locator('#bookmark-container')).toHaveClass(/is-list-view/);
+  await expect(page.locator('[data-bookmark-id="default-bookmark"] .bookmark-list-name'))
+    .toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
 });

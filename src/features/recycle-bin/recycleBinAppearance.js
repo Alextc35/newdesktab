@@ -1,5 +1,6 @@
 import { resolveBackgroundImage } from '../../platform/images/localImages.js';
 import { createRecycleBinSvg } from '../../shared/ui/svgIcons.js';
+import { captionBackground } from '../../shared/ui/surfaceContrast.js';
 
 /** Applies persisted recycle-bin colors and element visibility. */
 export function applyRecycleBinAppearance(element, recycleBin = {}) {
@@ -23,6 +24,7 @@ export function applyRecycleBinAppearance(element, recycleBin = {}) {
   );
   element.style.setProperty('--recycle-bin-icon-color', recycleBin.iconColor || '#475569');
   setOptionalProperty(element, '--recycle-bin-text-color', textColor);
+  element.style.setProperty('--recycle-bin-caption-background', captionBackground(textColor || '#f8fafc'));
 }
 
 /** Creates the glyph shared by grid, list and editor views. */

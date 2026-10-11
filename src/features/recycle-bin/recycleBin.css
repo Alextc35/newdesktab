@@ -37,6 +37,17 @@
   background-image: none;
 }
 
+#bookmark-container:not(.is-list-view) > .recycle-bin.is-recycle-bin-transparent:not(.has-recycle-bin-bg-image) .recycle-bin-caption > strong {
+  justify-self: center;
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: var(--recycle-bin-caption-background);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 16%);
+}
+
 .recycle-bin-open {
   display: flex;
   width: 100%;

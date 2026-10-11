@@ -1,6 +1,6 @@
 import { resolveBackgroundImage } from '../../platform/images/localImages.js';
 import { createFavicon } from './bookmarkFavicon.js';
-import { lightSurfaceTextColor } from '../../shared/ui/surfaceContrast.js';
+import { captionBackground, lightSurfaceTextColor } from '../../shared/ui/surfaceContrast.js';
 
 /**
  * Creates a bookmark card without attaching grid behavior. Editors, folder
@@ -41,6 +41,7 @@ function applyBookmarkStyle(element, bookmark) {
   }
 
   element.style.setProperty('--bookmark-light-text', lightSurfaceTextColor(bookmark.textColor));
+  element.style.setProperty('--bookmark-caption-background', captionBackground(bookmark.textColor));
   if (bookmark.textColor) {
     element.style.setProperty('--color-text-bookmark', bookmark.textColor);
   }

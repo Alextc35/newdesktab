@@ -138,7 +138,6 @@
 
   & :is(.folder-title, .recycle-bin-caption strong) {
     display: block;
-    width: 100%;
     font-size: 12px;
     line-height: 1.2;
   }

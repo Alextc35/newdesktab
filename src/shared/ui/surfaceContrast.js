@@ -18,6 +18,16 @@ export function lightSurfaceTextColor(color) {
   return `#${adjusted.map(channel => channel.toString(16).padStart(2, '0')).join('')}`;
 }
 
+/** Theme surfaces behind captions, adjusting the background to retain the chosen text. */
+export function captionBackground(textColor) {
+  const text = /^#[\da-f]{6}$/i.test(textColor ?? '') ? textColor : '#ffffff';
+  const light = '#f2f2f3';
+  const dark = '#1a1a1a';
+  const fallback = contrast(text, '#ffffff') >= contrast(text, '#000000') ? '#ffffff' : '#000000';
+  const surface = preferred => contrast(text, preferred) >= 4.5 ? preferred : fallback;
+  return `light-dark(${surface(light)}, ${surface(dark)})`;
+}
+
 /** Preserves a saved label color when readable, otherwise uses a contrasting neutral. */
 export function readableSurfaceTextColor(color, backgroundColor) {
   const text = /^#[\da-f]{6}$/i.test(color ?? '') ? color : '#f8fafc';

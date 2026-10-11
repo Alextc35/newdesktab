@@ -1,6 +1,7 @@
 import { DEFAULT_FOLDER_STYLE } from '../../domain/folders/folderDefaults.js';
 import { resolveBackgroundImage } from '../../platform/images/localImages.js';
 import {
+  captionBackground,
   readableSurfaceBorderColor,
   readableSurfacePalette,
   readableSurfaceTextColor
@@ -27,6 +28,7 @@ export function applyFolderAppearance(element, folder = {}) {
   else element.style.removeProperty('--folder-outer-color');
   element.style.setProperty('--folder-color', folder.backgroundColor || DEFAULT_FOLDER_STYLE.backgroundColor);
   element.style.setProperty('--folder-text-color', folder.textColor || DEFAULT_FOLDER_STYLE.textColor);
+  element.style.setProperty('--folder-caption-background', captionBackground(folder.textColor || DEFAULT_FOLDER_STYLE.textColor));
   element.classList.toggle('has-folder-bg-image', Boolean(resolveBackgroundImage(folder)));
 }
 

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
+  captionBackground,
   readableSurfaceBorderColor,
   readableSurfacePalette,
   readableSurfaceTextColor
@@ -15,6 +16,16 @@ function contrast(first, second) {
   const values = [luminance(first), luminance(second)].sort((a, b) => a - b);
   return (values[1] + .05) / (values[0] + .05);
 }
+
+test('caption backgrounds retain readable contrast for custom text colors in both themes', () => {
+  const colors = new Set(['#ff00ff', '#00ff00', '#0000ff', '#ffaa00', '#5531a8']);
+  for (let gray = 0; gray <= 255; gray++) colors.add(`#${gray.toString(16).padStart(2, '0').repeat(3)}`);
+  for (const text of colors) {
+    const surfaces = captionBackground(text).match(/#[\da-f]{6}/g);
+    assert.equal(surfaces.length, 2);
+    for (const background of surfaces) assert.ok(contrast(text, background) >= 4.5, `${text} on ${background}`);
+  }
+});
 
 test('folder palettes keep readable text and controls across saturated colors and every gray', () => {
   const backgrounds = new Set();
