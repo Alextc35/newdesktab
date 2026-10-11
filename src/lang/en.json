@@ -290,6 +290,7 @@
       },
       "sync": {
         "enable": "Switch from Local to Synced? This takes effect now, without clicking Save. If synced data already exists, its bookmarks and settings will be loaded. Otherwise, your saved local data will be synchronized.",
+        "local": "Switch from Synced to Local? This takes effect now, without clicking Save. This device will keep a copy of the current data and stop synchronizing changes. Synced data will remain stored for other devices.",
         "delete": "Delete all synchronized NewDeskTab data? This device and every other device using this cloud data will switch to Local mode when they detect the deletion. This cannot be undone."
       }
     },

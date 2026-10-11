@@ -170,10 +170,10 @@
       "tip": "O backup completo de Configurações → Geral inclui arquivos locais em um ZIP. É útil antes de trocar de navegador ou restaurar dados."
     },
     "sync": {
-      "question": "Como uso o mesmo espaço em outro computador?", "searchTerms": "outro computador; sincronizar dispositivos; sincronização; nuvem; local sync",
+      "question": "Como uso o mesmo espaço em outro computador?", "searchTerms": "outro computador; sincronizar dispositivos; sincronização; nuvem; local sync; parar sincronização; desativar sync; modo local",
       "title": "Sincronizar dispositivos", "summary": "Compartilhe seu espaço pela sincronização do navegador.",
       "steps": ["Entre na conta e ative a sincronização de extensões no seu perfil do Google Chrome.", "Em Configurações → Sincronização, escolha Sincronizado e aceite a confirmação. A mudança é imediata: favoritos e configurações sincronizados existentes são carregados ou, se não houver, seus dados locais salvos são sincronizados.", "Use o mesmo perfil no outro dispositivo. Consulte o estado e o espaço disponível no painel de sincronização."],
-      "note": "Arquivos locais, lixeira e dicas diárias pertencem a cada dispositivo. A sincronização tem limites de espaço; use URLs alternativas para imagens e vídeos locais.",
+      "note": "Arquivos locais, lixeira e dicas diárias pertencem a cada dispositivo. A sincronização tem limites de espaço; use URLs alternativas para imagens e vídeos locais. Ao escolher Local, a confirmação também é solicitada e a mudança é imediata, mantendo os dados sincronizados salvos.",
       "tip": "A sincronização compartilha seu espaço entre dispositivos, mas arquivos locais precisam de uma URL alternativa. Veja Configurações → Sincronização."
     },
     "compact": {

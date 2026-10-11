@@ -173,10 +173,10 @@
       "tip": "A full backup from Settings → General includes local files in a ZIP. It's useful before switching browsers or restoring data."
     },
     "sync": {
-      "question": "How do I use the same space on another computer?", "searchTerms": "another computer; synchronize devices; synchronization; cloud; local sync",
+      "question": "How do I use the same space on another computer?", "searchTerms": "another computer; synchronize devices; synchronization; cloud; local sync; stop synchronization; disable sync; local mode",
       "title": "Synchronize across devices", "summary": "Share your space using browser synchronization.",
       "steps": ["Sign in and enable extension synchronization in your Google Chrome profile.", "In Settings → Synchronization choose Synced and accept the confirmation. The switch takes effect immediately: existing synchronized bookmarks and settings are loaded, or your saved local data is synchronized if none exists.", "Use the same profile on the other device. Check synchronization status and available space in the panel."],
-      "note": "Local files, the recycle bin and daily tips belong to each device. Synchronization has storage limits; use alternative URLs for local images and videos.",
+      "note": "Local files, the recycle bin and daily tips belong to each device. Synchronization has storage limits; use alternative URLs for local images and videos. Choosing Local also asks for confirmation and takes effect immediately, keeping the synchronized data stored.",
       "tip": "Synchronization shares your space across devices, but local files need an alternative URL. See Settings → Synchronization."
     },
     "compact": {

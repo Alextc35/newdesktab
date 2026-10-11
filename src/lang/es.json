@@ -290,6 +290,7 @@
       },
       "sync": {
         "enable": "¿Cambiar de Local a Sincronizado? Se aplicará ahora, sin pulsar Guardar. Si ya hay datos sincronizados, se cargarán sus favoritos y ajustes. Si no, se sincronizarán tus datos locales guardados.",
+        "local": "¿Pasar de Sincronizado a Local? El cambio se aplicará ahora, sin pulsar Guardar. Este dispositivo conservará una copia de los datos actuales y dejará de sincronizar los cambios. Los datos sincronizados seguirán guardados para los demás dispositivos.",
         "delete": "¿Borrar todos los datos sincronizados de NewDeskTab? Este dispositivo y todos los demás que usen estos datos de la nube pasarán a modo Local cuando detecten el borrado. Esta acción no se puede deshacer."
       }
     },

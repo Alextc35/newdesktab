@@ -18,7 +18,8 @@ async function openOwnWallpapers(page) {
 
 async function enableSyncDraft(page) {
   await page.getByRole('button', { name: 'Sync' }).click();
-  await page.getByRole('radio', { name: /Synced/ }).check();
+  await page.getByRole('radio', { name: /Synced/ }).click();
+  await page.locator('#alert-modal-accept').click();
   await page.getByRole('button', { name: 'Theme' }).click();
 }
 
@@ -91,8 +92,9 @@ test('uses the shared URL only when no personal wallpaper is available', async (
 
   await openTheme(page);
   await page.getByRole('button', { name: 'Sync' }).click();
-  await page.getByRole('radio', { name: /This device only/ }).check();
-  await page.locator('#settings-modal-save').click();
+  await page.getByRole('radio', { name: /This device only/ }).click();
+  await page.locator('#alert-modal-accept').click();
+  await page.locator('#settings-modal-cancel').click();
   await expect(page.locator('html')).toHaveCSS('--image-bg-body', 'none');
   await openTheme(page);
   await expect(page.locator('#settings-theme-bg-image-url-field')).toBeHidden();

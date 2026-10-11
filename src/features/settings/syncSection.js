@@ -1,7 +1,6 @@
 import {
   getDraftStorageMode,
-  reconcileDraftStorageMode,
-  setDraftStorageMode
+  reconcileDraftStorageMode
 } from './settingsDraft.js';
 import {
   deleteSyncedData,
@@ -79,15 +78,14 @@ function formatPercentage(value, exact = false) {
 /**
  * Initializes the Local/Sync persistence selector.
  *
- * Switching to Sync requires confirmation and is applied immediately.
- * Switching back to Local remains part of the settings draft.
+ * Both directions require confirmation and are applied immediately.
  *
  * @param {Object} params
  * @param {Function} params.onRequestSaveStateUpdate
- * @param {Function} params.onEnableSync
+ * @param {Function} params.onApplyStorageMode
  * @returns {{syncUI: Function}}
  */
-export function initSyncSection({ onRequestSaveStateUpdate, onEnableSync }) {
+export function initSyncSection({ onRequestSaveStateUpdate, onApplyStorageMode }) {
   const modeInputs = Array.from(
     document.querySelectorAll('input[name="storage-mode"]')
   );
@@ -694,15 +692,16 @@ export function initSyncSection({ onRequestSaveStateUpdate, onEnableSync }) {
         return;
       }
 
-      if (input.value === 'sync' && getStorageMode() === 'local') {
+      if (input.value !== getStorageMode()) {
         // Keep the persisted choice selected until the user accepts the switch.
         syncUI();
-        const confirmed = await showAlert(t('alert.settings.sync.enable'), { type: 'confirm' });
+        const message = input.value === 'sync' ? 'alert.settings.sync.enable' : 'alert.settings.sync.local';
+        const confirmed = await showAlert(t(message), { type: 'confirm' });
         if (!confirmed) return;
         isSwitching = true;
         syncUI();
         try {
-          await onEnableSync();
+          await onApplyStorageMode(input.value);
         } finally {
           isSwitching = false;
           syncUI();
@@ -711,7 +710,7 @@ export function initSyncSection({ onRequestSaveStateUpdate, onEnableSync }) {
         return;
       }
 
-      setDraftStorageMode(input.value);
+      reconcileDraftStorageMode(getStorageMode());
       syncUI();
       onRequestSaveStateUpdate();
     });

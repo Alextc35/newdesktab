@@ -107,7 +107,7 @@ export function initSettingsModal() {
 
   const syncSection = initSyncSection({
     onRequestSaveStateUpdate: updateSaveButtonState,
-    onEnableSync: enableSync
+    onApplyStorageMode: applyStorageMode
   });
 
   const shortcutSection = initShortcutSection({
@@ -237,13 +237,13 @@ export function initSettingsModal() {
   ================================================== */
 
   /** Apply the confirmed storage switch without saving unrelated draft edits. */
-  async function enableSync() {
+  async function applyStorageMode(mode) {
     if (themeSection.isUploading() || isStorageModeChanging) return;
     isStorageModeChanging = true;
     settingsCancel.disabled = true;
     updateSaveButtonState();
     try {
-      const source = await changeStorageMode('sync');
+      const source = await changeStorageMode(mode);
       if (source === 'existing') {
         try {
           await themeSection.discardUploadedMedia();
@@ -262,7 +262,8 @@ export function initSettingsModal() {
       await changeLanguage(buildNewSettings());
       purgeExpiredRecycleBinEntries();
       ensureRecycleBinPosition();
-      flashSuccess(source === 'existing' ? 'flash.sync.remoteLoaded' : 'flash.sync.enabled');
+      flashSuccess(source === 'existing' ? 'flash.sync.remoteLoaded'
+        : mode === 'sync' ? 'flash.sync.enabled' : 'flash.sync.localEnabled');
     } catch (error) {
       console.error('[SETTINGS] Storage mode change failed:', error);
       reconcileDraftStorageMode(getStorageMode());

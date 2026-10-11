@@ -17,7 +17,8 @@ test('personal image stays on its device through shared fallback edits and stora
   await expectAppReady(page);
   await openTheme(page);
   await page.getByRole('button', { name: 'Sync' }).click();
-  await page.getByRole('radio', { name: /Synced/ }).check();
+  await page.getByRole('radio', { name: /Synced/ }).click();
+  await page.locator('#alert-modal-accept').click();
   await page.getByRole('button', { name: 'Theme' }).click();
   await page.locator('#settings-theme-bg-image-mode').check();
   await page.locator('#settings-theme-bg-image').fill('https://images.test/fallback.png');
@@ -43,8 +44,9 @@ test('personal image stays on its device through shared fallback edits and stora
   await expect(page.locator('#settings-theme-bg-image')).toHaveValue('https://images.test/new-fallback.png');
 
   await page.getByRole('button', { name: 'Sync' }).click();
-  await page.getByRole('radio', { name: /This device only/ }).check();
-  await page.locator('#settings-modal-save').click();
+  await page.getByRole('radio', { name: /This device only/ }).click();
+  await page.locator('#alert-modal-accept').click();
+  await page.locator('#settings-modal-cancel').click();
   await expect(page.locator('#settings-modal')).toBeHidden();
   await page.reload();
   await expectAppReady(page);
