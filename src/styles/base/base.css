@@ -92,6 +92,6 @@ html.is-default-bg body::before,
   transform: translate(-50%, 140%);
   font-size: 0.85rem;
   letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.55);
+  color: var(--default-wallpaper-muted);
   pointer-events: none;
 }

@@ -4,6 +4,8 @@
 /* Miniature desktop: production artwork with local, illustrative geometry. */
 .onboarding-demo {
   --demo-accent: #60c5ff;
+  --demo-text: light-dark(#000000, #f1f5f9);
+  --bookmark-context-text: var(--demo-text);
   position: relative;
   box-sizing: border-box;
   height: 280px;
@@ -11,7 +13,7 @@
   border: 1px solid var(--ui-canvas-border);
   border-radius: 16px;
   background: var(--default-wallpaper-background);
-  color: #f1f5f9;
+  color: var(--demo-text);
   isolation: isolate;
 }
 
@@ -51,7 +53,7 @@
 }
 
 .onboarding-demo-version {
-  color: rgba(255, 255, 255, .55);
+  color: var(--default-wallpaper-muted);
   font-size: 9px;
   letter-spacing: .2em;
 }
@@ -100,13 +102,13 @@
   min-width: 0;
   margin: 0;
   overflow: hidden;
-  color: #f1f5f9;
+  color: var(--demo-text);
   font-size: 8px;
   font-weight: 500;
   line-height: 1.3;
   text-align: center;
   text-overflow: ellipsis;
-  text-shadow: 0 1px 3px #000;
+  text-shadow: 0 1px 3px light-dark(transparent, #000);
   white-space: nowrap;
 }
 
@@ -159,7 +161,8 @@
   transform: translateX(-50%);
   border: 1px solid rgba(203, 213, 225, .22);
   border-radius: 10px 10px 0 0;
-  background: rgba(14, 18, 29, .96);
+  background: light-dark(rgba(252, 252, 253, .96), rgba(14, 18, 29, .96));
+  color: light-dark(#172b40, #f1f5f9);
   box-shadow: 0 -3px 15px rgba(0, 0, 0, .15);
   font-size: 10px;
   white-space: nowrap;
@@ -236,6 +239,11 @@
 [data-step="style"] .onboarding-demo::before,
 [data-step="ready"] .onboarding-demo::before {
   opacity: 1;
+}
+
+[data-step="style"] .onboarding-demo,
+[data-step="ready"] .onboarding-demo {
+  --demo-text: #f1f5f9;
 }
 
 [data-step="style"] .onboarding-demo-default-brand,

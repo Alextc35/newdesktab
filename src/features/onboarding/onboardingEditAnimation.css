@@ -9,8 +9,8 @@
 }
 
 .onboarding-demo-edit-grid {
-  --color-to-right-grid-overlay: rgba(203, 213, 225, .13);
-  --color-to-bottom-grid-overlay: rgba(203, 213, 225, .13);
+  --color-to-right-grid-overlay: light-dark(rgba(36, 36, 40, .2), rgba(203, 213, 225, .13));
+  --color-to-bottom-grid-overlay: light-dark(rgba(36, 36, 40, .2), rgba(203, 213, 225, .13));
   z-index: 1;
   display: block;
   opacity: 0;

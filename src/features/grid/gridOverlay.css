@@ -7,7 +7,7 @@
   height: var(--grid-height, 100%);
   pointer-events: none;
   display: none;
-  background-color: rgba(0,0,0,0.1);
+  background-color: light-dark(rgba(0,0,0,.015), rgba(0,0,0,.1));
   background-image:
     linear-gradient(to right, var(--color-to-right-grid-overlay) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-to-bottom-grid-overlay) 1px, transparent 1px);

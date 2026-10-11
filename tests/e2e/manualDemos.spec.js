@@ -144,7 +144,9 @@ test('cursor clicks follow translated buttons and style presets affect new examp
       getComputedStyle(demo.querySelector('[data-demo-item="Gmail"]')).backgroundColor,
       getComputedStyle(demo.querySelector('[data-demo-item="New DeskTab"]:last-of-type')).backgroundColor
     ]);
-    expect(colors[0]).toBe('rgb(23, 38, 59)');
+    const light = await page.evaluate(() => (getComputedStyle(document.documentElement).colorScheme === 'light'
+      || (document.documentElement.dataset.interfaceTheme === 'system' && matchMedia('(prefers-color-scheme: light)').matches)));
+    expect(colors[0]).toBe(light ? 'rgb(231, 238, 247)' : 'rgb(23, 38, 59)');
     expect(colors[1]).toBe('rgb(106, 61, 176)');
   }
 });

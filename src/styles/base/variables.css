@@ -53,10 +53,11 @@
   --image-bg-body: url();
   --font-family-body: Arial, sans-serif;
   --default-wallpaper-background:
-    radial-gradient(circle at 20% 30%, rgba(0,150,255,0.08), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(255,0,150,0.08), transparent 40%),
-    linear-gradient(135deg, #0d0d0d, #111111);
-  --default-wallpaper-wordmark: linear-gradient(90deg, #00c6ff, #ff00aa);
+    radial-gradient(circle at 20% 30%, light-dark(rgba(0,150,255,.12), rgba(0,150,255,.08)), transparent 40%),
+    radial-gradient(circle at 80% 70%, light-dark(rgba(255,0,150,.1), rgba(255,0,150,.08)), transparent 40%),
+    linear-gradient(135deg, light-dark(#f7f9fc, #0d0d0d), light-dark(#ffffff, #111111));
+  --default-wallpaper-wordmark: linear-gradient(90deg, light-dark(#0087b8, #00c6ff), light-dark(#c70086, #ff00aa));
+  --default-wallpaper-muted: light-dark(rgba(51,65,85,.65), rgba(255,255,255,.55));
 
   /* Floating Menu */
   --color-bg-floating-menu-btn: rgba(255,255,255,0.25);
@@ -64,8 +65,8 @@
   --color-text-floating-menu-btn: var(--ui-menu-text);
 
   /* Grid Overlay */
-  --color-to-right-grid-overlay: rgba(255,255,255,0.5);
-  --color-to-bottom-grid-overlay: rgba(255,255,255,0.5);
+  --color-to-right-grid-overlay: light-dark(rgba(36,36,40,.2), rgba(255,255,255,.5));
+  --color-to-bottom-grid-overlay: light-dark(rgba(36,36,40,.2), rgba(255,255,255,.5));
 
   /* Bookmarks */
   --color-bg-bookmark: #000;

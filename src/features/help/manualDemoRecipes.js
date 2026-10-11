@@ -360,6 +360,7 @@ export function buildManualDemo(topic, v, t, variant = 'none', dataLocale = null
       v.during(light, 'is-demo-active', [[5600]]);
       const save = v.action(panel, t('buttons.save'));
       v.during(panel.node, 'is-demo-light', [[5600]]);
+      v.during(v.scene, 'is-demo-dark', [[0, 5600]]);
       v.during(v.scene, 'is-demo-light', [[5600]]);
       v.cursor([[650, v.settings], [2500, language], [5100, light], [5800, light], [9100, save], [11100, 550, 222, 0]],
         [[1300, v.settings], [2900, language], [5600, light], [9900, save]]);
@@ -442,6 +443,7 @@ export function buildManualDemo(topic, v, t, variant = 'none', dataLocale = null
       const lightWindows = dataLocale?.systemLight ? [[0]] : [[0, resetAt]];
       v.scene.classList.add('is-demo-data');
       v.during(v.scene, 'is-demo-light', lightWindows);
+      v.during(v.scene, 'is-demo-dark', dataLocale?.systemLight ? [] : [[resetAt]]);
       v.track(v.wallpaper, [[0, { opacity: 1 }], [resetAt, { opacity: 1 }],
         [5350, { opacity: 0 }], [12000, { opacity: 0 }]], 'reset-wallpaper');
       v.track(v.brand, [[0, { opacity: 0 }], [resetAt, { opacity: 0 }],
