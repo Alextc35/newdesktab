@@ -25,6 +25,20 @@
 .settings-daily-tips label { font-size: 13px; font-weight: 600; }
 .settings-help-search { margin: 18px 0; }
 .settings-help-search label { display: block; margin-bottom: 9px; font-size: 12px; font-weight: 600; }
+#settings-manual-search,
+#manual-search {
+  appearance: none;
+  border: 1px solid var(--ui-border);
+  outline: none;
+  background: var(--ui-input);
+  color: var(--ui-text);
+  box-shadow: none;
+  font: inherit;
+}
+#settings-manual-search::placeholder,
+#manual-search::placeholder { color: var(--ui-subtle); opacity: 1; }
+#settings-manual-search:focus,
+#manual-search:focus { border-color: var(--ui-accent); box-shadow: 0 0 0 3px var(--ui-focus-ring); }
 #settings-manual-search { box-sizing: border-box; width: 100%; padding: 12px; border-radius: 9px; font-size: 12px; }
 .settings-help-search .help-search-status { margin: 10px 0 8px; font-size: 11px; line-height: 1.6; }
 .settings-help-results { display: grid; gap: 6px; }
