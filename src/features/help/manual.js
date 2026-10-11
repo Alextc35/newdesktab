@@ -2,6 +2,7 @@ import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
 import { closeModal, isModalActive, openModal, registerModal, subscribeModalChanges } from '../../shared/ui/modalManager.js';
 import { getManualTopic, MANUAL_GROUPS, MANUAL_TOPICS, searchManual } from './manualCatalog.js';
 import { createManualDemo } from './manualDemo.js';
+import { createManualIcon } from './manualIcons.js';
 
 function textElement(tag, className, text) {
   const element = document.createElement(tag);
@@ -29,8 +30,10 @@ export function createManual(modal) {
     button.type = 'button';
     button.className = 'manual-topic';
     button.dataset.manualTopic = id;
-    button.append(textElement('strong', '', t(`manual.topics.${id}.${showAnswer ? 'question' : 'title'}`)));
-    if (showSummary) button.append(textElement('span', '', t(`manual.topics.${id}.${showAnswer ? 'tip' : 'summary'}`)));
+    const title = textElement('strong', 'manual-topic-title', t(`manual.topics.${id}.${showAnswer ? 'question' : 'title'}`));
+    title.prepend(createManualIcon(id));
+    button.append(title);
+    if (showSummary) button.append(textElement('span', 'manual-topic-summary', t(`manual.topics.${id}.${showAnswer ? 'tip' : 'summary'}`)));
     return button;
   }
 
@@ -41,7 +44,9 @@ export function createManual(modal) {
     if (search.value.trim() && matches.length) {
       const section = document.createElement('section');
       section.className = 'manual-group manual-search-results';
-      section.append(textElement('h3', 'manual-group-heading', t('manual.search.resultsLabel')),
+      const heading = textElement('h3', 'manual-group-heading', t('manual.search.resultsLabel'));
+      heading.prepend(createManualIcon('search'));
+      section.append(heading,
         ...matches.map(topic => topicButton(topic.id, true, true)));
       groups.append(section);
       return;
@@ -52,7 +57,7 @@ export function createManual(modal) {
       const section = document.createElement('section');
       section.className = 'manual-group';
       const heading = textElement('h3', 'manual-group-heading', t(`manual.groups.${group}`));
-      heading.prepend(textElement('span', 'manual-group-number', `0${number + 1}`));
+      heading.prepend(createManualIcon(group), textElement('span', 'manual-group-number', `0${number + 1}`));
       section.append(heading, ...topics.map(topic => topicButton(topic.id)));
       groups.append(section);
     }
@@ -69,6 +74,7 @@ export function createManual(modal) {
       textElement('h3', 'manual-article-title', t(`${key}.title`)),
       textElement('p', 'manual-summary', t(`${key}.summary`))
     );
+    article.querySelector('.manual-article-title').prepend(createManualIcon(topic.id));
     demo = createManualDemo(topic.id, t);
     article.append(demo.element);
     demo.setActive(isModalActive('manual'));

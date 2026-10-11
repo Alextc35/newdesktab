@@ -106,6 +106,9 @@
 .manual-group:nth-child(n + 3) { margin-top: 18px; }
 .manual-group-heading { display: flex; align-items: center; gap: 10px; margin: 0; padding: 15px; border-bottom: 1px solid var(--ui-divider); font-size: 13px; }
 .manual-group-number { color: var(--ui-info-text); font-size: 10px; letter-spacing: .05em; }
+.manual-icon { display: block; width: 18px; height: 18px; flex: 0 0 18px; color: var(--ui-info-text); }
+.manual-topic-title { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.manual-topic-summary { padding-inline-start: 28px; }
 .manual-topic {
   display: flex;
   flex-direction: column;
@@ -128,7 +131,8 @@
 .manual-reader { max-width: 640px; margin-inline: auto; }
 .manual-article { overflow-wrap: anywhere; }
 #manual-back { margin: 0 0 30px -10px; font-size: 12px; }
-.manual-article-title { margin: 10px 0; font-size: clamp(26px, 4vw, 34px); line-height: 1.2; letter-spacing: -.03em; text-wrap: balance; }
+.manual-article-title { display: flex; align-items: flex-start; gap: 12px; margin: 10px 0; font-size: clamp(26px, 4vw, 34px); line-height: 1.2; letter-spacing: -.03em; text-wrap: balance; }
+.manual-article-title .manual-icon { width: 30px; height: 30px; flex-basis: 30px; margin-top: .15em; }
 .manual-steps { margin: 0; padding: 0; list-style: none; counter-reset: manual-step; }
 .manual-steps li { position: relative; padding: 2px 0 24px 46px; color: var(--ui-text); font-size: 14px; line-height: 1.8; counter-increment: manual-step; }
 .manual-steps li::before { position: absolute; top: 2px; left: 0; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 9px; background: var(--ui-selected); color: var(--ui-info-text); content: counter(manual-step); font-size: 12px; font-weight: 600; }
