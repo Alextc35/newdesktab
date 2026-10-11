@@ -13,7 +13,7 @@ async function start(page, width = 1280) {
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
     const { DEFAULT_FOLDER_STYLE } = await import('/src/domain/folders/folderDefaults.js');
-    const { getState, setState } = await import('/src/state/appStore.js');
+    const { getState } = await import('/src/state/appStore.js');
     const bookmarks = Array.from({ length: 20 }, (_, index) => ({
       ...DEFAULT_BOOKMARK, id: `compact-${index}`, name: `Bookmark ${index + 1}`,
       url: 'https://example.internal', gx: index % 10, gy: Math.floor(index / 10) + 2
@@ -29,7 +29,9 @@ async function start(page, width = 1280) {
     })));
     const folders = [{ ...DEFAULT_FOLDER_STYLE, id: 'compact-folder', name: 'Games',
       gx: 2, gy: 0, w: 2, h: 2, groupId: null, createdAt: 1, updatedAt: 1 }];
-    await setState({ data: { bookmarks, folders,
+    // Seed storage directly: the next navigation hydrates these fixtures.
+    // Avoid holding page.evaluate open across the store's Web Lock request.
+    await new Promise(resolve => chrome.storage.local.set({ bookmarks, folders,
       settings: {
         ...getState().data.settings,
         interfaceTheme: 'dark',
@@ -37,10 +39,9 @@ async function start(page, width = 1280) {
         // bottom-right cell available instead of turning the drag into a
         // deliberate recycle-bin drop.
         showRecycleBin: false
-      } } });
+      } }, resolve));
   });
-  await expect(page.locator('#bookmark-container [data-folder-id="compact-folder"]')).toBeVisible();
-  // Let storage normalization finish before comparing immutable data.
+  // Hydrate and normalize the persisted fixtures before comparing data.
   await page.reload();
   await expectAppReady(page);
   await expect(page.locator('#bookmark-container [data-folder-id="compact-folder"]')).toBeVisible();

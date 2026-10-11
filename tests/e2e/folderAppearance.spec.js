@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { expectAppReady } from './helpers/appReady.js';
+import { expectAppReady, expectAppSaved } from './helpers/appReady.js';
 
 const folderId = 'appearance-folder';
 const folderCard = page => page.locator(`#bookmark-container [data-folder-id="${folderId}"]`);
@@ -228,10 +228,11 @@ test('folder colors keep readable labels and coherent controls in browse, hover,
   const originalColors = ['#ffffff', '#000000', '#5531a8'];
   await page.evaluate(async colors => {
     const { getState, setState } = await import('/src/state/appStore.js');
-    await setState({ data: { bookmarks: getState().data.bookmarks.map((bookmark, index) => ({
+    void setState({ data: { bookmarks: getState().data.bookmarks.map((bookmark, index) => ({
       ...bookmark, textColor: colors[index]
     })) } });
   }, originalColors);
+  await expectAppSaved(page);
   await folderCard(page).locator('.folder-open').click();
   const edit = page.locator('#folder-modal-edit-toggle');
   const title = page.locator('#folder-modal-title');
@@ -246,11 +247,12 @@ test('folder colors keep readable labels and coherent controls in browse, hover,
     await page.evaluate(async ({ id, color, theme }) => {
       const { getState, setState } = await import('/src/state/appStore.js');
       const data = getState().data;
-      await setState({ data: {
+      void setState({ data: {
         folders: data.folders.map(folder => folder.id === id ? { ...folder, backgroundColor: color } : folder),
         settings: { ...data.settings, interfaceTheme: theme }
       } });
     }, { id: folderId, color, theme });
+    await expectAppSaved(page);
     await expect(page.locator('#folder-modal .modal-folder')).toHaveCSS('background-color',
       theme === 'light' ? 'rgb(246, 246, 247)' : 'rgb(24, 24, 26)');
     if (!neutralGrids.has(theme)) neutralGrids.set(theme, await gridAppearance());
@@ -273,15 +275,17 @@ test('folder colors keep readable labels and coherent controls in browse, hover,
   }
   await page.evaluate(async id => {
     const { getState, setState } = await import('/src/state/appStore.js');
-    await setState({ data: { folders: getState().data.folders.map(folder => (
+    void setState({ data: { folders: getState().data.folders.map(folder => (
       folder.id === id ? { ...folder, noBackground: true } : folder
     )) } });
   }, folderId);
+  await expectAppSaved(page);
   for (const theme of ['light', 'dark']) {
     await page.evaluate(async theme => {
       const { getState, setState } = await import('/src/state/appStore.js');
-      await setState({ data: { settings: { ...getState().data.settings, interfaceTheme: theme } } });
+      void setState({ data: { settings: { ...getState().data.settings, interfaceTheme: theme } } });
     }, theme);
+    await expectAppSaved(page);
     await expect(page.locator('#folder-modal .modal-folder')).toHaveCSS('background-color',
       theme === 'light' ? 'rgba(246, 246, 247, 0.62)' : 'rgba(24, 24, 26, 0.62)');
     expect(await gridAppearance()).toEqual(neutralGrids.get(theme));

@@ -1,5 +1,12 @@
 import { expect } from '@playwright/test';
 
+export async function expectAppSaved(page) {
+  await expect.poll(() => page.evaluate(async () => {
+    const { getState } = await import('/src/state/appStore.js');
+    return getState().ui.persistence.status;
+  })).toBe('saved');
+}
+
 export async function expectAppReady(page) {
   const grid = page.locator('#bookmark-container');
   const timeouts = [5_000, 10_000];

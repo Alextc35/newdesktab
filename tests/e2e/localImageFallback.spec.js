@@ -79,6 +79,7 @@ for (const kind of ['bookmark', 'folder']) {
         await card.getByRole('button', { name: 'Edit bookmark' }).click();
       } else {
         await card.getByRole('button', { name: /Open Image folder/ }).click();
+        await page.locator('#folder-modal-edit-toggle').click();
         await page.getByRole('button', { name: 'Customize folder' }).click();
       }
       await modal.getByRole('tab', { name: 'Style' }).click();
