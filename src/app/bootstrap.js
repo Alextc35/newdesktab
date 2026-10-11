@@ -17,6 +17,7 @@ import { initRecycleBinEditorModal } from '../features/recycle-bin/recycleBinEdi
 import { initRecycleBinModal } from '../features/recycle-bin/recycleBinModal.js';
 import { initBookmarkModal, openAddBookmark } from '../features/bookmarks/bookmarkModal.js';
 import { initOnboarding } from '../features/onboarding/onboarding.js';
+import { initHelp } from '../features/help/help.js';
 import { initFolderController } from '../features/folders/folderController.js';
 import { initFolderEditorModal } from '../features/folders/folderEditorModal.js';
 import { initFolderModal } from '../features/folders/folderModal.js';
@@ -90,11 +91,12 @@ export async function bootstrapApplication({ trace, startedAt }) {
   });
 
   initializeUserInterface(elements);
-  const onboarding = initOnboarding({ onAddBookmark: () => {
+  const help = initHelp();
+  const onboarding = initOnboarding({ onOpenManual: help.openManual, onAddBookmark: () => {
     document.getElementById('add-toggle').focus({ preventScroll: true });
     openAddBookmark();
   } });
-  void onboarding.offerWelcome();
+  void onboarding.offerWelcome().then(help.startDailyTips);
 
   if (getSyncCompatibility()) {
     flashInfo('flash.sync.versionBlocked', 8000);

@@ -3,11 +3,12 @@ import { claimOnboarding, recordOnboarding } from '../../platform/storage/device
 import { closeModal, hasOpenModal, openModal, registerModal, subscribeModalChanges } from '../../shared/ui/modalManager.js';
 import { isListView } from '../../shared/ui/viewportMode.js';
 import { initOnboardingPreview } from './onboardingPreview.js';
+import { renderLinkedManualText } from '../help/linkedManualText.js';
 
 const STEPS = ['start', 'edit', 'organize', 'style', 'ready'];
 
 /** Owns the short, optional welcome guide; application composition owns its CTA. */
-export function initOnboarding({ onAddBookmark }) {
+export function initOnboarding({ onAddBookmark, onOpenManual }) {
   const modal = document.getElementById('onboarding-modal');
   const next = document.getElementById('onboarding-next');
   const back = document.getElementById('onboarding-back');
@@ -16,6 +17,7 @@ export function initOnboarding({ onAddBookmark }) {
   const body = document.getElementById('onboarding-description');
   const hint = document.getElementById('onboarding-hint');
   const progress = document.getElementById('onboarding-progress');
+  const copy = modal.querySelector('.onboarding-copy');
   const dots = [...modal.querySelectorAll('.onboarding-dots li')];
   const preview = initOnboardingPreview(modal.querySelector('.onboarding-demo'));
   let step = 0;
@@ -32,9 +34,9 @@ export function initOnboarding({ onAddBookmark }) {
     modal.dataset.step = id;
     preview.setStep(id);
     title.textContent = t(`onboarding.steps.${id}.title`);
-    body.textContent = t(`onboarding.steps.${id}.body`);
-    hint.textContent = t(last && isListView() && !replay
-      ? 'onboarding.compactHint' : `onboarding.steps.${id}.hint`);
+    renderLinkedManualText(body, t(`onboarding.steps.${id}.body`));
+    renderLinkedManualText(hint, t(last && isListView() && !replay
+      ? 'onboarding.compactHint' : `onboarding.steps.${id}.hint`));
     progress.textContent = t('onboarding.progress', { current: step + 1, total: STEPS.length });
     back.hidden = step === 0;
     explore.hidden = !last || replay || isListView();
@@ -72,6 +74,12 @@ export function initOnboarding({ onAddBookmark }) {
     if (step === 0) next.focus({ preventScroll: true });
   });
   explore.addEventListener('click', () => finish('completed'));
+  copy.addEventListener('click', event => {
+    const link = event.target.closest('[data-manual-topic]');
+    if (!link) return;
+    event.preventDefault();
+    onOpenManual?.(link.dataset.manualTopic);
+  });
   document.getElementById('onboarding-skip').addEventListener('click', () => finish('dismissed'));
   document.getElementById('settings-open-guide').addEventListener('click', () => open({ repeat: true }));
   subscribeLanguageChange(render);

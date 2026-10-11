@@ -51,7 +51,7 @@ export function isModalActive(id) {
 
 /**
  * Hide unavailable dialogs and their children without closing their drafts.
- * Returns whether any dialog was newly suspended, for a single viewport notice.
+ * Returns whether the active dialog was suspended, for a single viewport notice.
  */
 export function syncModalViewport(compact = compactViewport) {
   compactViewport = compact;
@@ -64,7 +64,8 @@ export function syncModalViewport(compact = compactViewport) {
     const requiresWideViewport = typeof modal.requiresWideViewport === 'function'
       ? modal.requiresWideViewport()
       : modal.requiresWideViewport;
-    const suspended = compact && (requiresWideViewport || Boolean(modal.parent?.suspended));
+    const suspended = compact && (requiresWideViewport
+      || (!modal.independentViewport && Boolean(modal.parent?.suspended)));
     if (suspended === modal.suspended) continue;
 
     changed = true;
@@ -84,7 +85,7 @@ export function syncModalViewport(compact = compactViewport) {
   if (active !== previousActive) {
     focusModal(active, active?.resumeFocus || active?.initialFocus);
   }
-  return newlySuspended;
+  return newlySuspended && Boolean(previousActive?.suspended);
 }
 
 document.addEventListener('keydown', (e) => {
@@ -159,6 +160,7 @@ document.addEventListener('keydown', (e) => {
  * @param {boolean} [config.acceptOnEnter=false]
  * @param {HTMLElement|null} [config.initialFocus=null]
  * @param {boolean|Function} [config.requiresWideViewport=false]
+ * @param {boolean} [config.independentViewport=false] Keep a responsive reader open when its parent is suspended.
  */
 export function registerModal({
   id,
@@ -170,7 +172,8 @@ export function registerModal({
   shortcut = null,
   toggleWithShortcut = false,
   onShortcut = null,
-  requiresWideViewport = false
+  requiresWideViewport = false,
+  independentViewport = false
 }) {
   if (!id || !element) {
     throw new Error('Modal must have id and element');
@@ -216,7 +219,8 @@ export function registerModal({
     shortcut,
     toggleWithShortcut,
     onShortcut,
-    requiresWideViewport
+    requiresWideViewport,
+    independentViewport
   });
 }
 

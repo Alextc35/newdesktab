@@ -29,6 +29,10 @@ test('welcomes a fresh profile once and skipping leaves its workspace untouched'
     images.length > 0 && images.every(image => image.complete && image.naturalWidth > 0)
   )).toBe(true);
   await page.keyboard.press('Shift+Tab');
+  await expect(page.locator('#onboarding-hint [data-manual-topic="quick-save"]')).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(page.locator('#onboarding-description [data-manual-topic="bookmarks"]')).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
   await expect(page.locator('#onboarding-skip')).toBeFocused();
   await page.keyboard.press('Shift+Tab');
   await expect(page.locator('#onboarding-next')).toBeFocused();

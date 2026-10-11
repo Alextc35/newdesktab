@@ -21,28 +21,28 @@
     "steps": {
       "start": {
         "title": "Your pages. Your own space.",
-        "body": "Welcome to New DeskTab. Keep your favorite pages at hand whenever you open a tab. To add one, move to the left edge and choose + → Bookmark.",
-        "hint": "You can also save the page you're visiting from the extension icon in your browser."
+        "body": "Welcome to New DeskTab. Keep your favorite pages at hand whenever you open a tab. To add one, move to the left edge and choose + → [[bookmarks|Bookmark]].",
+        "hint": "You can also [[quick-save|save the page you're visiting]] from the extension icon in your browser."
       },
       "edit": {
         "title": "Give every bookmark its place.",
-        "body": "Turn on the pencil in the left menu to edit. Hold and drag an item to move it; use its handles to change its size.",
-        "hint": "Each bookmark's pencil opens its editor: name, colors, icon and image. Save styles to reuse them."
+        "body": "Turn on the pencil in the left menu to edit. Hold and [[movement|drag]] an item to move it; use its [[resizing|handles]] to change its size.",
+        "hint": "Each bookmark's pencil opens its [[appearance|editor]]: name, colors, icon and image. Save [[presets|styles]] to reuse them."
       },
       "organize": {
         "title": "Less clutter. More order.",
-        "body": "Create a folder from + and drag bookmarks into it in edit mode. It opens in a clean grid with room for up to 18 bookmarks.",
-        "hint": "Use the + in the workspace bar to separate work and play. The magnifying glass also searches inside folders."
+        "body": "Create a [[folders|folder]] from + and drag bookmarks into it in edit mode. It opens in a clean grid with room for up to 18 bookmarks.",
+        "hint": "Use the + in the [[workspaces|workspace bar]] to separate work and play. The [[search|magnifying glass]] also searches inside folders."
       },
       "style": {
         "title": "Make it feel like you.",
-        "body": "In Settings → Theme, choose a color, image or video background and rotate your favorite wallpapers. In Settings → Synchronization, sync your space across devices using the account signed into your Chrome profile.",
-        "hint": "Add a clock from + → Widgets. You can customize your folders' appearance too."
+        "body": "In Settings → [[wallpapers|Theme]], choose a color, image or video background and rotate your favorite wallpapers. In Settings → [[sync|Synchronization]], sync your space across devices using the account signed into your Chrome profile.",
+        "hint": "Add a [[clock|clock]] from + → Widgets. You can customize your folders' [[appearance|appearance]] too."
       },
       "ready": {
         "title": "You know the essentials.",
-        "body": "Press / to find a bookmark. Use the undo and redo arrows to recover changes; deleted bookmarks go to the recycle bin.",
-        "hint": "Changes save automatically. In Settings, export a backup or enable optional Google Chrome synchronization."
+        "body": "Press [[search|/]] to find a bookmark. Use the [[history|undo and redo]] arrows to recover changes; deleted bookmarks go to the [[trash|recycle bin]].",
+        "hint": "Changes save automatically. In Settings, export a [[backup|backup]] or enable optional Google Chrome [[sync|synchronization]]."
       }
     }
   },

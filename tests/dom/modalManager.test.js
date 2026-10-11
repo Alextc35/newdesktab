@@ -107,6 +107,28 @@ describe('modal manager accessibility', () => {
 
     modalManager.closeModal();
   });
+
+  test('a responsive reader stays accessible while its parent draft is suspended', () => {
+    const editor = createModal('Settings');
+    const reader = createModal('Manual');
+    document.body.append(editor, reader);
+    const editorId = `test-modal-${++sequence}`;
+    const readerId = `test-modal-${++sequence}`;
+    modalManager.registerModal({ id: editorId, element: editor, requiresWideViewport: true });
+    modalManager.registerModal({ id: readerId, element: reader, independentViewport: true });
+    modalManager.openModal(editorId);
+    modalManager.openModal(readerId);
+    expect(modalManager.syncModalViewport(true)).toBe(false);
+    expect(editor.hidden).toBe(true);
+    expect(reader.hidden).toBe(false);
+    expect(reader.hasAttribute('inert')).toBe(false);
+    expect(modalManager.isModalActive(readerId)).toBe(true);
+    modalManager.closeModal(readerId);
+    expect(editor.hidden).toBe(true);
+    modalManager.syncModalViewport(false);
+    expect(editor.hidden).toBe(false);
+    modalManager.closeModal(editorId);
+  });
 });
 
 function createModal(title) {

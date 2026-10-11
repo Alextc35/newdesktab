@@ -10,6 +10,7 @@
       import { DEFAULT_BOOKMARK } from '../src/domain/bookmarks/bookmarkDefaults.js';
       import { createDefaultPersistedData } from '../src/platform/storage/persistedDataDefaults.js';
       import { DEVICE_ONBOARDING_KEY } from '../src/platform/storage/deviceOnboarding.js';
+      import { DEVICE_DAILY_TIPS_KEY, getLocalDay } from '../src/platform/storage/deviceDailyTips.js';
 
       const listeners = [];
       const isFreshProfile = !sessionStorage.getItem('newdesktab-test-local')
@@ -117,6 +118,12 @@
             }
           ]
         });
+      }
+
+      // Ordinary journeys keep the optional daily card out of their way.
+      // Help journeys opt in to exercise its production lifecycle.
+      if (!new URLSearchParams(location.search).has('tips')) {
+        chrome.storage.local.set({ [DEVICE_DAILY_TIPS_KEY]: { day: getLocalDay() } });
       }
 
       const browserProfile = new URLSearchParams(location.search).get('browser');

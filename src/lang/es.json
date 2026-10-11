@@ -21,28 +21,28 @@
     "steps": {
       "start": {
         "title": "Tus páginas. Tu propio espacio.",
-        "body": "Bienvenido a New DeskTab. Ten tus páginas favoritas a mano cada vez que abras una pestaña. Para añadir una, acerca el cursor al borde izquierdo y elige + → Favorito.",
-        "hint": "También puedes guardar la página que estés visitando desde el icono de la extensión en el navegador."
+        "body": "Bienvenido a New DeskTab. Ten tus páginas favoritas a mano cada vez que abras una pestaña. Para añadir una, acerca el cursor al borde izquierdo y elige + → [[bookmarks|Favorito]].",
+        "hint": "También puedes [[quick-save|guardar la página que estés visitando]] desde el icono de la extensión en el navegador."
       },
       "edit": {
         "title": "Dale a cada favorito su lugar.",
-        "body": "Activa el lápiz del menú izquierdo para editar. Mantén pulsado un elemento y arrástralo; usa sus tiradores para cambiar el tamaño.",
-        "hint": "El lápiz de cada favorito abre su editor: nombre, colores, icono e imagen. Guarda estilos para reutilizarlos."
+        "body": "Activa el lápiz del menú izquierdo para editar. Mantén pulsado un elemento y [[movement|arrástralo]]; usa sus [[resizing|tiradores]] para cambiar el tamaño.",
+        "hint": "El lápiz de cada favorito abre su [[appearance|editor]]: nombre, colores, icono e imagen. Guarda [[presets|estilos]] para reutilizarlos."
       },
       "organize": {
         "title": "Menos ruido. Más orden.",
-        "body": "Crea una carpeta desde + y arrastra favoritos dentro en modo edición. Se abrirá en una grilla limpia con hasta 18 favoritos.",
-        "hint": "Usa el + de la barra de espacios para separar trabajo y ocio. La lupa busca también dentro de las carpetas."
+        "body": "Crea una [[folders|carpeta]] desde + y arrastra favoritos dentro en modo edición. Se abrirá en una grilla limpia con hasta 18 favoritos.",
+        "hint": "Usa el + de la [[workspaces|barra de espacios]] para separar trabajo y ocio. La [[search|lupa]] busca también dentro de las carpetas."
       },
       "style": {
         "title": "Haz que se sienta tuyo.",
-        "body": "En Ajustes → Tema puedes elegir un color, una imagen o un vídeo de fondo y rotar tus fondos favoritos. En Ajustes → Sincronización puedes sincronizar tu espacio entre dispositivos con la cuenta de tu perfil de Chrome.",
-        "hint": "Desde + → Widgets puedes añadir un reloj. También puedes personalizar el aspecto de tus carpetas."
+        "body": "En Ajustes → [[wallpapers|Tema]] puedes elegir un color, una imagen o un vídeo de fondo y rotar tus fondos favoritos. En Ajustes → [[sync|Sincronización]] puedes sincronizar tu espacio entre dispositivos con la cuenta de tu perfil de Chrome.",
+        "hint": "Desde + → Widgets puedes añadir un [[clock|reloj]]. También puedes personalizar el [[appearance|aspecto]] de tus carpetas."
       },
       "ready": {
         "title": "Ya tienes lo esencial.",
-        "body": "Pulsa / para buscar un favorito. Usa las flechas de deshacer y rehacer para recuperar cambios; los favoritos eliminados van a la papelera.",
-        "hint": "Tus cambios se guardan automáticamente. En Ajustes puedes exportar una copia de seguridad y activar la sincronización opcional de Google Chrome."
+        "body": "Pulsa [[search|/]] para buscar un favorito. Usa las flechas de [[history|deshacer y rehacer]] para recuperar cambios; los favoritos eliminados van a la [[trash|papelera]].",
+        "hint": "Tus cambios se guardan automáticamente. En Ajustes puedes exportar una [[backup|copia de seguridad]] y activar la [[sync|sincronización]] opcional de Google Chrome."
       }
     }
   },

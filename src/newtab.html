@@ -175,6 +175,51 @@
     </div>
   </div>
 
+  <div id="manual-modal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-card manual-card">
+      <header class="manual-header">
+        <div class="manual-brand">
+          <img src="/assets/icons/brand-mark.svg" alt="" aria-hidden="true">
+          <div><span>New DeskTab</span><h2 data-i18n="manual.title">Manual de uso</h2></div>
+        </div>
+        <button id="manual-close" class="btn btn-ghost" type="button" data-i18n="buttons.close">Cerrar</button>
+      </header>
+      <div class="manual-body custom-scrollbar">
+        <div class="manual-index">
+          <p class="manual-eyebrow" data-i18n="manual.eyebrow">TU ESPACIO, A TU RITMO</p>
+          <h3 class="manual-intro-title" data-i18n="manual.intro">Cada función, un poco más cerca.</h3>
+          <p class="manual-summary" data-i18n="manual.description">Encuentra lo que necesitas o descubre algo nuevo. Sin prisas.</p>
+          <label class="manual-search-label" for="manual-search" data-i18n="manual.searchLabel">Buscar en el manual</label>
+          <input id="manual-search" type="search" autocomplete="off" data-i18n="manual.searchPlaceholder" placeholder="Prueba «teclado», «fondos» o «copias»">
+          <p class="manual-count" role="status" aria-live="polite"></p>
+          <div class="manual-groups"></div>
+        </div>
+        <div class="manual-reader" hidden>
+          <button id="manual-back" class="btn btn-ghost" type="button" data-i18n="manual.back">← Índice del manual</button>
+          <article class="manual-article"></article>
+        </div>
+      </div>
+      <footer class="manual-footer"><span data-i18n="manual.footer">Siempre disponible en Ajustes → Información.</span></footer>
+    </div>
+  </div>
+
+  <aside id="daily-tip" class="daily-tip" aria-labelledby="daily-tip-title" hidden>
+    <div class="daily-tip-top">
+      <span class="manual-eyebrow" data-i18n="manual.daily.eyebrow">UN TRUCO PARA HOY</span>
+      <button id="daily-tip-dismiss" type="button" data-i18n-aria-label="manual.daily.dismiss">×</button>
+    </div>
+    <div role="status" aria-live="polite">
+      <h2 id="daily-tip-title" class="daily-tip-title"></h2>
+      <p class="daily-tip-text"></p>
+    </div>
+    <div class="daily-tip-bottom">
+      <span data-i18n="manual.daily.pace">Un pequeño descubrimiento cada día.</span>
+      <button id="daily-tip-read" class="btn btn-secondary" type="button" data-i18n="manual.daily.read">Ver cómo</button>
+    </div>
+    <div class="daily-tip-progress" aria-hidden="true"><span class="daily-tip-progress-fill"></span></div>
+  </aside>
+
   <div id="alert-modal" class="modal">
     <div class="modal-overlay"></div>
     <div class="modal-card modal-sm">
@@ -1320,6 +1365,24 @@
               </div>
               <button id="settings-open-guide" class="btn btn-secondary" type="button"
                 data-i18n="onboarding.reopen">Ver guía</button>
+            </section>
+            <section class="settings-manual">
+              <span class="manual-eyebrow" data-i18n="manual.eyebrow">TU ESPACIO, A TU RITMO</span>
+              <h3 data-i18n="manual.title">Manual de uso</h3>
+              <p data-i18n="manual.settingsDescription">Descubre todas las funciones, con pasos sencillos y trucos que puedes probar cuando quieras.</p>
+              <div class="settings-manual-shortcuts">
+                <button type="button" data-help-topic="keyboard" data-i18n="manual.topics.keyboard.title">Navegar con el teclado</button>
+                <button type="button" data-help-topic="folders" data-i18n="manual.topics.folders.title">Carpetas</button>
+                <button type="button" data-help-topic="wallpapers" data-i18n="manual.topics.wallpapers.title">Fondos</button>
+              </div>
+              <button id="settings-open-manual" class="btn btn-primary" type="button" data-i18n="manual.open">Explorar el manual</button>
+            </section>
+            <section class="settings-daily-tips">
+              <div class="checkbox-wrapper">
+                <input id="settings-daily-tips" type="checkbox" checked>
+                <label for="settings-daily-tips" data-i18n="manual.daily.enabled">Consejos diarios</label>
+              </div>
+              <p data-i18n="manual.daily.description">Un consejo al abrir tu primera pestaña del día. Se aplica al instante en este navegador.</p>
             </section>
           </div>
           <div class="modal-actions">
