@@ -11,9 +11,9 @@ const DEFAULTS = {
 };
 const PALETTES = {
   original: null,
+  card: { background: '#111827', text: '#ffffff' },
   midnight: { background: '#171717', text: '#f5f5f5', icon: '#a3a3a3' },
-  paper: { background: '#f1f0ec', text: '#292524', icon: '#78716c' },
-  ocean: { background: '#172b3a', text: '#e0f2fe', icon: '#7dd3fc' }
+  paper: { background: '#f1f0ec', text: '#292524', icon: '#78716c' }
 };
 const CONTENT_FIELDS = {
   bookmark: ['backgroundFavicon', 'showText', 'showFavicon', 'invertColorIcon'],
@@ -21,15 +21,26 @@ const CONTENT_FIELDS = {
   recycleBin: ['showIcon', 'showName', 'showCount']
 };
 
+function textForBlackOrWhiteBackground(background) {
+  const color = typeof background === 'string' ? background.toLowerCase() : '';
+  return color === '#ffffff' ? '#000000' : color === '#000000' ? '#ffffff' : null;
+}
+
 /** Appearance-only values: choosing a look never changes identity or grid layout. */
 export function getItemAppearance(type, look = 'original', current = {}) {
   const defaults = DEFAULTS[type];
-  if (!defaults || !Object.hasOwn(PALETTES, look)) return null;
+  if (!defaults || !Object.hasOwn(PALETTES, look) || (look === 'card' && type !== 'bookmark')) return null;
   const palette = PALETTES[look];
   if (!palette) return { ...defaults };
-  const style = { ...defaults, noBackground: false, textColor: palette.text };
+  const style = { ...defaults, noBackground: false, textColor: palette.text ?? defaults.textColor };
   for (const field of CONTENT_FIELDS[type]) {
     if (Object.hasOwn(current, field)) style[field] = current[field];
+  }
+  if (look === 'card') {
+    style.backgroundColor = palette.background;
+    style.backgroundFavicon = false;
+    style.showText = true;
+    return style;
   }
   if (type === 'folder') {
     style.noOuterBackground = false;
@@ -49,6 +60,19 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
   const abortController = new AbortController();
   const options = { signal: abortController.signal };
   signal?.addEventListener('abort', () => abortController.abort(), { once: true });
+  const cardColorSelector = type === 'bookmark'
+    ? '[data-field="backgroundColor"], [data-field="backgroundImageLocalColor"]'
+    : type === 'folder' ? '#folder-editor-outer-color'
+      : '#recycle-bin-editor-background-color, #recycle-bin-editor-local-color';
+  const textColorInput = root.querySelector(type === 'bookmark' ? '[data-field="textColor"]'
+    : type === 'folder' ? '#folder-editor-text-color' : '#recycle-bin-editor-text-color');
+  root.addEventListener('input', event => {
+    if (!event.target.matches(cardColorSelector)) return;
+    const color = textForBlackOrWhiteBackground(event.target.value);
+    if (!color || !textColorInput || textColorInput.value === color) return;
+    textColorInput.value = color;
+    textColorInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }, options);
   const section = document.createElement('section');
   section.className = 'editor-looks';
   const heading = document.createElement('div');
@@ -61,10 +85,12 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
   heading.append(title, status);
   const looks = document.createElement('div');
   looks.className = 'editor-look-options';
+  const availableLooks = Object.keys(PALETTES).filter(look => type === 'bookmark' || look !== 'card');
+  looks.style.setProperty('--editor-look-count', String(availableLooks.length));
   looks.setAttribute('role', 'group');
   looks.dataset.i18nAriaLabel = 'itemEditor.looks';
 
-  for (const look of Object.keys(PALETTES)) {
+  for (const look of availableLooks) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'editor-look';

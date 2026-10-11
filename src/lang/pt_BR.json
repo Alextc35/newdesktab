@@ -57,9 +57,9 @@
     "custom": "Personalizado",
     "look": {
       "original": "Original",
-      "midnight": "Preto",
-      "paper": "Claro",
-      "ocean": "Azul"
+      "card": "Cartão",
+      "midnight": "Escuro",
+      "paper": "Claro"
     },
     "reset": "Restaurar aparência",
     "cardColor": "Cor do cartão",

@@ -57,9 +57,9 @@
     "custom": "Personalizado",
     "look": {
       "original": "Original",
-      "midnight": "Negro",
-      "paper": "Claro",
-      "ocean": "Azul"
+      "card": "Tarjeta",
+      "midnight": "Oscuro",
+      "paper": "Claro"
     },
     "reset": "Restablecer aspecto",
     "cardColor": "Color de la tarjeta",

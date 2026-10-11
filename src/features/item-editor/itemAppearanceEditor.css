@@ -72,7 +72,7 @@ h3.editor-section-heading { margin: 0 0 6px; font-size: 13px; font-weight: 600; 
 
 .editor-look-options {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--editor-look-count, 4), minmax(0, 1fr));
   gap: 8px;
 }
 

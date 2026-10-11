@@ -57,9 +57,9 @@
     "custom": "Custom",
     "look": {
       "original": "Original",
-      "midnight": "Black",
-      "paper": "Light",
-      "ocean": "Blue"
+      "card": "Card",
+      "midnight": "Dark",
+      "paper": "Light"
     },
     "reset": "Reset appearance",
     "cardColor": "Card color",

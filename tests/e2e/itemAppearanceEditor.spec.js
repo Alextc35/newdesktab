@@ -74,7 +74,7 @@ for (const type of Object.keys(editors)) {
     const summary = modal.locator('.editor-image-section summary');
     await modal.locator('.modal-card').screenshot({ path: testInfo.outputPath(`${type}-initial.png`) });
     await expect(summary).toBeInViewport({ ratio: 1 });
-    await expect(modal.locator('.editor-look-item')).toHaveCount(4);
+    await expect(modal.locator('.editor-look-item')).toHaveCount(type === 'bookmark' ? 4 : 3);
     if (type === 'bookmark') {
       await expect(modal.locator('.editor-look-item .bookmark-favicon-image')).toHaveCount(4);
       const sample = modal.locator('[data-appearance-look="original"] .bookmark-favicon');
@@ -99,6 +99,21 @@ for (const type of Object.keys(editors)) {
         expect(content.y + content.height).toBeLessThanOrEqual(card.y + card.height);
       }
     }
+    await expect(modal.locator('[data-appearance-look="card"]')).toHaveCount(type === 'bookmark' ? 1 : 0);
+    await modal.locator(`[data-appearance-look="${type === 'bookmark' ? 'card' : 'midnight'}"]`).click();
+    const color = modal.locator(type === 'bookmark' ? '[data-field="backgroundColor"]'
+      : type === 'folder' ? '#folder-editor-outer-color' : '#recycle-bin-editor-background-color');
+    const textColor = modal.locator(type === 'bookmark' ? '[data-field="textColor"]'
+      : type === 'folder' ? '#folder-editor-text-color' : '#recycle-bin-editor-text-color');
+    const title = modal.locator(editors[type].preview).locator(type === 'bookmark' ? '.bookmark-title'
+      : type === 'folder' ? '.folder-title' : '.recycle-bin-caption > strong');
+    for (const [background, foreground, css] of [['#ffffff', '#000000', 'rgb(0, 0, 0)'],
+      ['#000000', '#ffffff', 'rgb(255, 255, 255)']]) {
+      await color.fill(background);
+      await expect(textColor).toHaveValue(foreground);
+      await expect(title).toHaveCSS('color', css);
+    }
+    expect(await storedValue(page, type)).toEqual(original);
     await modal.locator('[data-appearance-look="midnight"]').click();
     await expect(save).toBeEnabled();
     await expect(modal.locator(editors[type].preview)).toHaveCSS('background-color', 'rgb(23, 23, 23)');
@@ -143,11 +158,24 @@ test('keyboard activation selects a look without submitting, and Cancel discards
 });
 
 test('finishes a custom card in one tab, and quick looks preserve its content choices', async ({ page }) => {
+  const original = await storedValue(page, 'bookmark');
   const modal = await openEditor(page, 'bookmark');
   await modal.locator('[data-field="showText"]').uncheck();
-  await modal.locator('[data-field="backgroundFavicon"]').uncheck();
+  await modal.locator('[data-appearance-look="card"]').click();
+  await expect(modal.locator('[data-field="showText"]')).toBeChecked();
+  await expect(modal.locator('[data-field="backgroundFavicon"]')).not.toBeChecked();
+  await expect(modal.locator('.bookmark-preview > .bookmark')).toHaveCSS('background-color', 'rgb(17, 24, 39)');
+  await expect(modal.locator('[data-appearance-look="card"] .editor-look-item')).toHaveCSS('background-color', 'rgb(17, 24, 39)');
+  await expect(modal.locator('.bookmark-preview .bookmark-info')).toBeVisible();
+  expect(await storedValue(page, 'bookmark')).toEqual(original);
+  await modal.locator('[data-field="backgroundColor"]').fill('#81b64c');
+  await expect(modal.locator('.bookmark-preview > .bookmark')).toHaveCSS('background-color', 'rgb(129, 182, 76)');
+  await expect(modal.locator('[data-appearance-look="card"] .editor-look-item')).toHaveCSS('background-color', 'rgb(17, 24, 39)');
+  await modal.locator('[data-appearance-look="card"]').click();
+  await expect(modal.locator('[data-field="backgroundColor"]')).toHaveValue('#111827');
+  await modal.locator('[data-field="showText"]').uncheck();
   await modal.locator('[data-field="showFavicon"]').uncheck();
-  await modal.locator('[data-appearance-look="ocean"]').click();
+  await modal.locator('[data-appearance-look="midnight"]').click();
   await expect(modal.locator('[data-field="showText"]')).not.toBeChecked();
   await expect(modal.locator('[data-field="backgroundFavicon"]')).not.toBeChecked();
   await expect(modal.locator('[data-field="showFavicon"]')).not.toBeChecked();
@@ -200,8 +228,9 @@ test('Spanish labels and the complete item fit inside each taller look', async (
     const { changeLanguage } = await import('/src/platform/i18n/i18n.js');
     await changeLanguage({ language: 'es' });
   });
+  await expect(modal.locator('.editor-look > span:last-child')).toHaveText(['Original', 'Tarjeta', 'Oscuro', 'Claro']);
   await modal.locator('[data-appearance-look="midnight"]').click();
-  for (const look of ['original', 'midnight', 'paper', 'ocean']) {
+  for (const look of ['original', 'card', 'midnight', 'paper']) {
     const sample = modal.locator(`[data-appearance-look="${look}"] .editor-look-sample`);
     const frame = await sample.boundingBox();
     expect(frame.height).toBeGreaterThanOrEqual(90);
