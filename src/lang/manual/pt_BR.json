@@ -18,7 +18,7 @@
   "daily": {
     "eyebrow": "UMA DICA PARA HOJE", "dismiss": "Fechar a dica de hoje", "read": "Ver como",
     "pace": "20 s · Passe o cursor para pausar.", "enabled": "Dicas diárias",
-    "description": "Uma dica ao abrir sua primeira aba do dia. A alteração se aplica imediatamente neste navegador."
+    "description": "Uma dica ao abrir sua primeira aba do dia."
   },
   "topics": {
     "bookmarks": {
