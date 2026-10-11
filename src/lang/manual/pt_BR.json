@@ -17,7 +17,7 @@
   "groups": { "start": "Comece aqui", "organize": "Organize", "personalize": "Deixe com a sua cara", "protect": "Cuide do seu espaço" },
   "daily": {
     "eyebrow": "UMA DICA PARA HOJE", "dismiss": "Fechar a dica de hoje", "read": "Ver como",
-    "pace": "20 s · Passe o cursor para pausar.", "enabled": "Dicas diárias",
+    "pace": "Passe o cursor para pausar.", "enabled": "Dicas diárias",
     "description": "Uma dica ao abrir sua primeira aba do dia."
   },
   "topics": {
