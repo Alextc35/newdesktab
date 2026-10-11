@@ -1,5 +1,7 @@
 /* Bookmark card content, favicon and label presentation. */
-#bookmark-container:not(.is-list-view) > .bookmark.has-transparent-background .bookmark-title {
+#bookmark-container:not(.is-list-view) > .bookmark.has-transparent-background .bookmark-title,
+#folder-modal .folder-grid-bookmark.has-transparent-background .bookmark-title,
+.item-appearance-editor .bookmark.is-preview.has-transparent-background .bookmark-title {
   flex: 0 1 auto;
   width: fit-content;
   max-width: 100%;
@@ -7,6 +9,7 @@
   border-radius: 6px;
   background: var(--bookmark-caption-background);
   box-shadow: 0 1px 4px rgb(0 0 0 / 16%);
+  text-shadow: none;
 }
 
 .bookmark-link {

@@ -3,8 +3,7 @@ import { resolveBackgroundImage } from '../../platform/images/localImages.js';
 import {
   captionBackground,
   readableSurfaceBorderColor,
-  readableSurfacePalette,
-  readableSurfaceTextColor
+  readableSurfacePalette
 } from '../../shared/ui/surfaceContrast.js';
 
 // Contrast baselines use the darkest light veil and the brightest dark veil
@@ -51,15 +50,6 @@ export function applyFolderContentsAppearance(element, folder = {}) {
   })) {
     element.style.setProperty(variable, `light-dark(${light[key]}, ${dark[key]})`);
   }
-}
-
-/** Keeps bookmark colors where they contrast with the neutral contents surface. */
-export function applyFolderBookmarkContrast(element, bookmark, folder = {}) {
-  element.style.removeProperty('--folder-bookmark-text');
-  if (!element.classList.contains('has-transparent-background')) return;
-  const light = readableSurfaceTextColor(bookmark.textColor, contentsContrastSurface(folder, LIGHT_CONTENTS));
-  const dark = readableSurfaceTextColor(bookmark.textColor, contentsContrastSurface(folder, DARK_CONTENTS));
-  element.style.setProperty('--folder-bookmark-text', `light-dark(${light}, ${dark})`);
 }
 
 function contentsContrastSurface(folder, theme) {

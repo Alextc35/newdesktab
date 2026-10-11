@@ -84,7 +84,8 @@
   color: color-mix(in srgb, var(--folder-text-color) 72%, transparent);
 }
 
-#bookmark-container:not(.is-list-view) > .bookmark-folder.is-folder-outer-transparent .folder-title {
+#bookmark-container:not(.is-list-view) > .bookmark-folder.is-folder-outer-transparent .folder-title,
+.folder-editor-preview-card.is-folder-outer-transparent .folder-title {
   justify-self: center;
   width: max-content;
   max-width: 100%;
@@ -218,14 +219,14 @@
 
 .folder-tab {
   fill: color-mix(in srgb, var(--folder-color) 58%, #334155);
-  stroke: color-mix(in srgb, var(--folder-color) 38%, #dbeafe);
+  stroke: color-mix(in srgb, var(--folder-color) 58%, #334155);
   stroke-width: 1.4;
   stroke-linejoin: round;
 }
 
 .folder-svg-body {
   fill: color-mix(in srgb, var(--folder-color) 62%, #182338);
-  stroke: color-mix(in srgb, var(--folder-color) 34%, #cde6ff);
+  stroke: color-mix(in srgb, var(--folder-color) 62%, #182338);
   stroke-width: 1.55;
   stroke-linejoin: round;
 }
@@ -321,15 +322,14 @@
 }
 
 .folder-previews .bookmark-favicon {
-  border: 1px solid rgba(255, 255, 255, .62);
-  background: rgba(255, 255, 255, .94);
-  box-shadow: 0 4px 10px rgba(2, 8, 23, .22);
+  border: 1px solid var(--folder-preview-background, transparent);
+  background: var(--folder-preview-background, transparent);
   object-fit: contain;
 }
 
 .folder-previews .bookmark-favicon.bookmark-favicon-fallback {
-  background: var(--ui-selected);
-  color: var(--ui-text);
+  background: var(--folder-preview-background, transparent);
+  color: var(--folder-preview-text, var(--ui-text));
 }
 
 .folder-previews:not(:empty) {
@@ -546,14 +546,6 @@
 
 #folder-modal [hidden] {
   display: none;
-}
-
-#folder-modal .folder-grid-bookmark.has-transparent-background {
-  --bookmark-context-text: var(--folder-bookmark-text, var(--color-text-bookmark));
-}
-
-#folder-modal .folder-grid-bookmark:is(.is-folder-grid-exiting, .is-folder-grid-invalid).has-transparent-background {
-  --bookmark-context-text: #f8fafc;
 }
 
 #folder-modal .folder-grid-bookmark .bookmark-title,

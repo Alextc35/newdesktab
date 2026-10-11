@@ -1,5 +1,7 @@
 import { resolveBackgroundImage } from '../../platform/images/localImages.js';
+import { DEFAULT_BOOKMARK_STYLE } from '../../domain/bookmarks/bookmarkDefaults.js';
 import { createFavicon } from '../bookmarks/bookmarkFavicon.js';
+import { readableSurfaceTextColor } from '../../shared/ui/surfaceContrast.js';
 import { createFolderSvg } from '../../shared/ui/svgIcons.js';
 import { applyFolderAppearance } from './folderAppearance.js';
 
@@ -33,6 +35,13 @@ export function createFolderVisual(folder, bookmarks = [], { compact = false } =
     for (const bookmark of bookmarks.slice(0, previewLimit)) {
       const image = createFavicon(bookmark);
       image.alt = '';
+      const transparent = bookmark.noBackground ?? DEFAULT_BOOKMARK_STYLE.noBackground;
+      const background = transparent ? 'transparent'
+        : bookmark.backgroundColor || DEFAULT_BOOKMARK_STYLE.backgroundColor;
+      image.style.setProperty('--folder-preview-background', background);
+      if (!transparent) {
+        image.style.setProperty('--folder-preview-text', readableSurfaceTextColor(bookmark.textColor, background));
+      }
       previews.append(image);
     }
 

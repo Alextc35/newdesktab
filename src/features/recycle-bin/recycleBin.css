@@ -37,7 +37,8 @@
   background-image: none;
 }
 
-#bookmark-container:not(.is-list-view) > .recycle-bin.is-recycle-bin-transparent:not(.has-recycle-bin-bg-image) .recycle-bin-caption > strong {
+#bookmark-container:not(.is-list-view) > .recycle-bin.is-recycle-bin-transparent:not(.has-recycle-bin-bg-image) .recycle-bin-caption > strong,
+.recycle-bin-editor-preview-card.is-recycle-bin-transparent:not(.has-recycle-bin-bg-image) .recycle-bin-caption > strong {
   justify-self: center;
   width: max-content;
   max-width: 100%;

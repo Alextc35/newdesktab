@@ -34,7 +34,6 @@ import { openFolderEditor } from './folderEditorModal.js';
 import { createFolderVisual } from './folderVisual.js';
 import {
   applyFolderAppearance,
-  applyFolderBookmarkContrast,
   applyFolderContentsAppearance
 } from './folderAppearance.js';
 
@@ -245,7 +244,7 @@ function renderFolderContents() {
 
   for (const bookmark of contents) {
     const position = layout.get(bookmark.id);
-    if (position) list.append(createFolderBookmarkItem(bookmark, position, folder));
+    if (position) list.append(createFolderBookmarkItem(bookmark, position));
   }
 }
 
@@ -314,13 +313,12 @@ function enforceInlineFolderNameLimit() {
   selection.addRange(range);
 }
 
-function createFolderBookmarkItem(bookmark, position, folder) {
+function createFolderBookmarkItem(bookmark, position) {
   const item = createBookmarkElement(
     { ...bookmark, w: 1, h: 1 },
     { isEditing: folderIsEditing }
   );
   item.classList.add('folder-grid-bookmark');
-  applyFolderBookmarkContrast(item, bookmark, folder);
   item.dataset.bookmarkId = bookmark.id;
   item.setAttribute('role', 'listitem');
   applyFolderCell(item, position);

@@ -20,7 +20,7 @@
   background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
 }
 
-/* Transparent items inherit legible labels only on interface-owned canvases. */
+/* Previews preserve the saved label color, just like grid cards. */
 .bookmark-preview .is-preview.has-transparent-background {
-  --bookmark-context-text: light-dark(var(--bookmark-light-text), var(--color-text-bookmark));
+  --bookmark-context-text: var(--color-text-bookmark);
 }
