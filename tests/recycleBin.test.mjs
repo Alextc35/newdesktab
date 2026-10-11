@@ -244,3 +244,20 @@ test('updates recycle bin appearance and visibility together', async () => {
   assert.equal(settings.showRecycleBin, false);
   await waitForPersistence();
 });
+
+test('saving retention honors Never and expires only entries older than the selected duration', async () => {
+  await resetData({
+    settings: { ...DEFAULT_SETTINGS, recycleBinRetentionDays: 0 },
+    trash: [
+      { id: 'old', type: 'bookmark', deletedAt: Date.now() - 10 * 86400000, bookmark: bookmark('old') },
+      { id: 'fresh', type: 'bookmark', deletedAt: Date.now(), bookmark: bookmark('new') }
+    ]
+  });
+  await updateRecycleBinAppearance({ ...getState().data.recycleBin, recycleBinRetentionDays: 0 });
+  assert.deepEqual(getState().data.trash.map(entry => entry.id), ['old', 'fresh']);
+  await updateRecycleBinAppearance({ ...getState().data.recycleBin, recycleBinRetentionDays: 7 });
+  assert.deepEqual(getState().data.trash.map(entry => entry.id), ['fresh']);
+  assert.equal(getState().data.settings.recycleBinRetentionDays, 7);
+  assert.equal(storedData.settings.recycleBinRetentionDays, 7);
+  assert.deepEqual(storedData.trash.map(entry => entry.id), ['fresh']);
+});

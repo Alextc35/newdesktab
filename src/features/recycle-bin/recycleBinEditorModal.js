@@ -23,6 +23,8 @@ import { closeModal, openModal, registerModal } from '../../shared/ui/modalManag
 import { initTabs } from '../../shared/ui/tabs.js';
 import { createItemAppearanceEditor } from '../item-editor/itemAppearanceEditor.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
+import { initCustomSelect, refreshCustomSelect } from '../../shared/ui/customSelect.js';
+import { normalizeRecycleBinRetentionDays } from '../../domain/settings/recycleBinRetention.js';
 
 let initialized = false;
 let submitting = false;
@@ -50,6 +52,7 @@ let showIconInput;
 let showNameInput;
 let showCountInput;
 let visibleInput;
+let retentionSelect;
 let preview;
 let saveButton;
 let tabs;
@@ -79,6 +82,9 @@ export function initRecycleBinEditorModal() {
   showNameInput = document.getElementById('recycle-bin-editor-show-name');
   showCountInput = document.getElementById('recycle-bin-editor-show-count');
   visibleInput = document.getElementById('recycle-bin-editor-visible');
+  retentionSelect = document.getElementById('recycle-bin-editor-retention');
+  initCustomSelect(retentionSelect);
+  retentionSelect.addEventListener('change', handleInput);
   preview = document.getElementById('recycle-bin-editor-preview');
   saveButton = document.getElementById('edit-recycle-bin-modal-save');
 
@@ -159,9 +165,11 @@ export function openRecycleBinEditor() {
   if (!ensurePanelFits()) return;
   const { recycleBin, settings } = getState().data;
   const style = normalizeRecycleBinStyle(recycleBin);
-  initialValue = { ...style, showRecycleBin: settings.showRecycleBin !== false };
+  initialValue = { ...style, showRecycleBin: settings.showRecycleBin !== false,
+    recycleBinRetentionDays: normalizeRecycleBinRetentionDays(settings.recycleBinRetentionDays) };
 
   setControlValues(style, initialValue.showRecycleBin);
+  retentionSelect.value = String(initialValue.recycleBinRetentionDays);
   setLocalImageSyncNoticeVisibility(imageUploadNotice, getStorageMode());
   clearErrors();
   tabs.activate('recycle-bin-editor-panel-general');
@@ -197,11 +205,13 @@ function currentValue() {
     showIcon: showIconInput.checked,
     showName: showNameInput.checked,
     showCount: showCountInput.checked,
-    showRecycleBin: visibleInput.checked
+    showRecycleBin: visibleInput.checked,
+    recycleBinRetentionDays: normalizeRecycleBinRetentionDays(retentionSelect.value)
   };
 }
 
 function syncControls() {
+  refreshCustomSelect(retentionSelect);
   const hasLocalImage = Boolean(getImageInputValue(localImageInput));
   const activeSource = hasLocalImage && imageSourceSelect.value !== 'url' ? 'local' : 'url';
   imageSourceSelect.value = activeSource;
@@ -293,7 +303,8 @@ async function handleSave() {
   try {
     await updateRecycleBinAppearance({
       ...result.value,
-      showRecycleBin: draft.showRecycleBin
+      showRecycleBin: draft.showRecycleBin,
+      recycleBinRetentionDays: draft.recycleBinRetentionDays
     });
     await requirePersistence();
     flashSuccess('flash.recycleBin.updated');

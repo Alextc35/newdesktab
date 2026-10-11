@@ -2,7 +2,7 @@ import '../../types/types.js';
 import { DEFAULT_RECYCLE_BIN } from '../../domain/recycle-bin/recycleBinDefaults.js';
 import { clearBookmarkHistory, getState, setState } from '../../state/appStore.js';
 import { normalizeRecycleBinStyle } from '../../domain/recycle-bin/recycleBinModel.js';
-import { getRecycleBinRetentionMs } from '../../domain/settings/recycleBinRetention.js';
+import { getRecycleBinRetentionMs, normalizeRecycleBinRetentionDays } from '../../domain/settings/recycleBinRetention.js';
 import {
   createBookmarkTrashEntry,
   createCollectionTrashEntries,
@@ -12,10 +12,13 @@ import {
   restoreTrashEntriesInData
 } from '../../domain/recycle-bin/recycleBinEntries.js';
 
-/** Updates recycle bin appearance and grid visibility together. */
+/** Saves appearance, visibility and retention together, pruning expired trash. */
 export async function updateRecycleBinAppearance(value = {}) {
   const { data } = getState();
   const showRecycleBin = value.showRecycleBin !== false;
+  const recycleBinRetentionDays = normalizeRecycleBinRetentionDays(value.recycleBinRetentionDays
+    ?? data.settings.recycleBinRetentionDays);
+  const expired = removeExpiredTrashEntries(data.trash, Date.now(), getRecycleBinRetentionMs(recycleBinRetentionDays));
   const recycleBin = {
     ...data.recycleBin,
     ...normalizeRecycleBinStyle(value),
@@ -25,9 +28,11 @@ export async function updateRecycleBinAppearance(value = {}) {
   await setState({
     data: {
       recycleBin,
-      settings: { ...data.settings, showRecycleBin }
+      ...(expired.removed ? { trash: expired.trash } : {}),
+      settings: { ...data.settings, showRecycleBin, recycleBinRetentionDays }
     }
   });
+  if (expired.removed) clearBookmarkHistory();
   if (showRecycleBin) ensureRecycleBinPosition();
   return recycleBin;
 }

@@ -1,6 +1,47 @@
 import { expect, test } from '@playwright/test';
 import { expectAppReady } from './helpers/appReady.js';
 
+test('the recycle bin editor shares retention with settings and cancelling keeps the saved duration', async ({ page }, testInfo) => {
+  await page.route('**/*', route => new URL(route.request().url()).hostname === '127.0.0.1'
+    ? route.continue() : route.abort());
+  await page.goto('/tests/browser-harness.html');
+  await expectAppReady(page);
+  await page.keyboard.press('KeyE');
+  await page.locator('#bookmark-container .recycle-bin').getByRole('button', { name: 'Edit recycle bin' }).click();
+  const editor = page.locator('#edit-recycle-bin-modal');
+  const select = page.locator('#recycle-bin-editor-retention');
+  await expect(select).toHaveValue('28');
+  await page.locator('#recycle-bin-editor-retention-trigger').click();
+  await editor.getByRole('option', { name: 'Never', exact: true }).click();
+  await page.locator('#edit-recycle-bin-modal-save').click();
+  await expect(editor).toBeHidden();
+  await page.reload();
+  await expectAppReady(page);
+  await page.evaluate(() => document.getElementById('settings').click());
+  await expect(page.locator('#settings-recycle-bin-retention')).toHaveValue('0');
+  await page.locator('#settings-modal-cancel').click();
+  await page.keyboard.press('KeyE');
+  await page.locator('#bookmark-container .recycle-bin').getByRole('button', { name: 'Edit recycle bin' }).click();
+  await expect(select).toHaveValue('0');
+  await page.locator('#recycle-bin-editor-retention-trigger').click();
+  await editor.getByRole('option', { name: '7 days', exact: true }).click();
+  await editor.locator('.modal-card').screenshot({ path: testInfo.outputPath('retention-editor.png') });
+  await page.locator('#edit-recycle-bin-modal-cancel').click();
+  await page.locator('#alert-modal-accept').click();
+  await page.locator('#bookmark-container .recycle-bin').getByRole('button', { name: 'Edit recycle bin' }).click();
+  await expect(select).toHaveValue('0');
+  await page.locator('#recycle-bin-editor-retention-trigger').click();
+  await editor.getByRole('option', { name: '7 days', exact: true }).click();
+  await editor.getByRole('tab', { name: 'Style', exact: true }).click();
+  await editor.locator('[data-appearance-look="midnight"]').click();
+  await editor.locator('.editor-reset-appearance').click();
+  await expect(select).toHaveValue('7');
+  await page.locator('#edit-recycle-bin-modal-save').click();
+  await expect(editor).toBeHidden();
+  await page.evaluate(() => document.getElementById('settings').click());
+  await expect(page.locator('#settings-recycle-bin-retention')).toHaveValue('7');
+});
+
 test.beforeEach(async ({ page }) => {
   await page.goto('/tests/browser-harness.html');
   await expectAppReady(page);

@@ -564,6 +564,16 @@
                 <label for="recycle-bin-editor-visible"
                   data-i18n="recycleBin.editor.visible">Show recycle bin on the main grid</label>
               </div>
+              <div class="settings-recycle-bin-retention">
+                <label for="recycle-bin-editor-retention" data-i18n="settingsModal.general.recycleBin.retentionLabel">Eliminar los elementos después de</label>
+                <select id="recycle-bin-editor-retention" data-custom-select>
+                  <option value="1" data-i18n="settingsModal.general.recycleBin.retentionOptions.oneDay">1 día</option>
+                  <option value="7" data-i18n="settingsModal.general.recycleBin.retentionOptions.sevenDays">7 días</option>
+                  <option value="14" data-i18n="settingsModal.general.recycleBin.retentionOptions.fourteenDays">14 días</option>
+                  <option value="28" selected data-i18n="settingsModal.general.recycleBin.retentionOptions.twentyEightDays">28 días</option>
+                  <option value="0" data-i18n="settingsModal.general.recycleBin.retentionOptions.never">Nunca</option>
+                </select>
+              </div>
             </div>
             <div id="recycle-bin-editor-panel-style"
               class="modal-field edit-bookmark-modal-tab-content is-hidden custom-scrollbar"
