@@ -1141,7 +1141,7 @@
                   </label>
                 </div>
                 <div id="bookmark-drag-preview" class="behavior-preview"
-                  data-mode="none" aria-hidden="true">
+                  data-mode="none" aria-hidden="true" inert>
                   <div class="behavior-preview-caption">
                     <span class="behavior-preview-indicator"></span>
                     <small data-i18n="settingsModal.bookmark.preview">Vista previa</small>
@@ -1160,7 +1160,10 @@
                     <span class="behavior-preview-tile preview-tile-a">A</span>
                     <span class="behavior-preview-tile preview-tile-c">C</span>
                     <span class="behavior-preview-tile preview-tile-b">B</span>
-                    <span class="behavior-preview-pointer"></span>
+                    <span class="behavior-preview-pointer">
+                      <svg viewBox="0 0 19 25"><path d="M2 2v18l4.5-4 3.5 7 3-1.5-3.5-7H16Z"/></svg>
+                    </span>
+                    <span class="behavior-preview-click"></span>
                   </div>
                 </div>
               </div>
@@ -1201,7 +1204,7 @@
                   </label>
                 </div>
                 <div id="bookmark-resize-preview" class="behavior-preview"
-                  data-mode="smooth" aria-hidden="true">
+                  data-mode="smooth" aria-hidden="true" inert>
                   <div class="behavior-preview-caption">
                     <span class="behavior-preview-indicator"></span>
                     <small data-i18n="settingsModal.bookmark.preview">Vista previa</small>
@@ -1220,6 +1223,10 @@
                     <span class="behavior-preview-tile preview-resize-tile">
                       <span class="preview-resize-handle"></span>
                     </span>
+                    <span class="behavior-preview-pointer is-resize-pointer">
+                      <svg viewBox="0 0 24 24"><path d="M2 2h8L7 5l12 12 3-3v8h-8l3-3L5 7l-3 3Z"/></svg>
+                    </span>
+                    <span class="behavior-preview-click"></span>
                   </div>
                 </div>
               </div>

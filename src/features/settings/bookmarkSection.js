@@ -15,6 +15,7 @@ import {
   setDraftBookmarkResizeMode
 } from './settingsDraft.js';
 import { updateSettings } from './settingsActions.js';
+import { createBehaviorPreview } from './behaviorPreview.js';
 
 /**
  * Initializes the bookmark settings section.
@@ -42,6 +43,8 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
   const resizeModeSummary = document.getElementById('bookmark-resize-settings-summary');
   const dragPreview = document.getElementById('bookmark-drag-preview');
   const resizePreview = document.getElementById('bookmark-resize-preview');
+  const dragAnimation = dragPreview ? createBehaviorPreview(dragPreview, 'drag') : null;
+  const resizeAnimation = resizePreview ? createBehaviorPreview(resizePreview, 'resize') : null;
 
   for (const section of behaviorSections) initCollapsibleSection(section);
   collapseBehaviorSections();
@@ -96,7 +99,6 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
     if (dragModeSummary) {
       dragModeSummary.textContent = t(`settingsModal.bookmark.drag.${mode}.title`);
     }
-    if (dragPreview) dragPreview.dataset.mode = mode;
     const selectedOption = dragModeInputs.find(input => input.checked)
       ?.closest('.drag-mode-option');
     if (
@@ -104,6 +106,7 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
       && selectedOption
       && dragPreview.previousElementSibling !== selectedOption
     ) selectedOption.after(dragPreview);
+    dragAnimation?.setMode(mode);
   }
 
   function renderResizeMode() {
@@ -118,7 +121,6 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
     if (resizeModeSummary) {
       resizeModeSummary.textContent = t(`settingsModal.bookmark.resize.${mode}.title`);
     }
-    if (resizePreview) resizePreview.dataset.mode = mode;
     const selectedOption = resizeModeInputs.find(input => input.checked)
       ?.closest('.drag-mode-option');
     if (
@@ -126,6 +128,7 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
       && selectedOption
       && resizePreview.previousElementSibling !== selectedOption
     ) selectedOption.after(resizePreview);
+    resizeAnimation?.setMode(mode);
   }
 
   function syncUI() {
@@ -138,7 +141,11 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
   importBtn.addEventListener('click', () => importInput.click());
 
   return {
-    syncUI
+    syncUI,
+    destroy() {
+      dragAnimation?.destroy();
+      resizeAnimation?.destroy();
+    }
   };
 }
 

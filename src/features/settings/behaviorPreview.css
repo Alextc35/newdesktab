@@ -1,0 +1,189 @@
+/* Isolated demonstrations share the guide's cursor and gesture timing. */
+.behavior-preview {
+  display: grid;
+  gap: 8px;
+  margin: 2px 0 4px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.drag-mode-options > .behavior-preview { grid-column: 1 / -1; }
+
+.behavior-preview-caption {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ui-muted);
+}
+
+.behavior-preview-caption small { font-size: 11px; line-height: 1.2; }
+
+.behavior-preview-indicator {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: var(--ui-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ui-accent) 14%, transparent);
+}
+
+.behavior-preview-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 44px);
+  gap: 8px;
+  padding: 12px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--ui-border);
+  border-radius: 10px;
+  background: var(--ui-input);
+}
+
+.behavior-preview-grid {
+  position: absolute;
+  z-index: 0;
+  inset: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.behavior-preview-cell {
+  min-width: 0;
+  border: 1px dashed var(--ui-border);
+  border-radius: 7px;
+  background: var(--ui-card);
+}
+
+.behavior-preview-tile.bookmark {
+  --bookmark-context-text: var(--ui-text);
+  position: relative;
+  top: auto;
+  left: auto;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 1px solid color-mix(in srgb, var(--ui-accent) 65%, var(--ui-border));
+  border-radius: 7px;
+  background: var(--ui-selected);
+  color: var(--ui-text);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 2px 5px var(--ui-control-shadow);
+}
+
+.behavior-preview-tile .bookmark-info {
+  position: static;
+  width: 100%;
+  justify-content: center;
+}
+
+.behavior-preview-tile .bookmark-title {
+  margin: 0;
+  text-align: center;
+}
+
+.preview-tile-a.bookmark {
+  z-index: 3;
+  grid-column: 1;
+  grid-row: 1;
+  background: color-mix(in srgb, var(--ui-accent) 22%, var(--ui-card));
+}
+
+.preview-tile-b { grid-column: 3; grid-row: 1; }
+.preview-tile-c { grid-column: 2; grid-row: 1; }
+.preview-resize-tile {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  align-self: start;
+}
+
+.behavior-preview-pointer,
+.behavior-preview-click {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  opacity: 0;
+}
+
+.behavior-preview-pointer {
+  width: 19px;
+  height: 25px;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .35));
+}
+
+.behavior-preview-pointer svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+  stroke: #0f172a;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.behavior-preview-pointer.is-resize-pointer {
+  width: 24px;
+  height: 24px;
+  margin: -10px 0 0 -10px;
+}
+
+.behavior-preview-click {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--ui-accent);
+  border-radius: 50%;
+}
+
+.preview-resize-handle {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--ui-on-accent);
+  border-radius: 3px;
+  background: var(--ui-accent);
+  box-shadow: 0 0 0 2px var(--ui-selected);
+}
+
+/* Reduced motion shows the completed example without running a timeline. */
+.behavior-preview[data-static] .behavior-preview-pointer,
+.behavior-preview[data-static] .behavior-preview-click { display: none; }
+
+.behavior-preview[data-static][data-mode="none"] .preview-tile-a {
+  transform: translateY(var(--preview-cell-y));
+}
+
+.behavior-preview[data-static][data-mode="relocate"] .preview-tile-a,
+.behavior-preview[data-static][data-mode="cascade"] .preview-tile-a {
+  transform: translateX(calc(2 * var(--preview-cell-x)));
+}
+
+.behavior-preview[data-static][data-mode="relocate"] .preview-tile-b {
+  transform: translateX(calc(-2 * var(--preview-cell-x)));
+}
+
+.behavior-preview[data-static][data-mode="cascade"] .preview-tile-b,
+.behavior-preview[data-static][data-mode="cascade"] .preview-tile-c {
+  transform: translateX(calc(-1 * var(--preview-cell-x)));
+}
+
+.behavior-preview[data-static] .preview-resize-tile {
+  width: calc(100% + 2 * var(--preview-cell-x));
+  height: calc(100% + var(--preview-cell-y));
+}
+
+.behavior-preview[data-static][data-mode="none"] .preview-resize-tile {
+  width: calc(100% + var(--preview-cell-x));
+}
+
