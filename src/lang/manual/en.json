@@ -246,11 +246,11 @@
       "tip": "In edit mode, click to select one card and use arrows to move it cell by cell. Leave Tab navigation first."
     },
     "resizing": {
-      "question": "How do I change the size of a tile?", "searchTerms": "resize tile; enlarge bookmark; reduce size; resize handles; width height; 2x2",
+      "question": "How do I change the size of a tile?", "searchTerms": "resize tile; enlarge bookmark; reduce size; resize handles; click; Shift; width height; 2x2",
       "title": "Change the size", "summary": "Use the sides and corners of a card.",
-      "steps": ["Turn on editing and move to an item's side or corner to use its resize handles.", "Drag the handle. A corner changes width and height; a side changes just one dimension.", "In Settings → Bookmarks, choose None to jump between cells after crossing 50%, or Smooth to stretch the card and snap on release."],
+      "steps": ["Turn on editing and move to an item's side or corner to use its resize handles.", "Drag the handle. A corner changes width and height; a side changes just one dimension. You can also click a handle to grow by one cell, or Shift + click to shrink by one cell.", "In Settings → Bookmarks, choose None to jump between cells after crossing 50%, or Smooth to stretch the card and snap on release."],
       "note": "The final size respects the grid and valid positions. Settings previews show the difference before you choose.",
-      "tip": "Corners resize diagonally. In Settings → Bookmarks you can compare cell-by-cell resizing with smooth stretching."
+      "tip": "Click a handle to grow by one cell or Shift + click to shrink by one cell. Corners change width and height together; sides change just one dimension."
     },
     "drag-modes": {
       "question": "Why can I not drop on an occupied cell?", "searchTerms": "occupied cell; move over another; blocked drop; relocate cascade; drag collision",

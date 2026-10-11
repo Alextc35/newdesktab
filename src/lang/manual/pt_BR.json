@@ -243,11 +243,11 @@
       "tip": "Na edição, selecione um só cartão com um clique e use as setas para movê-lo de célula em célula. Saia antes da navegação com Tab."
     },
     "resizing": {
-      "question": "Como altero o tamanho de um elemento?", "searchTerms": "redimensionar; aumentar favorito; reduzir tamanho; alças; largura altura; 2x2",
+      "question": "Como altero o tamanho de um elemento?", "searchTerms": "redimensionar; aumentar favorito; reduzir tamanho; alças; clique; Shift; largura altura; 2x2",
       "title": "Alterar o tamanho", "summary": "Use as laterais e os cantos de um cartão.",
-      "steps": ["Ative a edição e aproxime o cursor de uma lateral ou canto do elemento para usar as alças.", "Arraste a alça. Um canto altera largura e altura; uma lateral muda apenas uma dimensão.", "Em Configurações → Favoritos, escolha Nenhum para saltar entre células ao ultrapassar 50%, ou Suave para esticar o cartão e encaixar ao soltar."],
+      "steps": ["Ative a edição e aproxime o cursor de uma lateral ou canto do elemento para usar as alças.", "Arraste a alça. Um canto altera largura e altura; uma lateral muda apenas uma dimensão. Você também pode clicar na alça para aumentar uma célula, ou usar Shift + clique para reduzir uma célula.", "Em Configurações → Favoritos, escolha Nenhum para saltar entre células ao ultrapassar 50%, ou Suave para esticar o cartão e encaixar ao soltar."],
       "note": "O tamanho final respeita a grade e as posições válidas. As prévias das configurações mostram a diferença antes de escolher.",
-      "tip": "Os cantos redimensionam na diagonal. Em Configurações → Favoritos você pode comparar os saltos entre células com o esticamento suave."
+      "tip": "Clique em uma alça para aumentar uma célula ou use Shift + clique para reduzir uma célula. Os cantos alteram largura e altura juntas; as laterais, apenas uma dimensão."
     },
     "drag-modes": {
       "question": "Por que não consigo soltar em uma célula ocupada?", "searchTerms": "célula ocupada; mover sobre outro; soltar ocupado; realocação sucessão; colisão arrastar",

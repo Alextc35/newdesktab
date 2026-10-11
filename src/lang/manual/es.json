@@ -246,11 +246,11 @@
       "tip": "En edición, selecciona una sola tarjeta con un clic y usa las flechas para moverla de celda en celda. Sal antes del modo de navegación con Tab."
     },
     "resizing": {
-      "question": "¿Cómo cambio el tamaño de un elemento?", "searchTerms": "redimensionar; agrandar favorito; reducir tamaño; tiradores; ancho alto; 2x2",
+      "question": "¿Cómo cambio el tamaño de un elemento?", "searchTerms": "redimensionar; agrandar favorito; reducir tamaño; tiradores; clic; Mayús Shift; ancho alto; 2x2",
       "title": "Cambiar el tamaño", "summary": "Usa los lados y las esquinas de una tarjeta.",
-      "steps": ["Activa la edición y acerca el cursor a un lado o una esquina del elemento para utilizar sus tiradores.", "Arrastra el tirador. Una esquina cambia ancho y alto; un lateral cambia solo una dimensión.", "En Ajustes → Favoritos elige Ninguno para saltar entre celdas al superar el 50 %, o Suave para estirar la tarjeta y encajarla al soltar."],
+      "steps": ["Activa la edición y acerca el cursor a un lado o una esquina del elemento para utilizar sus tiradores.", "Arrastra el tirador. Una esquina cambia ancho y alto; un lateral cambia solo una dimensión. También puedes hacer clic en el tirador para aumentar una celda, o Mayús (Shift) + clic para reducir una celda.", "En Ajustes → Favoritos elige Ninguno para saltar entre celdas al superar el 50 %, o Suave para estirar la tarjeta y encajarla al soltar."],
       "note": "El tamaño final respeta la cuadrícula y las posiciones válidas. Las vistas previas de los ajustes enseñan la diferencia antes de elegir.",
-      "tip": "Las esquinas redimensionan en diagonal. En Ajustes → Favoritos puedes comparar el salto entre celdas con el estirado suave."
+      "tip": "Haz clic en un tirador para aumentar una celda o Mayús (Shift) + clic para reducir una celda. Las esquinas cambian ancho y alto a la vez; los laterales, solo una dimensión."
     },
     "drag-modes": {
       "question": "¿Por qué no puedo soltar sobre una celda ocupada?", "searchTerms": "celda ocupada; mover encima de otro; soltar ocupado; recolocación sucesión; colisión arrastre",
