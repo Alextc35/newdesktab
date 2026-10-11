@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { expectAppReady } from './helpers/appReady.js';
+import { expectAppReady, expectAppSaved } from './helpers/appReady.js';
 
 test.use({ launchOptions: { ignoreDefaultArgs: ['--hide-scrollbars'] } });
 
@@ -67,7 +67,7 @@ test('orders recycle bin, widgets, folders and bookmarks by grid position in lis
     const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
     const [folder] = data.folders;
-    await setState({ data: {
+    void setState({ data: {
       ...data,
       recycleBin: {
         ...data.recycleBin,
@@ -98,6 +98,7 @@ test('orders recycle bin, widgets, folders and bookmarks by grid position in lis
       settings: { ...data.settings, showRecycleBin: true }
     } });
   });
+  await expectAppSaved(page);
 
   await page.setViewportSize({ width: 430, height: 720 });
   const list = page.locator('#bookmark-container');
@@ -342,10 +343,11 @@ test('toggling editing preserves grid, card and content geometry at every respon
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
-    await setState({ data: { ...data, folders: [...data.folders, {
+    void setState({ data: { ...data, folders: [...data.folders, {
       ...data.folders[0], id: 'small-folder', name: 'Small folder', gx: 11, gy: 0, w: 1, h: 1
     }] } });
   });
+  await expectAppSaved(page);
   await expect(page.locator('[data-folder-id="small-folder"]')).toBeVisible();
   const geometry = () => page.locator('#bookmark-container').evaluate(container => {
     const rectangle = element => {
@@ -448,12 +450,13 @@ test('bookmarks do not jump around 1200px in either viewing or editing mode', as
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
-    await setState({ data: { ...data, bookmarks: data.bookmarks.map(item => {
+    void setState({ data: { ...data, bookmarks: data.bookmarks.map(item => {
       if (item.id === 'compact-2') return { ...item, backgroundFavicon: false };
       if (item.id === 'compact-9') return { ...item, gx: 8, gy: 0, w: 2, h: 2 };
       return item;
     }) } });
   });
+  await expectAppSaved(page);
   await expect(page.locator('[data-bookmark-id="compact-2"]')).not.toHaveClass(/is-favicon-bg/);
   const measure = () => page.locator('#bookmark-container > .bookmark[data-bookmark-id]').evaluateAll(cards => cards
     .filter(card => ['compact-1', 'compact-2', 'compact-9'].includes(card.dataset.bookmarkId))
