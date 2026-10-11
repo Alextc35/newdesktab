@@ -379,7 +379,7 @@ test('removes and persists the recycle bin background from the style tab', async
   await expect(recycleBin).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
 });
 
-test('restores the recycle bin defaults from the general tab', async ({ page }) => {
+test('restores the recycle bin appearance from the editor footer', async ({ page }) => {
   await enableEditMode(page);
   let recycleBin = page.locator('#bookmark-container .recycle-bin');
   await recycleBin.getByRole('button', { name: 'Edit recycle bin' }).click();
@@ -395,7 +395,7 @@ test('restores the recycle bin defaults from the general tab', async ({ page }) 
 
   await recycleBin.getByRole('button', { name: 'Edit recycle bin' }).click();
   await expect(editor.getByRole('tab', { name: 'General' })).toHaveClass(/active/);
-  await page.locator('#recycle-bin-editor-reset').click();
+  await editor.locator('.editor-reset-appearance').click();
   await expect(page.locator('#recycle-bin-editor-background-color')).toHaveValue(/#[\da-f]{6}/i);
   await expect(page.locator('#recycle-bin-editor-no-background')).toBeChecked();
   await expect(page.locator('#recycle-bin-editor-show-name')).toBeChecked();

@@ -1,4 +1,3 @@
-import { DEFAULT_RECYCLE_BIN_STYLE } from '../../domain/recycle-bin/recycleBinDefaults.js';
 import { t } from '../../platform/i18n/i18n.js';
 import {
   normalizeRecycleBinStyle,
@@ -53,7 +52,6 @@ let showCountInput;
 let visibleInput;
 let preview;
 let saveButton;
-let resetButton;
 let tabs;
 let appearanceEditor;
 
@@ -83,7 +81,6 @@ export function initRecycleBinEditorModal() {
   visibleInput = document.getElementById('recycle-bin-editor-visible');
   preview = document.getElementById('recycle-bin-editor-preview');
   saveButton = document.getElementById('edit-recycle-bin-modal-save');
-  resetButton = document.getElementById('recycle-bin-editor-reset');
 
   appearanceEditor = createItemAppearanceEditor({
     root: modal,
@@ -145,7 +142,6 @@ export function initRecycleBinEditorModal() {
       handleInput();
     }
   });
-  resetButton.addEventListener('click', handleReset);
   document.getElementById('edit-recycle-bin-modal-cancel').addEventListener('click', handleCancel);
   saveButton.addEventListener('click', handleSave);
 
@@ -214,7 +210,6 @@ function syncControls() {
   localImageField.classList.toggle('is-hidden', !hasLocalImage || activeSource === 'url');
   backgroundColorInput.disabled = noBackgroundInput.checked;
   localColorInput.disabled = noBackgroundInput.checked || activeSource !== 'local';
-  resetButton.disabled = JSON.stringify(currentValue()) === JSON.stringify(defaultValue());
   iconColorInput.disabled = !showIconInput.checked;
   textColorInput.disabled = !showNameInput.checked && !showCountInput.checked;
   appearanceEditor?.sync();
@@ -237,13 +232,6 @@ function setControlValues(style, showRecycleBin) {
   showCountInput.checked = value.showCount;
   visibleInput.checked = showRecycleBin;
   imageController.setLocked(value.backgroundImageUrlLocked);
-}
-
-function defaultValue() {
-  return {
-    ...normalizeRecycleBinStyle(DEFAULT_RECYCLE_BIN_STYLE),
-    showRecycleBin: true
-  };
 }
 
 function fallbackBackgroundColor() {
@@ -316,14 +304,6 @@ async function handleSave() {
     submitting = false;
     syncSaveButton();
   }
-}
-
-function handleReset() {
-  setControlValues(DEFAULT_RECYCLE_BIN_STYLE, true);
-  clearErrors();
-  syncControls();
-  renderPreview();
-  syncSaveButton();
 }
 
 async function handleCancel() {

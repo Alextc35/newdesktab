@@ -473,7 +473,6 @@
       "preview": "Preview",
       "actions": "Recycle bin actions",
       "edit": "Edit recycle bin",
-      "reset": "Restore defaults",
       "sections": {
         "general": "General",
         "style": "Style",
