@@ -2197,8 +2197,12 @@ test('persists the synchronized storage choice', async ({ page }) => {
   await revealSideDock(page);
   await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Sync' }).click();
-  await page.getByRole('radio', { name: /Synced/ }).check();
-  await page.getByRole('button', { name: 'Save', exact: true }).click();
+  await page.getByRole('radio', { name: /Synced/ }).click();
+  await expect(page.locator('#alert-modal')).toBeVisible();
+  await page.locator('#alert-modal-accept').click();
+  await expect(page.locator('#settings-modal')).toBeVisible();
+  await expect(page.locator('#settings-modal-save')).toBeHidden();
+  await page.locator('#settings-modal-cancel').click();
 
   await revealSideDock(page);
   await page.locator('#settings').click();
@@ -2263,7 +2267,8 @@ test('shows selected storage and local storage availability when sync is selecte
   await expect(activeImages).toContainText('Folders');
   await expect(activeImages.locator('[data-storage-image-total]')).toHaveText('0 B');
 
-  await page.getByRole('radio', { name: /Synced/ }).check();
+  await page.getByRole('radio', { name: /Synced/ }).click();
+  await page.locator('#alert-modal-accept').click();
   await expect(usage).toHaveAttribute('data-storage-usage', 'sync');
   await expect(page.locator('#storage-usage-mode')).toHaveText('Synced');
   await expect(summary).toContainText('of 100 KiB');
@@ -2307,8 +2312,9 @@ test('localizes sync status and confirms synchronized data deletion', async ({ p
   await revealSideDock(page);
   await page.locator('#settings').click();
   await page.getByRole('button', { name: 'Sync' }).click();
-  await page.getByRole('radio', { name: /Synced/ }).check();
-  await page.getByRole('button', { name: 'Save', exact: true }).click();
+  await page.getByRole('radio', { name: /Synced/ }).click();
+  await page.locator('#alert-modal-accept').click();
+  await page.locator('#settings-modal-cancel').click();
 
   await revealSideDock(page);
   await page.locator('#settings').click();
@@ -2413,6 +2419,7 @@ test('shows local bookmarks and locks sync when cloud data needs a newer version
     settings: { language: 'en' }
   };
   const localData = {
+    ...await page.evaluate(() => JSON.parse(sessionStorage.getItem('newdesktab-test-local'))),
     newdesktabStorageMode: 'sync',
     schemaVersion,
     bookmarks: [{

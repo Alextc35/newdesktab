@@ -146,7 +146,7 @@
     },
     "sync": {
       "title": "Synchronize across devices", "summary": "Share your space using browser synchronization.",
-      "steps": ["Sign in and enable extension synchronization in your Google Chrome profile.", "In Settings → Synchronization choose synchronized mode and save. If remote data already exists, review the option offered by the panel.", "Use the same profile on the other device. Check synchronization status and available space in the panel."],
+      "steps": ["Sign in and enable extension synchronization in your Google Chrome profile.", "In Settings → Synchronization choose Synced and accept the confirmation. The switch takes effect immediately: existing synchronized bookmarks and settings are loaded, or your saved local data is synchronized if none exists.", "Use the same profile on the other device. Check synchronization status and available space in the panel."],
       "note": "Local files, the recycle bin and daily tips belong to each device. Synchronization has storage limits; use alternative URLs for local images and videos.",
       "tip": "Synchronization shares your space across devices, but local files need an alternative URL. See Settings → Synchronization."
     },

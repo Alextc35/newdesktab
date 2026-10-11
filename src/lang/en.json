@@ -289,6 +289,7 @@
         "reset": "Restore the default keyboard shortcuts?"
       },
       "sync": {
+        "enable": "Switch from Local to Synced? This takes effect now, without clicking Save. If synced data already exists, its bookmarks and settings will be loaded. Otherwise, your saved local data will be synchronized.",
         "delete": "Delete all synchronized NewDeskTab data? This device and every other device using this cloud data will switch to Local mode when they detect the deletion. This cannot be undone."
       }
     },
@@ -618,7 +619,7 @@
         "brave": "Unavailable in Brave: it can store New DeskTab data in chrome.storage.sync, but currently does not propagate it between devices.",
         "unsupported": "Synced storage is only available in Google Chrome for now. Other browsers remain disabled until cross-device support is verified."
       },
-      "existingNotice": "If synced New DeskTab data already exists, it will be loaded when you save.",
+      "existingNotice": "Accepting the switch to Synced loads any synchronized data that already exists.",
       "deleteData": "Delete synced data",
       "metadata": {
         "loading": "Checking synchronized data…",

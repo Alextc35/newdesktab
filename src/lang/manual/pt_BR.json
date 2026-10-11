@@ -143,7 +143,7 @@
     },
     "sync": {
       "title": "Sincronizar dispositivos", "summary": "Compartilhe seu espaço pela sincronização do navegador.",
-      "steps": ["Entre na conta e ative a sincronização de extensões no seu perfil do Google Chrome.", "Em Configurações → Sincronização, escolha o modo sincronizado e salve. Se houver dados remotos, confira a opção oferecida pelo painel.", "Use o mesmo perfil no outro dispositivo. Consulte o estado e o espaço disponível no painel de sincronização."],
+      "steps": ["Entre na conta e ative a sincronização de extensões no seu perfil do Google Chrome.", "Em Configurações → Sincronização, escolha Sincronizado e aceite a confirmação. A mudança é imediata: favoritos e configurações sincronizados existentes são carregados ou, se não houver, seus dados locais salvos são sincronizados.", "Use o mesmo perfil no outro dispositivo. Consulte o estado e o espaço disponível no painel de sincronização."],
       "note": "Arquivos locais, lixeira e dicas diárias pertencem a cada dispositivo. A sincronização tem limites de espaço; use URLs alternativas para imagens e vídeos locais.",
       "tip": "A sincronização compartilha seu espaço entre dispositivos, mas arquivos locais precisam de uma URL alternativa. Veja Configurações → Sincronização."
     },

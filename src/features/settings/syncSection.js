@@ -79,14 +79,15 @@ function formatPercentage(value, exact = false) {
 /**
  * Initializes the Local/Sync persistence selector.
  *
- * The selection is kept as modal draft state and is only applied when the
- * user saves the settings modal.
+ * Switching to Sync requires confirmation and is applied immediately.
+ * Switching back to Local remains part of the settings draft.
  *
  * @param {Object} params
  * @param {Function} params.onRequestSaveStateUpdate
+ * @param {Function} params.onEnableSync
  * @returns {{syncUI: Function}}
  */
-export function initSyncSection({ onRequestSaveStateUpdate }) {
+export function initSyncSection({ onRequestSaveStateUpdate, onEnableSync }) {
   const modeInputs = Array.from(
     document.querySelectorAll('input[name="storage-mode"]')
   );
@@ -166,6 +167,7 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
   let localImageUsageError = false;
   let usageRequestId = 0;
   let isDeleting = false;
+  let isSwitching = false;
   let observedStorageMode = getStorageMode();
   let isTooltipPinned = false;
   let isHelpHovered = false;
@@ -661,7 +663,7 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
         && (!browserSupport.canSync || isVersionBlocked);
       const option = input.closest('.storage-mode-option');
 
-      input.disabled = isUnsupportedSync;
+      input.disabled = isUnsupportedSync || isSwitching;
       input.checked = input.value === selectedMode;
       option?.classList.toggle('is-selected', input.checked);
       option?.classList.toggle('is-disabled', isUnsupportedSync);
@@ -680,8 +682,8 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
   }
 
   for (const input of modeInputs) {
-    input.addEventListener('change', () => {
-      if (!input.checked) return;
+    input.addEventListener('change', async () => {
+      if (!input.checked || isSwitching) return;
       if (input.value === 'sync' && !browserSupport.canSync) {
         syncUI();
         return;
@@ -689,6 +691,23 @@ export function initSyncSection({ onRequestSaveStateUpdate }) {
 
       if (input.value === 'sync' && getSyncCompatibility()) {
         syncUI();
+        return;
+      }
+
+      if (input.value === 'sync' && getStorageMode() === 'local') {
+        // Keep the persisted choice selected until the user accepts the switch.
+        syncUI();
+        const confirmed = await showAlert(t('alert.settings.sync.enable'), { type: 'confirm' });
+        if (!confirmed) return;
+        isSwitching = true;
+        syncUI();
+        try {
+          await onEnableSync();
+        } finally {
+          isSwitching = false;
+          syncUI();
+          onRequestSaveStateUpdate();
+        }
         return;
       }
 

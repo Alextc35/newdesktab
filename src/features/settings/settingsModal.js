@@ -54,6 +54,7 @@ export function initSettingsModal() {
   const settingsModal = document.getElementById('settings-modal');
   const settingsSave = document.getElementById('settings-modal-save');
   const settingsCancel = document.getElementById('settings-modal-cancel');
+  let isStorageModeChanging = false;
 
   /* ==================================================
      Helpers
@@ -65,7 +66,7 @@ export function initSettingsModal() {
    */
   function updateSaveButtonState() {
     const changed = hasChanges();
-    settingsSave.disabled = !changed;
+    settingsSave.disabled = !changed || isStorageModeChanging;
     settingsSave.classList.toggle('is-hidden', !changed);
   }
 
@@ -105,7 +106,8 @@ export function initSettingsModal() {
   });
 
   const syncSection = initSyncSection({
-    onRequestSaveStateUpdate: updateSaveButtonState
+    onRequestSaveStateUpdate: updateSaveButtonState,
+    onEnableSync: enableSync
   });
 
   const shortcutSection = initShortcutSection({
@@ -170,6 +172,7 @@ export function initSettingsModal() {
    * @returns {Promise<boolean>} Whether the cancel flow completed.
    */
   async function handleCancel() {
+    if (isStorageModeChanging) return false;
     if (!hasChanges()) {
       await themeSection.discardUploadedMedia();
       themeSection.pausePreview();
@@ -233,6 +236,46 @@ export function initSettingsModal() {
      CANCEL / SAVE
   ================================================== */
 
+  /** Apply the confirmed storage switch without saving unrelated draft edits. */
+  async function enableSync() {
+    if (themeSection.isUploading() || isStorageModeChanging) return;
+    isStorageModeChanging = true;
+    settingsCancel.disabled = true;
+    updateSaveButtonState();
+    try {
+      const source = await changeStorageMode('sync');
+      if (source === 'existing') {
+        try {
+          await themeSection.discardUploadedMedia();
+        } catch (error) {
+          console.error('[SETTINGS] Could not discard draft media:', error);
+        }
+        initDraft(getState().data.settings, getStorageMode());
+        themeSection.syncUI();
+        bookmarkSection.syncUI();
+        languageSection.syncUI();
+        shortcutSection.syncUI();
+      } else {
+        reconcileDraftStorageMode(getStorageMode());
+      }
+      generalSection.syncUI();
+      await changeLanguage(buildNewSettings());
+      purgeExpiredRecycleBinEntries();
+      ensureRecycleBinPosition();
+      flashSuccess(source === 'existing' ? 'flash.sync.remoteLoaded' : 'flash.sync.enabled');
+    } catch (error) {
+      console.error('[SETTINGS] Storage mode change failed:', error);
+      reconcileDraftStorageMode(getStorageMode());
+      flashError(error?.code === 'SYNC_REQUIRES_NEWER_VERSION' ? 'flash.sync.versionBlocked'
+        : error?.code === 'SYNC_QUOTA_EXCEEDED' ? 'flash.sync.quotaError' : 'flash.sync.error');
+    } finally {
+      isStorageModeChanging = false;
+      settingsCancel.disabled = false;
+      syncSection.syncUI();
+      updateSaveButtonState();
+    }
+  }
+
   /**
    * Binds the explicit cancel button to the cancel flow.
    */
@@ -249,7 +292,7 @@ export function initSettingsModal() {
    * - close the modal
    */
   async function saveSettings() {
-    if (themeSection.isUploading()) return;
+    if (themeSection.isUploading() || isStorageModeChanging) return;
     const newSettings = buildNewSettings();
     const previousTheme = getState().data.settings.theme;
     const currentStorageMode = getStorageMode();

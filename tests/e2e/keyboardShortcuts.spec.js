@@ -102,7 +102,8 @@ test('custom shortcuts reject conflicts and survive a Sync round trip', async ({
   await expect(editShortcut.locator('kbd')).toHaveText(['Ctrl', 'Shift', 'E']);
 
   await page.locator('[data-tab="settings-modal-tab-sync"]').click();
-  await page.locator('#storage-mode-sync').check();
+  await page.locator('#storage-mode-sync').click();
+  await page.locator('#alert-modal-accept').click();
   await page.locator('#settings-modal-save').click();
   await expect(page.locator('#settings-modal')).toBeHidden();
   await page.reload();

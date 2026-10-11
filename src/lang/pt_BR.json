@@ -289,6 +289,7 @@
         "reset": "Restaurar os atalhos de teclado padrão?"
       },
       "sync": {
+        "enable": "Mudar de Local para Sincronizado? A mudança será aplicada agora, sem clicar em Salvar. Se já houver dados sincronizados, seus favoritos e configurações serão carregados. Caso contrário, seus dados locais salvos serão sincronizados.",
         "delete": "Excluir todos os dados sincronizados do NewDeskTab? Este dispositivo e todos os outros que usam esses dados na nuvem mudarão para o modo Local quando detectarem a exclusão. Esta ação não pode ser desfeita."
       }
     },
@@ -618,7 +619,7 @@
         "brave": "Indisponível no Brave: ele pode armazenar dados do New DeskTab em chrome.storage.sync, mas atualmente não os propaga entre dispositivos.",
         "unsupported": "Por enquanto, o armazenamento sincronizado está disponível apenas no Google Chrome. Os outros navegadores continuarão bloqueados até que a sincronização entre dispositivos seja verificada."
       },
-      "existingNotice": "Se já existirem dados sincronizados do New DeskTab, eles serão carregados ao salvar.",
+      "existingNotice": "Ao aceitar a mudança para Sincronizado, os dados sincronizados que já existirem serão carregados.",
       "deleteData": "Excluir dados sincronizados",
       "metadata": {
         "loading": "Verificando dados sincronizados…",

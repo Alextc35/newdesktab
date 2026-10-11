@@ -289,6 +289,7 @@
         "reset": "¿Restablecer las teclas rápidas predeterminadas?"
       },
       "sync": {
+        "enable": "¿Cambiar de Local a Sincronizado? Se aplicará ahora, sin pulsar Guardar. Si ya hay datos sincronizados, se cargarán sus marcadores y ajustes. Si no, se sincronizarán tus datos locales guardados.",
         "delete": "¿Eliminar todos los datos sincronizados de NewDeskTab? Este dispositivo y todos los demás que usen estos datos de la nube cambiarán al modo Local cuando detecten la eliminación. Esta acción no se puede deshacer."
       }
     },
@@ -618,7 +619,7 @@
         "brave": "No disponible en Brave: puede guardar datos de New DeskTab en chrome.storage.sync, pero actualmente no los propaga entre dispositivos.",
         "unsupported": "Por ahora, el almacenamiento sincronizado solo está disponible en Google Chrome. Los demás navegadores seguirán bloqueados hasta verificar su sincronización entre dispositivos."
       },
-      "existingNotice": "Si ya existen datos sincronizados de New DeskTab, se cargarán al guardar.",
+      "existingNotice": "Al aceptar el cambio a Sincronizado, se cargarán los datos sincronizados que ya existan.",
       "deleteData": "Eliminar datos sincronizados",
       "metadata": {
         "loading": "Comprobando datos sincronizados…",
