@@ -239,6 +239,11 @@ AppState
 `data` se guarda en Chrome. `ui` describe el estado de la sesión y no forma
 parte del payload persistido.
 
+La versión pública 1.0.0 comienza con `schemaVersion: 1`. Los esquemas 2–21
+utilizados durante el desarrollo se descartaron antes del lanzamiento y no se
+migran. Los datos nuevos parten de colecciones vacías; las versiones superiores
+al esquema admitido se rechazan.
+
 ### Bookmarks
 
 Un bookmark posee identidad, URL, apariencia, workspace y rectángulo de grid.

@@ -46,6 +46,10 @@ try {
   assert.equal(new URL(page.url()).pathname, `/${manifest.chrome_url_overrides.newtab}`);
   await page.locator('#workspace-toolbar').waitFor({ state: 'visible' });
   await page.locator('#bookmark-container[tabindex="-1"]').waitFor({ state: 'visible' });
+  assert.deepEqual(await page.evaluate(async () => ({
+    live: (await import('./state/appStore.js')).getState().data.schemaVersion,
+    saved: (await chrome.storage.local.get('schemaVersion')).schemaVersion
+  })), { live: 1, saved: 1 });
   try {
     assert.equal(await page.locator('#bookmark-container .bookmark').count(), 0);
   } catch (error) {

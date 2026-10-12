@@ -5,6 +5,11 @@ Review it against the release ZIP before every submission.
 
 Release target: `1.0.0`. Minimum browser engine: Chrome/Chromium `123`.
 
+Public data schema: `1`. The development schemas 2–21 were discarded before
+the first release and are not imported or migrated. For first-use testing,
+load the extracted ZIP in a new browser profile with empty extension storage
+and Sync disabled. An existing development profile is not a clean install.
+
 ## Listing
 
 - Product name: `New DeskTab`

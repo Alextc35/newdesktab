@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { DATA_SCHEMA_VERSION } from '../src/platform/storage/schemaVersion.js';
 
 import {
   decodeSyncPayload,
@@ -31,13 +32,13 @@ test('splits escaped and multibyte payloads below the sync per-item limit', () =
 
 test('encodes metadata and round-trips a synchronized payload', () => {
   const data = {
-    schemaVersion: 16,
+    schemaVersion: DATA_SCHEMA_VERSION,
     bookmarks: [{ id: 'bookmark-1', name: 'Example' }],
     folders: [],
     settings: { language: 'es' }
   };
   const encoded = encodeSyncPayload(data, {
-    schemaVersion: 16,
+    schemaVersion: DATA_SCHEMA_VERSION,
     writerDeviceId: 'device-1',
     updatedAt: 1234,
     writeId: 'write-1'
@@ -45,7 +46,7 @@ test('encodes metadata and round-trips a synchronized payload', () => {
 
   assert.deepEqual(encoded.meta, {
     version: SYNC_FORMAT_VERSION,
-    schemaVersion: 16,
+    schemaVersion: DATA_SCHEMA_VERSION,
     chunkCount: encoded.chunks.length,
     updatedAt: 1234,
     writerDeviceId: 'device-1',

@@ -17,7 +17,8 @@ for (const [name, payload] of [
     { id: 'duplicate', name: 'First', url: 'https://first.internal' },
     { id: 'duplicate', name: 'Second', url: 'https://second.internal' }
   ] } }],
-  ['future backup version', { format: 'newdesktab-backup', schemaVersion: 9999, data: { bookmarks: [] } }]
+  ['future backup version', { format: 'newdesktab-backup', schemaVersion: 2, data: { bookmarks: [] } }],
+  ['discarded development schema 21', { format: 'newdesktab-backup', schemaVersion: 21, data: { bookmarks: [] } }]
 ]) {
   test(`rejects ${name} without changing stored data or media`, async ({ page }) => {
     const before = await page.evaluate(async () => ({
@@ -47,7 +48,8 @@ test('rejects duplicate IDs and future versions in bookmark-only imports', async
       { id: 'duplicate', name: 'First', url: 'https://first.internal' },
       { id: 'duplicate', name: 'Second', url: 'https://second.internal' }
     ] },
-    { format: 'newdesktab-bookmarks', schemaVersion: 9999, bookmarks: [] }
+    { format: 'newdesktab-bookmarks', schemaVersion: 2, bookmarks: [] },
+    { format: 'newdesktab-bookmarks', schemaVersion: 21, bookmarks: [] }
   ]) {
     await page.evaluate(async payload => {
       const { importBookmarks } = await import('/src/features/bookmarks/bookmarkImportExport.js');
@@ -87,6 +89,7 @@ test('a downloaded complete backup restores local images and videos after deleti
   await download.saveAs('test-results/media-backup.zip');
   const bytes = await readFile(await download.path());
   const backup = await readBackupArchive(new Blob([bytes]));
+  expect(backup.data.schemaVersion).toBe(1);
   const imageReference = backup.data.bookmarks[0].backgroundImageLocal;
   const videoReference = backup.data.settings.theme.backgroundMedia[0].local;
   expect(backup.localImages[imageReference].name).toBe('cover.png');
@@ -141,6 +144,8 @@ test('video URLs alone keep the complete backup in JSON', async ({ page }) => {
   expect(download.suggestedFilename()).toMatch(/\.json$/);
   const payload = JSON.parse(await readFile(await download.path(), 'utf8'));
   expect(payload.format).toBe('newdesktab-backup');
+  expect(payload.schemaVersion).toBe(1);
+  expect(payload.data.schemaVersion).toBe(1);
   expect(payload.localVideos).toEqual({});
   expect(payload.data.settings.theme.backgroundMedia[0].url).toBe('https://video.internal/wallpaper.webm');
 });

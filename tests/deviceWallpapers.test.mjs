@@ -68,7 +68,7 @@ test('each device restores its own collection even when shared settings change',
 
 test('adopts legacy shared wallpapers and moves a primary local file only once', async () => {
   delete local[DEVICE_WALLPAPERS_KEY];
-  const old = migratePersistedData({ schemaVersion: 19, settings: { theme: {
+  const old = migratePersistedData({ settings: { theme: {
     backgroundImageUrl: 'https://example.test/fallback.png',
     backgroundImageLocal: image,
     backgroundImageSource: 'local',
@@ -90,7 +90,7 @@ test('adopts legacy shared wallpapers and moves a primary local file only once',
 
 test('migration keeps a primary local image beside a previously full 24-item list', async () => {
   delete local[DEVICE_WALLPAPERS_KEY];
-  const old = migratePersistedData({ schemaVersion: 19, settings: { theme: {
+  const old = migratePersistedData({ settings: { theme: {
     backgroundImageLocal: image,
     backgroundMedia: Array.from({ length: 24 }, (_, index) => ({
       id: `old-${index}`, type: 'image',
@@ -105,7 +105,7 @@ test('migration keeps a primary local image beside a previously full 24-item lis
 
 test('migration moves a primary local video and leaves its remote fallback in place', async () => {
   delete local[DEVICE_WALLPAPERS_KEY];
-  const old = migratePersistedData({ schemaVersion: 19, settings: { theme: {
+  const old = migratePersistedData({ settings: { theme: {
     backgroundPrimaryType: 'video',
     backgroundVideo: { url: 'https://example.test/fallback.webm',
       local: video, source: 'local' }

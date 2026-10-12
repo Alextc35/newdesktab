@@ -28,7 +28,7 @@ test('new preferences default to system and preserve existing choices and wallpa
   assert.equal(initial.settings.language, 'system');
   assert.equal(initial.settings.interfaceTheme, 'system');
   const legacy = migratePersistedData({
-    schemaVersion: 7, bookmarks: [],
+    bookmarks: [],
     settings: { language: 'en', theme: { backgroundImageUrl: 'https://example.test/image.gif' } }
   });
   assert.equal(legacy.settings.language, 'en');

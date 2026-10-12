@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { DATA_SCHEMA_VERSION } from '../src/platform/storage/schemaVersion.js';
 
 const storageChangeListeners = [];
 
@@ -56,7 +57,7 @@ function createStorageArea(areaName, initialData = {}) {
 }
 
 const initialSyncData = {
-  schemaVersion: 4,
+  schemaVersion: DATA_SCHEMA_VERSION,
   bookmarks: [{
     id: 'initial',
     name: 'Initial',

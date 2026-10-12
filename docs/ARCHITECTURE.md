@@ -675,20 +675,21 @@ read global state, making them deterministic.
 
 `src/platform/storage/dataSchema.js` is the boundary for stored,
 synchronized and imported data. `schemaVersion` changes only when a persisted
-shape changes; the current value is isolated in `schemaVersion.js`. Old data is
-migrated before entering the store. Schema 3 adds `folders` and the nullable
-`bookmark.folderId` reference; schema 0–2 data migrates with an empty folder
-collection.
+shape changes; the current value is isolated in `schemaVersion.js`. The first
+public release, 1.0.0, starts at schema 1. Development schemas 2–21 were discarded
+before publication and are not migrated. New profiles start with empty bookmark,
+folder and widget collections. Unversioned input is normalized before entering
+the store; versioned data above the supported schema is rejected.
 
-Schema 9 adds folder appearance controls: `outerBackgroundColor` is a nullable
+Schema 1 includes folder appearance controls: `outerBackgroundColor` is a nullable
 hex color, where null retains the automatic tile gradient. `showFolder`,
 `showPreviews`, `showName` and `showCount` default to true so existing folders
 keep their appearance. `normalizeFolderStyle()` disables previews whenever
 the folder graphic is hidden, including when importing or restoring data.
 
-Schema 10 adds the four configurable keyboard shortcuts under
-`settings.keyboardShortcuts`. Missing, invalid or conflicting legacy values
-fall back to the safe default combinations.
+Schema 1 also includes the five configurable keyboard shortcuts under
+`settings.keyboardShortcuts`. Missing, invalid or conflicting values fall back
+to the safe default combinations.
 
 `features/bookmarks/bookmarkActions.js`, `features/folders/folderActions.js`,
 `features/grid/gridItemActions.js` and `features/workspaces/workspaceActions.js`

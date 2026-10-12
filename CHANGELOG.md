@@ -14,6 +14,7 @@ First stable release of New DeskTab, a customizable new-tab workspace.
 - Export and restore JSON or ZIP backups, including referenced local images and videos.
 - Use the onboarding guide, searchable manual and optional daily tips in four languages.
 - Protect existing data by rejecting malformed imports, future schemas and duplicate IDs.
+- Start the public data schema at version 1; development schemas 2–21 are discarded.
 - Preserve custom caption colors with readable backgrounds and consistent on/off controls.
 
 Requires Chrome 123 or a compatible Chromium-based browser. Chrome Sync is

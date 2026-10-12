@@ -14,7 +14,7 @@ import { DATA_SCHEMA_VERSION } from '../src/platform/storage/schemaVersion.js';
 import { BOOKMARK_DRAG_MODES } from '../src/domain/settings/gridInteractionModes.js';
 import { DEFAULT_KEYBOARD_SHORTCUTS } from '../src/shared/keyboard/keyboardShortcuts.js';
 
-test('migrates schema 8 folders without changing their saved appearance', () => {
+test('normalizes unversioned folders without changing their saved appearance', () => {
   const savedStyle = {
     noBackground: true,
     backgroundColor: '#ff3366',
@@ -23,7 +23,6 @@ test('migrates schema 8 folders without changing their saved appearance', () => 
     textColor: '#ffeeaa'
   };
   const migrated = migratePersistedData({
-    schemaVersion: 8,
     bookmarks: [],
     folders: [{ id: 'legacy', name: 'Legacy', ...savedStyle }]
   });
@@ -64,7 +63,6 @@ test('separates legacy local images from URLs across themes, bookmarks, folders 
   const reference = 'newdesktab-local-image:4c5b9a2e-3f0e-4c7e-889c-72117afc09e9';
   const legacyStyle = { backgroundImageUrl: reference, backgroundImageUrlLocked: true };
   const migrated = migratePersistedData({
-    schemaVersion: 4,
     bookmarks: [{ id: 'one', name: 'One', ...legacyStyle }],
     folders: [{ id: 'folder', name: 'Folder', ...legacyStyle }],
     settings: {
@@ -100,7 +98,6 @@ test('adds solid color mode without changing saved backgrounds and normalizes co
   };
   for (const backgroundDefault of [true, false]) {
     const migrated = migratePersistedData({
-      schemaVersion: 5,
       bookmarks: [],
       settings: { theme: { ...savedBackground, backgroundDefault } }
     });
@@ -122,7 +119,6 @@ test('adds solid color mode without changing saved backgrounds and normalizes co
   }
 
   const legacy = migratePersistedData({
-    schemaVersion: 11,
     bookmarks: [],
     settings: {
       theme: {
@@ -176,7 +172,6 @@ test('adds safe keyboard shortcuts to legacy settings and preserves custom value
     toggleEditing: 'Ctrl+Shift+E'
   };
   const migrated = migratePersistedData({
-    schemaVersion: 9,
     bookmarks: [],
     settings: { keyboardShortcuts: custom }
   });
@@ -257,15 +252,17 @@ test('round-trips a versioned bookmarks-only export without replacing settings',
   assert.equal(folders[0].name, 'Reading');
 });
 
-test('rejects data written by a future schema', () => {
-  assert.throws(
-    () => migratePersistedData({ schemaVersion: DATA_SCHEMA_VERSION + 1 }),
-    error => (
-      error.code === 'UNSUPPORTED_DATA_VERSION'
-      && error.requiredSchemaVersion === DATA_SCHEMA_VERSION + 1
-      && error.supportedSchemaVersion === DATA_SCHEMA_VERSION
-    )
-  );
+test('rejects future schemas and discarded development schema 21', () => {
+  for (const schemaVersion of [DATA_SCHEMA_VERSION + 1, 21]) {
+    assert.throws(
+      () => migratePersistedData({ schemaVersion }),
+      error => (
+        error.code === 'UNSUPPORTED_DATA_VERSION'
+        && error.requiredSchemaVersion === schemaVersion
+        && error.supportedSchemaVersion === DATA_SCHEMA_VERSION
+      )
+    );
+  }
 });
 
 test('rejects malformed backup structures instead of restoring empty defaults', () => {
@@ -286,14 +283,15 @@ test('rejects malformed backup structures instead of restoring empty defaults', 
 
 test('checks outer and inner versions before restoring backups or bookmark exports', () => {
   const current = migratePersistedData({ bookmarks: [] });
-  const future = DATA_SCHEMA_VERSION + 1;
-  for (const payload of [
-    { format: 'newdesktab-backup', schemaVersion: future, data: current },
-    { format: 'newdesktab-backup', data: { ...current, schemaVersion: future } },
-    { format: 'newdesktab-bookmarks', schemaVersion: future, bookmarks: [] }
-  ]) {
-    for (const parse of [parseBackupPayload, parseBookmarksPayload]) {
-      assert.throws(() => parse(payload, current), error => error.code === 'UNSUPPORTED_DATA_VERSION');
+  for (const future of [DATA_SCHEMA_VERSION + 1, 21]) {
+    for (const payload of [
+      { format: 'newdesktab-backup', schemaVersion: future, data: current },
+      { format: 'newdesktab-backup', data: { ...current, schemaVersion: future } },
+      { format: 'newdesktab-bookmarks', schemaVersion: future, bookmarks: [] }
+    ]) {
+      for (const parse of [parseBackupPayload, parseBookmarksPayload]) {
+        assert.throws(() => parse(payload, current), error => error.code === 'UNSUPPORTED_DATA_VERSION');
+      }
     }
   }
   for (const schemaVersion of [-1, 1.5, '21', null]) {

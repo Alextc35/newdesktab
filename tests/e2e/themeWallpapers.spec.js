@@ -463,7 +463,7 @@ test('copies an older shared wallpaper list to each device before making it inde
     await page.evaluate(async () => {
       const { getState } = await import('/src/state/appStore.js');
       const legacy = getState().data;
-      legacy.schemaVersion = 19;
+      delete legacy.schemaVersion;
       legacy.settings.theme.backgroundDefault = false;
       legacy.settings.theme.backgroundImageUrl = 'https://images.test/fallback.png';
       legacy.settings.theme.backgroundMedia = [
@@ -533,7 +533,7 @@ test('moves an older primary local file into My own wallpapers without losing it
   await page.evaluate(async ({ ref, bytes }) => {
     const { getState } = await import('/src/state/appStore.js');
     const legacy = getState().data;
-    legacy.schemaVersion = 19;
+    delete legacy.schemaVersion;
     legacy.settings.theme.backgroundDefault = false;
     legacy.settings.theme.backgroundImageUrl = 'https://images.test/fallback.png';
     legacy.settings.theme.backgroundImageLocal = null;

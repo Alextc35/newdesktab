@@ -3,9 +3,15 @@
 Revisión de cierre del 12 de octubre de 2026. Este informe distingue la validación
 automatizada de las comprobaciones que necesitan perfiles y cuentas reales.
 Chrome Sync entre perfiles o dispositivos reales está verificado por el autor,
-según su confirmación en esta conversación. El esquema de datos sigue en 21.
+según su confirmación en esta conversación. El primer esquema público es 1;
+los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 
 ## Cambios aplicados
+
+- **Esquema público inicial.** Los perfiles nuevos, datos persistidos y backups
+  empiezan con `schemaVersion: 1`. No se migran los esquemas de desarrollo 2–21.
+  Las pruebas de normalización usan datos sin versión; la protección ante
+  esquemas superiores sigue activa, incluido el antiguo 21.
 
 - **Importación sin pérdida por archivos inválidos.** Se comprueba la estructura
   de los backups antes de que la migración pueda convertir datos malformados en
@@ -81,8 +87,8 @@ según su confirmación en esta conversación. El esquema de datos sigue en 21.
 | Comprobación | Resultado |
 | --- | --- |
 | ESLint, tests unitarios y DOM | 245 tests unitarios y 62 tests DOM correctos; ESLint correcto. |
-| `npm run test:e2e` | 252 escenarios correctos en Chromium, 11,0 minutos; sin fallos, omitidos ni reintentos. |
-| Chrome for Testing 123.0.6312.122 | Los mismos 252 escenarios correctos, 11,6 minutos; sin fallos, omitidos ni reintentos. Smoke del ZIP también correcto. |
+| `npm run test:e2e` | Con esquema 1: 253 escenarios correctos en Chromium, 11,2 minutos; sin fallos, omitidos ni reintentos. |
+| Chrome for Testing 123.0.6312.122 | Con esquema 1: 23 escenarios de backups y fondos correctos, sin fallos ni reintentos; smoke del ZIP correcto. Batería completa anterior al reinicio: 252 escenarios correctos, 11,6 minutos. |
 | Validación ZIP | 13 pruebas de formato y entradas inválidas; cuatro recorridos de navegador correctos, incluida compatibilidad JSON, selector ZIP y rechazo de vídeos dañados. Un lector ZIP independiente de Python también verifica el archivo descargado. |
 | `node scripts/benchmark-backups.mjs` | ZIP exportado/restaurado con 10, 50, 200 MiB y dos vídeos de 200 MiB; tamaños, tiempos y muestras de memoria registrados. |
 | `npm audit --audit-level=high` | Cero vulnerabilidades tras la actualización de herramientas de desarrollo. |
@@ -92,14 +98,14 @@ según su confirmación en esta conversación. El esquema de datos sigue en 21.
 | Enlaces de la ficha | Privacidad y soporte públicos responden HTTP 200. |
 | `git diff --check` | Sin errores de espacios o conflictos. |
 
-Artefacto: `dist/newdesktab-1.0.0.zip`, 2.421.549 bytes y 267 archivos.
+Artefacto: `dist/newdesktab-1.0.0.zip`, 2.421.562 bytes y 267 archivos.
 Incluye únicamente recursos de la extensión, licencia y política de privacidad.
 El empaquetador comprueba cada entrada y su contenido contra el origen.
 
 SHA-256:
 
 ```text
-86ef3ea645f3862f65e308a1de5c71d9e2ccd1b79eed61f29f61e153f5f91153
+e275794d3cf72fe5bca2787c8f2ceeb87322988da1f85e376bc6bf4d21ed9c3d
 ```
 
 Las mediciones de vídeos grandes y las pruebas de rendimiento descritas en este
