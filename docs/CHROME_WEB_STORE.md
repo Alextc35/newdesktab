@@ -3,6 +3,8 @@
 This file is the source of truth for the NewDeskTab listing and privacy answers.
 Review it against the release ZIP before every submission.
 
+Release target: `1.0.0`. Minimum browser engine: Chrome/Chromium `123`.
+
 ## Listing
 
 - Product name: `New DeskTab`
@@ -100,6 +102,8 @@ npm run assets:store
    Run `npm audit --audit-level=high` as well; dependencies stay outside the
    extension ZIP, but development tooling should have no known high/critical issues.
 2. Run `npm run test:e2e`.
+   Also run it with Chrome for Testing 123 through `NEWDESKTAB_BROWSER_PATH`
+   when verifying the declared minimum version.
 3. Run `npm run assets:store` and visually inspect every generated image.
 4. Run `npm run package:store`.
 5. Extract `dist/newdesktab-<version>.zip` into a clean directory.
@@ -115,3 +119,9 @@ that interpreter with `scripts/package-extension.py` instead of the npm alias.
 Before submission, verify Chrome Sync between two real browser profiles/devices
 and open the unpacked ZIP in Brave. Automated tests cover data merging and browser
 storage, but do not verify propagation through Google's profile service.
+
+When running `test:extension` against installed Google Chrome 137 or newer, set
+`NEWDESKTAB_EXTENSION_CDP=1` as well as `NEWDESKTAB_BROWSER_PATH` and
+`NEWDESKTAB_EXTENSION_PATH`. The test loads the package through DevTools in a
+fresh temporary profile. Chromium, Chrome for Testing and Brave use the default
+loading path. Record the browsers and versions in `RELEASE_REVIEW.md`.

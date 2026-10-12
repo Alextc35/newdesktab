@@ -935,7 +935,7 @@ faint within each theme, independently of the saved color or transparency.
 `features/folders/folderModal.js` reuses the production bookmark renderer in a
 compact 3 × 6 workspace. The modal starts in a link-only view with no action or
 drag listeners. Its local edit mode, toggled by the header control or the
-configured edit shortcut (`Ctrl + E` by default),
+configured edit shortcut (`E` by default),
 re-renders controls and enables a pointer controller that previews empty-cell
 moves and occupied-cell displacement through the same
 `calculateSmartDragLayout()` modes as the main grid. Preview positions are

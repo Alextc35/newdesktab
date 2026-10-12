@@ -5,7 +5,7 @@ grid workspace.
 
 ![Chrome Extension](https://img.shields.io/badge/Chrome_Extension-Manifest_V3-4285F4?logo=googlechrome)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript)
-![version](https://img.shields.io/badge/version-0.31.0-blue)
+![version](https://img.shields.io/badge/version-1.0.0-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
 https://github.com/user-attachments/assets/f57533bd-2499-4ff1-9c20-4afb5c9d9c94
@@ -41,6 +41,9 @@ items on a desktop without relying on a NewDeskTab account or backend.
 * Accessible modal focus management and keyboard navigation
 
 ## Installation
+
+Requires Chrome 123 or newer, or a compatible Chromium-based browser. Chrome
+Sync is available only in Google Chrome; Brave uses local storage.
 
 1. Clone the repository:
 
@@ -294,18 +297,19 @@ upgrading, then subsequent edits stay independent.
 
 ## Keyboard and pointer shortcuts
 
-* `Ctrl + E` toggles the main edit mode; inside an open folder it toggles that
+* `E` toggles the main edit mode; inside an open folder it toggles that
   folder's edit controls and reordering.
-* `Ctrl + B` opens the create-bookmark panel.
-* `Ctrl + F` opens the create-folder dialog.
-* `Ctrl + S` opens Settings.
+* `B` opens the create-bookmark panel.
+* `F` opens the create-folder dialog.
+* `W` opens the widget catalog.
+* `S` opens Settings.
 * `/` opens global search.
 * `Middle click` opens that bookmark's editor while editing the grid.
 * `Alt/⌥ + ↑/↓` cycles through workspaces.
 * `Ctrl/Cmd + Z` undoes the latest bookmark operation.
 * `Ctrl/Cmd + Shift + Z` redoes it.
 
-The first four shortcuts are configurable under **Settings → Keyboard
+The first five shortcuts are configurable under **Settings → Keyboard
 shortcuts**. They are part of the versioned settings payload, so custom values
 are included in complete backups and follow the user between Chrome profiles or
 devices when Sync is enabled.
@@ -376,6 +380,11 @@ You can override the browser executable or test an extracted release ZIP:
 NEWDESKTAB_BROWSER_PATH="/path/to/browser" npm run test:extension
 NEWDESKTAB_EXTENSION_PATH="/path/to/extracted-release" npm run test:extension
 ```
+
+For installed Google Chrome 137 or newer, set `NEWDESKTAB_EXTENSION_CDP=1`
+alongside `NEWDESKTAB_BROWSER_PATH`. The smoke test then loads the unpacked
+extension through DevTools in its fresh temporary profile. Chromium, Chrome for
+Testing and Brave use the default extension loading path.
 
 Create the Store ZIP with `npm run package:store` (Python 3 required). It includes
 runtime code, locales, icons and license, and excludes development dependencies,
