@@ -1,4 +1,33 @@
 {
+  "releaseNotes": {
+    "settingsTitle": "Notas de versión",
+    "settingsDescription": "Las novedades y la historia de cada actualización.",
+    "open": "Ver notas",
+    "history": "Historial de versiones",
+    "dismiss": "Cerrar notas de versión",
+    "continue": "Continuar",
+    "back": "Volver a Información",
+    "highlights": "Lo que puedes hacer desde hoy",
+    "generic": {
+      "title": "New DeskTab se ha actualizado",
+      "description": "Ya tienes la nueva versión. Puedes revisar las notas anteriores en Información cuando quieras. Gracias por seguir aquí."
+    },
+    "v1_0_0": {
+      "title": "Tu escritorio de webs. Por fin.",
+      "thanks": "Gracias por estrenar New DeskTab. Me hace mucha ilusión compartir, por fin, la primera versión pública de este proyecto contigo.",
+      "origin": "Todo empezó el 26 de septiembre de 2025. Mientras veía una sesión de Just Chatting en Twitch, me llamó la atención la nueva pestaña del navegador de un streamer: una extensión que organizaba sus webs en cuadrados de colores, sin nombres ni logos. Me fascinó ese minimalismo y pensé: ¿por qué no crear mi propia extensión? Quería abrir una nueva pestaña y encontrar orden, mis páginas a mano y un panel que me gustara mirar.",
+      "desktop": "Poco a poco, la idea fue creciendo hasta convertirse en un escritorio propio de webs, en lugar de aplicaciones. El reloj es un primer paso y todavía está en desarrollo. Más adelante me gustaría añadir un bloc de notas y otros widgets que aporten algo útil, tanto a mí como a quienes usen New DeskTab.",
+      "closing": "Esta aplicación está hecha para mí y para ti. Gracias por confiar en New DeskTab y darle un lugar en tu navegador. Espero que disfrutes creando tu espacio tanto como yo he disfrutado construyéndolo.",
+      "highlights": {
+        "workspace": "Organiza tus páginas con favoritos, carpetas y espacios independientes.",
+        "appearance": "Personaliza los colores, el tamaño de cada elemento y el fondo de tu escritorio.",
+        "search": "Encuentra tus páginas con la búsqueda y usa atajos de teclado para moverte y crear elementos.",
+        "backup": "Guarda copias de seguridad y recupera elementos desde la papelera.",
+        "sync": "Elige guardar tus datos en este dispositivo o sincronizarlos con Google Chrome.",
+        "help": "Descubre las funciones con la guía de bienvenida, el manual y los consejos diarios."
+      }
+    }
+  },
   "onboarding": {
     "eyebrow": "TU PRIMER MINUTO",
     "skip": "Omitir guía",

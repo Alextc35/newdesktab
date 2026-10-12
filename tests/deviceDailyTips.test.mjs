@@ -24,6 +24,8 @@ const day = number => ({ date: new Date(2026, 9, number, 0, 1), random: () => 0 
 test('claims one local calendar day without changing workspace data', async () => {
   data.settings = { language: 'es' };
   delete data[DEVICE_DAILY_TIPS_KEY];
+  assert.equal(await claimDailyTip(topics, { ...day(11), canClaim: () => false }), null);
+  assert.equal(data[DEVICE_DAILY_TIPS_KEY], undefined);
   assert.equal(getLocalDay(new Date(2026, 9, 11, 23, 59)), '2026-10-11');
   assert.equal(await claimDailyTip(topics, day(11)), 'keyboard');
   assert.equal(await claimDailyTip(topics, { ...day(11), date: new Date(2026, 9, 11, 23, 59) }), null);

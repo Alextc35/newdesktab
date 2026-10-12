@@ -8,6 +8,16 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 
 ## Cambios aplicados
 
+- **Notas de versión.** Aviso único por versión y perfil antes de la guía inicial,
+  historial consultable desde Información y traducciones en los cuatro idiomas.
+  La nota 1.0.0 recoge la historia y el agradecimiento del autor y aclara que el
+  reloj sigue en desarrollo. El consejo diario aparece después de cerrar las
+  notas y la guía, siempre abajo a la derecha, con temporizador y pausas por
+  interacción. En modo lista se ocultan los paneles de ayuda con un flash y los
+  avisos pendientes esperan una ventana más amplia. Web Locks protege la reclamación entre
+  pestañas; el marcador queda fuera de Sync y backups. El lector conserva los
+  ajustes pendientes, el foco y la posición inicial de lectura al reabrirlo.
+
 - **Esquema público inicial.** Los perfiles nuevos, datos persistidos y backups
   empiezan con `schemaVersion: 1`. No se migran los esquemas de desarrollo 2–21.
   Las pruebas de normalización usan datos sin versión; la protección ante
@@ -86,9 +96,9 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 
 | Comprobación | Resultado |
 | --- | --- |
-| ESLint, tests unitarios y DOM | 245 tests unitarios y 62 tests DOM correctos; ESLint correcto. |
-| `npm run test:e2e` | Con esquema 1: 253 escenarios correctos en Chromium, 11,2 minutos; sin fallos, omitidos ni reintentos. |
-| Chrome for Testing 123.0.6312.122 | Con esquema 1: 23 escenarios de backups y fondos correctos, sin fallos ni reintentos; smoke del ZIP correcto. Batería completa anterior al reinicio: 252 escenarios correctos, 11,6 minutos. |
+| ESLint, tests unitarios y DOM | 254 tests unitarios y 62 tests DOM correctos; ESLint correcto. |
+| `npm run test:e2e` | Con esquema 1 y notas de versión: 268 escenarios correctos en Chromium, 12,1 minutos; sin fallos, omitidos ni reintentos. |
+| Chrome for Testing 123.0.6312.122 | Con notas de versión: 37 escenarios de notas, ayuda, bienvenida y concurrencia correctos; incluyen llegada secuencial, modo lista, posición e iconos del consejo diario. Smoke del ZIP correcto. Validación anterior con esquema 1: 23 escenarios de backups y fondos. Batería completa previa al reinicio: 252 escenarios correctos. |
 | Validación ZIP | 13 pruebas de formato y entradas inválidas; cuatro recorridos de navegador correctos, incluida compatibilidad JSON, selector ZIP y rechazo de vídeos dañados. Un lector ZIP independiente de Python también verifica el archivo descargado. |
 | `node scripts/benchmark-backups.mjs` | ZIP exportado/restaurado con 10, 50, 200 MiB y dos vídeos de 200 MiB; tamaños, tiempos y muestras de memoria registrados. |
 | `npm audit --audit-level=high` | Cero vulnerabilidades tras la actualización de herramientas de desarrollo. |
@@ -98,14 +108,14 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 | Enlaces de la ficha | Privacidad y soporte públicos responden HTTP 200. |
 | `git diff --check` | Sin errores de espacios o conflictos. |
 
-Artefacto: `dist/newdesktab-1.0.0.zip`, 2.421.562 bytes y 267 archivos.
+Artefacto: `dist/newdesktab-1.0.0.zip`, 2.431.032 bytes y 272 archivos.
 Incluye únicamente recursos de la extensión, licencia y política de privacidad.
 El empaquetador comprueba cada entrada y su contenido contra el origen.
 
 SHA-256:
 
 ```text
-e275794d3cf72fe5bca2787c8f2ceeb87322988da1f85e376bc6bf4d21ed9c3d
+f1bf6dcb426d74754e830050a113bdeda5c086659629094f62da062624da5cd4
 ```
 
 Las mediciones de vídeos grandes y las pruebas de rendimiento descritas en este
@@ -142,9 +152,10 @@ el máximo absoluto ni se valida toda biblioteca o sesión de incógnito posible
 
 ## Pasos pendientes de publicación
 
-1. Subir los commits y comprobar una ejecución verde de GitHub Actions para el
-   commit definitivo. La API pública no ofrecía ejecuciones registradas durante
-   la revisión inicial; el resultado remoto no se da por confirmado localmente.
+1. Guardar y subir los cambios de notas de versión y comprobar GitHub Actions
+   para el commit definitivo. El commit anterior `176ccfe` ya tiene una
+   [ejecución remota correcta](https://github.com/Alextc35/newdesktab/actions/runs/38236420523);
+   esa ejecución no incluye esta nueva funcionalidad, que sigue sin commit.
 2. Comprobar que la clave del manifiesto corresponde a la ficha, y revisar
    descripción, privacidad, correo de contacto y verificación en dos pasos.
    Las imágenes ya se regeneraron e inspeccionaron en esta revisión; repetir

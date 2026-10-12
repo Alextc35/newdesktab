@@ -34,6 +34,10 @@ El estado del lanzamiento 1.0.0 y de su ZIP está en [RELEASE_REVIEW.md](RELEASE
 
 ## Lanzamiento 1.0.0 — 12 de octubre de 2026
 
+- [x] Añadir el aviso único de cada versión y su historial en Información, con
+  nota personal 1.0.0 y cuatro idiomas. Llegada: notas, guía y consejo con su SVG;
+  consejos abajo a la derecha y avisos ocultos con flash en modo lista.
+
 - [x] Iniciar el esquema público en 1 y descartar los esquemas 2–21 de desarrollo.
 
 - [x] Rechazar backups malformados antes de restaurar medios o reemplazar datos.
@@ -45,9 +49,10 @@ El estado del lanzamiento 1.0.0 y de su ZIP está en [RELEASE_REVIEW.md](RELEASE
 - [x] Sincronizar manifest, package, package-lock y README en 1.0.0.
 - [x] Declarar Chrome 123 como versión mínima y corregir los atajos documentados.
 - [x] Añadir notas de lanzamiento y regenerar/revisar las cuatro imágenes de la Store.
-- [x] Ejecutar lint, 245 pruebas unitarias y 62 pruebas DOM sin errores.
-- [x] Confirmar la batería completa con esquema 1: 253 escenarios correctos en Chromium, sin fallos ni reintentos.
+- [x] Ejecutar lint, 254 pruebas unitarias y 62 pruebas DOM sin errores.
+- [x] Confirmar la batería completa con esquema 1 y notas de versión: 268 escenarios correctos en Chromium, sin fallos ni reintentos.
 - [x] Verificar con esquema 1 los 23 escenarios de backups y fondos en Chrome 123; su batería completa anterior al reinicio pasó los 252 escenarios.
+- [x] Verificar los 37 escenarios de notas, bienvenida, ayuda y concurrencia en Chrome 123.
 - [x] Generar y verificar el ZIP 1.0.0; probar el contenido extraído en Chromium, Google Chrome, Brave y Chrome 123.
 - [x] Confirmar Chrome Sync entre perfiles/dispositivos reales: verificado por el autor en esta conversación.
 - [x] Confirmar que los enlaces públicos de privacidad y soporte responden correctamente.

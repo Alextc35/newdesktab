@@ -121,20 +121,14 @@ test('reopens from Information in every language without losing a settings draft
   await expect(page.locator('#settings-modal')).toBeVisible();
 });
 
-test('the guide fits narrow screens and offers exploration when editors are unavailable', async ({ page }) => {
+test('the guide waits in list mode without being consumed and appears after widening', async ({ page }) => {
   await start(page, { width: 375 });
+  await expect(guide(page)).toBeHidden();
+  await expect(page.locator('.flash-info').last()).toHaveText('Widen the window to use this feature.');
+  expect(await storedWelcome(page)).toBeUndefined();
+  await page.setViewportSize({ width: 720, height: 800 });
   await expect(guide(page)).toBeVisible();
-  const card = page.locator('.onboarding-card');
-  for (let step = 0; step < 5; step++) {
-    const bounds = await card.boundingBox();
-    expect(bounds.x).toBeGreaterThanOrEqual(0);
-    expect(bounds.x + bounds.width).toBeLessThanOrEqual(375);
-    expect(await card.evaluate(element => element.scrollWidth - element.clientWidth)).toBeLessThanOrEqual(1);
-    if (step < 4) await page.locator('#onboarding-next').click();
-  }
-  await expect(page.locator('#onboarding-hint')).toHaveText(/Widen the window/);
-  await expect(page.locator('#onboarding-explore')).toBeHidden();
-  await page.getByRole('button', { name: 'Explore my space' }).click();
+  await page.locator('#onboarding-skip').click();
   await expect(guide(page)).toBeHidden();
   await expect(page.locator('#edit-bookmark-modal')).toBeHidden();
 });
@@ -184,7 +178,7 @@ test('loops the add demonstration safely and stops it outside the first step', a
     .some(animation => animation.id === 'onboarding-add-cursor'))).toBe(false);
 });
 
-for (const width of [1280, 375]) {
+for (const width of [1280, 720]) {
   test(`final demonstration deletes, undoes and searches, then resets smoothly at ${width}px`, async ({ page }) => {
     await start(page, { width });
     for (let step = 0; step < 4; step++) await page.locator('#onboarding-next').click();

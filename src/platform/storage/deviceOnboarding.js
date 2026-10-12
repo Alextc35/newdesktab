@@ -4,10 +4,10 @@ export const DEVICE_ONBOARDING_KEY = 'newdesktabOnboarding';
 const GUIDE_VERSION = 1;
 
 /** Claim the welcome once per browser profile, independently of Sync and backups. */
-export async function claimOnboarding() {
+export async function claimOnboarding({ canClaim = () => true } = {}) {
   const claim = async () => {
     const stored = await callStorage(chrome.storage.local, 'get', DEVICE_ONBOARDING_KEY);
-    if (stored[DEVICE_ONBOARDING_KEY]?.version >= GUIDE_VERSION) return false;
+    if (stored[DEVICE_ONBOARDING_KEY]?.version >= GUIDE_VERSION || !canClaim()) return false;
     await recordOnboarding('offered');
     return true;
   };

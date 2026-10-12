@@ -182,7 +182,8 @@
 .daily-tip-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 #daily-tip-dismiss { display: grid; place-items: center; width: 28px; height: 28px; margin: -5px -5px 0 0; border-radius: 7px; color: var(--ui-muted); background: transparent; font: inherit; font-size: 20px; cursor: pointer; }
 #daily-tip-dismiss:hover { background: var(--ui-hover); color: var(--ui-text); }
-.daily-tip-title { margin: 10px 0 8px; font-size: 17px; letter-spacing: -.02em; }
+.daily-tip-title { display: flex; align-items: center; gap: 9px; margin: 10px 0 8px; font-size: 17px; letter-spacing: -.02em; }
+.daily-tip-title .manual-icon { width: 21px; height: 21px; flex-basis: 21px; }
 .daily-tip-text { margin: 0 0 18px; color: var(--ui-muted); font-size: 13px; line-height: 1.7; }
 .daily-tip-bottom span { max-width: 190px; color: var(--ui-muted); font-size: 10px; line-height: 1.6; }
 .daily-tip-bottom .btn { flex-shrink: 0; font-size: 12px; }
@@ -201,6 +202,6 @@
   .manual-group:nth-child(n) { float: none; width: 100%; margin-top: 0; }
   .manual-group + .manual-group { margin-top: 18px; }
   .manual-footer { padding: 13px 18px; }
-  .daily-tip { right: 16px; bottom: 16px; }
+  .daily-tip { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .daily-tip { animation: none; } }

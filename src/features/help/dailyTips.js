@@ -1,7 +1,10 @@
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
 import { areDailyTipsEnabled, claimDailyTip, DEVICE_DAILY_TIPS_KEY, setDailyTipsEnabled } from '../../platform/storage/deviceDailyTips.js';
 import { hasOpenModal, subscribeModalChanges } from '../../shared/ui/modalManager.js';
+import { isListView } from '../../shared/ui/viewportMode.js';
+import { flashInfo } from '../../shared/ui/flash.js';
 import { MANUAL_TOPICS } from './manualCatalog.js';
+import { createManualIcon } from './manualIcons.js';
 import { createTimedNotice } from './timedNotice.js';
 
 /** Optional, non-modal learning. Never steals focus or interrupts another dialog. */
@@ -14,11 +17,13 @@ export function createDailyTips({ card, toggle, onOpenManual }) {
   let destroyed = false;
   let enabled = true;
   const notice = createTimedNotice(card, { onDismiss: () => { topic = null; } });
+  const available = () => !hasOpenModal() && !isListView();
 
   function render() {
-    notice.setVisible(Boolean(topic) && enabled && !hasOpenModal() && !document.hidden);
+    notice.setVisible(Boolean(topic) && enabled && available() && !document.hidden);
     if (!topic) return;
-    card.querySelector('.daily-tip-title').textContent = t(`manual.topics.${topic}.title`);
+    card.querySelector('.daily-tip-title').replaceChildren(createManualIcon(topic),
+      document.createTextNode(t(`manual.topics.${topic}.title`)));
     card.querySelector('.daily-tip-text').textContent = t(`manual.topics.${topic}.tip`);
   }
 
@@ -37,12 +42,14 @@ export function createDailyTips({ card, toggle, onOpenManual }) {
   function schedule() {
     clearTimeout(timer);
     render();
-    if (!started || destroyed || topic || pending || !enabled || document.hidden || hasOpenModal()) return;
+    if (!started || destroyed || topic || pending || !enabled || document.hidden || !available()) return;
     timer = setTimeout(async () => {
-      if (document.hidden || hasOpenModal() || destroyed) return;
+      if (document.hidden || !available() || destroyed) return;
       pending = true;
       try {
-        const claimed = await claimDailyTip(MANUAL_TOPICS.map(item => item.id));
+        const claimed = await claimDailyTip(MANUAL_TOPICS.map(item => item.id), {
+          canClaim: () => available() && !document.hidden && !destroyed
+        });
         if (!destroyed) {
           topic = claimed;
           if (topic) notice.show();
@@ -77,6 +84,10 @@ export function createDailyTips({ card, toggle, onOpenManual }) {
     }
   }, { signal: events.signal });
   document.addEventListener('visibilitychange', schedule, { signal: events.signal });
+  window.addEventListener('resize', () => {
+    if (isListView() && !card.hidden) flashInfo('flash.viewport.suspended');
+    schedule();
+  }, { signal: events.signal });
   const unsubscribeModal = subscribeModalChanges(schedule);
   const unsubscribeLanguage = subscribeLanguageChange(render);
   const storageChanged = (changes, area) => {

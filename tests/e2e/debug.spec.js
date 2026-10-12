@@ -17,7 +17,7 @@ test.beforeEach(async ({ page }) => {
 test('reports startup, actual quotas and persisted create/edit/delete timings', async ({ page }) => {
   expect(await page.evaluate(() => window.NewDeskTabDebug.toggle())).toBe(true);
   const initial = await page.evaluate(() => window.NewDeskTabDebug.report());
-  expect(initial.summary.version).toBe('0.1.3'); // Browser harness manifest.
+  expect(initial.summary.version).toBe(await page.evaluate(() => chrome.runtime.getManifest().version));
   expect(initial.summary.syncEnabled).toBe(false);
   expect(initial.summary.bookmarks).toBe(2);
   expect(initial.storage.map(area => area.mode)).toEqual(['local', 'sync']);

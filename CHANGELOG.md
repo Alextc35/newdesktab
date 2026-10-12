@@ -5,6 +5,7 @@
 First stable release of New DeskTab, a customizable new-tab workspace.
 
 - Arrange, resize and style bookmarks, folders and a bundled clock widget.
+- The clock is the first bundled widget and remains a work in progress.
 - Organize independent workspaces, search saved items and reuse appearance presets.
 - Save the current page from the browser toolbar and use configurable keyboard shortcuts.
 - Recover deleted bookmarks with the recycle bin and undo/redo controls.
@@ -13,6 +14,8 @@ First stable release of New DeskTab, a customizable new-tab workspace.
 - Customize light/dark appearance, backgrounds and device-local wallpaper rotation.
 - Export and restore JSON or ZIP backups, including referenced local images and videos.
 - Use the onboarding guide, searchable manual and optional daily tips in four languages.
+- Read the author's first-release introduction and revisit release history from Information.
+- See each update notice once per profile, followed by the optional welcome guide and daily tip.
 - Protect existing data by rejecting malformed imports, future schemas and duplicate IDs.
 - Start the public data schema at version 1; development schemas 2–21 are discarded.
 - Preserve custom caption colors with readable backgrounds and consistent on/off controls.

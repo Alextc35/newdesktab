@@ -10,6 +10,11 @@ the first release and are not imported or migrated. For first-use testing,
 load the extracted ZIP in a new browser profile with empty extension storage
 and Sync disabled. An existing development profile is not a clean install.
 
+The first arrival shows local release notes, then the optional guide, then the
+daily tip when enabled. These helpers stay hidden in list mode (600px or less).
+The release history is available from Information.
+See [RELEASE_NOTES.md](RELEASE_NOTES.md) when preparing the notes for a new version.
+
 ## Listing
 
 - Product name: `New DeskTab`

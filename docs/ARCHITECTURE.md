@@ -913,8 +913,11 @@ Information can reopen the guide over a settings draft without discarding it.
 `platform/storage/deviceOnboarding.js` atomically claims the first welcome with
 a Web Lock and stores offered/completed/dismissed status in a device-only key;
 it never enters application data, Chrome Sync or backups. This optional storage
-read does not block startup. The guide adapts to compact view, where its final
-action returns to the workspace instead of opening an unavailable editor.
+read does not block startup. At widths of 600px or less, release notes, the guide,
+the manual and daily tips stay hidden, with a flash asking the user to widen the
+window. Pending introductions remain unclaimed and suspended panels resume when
+there is enough space. Arrival follows release notes, the optional guide, then
+the daily tip in the bottom-right corner.
 
 `features/folders/folderAppearance.js` applies saved appearance to cards, artwork,
 previews and open contents without accessing the store. The contents surface is

@@ -34,6 +34,8 @@ test('offers the guide once without changing application data', async () => {
 
 test('concurrent new tabs claim just one welcome', async () => {
   delete data[DEVICE_ONBOARDING_KEY];
+  assert.equal(await claimOnboarding({ canClaim: () => false }), false);
+  assert.equal(data[DEVICE_ONBOARDING_KEY], undefined);
   assert.deepEqual(await Promise.all([claimOnboarding(), claimOnboarding()]), [true, false]);
 });
 

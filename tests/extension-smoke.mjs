@@ -59,6 +59,12 @@ try {
       `Console errors: ${consoleErrors.join(' | ') || 'none'}`
     ].join('\n'), { cause: error });
   }
+  await page.locator('#release-notes-modal').waitFor({ state: 'visible' });
+  assert.equal(await page.locator('#release-notes-version').textContent(), `v${manifest.version}`);
+  await page.locator('#release-notes-continue').click();
+  await page.locator('#onboarding-modal').waitFor({ state: 'visible' });
+  await page.locator('#onboarding-skip').click();
+  await page.locator('#daily-tip').waitFor({ state: 'visible' });
   await page.evaluate(async () => {
     const { addBookmark } = await import('./features/bookmarks/bookmarkActions.js');
     addBookmark({ name: 'Release smoke', url: 'https://smoke.internal', gx: 5, gy: 0 });

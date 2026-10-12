@@ -108,6 +108,24 @@
 
   <div id="flash-container" class="flash-container"></div>
 
+  <div id="release-notes-modal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-card release-notes-card">
+      <header class="release-notes-header">
+        <span class="release-notes-brand"><img src="/assets/icons/brand-mark.svg" alt="" aria-hidden="true">New DeskTab</span>
+        <button id="release-notes-close" type="button" data-i18n-aria-label="releaseNotes.dismiss" aria-label="Cerrar notas">×</button>
+        <div class="release-notes-meta"><span id="release-notes-version"></span><time id="release-notes-date"></time></div>
+        <h2 id="release-notes-title"></h2>
+        <p id="release-notes-intro" class="release-notes-intro"></p>
+      </header>
+      <div class="release-notes-reading custom-scrollbar">
+        <nav id="release-notes-history" class="release-notes-history" data-i18n-aria-label="releaseNotes.history" aria-label="Historial de versiones"></nav>
+        <article id="release-notes-content" class="release-notes-content"></article>
+      </div>
+      <footer class="release-notes-footer"><button id="release-notes-continue" class="btn btn-primary" type="button"></button></footer>
+    </div>
+  </div>
+
   <div id="onboarding-modal" class="modal">
     <div class="modal-overlay"></div>
     <div class="modal-card onboarding-card custom-scrollbar">
@@ -1364,6 +1382,11 @@
                 <small>© 2025–<span id="settings-information-year">2026</span></small>
               </div>
             </div>
+            <section class="settings-release-notes">
+              <div><strong data-i18n="releaseNotes.settingsTitle">Notas de versión</strong>
+                <p data-i18n="releaseNotes.settingsDescription">Las novedades y la historia de cada actualización.</p></div>
+              <button id="settings-open-release-notes" class="btn btn-secondary" type="button" data-i18n="releaseNotes.open">Ver notas</button>
+            </section>
             <section class="settings-guide">
               <div>
                 <strong data-i18n="onboarding.reopenTitle">Guía rápida</strong>

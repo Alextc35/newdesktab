@@ -16,6 +16,7 @@ items on a desktop without relying on a NewDeskTab account or backend.
 
 ## Features
 
+* Release notes shown once per version and browser profile, with a history in Settings → Information
 * Optional five-step first-visit guide, replayable from Settings → Information
 * Smooth eight-direction drag and resize on a collision-aware grid
 * Configurable drag behavior: None (default), Relocation and experimental
@@ -29,7 +30,7 @@ items on a desktop without relying on a NewDeskTab account or backend.
 * Named appearance presets
 * Independent bookmark workspaces with smooth `Alt/⌥ + ↑/↓` navigation
 * Resizable folders with a clean link view and an editable 3 × 6 workspace
-* Bundled resizable clock widget with 12/24-hour and seconds controls
+* Bundled resizable clock widget (work in progress) with 12/24-hour and seconds controls
 * Global search palette (`/`)
 * Multi-select, bulk styling, moving, duplication and deletion
 * Bookmark duplication plus atomic undo/redo for bookmark and folder changes

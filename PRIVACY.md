@@ -1,6 +1,6 @@
 # NewDeskTab Privacy Policy
 
-Last updated: October 10, 2026
+Last updated: October 12, 2026
 
 NewDeskTab replaces the browser's new tab page with a customizable bookmark
 workspace. It does not require a NewDeskTab account or use a NewDeskTab-operated
@@ -30,6 +30,11 @@ as a bookmark. It does not read the page's contents or close the source tab.
 NewDeskTab starts in Local mode, using `chrome.storage.local` inside your browser
 profile. This describes where workspace data is saved; external images can
 still cause network requests in Local mode, as explained below.
+
+Welcome-guide and daily-tip preferences, tip history, and the most recent release
+notice offered are stored only in this browser profile. They keep introductions
+and tips from repeating. They are not synchronized or included in workspace
+backups, and no notification history is sent to the developer.
 
 If you enable Sync in supported Google Chrome, bookmark data and shared
 settings are stored using `chrome.storage.sync`. Chrome manages transfer and

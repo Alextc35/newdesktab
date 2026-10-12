@@ -103,6 +103,9 @@ test('help suggestions resolve natural questions in all available languages', as
   await input.press('Enter');
   await expect(page.locator('.manual-article')).toHaveAttribute('data-topic', 'resizing');
   await page.setViewportSize({ width: 390, height: 600 });
+  await expect(page.locator('#manual-modal')).toBeHidden();
+  await expect(page.locator('.flash-info').last()).toHaveText('Panel hidden. Widen the window to continue.');
+  await page.setViewportSize({ width: 720, height: 600 });
   await expect(page.locator('#manual-modal')).toBeVisible();
   await page.locator('#manual-back').click();
   await page.locator('#manual-search').fill('how do I change the size of a tile');
@@ -126,7 +129,7 @@ test('welcome links open the right section and return to the same guide step', a
   expect(count).toBe(0);
 });
 
-test('manual translates live, fits small windows and keeps scrolling inside its panel', async ({ page }) => {
+test('manual translates live, suspends in list mode and restores its reading state', async ({ page }) => {
   await start(page);
   await information(page);
   await page.locator('.settings-help-result[data-manual-topic="keyboard"]').click();
@@ -138,8 +141,11 @@ test('manual translates live, fits small windows and keeps scrolling inside its 
   await page.waitForTimeout(250);
   await page.screenshot({ path: 'test-results/manual-article-light.png' });
   await page.setViewportSize({ width: 390, height: 600 });
+  await expect(page.locator('#manual-modal')).toBeHidden();
+  await expect(page.locator('.flash-info').last()).toHaveText('Panel hidden. Widen the window to continue.');
+  await page.setViewportSize({ width: 720, height: 600 });
   await expect(page.locator('#manual-modal')).toBeVisible();
-  await expect(page.locator('#flash-container')).not.toHaveText(/Panel hidden/);
+  await expect(page.locator('.manual-article')).toHaveAttribute('data-topic', 'keyboard');
   const layout = await page.locator('.manual-card').evaluate(element => {
     const rect = element.getBoundingClientRect();
     const body = element.querySelector('.manual-body');
@@ -147,7 +153,7 @@ test('manual translates live, fits small windows and keeps scrolling inside its 
       scrollWidth: body.scrollWidth, width: body.clientWidth, canScroll: body.scrollHeight > body.clientHeight };
   });
   expect(layout.left).toBeGreaterThanOrEqual(0);
-  expect(layout.right).toBeLessThanOrEqual(390);
+  expect(layout.right).toBeLessThanOrEqual(720);
   expect(layout.bottom).toBeLessThanOrEqual(600);
   expect(layout.scrollWidth).toBeLessThanOrEqual(layout.width);
   expect(layout.canScroll).toBe(true);
@@ -165,6 +171,8 @@ test('daily tip appears once per day and opens its own manual section', async ({
   expect(overflow.scrollHeight).toBeLessThanOrEqual(overflow.height);
   expect(overflow.overflowY).toBe('hidden');
   expect((await storedTips(page)).lastTopic).toBe('bookmarks');
+  await expect(card.locator('svg[data-manual-icon="bookmarks"]')).toBeVisible();
+  await expect(card.locator('.daily-tip-title svg')).toHaveAttribute('aria-hidden', 'true');
   await page.locator('#daily-tip-read').click();
   await expect(card).toBeHidden();
   await expect(page.locator('.manual-article')).toHaveAttribute('data-topic', 'bookmarks');
@@ -181,6 +189,8 @@ test('daily tip appears once per day and opens its own manual section', async ({
   await expectAppReady(page);
   await expect(card).toBeVisible();
   expect((await storedTips(page)).lastTopic).toBe('quick-save');
+  await expect(card.locator('svg[data-manual-icon="quick-save"]')).toBeVisible();
+  await expect(card.locator('.daily-tip-title svg')).toHaveCount(1);
 });
 
 test('countdown pauses for hover, focus and dialogs, then departs with an empty bar', async ({ page }) => {

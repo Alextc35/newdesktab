@@ -1,7 +1,8 @@
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
 import { claimOnboarding, recordOnboarding } from '../../platform/storage/deviceOnboarding.js';
 import { closeModal, hasOpenModal, openModal, registerModal, subscribeModalChanges } from '../../shared/ui/modalManager.js';
-import { isListView } from '../../shared/ui/viewportMode.js';
+import { ensurePanelFits, isListView } from '../../shared/ui/viewportMode.js';
+import { flashInfo } from '../../shared/ui/flash.js';
 import { initOnboardingPreview } from './onboardingPreview.js';
 import { renderLinkedManualText } from '../help/linkedManualText.js';
 
@@ -24,7 +25,7 @@ export function initOnboarding({ onAddBookmark, onOpenManual }) {
   let replay = false;
 
   registerModal({ id: 'onboarding', element: modal, initialFocus: next,
-    closeOnOverlay: false });
+    closeOnOverlay: false, requiresWideViewport: true });
   modal.setAttribute('aria-describedby', body.id);
   subscribeModalChanges(active => preview.setActive(active === modal));
 
@@ -54,6 +55,7 @@ export function initOnboarding({ onAddBookmark, onOpenManual }) {
   }
 
   function open({ repeat = false } = {}) {
+    if (!ensurePanelFits()) return;
     step = 0;
     replay = repeat;
     render();
@@ -87,14 +89,39 @@ export function initOnboarding({ onAddBookmark, onOpenManual }) {
     if (modal.classList.contains('is-open')) render();
   });
 
-  return {
-    async offerWelcome() {
-      try {
-        if (await claimOnboarding() && !hasOpenModal()) open();
-      } catch (error) {
-        // Optional help must never prevent the workspace from loading.
-        console.warn('[NewDeskTab] Could not load the welcome preference:', error);
-      }
-    }
+  const available = () => !document.hidden && !hasOpenModal() && !isListView();
+  const waitForAvailable = () => {
+    if (available()) return Promise.resolve();
+    if (isListView()) flashInfo('flash.viewport.tooNarrow');
+    return new Promise(resolve => {
+      const check = () => {
+        if (!available()) return;
+        unsubscribe();
+        document.removeEventListener('visibilitychange', check);
+        window.removeEventListener('resize', check);
+        resolve();
+      };
+      const unsubscribe = subscribeModalChanges(check);
+      document.addEventListener('visibilitychange', check);
+      window.addEventListener('resize', check);
+      check();
+    });
   };
+
+  async function offerWelcome() {
+    try {
+      let claimed = false;
+      do {
+        await waitForAvailable();
+        claimed = await claimOnboarding({ canClaim: available });
+      } while (!claimed && !available());
+      if (!claimed) return;
+      await waitForAvailable();
+      open();
+    } catch (error) {
+      // Optional help must never prevent the workspace from loading.
+      console.warn('[NewDeskTab] Could not load the welcome preference:', error);
+    }
+  }
+  return { offerWelcome };
 }

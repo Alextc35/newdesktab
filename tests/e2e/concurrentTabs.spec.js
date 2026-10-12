@@ -62,6 +62,8 @@ test.beforeEach(async () => {
   const firstPage = await context.newPage();
   await firstPage.goto(`chrome-extension://${extensionId}/${manifest.chrome_url_overrides.newtab}`);
   await expectAppReady(firstPage);
+  await firstPage.locator('#release-notes-continue').click();
+  await firstPage.locator('#onboarding-skip').click();
   await seedBookmarks(firstPage);
 
   pages = [firstPage, await context.newPage()];
@@ -77,6 +79,20 @@ test.beforeEach(async () => {
 });
 
 test.afterEach(async () => { await context?.close(); });
+
+test('two real extension tabs claim an update only once without synchronizing the seen marker', async () => {
+  const results = await Promise.all(pages.map(page => page.evaluate(async () => {
+    const { claimReleaseNotes } = await import('./platform/storage/deviceReleaseNotes.js');
+    return claimReleaseNotes('1.0.1');
+  })));
+  expect(results.filter(Boolean)).toHaveLength(1);
+  for (const page of pages) {
+    expect(await page.evaluate(async () => (
+      await chrome.storage.local.get('newdesktabReleaseNotes')
+    ).newdesktabReleaseNotes)).toEqual({ version: '1.0.1' });
+    expect(await page.evaluate(async () => await chrome.storage.sync.get('newdesktabReleaseNotes'))).toEqual({});
+  }
+});
 
 // Hold the real origin lock until both pages have submitted stale edits. This
 // makes the race deterministic without replacing Chrome storage or app code.

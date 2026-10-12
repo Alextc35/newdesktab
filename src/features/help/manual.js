@@ -3,6 +3,7 @@ import { closeModal, isModalActive, openModal, registerModal, subscribeModalChan
 import { getManualTopic, MANUAL_GROUPS, MANUAL_TOPICS, searchManual } from './manualCatalog.js';
 import { createManualDemo } from './manualDemo.js';
 import { createManualIcon } from './manualIcons.js';
+import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 
 function textElement(tag, className, text) {
   const element = document.createElement(tag);
@@ -23,7 +24,7 @@ export function createManual(modal) {
   let selected = null;
   let demo = null;
 
-  registerModal({ id: 'manual', element: modal, initialFocus: search, independentViewport: true });
+  registerModal({ id: 'manual', element: modal, initialFocus: search, requiresWideViewport: true });
 
   function topicButton(id, showSummary = true, showAnswer = false) {
     const button = document.createElement('button');
@@ -138,6 +139,7 @@ export function createManual(modal) {
 
   return {
     open(topic = null) {
+      if (!ensurePanelFits()) return;
       search.value = '';
       select(topic, false);
       openModal('manual', { onCancel: () => closeModal('manual'), initialFocus: selected ? back : search });

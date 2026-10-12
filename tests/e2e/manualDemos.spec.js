@@ -396,6 +396,9 @@ test('demos translate, fit narrow screens and respect reduced motion', async ({ 
     expect(await page.locator('.manual-demo').textContent()).not.toMatch(/manual\.demo\.|editModal\.|settingsModal\./);
   }
   await page.setViewportSize({ width: 390, height: 700 });
+  await expect(page.locator('#manual-modal')).toBeHidden();
+  await page.setViewportSize({ width: 720, height: 700 });
+  await expect(page.locator('#manual-modal')).toBeVisible();
   await seek(page, 12000);
   await expect(page.locator('.manual-demo')).toBeVisible();
   expect(await page.locator('.manual-card').evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);

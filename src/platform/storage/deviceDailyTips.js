@@ -40,11 +40,11 @@ export function setDailyTipsEnabled(enabled) {
 }
 
 /** Claim just one tip across tabs; visit all current topics before starting again. */
-export function claimDailyTip(topicIds, { date = new Date(), random = Math.random } = {}) {
+export function claimDailyTip(topicIds, { date = new Date(), random = Math.random, canClaim = () => true } = {}) {
   return withLock(async () => {
     const state = await read();
     const day = getLocalDay(date);
-    if (!state.enabled || state.day === day || !topicIds.length) return null;
+    if (!state.enabled || state.day === day || !topicIds.length || !canClaim()) return null;
     let seen = [...new Set(state.seen.filter(id => topicIds.includes(id)))];
     let remaining = topicIds.filter(id => !seen.includes(id));
     if (!remaining.length) {

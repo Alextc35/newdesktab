@@ -1,4 +1,33 @@
 {
+  "releaseNotes": {
+    "settingsTitle": "Release notes",
+    "settingsDescription": "What changed and the story behind each update.",
+    "open": "Read notes",
+    "history": "Version history",
+    "dismiss": "Close release notes",
+    "continue": "Continue",
+    "back": "Back to Information",
+    "highlights": "What you can do today",
+    "generic": {
+      "title": "New DeskTab has been updated",
+      "description": "You have the new version. You can revisit earlier release notes in Information whenever you like. Thanks for being here."
+    },
+    "v1_0_0": {
+      "title": "Your desktop of websites. At last.",
+      "thanks": "Thank you for trying New DeskTab. I am so excited to finally share the first public release of this project with you.",
+      "origin": "It all started on September 26, 2025. While watching a Just Chatting stream on Twitch, I noticed the streamer's browser new tab: an extension that arranged websites as colored squares, without names or logos. That minimalism fascinated me, and I thought: why not build my own extension? I wanted every new tab to bring a sense of order, my pages close at hand, and a panel I enjoyed looking at.",
+      "desktop": "Gradually, that idea grew into a personal desktop of websites rather than applications. The clock is a first step and is still a work in progress. In the future, I would like to add a notepad and other widgets that offer something useful, both to me and to everyone using New DeskTab.",
+      "closing": "This app is made for me and for you. Thank you for trusting New DeskTab and giving it a place in your browser. I hope you enjoy creating your space as much as I have enjoyed building it.",
+      "highlights": {
+        "workspace": "Organize your pages with bookmarks, folders and independent workspaces.",
+        "appearance": "Customize colors, the size of each item and your desktop background.",
+        "search": "Find your pages with search and use keyboard shortcuts to navigate and create items.",
+        "backup": "Save backups and recover deleted items from the recycle bin.",
+        "sync": "Choose to keep data on this device or synchronize it with Google Chrome.",
+        "help": "Discover the features with the welcome guide, manual and daily tips."
+      }
+    }
+  },
   "onboarding": {
     "eyebrow": "YOUR FIRST MINUTE",
     "skip": "Skip guide",
