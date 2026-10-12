@@ -307,24 +307,25 @@ export function createBookmarksEnvelope(bookmarks, folders = []) {
  */
 export function parseBackupPayload(payload, currentData = createDefaultPersistedData()) {
   if (Array.isArray(payload)) {
-    return migratePersistedData({
+    validateImportedData({ bookmarks: payload });
+    return migrateImportedData({
       ...currentData,
       bookmarks: payload,
       folders: []
     });
   }
 
-  if (payload?.format === 'newdesktab-backup' && payload.data) {
-    return migratePersistedData(payload.data);
+  if (!isRecord(payload)) throw invalidBackup();
+  validateImportedVersion(payload.schemaVersion);
+  if (payload.format === 'newdesktab-backup') {
+    return migrateImportedData(payload.data);
   }
 
-  if (payload && typeof payload === 'object' && Array.isArray(payload.bookmarks)) {
-    return migratePersistedData(payload);
+  if (payload.format === undefined || payload.format === 'newdesktab-bookmarks') {
+    return migrateImportedData(payload);
   }
 
-  const error = new Error('Invalid NewDeskTab backup.');
-  error.code = 'INVALID_BACKUP';
-  throw error;
+  throw invalidBackup();
 }
 
 /**
@@ -336,20 +337,91 @@ export function parseBackupPayload(payload, currentData = createDefaultPersisted
  * @returns {{bookmarks: Bookmark[], folders: BookmarkFolder[]}}
  */
 export function parseBookmarksPayload(payload, currentData = createDefaultPersistedData()) {
-  if (payload?.format === 'newdesktab-bookmarks' && Array.isArray(payload.bookmarks)) {
-    const migrated = migratePersistedData({
+  if (payload?.format === 'newdesktab-bookmarks') {
+    validateImportedData(payload);
+    const migrated = migrateImportedData({
       ...currentData,
       bookmarks: payload.bookmarks,
-      folders: Array.isArray(payload.folders) ? payload.folders : []
-    }, { useDefaultsWhenEmpty: false });
+      folders: payload.folders ?? []
+    });
     return { bookmarks: migrated.bookmarks, folders: migrated.folders };
   }
 
   const restored = parseBackupPayload(payload, currentData);
-  const migrated = migratePersistedData({
+  const migrated = migrateImportedData({
     ...currentData,
     bookmarks: restored.bookmarks,
     folders: restored.folders
-  }, { useDefaultsWhenEmpty: false });
+  });
   return { bookmarks: migrated.bookmarks, folders: migrated.folders };
+}
+
+/** Validate files before migration can replace malformed collections with defaults. */
+function migrateImportedData(value) {
+  validateImportedData(value);
+  const migrated = migratePersistedData(value, { useDefaultsWhenEmpty: false });
+  // Legacy records may receive generated IDs during migration.
+  validateImportedData(migrated);
+  return migrated;
+}
+
+function validateImportedData(value) {
+  if (!isRecord(value) || !Array.isArray(value.bookmarks)) throw invalidBackup();
+  validateImportedVersion(value.schemaVersion);
+  const gridIds = new Set([DEFAULT_RECYCLE_BIN.id]);
+  for (const key of ['bookmarks', 'folders', 'widgets']) {
+    validateImportedRecords(value[key], gridIds);
+  }
+  validateImportedRecords(value.trash);
+  if (value.recycleBin !== undefined && !isRecord(value.recycleBin)) throw invalidBackup();
+  if (value.settings !== undefined) {
+    if (!isRecord(value.settings)) throw invalidBackup();
+    for (const key of ['theme', 'bookmarkDefault']) {
+      if (value.settings[key] !== undefined && !isRecord(value.settings[key])) throw invalidBackup();
+    }
+    validateImportedRecords(value.settings.bookmarkGroups);
+    validateImportedRecords(value.settings.bookmarkPresets);
+  }
+  for (const entry of value.trash ?? []) {
+    if (entry.type === 'bookmark' && isRecord(entry.bookmark)) continue;
+    if (entry.type !== 'folder' || !isRecord(entry.folder)) throw invalidBackup();
+    validateImportedRecords(entry.bookmarks);
+  }
+}
+
+function validateImportedRecords(records, ids = new Set()) {
+  if (records === undefined) return;
+  if (!Array.isArray(records)) throw invalidBackup();
+  for (const record of records) {
+    if (!isRecord(record)) throw invalidBackup();
+    // Missing IDs in legacy exports are assigned by the normalizer.
+    if (record.id === undefined || record.id === null || record.id === '') continue;
+    if (typeof record.id !== 'string') throw invalidBackup();
+    const id = record.id.trim();
+    if (!id) continue;
+    if (ids.has(id)) throw invalidBackup('Duplicate imported record ID.');
+    ids.add(id);
+  }
+}
+
+function validateImportedVersion(version) {
+  if (version === undefined) return;
+  if (!Number.isInteger(version) || version < 0) throw invalidBackup();
+  if (version > DATA_SCHEMA_VERSION) {
+    const error = new Error('This NewDeskTab data was created by a newer version.');
+    error.code = 'UNSUPPORTED_DATA_VERSION';
+    error.requiredSchemaVersion = version;
+    error.supportedSchemaVersion = DATA_SCHEMA_VERSION;
+    throw error;
+  }
+}
+
+function isRecord(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function invalidBackup(message = 'Invalid NewDeskTab backup.') {
+  const error = new Error(message);
+  error.code = 'INVALID_BACKUP';
+  return error;
 }

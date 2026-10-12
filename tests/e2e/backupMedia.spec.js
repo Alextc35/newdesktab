@@ -10,6 +10,57 @@ test.beforeEach(async ({ page }) => {
   await expectAppReady(page);
 });
 
+for (const [name, payload] of [
+  ['missing data collections', { format: 'newdesktab-backup', data: {} }],
+  ['non-object backup data', { format: 'newdesktab-backup', data: 'invalid' }],
+  ['duplicate bookmark IDs', { format: 'newdesktab-backup', data: { bookmarks: [
+    { id: 'duplicate', name: 'First', url: 'https://first.internal' },
+    { id: 'duplicate', name: 'Second', url: 'https://second.internal' }
+  ] } }],
+  ['future backup version', { format: 'newdesktab-backup', schemaVersion: 9999, data: { bookmarks: [] } }]
+]) {
+  test(`rejects ${name} without changing stored data or media`, async ({ page }) => {
+    const before = await page.evaluate(async () => ({
+      data: (await import('/src/state/appStore.js')).getState().data,
+      storage: await new Promise(resolve => chrome.storage.local.get(null, resolve))
+    }));
+    expect(await page.evaluate(async payload => {
+      const { importBackup } = await import('/src/features/settings/backupActions.js');
+      return importBackup(new File([JSON.stringify(payload)], 'invalid.json', { type: 'application/json' }));
+    }, payload)).toBe(false);
+    await expect(page.locator('.flash-error').last()).toBeVisible();
+    expect(await page.evaluate(async () => ({
+      data: (await import('/src/state/appStore.js')).getState().data,
+      storage: await new Promise(resolve => chrome.storage.local.get(null, resolve))
+    }))).toEqual(before);
+    await page.reload();
+    await expectAppReady(page);
+    expect(await page.evaluate(async () => (await import('/src/state/appStore.js')).getState().data))
+      .toEqual(before.data);
+  });
+}
+
+test('rejects duplicate IDs and future versions in bookmark-only imports', async ({ page }) => {
+  const before = await page.evaluate(async () => (await import('/src/state/appStore.js')).getState().data);
+  for (const payload of [
+    { format: 'newdesktab-bookmarks', bookmarks: [
+      { id: 'duplicate', name: 'First', url: 'https://first.internal' },
+      { id: 'duplicate', name: 'Second', url: 'https://second.internal' }
+    ] },
+    { format: 'newdesktab-bookmarks', schemaVersion: 9999, bookmarks: [] }
+  ]) {
+    await page.evaluate(async payload => {
+      const { importBookmarks } = await import('/src/features/bookmarks/bookmarkImportExport.js');
+      await importBookmarks(new File([JSON.stringify(payload)], 'invalid.json', { type: 'application/json' }));
+    }, payload);
+    await expect(page.locator('.flash-error').last()).toBeVisible();
+    expect(await page.evaluate(async () => (await import('/src/state/appStore.js')).getState().data)).toEqual(before);
+  }
+  await page.reload();
+  await expectAppReady(page);
+  expect(await page.evaluate(async () => (await import('/src/state/appStore.js')).getState().data)).toEqual(before);
+});
+
 test('a downloaded complete backup restores local images and videos after deleting device data', async ({ page }) => {
   await page.evaluate(async () => {
     const { saveLocalImage } = await import('/src/platform/images/localImages.js');

@@ -268,6 +268,74 @@ test('rejects data written by a future schema', () => {
   );
 });
 
+test('rejects malformed backup structures instead of restoring empty defaults', () => {
+  for (const payload of [
+    null, 'not a backup', {},
+    { format: 'newdesktab-backup', data: {} },
+    { format: 'newdesktab-backup', data: 'invalid' },
+    { format: 'newdesktab-backup', data: [] },
+    { format: 'newdesktab-backup', data: { bookmarks: null } },
+    { format: 'newdesktab-backup', data: { bookmarks: [null] } },
+    { format: 'newdesktab-backup', data: { bookmarks: [], folders: {} } },
+    { format: 'newdesktab-backup', data: { bookmarks: [], settings: [] } },
+    { format: 'unrelated-export', bookmarks: [] }
+  ]) {
+    assert.throws(() => parseBackupPayload(payload), error => error.code === 'INVALID_BACKUP');
+  }
+});
+
+test('checks outer and inner versions before restoring backups or bookmark exports', () => {
+  const current = migratePersistedData({ bookmarks: [] });
+  const future = DATA_SCHEMA_VERSION + 1;
+  for (const payload of [
+    { format: 'newdesktab-backup', schemaVersion: future, data: current },
+    { format: 'newdesktab-backup', data: { ...current, schemaVersion: future } },
+    { format: 'newdesktab-bookmarks', schemaVersion: future, bookmarks: [] }
+  ]) {
+    for (const parse of [parseBackupPayload, parseBookmarksPayload]) {
+      assert.throws(() => parse(payload, current), error => error.code === 'UNSUPPORTED_DATA_VERSION');
+    }
+  }
+  for (const schemaVersion of [-1, 1.5, '21', null]) {
+    assert.throws(() => parseBookmarksPayload({
+      format: 'newdesktab-bookmarks', schemaVersion, bookmarks: []
+    }, current), error => error.code === 'INVALID_BACKUP');
+  }
+});
+
+test('rejects duplicate imported identities within and across grid item collections', () => {
+  const bookmark = { id: 'duplicate', name: 'First', url: 'first.test' };
+  for (const records of [
+    { bookmarks: [bookmark, { ...bookmark, name: 'Second' }] },
+    { bookmarks: [bookmark], folders: [{ id: 'duplicate', name: 'Folder' }] },
+    { bookmarks: [bookmark], widgets: [{ id: 'duplicate', type: 'clock' }] },
+    { bookmarks: [], folders: [{ id: 'duplicate' }, { id: 'duplicate' }] },
+    { bookmarks: [], widgets: [{ id: 'duplicate', type: 'clock' }, { id: 'duplicate', type: 'clock' }] }
+  ]) {
+    for (const payload of [records, { format: 'newdesktab-backup', data: records },
+      { format: 'newdesktab-bookmarks', ...records }]) {
+      assert.throws(() => parseBackupPayload(payload), error => error.code === 'INVALID_BACKUP');
+    }
+    assert.throws(() => parseBookmarksPayload({ format: 'newdesktab-bookmarks', ...records }),
+      error => error.code === 'INVALID_BACKUP');
+  }
+});
+
+test('accepts empty workspaces and valid legacy files while preserving folder membership', () => {
+  const current = migratePersistedData({ bookmarks: [], settings: { language: 'es' } });
+  assert.deepEqual(parseBackupPayload(createBackupEnvelope(current)), current);
+  const restored = parseBackupPayload({
+    bookmarks: [{ name: 'Legacy', url: 'legacy.test', folderId: 'reading' }],
+    folders: [{ id: 'reading', name: 'Reading' }]
+  });
+  assert.equal(restored.bookmarks[0].url, 'https://legacy.test');
+  assert.equal(restored.bookmarks[0].folderId, restored.folders[0].id);
+  assert.ok(restored.bookmarks[0].id);
+  const legacyArray = parseBookmarksPayload([{ name: 'Old', url: 'old.test' }], current);
+  assert.equal(legacyArray.bookmarks[0].url, 'https://old.test');
+  assert.equal(current.settings.language, 'es');
+});
+
 test('normalizes named presets and workspace references', () => {
   const migrated = migratePersistedData({
     bookmarks: [{ id: 'grouped', name: 'Grouped', groupId: 'work' }],
