@@ -14,6 +14,7 @@ First stable release of New DeskTab, a customizable new-tab workspace.
 - Customize light/dark appearance, backgrounds and device-local wallpaper rotation.
 - Export and restore JSON or ZIP backups, including referenced local images and videos.
 - Use the onboarding guide, searchable manual and optional daily tips in four languages.
+- Find the manual, quick guide and daily-tip preference in a dedicated Help section.
 - Read the author's first-release introduction and revisit release history from Information.
 - See each update notice once per profile, followed by the optional welcome guide and daily tip.
 - Protect existing data by rejecting malformed imports, future schemas and duplicate IDs.

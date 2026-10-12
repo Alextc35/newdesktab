@@ -102,6 +102,10 @@
   --settings-tab-icon: url('/src/assets/icons/settings-information.svg');
 }
 
+.settings-modal-tab-icon[data-settings-icon="help"] {
+  --settings-tab-icon: url('/src/assets/icons/settings-help.svg');
+}
+
 .settings-modal-tab-btn:hover .settings-modal-tab-icon,
 .settings-modal-tab-btn.active .settings-modal-tab-icon {
   color: var(--ui-accent);

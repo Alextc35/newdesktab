@@ -20,7 +20,7 @@
   "back": "← Índice do manual",
   "remember": "Vale lembrar",
   "related": "Continue descobrindo",
-  "footer": "Sempre disponível em Configurações → Informações.",
+  "footer": "Sempre disponível em Configurações → Ajuda.",
   "guideLinks": "Saiba mais no manual",
   "groups": { "start": "Comece aqui", "organize": "Organize", "personalize": "Deixe com a sua cara", "protect": "Cuide do seu espaço" },
   "demo": {
@@ -357,9 +357,9 @@
     "learning": {
       "question": "Como reabro o guia ou desativo as dicas diárias?", "searchTerms": "desativar dicas; desligar ajuda; alerta diário; reabrir guia; manual uso",
       "title": "Aprender no seu ritmo", "summary": "Guia rápido, manual e uma pequena dica diária.",
-      "steps": ["Volte ao guia rápido em Configurações → Informações. Os links de cada passo abrem as explicações correspondentes do manual.", "Explore o índice ou busque uma palavra. Os links relacionados de cada seção levam a outras funções.", "Sua primeira nova aba de cada dia mostra uma dica aleatória. Feche ou abra sua explicação; você pode desativar as dicas em Informações."],
+      "steps": ["Volte ao guia rápido em Configurações → Ajuda. Os links de cada passo abrem as explicações correspondentes do manual.", "Explore o índice ou busque uma palavra. Os links relacionados de cada seção levam a outras funções.", "Sua primeira nova aba de cada dia mostra uma dica aleatória. Feche ou abra sua explicação; você pode desativar as dicas em Ajuda."],
       "note": "As dicas percorrem as seções sem repetir até completar a coleção. Duram 20 segundos e pausam ao passar o cursor ou focar os botões. Seguem o dia local e a preferência deste navegador.",
-      "tip": "O manual está sempre em Configurações → Informações. As dicas diárias abrem uma seção e podem ser desativadas ali quando quiser."
+      "tip": "O manual está sempre em Configurações → Ajuda. As dicas diárias abrem uma seção e podem ser desativadas ali quando quiser."
     }
   }
 }

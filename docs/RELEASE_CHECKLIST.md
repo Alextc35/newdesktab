@@ -34,6 +34,9 @@ El estado del lanzamiento 1.0.0 y de su ZIP está en [RELEASE_REVIEW.md](RELEASE
 
 ## Lanzamiento 1.0.0 — 12 de octubre de 2026
 
+- [x] Separar Ayuda de Información, con icono de libro y cuatro idiomas; verificar
+  83 escenarios relacionados y el ZIP actualizado en cuatro navegadores.
+
 - [x] Añadir el aviso único de cada versión y su historial en Información, con
   nota personal 1.0.0 y cuatro idiomas. Llegada: notas, guía y consejo con su SVG;
   consejos abajo a la derecha y avisos ocultos con flash en modo lista.

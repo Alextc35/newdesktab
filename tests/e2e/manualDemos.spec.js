@@ -8,7 +8,7 @@ async function start(page) {
   await page.goto('/tests/browser-harness.html');
   await expectAppReady(page);
   await page.evaluate(() => document.getElementById('settings').click());
-  await page.locator('[data-tab="settings-modal-tab-info"]').click();
+  await page.locator('[data-tab="settings-modal-tab-help"]').click();
   await page.locator('#settings-open-manual').click();
 }
 

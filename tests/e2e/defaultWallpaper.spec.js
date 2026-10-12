@@ -64,7 +64,7 @@ for (const [theme, colorScheme] of [['dark', 'light'], ['light', 'dark'], ['syst
     await page.locator('.bg-preview').screenshot({ path: testInfo.outputPath('settings-default.png') });
     await page.locator('#settings-modal-cancel').click();
 
-    await openSettings(page, 'info');
+    await openSettings(page, 'help');
     await page.locator('#settings-open-manual').click();
     await page.locator('.manual-index [data-manual-topic="movement"]').click();
     await seek(page, 0);
@@ -113,7 +113,7 @@ for (const [theme, colorScheme] of [['dark', 'light'], ['light', 'dark'], ['syst
 test('appearance demonstration changes its own wallpaper without changing the active interface theme', async ({ page }) => {
   await start(page, 'light', 'dark');
   const background = await page.locator('body').evaluate(body => getComputedStyle(body).backgroundImage);
-  await openSettings(page, 'info');
+  await openSettings(page, 'help');
   await page.locator('#settings-open-manual').click();
   await page.locator('.manual-index [data-manual-topic="interface"]').click();
   const scene = page.locator('.manual-demo-scene');

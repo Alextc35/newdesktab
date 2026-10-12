@@ -12,7 +12,8 @@ and Sync disabled. An existing development profile is not a clean install.
 
 The first arrival shows local release notes, then the optional guide, then the
 daily tip when enabled. These helpers stay hidden in list mode (600px or less).
-The release history is available from Information.
+The release history is available from Information. Help contains the manual,
+quick guide and daily-tip preference.
 See [RELEASE_NOTES.md](RELEASE_NOTES.md) when preparing the notes for a new version.
 
 ## Listing

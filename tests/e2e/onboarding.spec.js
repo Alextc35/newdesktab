@@ -84,7 +84,7 @@ test('finishes five steps and creates a real first bookmark', async ({ page }) =
   await expect(page.getByRole('link', { name: /My first page/ })).toBeVisible();
 });
 
-test('reopens from Information in every language without losing a settings draft', async ({ page }) => {
+test('reopens from Help in every language without losing a settings draft', async ({ page }) => {
   await start(page, { fresh: false });
   await page.keyboard.press('KeyS');
   await expect(page.locator('#settings-modal')).toBeVisible();
@@ -99,7 +99,7 @@ test('reopens from Information in every language without losing a settings draft
     await page.locator('[data-tab="settings-modal-tab-general"]').click();
     await page.locator('#language-select').selectOption(locale);
     await expect(page.locator('html')).toHaveAttribute('lang', locale.replace('_', '-'));
-    await page.locator('[data-tab="settings-modal-tab-info"]').click();
+    await page.locator('[data-tab="settings-modal-tab-help"]').click();
     await page.locator('#settings-open-guide').click();
     await expect(guide(page)).toBeVisible();
     await expect(page.locator('#onboarding-title')).toHaveText(title);

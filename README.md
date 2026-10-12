@@ -17,7 +17,8 @@ items on a desktop without relying on a NewDeskTab account or backend.
 ## Features
 
 * Release notes shown once per version and browser profile, with a history in Settings → Information
-* Optional five-step first-visit guide, replayable from Settings → Information
+* Dedicated Settings → Help section with the searchable manual, welcome guide and daily-tip preference
+* Optional five-step first-visit guide, replayable from Settings → Help
 * Smooth eight-direction drag and resize on a collision-aware grid
 * Configurable drag behavior: None (default), Relocation and experimental
   Sequence

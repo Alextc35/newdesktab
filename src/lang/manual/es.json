@@ -20,7 +20,7 @@
   "back": "← Índice del manual",
   "remember": "Quédate con esto",
   "related": "Sigue descubriendo",
-  "footer": "Siempre disponible en Ajustes → Información.",
+  "footer": "Siempre disponible en Ajustes → Ayuda.",
   "guideLinks": "Profundiza en el manual",
   "groups": { "start": "Empieza por aquí", "organize": "Pon orden", "personalize": "Hazlo tuyo", "protect": "Cuida tu espacio" },
   "demo": {
@@ -360,9 +360,9 @@
     "learning": {
       "question": "¿Cómo vuelvo a la guía o quito los consejos diarios?", "searchTerms": "quitar consejos; desactivar ayudas; alerta diaria; volver guía; manual uso",
       "title": "Aprender a tu ritmo", "summary": "Guía rápida, manual y un pequeño consejo diario.",
-      "steps": ["Vuelve a la guía rápida desde Ajustes → Información. Los enlaces de cada paso abren la explicación correspondiente del manual.", "Explora el índice o busca una palabra en el manual. Al terminar una sección, sus enlaces te llevan a funciones relacionadas.", "La primera vez que abres una pestaña cada día aparece un consejo aleatorio. Puedes cerrarlo o abrir su explicación; en Información puedes desactivar los consejos."],
+      "steps": ["Vuelve a la guía rápida desde Ajustes → Ayuda. Los enlaces de cada paso abren la explicación correspondiente del manual.", "Explora el índice o busca una palabra en el manual. Al terminar una sección, sus enlaces te llevan a funciones relacionadas.", "La primera vez que abres una pestaña cada día aparece un consejo aleatorio. Puedes cerrarlo o abrir su explicación; en Ayuda puedes desactivar los consejos."],
       "note": "Los consejos recorren las secciones sin repetirlas hasta completar la colección. Duran 20 segundos y se pausan al pasar el cursor o enfocar sus botones. Siguen el día local y la preferencia de este navegador.",
-      "tip": "Este manual siempre está en Ajustes → Información. Los consejos diarios te llevan a una sección y se pueden desactivar allí cuando quieras."
+      "tip": "Este manual siempre está en Ajustes → Ayuda. Los consejos diarios te llevan a una sección y se pueden desactivar allí cuando quieras."
     }
   }
 }

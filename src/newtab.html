@@ -736,6 +736,10 @@
             <span class="settings-modal-tab-icon" data-settings-icon="shortcuts" aria-hidden="true"></span>
             <span data-i18n="settingsModal.sections.shortcuts">Teclas rápidas</span>
           </button>
+          <button data-tab="settings-modal-tab-help" class="settings-modal-tab-btn" type="button">
+            <span class="settings-modal-tab-icon" data-settings-icon="help" aria-hidden="true"></span>
+            <span data-i18n="settingsModal.sections.help">Ayuda</span>
+          </button>
           <button data-tab="settings-modal-tab-info" class="settings-modal-tab-btn" type="button">
             <span class="settings-modal-tab-icon" data-settings-icon="information" aria-hidden="true"></span>
             <span data-i18n="settingsModal.sections.information">Información</span>
@@ -1387,14 +1391,9 @@
                 <p data-i18n="releaseNotes.settingsDescription">Las novedades y la historia de cada actualización.</p></div>
               <button id="settings-open-release-notes" class="btn btn-secondary" type="button" data-i18n="releaseNotes.open">Ver notas</button>
             </section>
-            <section class="settings-guide">
-              <div>
-                <strong data-i18n="onboarding.reopenTitle">Guía rápida</strong>
-                <p data-i18n="onboarding.reopenDescription">Redescubre lo esencial en un minuto.</p>
-              </div>
-              <button id="settings-open-guide" class="btn btn-secondary" type="button"
-                data-i18n="onboarding.reopen">Ver guía</button>
-            </section>
+          </div>
+          <div id="settings-modal-tab-help" class="settings-modal-tab-content is-hidden custom-scrollbar">
+            <h2 data-i18n="settingsModal.sections.help">Ayuda</h2>
             <section class="settings-manual">
               <span class="manual-eyebrow" data-i18n="manual.eyebrow">TU ESPACIO, A TU RITMO</span>
               <h3 data-i18n="manual.title">Manual de uso</h3>
@@ -1409,6 +1408,14 @@
                   data-i18n-aria-label="manual.search.resultsLabel"></div>
               </form>
               <button id="settings-open-manual" class="btn btn-primary" type="button" data-i18n="manual.open">Explorar el manual</button>
+            </section>
+            <section class="settings-guide">
+              <div>
+                <strong data-i18n="onboarding.reopenTitle">Guía rápida</strong>
+                <p data-i18n="onboarding.reopenDescription">Redescubre lo esencial en un minuto.</p>
+              </div>
+              <button id="settings-open-guide" class="btn btn-secondary" type="button"
+                data-i18n="onboarding.reopen">Ver guía</button>
             </section>
             <section class="settings-daily-tips">
               <div class="checkbox-wrapper">

@@ -55,7 +55,7 @@ test('settings launcher uses an accessible, theme-colored SVG asset', async ({ p
 test('settings navigation and inline language control load their SVG assets without injected markup', async ({ page }) => {
   await start(page);
   await openSettings(page);
-  const kinds = ['general', 'sync', 'theme', 'bookmark', 'shortcuts', 'information'];
+  const kinds = ['general', 'sync', 'theme', 'bookmark', 'shortcuts', 'help', 'information'];
   await expect(page.locator('.settings-modal-tabs .settings-modal-tab-icon')).toHaveCount(kinds.length);
   await expect(page.locator('#settings-modal-tab-lang')).toHaveCount(0);
   await expect(page.locator('#settings-modal-tab-general > .settings-language')).toBeVisible();
@@ -92,6 +92,10 @@ test('Information displays the New DeskTab brand artwork and keeps its text read
     .toBe(true);
   await expect(card).toHaveCSS('background-image', /information-cosmos\.png/);
   await expect(card.locator('.settings-information-copy')).toBeVisible();
+  await expect(page.locator('#settings-open-release-notes')).toBeVisible();
+  await expect(page.locator('#settings-open-manual')).toBeHidden();
+  await expect(page.locator('#settings-open-guide')).toBeHidden();
+  await expect(page.locator('#settings-daily-tips')).toBeHidden();
 });
 
 test('folder captions preserve saved colors with readable badges across themes and editors', async ({ page }) => {

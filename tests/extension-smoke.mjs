@@ -76,6 +76,17 @@ try {
   await page.reload();
   await page.getByRole('link', { name: /Release smoke/ }).waitFor({ state: 'visible' });
 
+  await page.keyboard.press('KeyS');
+  await page.locator('[data-tab="settings-modal-tab-help"]').click();
+  await page.locator('#settings-open-manual').click();
+  await page.locator('#manual-modal').waitFor({ state: 'visible' });
+  await page.locator('#manual-close').click();
+  await page.locator('#settings-modal-tab-help').waitFor({ state: 'visible' });
+  await page.locator('[data-tab="settings-modal-tab-info"]').click();
+  await page.locator('#settings-open-release-notes').waitFor({ state: 'visible' });
+  assert.equal(await page.locator('#settings-open-manual').isVisible(), false);
+  await page.locator('#settings-modal-cancel').click();
+
   await page.keyboard.press('KeyE');
   await page.waitForFunction(async () => (await import('./state/appStore.js')).getState().ui.isEditing);
   await page.keyboard.press('KeyE');

@@ -909,7 +909,9 @@ before resetting. Responsive geometry is measured inside the preview;
 demonstrations stop when hidden or on another step. Reduced-motion mode shows
 static examples, including the filtered search result. The
 application supplies the action that opens the first-bookmark editor. Settings →
-Information can reopen the guide over a settings draft without discarding it.
+Help contains the manual search, guide replay and daily-tip preference. It can
+reopen the guide over a settings draft without discarding it. Information keeps
+the project details and release history.
 `platform/storage/deviceOnboarding.js` atomically claims the first welcome with
 a Web Lock and stores offered/completed/dismissed status in a device-only key;
 it never enters application data, Chrome Sync or backups. This optional storage

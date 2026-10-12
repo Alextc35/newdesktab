@@ -20,7 +20,7 @@
   "back": "← Manual index",
   "remember": "Good to remember",
   "related": "Keep discovering",
-  "footer": "Always available in Settings → Information.",
+  "footer": "Always available in Settings → Help.",
   "guideLinks": "Learn more in the manual",
   "groups": { "start": "Start here", "organize": "Get organized", "personalize": "Make it yours", "protect": "Look after your space" },
   "demo": {
@@ -360,9 +360,9 @@
     "learning": {
       "question": "How do I reopen the guide or turn off daily tips?", "searchTerms": "disable tips; turn off help; daily alert; reopen guide; user manual",
       "title": "Learn at your own pace", "summary": "A quick guide, a manual and a little daily tip.",
-      "steps": ["Revisit the quick guide from Settings → Information. Each step links to the corresponding explanations in the manual.", "Explore the index or search for a word. A section's related links take you to other features when you're ready.", "Your first new tab each day shows a random tip. Dismiss it or open its explanation; you can disable tips in Information."],
+      "steps": ["Revisit the quick guide from Settings → Help. Each step links to the corresponding explanations in the manual.", "Explore the index or search for a word. A section's related links take you to other features when you're ready.", "Your first new tab each day shows a random tip. Dismiss it or open its explanation; you can disable tips in Help."],
       "note": "Tips visit the sections without repeating until the collection is complete. They last 20 seconds and pause while hovering or focusing their buttons. They follow the local day and this browser's preference.",
-      "tip": "This manual is always in Settings → Information. Daily tips open a section, and you can disable them there whenever you like."
+      "tip": "This manual is always in Settings → Help. Daily tips open a section, and you can disable them there whenever you like."
     }
   }
 }

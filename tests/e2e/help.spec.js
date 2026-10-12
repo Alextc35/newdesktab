@@ -10,9 +10,9 @@ async function start(page, { tips = false, fresh = false } = {}) {
   await expectAppReady(page);
 }
 
-async function information(page) {
+async function help(page) {
   await page.evaluate(() => document.getElementById('settings').click());
-  await page.locator('[data-tab="settings-modal-tab-info"]').click();
+  await page.locator('[data-tab="settings-modal-tab-help"]').click();
 }
 
 const storedTips = page => page.evaluate(() => JSON.parse(sessionStorage.getItem('newdesktab-test-local')).newdesktabDailyTips);
@@ -22,9 +22,12 @@ const timing = page => page.locator('.daily-tip-progress-fill').evaluate(element
     scale: new DOMMatrix(getComputedStyle(element).transform).a };
 });
 
-test('Information opens a searchable manual and all sections have instructions', async ({ page }) => {
+test('Help opens a searchable manual and all sections have instructions', async ({ page }) => {
   await start(page);
-  await information(page);
+  await help(page);
+  await expect(page.locator('#settings-modal-tab-help > h2')).toHaveText('Help');
+  await expect(page.locator('#settings-modal-tab-help #settings-open-guide')).toBeAttached();
+  await expect(page.locator('#settings-modal-tab-help #settings-daily-tips')).toBeAttached();
   await page.locator('#settings-open-manual').click();
   const manual = page.locator('#manual-modal');
   await expect(manual).toBeVisible();
@@ -52,12 +55,12 @@ test('Information opens a searchable manual and all sections have instructions',
   }
   await page.keyboard.press('Escape');
   await expect(manual).toBeHidden();
-  await expect(page.locator('#settings-modal-tab-info')).toBeVisible();
+  await expect(page.locator('#settings-modal-tab-help')).toBeVisible();
 });
 
-test('Information suggests useful answers as you type and keeps the query when returning', async ({ page }) => {
+test('Help suggests useful answers as you type and keeps the query when returning', async ({ page }) => {
   await start(page);
-  await information(page);
+  await help(page);
   const input = page.locator('#settings-manual-search');
   const results = page.locator('.settings-help-results');
   await expect(results.locator('button')).toHaveCount(3);
@@ -85,11 +88,13 @@ test('Information suggests useful answers as you type and keeps the query when r
 
 test('help suggestions resolve natural questions in all available languages', async ({ page }) => {
   await start(page);
-  await information(page);
+  await help(page);
   const input = page.locator('#settings-manual-search');
-  for (const [language, query] of [['es', 'quiero navegar sin raton'], ['es_419', 'quiero navegar sin raton'],
-    ['pt_BR', 'quero navegar sem mouse'], ['en', 'navigate without a mouse']]) {
+  for (const [language, query, label] of [['es', 'quiero navegar sin raton', 'Ayuda'], ['es_419', 'quiero navegar sin raton', 'Ayuda'],
+    ['pt_BR', 'quero navegar sem mouse', 'Ajuda'], ['en', 'navigate without a mouse', 'Help']]) {
     await page.evaluate(async language => (await import('/src/platform/i18n/i18n.js')).changeLanguage({ language }), language);
+    await expect(page.locator('[data-tab="settings-modal-tab-help"]')).toHaveText(label);
+    await expect(page.locator('#settings-modal-tab-help > h2')).toHaveText(label);
     await input.fill(query);
     await expect(page.locator('.settings-help-result').first()).toHaveAttribute('data-manual-topic', 'keyboard');
     await input.press('Enter');
@@ -131,7 +136,7 @@ test('welcome links open the right section and return to the same guide step', a
 
 test('manual translates live, suspends in list mode and restores its reading state', async ({ page }) => {
   await start(page);
-  await information(page);
+  await help(page);
   await page.locator('.settings-help-result[data-manual-topic="keyboard"]').click();
   for (const [language, title] of [['es', 'Navegar con el teclado'], ['es_419', 'Navegar con el teclado'], ['pt_BR', 'Navegar com o teclado'], ['en', 'Navigate with the keyboard']]) {
     await page.evaluate(async language => (await import('/src/platform/i18n/i18n.js')).changeLanguage({ language }), language);
@@ -208,7 +213,7 @@ test('countdown pauses for hover, focus and dialogs, then departs with an empty 
   await page.locator('#daily-tip-read').focus();
   await expect.poll(async () => (await timing(page)).state).toBe('paused');
   await page.evaluate(() => document.activeElement.blur());
-  await information(page);
+  await help(page);
   await expect(card).toBeHidden();
   await expect.poll(async () => (await timing(page)).state).toBe('paused');
   await page.locator('#settings-modal-cancel').click();
@@ -243,14 +248,14 @@ test('countdown pauses for hover, focus and dialogs, then departs with an empty 
   await expect(card).toBeHidden();
 });
 
-test('tips wait for the welcome and can be disabled permanently from Information', async ({ page }) => {
+test('tips wait for the welcome and can be disabled permanently from Help', async ({ page }) => {
   await start(page, { tips: true, fresh: true });
   await expect(page.locator('#onboarding-modal')).toBeVisible();
   await page.waitForTimeout(1600);
   expect(await storedTips(page)).toBeUndefined();
   await page.locator('#onboarding-skip').click();
   await expect(page.locator('#daily-tip')).toBeVisible();
-  await information(page);
+  await help(page);
   await page.locator('#settings-daily-tips').uncheck();
   await expect.poll(async () => (await storedTips(page)).enabled).toBe(false);
   await page.locator('#settings-modal-cancel').click();
@@ -259,6 +264,6 @@ test('tips wait for the welcome and can be disabled permanently from Information
   await expectAppReady(page);
   await page.waitForTimeout(1700);
   await expect(page.locator('#daily-tip')).toBeHidden();
-  await information(page);
+  await help(page);
   await expect(page.locator('#settings-daily-tips')).not.toBeChecked();
 });

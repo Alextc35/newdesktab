@@ -13,6 +13,8 @@ de funciones principales y el estado del reloj como widget en desarrollo.
   corresponde al día. Permanece abajo a la derecha; su temporizador avanza durante
   la lectura y se pausa por cursor, foco, otra ventana de diálogo o pestaña oculta.
 - Cada consejo muestra el SVG de su tema y puede abrir su sección del manual.
+- Ajustes → Ayuda reúne el buscador del manual, las respuestas habituales, la
+  guía rápida y la preferencia de consejos diarios.
 - En modo lista (600 píxeles o menos) las notas, guía, manual y consejos se ocultan
   con un flash. Los diálogos abiertos quedan suspendidos hasta ampliar la ventana.
   Los avisos que todavía no se han mostrado no se consumen en modo lista.

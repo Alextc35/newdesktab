@@ -8,6 +8,11 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 
 ## Cambios aplicados
 
+- **Ayuda.** Sección propia en ajustes con icono de libro, buscador del manual,
+  respuestas habituales, guía rápida y preferencia de consejos diarios. Los
+  cuatro idiomas y el propio manual apuntan a Ayuda. Información conserva la
+  presentación del proyecto, la versión y las notas de actualización.
+
 - **Notas de versión.** Aviso único por versión y perfil antes de la guía inicial,
   historial consultable desde Información y traducciones en los cuatro idiomas.
   La nota 1.0.0 recoge la historia y el agradecimiento del autor y aclara que el
@@ -97,25 +102,26 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 | Comprobación | Resultado |
 | --- | --- |
 | ESLint, tests unitarios y DOM | 254 tests unitarios y 62 tests DOM correctos; ESLint correcto. |
-| `npm run test:e2e` | Con esquema 1 y notas de versión: 268 escenarios correctos en Chromium, 12,1 minutos; sin fallos, omitidos ni reintentos. |
-| Chrome for Testing 123.0.6312.122 | Con notas de versión: 37 escenarios de notas, ayuda, bienvenida y concurrencia correctos; incluyen llegada secuencial, modo lista, posición e iconos del consejo diario. Smoke del ZIP correcto. Validación anterior con esquema 1: 23 escenarios de backups y fondos. Batería completa previa al reinicio: 252 escenarios correctos. |
+| `npm run test:e2e` | Antes de separar Ayuda: 268 escenarios correctos en Chromium, 12,1 minutos; sin fallos, omitidos ni reintentos. |
+| Sección Ayuda | 83 escenarios verificados de ayuda, guía, demos, navegación, fondos, notas y modo lista. Se corrigió un acceso antiguo a Información en un test y los 7 escenarios de fondos pasaron al repetirlos. Layout revisado a 601, 720 y 1280 píxeles; traducciones correctas en cuatro idiomas. |
+| Chrome for Testing 123.0.6312.122 | Antes de separar Ayuda: 37 escenarios de notas, ayuda, bienvenida y concurrencia correctos; incluyen llegada secuencial, modo lista, posición e iconos del consejo diario. Smoke del ZIP actual con Ayuda correcto. Validación anterior con esquema 1: 23 escenarios de backups y fondos. Batería completa previa al reinicio: 252 escenarios correctos. |
 | Validación ZIP | 13 pruebas de formato y entradas inválidas; cuatro recorridos de navegador correctos, incluida compatibilidad JSON, selector ZIP y rechazo de vídeos dañados. Un lector ZIP independiente de Python también verifica el archivo descargado. |
 | `node scripts/benchmark-backups.mjs` | ZIP exportado/restaurado con 10, 50, 200 MiB y dos vídeos de 200 MiB; tamaños, tiempos y muestras de memoria registrados. |
 | `npm audit --audit-level=high` | Cero vulnerabilidades tras la actualización de herramientas de desarrollo. |
 | `npm run assets:store` | Generación correcta; cuatro imágenes inspeccionadas. |
-| `npm run test:extension` | ZIP extraído correcto en Chromium, Google Chrome 155.0.8059.40, Brave 155.1.97.56 y Chrome for Testing 123.0.6312.122: nueva pestaña, popup, recarga, atajos y backup ZIP con vídeo bajo Manifest V3; sin errores de página. |
+| `npm run test:extension` | ZIP extraído correcto en Chromium, Google Chrome 155.0.8059.40, Brave 155.1.97.56 y Chrome for Testing 123.0.6312.122: nueva pestaña, Ayuda → manual → ajustes, Información, popup, recarga, atajos y backup ZIP con vídeo bajo Manifest V3; sin errores de página. |
 | Chrome Sync real | Verificado por el autor entre perfiles/dispositivos; no se sustituye por la simulación de storage de los tests. |
 | Enlaces de la ficha | Privacidad y soporte públicos responden HTTP 200. |
 | `git diff --check` | Sin errores de espacios o conflictos. |
 
-Artefacto: `dist/newdesktab-1.0.0.zip`, 2.431.032 bytes y 272 archivos.
+Artefacto: `dist/newdesktab-1.0.0.zip`, 2.431.426 bytes y 273 archivos.
 Incluye únicamente recursos de la extensión, licencia y política de privacidad.
 El empaquetador comprueba cada entrada y su contenido contra el origen.
 
 SHA-256:
 
 ```text
-f1bf6dcb426d74754e830050a113bdeda5c086659629094f62da062624da5cd4
+d11818126be03647638529502d388517fb3ef6c23de881d4b065aed8d998a783
 ```
 
 Las mediciones de vídeos grandes y las pruebas de rendimiento descritas en este
@@ -152,10 +158,11 @@ el máximo absoluto ni se valida toda biblioteca o sesión de incógnito posible
 
 ## Pasos pendientes de publicación
 
-1. Guardar y subir los cambios de notas de versión y comprobar GitHub Actions
-   para el commit definitivo. El commit anterior `176ccfe` ya tiene una
+1. Guardar y subir los cambios de la sección Ayuda y comprobar GitHub Actions
+   para el commit definitivo. El commit `176ccfe` ya tiene una
    [ejecución remota correcta](https://github.com/Alextc35/newdesktab/actions/runs/38236420523);
-   esa ejecución no incluye esta nueva funcionalidad, que sigue sin commit.
+   esa ejecución no cubre los cambios posteriores. Las notas de versión están
+   en `12760ea`; la sección Ayuda todavía no tiene commit.
 2. Comprobar que la clave del manifiesto corresponde a la ficha, y revisar
    descripción, privacidad, correo de contacto y verificación en dos pasos.
    Las imágenes ya se regeneraron e inspeccionaron en esta revisión; repetir
