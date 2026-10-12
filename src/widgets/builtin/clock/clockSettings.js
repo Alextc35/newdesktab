@@ -178,7 +178,7 @@ async function handleDelete() {
     if (pendingDeletion) {
       await retryPersistence();
     } else {
-      if (!deleteWidgetById(activeWidgetId)) return;
+      if (!deleteWidgetById(activeWidgetId, { recordHistory: false })) return;
       pendingDeletion = true;
       await requirePersistence();
     }
