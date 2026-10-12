@@ -22,6 +22,21 @@ const card = page => page.locator('#settings-modal > .modal-card');
 const light = 'rgb(252, 252, 252)';
 const dark = 'rgb(17, 17, 17)';
 
+async function expectReadableCaption(caption, color) {
+  await expect(caption).toHaveCSS('color', color);
+  await expect.poll(() => caption.evaluate(element => {
+    const style = getComputedStyle(element);
+    const luminance = color => color.match(/[\d.]+/g).slice(0, 3).map(channel => {
+      const value = Number(channel) / 255;
+      return value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4;
+    }).reduce((sum, value, index) => sum + value * [.2126, .7152, .0722][index], 0);
+    if (style.backgroundColor === 'rgba(0, 0, 0, 0)') return 0;
+    const foreground = luminance(style.color);
+    const background = luminance(style.backgroundColor);
+    return (Math.max(foreground, background) + .05) / (Math.min(foreground, background) + .05);
+  })).toBeGreaterThanOrEqual(4.5);
+}
+
 test('settings launcher uses an accessible, theme-colored SVG asset', async ({ page }) => {
   await start(page);
   const button = page.getByRole('button', { name: 'Settings', exact: true });
@@ -79,7 +94,7 @@ test('Information displays the New DeskTab brand artwork and keeps its text read
   await expect(card.locator('.settings-information-copy')).toBeVisible();
 });
 
-test('neutral folder grids keep readable labels across themes and editor previews', async ({ page }) => {
+test('folder captions preserve saved colors with readable badges across themes and editors', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'light' });
   await start(page);
   await page.evaluate(async () => {
@@ -113,18 +128,18 @@ test('neutral folder grids keep readable labels across themes and editor preview
   const purple = grid.locator('[data-bookmark-id="Purple"] .bookmark-title');
   const filled = grid.locator('[data-bookmark-id="Filled"] .bookmark-title');
   const cover = grid.locator('[data-bookmark-id="Cover"] .bookmark-title');
-  await expect(white).toHaveCSS('color', 'rgb(36, 36, 40)');
-  await expect(purple).toHaveCSS('color', 'rgb(85, 49, 168)');
+  await expectReadableCaption(white, 'rgb(255, 255, 255)');
+  await expectReadableCaption(purple, 'rgb(85, 49, 168)');
   await expect(filled).toHaveCSS('color', 'rgb(255, 255, 255)');
   await expect(cover).toHaveCSS('color', 'rgb(255, 255, 255)');
   await page.emulateMedia({ colorScheme: 'dark' });
   await expect(contents).toHaveCSS('background-color', 'rgb(24, 24, 26)');
   await expect(grid).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
-  await expect(white).toHaveCSS('color', 'rgb(255, 255, 255)');
-  await expect(purple).toHaveCSS('color', 'rgb(248, 250, 252)');
+  await expectReadableCaption(white, 'rgb(255, 255, 255)');
+  await expectReadableCaption(purple, 'rgb(85, 49, 168)');
   await page.emulateMedia({ colorScheme: 'light' });
   await expect(contents).toHaveCSS('background-color', 'rgb(246, 246, 247)');
-  await expect(white).toHaveCSS('color', 'rgb(36, 36, 40)');
+  await expectReadableCaption(white, 'rgb(255, 255, 255)');
   await grid.getByRole('button', { name: 'Edit White', exact: true }).click();
   const preview = page.locator('#edit-bookmark-modal .bookmark-preview');
   await expect(preview).toHaveCSS('background-image', /conic-gradient/);
