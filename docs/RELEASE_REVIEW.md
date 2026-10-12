@@ -1,9 +1,32 @@
-# Revisión de preparación para publicar — 0.27.0
+# Revisión de preparación para publicar — 1.0.0
 
-Revisión local del 9 y el 10 de octubre de 2026. Este informe distingue la validación
+Revisión de cierre del 12 de octubre de 2026. Este informe distingue la validación
 automatizada de las comprobaciones que necesitan perfiles y cuentas reales.
+Chrome Sync entre perfiles o dispositivos reales está verificado por el autor,
+según su confirmación en esta conversación. El esquema de datos sigue en 21.
 
 ## Cambios aplicados
+
+- **Importación sin pérdida por archivos inválidos.** Se comprueba la estructura
+  de los backups antes de que la migración pueda convertir datos malformados en
+  un espacio vacío. Se rechazan versiones futuras exteriores e interiores e IDs
+  duplicados, incluidos conflictos entre favoritos, carpetas y widgets. Los
+  archivos antiguos válidos y las relaciones con carpetas se conservan. Las
+  nuevas pruebas verifican que un rechazo no cambia almacenamiento ni medios
+  y que los datos siguen intactos después de recargar.
+- **Borrado definitivo del reloj.** El editor elimina el reloj sin conservar una
+  operación que permita resucitarlo al deshacer. Su recorrido y el reintento tras
+  un error de escritura se verificaron tres veces consecutivas en Chrome 123.
+- **Pruebas actuales y portables.** El escenario de carpetas verifica colores
+  guardados y contraste de sus rótulos en ambos temas. La prueba de redimensionado
+  espera el guardado mediante el estado, sin retener una evaluación de Playwright
+  a través de Web Locks. Las pruebas de concurrencia respetan el navegador
+  seleccionado y usan el modo headless compatible con Chrome 123. El smoke test
+  puede cargar la extensión mediante DevTools en Google Chrome instalado.
+- **Versión y ficha.** Manifest, package, package-lock y README indican 1.0.0.
+  Se declara Chrome 123 como mínimo, se documentan los atajos E/B/F/W/S y se
+  incluyen las notas de lanzamiento. Se regeneraron las cuatro imágenes de la
+  Store y se inspeccionaron visualmente, incluida la versión 1.0.0 en Información.
 
 - **Recuperación de escrituras fallidas.** El store conserva la base de los
   cambios pendientes hasta que se guardan. Una actualización de otra pestaña
@@ -57,24 +80,33 @@ automatizada de las comprobaciones que necesitan perfiles y cuentas reales.
 
 | Comprobación | Resultado |
 | --- | --- |
-| ESLint, tests unitarios y DOM | 222 tests unitarios y 57 tests DOM correctos; ESLint correcto. |
-| `npm run test:e2e` | 191 escenarios correctos en 7,9 minutos. |
+| ESLint, tests unitarios y DOM | 245 tests unitarios y 62 tests DOM correctos; ESLint correcto. |
+| `npm run test:e2e` | 252 escenarios correctos en Chromium, 11,0 minutos; sin fallos, omitidos ni reintentos. |
+| Chrome for Testing 123.0.6312.122 | Los mismos 252 escenarios correctos, 11,6 minutos; sin fallos, omitidos ni reintentos. Smoke del ZIP también correcto. |
 | Validación ZIP | 13 pruebas de formato y entradas inválidas; cuatro recorridos de navegador correctos, incluida compatibilidad JSON, selector ZIP y rechazo de vídeos dañados. Un lector ZIP independiente de Python también verifica el archivo descargado. |
 | `node scripts/benchmark-backups.mjs` | ZIP exportado/restaurado con 10, 50, 200 MiB y dos vídeos de 200 MiB; tamaños, tiempos y muestras de memoria registrados. |
 | `npm audit --audit-level=high` | Cero vulnerabilidades tras la actualización de herramientas de desarrollo. |
 | `npm run assets:store` | Generación correcta; cuatro imágenes inspeccionadas. |
-| `npm run test:extension` | Nueva pestaña, popup, recarga, atajos y exportación/restauración de un backup ZIP con vídeo correctos bajo Manifest V3, tanto desde el origen como desde el paquete extraído; sin errores de página. |
+| `npm run test:extension` | ZIP extraído correcto en Chromium, Google Chrome 155.0.8059.40, Brave 155.1.97.56 y Chrome for Testing 123.0.6312.122: nueva pestaña, popup, recarga, atajos y backup ZIP con vídeo bajo Manifest V3; sin errores de página. |
+| Chrome Sync real | Verificado por el autor entre perfiles/dispositivos; no se sustituye por la simulación de storage de los tests. |
+| Enlaces de la ficha | Privacidad y soporte públicos responden HTTP 200. |
 | `git diff --check` | Sin errores de espacios o conflictos. |
 
-Artefacto: `dist/newdesktab-0.27.0.zip`, 2.320.562 bytes y 225 archivos.
+Artefacto: `dist/newdesktab-1.0.0.zip`, 2.421.549 bytes y 267 archivos.
 Incluye únicamente recursos de la extensión, licencia y política de privacidad.
 El empaquetador comprueba cada entrada y su contenido contra el origen.
 
 SHA-256:
 
 ```text
-75e056c0388562f285f599ee01fa3a2d9dabe7663a79ee6d6584685b1d49064b
+86ef3ea645f3862f65e308a1de5c71d9e2ccd1b79eed61f29f61e153f5f91153
 ```
+
+Las mediciones de vídeos grandes y las pruebas de rendimiento descritas en este
+informe proceden del cierre del 10 de octubre; sus resultados detallados se
+conservan en `docs/benchmarks/`. La comprobación del paquete 1.0.0 se ejecutó
+nuevamente el 12 de octubre con perfiles temporales nuevos. Los smoke tests
+bloquean las solicitudes externas para no depender de proveedores de imágenes.
 
 El procedimiento reproducible de publicación está en
 [CHROME_WEB_STORE.md](CHROME_WEB_STORE.md). En este Windows se utilizó Python
@@ -102,18 +134,16 @@ almacenamiento y transporte, no reproducción ni toda la RAM del proceso.
 La frecuencia de muestreo difiere entre las mediciones; no se garantiza capturar
 el máximo absoluto ni se valida toda biblioteca o sesión de incógnito posible.
 
-## Comprobaciones antes de enviar a la Store
+## Pasos pendientes de publicación
 
-1. Verificar Chrome Sync entre dos perfiles o dispositivos reales, incluyendo
-   edición simultánea, cambio a modo local y eliminación del dato sincronizado.
-   Las pruebas automatizadas cubren almacenamiento y mezcla de cambios, pero
-   no la propagación del servicio de perfiles de Google.
-2. Instalar el ZIP extraído en Chrome y Brave, comprobar el guardado desde el
-   botón de la extensión y hacer un recorrido breve con teclado y ratón.
-   La prueba automatizada de extensión utiliza Chromium.
-3. Comprobar que la clave del manifiesto corresponde a la ficha, y revisar
+1. Subir los commits y comprobar una ejecución verde de GitHub Actions para el
+   commit definitivo. La API pública no ofrecía ejecuciones registradas durante
+   la revisión inicial; el resultado remoto no se da por confirmado localmente.
+2. Comprobar que la clave del manifiesto corresponde a la ficha, y revisar
    descripción, privacidad, correo de contacto y verificación en dos pasos.
    Las imágenes ya se regeneraron e inspeccionaron en esta revisión; repetir
    ese paso si cambia la interfaz antes del envío.
+3. Cargar el ZIP y las imágenes, completar las declaraciones y enviar a revisión.
 
-La publicación en la Store queda pendiente de las comprobaciones anteriores.
+Chrome Sync real y la instalación del ZIP en Chrome y Brave quedan verificados.
+La publicación en la Store queda pendiente de los pasos administrativos anteriores.

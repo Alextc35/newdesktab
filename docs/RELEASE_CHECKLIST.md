@@ -29,4 +29,27 @@ y 57 tests DOM correctos; 191 escenarios de navegador correctos.
 La extensión empaquetada y extraída también pasa la prueba real en Chromium,
 incluida la restauración del backup ZIP con vídeo después de borrar los datos locales.
 
-El detalle de validación y del ZIP está en [RELEASE_REVIEW.md](RELEASE_REVIEW.md).
+La validación anterior se conserva como historial del cierre de arquitectura.
+El estado del lanzamiento 1.0.0 y de su ZIP está en [RELEASE_REVIEW.md](RELEASE_REVIEW.md).
+
+## Lanzamiento 1.0.0 — 12 de octubre de 2026
+
+- [x] Rechazar backups malformados antes de restaurar medios o reemplazar datos.
+- [x] Rechazar esquemas futuros en backups completos y exportaciones de favoritos.
+- [x] Rechazar IDs duplicados, conservando archivos antiguos válidos y relaciones con carpetas.
+- [x] Mantener definitivo el borrado confirmado del reloj, también al reintentar el guardado.
+- [x] Actualizar la prueba de rótulos para comprobar sus colores guardados y su contraste.
+- [x] Corregir la preparación de la prueba de redimensionado y el navegador de las pruebas de concurrencia.
+- [x] Sincronizar manifest, package, package-lock y README en 1.0.0.
+- [x] Declarar Chrome 123 como versión mínima y corregir los atajos documentados.
+- [x] Añadir notas de lanzamiento y regenerar/revisar las cuatro imágenes de la Store.
+- [x] Ejecutar lint, 245 pruebas unitarias y 62 pruebas DOM sin errores.
+- [x] Confirmar las baterías completas finales: 252 escenarios correctos en Chromium y 252 en Chrome 123, sin fallos ni reintentos.
+- [x] Generar y verificar el ZIP 1.0.0; probar el contenido extraído en Chromium, Google Chrome, Brave y Chrome 123.
+- [x] Confirmar Chrome Sync entre perfiles/dispositivos reales: verificado por el autor en esta conversación.
+- [x] Confirmar que los enlaces públicos de privacidad y soporte responden correctamente.
+
+Después de subir los commits, comprobar el resultado de GitHub Actions. Antes
+del envío a la Store, comprobar en su panel la identidad del paquete, las
+declaraciones de privacidad, contacto y verificación en dos pasos. Estos pasos
+administrativos no se han dado por realizados durante la validación local.
