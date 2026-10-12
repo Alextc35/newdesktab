@@ -52,8 +52,11 @@ async function seedBookmarks(page) {
 
 test.beforeEach(async () => {
   context = await chromium.launchPersistentContext('', {
-    channel: 'chromium', headless: true,
-    args: [`--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`]
+    ...(process.env.NEWDESKTAB_BROWSER_PATH
+      ? { executablePath: process.env.NEWDESKTAB_BROWSER_PATH }
+      : { channel: 'chromium' }),
+    headless: true,
+    args: ['--headless=new', `--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`]
   });
   await context.route(/^https?:/, route => route.abort());
   const firstPage = await context.newPage();
