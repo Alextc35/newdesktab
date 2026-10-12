@@ -8,10 +8,13 @@ import {
   withoutDeviceWallpapers
 } from '../src/platform/storage/deviceWallpapers.js';
 
-const local = {};
+const local = {
+  'newdesktabLocalImage:4c5b9a2e-3f0e-4c7e-889c-72117afc09e9': { dataUrl: 'data:image/png;base64,c2FtcGxl', name: 'owned.png' }
+};
 globalThis.chrome = { runtime: { lastError: null }, storage: { local: {
   get(key, callback) {
-    callback(Object.hasOwn(local, key) ? { [key]: structuredClone(local[key]) } : {});
+    callback(Object.fromEntries((Array.isArray(key) ? key : [key])
+      .filter(item => Object.hasOwn(local, item)).map(item => [item, structuredClone(local[item])])));
   },
   set(values, callback) {
     Object.assign(local, structuredClone(values));
@@ -114,4 +117,23 @@ test('migration moves a primary local video and leaves its remote fallback in pl
   assert.equal(restored.settings.theme.backgroundVideo.url, 'https://example.test/fallback.webm');
   assert.equal(restored.settings.theme.backgroundVideo.local, null);
   assert.equal(restored.settings.theme.backgroundMedia[0].local, video);
+});
+
+test('cleans the device wallpaper collection without touching shared settings or available files', async () => {
+  const missing = 'newdesktab-local-image:6c5b9a2e-3f0e-4c7e-889c-72117afc09e9';
+  await saveDeviceWallpapers(migratePersistedData({ settings: { theme: { backgroundMedia: [
+    { id: 'gone', type: 'image', backgroundImageLocal: missing },
+    { id: 'fallback', type: 'image', backgroundImageLocal: missing, backgroundImageUrl: 'https://images.test/fallback.png' },
+    { id: 'owned', type: 'image', backgroundImageLocal: image }
+  ], backgroundRotationSeconds: 15 } } }));
+  const incoming = migratePersistedData({ settings: { theme: { backgroundImageUrl: 'https://images.test/shared.png' } } });
+  const before = structuredClone(incoming);
+  const restored = await restoreDeviceWallpapers(incoming);
+  assert.deepEqual(restored.settings.theme.backgroundMedia.map(item => item.id), ['fallback', 'owned']);
+  assert.equal(restored.settings.theme.backgroundMedia[0].backgroundImageLocal, null);
+  assert.equal(restored.settings.theme.backgroundMedia[0].backgroundImageSource, 'url');
+  assert.equal(restored.settings.theme.backgroundMedia[1].backgroundImageLocal, image);
+  assert.equal(restored.settings.theme.backgroundRotationSeconds, 15);
+  assert.equal(JSON.stringify(local[DEVICE_WALLPAPERS_KEY]).includes(missing), false);
+  assert.deepEqual(incoming, before);
 });

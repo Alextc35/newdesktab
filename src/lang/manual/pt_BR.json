@@ -288,7 +288,7 @@
       "question": "Como altero a cor, o ícone ou o texto?", "searchTerms": "alterar cor; mudar ícone; alterar texto; aparência favorito; cor pasta; favicon",
       "title": "Personalizar cartões", "summary": "Cores, imagens, texto e ícones do seu jeito.",
       "steps": ["Ative a edição e abra o lápis de um favorito, ou o controle de aparência de uma pasta ou da lixeira.", "Explore o editor: fundo, cor, imagem, texto e ícone. Os controles dependem do tipo de elemento; a prévia mostra o resultado.", "Salve quando estiver satisfeito. Use imagens de uma URL ou de um arquivo local onde o editor oferecer essa opção."],
-      "note": "Imagens locais pertencem a este navegador. Adicione uma URL alternativa para mostrar a imagem em outros dispositivos sincronizados.",
+      "note": "Imagens locais pertencem a este navegador. Na sincronização, adicione uma URL alternativa para outros dispositivos. A importação mantém as imagens incluídas e limpa referências sem arquivo; a sincronização ignora arquivos indisponíveis neste dispositivo.",
       "tip": "O lápis de um favorito abre seu editor visual. Altere cores, texto, ícone ou imagem e confira a prévia."
     },
     "presets": {

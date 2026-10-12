@@ -522,7 +522,9 @@ test('copies an older shared wallpaper list to each device before making it inde
       .toEqual(shared);
     await openTheme(page);
     await openOwnWallpapers(page);
-    await expect(page.locator('#settings-theme-media-list .theme-wallpaper-row')).toHaveCount(2);
+    await expect(page.locator('#settings-theme-media-list .theme-wallpaper-row')).toHaveCount(1);
+    await expect(page.locator('#settings-theme-media-list .theme-wallpaper-row')).toContainText('old-own.png');
+    expect(await other.evaluate(async () => (await import('/src/state/appStore.js')).getState().data.settings.theme.backgroundMedia.length)).toBe(3);
   } finally {
     await otherContext.close();
   }

@@ -293,6 +293,12 @@ to 200 MB and are stored separately from Chrome Sync. Existing shared
 wallpaper lists are copied once into each device's personal collection when
 upgrading, then subsequent edits stay independent.
 
+Unavailable local-image references are removed when importing or exporting data.
+Complete backups restore their included images before checking references;
+available files and alternative URLs are retained. On Sync, missing device
+selections are cleared only locally. Personal image wallpapers with neither
+a file nor a URL are removed from this device's collection.
+
 > Cross-device sync requires the same extension ID on every installation. A
 > Chrome Web Store release provides this automatically. Development installs
 > need a stable manifest key or consistent packaging workflow.

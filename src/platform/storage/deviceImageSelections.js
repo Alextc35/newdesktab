@@ -87,7 +87,7 @@ export async function restoreDeviceImageSelections(data) {
     Object.hasOwn(selections, key) ? selections[key].reference
       : key.startsWith('theme-video:') ? style.local : style.backgroundImageLocal
   ));
-  await preloadLocalImages(candidates);
+  await preloadLocalImages(candidates, { refresh: true });
   await preloadLocalVideoReferences(candidates);
 
   let changed = pruneSelections(selections, slots);
@@ -108,12 +108,15 @@ export async function restoreDeviceImageSelections(data) {
       style.backgroundImageLocal = available ? reference : null;
       style.backgroundImageSource = available && source !== 'url' ? 'local' : 'url';
     }
-    if (!hasSelection && (isVideo ? isLocalVideoReference(reference) : isLocalImageReference(reference))) {
-      selections[key] = {
+    if (hasSelection || (isVideo ? isLocalVideoReference(reference) : isLocalImageReference(reference))) {
+      const selection = {
         reference: isVideo ? style.local : style.backgroundImageLocal,
         source: isVideo ? style.source : style.backgroundImageSource
       };
-      changed = true;
+      if (!sameSelection(selections[key], selection)) {
+        selections[key] = selection;
+        changed = true;
+      }
     }
   }
   if (changed) await writeSelections(selections);

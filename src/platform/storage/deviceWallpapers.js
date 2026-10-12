@@ -5,6 +5,8 @@ import {
   normalizeWallpaperMedia
 } from '../../domain/settings/wallpaperMedia.js';
 import { callStorage } from './chromeStorage.js';
+import { cleanMissingLocalImageReferences } from '../images/localImages.js';
+import { valuesEqual } from '../../shared/data/valuesEqual.js';
 
 export const DEVICE_WALLPAPERS_KEY = 'newdesktabDeviceWallpapers';
 
@@ -79,7 +81,9 @@ export async function restoreDeviceWallpapers(data) {
   delete theme.legacyBackgroundMedia;
   delete theme.legacyBackgroundRotationSeconds;
 
-  if (!ownsCollection && (hasLegacyCollection || migratedPrimary)) {
+  restored.settings.theme = (await cleanMissingLocalImageReferences({ settings: { theme } })).settings.theme;
+  const cleanedCollection = !valuesEqual(media, restored.settings.theme.backgroundMedia);
+  if (cleanedCollection || !ownsCollection && (hasLegacyCollection || migratedPrimary)) {
     await saveDeviceWallpapers(restored);
   }
   return restored;

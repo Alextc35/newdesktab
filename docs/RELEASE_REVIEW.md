@@ -8,6 +8,14 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 
 ## Cambios aplicados
 
+- **Referencias de imágenes locales.** Importación y exportación omiten las
+  referencias cuyo archivo no existe, conservando URLs alternativas y estilos.
+  Los backups JSON/ZIP restauran las imágenes incluidas antes de limpiar;
+  imágenes incluidas inválidas siguen rechazándose. Se vuelve a comprobar el
+  almacenamiento para evitar referencias fantasma en caché. Las selecciones
+  ausentes y los fondos personales vacíos se limpian solo en este dispositivo;
+  los datos compartidos y las imágenes de otros dispositivos se conservan.
+
 - **Deshacer y rehacer en editores.** Historial local del borrador para favoritos,
   estilos predeterminados, carpetas, papelera y configuración del reloj. Los
   atajos y dos flechas SVG discretas junto al título restauran cambios completos,
@@ -118,7 +126,8 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 
 | Comprobación | Resultado |
 | --- | --- |
-| ESLint, tests unitarios y DOM | 267 tests unitarios y 69 tests DOM correctos; ESLint correcto. |
+| ESLint, tests unitarios y DOM | 271 tests unitarios y 69 tests DOM correctos; ESLint correcto. |
+| Imágenes locales | 32 escenarios de importación/exportación, JSON/ZIP, selecciones por dispositivo, fondos y fallbacks correctos en Chromium; 16 de imágenes/backups correctos en Chrome 123. Incluyen caché de un archivo borrado, importación con imágenes parcialmente incluidas, rechazo de imágenes inválidas y un segundo perfil que limpia su selección sin cambiar Sync ni el archivo del origen. |
 | Historial de editores | 79 escenarios relacionados cubiertos en Chromium: editores, carpetas, papelera, reloj, atajos y modo lista. Tras el ajuste final, los 22 escenarios de historial y editor visual pasaron de nuevo sin errores. Se revisó la cabecera a 601, 720 y 1280 píxeles, las cuatro traducciones y capturas en ambos temas. |
 | `npm run test:e2e` | Antes de separar Ayuda: 268 escenarios correctos en Chromium, 12,1 minutos; sin fallos, omitidos ni reintentos. |
 | Sección Ayuda | 83 escenarios verificados de ayuda, guía, demos, navegación, fondos, notas y modo lista. Se corrigió un acceso antiguo a Información en un test y los 7 escenarios de fondos pasaron al repetirlos. Layout revisado a 601, 720 y 1280 píxeles; traducciones correctas en cuatro idiomas. |
@@ -128,19 +137,19 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 | `node scripts/benchmark-backups.mjs` | ZIP exportado/restaurado con 10, 50, 200 MiB y dos vídeos de 200 MiB; tamaños, tiempos y muestras de memoria registrados. |
 | `npm audit --audit-level=high` | Cero vulnerabilidades tras la actualización de herramientas de desarrollo. |
 | `npm run assets:store` | Generación correcta; cuatro imágenes inspeccionadas. |
-| `npm run test:extension` | ZIP extraído correcto en Chromium, Google Chrome 155.0.8059.40, Brave 155.1.97.56 y Chrome for Testing 123.0.6312.122: nueva pestaña, botones/atajos y flash del editor, Ayuda → manual → ajustes, Información, popup, recarga y backup ZIP con vídeo bajo Manifest V3; sin errores de página. |
+| `npm run test:extension` | ZIP extraído correcto en Chromium, Google Chrome 155.0.8059.40, Brave 155.1.97.56 y Chrome for Testing 123.0.6312.122: nueva pestaña, botones/atajos y flash del editor, importación con imagen ausente y URL conservada, Ayuda → manual → ajustes, Información, popup, recarga y backup ZIP con vídeo bajo Manifest V3; sin errores de página. |
 | Chrome Sync real | Verificado por el autor entre perfiles/dispositivos; no se sustituye por la simulación de storage de los tests. |
 | Enlaces de la ficha | Privacidad y soporte públicos responden HTTP 200. |
 | `git diff --check` | Sin errores de espacios o conflictos. |
 
-Artefacto: `dist/newdesktab-1.0.0.zip`, 2.484.238 bytes y 281 archivos.
+Artefacto: `dist/newdesktab-1.0.0.zip`, 2.484.989 bytes y 281 archivos.
 Incluye únicamente recursos de la extensión, licencia y política de privacidad.
 El empaquetador comprueba cada entrada y su contenido contra el origen.
 
 SHA-256:
 
 ```text
-90fb1c1ac82fe615d934ac65489ba8e698f63ba9fe6e162e79b887d6fbab9e30
+1d3ce79eb8965eae6d258e2a6c05148363e29444752ac600faf8fc254770296e
 ```
 
 Las mediciones de vídeos grandes y las pruebas de rendimiento descritas en este
@@ -179,11 +188,12 @@ el máximo absoluto ni se valida toda biblioteca o sesión de incógnito posible
 
 ## Pasos pendientes de publicación
 
-1. Guardar y subir los cambios del historial de editores y comprobar GitHub Actions
+1. Subir el commit de limpieza de imágenes locales y comprobar GitHub Actions
    para el commit definitivo. El commit `176ccfe` ya tiene una
    [ejecución remota correcta](https://github.com/Alextc35/newdesktab/actions/runs/38236420523);
    esa ejecución no cubre los cambios posteriores. Las notas de versión están
-   en `12760ea`, Ayuda en `c0ca046` y el fallback de favicons en `70595a3`.
+   en `12760ea`, Ayuda en `c0ca046`, el fallback de favicons en `70595a3` y
+   el historial de editores en `d170fd7`.
 2. Comprobar que la clave del manifiesto corresponde a la ficha, y revisar
    descripción, privacidad, correo de contacto y verificación en dos pasos.
    Las imágenes ya se regeneraron e inspeccionaron en esta revisión; repetir

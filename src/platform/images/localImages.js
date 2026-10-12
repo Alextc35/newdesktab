@@ -63,11 +63,12 @@ export function getLocalImageName(value) {
  * reading the whole local-image library when a workspace does not use it.
  *
  * @param {object} data
+ * @param {{refresh?: boolean}} [options] - Recheck storage instead of trusting cached files.
  * @returns {Promise<void>}
  */
-export async function preloadLocalImages(data) {
+export async function preloadLocalImages(data, { refresh = false } = {}) {
   const references = collectLocalImageReferences(data);
-  const missing = [...references].filter(reference => !cachedImages.has(reference));
+  const missing = [...references].filter(reference => refresh || !cachedImages.has(reference));
   if (!missing.length) return;
 
   const values = await callStorage(
@@ -79,12 +80,38 @@ export async function preloadLocalImages(data) {
   for (const reference of missing) {
     const storedImage = values[getStorageKey(reference)];
     const image = getStoredImageData(storedImage);
-    if (!isImageDataUrl(image)) continue;
+    if (!isImageDataUrl(image)) {
+      cachedImages.delete(reference);
+      cachedImageNames.delete(reference);
+      continue;
+    }
 
     cachedImages.set(reference, image);
     const name = getStoredImageName(storedImage);
     if (name) cachedImageNames.set(reference, name);
+    else cachedImageNames.delete(reference);
   }
+}
+
+/** Drops unavailable file choices from a copy, preserving URLs and all other styling. */
+export async function cleanMissingLocalImageReferences(data) {
+  const cleaned = structuredClone(data);
+  await preloadLocalImages(cleaned, { refresh: true });
+  function clean(value) {
+    if (!value || typeof value !== 'object') return;
+    if (isLocalImageReference(value.backgroundImageLocal) && !resolveImageSource(value.backgroundImageLocal)) {
+      value.backgroundImageLocal = null;
+      value.backgroundImageSource = 'url';
+    }
+    for (const child of Object.values(value)) clean(child);
+  }
+  clean(cleaned);
+  const theme = cleaned.settings?.theme;
+  if (Array.isArray(theme?.backgroundMedia)) {
+    theme.backgroundMedia = theme.backgroundMedia.filter(item => item.type !== 'image'
+      || item.backgroundImageLocal || item.backgroundImageUrl);
+  }
+  return cleaned;
 }
 
 /** Returns the stored files referenced by a complete backup's application data. */
@@ -122,6 +149,7 @@ export async function restoreReferencedLocalImages(data, backupImages) {
 
   const restoredImages = {};
   for (const reference of collectLocalImageReferences(data)) {
+    if (!Object.hasOwn(backupImages, reference)) continue;
     const stored = backupImages[reference];
     const dataUrl = getStoredImageData(stored);
     const name = getStoredImageName(stored);

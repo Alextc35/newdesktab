@@ -9,6 +9,7 @@ import { downloadBlob } from '../../shared/ui/blobDownload.js';
 import { createBackupArchive, isBackupArchive, readBackupArchive } from '../../platform/backup/backupArchive.js';
 import {
   exportReferencedLocalImages,
+  cleanMissingLocalImageReferences,
   restoreReferencedLocalImages
 } from '../../platform/images/localImages.js';
 import {
@@ -24,7 +25,7 @@ export async function exportBackup() {
   if (exporting) return;
   exporting = true;
   try {
-    const data = getState().data;
+    const data = await cleanMissingLocalImageReferences(getState().data);
     const localImages = await exportReferencedLocalImages(data);
     const localVideos = await getReferencedLocalVideoFiles(data);
     const filename = `newdesktab-backup-${new Date().toISOString().slice(0, 10)}`;
@@ -66,6 +67,7 @@ export async function importBackup(file) {
       await restoreReferencedLocalVideos(data,
         payload?.format === 'newdesktab-backup' ? payload.localVideos : undefined);
     }
+    data = await cleanMissingLocalImageReferences(data);
     await setState({ data });
     await requirePersistence();
     ensureRecycleBinPosition();

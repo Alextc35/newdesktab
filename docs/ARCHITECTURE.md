@@ -872,6 +872,16 @@ video before any persistence operation. Entries are read sequentially. Local
 video storage accepts the resulting Blobs directly; legacy JSON video decoding
 remains available. Legacy raw bookmark arrays remain importable without folders.
 
+`platform/images/localImages.js` cleans unavailable image references on a cloned
+import/export snapshot. It refreshes referenced storage entries and evicts stale
+image/name caches, retains available files and URL fallbacks, and drops unusable
+personal image wallpapers. Complete JSON/ZIP imports restore provided images
+before cleanup; absent image entries are skipped, while invalid provided image
+data still rejects the import. Bookmark-only imports never presume that a file
+exists just because its reference is well formed. Device selection and wallpaper
+restoration persist cleanup in `chrome.storage.local`, leaving the shared Sync
+payload and the sender's own files untouched.
+
 The locally shipped zip.js core is generated from pinned development dependencies
 with `npm run vendor:zip`. Its BSD license is shipped beside the bundle. The
 runtime disables workers and uses no external code or WASM. The

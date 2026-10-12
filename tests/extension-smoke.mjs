@@ -149,6 +149,21 @@ try {
   await page.getByRole('link', { name: /Popup smoke/ }).waitFor({ state: 'visible' });
   await popup.close();
 
+  const missingImage = await page.evaluate(async () => {
+    const { getState } = await import('./state/appStore.js');
+    const { createBackupEnvelope } = await import('./platform/storage/dataSchema.js');
+    const data = getState().data;
+    const bookmark = data.bookmarks.find(item => item.name === 'Release smoke');
+    bookmark.backgroundImageLocal = 'newdesktab-local-image:2c5b9a2e-3f0e-4c7e-889c-72117afc09e9';
+    bookmark.backgroundImageSource = 'local';
+    bookmark.backgroundImageUrl = 'https://smoke.internal/fallback.png';
+    const imported = await (await import('./features/settings/backupActions.js')).importBackup(
+      new File([JSON.stringify(createBackupEnvelope(data))], 'missing-image.json'));
+    const saved = (await chrome.storage.local.get('bookmarks')).bookmarks.find(item => item.name === 'Release smoke');
+    return { imported, local: saved.backgroundImageLocal, source: saved.backgroundImageSource, url: saved.backgroundImageUrl };
+  });
+  assert.deepEqual(missingImage, { imported: true, local: null, source: 'url', url: 'https://smoke.internal/fallback.png' });
+
   // Exercise ZIP generation and restoration under the real Manifest V3 CSP.
   const backupDownload = page.waitForEvent('download');
   await page.evaluate(async () => {

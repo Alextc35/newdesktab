@@ -291,7 +291,7 @@
       "question": "How do I change the color, icon or text?", "searchTerms": "change color; change icon; change text; bookmark appearance; folder color; favicon",
       "title": "Customize your cards", "summary": "Colors, images, text and icons your way.",
       "steps": ["Turn on editing and open a bookmark's pencil, or the appearance control for a folder or the recycle bin.", "Explore the editor: background, color, image, text and icon. Available controls depend on the item type; the preview shows the result.", "Save when you're happy. You can use images from a URL or a local file where the editor offers that option."],
-      "note": "Local images belong to this browser. Add an alternative URL if you want the image to appear on other synchronized devices.",
+      "note": "Local images belong to this browser. When syncing, add a fallback URL for other devices. Imports keep included images and clear references without a file; Sync ignores files unavailable on this device.",
       "tip": "A bookmark's pencil opens its visual editor. Change colors, text, icon or image and check the preview."
     },
     "presets": {

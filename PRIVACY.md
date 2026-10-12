@@ -89,6 +89,11 @@ binary video files. Restore recreates those files in this device's IndexedDB.
 Backups without local videos remain JSON, and older JSON backups with embedded
 videos remain importable. Exported files are not encrypted by NewDeskTab.
 
+Imports restore included images before clearing references to unavailable local
+files. Exports omit those unavailable image references. Device-only cleanup also
+removes personal image wallpapers with no file or URL, and does not delete files
+or change image choices on another synchronized device.
+
 Workspace data is retained in the browser until you change or remove it.
 Deleting a bookmark removes the record but does not necessarily erase unused
 image files from extension storage. Removing a local video wallpaper on this

@@ -291,7 +291,7 @@
       "question": "¿Cómo cambio el color, el icono o el texto?", "searchTerms": "cambiar color; cambiar icono; cambiar texto; aspecto favorito; color carpeta; favicon",
       "title": "Personalizar las tarjetas", "summary": "Colores, imágenes, texto e iconos a tu gusto.",
       "steps": ["Activa la edición y abre el lápiz de un favorito, o el control de apariencia de una carpeta o de la papelera.", "Explora el editor: fondo y color, imagen, texto e icono. Los controles disponibles dependen del tipo de elemento; la vista previa muestra el resultado.", "Guarda cuando estés conforme. Puedes usar imágenes desde una URL o un archivo local donde el editor ofrezca esa opción."],
-      "note": "Las imágenes locales pertenecen a este navegador. En sincronización, añade una URL alternativa si quieres mostrar la imagen en otros dispositivos.",
+      "note": "Las imágenes locales pertenecen a este navegador. En sincronización, añade una URL alternativa para otros dispositivos. Al importar, se conservan las imágenes incluidas y se limpian las referencias sin archivo; la sincronización ignora los archivos que este dispositivo no tiene.",
       "tip": "El lápiz de un favorito abre su editor visual. Cambia colores, texto, icono o imagen y comprueba el resultado en la vista previa."
     },
     "presets": {

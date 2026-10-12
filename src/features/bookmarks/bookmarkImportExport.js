@@ -6,6 +6,7 @@ import {
 } from '../../platform/storage/dataSchema.js';
 import { flashSuccess, flashError } from '../../shared/ui/flash.js';
 import { downloadJson } from '../../shared/ui/jsonDownload.js';
+import { cleanMissingLocalImageReferences } from '../../platform/images/localImages.js';
 import {
   ensureRecycleBinPosition,
   replaceGridDataThroughRecycleBin
@@ -17,11 +18,11 @@ import {
  * Generates a downloadable file named "bookmarks.json"
  * containing the serialized bookmarks array.
  *
- * @returns {void}
+ * @returns {Promise<void>}
  */
-export function exportBookmarks() {
+export async function exportBookmarks() {
   try {
-    const { data: { bookmarks, folders } } = getState();
+    const { bookmarks, folders } = await cleanMissingLocalImageReferences(getState().data);
     downloadJson(createBookmarksEnvelope(bookmarks, folders), 'newdesktab-bookmarks.json');
 
     debug.info('Bookmarks exported', { bookmarks: bookmarks.length, folders: folders.length });
@@ -48,7 +49,7 @@ export async function importBookmarks(file) {
   try {
     const payload = JSON.parse(await file.text());
     const currentData = getState().data;
-    const { bookmarks, folders } = parseBookmarksPayload(payload, currentData);
+    const { bookmarks, folders } = await cleanMissingLocalImageReferences(parseBookmarksPayload(payload, currentData));
     await replaceGridDataThroughRecycleBin(bookmarks, folders);
     await requirePersistence();
     ensureRecycleBinPosition();

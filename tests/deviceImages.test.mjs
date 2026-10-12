@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { migratePersistedData } from '../src/platform/storage/dataSchema.js';
+import { preloadLocalImages, resolveImageSource } from '../src/platform/images/localImages.js';
 import {
   DEVICE_IMAGE_SELECTIONS_KEY,
   restoreDeviceImageSelections,
@@ -113,4 +114,20 @@ test('keeps deleted-item image choices out of synchronized payloads', () => {
   assert.equal(shared.trash[0].bookmark.backgroundImageUrl, style.backgroundImageUrl);
   assert.equal(shared.trash[1].folder.backgroundImageUrl, style.backgroundImageUrl);
   assert.equal(shared.trash[1].bookmarks[0].backgroundImageUrl, style.backgroundImageUrl);
+});
+
+test('clears an unavailable saved device selection even if its image was previously cached', async () => {
+  await preloadLocalImages({ backgroundImageLocal: replacement });
+  assert.ok(resolveImageSource(replacement));
+  delete local['newdesktabLocalImage:8c5b9a2e-3f0e-4c7e-889c-72117afc09e9'];
+  local[DEVICE_IMAGE_SELECTIONS_KEY]['bookmark:bookmark'] = { reference: replacement, source: 'local' };
+  const incoming = withoutDeviceImages(dataWithImage(owned));
+  const before = structuredClone(incoming);
+  const restored = await restoreDeviceImageSelections(incoming);
+  assert.equal(restored.bookmarks[0].backgroundImageLocal, null);
+  assert.equal(restored.bookmarks[0].backgroundImageSource, 'url');
+  assert.deepEqual(local[DEVICE_IMAGE_SELECTIONS_KEY]['bookmark:bookmark'], { reference: null, source: 'url' });
+  assert.equal(resolveImageSource(replacement), null);
+  assert.deepEqual(incoming, before);
+  assert.ok(local['newdesktabLocalImage:4c5b9a2e-3f0e-4c7e-889c-72117afc09e9']);
 });
