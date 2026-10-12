@@ -261,11 +261,12 @@ test('uses the full viewport and keeps edit controls inside the last column whil
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
-    await setState({ data: { ...data,
+    void setState({ data: { ...data,
       bookmarks: data.bookmarks.map(item => item.id === 'compact-19' ? { ...item, gx: 11, gy: 5 } : item),
       folders: data.folders.map(item => ({ ...item, gx: 11, gy: 0, w: 1, h: 1 }))
     } });
   });
+  await expectAppSaved(page);
   await page.keyboard.press('KeyE');
   const folder = page.locator('#bookmark-container [data-folder-id="compact-folder"]');
   await expect(folder.locator('.resizer')).toHaveCount(8);
