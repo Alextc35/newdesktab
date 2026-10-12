@@ -52,7 +52,9 @@ El estado del lanzamiento 1.0.0 y de su ZIP está en [RELEASE_REVIEW.md](RELEASE
 - [x] Sincronizar manifest, package, package-lock y README en 1.0.0.
 - [x] Declarar Chrome 123 como versión mínima y corregir los atajos documentados.
 - [x] Añadir notas de lanzamiento y regenerar/revisar las cuatro imágenes de la Store.
-- [x] Ejecutar lint, 254 pruebas unitarias y 62 pruebas DOM sin errores.
+- [x] Ejecutar lint, 261 pruebas unitarias y 66 pruebas DOM sin errores.
+- [x] Resolver favicons ausentes mediante dominios padre, sin modificar enlaces;
+  verificar 35 escenarios relacionados, 5 en Chrome 123 y SharePoint con el servicio real.
 - [x] Confirmar la batería completa con esquema 1 y notas de versión: 268 escenarios correctos en Chromium, sin fallos ni reintentos.
 - [x] Verificar con esquema 1 los 23 escenarios de backups y fondos en Chrome 123; su batería completa anterior al reinicio pasó los 252 escenarios.
 - [x] Verificar los 37 escenarios de notas, bienvenida, ayuda y concurrencia en Chrome 123.

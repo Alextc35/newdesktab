@@ -14,6 +14,7 @@ export default [
     ignores: [
       'node_modules/**',
       'src/platform/backup/vendor/**',
+      'src/shared/urls/vendor/**',
       'coverage/**',
       'playwright-report/**',
       'dist/**',

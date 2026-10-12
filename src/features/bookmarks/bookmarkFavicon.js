@@ -1,9 +1,11 @@
 import '../../types/types.js'; // typedefs
+import { getFaviconOrigins } from './faviconOrigins.js';
+import { getFaviconUrl, isFaviconAvailable } from '../../platform/images/faviconService.js';
 
 /**
  * Creates a favicon element for a bookmark.
  *
- * Attempts to fetch the site favicon without a leading www. or app.
+ * Resolves the site's favicon origin independently of the bookmark destination.
  * If it fails or the URL is internal, uses the bookmark initials.
  *
  * @param {Bookmark} bookmark - Bookmark object
@@ -19,26 +21,33 @@ export function createFavicon(bookmark, { placeholderUrl = null } = {}) {
     return favicon;
   }
 
-  let isInternal = false;
-  try {
-    const urlObj = new URL(bookmark.url);
-    isInternal = urlObj.hostname.endsWith('.internal') || urlObj.hostname.endsWith('.local');
-    if (!isInternal) {
-      const faviconOrigin = getFaviconOrigin(urlObj);
-      const img = createFaviconImage();
-      img.onerror = () => {
-        img.onerror = null;
-        showInitialsFallback(favicon, bookmark.name);
-      };
-      img.src =
-        `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${encodeURIComponent(faviconOrigin)}&size=64`;
-      favicon.append(img);
-    }
-  } catch {
+  const origins = getFaviconOrigins(bookmark.url);
+  if (!origins.length) {
     showInitialsFallback(favicon, bookmark.name);
+    return favicon;
   }
 
-  if (isInternal) showInitialsFallback(favicon, bookmark.name);
+  const img = createFaviconImage();
+  let attempt = 0;
+  function tryNext() {
+    const origin = origins[attempt++];
+    if (!origin) {
+      img.onload = null;
+      img.onerror = null;
+      showInitialsFallback(favicon, bookmark.name);
+      return;
+    }
+    const currentAttempt = attempt;
+    img.onload = () => {
+      void isFaviconAvailable(origin).then(available => {
+        if (attempt === currentAttempt && available === false) tryNext();
+      });
+    };
+    img.onerror = tryNext;
+    img.src = getFaviconUrl(origin);
+  }
+  tryNext();
+  favicon.append(img);
 
   return favicon;
 }
@@ -81,22 +90,6 @@ function setAlternativeText(favicon, value) {
   favicon.removeAttribute('role');
   favicon.removeAttribute('aria-label');
   favicon.setAttribute('aria-hidden', 'true');
-}
-
-/**
- * Omits a leading www. or app. only for favicon discovery.
- * Google can return a valid generic image even with HTTP 404, so an image error
- * handler cannot reliably detect that these hosts need the parent site's icon.
- *
- * @param {URL} url
- * @returns {string}
- */
-function getFaviconOrigin(url) {
-  if (!/^(www|app)\./.test(url.hostname)) return url.origin;
-
-  const faviconUrl = new URL(url.origin);
-  faviconUrl.hostname = faviconUrl.hostname.slice(4);
-  return faviconUrl.origin;
 }
 
 /**

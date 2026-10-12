@@ -424,7 +424,7 @@ See the complete [NewDeskTab Privacy Policy](PRIVACY.md).
 * Local mode saves workspace data inside the browser profile
 * Sync mode delegates storage and transport to the browser
 * The developer cannot access synchronized data
-* Displayed favicons request site origins from Google's favicon service
+* Displayed favicons request site origins from Google's favicon service and retry parent domains when an icon is missing
 * Remote images load from their hosts, including the initial example image
 * Uploaded images and videos stay on your device. Complete backups include
   referenced local media and their filenames so another profile can restore them.

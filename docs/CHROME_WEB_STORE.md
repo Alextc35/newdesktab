@@ -71,6 +71,14 @@ See [RELEASE_NOTES.md](RELEASE_NOTES.md) when preparing the notes for a new vers
 > that active tab's title and URL to prefill a bookmark. It does not read page
 > contents, access general browsing history or close the source tab.
 
+### Host permission justification: https://t3.gstatic.com/*
+
+> This host serves the website favicons already displayed by NewDeskTab. The
+> extension reads favicon response status with cookie-free HEAD requests because
+> a missing icon can arrive as a valid generic image with HTTP 404. It retries
+> parent domains when needed, without modifying the bookmark URL or sending its
+> path, query or fragment. It does not fetch the bookmarked pages themselves.
+
 ### Remote code
 
 Select **No**. All executable JavaScript and CSS ships inside the extension ZIP.

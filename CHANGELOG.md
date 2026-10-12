@@ -20,6 +20,7 @@ First stable release of New DeskTab, a customizable new-tab workspace.
 - Protect existing data by rejecting malformed imports, future schemas and duplicate IDs.
 - Start the public data schema at version 1; development schemas 2–21 are discarded.
 - Preserve custom caption colors with readable backgrounds and consistent on/off controls.
+- Retry missing favicons on parent domains, including SharePoint tenants, while keeping bookmark URLs intact.
 
 Requires Chrome 123 or a compatible Chromium-based browser. Chrome Sync is
 available in Google Chrome; Brave uses local storage. Sequence drag behavior is

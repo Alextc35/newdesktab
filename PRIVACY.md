@@ -57,7 +57,10 @@ handling of its services.
 When a view or editor displays a website icon, NewDeskTab requests it from Google's
 favicon service at `https://t3.gstatic.com/faviconV2`. The request includes the
 bookmark site's origin (scheme, hostname and any port), with a leading `www.`
-or `app.` removed. It does not include the bookmark URL's path, query string or
+or `app.` removed when they are subdomains. If the service reports no icon,
+NewDeskTab tries parent hosts down to the registrable domain. It checks the
+service's HTTP response with a HEAD request without cookies; decoded generic
+error icons can otherwise look like successful loads. It does not include the bookmark URL's path, query string or
 fragment. Hosts ending in `.internal` or `.local` use generated initials instead.
 These exclusions do not cover every possible private hostname or IP address.
 

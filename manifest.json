@@ -18,6 +18,7 @@
     }
   },
   "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://t3.gstatic.com/*"],
   "icons": {
     "48": "assets/icons/icon-48.png",
     "128": "assets/icons/icon-128.png"

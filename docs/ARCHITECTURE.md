@@ -887,6 +887,14 @@ two-by-one and one-by-two cards, with a clock in the grid and a bundled landscap
 inside the shared Multimedia folder artwork. Icons and captions keep the main
 grid's vertical alignment. These shapes and colors remain
 preview-only; the guide explains Chrome profile synchronization there.
+
+Bookmark favicon candidates are computed in `features/bookmarks/faviconOrigins.js`
+with a locally bundled public-suffix parser. Missing icons try parent origins down
+to the registrable domain; the navigation URL remains intact. `platform/images/faviconService.js`
+checks HTTP status with cached, cookie-free HEAD requests to `t3.gstatic.com`,
+using a host permission limited to that provider. This detects decoded generic
+404 images as well as normal image errors. Unreadable status preserves a loaded
+image; exhausted candidates use the existing initials fallback.
 The opening step loops a cursor demonstration over an inert copy of the real launcher,
 using its shared component styles and localized labels. The edit step activates its
 pencil, reveals the shared grid pattern, moves the example Gmail to a free cell and

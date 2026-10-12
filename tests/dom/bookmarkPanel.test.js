@@ -225,12 +225,28 @@ describe('BookmarkEditorPanel', () => {
     expect(favicon.querySelector('.bookmark-favicon-initials').textContent).toBe('WE');
   });
 
-  test.each(['example.com', 'myapp.example.com', 'portal.app.example.com'])(
+  test.each([
+    'https://tajamar365.sharepoint.com/_layouts/15/sharepoint.aspx/discover',
+    'https://contoso.sharepoint.com/sites/team?view=documents#files'
+  ])('resolves the public SharePoint favicon without changing the tenant URL: %s', url => {
+    const bookmark = { name: 'SharePoint', url };
+    const favicon = createFavicon(bookmark);
+
+    const image = favicon.querySelector('img');
+    expect(new URL(image.src).searchParams.get('url')).toBe(new URL(url).origin);
+    image.dispatchEvent(new Event('error'));
+    expect(new URL(image.src).searchParams.get('url')).toBe('https://sharepoint.com');
+    expect(bookmark.url).toBe(url);
+  });
+
+  test.each(['example.com', 'myapp.example.com', 'portal.app.example.com',
+    'tenant.sharepoint.com.example.com', 'notsharepoint.com'])(
     'uses initials after a failed favicon without stripping %s', hostname => {
       const favicon = createFavicon({ name: 'Example', url: `https://${hostname}/dashboard` });
 
       const image = favicon.querySelector('img');
-      image.dispatchEvent(new Event('error'));
+      expect(new URL(image.src).searchParams.get('url')).toBe(`https://${hostname}`);
+      while (image.onerror) image.dispatchEvent(new Event('error'));
 
       expect(favicon.classList.contains('bookmark-favicon-fallback')).toBe(true);
       expect(image.onerror).toBeNull();

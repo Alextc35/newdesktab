@@ -11,6 +11,7 @@
     "test:extension": "node tests/extension-smoke.mjs",
     "assets:store": "node scripts/generate-store-assets.mjs",
     "vendor:zip": "node scripts/vendor-backup-zip.mjs",
+    "vendor:domains": "node scripts/vendor-domain-parser.mjs",
     "package:store": "python3 scripts/package-extension.py",
     "lint": "eslint .",
     "check": "npm run lint && npm test"
@@ -23,6 +24,7 @@
     "eslint": "^10.8.1",
     "globals": "^17.9.0",
     "jsdom": "^29.1.1",
+    "tldts": "7.4.10",
     "vitest": "^4.1.11"
   }
 }
