@@ -321,22 +321,6 @@
   justify-self: end;
 }
 
-.settings-recycle-bin-switch input[type="checkbox"] {
-  width: 44px;
-  height: 24px;
-  flex: 0 0 44px;
-  margin: 0;
-}
-
-.settings-recycle-bin-switch input[type="checkbox"]::before {
-  width: 18px;
-  height: 18px;
-}
-
-.settings-recycle-bin-switch input[type="checkbox"]:checked::before {
-  transform: translateX(20px);
-}
-
 .recycle-bin-editor-preview-card {
   position: relative;
   left: auto;

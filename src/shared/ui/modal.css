@@ -127,65 +127,157 @@ input[type="color"] {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-height: 32px;
   font-size: 13px;
 }
 
-/* base */
-.checkbox-wrapper input[type="checkbox"] {
-  appearance: none;
-  width: 36px;
-  height: 20px;
-  border-radius: 999px;
-  background: light-dark(#e2e2e8, #1f2430);
-  border: 1px solid var(--ui-border);
-  position: relative;
+.checkbox-wrapper label {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  line-height: 1.4;
+  opacity: 1;
 }
 
-/* knob */
+/* One switch geometry for settings, appearance editors and widget controls. */
+.checkbox-wrapper input[type="checkbox"] {
+  --switch-travel: 0px;
+  --switch-press-scale: 1;
+  appearance: none;
+  position: relative;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 26px;
+  margin: 0;
+  padding: 0;
+  border-radius: 999px;
+  background: light-dark(#dce0e9, #353e4d);
+  border: 1px solid light-dark(#a3acbd, #65738a);
+  box-shadow: inset 0 1px 2px var(--ui-control-shadow);
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
 .checkbox-wrapper input[type="checkbox"]::before {
   content: "";
   position: absolute;
   top: 2px;
   left: 2px;
-
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-
-  background: light-dark(#fff, #6c748f);
-  box-shadow: 0 1px 3px var(--ui-control-shadow);
-  transition: all 0.2s cubic-bezier(.4,0,.2,1);
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(17 24 39 / 22%);
+  transform: translateX(var(--switch-travel)) scale(var(--switch-press-scale));
+  transition: transform .18s cubic-bezier(.2, .8, .2, 1);
+  pointer-events: none;
 }
 
-/* hover */
-.checkbox-wrapper input[type="checkbox"]:hover {
-  border-color: var(--ui-accent);
+/* The minus and check keep the state recognizable beyond its color. */
+.checkbox-wrapper input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 9px;
+  width: 6px;
+  height: 2px;
+  border-radius: 1px;
+  background: #687184;
+  transform: translateX(var(--switch-travel)) scale(var(--switch-press-scale));
+  transition: transform .18s cubic-bezier(.2, .8, .2, 1), background-color .18s ease;
+  pointer-events: none;
 }
 
-/* checked track */
 .checkbox-wrapper input[type="checkbox"]:checked {
-  background: light-dark(var(--ui-accent), var(--ui-selected));
+  --switch-travel: 18px;
+  background: var(--ui-accent);
   border-color: var(--ui-accent);
 }
 
-/* checked knob */
-.checkbox-wrapper input[type="checkbox"]:checked::before {
-  transform: translateX(16px);
-  background: light-dark(#fff, var(--ui-accent));
-  box-shadow: 0 0 6px light-dark(rgba(40, 45, 90, .12), rgba(63,124,255,.6));
+.checkbox-wrapper input[type="checkbox"]:checked::after {
+  top: 7px;
+  left: 7px;
+  width: 10px;
+  height: 10px;
+  background: light-dark(var(--ui-accent), #17528c);
+  clip-path: polygon(0 55%, 16% 39%, 39% 63%, 84% 12%, 100% 28%, 40% 96%);
 }
 
-/* active press */
-.checkbox-wrapper input[type="checkbox"]:active::before {
-  width: 18px;
+.checkbox-wrapper:has(input:not(:disabled)):hover input[type="checkbox"] {
+  border-color: var(--ui-accent);
+  box-shadow: 0 0 0 3px var(--ui-focus-ring), inset 0 1px 2px var(--ui-control-shadow);
 }
 
-/* disabled */
+.checkbox-wrapper:has(input:not(:disabled)):hover input[type="checkbox"]:checked {
+  background: var(--ui-accent-hover);
+  border-color: var(--ui-accent-hover);
+}
+
+.checkbox-wrapper input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px var(--ui-focus-ring);
+}
+
+.checkbox-wrapper input[type="checkbox"]:active:not(:disabled) {
+  --switch-press-scale: .9;
+}
+
 .checkbox-wrapper input[type="checkbox"]:disabled {
-  opacity: 0.4;
   cursor: not-allowed;
+}
+
+.checkbox-wrapper:has(input:disabled) label {
+  color: var(--ui-muted);
+  cursor: not-allowed;
+}
+
+/* Suppress the global lock overlay on these small native controls. */
+.checkbox-wrapper input[type="checkbox"]:disabled::after {
+  content: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .checkbox-wrapper input[type="checkbox"],
+  .checkbox-wrapper input[type="checkbox"]::before,
+  .checkbox-wrapper input[type="checkbox"]::after {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .checkbox-wrapper input[type="checkbox"] {
+    background: Canvas;
+    border-color: ButtonText;
+  }
+
+  .checkbox-wrapper input[type="checkbox"]:checked {
+    background: Highlight;
+    border-color: Highlight;
+  }
+
+  .checkbox-wrapper input[type="checkbox"]::before {
+    background: ButtonText;
+  }
+
+  .checkbox-wrapper input[type="checkbox"]::after {
+    background: Canvas;
+  }
+
+  .checkbox-wrapper input[type="checkbox"]:checked::before {
+    background: HighlightText;
+  }
+
+  .checkbox-wrapper input[type="checkbox"]:checked::after {
+    background: Highlight;
+  }
+
+  .checkbox-wrapper input[type="checkbox"]:focus-visible {
+    outline-color: Highlight;
+  }
 }
 
 .modal-actions {
