@@ -5,16 +5,21 @@ import { resolve } from 'node:path';
 import { chromium } from '@playwright/test';
 
 const executablePath = process.env.NEWDESKTAB_BROWSER_PATH;
+const loadThroughDevTools = process.env.NEWDESKTAB_EXTENSION_CDP === '1';
 const extensionPath = process.env.NEWDESKTAB_EXTENSION_PATH
   ? resolve(process.env.NEWDESKTAB_EXTENSION_PATH)
   : fileURLToPath(new URL('..', import.meta.url));
 const manifest = JSON.parse(readFileSync(resolve(extensionPath, 'manifest.json'), 'utf8'));
 const context = await chromium.launchPersistentContext('', {
   ...(executablePath ? { executablePath } : { channel: 'chromium' }),
+  ...(loadThroughDevTools ? { ignoreDefaultArgs: ['--disable-extensions'] } : {}),
   headless: true,
   args: [
-    `--disable-extensions-except=${extensionPath}`,
-    `--load-extension=${extensionPath}`,
+    ...(loadThroughDevTools ? ['--enable-unsafe-extension-debugging'] : [
+      `--disable-extensions-except=${extensionPath}`,
+      `--load-extension=${extensionPath}`
+    ]),
+    '--headless=new',
     '--no-first-run'
   ]
 });
@@ -23,6 +28,11 @@ try {
   // Use a fresh profile and keep the smoke check independent of image providers.
   await context.route(/^https?:/, route => route.abort());
   const page = await context.newPage();
+  if (loadThroughDevTools) {
+    const session = await context.browser().newBrowserCDPSession();
+    await session.send('Extensions.loadUnpacked', { path: extensionPath });
+    await session.detach();
+  }
   const errors = [];
   const consoleErrors = [];
   page.on('pageerror', error => errors.push(error.message));
