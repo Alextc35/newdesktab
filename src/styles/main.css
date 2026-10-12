@@ -20,6 +20,7 @@
 @import '../shared/ui/flash.css';
 
 @import '../shared/ui/editModal.css';
+@import '../shared/ui/editorHistory.css';
 @import '../features/settings/settings.css';
 @import '../features/onboarding/onboarding.css';
 @import '../features/help/help.css';

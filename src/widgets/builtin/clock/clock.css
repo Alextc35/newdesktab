@@ -96,6 +96,8 @@
   font-variant-numeric: tabular-nums;
 }
 
+.clock-widget-modal-header { margin-bottom: 18px; }
+
 .clock-widget-modal-description {
   margin: -6px 0 16px;
   color: var(--ui-muted);

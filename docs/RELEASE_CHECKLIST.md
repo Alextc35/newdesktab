@@ -34,6 +34,11 @@ El estado del lanzamiento 1.0.0 y de su ZIP está en [RELEASE_REVIEW.md](RELEASE
 
 ## Lanzamiento 1.0.0 — 12 de octubre de 2026
 
+- [x] Añadir historial local a los editores, atajos, botones SVG discretos y
+  flash al deshacer/rehacer; conservar texto, imágenes y contraste. Verificar
+  79 escenarios relacionados, repetir los 22 del editor final y comprobar
+  26 escenarios de editores/concurrencia en Chrome 123 y el ZIP en cuatro navegadores.
+
 - [x] Separar Ayuda de Información, con icono de libro y cuatro idiomas; verificar
   83 escenarios relacionados y el ZIP actualizado en cuatro navegadores.
 
@@ -52,7 +57,7 @@ El estado del lanzamiento 1.0.0 y de su ZIP está en [RELEASE_REVIEW.md](RELEASE
 - [x] Sincronizar manifest, package, package-lock y README en 1.0.0.
 - [x] Declarar Chrome 123 como versión mínima y corregir los atajos documentados.
 - [x] Añadir notas de lanzamiento y regenerar/revisar las cuatro imágenes de la Store.
-- [x] Ejecutar lint, 261 pruebas unitarias y 66 pruebas DOM sin errores.
+- [x] Ejecutar lint, 267 pruebas unitarias y 69 pruebas DOM sin errores.
 - [x] Resolver favicons ausentes mediante dominios padre, sin modificar enlaces;
   verificar 35 escenarios relacionados, 5 en Chrome 123 y SharePoint con el servicio real.
 - [x] Confirmar la batería completa con esquema 1 y notas de versión: 268 escenarios correctos en Chromium, sin fallos ni reintentos.

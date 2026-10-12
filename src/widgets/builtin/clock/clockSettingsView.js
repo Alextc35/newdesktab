@@ -13,6 +13,9 @@ export function createClockSettingsView(translate = key => key) {
 
   const modalTitle = translated('h2', 'clock.createTitle');
   modalTitle.id = 'clock-widget-modal-title';
+  const header = document.createElement('header');
+  header.className = 'editor-history-header clock-widget-modal-header';
+  header.append(modalTitle);
 
   const description = translated('p', 'clock.description');
   description.className = 'clock-widget-modal-description';
@@ -62,7 +65,7 @@ export function createClockSettingsView(translate = key => key) {
   actions.append(deleteButton, spacer, cancelButton, saveButton);
 
   card.append(
-    modalTitle,
+    header,
     description,
     previewWrapper,
     hourCycleField,

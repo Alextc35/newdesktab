@@ -9,6 +9,8 @@ First stable release of New DeskTab, a customizable new-tab workspace.
 - Organize independent workspaces, search saved items and reuse appearance presets.
 - Save the current page from the browser toolbar and use configurable keyboard shortcuts.
 - Recover deleted bookmarks with the recycle bin and undo/redo controls.
+- Undo and redo pending editor changes with keyboard shortcuts or discreet header arrows, with brief feedback after each action.
+- Preserve workspace undo history when saved folder properties are reordered during normalization.
 - Keep confirmed clock deletion permanent, including after a failed-save retry.
 - Keep data locally or enable Google Chrome profile synchronization.
 - Customize light/dark appearance, backgrounds and device-local wallpaper rotation.

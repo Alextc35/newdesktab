@@ -283,8 +283,8 @@
     "history": {
       "question": "¿Cómo deshago el último cambio?", "searchTerms": "deshacer cambio; rehacer cambio; undo redo; volver atrás; recuperar posición",
       "title": "Deshacer y rehacer", "summary": "Recupera una posición o un cambio reciente.",
-      "steps": ["Usa la flecha de deshacer de la barra de espacios para volver al estado anterior.", "La flecha de rehacer recupera un cambio que acabas de deshacer. También puedes usar Ctrl/Cmd + Z y Ctrl/Cmd + Mayús + Z.", "Comprueba el resultado antes de seguir organizando. Las flechas se desactivan cuando no hay más cambios disponibles."],
-      "note": "El historial es temporal y no sustituye a una copia de seguridad. Una nueva sesión o los cambios que llegan de otra pestaña pueden reiniciarlo.",
+      "steps": ["Usa la flecha de deshacer de la barra de espacios para volver al estado anterior.", "La flecha de rehacer recupera un cambio que acabas de deshacer. También puedes usar Ctrl/Cmd + Z y Ctrl/Cmd + Mayús + Z.", "Dentro de un editor, usa las flechas junto al título para los cambios pendientes; el texto mantiene su deshacer habitual con el teclado. Cada acción muestra un aviso breve y las flechas sin cambios se desactivan. Comprueba el resultado antes de guardar."],
+      "note": "El historial del editor empieza de nuevo cada vez que lo abres; los cambios llegan a tu espacio al guardar. El historial del espacio es temporal y no sustituye a una copia de seguridad. Una nueva sesión o los cambios que llegan de otra pestaña pueden reiniciarlo.",
       "tip": "Si un cambio no te convence, usa la flecha de deshacer o Ctrl/Cmd + Z. Ctrl/Cmd + Mayús + Z lo rehace."
     },
     "appearance": {

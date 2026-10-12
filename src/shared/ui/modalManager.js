@@ -35,10 +35,12 @@ function getActive() {
  *
  * Used by global keyboard handlers to avoid conflicts.
  *
+ * @param {Object} [options]
+ * @param {boolean} [options.includeSuspended=false] - Also count hidden drafts.
  * @returns {boolean}
  */
-export function hasOpenModal() {
-  return Boolean(getActive());
+export function hasOpenModal({ includeSuspended = false } = {}) {
+  return includeSuspended ? stack.length > 0 : Boolean(getActive());
 }
 
 export function isModalSuspended(id) {

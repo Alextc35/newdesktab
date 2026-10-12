@@ -283,8 +283,8 @@
     "history": {
       "question": "How do I undo my last change?", "searchTerms": "undo change; redo change; go back; restore position",
       "title": "Undo and redo", "summary": "Recover a position or a recent change.",
-      "steps": ["Use the undo arrow on the workspace bar to return to the previous state.", "The redo arrow recovers a change you just undid. You can also use Ctrl/Cmd + Z and Ctrl/Cmd + Shift + Z.", "Check the result before continuing to organize. Arrows are disabled when no more changes are available."],
-      "note": "History is temporary and isn't a backup. A new session or updates from another tab can reset it.",
+      "steps": ["Use the undo arrow on the workspace bar to return to the previous state.", "The redo arrow recovers a change you just undid. You can also use Ctrl/Cmd + Z and Ctrl/Cmd + Shift + Z.", "Inside an editor, use the arrows beside its title for pending changes; text fields keep their normal keyboard undo. Each action shows a brief message and unavailable arrows are disabled. Check the result before saving."],
+      "note": "Editor history starts fresh each time you open an editor; changes reach your workspace when you save. Workspace history is temporary and isn't a backup. A new session or updates from another tab can reset it.",
       "tip": "If a change doesn't feel right, use the undo arrow or Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z redoes it."
     },
     "appearance": {

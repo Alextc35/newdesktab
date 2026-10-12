@@ -415,6 +415,23 @@ DOM. Search owns its own toolbar button. The application bootstrap composes all
 three controllers explicitly. Existing toolbar markup, CSS, history semantics
 and workspace persistence remain unchanged.
 
+Editors use a separate, unsaved history through `shared/ui/editorHistory.js`
+and the pure `shared/data/draftHistory.js`. Complete draft snapshots restore
+coupled appearance fields together; repeated input gestures share a step and
+the history keeps up to 100 steps per editor session. Header SVG buttons and
+Ctrl/Cmd + Z / Shift + Z share this history and translated flash feedback.
+Text inputs retain native keyboard undo; their input events reconcile the
+button stacks and report the same feedback. After a button restores text,
+keyboard undo follows the draft stack until new typing starts a native edit.
+Restoring refreshes open color pickers without
+creating another edit. Reopening resets the draft history, new edits discard
+redo, and active or suspended modals block workspace keyboard undo. Drafts and
+their history are never persisted by these controls; Save remains the commit
+boundary for bookmarks, folders, recycle-bin appearance and clock configuration.
+Store refreshes compare JSON data by value through `shared/data/valuesEqual.js`,
+so reordered object properties cannot clear workspace history; array order and
+real field changes remain significant.
+
 ## GridItem and the item-type registry
 
 `GridItem` is a structural contract: `id`, `gx`, `gy`, `w`, `h` and `groupId`.

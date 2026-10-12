@@ -2,6 +2,7 @@ import { redoBookmarks, subscribe, undoBookmarks } from '../../state/appStore.js
 import { t } from '../../platform/i18n/i18n.js';
 import { flash } from '../../shared/ui/flash.js';
 import { runPersistedAction } from '../persistence/persistedAction.js';
+import { hasOpenModal } from '../../shared/ui/modalManager.js';
 
 let initialized = false;
 
@@ -30,8 +31,10 @@ export function initHistoryControls() {
   });
 
   document.addEventListener('keydown', event => {
+    if (event.defaultPrevented || event.altKey || hasOpenModal({ includeSuspended: true })) return;
     if (!(event.ctrlKey || event.metaKey) || event.key.toLowerCase() !== 'z') return;
-    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)
+      || document.activeElement?.isContentEditable) return;
     event.preventDefault();
     (event.shiftKey ? redoButton : undoButton).click();
   });

@@ -3,7 +3,8 @@ import { getMaxVisibleCols, getMaxVisibleRows } from '../../../features/grid/gri
 import { t } from '../../../platform/i18n/i18n.js';
 import { showAlert } from '../../../shared/ui/alertModal.js';
 import { flashError, flashSuccess } from '../../../shared/ui/flash.js';
-import { closeModal, openModal, registerModal } from '../../../shared/ui/modalManager.js';
+import { closeModal, isModalActive, openModal, registerModal } from '../../../shared/ui/modalManager.js';
+import { createEditorHistory } from '../../../shared/ui/editorHistory.js';
 import { addWidget, deleteWidgetById, updateWidgetById } from '../../widgetActions.js';
 import {
   CLOCK_WIDGET_TYPE,
@@ -19,6 +20,7 @@ let initialized = false;
 let mode = null;
 let activeWidgetId = null;
 let initialConfig = null;
+let draftHistory;
 let submitting = false;
 let pendingDeletion = false;
 let modal;
@@ -62,6 +64,11 @@ export function initClockSettings({ modalHost } = {}) {
     closeOnOverlay: true,
     acceptOnEnter: true
   });
+  draftHistory = createEditorHistory({
+    root: modal, getValue: readConfig,
+    applyValue: value => { populateForm(value); renderPreview(); },
+    isActive: () => isModalActive(MODAL_ID) && !submitting
+  });
 }
 
 export function openCreateClock({ onCancel } = {}) {
@@ -97,6 +104,7 @@ function openEditor() {
   submitting = false;
   syncControls(false);
   renderPreview();
+  draftHistory.reset();
   openModal(MODAL_ID, {
     onAccept: handleSave,
     onCancel: handleCancel,
@@ -217,6 +225,7 @@ function syncControls(disabled) {
 }
 
 function resetEditor() {
+  draftHistory.reset();
   stopPreviewTicker?.();
   stopPreviewTicker = null;
   submitting = false;

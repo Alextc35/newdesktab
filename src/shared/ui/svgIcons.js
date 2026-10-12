@@ -3,6 +3,15 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 const ICON_KINDS = new Set(['bookmark', 'folder', 'recycle-bin']);
 let folderImagePatternId = 0;
 
+/** Creates the compact undo or redo arrow for draft editor controls. */
+export function createHistorySvg(direction) {
+  const svg = createSvg('0 0 24 24', 'editor-history-icon');
+  const path = createPath('M9 5 4 10l5 5M4 10h10a6 6 0 0 1 0 12', 'editor-history-arrow');
+  if (direction === 'redo') path.setAttribute('transform', 'translate(24 0) scale(-1 1)');
+  svg.append(path);
+  return svg;
+}
+
 /** Creates the fixed-ratio folder artwork shared by every dynamic folder surface. */
 export function createFolderSvg(backgroundImageUrl = null) {
   const svg = createSvg('0 0 136 100', 'folder-svg');

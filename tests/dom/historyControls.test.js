@@ -2,6 +2,7 @@ import { expect, test, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({
   flash: vi.fn(),
+  hasOpenModal: vi.fn(() => false),
   redoBookmarks: vi.fn(),
   subscribe: vi.fn(),
   t: vi.fn(key => key),
@@ -19,6 +20,7 @@ vi.mock('../../src/state/appStore.js', () => ({
 
 vi.mock('../../src/platform/i18n/i18n.js', () => ({ t: mocks.t }));
 vi.mock('../../src/shared/ui/flash.js', () => ({ flash: mocks.flash }));
+vi.mock('../../src/shared/ui/modalManager.js', () => ({ hasOpenModal: mocks.hasOpenModal }));
 
 import { initHistoryControls } from '../../src/features/history/historyControls.js';
 
@@ -64,6 +66,12 @@ test('history controls follow store state and route buttons and keyboard shortcu
     expect(mocks.undoBookmarks).toHaveBeenCalledTimes(1);
     expect(mocks.redoBookmarks).toHaveBeenCalledTimes(1);
   });
+  mocks.hasOpenModal.mockReturnValue(true);
+  document.dispatchEvent(historyKey());
+  document.dispatchEvent(historyKey({ shiftKey: true }));
+  expect(mocks.undoBookmarks).toHaveBeenCalledTimes(1);
+  expect(mocks.redoBookmarks).toHaveBeenCalledTimes(1);
+  expect(mocks.hasOpenModal).toHaveBeenLastCalledWith({ includeSuspended: true });
 });
 
 function historyKey({ shiftKey = false } = {}) {

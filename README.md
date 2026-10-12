@@ -308,8 +308,12 @@ upgrading, then subsequent edits stay independent.
 * `/` opens global search.
 * `Middle click` opens that bookmark's editor while editing the grid.
 * `Alt/⌥ + ↑/↓` cycles through workspaces.
-* `Ctrl/Cmd + Z` undoes the latest bookmark operation.
+* `Ctrl/Cmd + Z` undoes the latest workspace operation or the pending draft change inside an editor.
 * `Ctrl/Cmd + Shift + Z` redoes it.
+
+Editors also provide small undo/redo arrows beside their title, with a brief
+notification after each action. Their history starts fresh when reopened;
+typing fields keep the browser's native keyboard undo.
 
 The first five shortcuts are configurable under **Settings → Keyboard
 shortcuts**. They are part of the versioned settings payload, so custom values

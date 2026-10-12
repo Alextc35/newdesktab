@@ -81,6 +81,7 @@
     "saved": "Cambios pendientes guardados."
   },
   "itemEditor": {
+    "history": "Historial de edición",
     "description": "Personaliza cómo aparece en tu espacio.",
     "looks": "Elige un estilo",
     "custom": "Personalizado",

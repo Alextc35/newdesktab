@@ -280,8 +280,8 @@
     "history": {
       "question": "Como desfaço a última alteração?", "searchTerms": "desfazer alteração; refazer alteração; undo redo; voltar atrás; recuperar posição",
       "title": "Desfazer e refazer", "summary": "Recupere uma posição ou alteração recente.",
-      "steps": ["Use a seta de desfazer na barra de espaços para retornar ao estado anterior.", "A seta de refazer recupera uma alteração que acabou de desfazer. Também pode usar Ctrl/Cmd + Z e Ctrl/Cmd + Shift + Z.", "Confira o resultado antes de continuar. As setas ficam desativadas quando não há mais alterações disponíveis."],
-      "note": "O histórico é temporário e não substitui um backup. Uma nova sessão ou alterações de outra aba podem reiniciá-lo.",
+      "steps": ["Use a seta de desfazer na barra de espaços para retornar ao estado anterior.", "A seta de refazer recupera uma alteração que acabou de desfazer. Também pode usar Ctrl/Cmd + Z e Ctrl/Cmd + Shift + Z.", "Dentro de um editor, use as setas ao lado do título para alterações pendentes; o texto mantém seu desfazer habitual pelo teclado. Cada ação mostra um aviso breve e as setas sem alterações ficam desativadas. Confira o resultado antes de salvar."],
+      "note": "O histórico do editor recomeça cada vez que você o abre; as alterações chegam ao seu espaço ao salvar. O histórico do espaço é temporário e não substitui um backup. Uma nova sessão ou alterações de outra aba podem reiniciá-lo.",
       "tip": "Se uma alteração não ficou boa, use a seta de desfazer ou Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z refaz."
     },
     "appearance": {

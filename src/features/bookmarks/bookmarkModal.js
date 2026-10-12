@@ -156,6 +156,7 @@ function openBookmarkModal(nextMode, bookmark) {
     host: modalHost,
     idPrefix: 'bookmark-modal-form',
     mode: nextMode === 'add' ? 'create' : nextMode,
+    canEdit: () => !submitting,
     value: bookmark,
     previewName: nextMode === 'preset'
       ? t('settingsModal.bookmark.previewName')

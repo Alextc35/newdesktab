@@ -436,6 +436,7 @@ export function initCustomColorPicker(input) {
   disabledObserver.observe(input, { attributes: true, attributeFilter: ['disabled'] });
 
   const instance = {
+    refresh() { syncFromInput(); if (isOpen) hasChanges = currentColor !== initialColor; },
     open: options => open(options),
     close: options => close(options),
     destroy() {
@@ -458,6 +459,11 @@ export function initCustomColorPicker(input) {
 /** Opens an initialized app color picker from another, more visible trigger. */
 export function openCustomColorPicker(input, options = {}) {
   instances.get(input)?.open(options);
+}
+
+/** Refreshes an open picker after its owning editor restores a draft snapshot. */
+export function refreshCustomColorPickers(root) {
+  root.querySelectorAll('input[type="color"]').forEach(input => instances.get(input)?.refresh());
 }
 
 function watchForRemovedInputs() {

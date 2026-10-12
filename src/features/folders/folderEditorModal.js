@@ -18,7 +18,9 @@ import {
   setImageInputValue
 } from '../../shared/ui/localImageUpload.js';
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
-import { closeModal, openModal, registerModal } from '../../shared/ui/modalManager.js';
+import { closeModal, isModalActive, openModal, registerModal } from '../../shared/ui/modalManager.js';
+import { createEditorHistory } from '../../shared/ui/editorHistory.js';
+import { refreshCustomColorPickers } from '../../shared/ui/colorPicker.js';
 import { initTabs } from '../../shared/ui/tabs.js';
 import { createItemAppearanceEditor } from '../item-editor/itemAppearanceEditor.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
@@ -30,6 +32,7 @@ let initialized = false;
 let mode = null;
 let activeFolderId = null;
 let initialValue = null;
+let draftHistory;
 let modal;
 let modalTitle;
 let nameInput;
@@ -174,6 +177,12 @@ export function initFolderEditorModal() {
     closeOnOverlay: true,
     acceptOnEnter: true
   });
+  draftHistory = createEditorHistory({
+    root: modal, getValue: currentValue,
+    applyValue: value => { populateForm(value); handleInput(); },
+    isActive: () => isModalActive('folder-editor') && !submitting,
+    onRestore: () => refreshCustomColorPickers(modal)
+  });
 }
 
 /** Opens a compact new-folder draft that can expand into the full editor. */
@@ -249,6 +258,7 @@ function prepareEditor() {
   activateGeneralTab();
   renderPreview();
   syncSaveButton();
+  draftHistory.reset();
 }
 
 function handleInput() {
@@ -513,6 +523,7 @@ function setCreateCompactMode(compact) {
 }
 
 function closeFolderEditor() {
+  draftHistory.reset();
   modal.classList.remove('is-add-compact');
   densityToggle.classList.add('is-hidden');
   mode = null;

@@ -4,7 +4,9 @@ import {
   validateBookmarkDraft
 } from '../../domain/bookmarks/bookmarkModel.js';
 import { applyI18n, t } from '../../platform/i18n/i18n.js';
-import { initCustomColorPickers } from '../../shared/ui/colorPicker.js';
+import { initCustomColorPickers, refreshCustomColorPickers } from '../../shared/ui/colorPicker.js';
+import { createEditorHistory } from '../../shared/ui/editorHistory.js';
+import { isModalActive } from '../../shared/ui/modalManager.js';
 import { initTabs } from '../../shared/ui/tabs.js';
 import { createItemAppearanceEditor } from '../item-editor/itemAppearanceEditor.js';
 import { createBookmarkEditor } from './bookmarkEditor.js';
@@ -28,6 +30,7 @@ let instanceCount = 0;
  * @param {string} [options.idPrefix]
  * @param {string} [options.previewName] - Placeholder title used by preset previews.
  * @param {string|null} [options.previewFaviconUrl] - Local favicon used by preset previews.
+ * @param {() => boolean} [options.canEdit] - Disables draft history while submitting.
  * @returns {Object|null}
  */
 export function createBookmarkEditorPanel({
@@ -38,7 +41,8 @@ export function createBookmarkEditorPanel({
   onChange,
   idPrefix = `bookmark-editor-${++instanceCount}`,
   previewName = t('editModal.previewName'),
-  previewFaviconUrl = null
+  previewFaviconUrl = null,
+  canEdit = () => true
 }) {
   const template = document.getElementById(TEMPLATE_ID);
   if (!host || !template) return null;
@@ -99,6 +103,7 @@ export function createBookmarkEditorPanel({
   let currentValue = prepareEditorValue(currentMode, value, previewName);
   let initialValue = getPublicValue(currentMode, currentValue);
   let appearanceEditor;
+  let draftHistory;
 
   const editor = createBookmarkEditor({
     elements,
@@ -152,6 +157,7 @@ export function createBookmarkEditorPanel({
   function reset(nextValue = {}) {
     setValue(nextValue);
     initialValue = getPublicValue(currentMode, currentValue);
+    draftHistory?.reset();
   }
 
   function getValue() {
@@ -180,6 +186,7 @@ export function createBookmarkEditorPanel({
   }
 
   function destroy() {
+    draftHistory?.destroy();
     abortController.abort();
     tabs?.destroy?.();
     appearanceEditor?.destroy();
@@ -188,6 +195,15 @@ export function createBookmarkEditorPanel({
   }
 
   activateDefaultTab();
+
+  const historyRoot = root.closest('.modal') || root;
+  draftHistory = createEditorHistory({
+    root: historyRoot,
+    getValue,
+    applyValue: value => { setValue(value); onChange?.(getValue()); },
+    isActive: () => canEdit() && root.isConnected && (historyRoot === root || isModalActive('bookmark-modal')),
+    onRestore: () => refreshCustomColorPickers(root)
+  });
 
   return {
     root,

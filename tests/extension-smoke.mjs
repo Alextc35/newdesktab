@@ -76,6 +76,24 @@ try {
   await page.reload();
   await page.getByRole('link', { name: /Release smoke/ }).waitFor({ state: 'visible' });
 
+  await page.evaluate(async () => {
+    const bookmark = (await import('./state/appStore.js')).getState().data.bookmarks.find(item => item.name === 'Release smoke');
+    (await import('./features/bookmarks/bookmarkModal.js')).openEditBookmark(bookmark.id);
+  });
+  const editor = page.locator('#edit-bookmark-modal');
+  await editor.locator('[data-tab-button="style"]').click();
+  assert.equal(await editor.locator('[data-editor-history="undo"]').isDisabled(), true);
+  await editor.locator('[data-appearance-look="midnight"]').click();
+  await page.keyboard.press('Control+z');
+  await page.waitForFunction(() => document.getElementById('edit-bookmark-modal-save').disabled);
+  await page.locator('.flash-info.show').last().waitFor({ state: 'visible' });
+  await editor.locator('[data-editor-history="redo"]').click();
+  await page.waitForFunction(() => !document.getElementById('edit-bookmark-modal-save').disabled);
+  await editor.locator('[data-editor-history="undo"]').click();
+  await page.waitForFunction(() => document.getElementById('edit-bookmark-modal-save').disabled);
+  await editor.locator('#edit-bookmark-modal-cancel').click();
+  await editor.waitFor({ state: 'hidden' });
+
   await page.keyboard.press('KeyS');
   await page.locator('[data-tab="settings-modal-tab-help"]').click();
   await page.locator('#settings-open-manual').click();

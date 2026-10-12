@@ -3,6 +3,7 @@ import { debug } from '../shared/diagnostics/debug.js';
 import { createDefaultPersistedData } from '../platform/storage/persistedDataDefaults.js';
 import { storage, STORAGE_MODES } from '../platform/storage/storageFacade.js';
 import { mergeChanges } from '../shared/data/mergeChanges.js';
+import { valuesEqual } from '../shared/data/valuesEqual.js';
 import { clearLocalImages } from '../platform/images/localImages.js';
 import { clearLocalVideos } from '../platform/images/localVideos.js';
 import { clearDeviceImageSelections } from '../platform/storage/deviceImageSelections.js';
@@ -426,7 +427,7 @@ function finishHydration() { isHydrating = false; }
  * @returns {boolean} Whether the in-memory data changed.
  */
 function replacePersistedData(data) {
-  if (JSON.stringify(state.data) === JSON.stringify(data)) return false;
+  if (valuesEqual(state.data, data)) return false;
 
   const prevState = state;
   state = {

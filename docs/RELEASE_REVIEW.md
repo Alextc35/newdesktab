@@ -8,6 +8,17 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 
 ## Cambios aplicados
 
+- **Deshacer y rehacer en editores.** Historial local del borrador para favoritos,
+  estilos predeterminados, carpetas, papelera y configuración del reloj. Los
+  atajos y dos flechas SVG discretas junto al título restauran cambios completos,
+  con flash traducido y botones desactivados cuando no hay pasos disponibles.
+  Se conservan el deshacer de texto, imágenes locales y contraste automático;
+  los selectores de color abiertos siguen el estado restaurado. La cabecera
+  conserva su altura y el historial se reinicia al reabrir. Los diálogos activos
+  o suspendidos impiden deshacer el escritorio desde el teclado. También se
+  corrigió el reinicio del historial del escritorio que provocaba un simple
+  cambio en el orden de propiedades de una carpeta al guardar.
+
 - **Favicons.** Si faltan, se prueban los dominios padre hasta el dominio
   registrable, sin cambiar la URL guardada. Se conservan los iconos válidos de
   subdominios y los límites de sufijos como `.co.uk`. Las respuestas HTTP se
@@ -107,28 +118,29 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 
 | Comprobación | Resultado |
 | --- | --- |
-| ESLint, tests unitarios y DOM | 261 tests unitarios y 66 tests DOM correctos; ESLint correcto. |
+| ESLint, tests unitarios y DOM | 267 tests unitarios y 69 tests DOM correctos; ESLint correcto. |
+| Historial de editores | 79 escenarios relacionados cubiertos en Chromium: editores, carpetas, papelera, reloj, atajos y modo lista. Tras el ajuste final, los 22 escenarios de historial y editor visual pasaron de nuevo sin errores. Se revisó la cabecera a 601, 720 y 1280 píxeles, las cuatro traducciones y capturas en ambos temas. |
 | `npm run test:e2e` | Antes de separar Ayuda: 268 escenarios correctos en Chromium, 12,1 minutos; sin fallos, omitidos ni reintentos. |
 | Sección Ayuda | 83 escenarios verificados de ayuda, guía, demos, navegación, fondos, notas y modo lista. Se corrigió un acceso antiguo a Información en un test y los 7 escenarios de fondos pasaron al repetirlos. Layout revisado a 601, 720 y 1280 píxeles; traducciones correctas en cuatro idiomas. |
 | Fallback de favicons | 35 escenarios correctos de favicons, editor visual, carpetas y papelera en Chromium; 5 de favicons en Chrome 123. Además se verificó el servicio real de Google con el ZIP instalado en Chrome 123, Chrome 155 y Brave 155: SharePoint funciona y la URL original se conserva en la tarjeta y el editor. |
-| Chrome for Testing 123.0.6312.122 | Antes de separar Ayuda: 37 escenarios de notas, ayuda, bienvenida y concurrencia correctos; incluyen llegada secuencial, modo lista, posición e iconos del consejo diario. Smoke del ZIP actual con Ayuda correcto. Validación anterior con esquema 1: 23 escenarios de backups y fondos. Batería completa previa al reinicio: 252 escenarios correctos. |
+| Chrome for Testing 123.0.6312.122 | 26 escenarios actuales de historial de editores, editor visual y concurrencia correctos. Antes de separar Ayuda: 37 escenarios de notas, ayuda, bienvenida y concurrencia correctos; incluyen llegada secuencial, modo lista, posición e iconos del consejo diario. Smoke del ZIP actual correcto. Validación anterior con esquema 1: 23 escenarios de backups y fondos. Batería completa previa al reinicio: 252 escenarios correctos. |
 | Validación ZIP | 13 pruebas de formato y entradas inválidas; cuatro recorridos de navegador correctos, incluida compatibilidad JSON, selector ZIP y rechazo de vídeos dañados. Un lector ZIP independiente de Python también verifica el archivo descargado. |
 | `node scripts/benchmark-backups.mjs` | ZIP exportado/restaurado con 10, 50, 200 MiB y dos vídeos de 200 MiB; tamaños, tiempos y muestras de memoria registrados. |
 | `npm audit --audit-level=high` | Cero vulnerabilidades tras la actualización de herramientas de desarrollo. |
 | `npm run assets:store` | Generación correcta; cuatro imágenes inspeccionadas. |
-| `npm run test:extension` | ZIP extraído correcto en Chromium, Google Chrome 155.0.8059.40, Brave 155.1.97.56 y Chrome for Testing 123.0.6312.122: nueva pestaña, Ayuda → manual → ajustes, Información, popup, recarga, atajos y backup ZIP con vídeo bajo Manifest V3; sin errores de página. |
+| `npm run test:extension` | ZIP extraído correcto en Chromium, Google Chrome 155.0.8059.40, Brave 155.1.97.56 y Chrome for Testing 123.0.6312.122: nueva pestaña, botones/atajos y flash del editor, Ayuda → manual → ajustes, Información, popup, recarga y backup ZIP con vídeo bajo Manifest V3; sin errores de página. |
 | Chrome Sync real | Verificado por el autor entre perfiles/dispositivos; no se sustituye por la simulación de storage de los tests. |
 | Enlaces de la ficha | Privacidad y soporte públicos responden HTTP 200. |
 | `git diff --check` | Sin errores de espacios o conflictos. |
 
-Artefacto: `dist/newdesktab-1.0.0.zip`, 2.479.193 bytes y 277 archivos.
+Artefacto: `dist/newdesktab-1.0.0.zip`, 2.484.238 bytes y 281 archivos.
 Incluye únicamente recursos de la extensión, licencia y política de privacidad.
 El empaquetador comprueba cada entrada y su contenido contra el origen.
 
 SHA-256:
 
 ```text
-90f6dcd0c729a2bf5aa40566712c281f189ccfb5cbaff657d22abfbea44e4c8a
+90fb1c1ac82fe615d934ac65489ba8e698f63ba9fe6e162e79b887d6fbab9e30
 ```
 
 Las mediciones de vídeos grandes y las pruebas de rendimiento descritas en este
@@ -167,11 +179,11 @@ el máximo absoluto ni se valida toda biblioteca o sesión de incógnito posible
 
 ## Pasos pendientes de publicación
 
-1. Guardar y subir los cambios del fallback de favicons y comprobar GitHub Actions
+1. Guardar y subir los cambios del historial de editores y comprobar GitHub Actions
    para el commit definitivo. El commit `176ccfe` ya tiene una
    [ejecución remota correcta](https://github.com/Alextc35/newdesktab/actions/runs/38236420523);
    esa ejecución no cubre los cambios posteriores. Las notas de versión están
-   en `12760ea` y Ayuda en `c0ca046`; el fallback de favicons todavía no tiene commit.
+   en `12760ea`, Ayuda en `c0ca046` y el fallback de favicons en `70595a3`.
 2. Comprobar que la clave del manifiesto corresponde a la ficha, y revisar
    descripción, privacidad, correo de contacto y verificación en dos pasos.
    Las imágenes ya se regeneraron e inspeccionaron en esta revisión; repetir

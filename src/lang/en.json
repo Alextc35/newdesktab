@@ -81,6 +81,7 @@
     "saved": "Pending changes saved."
   },
   "itemEditor": {
+    "history": "Edit history",
     "description": "Make it feel at home in your workspace.",
     "looks": "Choose a look",
     "custom": "Custom",

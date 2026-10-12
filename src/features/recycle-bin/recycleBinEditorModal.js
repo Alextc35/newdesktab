@@ -19,7 +19,9 @@ import {
   createRecycleBinGlyph
 } from './recycleBinAppearance.js';
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
-import { closeModal, openModal, registerModal } from '../../shared/ui/modalManager.js';
+import { closeModal, isModalActive, openModal, registerModal } from '../../shared/ui/modalManager.js';
+import { createEditorHistory } from '../../shared/ui/editorHistory.js';
+import { refreshCustomColorPickers } from '../../shared/ui/colorPicker.js';
 import { initTabs } from '../../shared/ui/tabs.js';
 import { createItemAppearanceEditor } from '../item-editor/itemAppearanceEditor.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
@@ -29,6 +31,7 @@ import { normalizeRecycleBinRetentionDays } from '../../domain/settings/recycleB
 let initialized = false;
 let submitting = false;
 let initialValue = null;
+let draftHistory;
 let modal;
 let noBackgroundInput;
 let backgroundColorInput;
@@ -159,6 +162,16 @@ export function initRecycleBinEditorModal() {
     closeOnOverlay: true,
     acceptOnEnter: true
   });
+  draftHistory = createEditorHistory({
+    root: modal, getValue: currentValue,
+    applyValue: value => {
+      setControlValues(value, value.showRecycleBin);
+      retentionSelect.value = String(value.recycleBinRetentionDays);
+      handleInput();
+    },
+    isActive: () => isModalActive('recycle-bin-editor') && !submitting,
+    onRestore: () => refreshCustomColorPickers(modal)
+  });
 }
 
 export function openRecycleBinEditor() {
@@ -178,6 +191,7 @@ export function openRecycleBinEditor() {
   renderPreview();
   syncSaveButton();
 
+  draftHistory.reset();
   openModal('recycle-bin-editor', {
     onAccept: handleSave,
     onCancel: handleCancel,
@@ -327,6 +341,7 @@ async function handleCancel() {
 }
 
 function closeRecycleBinEditor() {
+  draftHistory.reset();
   initialValue = null;
   closeModal('recycle-bin-editor');
 }
