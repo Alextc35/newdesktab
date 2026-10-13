@@ -42,6 +42,41 @@ test('quick save defaults to the active workspace and skips occupied grid cells'
   );
 });
 
+test('quick save uses the configured bookmark appearance in workspaces and folders', () => {
+  const data = fixture();
+  const preset = {
+    backgroundImageUrl: 'https://images.example.com/default.png',
+    backgroundImageLocal: 'newdesktab-local-image:2c5b9a2e-3f0e-4c7e-889c-72117afc09e9',
+    backgroundImageSource: 'local',
+    backgroundImageUrlLocked: true,
+    backgroundFavicon: false,
+    invertColorBg: true,
+    noBackground: false,
+    backgroundColor: '#123456',
+    showText: false,
+    textColor: '#abcdef',
+    showFavicon: false,
+    invertColorIcon: true
+  };
+  data.settings.bookmarkDefault = preset;
+  for (const destination of [
+    { groupId: 'work', folderId: null },
+    { groupId: 'work', folderId: 'work-folder' },
+    { groupId: null, folderId: null },
+    { groupId: null, folderId: 'main-folder' }
+  ]) {
+    const result = prepareQuickBookmark(data, {
+      name: 'Saved page', url: 'https://example.com/article', ...destination
+    });
+    assert.equal(result.reason, null);
+    for (const [key, value] of Object.entries(preset)) assert.equal(result.bookmark[key], value, key);
+    assert.equal(result.bookmark.name, 'Saved page');
+    assert.equal(result.bookmark.url, 'https://example.com/article');
+    assert.equal(result.bookmark.groupId, destination.groupId);
+    assert.equal(result.bookmark.folderId, destination.folderId);
+  }
+});
+
 test('folder selection is limited to its workspace and uses the folder grid', () => {
   const data = fixture();
   assert.deepEqual(getQuickSaveFolders(data, 'work').map(folder => folder.id), ['work-folder']);

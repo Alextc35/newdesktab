@@ -1,4 +1,5 @@
 import {
+  createBookmarkDraft,
   normalizeBookmarkUrl,
   validateBookmarkDraft
 } from '../../domain/bookmarks/bookmarkModel.js';
@@ -89,7 +90,11 @@ export function prepareQuickBookmark(data, {
     return { reason: 'invalid-destination' };
   }
 
-  const validation = validateBookmarkDraft({ name, url, groupId, folderId });
+  const draft = createBookmarkDraft({
+    preset: data.settings.bookmarkDefault,
+    bookmark: { name, url, groupId, folderId }
+  });
+  const validation = validateBookmarkDraft(draft);
   if (!validation.isValid) return { reason: 'invalid-bookmark' };
 
   const duplicate = getQuickSaveMatches(data, validation.value.url).find(bookmark => (

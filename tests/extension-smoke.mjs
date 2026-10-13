@@ -139,13 +139,29 @@ try {
     .evaluateAll(controls => controls.map(control => control.disabled)), [true, true, true, true]);
   const popupResult = await popup.evaluate(async () => {
     const { saveQuickBookmark } = await import('./features/quick-save/quickSaveActions.js');
+    const { getState, setState, requirePersistence } = await import('./state/appStore.js');
+    const settings = getState().data.settings;
+    await setState({ data: { settings: { ...settings, bookmarkDefault: {
+      ...settings.bookmarkDefault,
+      noBackground: false, backgroundColor: '#123456', textColor: '#abcdef',
+      backgroundFavicon: false, showFavicon: false
+    } } } });
+    await requirePersistence();
     const sourceTab = await chrome.tabs.create({ url: 'about:blank', active: false });
     const result = await saveQuickBookmark({ name: 'Popup smoke', url: 'https://popup.test' });
     const tabStillOpen = await chrome.tabs.get(sourceTab.id).then(() => true, () => false);
-    return { ...result, tabStillOpen };
+    const { bookmarks } = await chrome.storage.local.get('bookmarks');
+    return { ...result, tabStillOpen, storedBookmark: bookmarks.find(item => item.id === result.bookmark?.id) };
   });
   assert.equal(popupResult.reason, null);
   assert.equal(popupResult.tabStillOpen, true);
+  for (const bookmark of [popupResult.bookmark, popupResult.storedBookmark]) {
+    assert.equal(bookmark.noBackground, false);
+    assert.equal(bookmark.backgroundColor, '#123456');
+    assert.equal(bookmark.textColor, '#abcdef');
+    assert.equal(bookmark.backgroundFavicon, false);
+    assert.equal(bookmark.showFavicon, false);
+  }
   await page.getByRole('link', { name: /Popup smoke/ }).waitFor({ state: 'visible' });
   await popup.close();
 
