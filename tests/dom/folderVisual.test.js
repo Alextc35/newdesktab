@@ -85,7 +85,15 @@ describe('folder visual', () => {
     expect(visual.querySelector('.folder-preview-more').textContent).toBe('+2');
   });
 
-  test.each([{ showPreviews: false }, { showFolder: false }])(
+  test('legacy hidden flags do not remove the folder silhouette or its enabled previews', () => {
+    const visual = createFolderVisual({ showFolder: false, showPreviews: true }, bookmarks(2));
+    expect(visual.querySelector('.folder-svg')).not.toBeNull();
+    expect(visual.classList.contains('is-folder-hidden')).toBe(false);
+    expect(visual.classList.contains('is-folder-preview-hidden')).toBe(false);
+    expect(visual.querySelectorAll('.bookmark-favicon')).toHaveLength(2);
+  });
+
+  test.each([{ showPreviews: false }])(
     'does not request bookmark favicons when previews are hidden: %j', visibility => {
       const visual = createFolderVisual({
         ...visibility,
@@ -111,7 +119,7 @@ describe('folder visual', () => {
 
     expect(visual.style.getPropertyValue('--folder-outer-color')).toBe('');
     for (const className of [
-      'has-folder-outer-color', 'is-folder-hidden', 'is-folder-preview-hidden',
+      'has-folder-outer-color', 'is-folder-preview-hidden',
       'is-folder-name-hidden'
     ]) expect(visual.classList.contains(className)).toBe(false);
   });

@@ -704,10 +704,9 @@ folder and widget collections. Unversioned input is normalized before entering
 the store; versioned data above the supported schema is rejected.
 
 Schema 1 includes folder appearance controls: `outerBackgroundColor` is a nullable
-hex color, where null retains the automatic tile gradient. `showFolder`,
-`showPreviews` and `showName` default to true so existing folders
-keep their appearance. `normalizeFolderStyle()` disables previews whenever
-the folder graphic is hidden, including when importing or restoring data.
+hex color, where null retains the automatic tile gradient. `showPreviews` and
+`showName` default to true. The legacy `showFolder` field is normalized to true,
+including imports and restores: the folder silhouette is always visible.
 Folder category symbols stay centered inside the folder silhouette and replace
 bookmark previews. Their nullable `iconColor` selects automatic contrast when
 unset. The recycle bin always uses its shared SVG, with an open lid in its modal

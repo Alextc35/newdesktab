@@ -556,7 +556,6 @@
       "createTitle": "Add new folder",
       "title": "Edit folder",
       "name": "Name:",
-      "showFolder": "Show folder icon",
       "showPreviews": "Show bookmark previews",
       "showName": "Show folder name",
       "iconColor": "Symbol color:",

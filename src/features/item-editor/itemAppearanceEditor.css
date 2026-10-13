@@ -190,7 +190,7 @@ h3.editor-section-heading { margin: 0 0 6px; font-size: 13px; font-weight: 600; 
 .editor-icon-hint { margin: 6px 0 0; font-size: 10px; line-height: 1.4; color: var(--ui-muted); }
 .editor-image-section[hidden], .editor-icon-hint[hidden] { display: none; }
 .item-appearance-editor .editor-control-group :is(.folder-symbol-color, .bookmark-symbol-color)[hidden] { display: none; }
-.item-appearance-editor .editor-control-group .checkbox-wrapper[hidden] { display: none; }
+.item-appearance-editor .checkbox-wrapper[hidden] { display: none; }
 .item-appearance-editor #folder-editor-panel-style { gap: 4px; }
 .item-appearance-editor #folder-editor-panel-style .editor-control-group { gap: 5px; }
 @media (prefers-reduced-motion: reduce) { .editor-icon-picker > summary > .disclosure-chevron { transition: none; } }

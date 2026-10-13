@@ -163,7 +163,7 @@ export function createIconPicker({ type, getValue, renderOriginalIcon, onSelect,
     const value = getValue();
     const iconId = normalizeCatalogIconId(value.iconId);
     const iconVisible = type === 'bookmark' ? Boolean(value.backgroundFavicon || (value.showFavicon ?? true))
-      : value.showFolder !== false;
+      : true;
     currentIcon.hidden = !iconVisible;
     const originalSignature = JSON.stringify([value.url, value.name]);
     // Request the Logo only when its current thumbnail or its choice is visible.

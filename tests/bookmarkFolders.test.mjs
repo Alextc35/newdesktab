@@ -194,8 +194,8 @@ test('saves folder visibility and outer color while keeping its identity', async
   assert.equal(updated.id, created.id);
   assert.equal(updated.name, 'Reading');
   assert.equal(updated.outerBackgroundColor, '#aa2244');
-  assert.equal(updated.showFolder, false);
-  assert.equal(updated.showPreviews, false);
+  assert.equal(updated.showFolder, true);
+  assert.equal(updated.showPreviews, true);
   assert.equal(updated.showName, false);
   assert.equal(Object.hasOwn(updated, 'showCount'), false);
   assert.deepEqual(getState().data.folders[0], updated);

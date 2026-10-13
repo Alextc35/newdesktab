@@ -626,32 +626,37 @@ test('hides previews and configures the folder name without external count badge
   await expect(page.locator('#folder-editor-show-count')).toHaveCount(0);
 });
 
-test('hiding the glyph also hides previews while an empty bordered card still opens its folder', async ({ page }) => {
-  await start(page);
+test('folder silhouettes stay visible for legacy hidden folders and None removes only the inner symbol', async ({ page }) => {
+  await start(page, [{ id: folderId, gx: 0, gy: 0, w: 2, h: 2, showFolder: false }]);
+  await expect(folderCard(page).locator('.folder-visual')).toBeVisible();
+  expect((await savedFolder(page)).showFolder).toBe(true);
   await openEditor(page);
   await tab(page, 'Style');
-  const showFolder = page.locator('#folder-editor-show-folder');
+  await expect(page.locator('#folder-editor-show-folder')).toHaveCount(0);
+  const picker = page.locator('#edit-folder-modal .editor-icon-picker');
   const showPreviews = page.locator('#folder-editor-show-previews');
-  await expect(showPreviews).toBeChecked();
-  await showFolder.uncheck();
+  await picker.locator('summary').click();
+  await picker.locator('[data-icon-choice="ui-cloud"]').click();
+  await expect(previewCard(page).locator('.folder-svg')).toBeVisible();
+  await expect(previewCard(page).locator('.folder-catalog-icon')).toBeVisible();
+  await picker.locator('[data-icon-choice=""]').click();
+  await expect(previewCard(page).locator('.folder-svg')).toBeVisible();
+  await expect(previewCard(page).locator('.folder-catalog-icon')).toHaveCount(0);
+  await expect(showPreviews).toBeEnabled();
   await expect(showPreviews).not.toBeChecked();
-  await expect(showPreviews).toBeDisabled();
-  await expect(previewCard(page).locator('.folder-visual')).toBeHidden();
-  await expect(previewCard(page).locator('.folder-previews')).toBeHidden();
-  await tab(page, 'Style');
   await page.locator('#folder-editor-show-name').uncheck();
   await expectBorder(previewCard(page));
   await saveAndClose(page);
   await page.reload();
   await expectAppReady(page);
-
   await expect(folderCard(page)).toBeVisible();
   await expectBorder(folderCard(page));
-  for (const selector of ['.folder-visual', '.folder-previews', '.folder-title', '.folder-count']) {
+  await expect(folderCard(page).locator('.folder-visual')).toBeVisible();
+  for (const selector of ['.folder-previews', '.folder-title', '.folder-count']) {
     await expect(folderCard(page).locator(selector)).toBeHidden();
   }
   expect(await savedFolder(page)).toMatchObject({
-    name: 'Reading', showFolder: false, showPreviews: false, showName: false
+    name: 'Reading', showFolder: true, showPreviews: false, showName: false
   });
   await folderCard(page).getByRole('button', { name: /Open Reading/ }).click();
   await expect(page.locator('#folder-modal')).toBeVisible();
@@ -660,10 +665,7 @@ test('hiding the glyph also hides previews while an empty bordered card still op
   await page.locator('#folder-modal-customize').click();
   await expect(saveButton(page)).toBeDisabled();
   await tab(page, 'Style');
-  await expect(showFolder).not.toBeChecked();
   await expect(showPreviews).not.toBeChecked();
-  await expect(showPreviews).toBeDisabled();
-  await showFolder.check();
   await expect(showPreviews).toBeEnabled();
   await showPreviews.check();
   await expect(previewCard(page).locator('.folder-visual')).toBeVisible();

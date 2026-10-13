@@ -89,9 +89,9 @@
 
 /* Share the icon-and-title layout between the grid and appearance previews. */
 :is(
-  #bookmark-container:not(.is-list-view) > .bookmark-folder:not(.is-folder-hidden),
+  #bookmark-container:not(.is-list-view) > .bookmark-folder,
   #bookmark-container:not(.is-list-view) > .recycle-bin,
-  .folder-editor-preview-card:not(.is-folder-hidden),
+  .folder-editor-preview-card,
   .recycle-bin-editor-preview-card
 ) {
   --aligned-card-action-size: clamp(14px, calc(25cqh - 1px), 20px);

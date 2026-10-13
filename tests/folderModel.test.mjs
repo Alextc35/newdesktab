@@ -29,8 +29,8 @@ test('folder visibility controls are independent except previews require a folde
   });
   assert.equal(hidden.isValid, true);
   assert.equal(hidden.value.outerBackgroundColor, '#abcdef');
-  assert.equal(hidden.value.showFolder, false);
-  assert.equal(hidden.value.showPreviews, false);
+  assert.equal(hidden.value.showFolder, true);
+  assert.equal(hidden.value.showPreviews, true);
   assert.equal(hidden.value.showName, false);
   assert.equal(Object.hasOwn(hidden.value, 'showCount'), false);
 

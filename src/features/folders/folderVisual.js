@@ -41,7 +41,7 @@ export function createFolderVisual(folder, bookmarks = [], { compact = false } =
   const previews = document.createElement('span');
   previews.className = 'folder-previews';
 
-  if (!compact && folder.showFolder !== false && folder.showPreviews !== false) {
+  if (!compact && folder.showPreviews !== false) {
     const hasOverflow = bookmarks.length > 4;
     const previewLimit = hasOverflow ? 3 : 4;
     for (const bookmark of bookmarks.slice(0, previewLimit)) {

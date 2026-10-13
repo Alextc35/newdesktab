@@ -18,8 +18,7 @@ const DARK_CONTENTS = { surface: '#18181a', transparentSurface: '#707071',
 export function applyFolderAppearance(element, folder = {}) {
   element.classList.toggle('is-folder-transparent', folder.noBackground === true);
   element.classList.toggle('is-folder-outer-transparent', folder.noOuterBackground === true);
-  element.classList.toggle('is-folder-hidden', folder.showFolder === false);
-  element.classList.toggle('is-folder-preview-hidden', folder.showFolder === false || folder.showPreviews === false);
+  element.classList.toggle('is-folder-preview-hidden', folder.showPreviews === false);
   element.classList.toggle('is-folder-name-hidden', folder.showName === false);
   const outerColor = folder.outerBackgroundColor;
   element.classList.toggle('has-folder-outer-color', Boolean(outerColor));

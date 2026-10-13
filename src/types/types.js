@@ -74,8 +74,8 @@
  * @property {'local'|'url'} backgroundImageSource
  * @property {boolean} backgroundImageUrlLocked
  * @property {string} textColor
- * @property {boolean} showFolder
- * @property {boolean} showPreviews Always false when showFolder is false.
+ * @property {boolean} showFolder Legacy field, normalized to true; folders always show their silhouette.
+ * @property {boolean} showPreviews
  * @property {boolean} showName
  * @property {string|null} iconColor Null selects a contrasting symbol color.
  * @property {number} createdAt

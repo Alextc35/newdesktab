@@ -48,8 +48,8 @@ test('preserves folder controls across backup and bookmarks-only exports', () =>
   const folder = data.folders[0];
   assert.equal(folder.outerBackgroundColor, '#abcdef');
   assert.equal(folder.noOuterBackground, true);
-  assert.equal(folder.showFolder, false);
-  assert.equal(folder.showPreviews, false);
+  assert.equal(folder.showFolder, true);
+  assert.equal(folder.showPreviews, true);
   assert.equal(folder.showName, false);
   assert.equal(Object.hasOwn(folder, 'showCount'), false);
   assert.deepEqual(parseBackupPayload(createBackupEnvelope(data)), data);

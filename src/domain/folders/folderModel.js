@@ -35,7 +35,6 @@ const IMAGE_PROTOCOLS = new Set(['http:', 'https:', 'data:']);
 export function normalizeFolderStyle(value = {}) {
   const source = value && typeof value === 'object' ? value : {};
   const image = normalizeBackgroundImage(source);
-  const showFolder = source.showFolder !== false;
   return {
     iconId: normalizeCatalogIconId(source.iconId),
     iconColor: isHexColor(source.iconColor) ? source.iconColor.toLowerCase() : null,
@@ -54,8 +53,8 @@ export function normalizeFolderStyle(value = {}) {
     textColor: isHexColor(source.textColor)
       ? source.textColor.toLowerCase()
       : DEFAULT_FOLDER_STYLE.textColor,
-    showFolder,
-    showPreviews: showFolder && source.showPreviews !== false,
+    showFolder: true,
+    showPreviews: source.showPreviews !== false,
     showName: source.showName !== false
   };
 }

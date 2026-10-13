@@ -127,6 +127,10 @@ export function createBookmarkEditor({ elements, bookmark, onChange, previewFavi
     if (showFavicon) showFavicon.disabled = bookmark.backgroundFavicon;
     if (invertBg) invertBg.disabled = bookmark.backgroundFavicon || !hasBgImage;
     if (invertIcon) invertIcon.disabled = !bookmark.backgroundFavicon && !bookmark.showFavicon;
+    for (const input of [invertBg, invertIcon]) {
+      const row = input?.closest('.checkbox-wrapper');
+      if (row) row.hidden = input.disabled;
+    }
     if (url) url.disabled = bookmark.urlLocked;
   };
 

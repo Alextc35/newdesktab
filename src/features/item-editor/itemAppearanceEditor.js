@@ -19,7 +19,7 @@ const PALETTES = {
 };
 const CONTENT_FIELDS = {
   bookmark: ['iconId', 'iconColor', 'backgroundFavicon', 'showText', 'showFavicon', 'invertColorIcon'],
-  folder: ['iconId', 'iconColor', 'showFolder', 'showPreviews', 'showName'],
+  folder: ['iconId', 'iconColor', 'showPreviews', 'showName'],
   recycleBin: ['showName', 'animateIcon']
 };
 
