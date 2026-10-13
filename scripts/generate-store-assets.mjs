@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
 import { DATA_SCHEMA_VERSION } from '../src/platform/storage/schemaVersion.js';
 import { createStaticServer } from './lib/staticServer.mjs';
+import { normalizeCatalogIconId } from '../src/shared/icons/iconCatalog.js';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = resolve(root, 'assets/store');
@@ -79,8 +80,8 @@ try {
     gy,
     w,
     h,
-    backgroundFavicon: false,
-    backgroundImageUrl: createTileArtwork(id, backgroundColor, w, h),
+    backgroundFavicon: true,
+    iconId: normalizeCatalogIconId(id),
     showFavicon: false,
     showText: true,
     noBackground: false,
@@ -237,31 +238,4 @@ try {
 } finally {
   await browser.close();
   await new Promise(resolveClose => server.close(resolveClose));
-}
-
-/** Sample bookmark backgrounds rendered by the app's existing image styling. */
-function createTileArtwork(kind, color, w, h) {
-  const glyphs = {
-    mail: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/>',
-    calendar: '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 10h18m-13 4h2m4 0h2m-8 3h2"/>',
-    notes: '<path d="M7 3h8l4 4v14H5V3h2Zm8 0v5h4M9 12h6m-6 4h6"/>',
-    projects: '<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>',
-    design: '<path d="m4 20 2-7L17 2l5 5-11 11-7 2Zm2-7 5 5m3-13 5 5M4 20h16"/>',
-    music: '<path d="M9 18V5l11-2v13M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="17" cy="16" rx="3" ry="2.5"/>',
-    tasks: '<path d="m3 6 2 2 3-4m-5 9 2 2 3-4m-5 9 2 2 3-4M12 6h9m-9 7h9m-9 7h9"/>',
-    ideas: '<path d="M9 18h6m-6 3h6M8 15a7 7 0 1 1 8 0l-1 3H9l-1-3Z"/>',
-    docs: '<rect x="6" y="3" width="14" height="18" rx="2"/><path d="M3 7v13a3 3 0 0 0 3 3m4-15h6m-6 4h6m-6 4h4"/>'
-  };
-  const width = w * 106;
-  const height = h * 133;
-  const iconSize = h === 2 ? 70 : 48;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}">
-    <defs><linearGradient id="color" x2="1" y2="1"><stop stop-color="white" stop-opacity=".04"/><stop offset="1" stop-color="black" stop-opacity=".18"/></linearGradient>
-    <radialGradient id="glow"><stop stop-color="white" stop-opacity=".17"/><stop offset="1" stop-color="white" stop-opacity="0"/></radialGradient></defs>
-    <rect width="100%" height="100%" fill="${color}"/>
-    <rect width="100%" height="100%" fill="url(#color)"/>
-    <ellipse cx="25%" cy="0" rx="90%" ry="80%" fill="url(#glow)"/>
-    <svg x="${(width - iconSize) / 2}" y="${(height - iconSize) / 2 - 5}" width="${iconSize}" height="${iconSize}" viewBox="0 0 24 24" fill="none" stroke="white" stroke-opacity=".92" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${glyphs[kind]}</svg>
-  </svg>`;
-  return `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`;
 }

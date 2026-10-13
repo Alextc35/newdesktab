@@ -1,6 +1,8 @@
 import '../../types/types.js'; // typedefs
 import { getFaviconOrigins } from './faviconOrigins.js';
 import { getFaviconUrl, isFaviconAvailable } from '../../platform/images/faviconService.js';
+import { createCatalogIcon } from '../../shared/ui/catalogIcon.js';
+import { lightSurfaceTextColor, readableSurfaceTextColor } from '../../shared/ui/surfaceContrast.js';
 
 /**
  * Creates a favicon element for a bookmark.
@@ -11,10 +13,19 @@ import { getFaviconUrl, isFaviconAvailable } from '../../platform/images/favicon
  * @param {Bookmark} bookmark - Bookmark object
  * @param {Object} [options]
  * @param {string|null} [options.placeholderUrl] - Local image used instead of resolving a site.
+ * @param {boolean} [options.fitToContent=false] - Center compact SVGs using their actual artwork bounds.
  * @return {HTMLSpanElement} Theme-aware favicon container.
  */
-export function createFavicon(bookmark, { placeholderUrl = null } = {}) {
+export function createFavicon(bookmark, { placeholderUrl = null, fitToContent = false } = {}) {
   const favicon = createFaviconContainer(bookmark.name);
+  const customIcon = createCatalogIcon(bookmark.iconId, { fitToContent });
+  if (customIcon) {
+    favicon.classList.add('bookmark-favicon-catalog');
+    favicon.style.setProperty('--catalog-icon-light', lightSurfaceTextColor(bookmark.textColor));
+    favicon.style.setProperty('--catalog-icon-dark', readableSurfaceTextColor(bookmark.textColor, '#18181a'));
+    favicon.append(customIcon);
+    return favicon;
+  }
 
   if (placeholderUrl) {
     favicon.append(createFaviconImage(placeholderUrl));

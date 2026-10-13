@@ -3,6 +3,18 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 const ICON_KINDS = new Set(['bookmark', 'folder', 'recycle-bin']);
 let folderImagePatternId = 0;
 
+/** Creates the chevron used by expandable controls. */
+export function createChevronSvg() {
+  const svg = createSvg('0 0 24 24', 'disclosure-chevron');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('stroke', 'currentColor');
+  svg.setAttribute('stroke-width', '2');
+  svg.setAttribute('stroke-linecap', 'round');
+  svg.setAttribute('stroke-linejoin', 'round');
+  svg.append(createPath('m6 9 6 6 6-6', 'disclosure-chevron-path'));
+  return svg;
+}
+
 /** Creates the compact undo or redo arrow for draft editor controls. */
 export function createHistorySvg(direction) {
   const svg = createSvg('0 0 24 24', 'editor-history-icon');

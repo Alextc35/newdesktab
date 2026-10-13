@@ -2,6 +2,7 @@ import '../../types/types.js';
 
 /** Default visual style for a bookmark. */
 export const DEFAULT_BOOKMARK_STYLE = {
+  iconId: null,
   backgroundImageUrl: null,
   backgroundImageLocal: null,
   backgroundImageSource: 'url',

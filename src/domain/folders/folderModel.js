@@ -1,6 +1,7 @@
 import '../../types/types.js';
 import { DEFAULT_FOLDER_STYLE } from './folderDefaults.js';
 import { normalizeBackgroundImage } from '../../shared/images/backgroundImage.js';
+import { normalizeCatalogIconId } from '../../shared/icons/iconCatalog.js';
 
 export const BOOKMARK_FOLDER_NAME_MAX_LENGTH = 60;
 
@@ -12,6 +13,7 @@ export function normalizeBookmarkFolderName(name) {
 }
 
 export const FOLDER_STYLE_KEYS = Object.freeze([
+  'iconId',
   'noBackground',
   'backgroundColor',
   'outerBackgroundColor',
@@ -35,6 +37,7 @@ export function normalizeFolderStyle(value = {}) {
   const image = normalizeBackgroundImage(source);
   const showFolder = source.showFolder !== false;
   return {
+    iconId: normalizeCatalogIconId(source.iconId),
     noBackground: source.noBackground === true,
     backgroundColor: isHexColor(source.backgroundColor)
       ? source.backgroundColor.toLowerCase()

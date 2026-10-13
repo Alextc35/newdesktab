@@ -861,7 +861,8 @@
   gap: 6px;
 }
 
-.folder-grid-bookmark .bookmark-info .bookmark-title {
+.folder-grid-bookmark.bookmark .bookmark-info .bookmark-title {
+  margin-top: 0;
   text-align: center;
 }
 

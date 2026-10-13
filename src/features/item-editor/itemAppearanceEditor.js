@@ -3,6 +3,7 @@ import { DEFAULT_FOLDER_STYLE } from '../../domain/folders/folderDefaults.js';
 import { DEFAULT_RECYCLE_BIN_STYLE } from '../../domain/recycle-bin/recycleBinDefaults.js';
 import { applyI18n } from '../../platform/i18n/i18n.js';
 import { openCustomColorPicker } from '../../shared/ui/colorPicker.js';
+import { createIconPicker } from './iconPicker.js';
 
 const DEFAULTS = {
   bookmark: DEFAULT_BOOKMARK_STYLE,
@@ -16,9 +17,9 @@ const PALETTES = {
   paper: { background: '#f1f0ec', text: '#292524', icon: '#78716c' }
 };
 const CONTENT_FIELDS = {
-  bookmark: ['backgroundFavicon', 'showText', 'showFavicon', 'invertColorIcon'],
-  folder: ['showFolder', 'showPreviews', 'showName', 'showCount'],
-  recycleBin: ['showIcon', 'showName', 'showCount']
+  bookmark: ['iconId', 'backgroundFavicon', 'showText', 'showFavicon', 'invertColorIcon'],
+  folder: ['iconId', 'showFolder', 'showPreviews', 'showName', 'showCount'],
+  recycleBin: ['iconId', 'showIcon', 'showName', 'showCount']
 };
 
 function textForBlackOrWhiteBackground(background) {
@@ -31,7 +32,7 @@ export function getItemAppearance(type, look = 'original', current = {}) {
   const defaults = DEFAULTS[type];
   if (!defaults || !Object.hasOwn(PALETTES, look) || (look === 'card' && type !== 'bookmark')) return null;
   const palette = PALETTES[look];
-  if (!palette) return { ...defaults };
+  if (!palette) return { ...defaults, iconId: current.iconId ?? null };
   const style = { ...defaults, noBackground: false, textColor: palette.text ?? defaults.textColor };
   for (const field of CONTENT_FIELDS[type]) {
     if (Object.hasOwn(current, field)) style[field] = current[field];
@@ -54,7 +55,7 @@ export function getItemAppearance(type, look = 'original', current = {}) {
 }
 
 /** Shared quick looks and appearance reset for all item editors. */
-export function createItemAppearanceEditor({ root, type, stylePanel, getValue, renderSample, onApply, signal }) {
+export function createItemAppearanceEditor({ root, type, stylePanel, getValue, renderSample, renderOriginalIcon, onApply, signal }) {
   if (!stylePanel) return { sync() {}, destroy() {} };
   root.classList.add('item-appearance-editor');
   const abortController = new AbortController();
@@ -131,6 +132,15 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
     content.append(controls);
     groups[name] = controls;
   }
+  const iconPicker = groups.icon ? createIconPicker({
+    type, getValue, renderOriginalIcon,
+    onSelect: iconId => onApply({
+      iconId,
+      [type === 'bookmark' ? 'showFavicon' : type === 'folder' ? 'showFolder' : 'showIcon']: true
+    }),
+    signal: abortController.signal
+  }) : null;
+  if (iconPicker) groups.icon.firstElementChild.after(iconPicker.element);
 
   // Card/folder color is independent of the image source and URL lock.
   const colorInput = root.querySelector(type === 'bookmark'
@@ -221,6 +231,7 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
   let lastImage;
   function sync() {
     const value = getValue();
+    iconPicker?.sync();
     const signature = JSON.stringify([value.name, value.url, ...CONTENT_FIELDS[type].map(key => value[key])]);
     let selected = null;
     for (const button of looks.children) {
@@ -252,6 +263,7 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
       chip.classList.toggle('is-disabled', input.disabled);
     }
     if (imageDetails) {
+      imageDetails.hidden = type === 'folder' && Boolean(value.iconId);
       const activeImage = value.backgroundImageSource === 'local' ? value.backgroundImageLocal : value.backgroundImageUrl;
       if (activeImage && activeImage !== lastImage) imageDetails.open = true;
       lastImage = activeImage;
@@ -265,6 +277,7 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
   return {
     sync,
     refresh() {
+      if (iconPicker) iconPicker.element.open = false;
       sampleSignature = undefined;
       lastImage = undefined;
       if (imageDetails) imageDetails.open = false;

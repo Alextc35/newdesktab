@@ -64,7 +64,7 @@ function createBookmarkContent(element, bookmark, isEditing, faviconUrl) {
   const info = document.createElement('div');
   info.className = 'bookmark-info';
   if (bookmark.showFavicon ?? true) {
-    const icon = createIcon(bookmark, faviconUrl);
+    const icon = createIcon(bookmark, faviconUrl, true);
     icon.style.width = '16px';
     icon.style.height = '16px';
     info.appendChild(icon);
@@ -74,8 +74,8 @@ function createBookmarkContent(element, bookmark, isEditing, faviconUrl) {
   element.appendChild(link);
 }
 
-function createIcon(bookmark, faviconUrl) {
-  const image = createFavicon(bookmark, { placeholderUrl: faviconUrl });
+function createIcon(bookmark, faviconUrl, fitToContent = false) {
+  const image = createFavicon(bookmark, { placeholderUrl: faviconUrl, fitToContent });
   image.alt = bookmark.name || '';
   if (bookmark.invertColorIcon) image.style.filter = 'invert(1)';
   return image;

@@ -27,6 +27,7 @@
 
 /**
  * @typedef {Object} Bookmark
+ * @property {string|null} iconId Bundled category icon; null uses the site's favicon.
  * @property {string} id
  * @property {string} name
  * @property {string} url
@@ -55,6 +56,7 @@
 
 /**
  * @typedef {Object} BookmarkFolder
+ * @property {string|null} iconId Bundled category icon; null uses folder artwork.
  * @property {string} id
  * @property {string} name
  * @property {number} gx
@@ -85,6 +87,7 @@
 
 /**
  * @typedef {Object} BookmarkPreset
+ * @property {string|null} iconId
  * @property {string|null} backgroundImageUrl
  * @property {string|null} backgroundImageLocal
  * @property {'local'|'url'} backgroundImageSource
@@ -135,6 +138,7 @@
 
 /**
  * @typedef {Object} RecycleBin
+ * @property {string|null} iconId Bundled category icon; null uses recycle-bin artwork.
  * @property {string} id
  * @property {number} gx
  * @property {number} gy

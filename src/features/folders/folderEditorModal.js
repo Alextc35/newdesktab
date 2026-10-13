@@ -28,6 +28,7 @@ import { applyFolderAppearance } from './folderAppearance.js';
 import { createFolderVisual } from './folderVisual.js';
 
 let initialized = false;
+let iconId = null;
 /** @type {'create'|'edit'|null} */
 let mode = null;
 let activeFolderId = null;
@@ -227,6 +228,7 @@ export function openFolderEditor(folderId) {
 }
 
 function populateForm(value) {
+  iconId = value.iconId ?? null;
   nameInput.maxLength = BOOKMARK_FOLDER_NAME_MAX_LENGTH;
   nameInput.value = value.name;
   noBackgroundInput.checked = value.noBackground;
@@ -270,6 +272,7 @@ function handleInput() {
 
 function currentValue() {
   return {
+    iconId,
     name: nameInput.value,
     noBackground: noBackgroundInput.checked,
     noOuterBackground: noOuterBackgroundInput.checked,
@@ -296,6 +299,7 @@ function isDirty() {
   if (!initialValue) return false;
   const current = currentValue();
   return current.name !== initialValue.name
+    || current.iconId !== initialValue.iconId
     || current.noBackground !== initialValue.noBackground
     || current.noOuterBackground !== initialValue.noOuterBackground
     || current.backgroundColor !== initialValue.backgroundColor
@@ -318,10 +322,10 @@ function syncStyleControls() {
   imageSourceField.classList.toggle('is-hidden', !hasLocalImage);
   imageUrlField.classList.toggle('is-hidden', hasLocalImage && activeSource === 'local');
   localImageField.classList.toggle('is-hidden', !hasLocalImage || activeSource === 'url');
-  colorInput.disabled = noBackgroundInput.checked;
+  colorInput.disabled = noBackgroundInput.checked && !iconId;
   localColorInput.disabled = noBackgroundInput.checked || activeSource !== 'local';
   if (!showFolderInput.checked) showPreviewsInput.checked = false;
-  showPreviewsInput.disabled = !showFolderInput.checked;
+  showPreviewsInput.disabled = !showFolderInput.checked || Boolean(iconId);
   outerColorResetButton.disabled = outerBackgroundColor === null;
   outerColorInput.disabled = noOuterBackgroundInput.checked;
   textColorInput.disabled = !showNameInput.checked && !showCountInput.checked;

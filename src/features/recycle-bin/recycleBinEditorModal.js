@@ -29,6 +29,7 @@ import { initCustomSelect, refreshCustomSelect } from '../../shared/ui/customSel
 import { normalizeRecycleBinRetentionDays } from '../../domain/settings/recycleBinRetention.js';
 
 let initialized = false;
+let iconId = null;
 let submitting = false;
 let initialValue = null;
 let draftHistory;
@@ -208,6 +209,7 @@ function handleInput() {
 
 function currentValue() {
   return {
+    iconId,
     noBackground: noBackgroundInput.checked,
     backgroundColor: backgroundColorExplicit ? backgroundColorInput.value : null,
     backgroundImageUrl: getImageInputValue(imageInput) || null,
@@ -241,6 +243,7 @@ function syncControls() {
 
 function setControlValues(style, showRecycleBin) {
   const value = normalizeRecycleBinStyle(style);
+  iconId = value.iconId;
   backgroundColorExplicit = Boolean(value.backgroundColor);
   textColorExplicit = Boolean(value.textColor);
   noBackgroundInput.checked = value.noBackground;
@@ -298,7 +301,7 @@ function createRecycleBinPreviewCard(value) {
     count: countValue
   });
   caption.append(title, count);
-  content.append(createRecycleBinGlyph(), caption);
+  content.append(createRecycleBinGlyph(value), caption);
   card.append(content);
   return card;
 }

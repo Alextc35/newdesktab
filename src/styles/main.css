@@ -11,6 +11,7 @@
 @import '../features/grid/gridItem.css';
 @import '../features/bookmarks/bookmarkCard.css';
 @import '../shared/ui/itemActionButton.css';
+@import '../shared/ui/catalogIcon.css';
 @import '../shared/ui/localImageUpload.css';
 @import '../shared/ui/customSelect.css';
 @import '../shared/ui/colorPicker.css';

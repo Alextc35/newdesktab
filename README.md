@@ -31,6 +31,7 @@ items on a desktop without relying on a NewDeskTab account or backend.
 * Toolbar popup to save the current web page into a workspace or folder, with
   an existing-favorite indicator and automatic popup close after a successful save
 * Named appearance presets
+* Reusable category SVG icons for bookmarks, folders, the recycle bin and default bookmark styles
 * Independent bookmark workspaces with smooth `Alt/⌥ + ↑/↓` navigation
 * Resizable folders with a clean link view and an editable 3 × 6 workspace
 * Bundled resizable clock widget (work in progress) with 12/24-hour and seconds controls
@@ -112,6 +113,17 @@ saved dimensions. Deleting a folder asks for confirmation and deletes the
 bookmarks it contains.
 
 ## Editing and grid behavior
+
+In **Style → Icon**, choose the site's logo or original artwork, or search the
+bundled catalog of category symbols, interface icons and geometric shapes.
+Local suggestions use the site's hostname or the section name to offer useful
+choices for mail, documents, shopping, work, games and other common cases.
+Search works in the interface language and ignores accents. This is available
+for bookmarks, folders, the recycle bin and the default bookmark style.
+Category icons use the item's colors and work in
+grid, list and editor previews; quick looks preserve the selected category.
+The selection is included in presets, synchronization and backups. Choosing the
+original folder icon restores its bookmark previews and cover image.
 
 Edit mode exposes a direct pencil button on each bookmark. A middle click opens
 the same editor without opening the bookmark in a tab. A short primary click

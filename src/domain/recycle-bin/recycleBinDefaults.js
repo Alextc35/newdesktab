@@ -4,6 +4,7 @@ export const RECYCLE_BIN_ID = 'newdesktab-recycle-bin';
 
 /** Default appearance for the recycle-bin card. */
 export const DEFAULT_RECYCLE_BIN_STYLE = Object.freeze({
+  iconId: null,
   noBackground: true,
   backgroundColor: null,
   backgroundImageUrl: null,

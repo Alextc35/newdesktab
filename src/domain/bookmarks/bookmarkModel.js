@@ -5,8 +5,10 @@ import {
   DEFAULT_BOOKMARK_STYLE
 } from './bookmarkDefaults.js';
 import { normalizeBackgroundImage } from '../../shared/images/backgroundImage.js';
+import { normalizeCatalogIconId } from '../../shared/icons/iconCatalog.js';
 
 export const BOOKMARK_STYLE_KEYS = Object.freeze([
+  'iconId',
   'backgroundImageUrl',
   'backgroundImageLocal',
   'backgroundImageSource',
@@ -71,7 +73,7 @@ export function normalizeBookmarkPreset(value = {}) {
       : null;
   }
 
-  return { ...preset, ...normalizeBackgroundImage(source) };
+  return { ...preset, iconId: normalizeCatalogIconId(source.iconId), ...normalizeBackgroundImage(source) };
 }
 
 /**

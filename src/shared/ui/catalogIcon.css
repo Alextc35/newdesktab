@@ -1,0 +1,9 @@
+/* Bundled category icons use the saved item's colors and existing dimensions. */
+.catalog-icon { display: block; width: 100%; height: 100%; }
+.bookmark-favicon-catalog { color: var(--bookmark-context-text, var(--color-text-bookmark, var(--ui-text))); }
+.bookmark-list-icon.has-transparent-background .bookmark-favicon-catalog,
+.bookmark-preview .has-transparent-background .bookmark-favicon-catalog { color: light-dark(var(--catalog-icon-light), var(--catalog-icon-dark)); }
+.folder-previews .bookmark-favicon-catalog { color: var(--folder-preview-text, var(--ui-text)); }
+.folder-catalog-icon { color: var(--folder-color); }
+.recycle-bin-glyph.has-catalog-icon { aspect-ratio: 1; color: var(--recycle-bin-icon-color); }
+.recycle-bin-modal-icon > .catalog-icon { width: 32px; height: 32px; color: var(--recycle-bin-icon-color); }

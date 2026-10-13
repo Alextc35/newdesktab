@@ -54,6 +54,11 @@ handling of its services.
 
 ## Requests for favicons and other media
 
+Bundled category icons are rendered locally. Choosing one instead of a website
+favicon avoids the favicon request for that item.
+Opening the icon picker can still request the site's favicon to preview the Logo choice.
+Icon suggestions use the saved name and hostname locally, without sending them to a service.
+
 When a view or editor displays a website icon, NewDeskTab requests it from Google's
 favicon service at `https://t3.gstatic.com/faviconV2`. The request includes the
 bookmark site's origin (scheme, hostname and any port), with a leading `www.`

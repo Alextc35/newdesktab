@@ -33,17 +33,20 @@
   }
 
   & .bookmark-info {
-    left: clamp(3px, 6cqw, 8px);
-    right: clamp(3px, 6cqw, 8px);
-    gap: clamp(2px, 3cqw, 6px);
+    /* Match the preview; only unusually small cells reduce caption geometry. */
+    --bookmark-caption-inset: clamp(3px, calc(100cqw - 24px), 8px);
+    --bookmark-caption-gap: clamp(2px, calc(100cqw - 40px), 6px);
+    --bookmark-caption-icon-size: min(16px, max(8px, calc(100cqw - 16px)), max(8px, calc(100cqh - 12px)));
+    --bookmark-caption-text-size: min(14px, max(9px, calc(100cqh - 12px)));
 
     & .bookmark-title {
+      font-size: var(--bookmark-caption-text-size);
       margin-top: 0;
     }
 
     & .bookmark-favicon {
-      max-width: clamp(8px, 12cqw, 16px);
-      max-height: clamp(8px, 12cqw, 16px);
+      max-width: var(--bookmark-caption-icon-size);
+      max-height: var(--bookmark-caption-icon-size);
       flex-shrink: 0;
     }
   }

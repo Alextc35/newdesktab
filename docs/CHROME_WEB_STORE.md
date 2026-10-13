@@ -39,6 +39,10 @@ See [RELEASE_NOTES.md](RELEASE_NOTES.md) when preparing the notes for a new vers
 > reusable appearance presets. Import and export bookmarks or create a complete
 > local backup whenever you need one.
 >
+> Choose bundled category icons instead of website favicons or the original
+> folder and recycle-bin artwork. Search for everyday symbols and geometric shapes,
+> with local suggestions for common uses. Reuse them in presets and your default bookmark style.
+>
 > Data is stored locally by default. Optional Chrome Sync uses browser-managed
 > storage so compatible Chrome profiles can share bookmark data and settings.
 > Images uploaded from your device remain local to that browser profile. Complete

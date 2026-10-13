@@ -20,6 +20,7 @@ test('normalizes recycle bin colors and independently hidden elements', () => {
     showName: false,
     showCount: false
   }), {
+    iconId: null,
     noBackground: true,
     backgroundColor: '#aa11cc',
     backgroundImageUrl: 'https://images.test/bin.png',

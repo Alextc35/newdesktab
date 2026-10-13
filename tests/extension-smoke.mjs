@@ -143,8 +143,9 @@ try {
     const settings = getState().data.settings;
     await setState({ data: { settings: { ...settings, bookmarkDefault: {
       ...settings.bookmarkDefault,
+      iconId: 'notes',
       noBackground: false, backgroundColor: '#123456', textColor: '#abcdef',
-      backgroundFavicon: false, showFavicon: false
+      backgroundFavicon: false, showFavicon: true
     } } } });
     await requirePersistence();
     const sourceTab = await chrome.tabs.create({ url: 'about:blank', active: false });
@@ -156,13 +157,15 @@ try {
   assert.equal(popupResult.reason, null);
   assert.equal(popupResult.tabStillOpen, true);
   for (const bookmark of [popupResult.bookmark, popupResult.storedBookmark]) {
+    assert.equal(bookmark.iconId, 'notes');
     assert.equal(bookmark.noBackground, false);
     assert.equal(bookmark.backgroundColor, '#123456');
     assert.equal(bookmark.textColor, '#abcdef');
     assert.equal(bookmark.backgroundFavicon, false);
-    assert.equal(bookmark.showFavicon, false);
+    assert.equal(bookmark.showFavicon, true);
   }
   await page.getByRole('link', { name: /Popup smoke/ }).waitFor({ state: 'visible' });
+  await page.getByRole('link', { name: /Popup smoke/ }).locator('[data-icon-id="notes"]').waitFor({ state: 'visible' });
   await popup.close();
 
   const missingImage = await page.evaluate(async () => {

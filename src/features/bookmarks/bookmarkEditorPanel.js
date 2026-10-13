@@ -11,6 +11,7 @@ import { initTabs } from '../../shared/ui/tabs.js';
 import { createItemAppearanceEditor } from '../item-editor/itemAppearanceEditor.js';
 import { createBookmarkEditor } from './bookmarkEditor.js';
 import { createBookmarkElement } from './bookmarkCard.js';
+import { createFavicon } from './bookmarkFavicon.js';
 
 const TEMPLATE_ID = 'bookmark-form-template';
 const ALL_SECTIONS = Object.freeze(['general', 'style', 'text', 'icon', 'presets']);
@@ -123,6 +124,7 @@ export function createBookmarkEditorPanel({
     stylePanel: panels.style,
     getValue: () => editor.getState(),
     renderSample: value => createBookmarkElement(value, { isPreview: true, faviconUrl: previewFaviconUrl }),
+    renderOriginalIcon: value => createFavicon({ ...value, iconId: null }, { placeholderUrl: previewFaviconUrl }),
     onApply: appearance => {
       setValue({ ...editor.getState(), ...appearance });
       onChange?.(getPublicValue(currentMode, currentValue));

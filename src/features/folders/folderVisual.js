@@ -4,6 +4,7 @@ import { createFavicon } from '../bookmarks/bookmarkFavicon.js';
 import { readableSurfaceTextColor } from '../../shared/ui/surfaceContrast.js';
 import { createFolderSvg } from '../../shared/ui/svgIcons.js';
 import { applyFolderAppearance } from './folderAppearance.js';
+import { createCatalogIcon } from '../../shared/ui/catalogIcon.js';
 
 /** Creates the shared folder glyph used by cards, previews and headers. */
 export function createFolderVisual(folder, bookmarks = [], { compact = false } = {}) {
@@ -12,6 +13,12 @@ export function createFolderVisual(folder, bookmarks = [], { compact = false } =
   visual.classList.toggle('is-compact', compact);
   visual.setAttribute('aria-hidden', 'true');
   applyFolderAppearance(visual, folder);
+  const customIcon = createCatalogIcon(folder.iconId);
+  if (customIcon) {
+    customIcon.classList.add('folder-svg', 'folder-catalog-icon');
+    visual.append(customIcon);
+    return visual;
+  }
 
   const backgroundImage = resolveBackgroundImage(folder);
   // Animated formats repaint reliably as CSS backgrounds, not SVG pattern images.

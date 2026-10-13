@@ -1,7 +1,9 @@
 import { DEFAULT_RECYCLE_BIN_STYLE } from './recycleBinDefaults.js';
 import { normalizeBackgroundImage } from '../../shared/images/backgroundImage.js';
+import { normalizeCatalogIconId } from '../../shared/icons/iconCatalog.js';
 
 export const RECYCLE_BIN_STYLE_KEYS = Object.freeze([
+  'iconId',
   'noBackground',
   'backgroundColor',
   'backgroundImageUrl',
@@ -24,6 +26,7 @@ export function normalizeRecycleBinStyle(value = {}) {
   const backgroundColor = normalizeOptionalColor(source.backgroundColor);
   const hasLegacyBackground = Boolean(backgroundColor || image.backgroundImageUrl || image.backgroundImageLocal);
   return {
+    iconId: normalizeCatalogIconId(source.iconId),
     noBackground: source.noBackground === undefined
       ? DEFAULT_RECYCLE_BIN_STYLE.noBackground && !hasLegacyBackground
       : source.noBackground === true,

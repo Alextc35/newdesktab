@@ -36,6 +36,7 @@ export function createBookmarkListItem(bookmark, { active = false } = {}) {
 export function createBookmarkListIcon(bookmark) {
   const icon = document.createElement('span');
   icon.className = 'bookmark-list-icon';
+  icon.classList.toggle('has-transparent-background', bookmark.noBackground !== false);
   icon.style.backgroundColor = bookmark.noBackground ? 'transparent' : bookmark.backgroundColor;
   const cover = !bookmark.backgroundFavicon && resolveBackgroundImage(bookmark);
   const showIcon = bookmark.backgroundFavicon || (bookmark.showFavicon ?? true);

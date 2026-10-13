@@ -282,6 +282,7 @@ test('migrates local data to an empty synchronized area', async () => {
   assert.equal(stored.widgets[0].config.timezone, 'UTC');
   assert.deepEqual(stored.settings.keyboardShortcuts, SETTINGS.keyboardShortcuts);
   assert.deepEqual(stored.settings.bookmarkDefault, {
+    iconId: null,
     backgroundImageUrl: null,
     backgroundImageLocal: null,
     backgroundImageSource: 'url',
@@ -562,4 +563,25 @@ test('falls back to compatible local data when sync was written by a newer versi
 
   await storage.clearSyncData();
   assert.equal(storage.getSyncCompatibility(), null);
+});
+
+test('category icons survive switching from Local to Sync and back', async () => {
+  const data = structuredClone(LOCAL_DATA);
+  data.bookmarks[0].iconId = 'music';
+  data.folders[0].iconId = 'projects';
+  data.recycleBin = { iconId: 'tasks' };
+  data.settings.bookmarkDefault.iconId = 'ideas';
+  await storage.set(data);
+  await storage.changeMode(STORAGE_MODES.SYNC, data);
+  const synced = await storage.get(null);
+  assert.equal(synced.bookmarks[0].iconId, 'music');
+  assert.equal(synced.folders[0].iconId, 'projects');
+  assert.equal(synced.recycleBin.iconId, 'tasks');
+  assert.equal(synced.settings.bookmarkDefault.iconId, 'ideas');
+  await storage.changeMode(STORAGE_MODES.LOCAL, synced);
+  const local = await storage.get(null);
+  assert.equal(local.bookmarks[0].iconId, 'music');
+  assert.equal(local.folders[0].iconId, 'projects');
+  assert.equal(local.recycleBin.iconId, 'tasks');
+  assert.equal(local.settings.bookmarkDefault.iconId, 'ideas');
 });

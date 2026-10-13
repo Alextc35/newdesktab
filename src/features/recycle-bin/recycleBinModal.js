@@ -27,6 +27,7 @@ import {
 import { createBookmarkListIcon } from '../bookmarks/bookmarkListItem.js';
 import { createFolderVisual } from '../folders/folderVisual.js';
 import { openRecycleBinEditor } from './recycleBinEditorModal.js';
+import { createCatalogIcon } from '../../shared/ui/catalogIcon.js';
 
 const selectedIds = new Set();
 let modal;
@@ -89,7 +90,10 @@ function closeRecycleBin() {
 }
 
 function renderRecycleBin() {
-  const trash = getState().data.trash;
+  const { trash, recycleBin } = getState().data;
+  const customizeButton = document.getElementById('recycle-bin-modal-customize');
+  customizeButton.style.setProperty('--recycle-bin-icon-color', recycleBin.iconColor);
+  customizeButton.replaceChildren(createCatalogIcon(recycleBin.iconId) || createRecycleBinSvg(), createEditIndicatorSvg());
   const availableIds = new Set(trash.map(entry => entry.id));
   for (const id of selectedIds) {
     if (!availableIds.has(id)) selectedIds.delete(id);

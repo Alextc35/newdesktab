@@ -59,23 +59,36 @@
 }
 
 .bookmark-info {
+  --bookmark-caption-inset: 8px;
+  --bookmark-caption-gap: 6px;
+  --bookmark-caption-icon-size: 16px;
+  --bookmark-caption-text-size: 14px;
   position: absolute;
   bottom: 6px;
-  left: 8px;
-  right: 8px;
+  left: var(--bookmark-caption-inset);
+  right: var(--bookmark-caption-inset);
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 6px;
+  gap: var(--bookmark-caption-gap);
   min-width: 0;
 
   & .bookmark-title {
     flex: 1;
+    font-size: var(--bookmark-caption-text-size);
+    line-height: 1.2;
+    margin-top: 0;
     text-align: left;
   }
 
+  & .bookmark-favicon {
+    max-width: var(--bookmark-caption-icon-size);
+    max-height: var(--bookmark-caption-icon-size);
+    flex-shrink: 0;
+  }
+
   & img {
-    width: 16px;
-    height: 16px;
+    width: 100%;
+    height: 100%;
   }
 }

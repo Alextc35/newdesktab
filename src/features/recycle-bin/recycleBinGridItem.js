@@ -70,7 +70,7 @@ export function createRecycleBinElement({ container, recycleBin, trash, isEditin
   dropFeedback.className = 'recycle-bin-drop-feedback';
   dropFeedback.textContent = t('recycleBin.dropHint');
 
-  button.append(createRecycleBinGlyph(), caption, dropFeedback);
+  button.append(createRecycleBinGlyph(recycleBin), caption, dropFeedback);
   button.addEventListener('click', event => {
     if (element.classList.contains('is-editing') || element.dataset.suppressOpen === 'true') {
       event.preventDefault();
@@ -110,7 +110,7 @@ function createRecycleBinListItem({ recycleBin, count, active, onOpen }) {
   const icon = document.createElement('span');
   icon.className = 'bookmark-list-icon recycle-bin-list-icon';
   icon.setAttribute('aria-hidden', 'true');
-  const glyph = createRecycleBinGlyph();
+  const glyph = createRecycleBinGlyph(recycleBin);
   glyph.classList.add('bookmark-list-recycle-glyph');
   icon.append(glyph);
 
