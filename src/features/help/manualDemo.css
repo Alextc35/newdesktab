@@ -13,7 +13,7 @@
 .manual-demo-cell { border: 1px dashed light-dark(#b4c4d5, #324355); border-radius: 8px; }
 .manual-demo-item.bookmark { --bookmark-context-text: light-dark(#172b40, #f1f5f9); position: absolute; z-index: 2; margin: 0; padding: 0; min-width: 0; border: 1px solid light-dark(#b4c4d5, #385674); border-radius: 8px; background: light-dark(#e7eef7, #17263b); box-shadow: none; transition: none; }
 .manual-demo-item .bookmark-link { height: 100%; padding: 9px 4px; box-sizing: border-box; }
-.manual-demo-item .bookmark-info { position: static; flex-direction: column; gap: 6px; width: 100%; }
+.manual-demo-item .bookmark-info { --bookmark-caption-icon-size: 25px; position: static; flex-direction: column; gap: 6px; width: 100%; }
 .manual-demo-item .bookmark-favicon { width: 25px !important; height: 25px !important; flex: 0 0 25px; }
 .manual-demo-item .bookmark-favicon-image { width: 100%; height: 100%; }
 .manual-demo-item .bookmark-title { max-width: 100%; margin: 0; font-size: 10px; text-align: center; line-height: 1.3; }
@@ -24,7 +24,7 @@
 .manual-demo-folder-count { position: absolute; right: 15px; top: 12px; display: grid; place-items: center; width: 16px; height: 16px; border-radius: 50%; background: #247fac; font-size: 9px; opacity: 0; }
 .manual-demo-folder-grid { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: repeat(3, 44px); width: 100%; gap: 6px; }
 .manual-demo-item.is-demo-folder-content .bookmark-link { padding: 3px; }
-.manual-demo-item.is-demo-folder-content .bookmark-info { gap: 4px; }
+.manual-demo-item.is-demo-folder-content .bookmark-info { --bookmark-caption-icon-size: 18px; gap: 4px; }
 .manual-demo-item.is-demo-folder-content .bookmark-favicon { width: 18px !important; height: 18px !important; flex-basis: 18px; }
 .manual-demo-item.is-demo-folder-content .bookmark-title { font-size: 9px; }
 .manual-demo-item.is-demo-folder-content .manual-demo-pencil, .manual-demo-item.is-demo-folder-content .manual-demo-handle { display: none; }
@@ -83,7 +83,7 @@
   .manual-demo-compact-surface > .manual-demo-item { left: 16px !important; top: calc(42px + var(--manual-list-row) * 41px) !important; width: calc(100% - 32px) !important; height: 34px !important; border: 1px solid var(--ui-border); border-radius: 7px; background: var(--ui-card); }
   .manual-demo-compact-surface > .manual-demo-item.bookmark { --bookmark-context-text: var(--ui-text); }
   .manual-demo-compact-surface .bookmark-link { padding: 5px 9px; }
-  .manual-demo-compact-surface .bookmark-info { flex-direction: row; gap: 10px; }
+  .manual-demo-compact-surface .bookmark-info { --bookmark-caption-icon-size: 20px; flex-direction: row; gap: 10px; }
   .manual-demo-compact-surface .bookmark-title { text-align: left; font-size: 11px; }
   .manual-demo-compact-surface .bookmark-favicon { width: 20px !important; height: 20px !important; flex-basis: 20px; }
   .manual-demo-compact-surface .manual-demo-trash, .manual-demo-compact-surface .manual-demo-folder { flex-direction: row; justify-content: flex-start; gap: 10px; padding: 5px 9px; font-size: 11px; }

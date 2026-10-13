@@ -141,10 +141,11 @@ test('list search filters names, handles accents and spaces, and keeps keyboard 
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
-    await setState({ data: { ...data, bookmarks: data.bookmarks.map(item => (
+    void setState({ data: { ...data, bookmarks: data.bookmarks.map(item => (
       item.id === 'compact-2' ? { ...item, name: 'Café favorito' } : item
     )) } });
   });
+  await expectAppSaved(page);
   const original = await data(page);
   const search = page.getByRole('searchbox', { name: 'Search bookmarks and folders' });
   const results = page.locator('#bookmark-container .bookmark-list-item:visible');
@@ -197,8 +198,9 @@ test('list search survives resizing and updates, follows the theme and language,
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
-    await setState({ data: { ...data, settings: { ...data.settings, interfaceTheme: 'light', language: 'es' } } });
+    void setState({ data: { ...data, settings: { ...data.settings, interfaceTheme: 'light', language: 'es' } } });
   });
+  await expectAppSaved(page);
   await expect(search).toBeFocused();
   expect(await search.evaluate(input => input.selectionStart)).toBe(10);
   await expect(search).toHaveAttribute('placeholder', 'Buscar favoritos y carpetas');
@@ -219,11 +221,12 @@ test('list search survives resizing and updates, follows the theme and language,
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
-    await setState({ data: { ...data, settings: { ...data.settings,
+    void setState({ data: { ...data, settings: { ...data.settings,
       bookmarkGroups: [...data.settings.bookmarkGroups, { id: 'other-workspace', name: 'Other workspace' }],
       activeBookmarkGroupId: 'other-workspace'
     } } });
   });
+  await expectAppSaved(page);
   await expect(search).toHaveValue('');
   await expect(results).toHaveCount(0);
 });
@@ -597,11 +600,12 @@ test('empty folders show a compact list placeholder without a scrollbar', async 
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
-    await setState({ data: {
+    void setState({ data: {
       ...data,
       bookmarks: data.bookmarks.filter(bookmark => bookmark.folderId !== 'compact-folder')
     } });
   });
+  await expectAppSaved(page);
 
   await page.locator('[data-folder-id="compact-folder"] .folder-open').click();
   const card = page.locator('#folder-modal .modal-folder');

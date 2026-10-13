@@ -267,6 +267,8 @@ test('compact demonstration narrows the desktop into an ordered list in either t
     await openTopic(page, 'compact');
     await seek(page, 0);
     const gmail = page.locator('.manual-demo [data-demo-item="Gmail"]');
+    await expect(gmail.locator('.bookmark-favicon')).toHaveCSS('width', '25px');
+    await expect(gmail.locator('.bookmark-favicon')).toHaveCSS('height', '25px');
     const desktopLayout = () => gmail.evaluate(element => [element.offsetLeft, element.offsetTop, element.offsetWidth, element.offsetHeight]);
     const original = await desktopLayout();
     await seek(page, 6300);
@@ -289,6 +291,8 @@ test('compact demonstration narrows the desktop into an ordered list in either t
     expect(layout.ordered).toBe(true);
     expect(layout.contained).toBe(true);
     await expect(page.locator('.manual-demo-toolbar')).toBeHidden();
+    await expect(gmail.locator('.bookmark-favicon')).toHaveCSS('width', '20px');
+    await expect(gmail.locator('.bookmark-favicon')).toHaveCSS('height', '20px');
     const alignment = await page.locator('.manual-demo-compact-surface').evaluate(surface => {
       const folder = surface.querySelector('.folder-visual').getBoundingClientRect();
       const folderName = surface.querySelector('.manual-demo-folder-name').getBoundingClientRect();
@@ -296,7 +300,8 @@ test('compact demonstration narrows the desktop into an ordered list in either t
       const gmailName = surface.querySelector('[data-demo-item="Gmail"] .bookmark-title').getBoundingClientRect();
       return [Math.abs(folder.left - gmail.left), Math.abs(folderName.left - gmailName.left)];
     });
-    expect(alignment.every(gap => gap < 5)).toBe(true);
+    expect(alignment[0], 'folder and bookmark icons start at the same position').toBeLessThan(1);
+    expect(alignment[1], 'folder and bookmark labels share the same column').toBeLessThan(5);
     margins.push(layout.background);
     await page.locator('.manual-demo').screenshot({ path: `test-results/manual-demo-compact-${theme}.png` });
     await seek(page, 12000);
