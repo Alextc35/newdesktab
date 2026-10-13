@@ -164,36 +164,46 @@ test('folder captions preserve saved colors with readable badges across themes a
 });
 
 test('system follows device colors, explicit modes persist, and cancel restores the preview', async ({ page }) => {
+  const recycleBinGlyph = page.locator('.settings-recycle-bin-icon .recycle-bin-can');
+  const white = 'rgb(255, 255, 255)';
+  const black = 'rgb(0, 0, 0)';
   await page.emulateMedia({ colorScheme: 'dark' });
   await start(page);
   await openSettings(page);
   await expect(preference(page, 'system')).toBeChecked();
   await expect(card(page)).toHaveCSS('background-color', dark);
+  await expect(recycleBinGlyph).toHaveCSS('stroke', white);
   await page.emulateMedia({ colorScheme: 'light' });
   await expect(card(page)).toHaveCSS('background-color', light);
+  await expect(recycleBinGlyph).toHaveCSS('stroke', black);
   await preference(page, 'dark').check();
   await expect(card(page)).toHaveCSS('background-color', dark);
+  await expect(recycleBinGlyph).toHaveCSS('stroke', white);
   await page.locator('#settings-modal-save').click();
-    await expect(page.locator('#settings-modal')).toBeHidden();
+  await expect(page.locator('#settings-modal')).toBeHidden();
   await page.reload();
   await openSettings(page);
   await expect(preference(page, 'dark')).toBeChecked();
   await expect(card(page)).toHaveCSS('background-color', dark);
+  await expect(recycleBinGlyph).toHaveCSS('stroke', white);
   await preference(page, 'light').check();
   await expect(card(page)).toHaveCSS('background-color', light);
+  await expect(recycleBinGlyph).toHaveCSS('stroke', black);
   await page.locator('#settings-modal-cancel').click();
   await page.locator('#alert-modal-accept').click();
   await expect(page.locator('#settings-modal')).toBeHidden();
   await openSettings(page);
   await expect(preference(page, 'dark')).toBeChecked();
   await expect(card(page)).toHaveCSS('background-color', dark);
+  await expect(recycleBinGlyph).toHaveCSS('stroke', white);
   await preference(page, 'system').check();
   await page.locator('#settings-modal-save').click();
-    await expect(page.locator('#settings-modal')).toBeHidden();
+  await expect(page.locator('#settings-modal')).toBeHidden();
   await page.reload();
   await openSettings(page);
   await expect(preference(page, 'system')).toBeChecked();
   await expect(card(page)).toHaveCSS('background-color', light);
+  await expect(recycleBinGlyph).toHaveCSS('stroke', black);
 });
 
 for (const [locale, language] of [['es-ES', 'es'], ['es-MX', 'es-419'], ['pt-BR', 'pt-BR'], ['fr-FR', 'en']]) {

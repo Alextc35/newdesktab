@@ -318,7 +318,8 @@
   border: 1px solid color-mix(in srgb, var(--ui-accent) 28%, var(--ui-border));
   border-radius: 11px;
   background: var(--ui-info-bg);
-  color: light-dark(#52647d, #c7d7ea);
+  color: light-dark(#000, #fff);
+  --recycle-bin-icon-color: currentColor;
 }
 
 .settings-recycle-bin-icon svg {
