@@ -54,7 +54,9 @@ export async function startApplication() {
     await bootstrapApplication({ trace, startedAt });
   } catch (error) {
     trace.end({ status: 'error', error: error.message });
-    console.error('[NewDeskTab] Could not initialize the page:', error);
+    // Chrome's extension error list otherwise records only this catch site,
+    // losing the original failing control and its initialization stack.
+    console.error('[NewDeskTab] Could not initialize the page:\n' + (error.stack || String(error)));
   }
 }
 

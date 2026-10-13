@@ -71,41 +71,55 @@ let previewBookmarks = [];
 
 export function initFolderEditorModal() {
   if (initialized) return;
-  initialized = true;
-  subscribe(state => { previewBookmarks = state.data.bookmarks; });
 
-  modal = document.getElementById('edit-folder-modal');
+  modal = requiredEditorElement('edit-folder-modal');
   modalTitle = modal.querySelector('h2');
-  nameInput = document.getElementById('folder-editor-name');
-  noBackgroundInput = document.getElementById('folder-editor-no-background');
-  noOuterBackgroundInput = document.getElementById('folder-editor-no-outer-background');
-  colorInput = document.getElementById('folder-editor-color');
-  outerColorInput = document.getElementById('folder-editor-outer-color');
-  outerColorResetButton = document.getElementById('folder-editor-outer-color-reset');
-  showPreviewsInput = document.getElementById('folder-editor-show-previews');
-  showNameInput = document.getElementById('folder-editor-show-name');
-  iconColorInput = document.getElementById('folder-editor-symbol-color');
-  imageInput = document.getElementById('folder-editor-image');
-  imageSourceField = document.getElementById('folder-editor-image-source-field');
-  imageSourceSelect = document.getElementById('folder-editor-image-source');
-  imageUrlField = document.getElementById('folder-editor-image-url-field');
-  localImageInput = document.getElementById('folder-editor-image-local');
+  nameInput = requiredEditorElement('folder-editor-name');
+  noBackgroundInput = requiredEditorElement('folder-editor-no-background');
+  noOuterBackgroundInput = requiredEditorElement('folder-editor-no-outer-background');
+  colorInput = requiredEditorElement('folder-editor-color');
+  outerColorInput = requiredEditorElement('folder-editor-outer-color');
+  outerColorResetButton = requiredEditorElement('folder-editor-outer-color-reset');
+  showPreviewsInput = requiredEditorElement('folder-editor-show-previews');
+  showNameInput = requiredEditorElement('folder-editor-show-name');
+  iconColorInput = requiredEditorElement('folder-editor-symbol-color');
+  imageInput = requiredEditorElement('folder-editor-image');
+  imageSourceField = requiredEditorElement('folder-editor-image-source-field');
+  imageSourceSelect = requiredEditorElement('folder-editor-image-source');
+  imageUrlField = requiredEditorElement('folder-editor-image-url-field');
+  localImageInput = requiredEditorElement('folder-editor-image-local');
   localImageField = localImageInput.closest('.local-image-field');
-  localColorInput = document.getElementById('folder-editor-local-color');
-  imageUploadInput = document.getElementById('folder-editor-image-upload-input');
-  imageUploadButton = document.getElementById('folder-editor-image-upload');
+  localColorInput = requiredEditorElement('folder-editor-local-color');
+  imageUploadInput = requiredEditorElement('folder-editor-image-upload-input');
+  imageUploadButton = requiredEditorElement('folder-editor-image-upload');
   imageUploadNotice = imageUploadButton?.parentElement?.querySelector('.local-image-notice');
-  textColorInput = document.getElementById('folder-editor-text-color');
-  preview = document.getElementById('folder-editor-preview');
-  saveButton = document.getElementById('edit-folder-modal-save');
-  densityToggle = document.getElementById('folder-modal-density-toggle');
-  nameError = document.getElementById('folder-editor-name-error');
-  imageError = document.getElementById('folder-editor-image-error');
+  textColorInput = requiredEditorElement('folder-editor-text-color');
+  preview = requiredEditorElement('folder-editor-preview');
+  saveButton = requiredEditorElement('edit-folder-modal-save');
+  densityToggle = requiredEditorElement('folder-modal-density-toggle');
+  nameError = requiredEditorElement('folder-editor-name-error');
+  imageError = requiredEditorElement('folder-editor-image-error');
+  const stylePanel = requiredEditorElement('folder-editor-panel-style');
+  const cancelButton = requiredEditorElement('edit-folder-modal-cancel');
+  const imageToggleButton = requiredEditorElement('folder-editor-image-toggle');
+  const imageCopyButton = requiredEditorElement('folder-editor-image-copy');
+  const imageClearButton = requiredEditorElement('folder-editor-image-clear');
+  const localImageClearButton = requiredEditorElement('folder-editor-image-local-clear');
+
+  // Validate the static controls before rearranging the form or adding listeners.
+  // A failed attempt must not leave an apparently initialized editor behind.
+  imageController = createLockableInputController({
+    input: imageInput,
+    toggleBtn: imageToggleButton,
+    copyBtn: imageCopyButton,
+    clearBtn: imageClearButton,
+    onChange: handleInput
+  });
 
   appearanceEditor = createItemAppearanceEditor({
     root: modal,
     type: 'folder',
-    stylePanel: document.getElementById('folder-editor-panel-style'),
+    stylePanel,
     getValue: currentValue,
     renderSample: value => createFolderPreviewCard(value),
     onApply: appearance => {
@@ -151,25 +165,17 @@ export function initFolderEditorModal() {
     outerColorInput.value = fallbackOuterBackgroundColor();
     handleInput();
   });
-  imageController = createLockableInputController({
-    input: imageInput,
-    toggleBtn: document.getElementById('folder-editor-image-toggle'),
-    copyBtn: document.getElementById('folder-editor-image-copy'),
-    clearBtn: document.getElementById('folder-editor-image-clear'),
-    onChange: handleInput
-  });
   initLocalImageUpload({
     button: imageUploadButton,
     fileInput: imageUploadInput,
     targetInput: localImageInput,
-    clearButton: document.getElementById('folder-editor-image-local-clear'),
+    clearButton: localImageClearButton,
     onChange: () => {
       imageSourceSelect.value = getImageInputValue(localImageInput) ? 'local' : 'url';
       handleInput();
     }
   });
-  document.getElementById('edit-folder-modal-cancel')
-    .addEventListener('click', handleCancel);
+  cancelButton.addEventListener('click', handleCancel);
   saveButton.addEventListener('click', handleSave);
   densityToggle.addEventListener('click', () => {
     setCreateCompactMode(!modal.classList.contains('is-add-compact'));
@@ -190,11 +196,19 @@ export function initFolderEditorModal() {
     isActive: () => isModalActive('folder-editor') && !submitting,
     onRestore: () => refreshCustomColorPickers(modal)
   });
+  subscribe(state => { previewBookmarks = state.data.bookmarks; });
+  initialized = true;
+}
+
+function requiredEditorElement(id) {
+  const element = document.getElementById(id);
+  if (!element) throw new Error(`Folder editor cannot initialize: missing #${id}`);
+  return element;
 }
 
 /** Opens a compact new-folder draft that can expand into the full editor. */
 export function openCreateFolder() {
-  if (!ensurePanelFits()) return;
+  if (!initialized || !ensurePanelFits()) return;
 
   mode = 'create';
   activeFolderId = null;
@@ -213,7 +227,7 @@ export function openCreateFolder() {
 }
 
 export function openFolderEditor(folderId) {
-  if (!ensurePanelFits()) return;
+  if (!initialized || !ensurePanelFits()) return;
   const folder = getState().data.folders.find(item => item.id === folderId);
   if (!folder) return;
 
