@@ -28,6 +28,7 @@ import { initBookmarkSection } from './bookmarkSection.js';
 import { initLanguageSection } from './languageSection.js';
 import { initSyncSection } from './syncSection.js';
 import { initShortcutSection } from './shortcutSection.js';
+import { initHelpSection } from './helpSection.js';
 import {
   initDraft,
   resetState,
@@ -57,6 +58,7 @@ export function initSettingsModal() {
   const settingsSave = document.getElementById('settings-modal-save');
   const settingsCancel = document.getElementById('settings-modal-cancel');
   let isStorageModeChanging = false;
+  let helpSection;
 
   /* ==================================================
      Helpers
@@ -67,7 +69,7 @@ export function initSettingsModal() {
    * depending on whether the draft settings have changed.
    */
   function updateSaveButtonState() {
-    const changed = hasChanges();
+    const changed = hasChanges() || helpSection?.hasChanges();
     settingsSave.disabled = !changed || isStorageModeChanging;
     settingsSave.classList.toggle('is-hidden', !changed);
   }
@@ -93,6 +95,7 @@ export function initSettingsModal() {
   const themeSection = initThemeSection({
     onRequestSaveStateUpdate: updateSaveButtonState
   });
+  helpSection = initHelpSection({ onRequestSaveStateUpdate: updateSaveButtonState });
 
   settingsModal.querySelector('[data-tab="settings-modal-tab-theme"]')
     ?.addEventListener('click', () => themeSection.syncUI());
@@ -134,6 +137,7 @@ export function initSettingsModal() {
         await clearAllLocalData();
         await changeLanguage(DEFAULT_SETTINGS);
         resetState();
+        helpSection.discard();
         closeModal('settings');
         flashSuccess('flash.settings.deletedAllData');
       } catch (error) {
@@ -144,6 +148,7 @@ export function initSettingsModal() {
     onBackupImported: () => {
       ensureRecycleBinPosition();
       resetState();
+      helpSection.discard();
       closeModal('settings');
     }
   });
@@ -175,9 +180,10 @@ export function initSettingsModal() {
    */
   async function handleCancel() {
     if (isStorageModeChanging) return false;
-    if (!hasChanges()) {
+    if (!hasChanges() && !helpSection.hasChanges()) {
       await themeSection.discardUploadedMedia();
       themeSection.pausePreview();
+      helpSection.discard();
       closeModal('settings');
       return true;
     }
@@ -194,6 +200,7 @@ export function initSettingsModal() {
     await themeSection.discardUploadedMedia();
     themeSection.pausePreview();
     resetState();
+    helpSection.discard();
     closeModal('settings');
     return true;
   }
@@ -227,6 +234,7 @@ export function initSettingsModal() {
     languageSection.syncUI();
     syncSection.syncUI();
     shortcutSection.syncUI();
+    helpSection.syncUI();
     trace.mark('Synchronize controls');
 
     updateSaveButtonState();
@@ -324,11 +332,12 @@ export function initSettingsModal() {
         } else {
           flashSuccess('flash.sync.localEnabled');
         }
-      } else {
+      } else if (hasChanges()) {
         await updateSettings(newSettings);
         await requirePersistence();
-        flashSuccess('flash.settings.saved');
       }
+      await helpSection.save();
+      if (nextStorageMode === currentStorageMode) flashSuccess('flash.settings.saved');
 
       purgeExpiredRecycleBinEntries();
       ensureRecycleBinPosition();
@@ -340,6 +349,7 @@ export function initSettingsModal() {
       }
 
       resetState();
+      helpSection.discard();
       themeSection.pausePreview();
       closeModal('settings');
     } catch (err) {

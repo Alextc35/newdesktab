@@ -8,7 +8,6 @@ export function initHelp() {
   const search = createHelpSearch(document.querySelector('.settings-help-search'), topic => manual.open(topic));
   const dailyTips = createDailyTips({
     card: document.getElementById('daily-tip'),
-    toggle: document.getElementById('settings-daily-tips'),
     onOpenManual: topic => manual.open(topic)
   });
   document.getElementById('settings-open-manual').addEventListener('click', () => manual.open(), { signal: events.signal });

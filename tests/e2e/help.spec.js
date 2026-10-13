@@ -257,8 +257,9 @@ test('tips wait for the welcome and can be disabled permanently from Help', asyn
   await expect(page.locator('#daily-tip')).toBeVisible();
   await help(page);
   await page.locator('#settings-daily-tips').uncheck();
+  await expect(page.locator('#settings-modal-save')).toBeEnabled();
+  await page.locator('#settings-modal-save').click();
   await expect.poll(async () => (await storedTips(page)).enabled).toBe(false);
-  await page.locator('#settings-modal-cancel').click();
   await expect(page.locator('#daily-tip')).toBeHidden();
   await page.reload();
   await expectAppReady(page);

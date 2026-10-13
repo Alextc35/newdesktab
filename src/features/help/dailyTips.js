@@ -1,5 +1,5 @@
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
-import { areDailyTipsEnabled, claimDailyTip, DEVICE_DAILY_TIPS_KEY, setDailyTipsEnabled } from '../../platform/storage/deviceDailyTips.js';
+import { areDailyTipsEnabled, claimDailyTip, DEVICE_DAILY_TIPS_KEY } from '../../platform/storage/deviceDailyTips.js';
 import { hasOpenModal, subscribeModalChanges } from '../../shared/ui/modalManager.js';
 import { isListView } from '../../shared/ui/viewportMode.js';
 import { flashInfo } from '../../shared/ui/flash.js';
@@ -8,7 +8,7 @@ import { createManualIcon } from './manualIcons.js';
 import { createTimedNotice } from './timedNotice.js';
 
 /** Optional, non-modal learning. Never steals focus or interrupts another dialog. */
-export function createDailyTips({ card, toggle, onOpenManual }) {
+export function createDailyTips({ card, onOpenManual }) {
   const events = new AbortController();
   let topic = null;
   let timer;
@@ -31,7 +31,6 @@ export function createDailyTips({ card, toggle, onOpenManual }) {
     try {
       enabled = await areDailyTipsEnabled();
       if (destroyed) return;
-      toggle.checked = enabled;
       render();
       schedule();
     } catch (error) {
@@ -70,18 +69,6 @@ export function createDailyTips({ card, toggle, onOpenManual }) {
     const destination = topic;
     notice.dismiss({ animate: false });
     onOpenManual(destination);
-  }, { signal: events.signal });
-  toggle.addEventListener('change', async () => {
-    toggle.disabled = true;
-    try {
-      await setDailyTipsEnabled(toggle.checked);
-      await syncPreference();
-    } catch (error) {
-      toggle.checked = enabled;
-      console.warn('[HELP] Could not save daily tips preference:', error);
-    } finally {
-      toggle.disabled = false;
-    }
   }, { signal: events.signal });
   document.addEventListener('visibilitychange', schedule, { signal: events.signal });
   window.addEventListener('resize', () => {
