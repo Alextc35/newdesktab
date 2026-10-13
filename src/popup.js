@@ -20,6 +20,7 @@ const status = document.getElementById('quick-save-status');
 const title = document.getElementById('quick-save-tab-title');
 const urlLabel = document.getElementById('quick-save-tab-url');
 const favicon = document.getElementById('quick-save-favicon');
+const bookmarkIcon = document.getElementById('quick-save-bookmark-icon');
 const matchBadge = document.getElementById('quick-save-match');
 const matchDetail = document.getElementById('quick-save-match-detail');
 
@@ -70,10 +71,15 @@ async function initialize() {
     urlLabel.textContent = tabUrl;
     urlLabel.title = tabUrl;
     nameInput.value = (tab.title || new URL(tabUrl).hostname).slice(0, nameInput.maxLength);
-    if (tab.favIconUrl && isSafeIconUrl(tab.favIconUrl)) favicon.src = tab.favIconUrl;
     favicon.addEventListener('error', () => {
-      favicon.src = chrome.runtime.getURL('src/assets/icons/bookmark-light.svg');
+      favicon.hidden = true;
+      bookmarkIcon.hidden = false;
     }, { once: true });
+    if (tab.favIconUrl && isSafeIconUrl(tab.favIconUrl)) {
+      favicon.src = tab.favIconUrl;
+      favicon.hidden = false;
+      bookmarkIcon.hidden = true;
+    }
     renderMatch();
     nameInput.disabled = false;
     workspaceSelect.disabled = false;

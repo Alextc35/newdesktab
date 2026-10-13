@@ -20,12 +20,15 @@ button, input, select { font: inherit; }
 h1 { margin: 0; font-size: 17px; line-height: 1.25; }
 
 .quick-save-tab { display: flex; align-items: center; gap: 11px; min-width: 0; padding: 11px; border: 1px solid var(--ui-border); border-radius: 12px; background: var(--ui-card); }
-.quick-save-tab img { width: 28px; height: 28px; flex: 0 0 28px; object-fit: contain; }
+.quick-save-tab-icon { width: 28px; height: 28px; flex: 0 0 28px; }
+.quick-save-tab-icon img { width: 100%; height: 100%; object-fit: contain; }
+.quick-save-bookmark-icon { display: block; width: 100%; height: 100%; color: var(--ui-muted); background: currentColor; -webkit-mask: url('/src/assets/icons/settings-bookmark.svg') center / contain no-repeat; mask: url('/src/assets/icons/settings-bookmark.svg') center / contain no-repeat; }
 .quick-save-tab-info { display: flex; flex: 1; min-width: 0; flex-direction: column; }
 .quick-save-tab-heading { display: flex; min-width: 0; align-items: center; gap: 6px; }
 .quick-save-tab-heading strong { min-width: 0; flex: 1; }
 .quick-save-tab-info strong, .quick-save-tab-info span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .quick-save-tab-info span { color: var(--ui-muted); font-size: 11px; }
+.quick-save-tab-icon [hidden] { display: none; }
 .quick-save-match { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 4px; padding: 3px 6px; border-radius: 999px; background: var(--ui-success-bg); }
 .quick-save-tab-info .quick-save-match { color: var(--ui-success-text); font-size: 10px; font-weight: 600; }
 .quick-save-tab-info .quick-save-match span { color: inherit; }
