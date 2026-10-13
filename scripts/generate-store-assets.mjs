@@ -5,10 +5,12 @@ import { chromium } from '@playwright/test';
 import { DATA_SCHEMA_VERSION } from '../src/platform/storage/schemaVersion.js';
 import { createStaticServer } from './lib/staticServer.mjs';
 import { normalizeCatalogIconId } from '../src/shared/icons/iconCatalog.js';
+import { expectAppReady } from '../tests/e2e/helpers/appReady.js';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const output = resolve(root, 'assets/store');
 const mainOnly = process.argv.includes('--main-only');
+const screensOnly = process.argv.includes('--screens-only');
 await mkdir(output, { recursive: true });
 const server = createStaticServer(root);
 
@@ -32,7 +34,7 @@ try {
     return url.hostname === '127.0.0.1' ? route.continue() : route.abort();
   });
 
-  if (!mainOnly) {
+  if (!mainOnly && !screensOnly) {
     const brandSvg = await readFile(resolve(root, 'assets/icons/brand-mark.svg'));
     const brandPage = await context.newPage();
     for (const [size, target] of [
@@ -57,9 +59,10 @@ try {
   }
 
   const page = await context.newPage();
-  await page.clock.setFixedTime(new Date('2026-10-13T10:24:00+02:00'));
+  await page.clock.setFixedTime(new Date('2026-10-14T10:24:00+02:00'));
   await page.goto(`http://127.0.0.1:${port}/tests/browser-harness.html`);
   await page.getByRole('link', { name: /DEVELOPED BY/ }).waitFor();
+  await expectAppReady(page);
 
   const cards = [
     ['mail', 'Inbox', '#db5b57', 1, 1, 2, 1],
@@ -89,20 +92,46 @@ try {
     textColor: '#ffffff'
   }));
   cards.push(
-    { id: 'read-1', name: 'Articles', url: 'https://articles.internal', folderId: 'reading', groupId: null },
-    { id: 'read-2', name: 'Research', url: 'https://research.internal', folderId: 'reading', groupId: null },
-    { id: 'inspire-1', name: 'Photography', url: 'https://photography.internal', folderId: 'inspiration', groupId: null },
-    { id: 'inspire-2', name: 'Architecture', url: 'https://architecture.internal', folderId: 'inspiration', groupId: null },
-    { id: 'inspire-3', name: 'Typography', url: 'https://typography.internal', folderId: 'inspiration', groupId: null }
+    { id: 'read-1', name: 'Articles', url: 'https://articles.internal', folderId: 'reading', groupId: null, iconId: 'docs' },
+    { id: 'read-2', name: 'Research', url: 'https://research.internal', folderId: 'reading', groupId: null, iconId: 'ui-bookmark' },
+    { id: 'inspire-1', name: 'Photography', url: 'https://photography.internal', folderId: 'inspiration', groupId: null, iconId: 'camera' },
+    { id: 'inspire-2', name: 'Architecture', url: 'https://architecture.internal', folderId: 'inspiration', groupId: null, iconId: 'home' },
+    { id: 'inspire-3', name: 'Typography', url: 'https://typography.internal', folderId: 'inspiration', groupId: null, iconId: 'design' }
   );
 
   const storeWallpaper = `http://127.0.0.1:${port}/src/assets/images/information-cosmos.png`;
 
-  await page.evaluate(({ bookmarks, themeBackground, DATA_SCHEMA_VERSION }) => new Promise(resolveSet => {
-    chrome.storage.local.set({
+  // A vector illustration uploaded through the real image API demonstrates a
+  // personal folder cover without depending on external photo servers.
+  const folderArtwork = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 500">
+    <defs><linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#526686"/><stop offset="1" stop-color="#efb9a0"/>
+    </linearGradient></defs>
+    <path fill="url(#sky)" d="M0 0h680v500H0z"/>
+    <circle cx="505" cy="205" r="62" fill="#ffd9a6"/>
+    <path d="M0 425 200 190 395 425 535 270 680 400V500H0Z" fill="#527b89"/>
+    <path d="m200 190-66 78 64-24 65 43Z" fill="#e4e5e8"/>
+    <path d="M0 415 135 355 235 398 340 287 518 435 680 354V500H0Z" fill="#214b61"/>
+    <path d="M0 468 180 427 330 478 480 426 680 468V500H0Z" fill="#123347"/>
+  </svg>`;
+
+  await page.evaluate(async ({ bookmarks, themeBackground, folderArtwork, DATA_SCHEMA_VERSION }) => {
+    const { saveLocalImage } = await import('/src/platform/images/localImages.js');
+    const { DEFAULT_FOLDER_STYLE } = await import('/src/domain/folders/folderDefaults.js');
+    const cover = new Image();
+    cover.src = `data:image/svg+xml,${encodeURIComponent(folderArtwork)}`;
+    await cover.decode();
+    const canvas = document.createElement('canvas');
+    canvas.width = 680;
+    canvas.height = 500;
+    canvas.getContext('2d').drawImage(cover, 0, 0, 680, 500);
+    const blob = await new Promise(resolve => canvas.toBlob(resolve));
+    const localCover = await saveLocalImage(new File([blob], 'mountain-sunset.png', { type: 'image/png' }));
+    await new Promise(resolveSet => chrome.storage.local.set({
       schemaVersion: DATA_SCHEMA_VERSION,
       bookmarks,
       folders: [{
+        ...DEFAULT_FOLDER_STYLE,
         id: 'reading',
         name: 'Reading list',
         groupId: null,
@@ -113,14 +142,22 @@ try {
         noBackground: false,
         backgroundColor: '#b78736',
         textColor: '#ffffff',
-        showFolder: true,
         showPreviews: true,
         showName: true,
       }, {
+        ...DEFAULT_FOLDER_STYLE,
         id: 'inspiration', name: 'Inspiration', groupId: null,
         gx: 8, gy: 3, w: 2, h: 2,
         noBackground: false, backgroundColor: '#213553', textColor: '#ffffff',
-        showFolder: true, showPreviews: true, showName: true
+        backgroundImageLocal: localCover, backgroundImageSource: 'local',
+        showPreviews: false, showName: true
+      }, {
+        ...DEFAULT_FOLDER_STYLE,
+        id: 'cloud', name: 'Cloud', groupId: null,
+        gx: 10, gy: 3, w: 1, h: 1,
+        iconId: 'ui-cloud', iconColor: '#b5d8ed',
+        backgroundColor: '#9fc1d8', noBackground: true,
+        showPreviews: false, showName: true
       }],
       widgets: [{
         id: 'store-clock', type: 'clock', version: 1, groupId: null,
@@ -130,8 +167,8 @@ try {
       recycleBin: {
         id: 'newdesktab-recycle-bin', groupId: null,
         gx: 10, gy: 4, w: 1, h: 1,
-        noBackground: false, backgroundColor: '#17273f',
-        iconColor: '#94a3b8', textColor: '#ffffff',
+        noBackground: true,
+        iconColor: '#cbd5e1', textColor: '#ffffff',
         showName: true
       },
       settings: {
@@ -157,9 +194,10 @@ try {
         ],
         activeBookmarkGroupId: null
       }
-    }, resolveSet);
-  }), { bookmarks: cards, themeBackground: storeWallpaper, DATA_SCHEMA_VERSION });
+    }, resolveSet));
+  }, { bookmarks: cards, themeBackground: storeWallpaper, folderArtwork, DATA_SCHEMA_VERSION });
   await page.reload();
+  await expectAppReady(page);
   await page.locator('#bookmark-container .bookmark').first().waitFor();
   await page.locator('#page-wallpaper-stage .page-wallpaper-layer.is-visible img').waitFor();
   await page.locator('.clock-widget').waitFor();
@@ -169,6 +207,11 @@ try {
     .getBoundingClientRect().bottom - window.innerHeight) < .5);
   await page.evaluate(async () => {
     await Promise.all([...document.images].map(image => image.decode().catch(() => {})));
+    await Promise.all([...document.querySelectorAll('svg image')].map(async element => {
+      const image = new Image();
+      image.src = element.getAttribute('href');
+      await image.decode();
+    }));
     await document.fonts.ready;
   });
   await page.screenshot({
@@ -176,6 +219,22 @@ try {
     animations: 'disabled'
   });
   if (!mainOnly) {
+    await page.evaluate(async () => {
+      (await import('/src/features/folders/folderEditorModal.js')).openFolderEditor('inspiration');
+    });
+    const folderEditor = page.locator('#edit-folder-modal');
+    await folderEditor.waitFor({ state: 'visible' });
+    await folderEditor.getByRole('tab', { name: 'Style', exact: true }).click();
+    await folderEditor.locator('.editor-card-group').evaluate(group => {
+      const panel = group.closest('.edit-bookmark-modal-tab-content');
+      panel.scrollTop += group.getBoundingClientRect().top - panel.getBoundingClientRect().top - 14;
+    });
+    await page.screenshot({
+      path: resolve(output, 'screenshot-folder-1280x800.png'),
+      animations: 'disabled'
+    });
+    await page.locator('#edit-folder-modal-cancel').click();
+    await folderEditor.waitFor({ state: 'hidden' });
     await page.locator('#settings').evaluate(button => button.click());
     await page.locator('#settings-modal').waitFor({ state: 'visible' });
     await page.screenshot({
@@ -233,7 +292,9 @@ try {
     });
   }
   await context.close();
-  console.log(mainOnly ? 'Created the main Store screenshot.' : 'Created Chrome Web Store assets in assets/store/.');
+  console.log(mainOnly ? 'Created the main Store screenshot.'
+    : screensOnly ? 'Created Store screenshots and promotional tile in assets/store/.'
+      : 'Created Chrome Web Store assets in assets/store/.');
 } finally {
   await browser.close();
   await new Promise(resolveClose => server.close(resolveClose));

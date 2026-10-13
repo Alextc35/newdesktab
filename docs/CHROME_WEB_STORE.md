@@ -106,19 +106,29 @@ not executed as code.
 Match the dashboard's current data-category checkboxes to these statements and
 to `PRIVACY.md`; do not claim that locally processed data is outside the policy.
 
-## Required listing images
+## Listing images
 
 - `assets/icons/icon-128.png` (product logo)
 - `assets/store/screenshot-1280x800.png`
+- `assets/store/screenshot-folder-1280x800.png`
 - `assets/store/screenshot-settings-1280x800.png`
 - `assets/store/screenshot-information-1280x800.png`
 - `assets/store/promo-small-440x280.png`
+
+The four screenshots are 1280×800. The overview shows a folder with a custom
+local image, a transparent folder with a cloud symbol, and a folder with bookmark
+previews. The folder editor screenshot shows the image controls and live preview.
 
 Regenerate them from the current UI with:
 
 ```sh
 npm run assets:store
 ```
+
+Use `npm run assets:store -- --screens-only` to refresh screenshots and the
+promotional tile without regenerating the brand icons, or `--main-only` to
+refresh just the overview. The captures use the real interface with local demo
+data and no external image requests.
 
 The globe-and-plus logo comes from `assets/icons/brand-mark.svg`. The same command
 regenerates the transparent 48px and 128px extension icons, the 512px PNG/WebP

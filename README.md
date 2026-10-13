@@ -439,8 +439,11 @@ Create the Store ZIP with `npm run package:store` (Python 3 required). It includ
 runtime code, locales, icons and license, and excludes development dependencies,
 tests and demo media.
 
-Generate the required Chrome Web Store screenshot and small promotional tile
+Generate the Chrome Web Store screenshots and small promotional tile
 with `npm run assets:store`. The versioned files are written to `assets/store/`.
+The screenshots cover the workspace, custom folder images, Settings and
+Information. Add `-- --screens-only` to keep the existing brand icons, or
+`-- --main-only` to refresh just the workspace overview.
 The public [privacy policy](PRIVACY.md) is included in the release ZIP and can be
 used as the policy URL from the repository's public GitHub page.
 See the complete [Chrome Web Store submission guide](docs/CHROME_WEB_STORE.md)
