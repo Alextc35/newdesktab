@@ -118,6 +118,50 @@ try {
   await page.locator('#edit-folder-modal').waitFor({ state: 'visible' });
   await page.keyboard.press('Escape');
   await page.locator('#edit-folder-modal').waitFor({ state: 'hidden' });
+
+  // Reopen a persisted folder after startup: its appearance presets and URL
+  // lock need the fully initialized editor, including under extension CSP.
+  const folderId = await page.evaluate(async () => {
+    const { createBookmarkFolder } = await import('./features/folders/folderActions.js');
+    const { getMaxVisibleCols, getMaxVisibleRows } = await import('./features/grid/gridLayout.js');
+    const { requirePersistence } = await import('./state/appStore.js');
+    const folder = createBookmarkFolder('Folder smoke', {
+      columns: getMaxVisibleCols(), rows: getMaxVisibleRows()
+    }, {
+      backgroundImageUrl: 'https://smoke.internal/folder.png',
+      backgroundImageUrlLocked: true
+    });
+    await requirePersistence();
+    return folder.id;
+  });
+  await page.reload();
+  await page.locator(`[data-folder-id="${folderId}"] .folder-open`).click();
+  await page.locator('#folder-modal-edit-toggle').click();
+  await page.locator('#folder-modal-customize').click();
+  const folderEditor = page.locator('#edit-folder-modal');
+  await folderEditor.waitFor({ state: 'visible' });
+  await folderEditor.locator('[data-tab="folder-editor-panel-style"]').click();
+  const folderImage = folderEditor.locator('#folder-editor-image');
+  assert.equal(await folderImage.inputValue(), 'https://smoke.internal/folder.png');
+  assert.equal(await folderImage.evaluate(input => input.readOnly), true);
+  await folderEditor.locator('[data-appearance-look="midnight"]').click();
+  await folderEditor.locator('[data-editor-history="undo"]').click();
+  assert.equal(await folderImage.inputValue(), 'https://smoke.internal/folder.png');
+  assert.equal(await folderImage.evaluate(input => input.readOnly), true);
+  await folderEditor.locator('#folder-editor-image-toggle').click();
+  assert.equal(await folderImage.evaluate(input => input.readOnly), false);
+  await folderImage.fill('https://smoke.internal/updated-folder.png');
+  await folderEditor.locator('#edit-folder-modal-save').click();
+  await folderEditor.waitFor({ state: 'hidden' });
+  await page.keyboard.press('Escape');
+  await page.reload();
+  await page.locator(`[data-folder-id="${folderId}"] .folder-open`).waitFor({ state: 'visible' });
+  assert.deepEqual(await page.evaluate(async id => {
+    const { getState } = await import('./state/appStore.js');
+    const folder = getState().data.folders.find(item => item.id === id);
+    return { image: folder.backgroundImageUrl, locked: folder.backgroundImageUrlLocked };
+  }, folderId), { image: 'https://smoke.internal/updated-folder.png', locked: false });
+
   await page.keyboard.press('KeyW');
   await page.locator('#widget-catalog-modal').waitFor({ state: 'visible' });
   await page.keyboard.press('Escape');
@@ -218,7 +262,9 @@ try {
   }), { name: 'smoke.webm', text: 'extension video fixture' });
 
   assert.deepEqual(errors, []);
-  console.log(`Extension smoke passed: ${manifest.version}, new tab, popup save, reload, shortcuts and ZIP video backup.`);
+  assert.equal(consoleErrors.some(message => message.includes('[NewDeskTab] Could not initialize the page:')),
+    false, `Startup errors: ${consoleErrors.join(' | ')}`);
+  console.log(`Extension smoke passed: ${manifest.version}, new tab, folder editing, popup save, reload, shortcuts and ZIP video backup.`);
 } finally {
   await context.close();
 }
