@@ -28,6 +28,7 @@
 /**
  * @typedef {Object} Bookmark
  * @property {string|null} iconId Bundled category icon; null uses the site's favicon.
+ * @property {string|null} iconColor Null keeps the icon's automatic color.
  * @property {string} id
  * @property {string} name
  * @property {string} url
@@ -88,6 +89,7 @@
 /**
  * @typedef {Object} BookmarkPreset
  * @property {string|null} iconId
+ * @property {string|null} iconColor
  * @property {string|null} backgroundImageUrl
  * @property {string|null} backgroundImageLocal
  * @property {'local'|'url'} backgroundImageSource

@@ -655,6 +655,7 @@
     "textColor": "Text color:",
     "showFavicon": "Show icon",
     "invertColorIcon": "Invert icon colors",
+    "iconColor": "Icon color:",
     "sections": {
       "general": "General",
       "style": "Style",

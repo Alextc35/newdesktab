@@ -18,7 +18,7 @@ const PALETTES = {
   paper: { background: '#f1f0ec', text: '#292524', icon: '#78716c' }
 };
 const CONTENT_FIELDS = {
-  bookmark: ['iconId', 'backgroundFavicon', 'showText', 'showFavicon', 'invertColorIcon'],
+  bookmark: ['iconId', 'iconColor', 'backgroundFavicon', 'showText', 'showFavicon', 'invertColorIcon'],
   folder: ['iconId', 'iconColor', 'showFolder', 'showPreviews', 'showName'],
   recycleBin: ['showName', 'animateIcon']
 };
@@ -145,6 +145,9 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
     signal: abortController.signal
   }) : null;
   if (iconPicker) groups.icon.firstElementChild.after(iconPicker.element);
+  const bookmarkIconColorRow = type === 'bookmark'
+    ? groups.icon?.querySelector('[data-field="iconColor"]')?.closest('.edit-bookmark-modal-color-options') : null;
+  if (iconPicker && bookmarkIconColorRow) iconPicker.element.after(bookmarkIconColorRow);
 
   // Card/folder color is independent of the image source and URL lock.
   const colorInput = root.querySelector(type === 'bookmark'
@@ -264,6 +267,8 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
     if (type === 'bookmark') {
       root.querySelector('[data-field="showFavicon"]')?.closest('.checkbox-wrapper')
         ?.classList.toggle('is-hidden', value.backgroundFavicon);
+      const iconColorRow = root.querySelector('[data-field="iconColor"]')?.closest('.edit-bookmark-modal-color-options');
+      if (iconColorRow) iconColorRow.hidden = !value.iconId;
     }
     for (const { input, code, chip } of colorChips) {
       code.textContent = input.value.toUpperCase();

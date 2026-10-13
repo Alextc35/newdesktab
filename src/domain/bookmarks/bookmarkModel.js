@@ -9,6 +9,7 @@ import { normalizeCatalogIconId } from '../../shared/icons/iconCatalog.js';
 
 export const BOOKMARK_STYLE_KEYS = Object.freeze([
   'iconId',
+  'iconColor',
   'backgroundImageUrl',
   'backgroundImageLocal',
   'backgroundImageSource',
@@ -33,7 +34,7 @@ const BOOLEAN_STYLE_KEYS = new Set([
   'invertColorIcon'
 ]);
 
-const COLOR_STYLE_KEYS = new Set(['backgroundColor', 'textColor']);
+const COLOR_STYLE_KEYS = new Set(['backgroundColor', 'textColor', 'iconColor']);
 const SUPPORTED_URL_PROTOCOLS = new Set([
   'http:',
   'https:',

@@ -40,6 +40,7 @@ export function createBookmarkEditor({ elements, bookmark, onChange, previewFavi
     invertBg,
     showText,
     textColor,
+    iconColor,
     showFavicon,
     invertIcon,
     urlToggleBtn,
@@ -119,6 +120,7 @@ export function createBookmarkEditor({ elements, bookmark, onChange, previewFavi
       !hasLocalImage || activeSource === 'url'
     );
     if (textColor) textColor.disabled = !bookmark.showText;
+    if (iconColor) iconColor.disabled = !bookmark.iconId || (!bookmark.backgroundFavicon && !bookmark.showFavicon);
     if (backgroundImageLocal) backgroundImageLocal.disabled = false;
     if (bgLocalClearBtn) bgLocalClearBtn.disabled = false;
     if (bgUploadBtn) bgUploadBtn.disabled = false;
@@ -281,6 +283,7 @@ export function createBookmarkEditor({ elements, bookmark, onChange, previewFavi
   bindInput(invertBg, "invertColorBg", "change");
   bindInput(showText, "showText", "change");
   bindInput(textColor, "textColor");
+  bindInput(iconColor, "iconColor");
   bindInput(showFavicon, "showFavicon", "change");
   bindInput(invertIcon, "invertColorIcon", "change");
 
@@ -309,6 +312,7 @@ export function createBookmarkEditor({ elements, bookmark, onChange, previewFavi
     if (invertBg) invertBg.checked = bookmark.invertColorBg ?? false;
     if (showText) showText.checked = bookmark.showText ?? false;
     if (textColor) textColor.value = bookmark.textColor ?? "";
+    if (iconColor) iconColor.value = bookmark.iconColor || bookmark.textColor || '#ffffff';
     if (showFavicon) showFavicon.checked = bookmark.showFavicon ?? false;
     if (invertIcon) invertIcon.checked = bookmark.invertColorIcon ?? false;
 

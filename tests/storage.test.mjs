@@ -283,6 +283,7 @@ test('migrates local data to an empty synchronized area', async () => {
   assert.deepEqual(stored.settings.keyboardShortcuts, SETTINGS.keyboardShortcuts);
   assert.deepEqual(stored.settings.bookmarkDefault, {
     iconId: null,
+    iconColor: null,
     backgroundImageUrl: null,
     backgroundImageLocal: null,
     backgroundImageSource: 'url',

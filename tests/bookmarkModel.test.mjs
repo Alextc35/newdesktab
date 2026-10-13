@@ -40,6 +40,20 @@ test('a create draft combines blank identity with a visual preset', () => {
   assert.equal(draft.showFavicon, false);
 });
 
+test('SVG color is optional, validated, and preserved by presets independently of text', () => {
+  assert.equal(normalizeBookmarkPreset({ iconColor: '#AABBCC' }).iconColor, '#aabbcc');
+  for (const iconColor of [undefined, null, 'red', '#xyzxyz', 'url(https://invalid.internal)']) {
+    assert.equal(normalizeBookmarkPreset({ iconColor }).iconColor, null);
+  }
+  const bookmark = normalizeBookmark({ name: 'Colored SVG', url: 'https://example.internal',
+    iconId: 'mail', iconColor: '#123456', textColor: '#ffffff' });
+  assert.equal(bookmark.iconColor, '#123456');
+  assert.equal(bookmark.textColor, '#ffffff');
+  const copy = createBookmarkDraft({ bookmark });
+  assert.equal(copy.iconColor, '#123456');
+  assert.equal(applyBookmarkPreset(bookmark, { iconColor: '#abcdef' }).iconColor, '#abcdef');
+});
+
 test('normalization can be deterministic through injected runtime values', () => {
   const bookmark = normalizeBookmark({
     name: '  NewDeskTab  ',

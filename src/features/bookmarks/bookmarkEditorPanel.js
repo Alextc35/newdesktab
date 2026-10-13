@@ -294,6 +294,7 @@ function resolveElements(root) {
     invertBg: field('invertBg'),
     showText: field('showText'),
     textColor: field('textColor'),
+    iconColor: field('iconColor'),
     showFavicon: field('showFavicon'),
     invertIcon: field('invertIcon'),
     urlToggleBtn: field('urlToggle'),

@@ -21,6 +21,7 @@ export function createFavicon(bookmark, { placeholderUrl = null, fitToContent = 
   const customIcon = createCatalogIcon(bookmark.iconId, { fitToContent });
   if (customIcon) {
     favicon.classList.add('bookmark-favicon-catalog');
+    if (bookmark.iconColor) favicon.style.setProperty('--bookmark-icon-color', bookmark.iconColor);
     favicon.style.setProperty('--catalog-icon-light', lightSurfaceTextColor(bookmark.textColor));
     favicon.style.setProperty('--catalog-icon-dark', readableSurfaceTextColor(bookmark.textColor, '#18181a'));
     favicon.append(customIcon);
