@@ -65,8 +65,8 @@
   --color-text-floating-menu-btn: var(--ui-menu-text);
 
   /* Grid Overlay */
-  --color-to-right-grid-overlay: light-dark(rgba(36,36,40,.2), rgba(255,255,255,.5));
-  --color-to-bottom-grid-overlay: light-dark(rgba(36,36,40,.2), rgba(255,255,255,.5));
+  --color-grid-overlay-line: rgba(255,255,255,.5);
+  --color-grid-overlay-edge: rgba(0,0,0,.45);
 
   /* Bookmarks */
   --color-bg-bookmark: #000;

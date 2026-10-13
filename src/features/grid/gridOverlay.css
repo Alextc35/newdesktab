@@ -8,9 +8,11 @@
   pointer-events: none;
   display: none;
   background-color: light-dark(rgba(0,0,0,.015), rgba(0,0,0,.1));
+  /* Wallpaper brightness is independent of the interface theme. Each thin
+     line has a dark edge so it remains visible on light and dark backgrounds. */
   background-image:
-    linear-gradient(to right, var(--color-to-right-grid-overlay) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--color-to-bottom-grid-overlay) 1px, transparent 1px);
+    linear-gradient(to right, var(--color-grid-overlay-line) 1px, var(--color-grid-overlay-edge) 1px 2px, transparent 2px),
+    linear-gradient(to bottom, var(--color-grid-overlay-line) 1px, var(--color-grid-overlay-edge) 1px 2px, transparent 2px);
   background-size: var(--cell-w) var(--cell-h);
   z-index: var(--z-grid);
 }
