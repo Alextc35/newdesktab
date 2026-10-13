@@ -5,7 +5,7 @@ import {
 } from './gridKeyboardController.js';
 import { createListSearch } from '../search/listSearch.js';
 import { applyGridItemPosition } from './gridItemLayout.js';
-import { updateGridSize } from './gridLayout.js';
+import { getRowWidth, getRowHeight, updateGridSize } from './gridLayout.js';
 import { isListView } from '../../shared/ui/viewportMode.js';
 import { gridItemRegistry } from '../../shared/grid/gridItemRegistry.js';
 import {
@@ -16,9 +16,9 @@ import {
 const listSearchStates = new WeakMap();
 
 /** Renders registered item types for the active workspace. */
-export function renderGrid(container) {
+export function renderGrid(container, snapshot) {
   if (!container) return;
-  const state = getState();
+  const state = snapshot ?? getState();
   updateGridSize(container);
 
   if (isListView()) {
@@ -50,14 +50,16 @@ export function resizeGridView(container) {
   if (isListView()) return;
 
   const state = getState();
+  const resolveElement = gridItemRegistry.createElementResolver(state);
+  const metrics = { rowWidth: getRowWidth(container), rowHeight: getRowHeight(container) };
   for (const element of container.children) {
-    const entry = gridItemRegistry.resolveElement(element, state);
+    const entry = resolveElement(element);
     if (!entry) continue;
     element.classList.remove('is-smart-moving', 'is-smart-displaced');
     for (const property of ['left', 'top', 'width', 'height']) {
       element.style.removeProperty(property);
     }
-    applyGridItemPosition(container, element, entry.item);
+    applyGridItemPosition(container, element, entry.item, metrics);
   }
 }
 
@@ -65,9 +67,10 @@ export function resizeGridView(container) {
 export function enableGridEditing(container) {
   if (!container || isListView()) return;
   const state = getState();
+  const resolveElement = gridItemRegistry.createElementResolver(state);
 
   for (const element of container.children) {
-    const entry = gridItemRegistry.resolveElement(element, state);
+    const entry = resolveElement(element);
     if (!entry?.definition.enableEditing) continue;
     entry.definition.enableEditing(container, element, entry.item, entry);
   }

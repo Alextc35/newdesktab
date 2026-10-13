@@ -6,10 +6,12 @@ import { getGridItemsInGroup } from './gridSelectors.js';
 import { updateGridItemsByIds } from './gridItemActions.js';
 import { applyPosition } from './gridPointerGeometry.js';
 import { SMART_MOVE_DURATION } from './gridGestureState.js';
+import { debug } from '../../shared/diagnostics/debug.js';
 
 const smartDragOwners = new WeakMap();
 
 export function createSmartDragSession(container, item, kind) {
+  const trace = debug.start('Prepare grid drag', { kind });
   const state = getState();
   const { data } = state;
   const groupId = item.groupId ?? null;
@@ -29,10 +31,11 @@ export function createSmartDragSession(container, item, kind) {
     .filter(item => movable.has(item.id))
     .map(item => [item.id, pickGridPosition(item)]));
   const selector = gridItemRegistry.selectors().join(', ');
+  const resolveElement = gridItemRegistry.createElementResolver(state);
   const elements = new Map((selector
     ? Array.from(container.querySelectorAll(selector))
     : [])
-    .map(element => [gridItemRegistry.resolveElement(element, state)?.item.id, element])
+    .map(element => [resolveElement(element)?.item.id, element])
     .filter(([id]) => id));
   const inheritedTouchedIds = new Set(Array.from(elements)
     .filter(([, element]) => element.classList.contains('is-smart-moving'))
@@ -58,6 +61,7 @@ export function createSmartDragSession(container, item, kind) {
       .map(element => ({ element, rect: element.getBoundingClientRect() }))
     : [];
 
+  trace.end({ items: items.length });
   return {
     owner,
     draggedId: item.id,

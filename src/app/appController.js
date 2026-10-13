@@ -32,7 +32,7 @@ export function createAppController({ container }) {
         applyCurrentPageTheme(state.data.settings);
         updateAppShellEditing(state.ui.isEditing);
         const trace = debug.start('Initial grid render');
-        renderGrid(container);
+        renderGrid(container, state);
         trace.end();
         return;
       }

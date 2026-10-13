@@ -94,3 +94,21 @@ test('resolves a DOM element through its registered feature adapter', () => {
   assert.equal(resolved.definition.type, 'clock');
   assert.equal(resolved.item.id, 'local-time');
 });
+
+test('batch resolution selects each type once and keeps snapshots and metadata isolated', () => {
+  const registry = createGridItemRegistry();
+  let selections = 0;
+  const adapter = definition('folder', {}, []);
+  adapter.select = state => { selections++; return state.folders; };
+  registry.register(adapter);
+  const element = id => ({ dataset: { folderId: id }, matches: selector => selector === '[data-folder-id]' });
+  const first = { folders: [{ item: { id: 'same-id' }, bookmarks: ['first'] }] };
+  const resolveFirst = registry.createElementResolver(first);
+  for (let i = 0; i < 100; i++) assert.deepEqual(resolveFirst(element('same-id')).bookmarks, ['first']);
+  assert.equal(selections, 1);
+  assert.equal(resolveFirst(element('absent')), null);
+  const resolveNext = registry.createElementResolver({ folders: [{ item: { id: 'same-id' }, bookmarks: ['next'] }] });
+  assert.deepEqual(resolveNext(element('same-id')).bookmarks, ['next']);
+  assert.deepEqual(resolveFirst(element('same-id')).bookmarks, ['first']);
+  assert.equal(selections, 2);
+});

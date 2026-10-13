@@ -1,6 +1,7 @@
 import { getCatalogIconMarkup } from '../icons/iconCatalog.js';
 
 const artworkBounds = new Map();
+const iconTemplates = new Map();
 
 /** Measure each bundled glyph once so short and tall artwork share a center. */
 function fitToArtwork(svg, iconId) {
@@ -29,16 +30,20 @@ function fitToArtwork(svg, iconId) {
 
 /** Only trusted, bundled SVG markup is rendered; saved data contains an ID. */
 export function createCatalogIcon(iconId, { fitToContent = false } = {}) {
-  const markup = getCatalogIconMarkup(iconId);
-  if (!markup) return null;
-  const container = document.createElement('span');
-  container.innerHTML = markup;
-  const svg = container.firstElementChild;
-  svg.classList.add('catalog-icon');
-  svg.dataset.iconId = iconId;
-  svg.setAttribute('aria-hidden', 'true');
-  svg.setAttribute('focusable', 'false');
-  svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+  if (!iconTemplates.has(iconId)) {
+    const markup = getCatalogIconMarkup(iconId);
+    if (!markup) return null;
+    const container = document.createElement('span');
+    container.innerHTML = markup;
+    const template = container.firstElementChild;
+    template.classList.add('catalog-icon');
+    template.dataset.iconId = iconId;
+    template.setAttribute('aria-hidden', 'true');
+    template.setAttribute('focusable', 'false');
+    template.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    iconTemplates.set(iconId, template);
+  }
+  const svg = iconTemplates.get(iconId).cloneNode(true);
   if (fitToContent) fitToArtwork(svg, iconId);
   return svg;
 }

@@ -180,6 +180,17 @@ NewDeskTabDebug.clear()        // Clear console + history and confirm the result
 
 The commands remain available while Debug is off. Initial load metrics are
 retained for the report, but operations are only recorded while Debug is on.
+
+Debug also measures opening settings and the bookmark editor, preparing a grid
+drag, and rendering after saved changes. A repeatable UI benchmark uses isolated
+browser profiles with 60 and 1,200 synthetic bookmarks and CPU throttling:
+
+```sh
+npm run benchmark:ui -- dist/ui-performance.json
+```
+
+See [UI performance measurements](docs/benchmarks/UI_PERFORMANCE.md) for the
+method, before/after results, and how to check an affected Mac directly.
 Disabling keeps the existing history; clearing also discards pending traces
 and reports without disabling Debug. The toggle applies to the current tab
 and resets to the configured default on reload.

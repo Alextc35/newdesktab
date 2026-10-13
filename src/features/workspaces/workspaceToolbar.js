@@ -114,6 +114,7 @@ export function initWorkspaceToolbar() {
         if (deleted) flashSuccess('flash.workspace.deleted');
       });
   });
+  let lastChoices;
   subscribe(state => {
     const workspaces = getWorkspaces(state.data);
     const selected = getActiveWorkspaceId(state.data) ?? '';
@@ -121,6 +122,9 @@ export function initWorkspaceToolbar() {
       { id: '', name: t('workspace.main') },
       ...workspaces.map(workspace => ({ id: workspace.id, name: workspace.name }))
     ];
+    const signature = JSON.stringify([selected, workspaceChoices]);
+    if (signature === lastChoices) return;
+    lastChoices = signature;
     select.replaceChildren(new Option(t('workspace.main'), ''));
     for (const workspace of workspaces) select.add(new Option(workspace.name, workspace.id));
     select.value = selected;

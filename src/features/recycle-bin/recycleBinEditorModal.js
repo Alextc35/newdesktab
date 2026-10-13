@@ -4,7 +4,7 @@ import {
   validateRecycleBinStyle
 } from '../../domain/recycle-bin/recycleBinModel.js';
 import { updateRecycleBinAppearance } from './recycleBinActions.js';
-import { getState, getStorageMode, requirePersistence } from '../../state/appStore.js';
+import { getState, getStorageMode, requirePersistence, subscribe } from '../../state/appStore.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { isDarkInterfaceActive } from '../../shared/ui/interfaceTheme.js';
@@ -61,10 +61,12 @@ let preview;
 let saveButton;
 let tabs;
 let appearanceEditor;
+let previewTrashCount = 0;
 
 export function initRecycleBinEditorModal() {
   if (initialized) return;
   initialized = true;
+  subscribe(state => { previewTrashCount = state.data.trash.length; });
 
   modal = document.getElementById('edit-recycle-bin-modal');
   noBackgroundInput = document.getElementById('recycle-bin-editor-no-background');
@@ -285,7 +287,7 @@ function renderPreview() {
 }
 
 function createRecycleBinPreviewCard(value) {
-  const countValue = getState().data.trash.length;
+  const countValue = previewTrashCount;
   const card = document.createElement('div');
   card.className = 'recycle-bin recycle-bin-editor-preview-card';
   applyRecycleBinAppearance(card, value);

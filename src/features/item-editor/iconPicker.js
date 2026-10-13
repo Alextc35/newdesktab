@@ -73,7 +73,6 @@ export function createIconPicker({ type, getValue, renderOriginalIcon, onSelect,
     button.addEventListener('click', () => onSelect(iconId), { signal });
     return button;
   }
-  for (const iconId of [null, ...ICON_CATALOG.map(icon => icon.id)]) choices.append(createChoice(iconId));
   const empty = document.createElement('p');
   empty.className = 'editor-icon-empty';
   empty.dataset.i18n = 'itemEditor.noIcons';
@@ -89,13 +88,27 @@ export function createIconPicker({ type, getValue, renderOriginalIcon, onSelect,
   let lastOriginalSignature;
   let lastCurrentSignature;
   let lastRecommendations;
+  let lastSelectionSignature;
+  let lastSummarySignature;
+  let lastFilterSignature;
+  let localeRevision = 0;
+  const searchTexts = new WeakMap();
   let animation;
   let expanded = false;
+  function ensureChoices() {
+    if (choices.childElementCount) return;
+    const fragment = document.createDocumentFragment();
+    for (const iconId of [null, ...ICON_CATALOG.map(icon => icon.id)]) fragment.append(createChoice(iconId));
+    choices.append(fragment);
+    applyI18n(choices);
+    sync();
+  }
   function reveal() {
     search.focus({ preventScroll: true });
     element.scrollIntoView({ block: 'nearest', behavior: window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   }
   function setExpanded(open) {
+    if (open) ensureChoices();
     expanded = open;
     const startHeight = element.open ? panel.getBoundingClientRect().height : 0;
     const startOpacity = element.open ? getComputedStyle(panel).opacity : 0;
@@ -128,17 +141,17 @@ export function createIconPicker({ type, getValue, renderOriginalIcon, onSelect,
   }
   function filter(resetScroll = false) {
     const terms = normalizeIconSearch(search.value).split(/\s+/).filter(Boolean);
-    let visible = 0;
-    for (const button of choices.children) {
-      const iconId = button.dataset.iconChoice;
-      const keywordKey = iconId ? `itemEditor.iconKeywords.${iconId}` : 'itemEditor.logoKeywords';
-      const translation = t(keywordKey);
-      const keywords = translation === keywordKey ? '' : translation;
-      const text = normalizeIconSearch(`${t(button.lastElementChild.dataset.i18n)} ${iconId} ${keywords}`);
-      button.hidden = !terms.every(term => text.includes(term));
-      if (!button.hidden) visible++;
+    const signature = JSON.stringify([terms, localeRevision, choices.childElementCount]);
+    if (signature !== lastFilterSignature) {
+      let visible = 0;
+      for (const button of choices.children) {
+        const text = searchTexts.get(button) || '';
+        button.hidden = !terms.every(term => text.includes(term));
+        if (!button.hidden) visible++;
+      }
+      empty.hidden = visible > 0;
+      lastFilterSignature = signature;
     }
-    empty.hidden = visible > 0;
     clear.hidden = !search.value;
     suggestions.hidden = terms.length > 0;
     if (resetScroll) {
@@ -154,7 +167,7 @@ export function createIconPicker({ type, getValue, renderOriginalIcon, onSelect,
     currentIcon.hidden = !iconVisible;
     const originalSignature = JSON.stringify([value.url, value.name]);
     // Request the Logo only when its current thumbnail or its choice is visible.
-    const originalChanged = originalSignature !== lastOriginalSignature && ((iconVisible && !iconId) || element.open);
+    const originalChanged = originalArtwork && originalSignature !== lastOriginalSignature && ((iconVisible && !iconId) || element.open);
     if (originalChanged) {
       originalArtwork.replaceChildren(originalIcon(value));
       lastOriginalSignature = originalSignature;
@@ -165,22 +178,33 @@ export function createIconPicker({ type, getValue, renderOriginalIcon, onSelect,
       lastCurrentSignature = currentSignature;
     }
     currentLabel.dataset.i18n = iconId ? `itemEditor.icons.${iconId}` : originalKey;
-    applyI18n(summary);
+    const summarySignature = `${currentLabel.dataset.i18n}:${localeRevision}`;
+    if (summarySignature !== lastSummarySignature) {
+      applyI18n(summary);
+      lastSummarySignature = summarySignature;
+    }
     search.placeholder = t('itemEditor.searchIcons');
     const recommendations = getIconRecommendations(value, type);
     const recommendationSignature = recommendations.join(',');
-    if (recommendationSignature !== lastRecommendations) {
+    if (choices.childElementCount && recommendationSignature !== lastRecommendations) {
       suggestions.replaceChildren(suggestionsLabel, ...recommendations.map(id => createChoice(id, true)));
       lastRecommendations = recommendationSignature;
       applyI18n(suggestions);
     }
-    for (const button of [...choices.children, ...suggestions.querySelectorAll('button')]) {
-      const selectedId = button.dataset.iconChoice ?? button.dataset.iconSuggestion;
-      button.setAttribute('aria-pressed', String(selectedId === (iconId || '')));
-      const label = t(button.lastElementChild.dataset.i18n);
-      const name = button.dataset.iconSuggestion ? t('itemEditor.suggestedIcon', { name: label }) : label;
-      button.title = name;
-      button.setAttribute('aria-label', name);
+    const selectionSignature = JSON.stringify([iconId, localeRevision, lastRecommendations, choices.childElementCount]);
+    if (selectionSignature !== lastSelectionSignature) {
+      for (const button of [...choices.children, ...suggestions.querySelectorAll('button')]) {
+        const selectedId = button.dataset.iconChoice ?? button.dataset.iconSuggestion;
+        button.setAttribute('aria-pressed', String(selectedId === (iconId || '')));
+        const label = t(button.lastElementChild.dataset.i18n);
+        const name = button.dataset.iconSuggestion ? t('itemEditor.suggestedIcon', { name: label }) : label;
+        button.title = name;
+        button.setAttribute('aria-label', name);
+        const keywordKey = selectedId ? `itemEditor.iconKeywords.${selectedId}` : 'itemEditor.logoKeywords';
+        const translation = t(keywordKey);
+        searchTexts.set(button, normalizeIconSearch(`${label} ${selectedId} ${translation === keywordKey ? '' : translation}`));
+      }
+      lastSelectionSignature = selectionSignature;
     }
     hint.hidden = type !== 'folder' || !iconId;
     filter();
@@ -207,6 +231,7 @@ export function createIconPicker({ type, getValue, renderOriginalIcon, onSelect,
     setExpanded(!expanded);
   }, { signal });
   element.addEventListener('toggle', () => {
+    if (element.open) ensureChoices();
     if (!element.open && animation) {
       animation.cancel();
       animation = null;
@@ -218,7 +243,12 @@ export function createIconPicker({ type, getValue, renderOriginalIcon, onSelect,
     sync();
     if (element.open && !animation) reveal();
   }, { signal });
-  const unsubscribe = subscribeLanguageChange(() => { sync(); });
+  const unsubscribe = subscribeLanguageChange(() => {
+    localeRevision++;
+    applyI18n(choices);
+    applyI18n(suggestions);
+    sync();
+  });
   signal?.addEventListener('abort', () => { unsubscribe(); animation?.cancel(); }, { once: true });
   sync();
   return { element, sync };

@@ -59,6 +59,11 @@ export function getState() {
   return structuredClone(state);
 }
 
+/** Returns isolated settings without copying every workspace item. */
+export function getSettings() {
+  return structuredClone(state.data.settings);
+}
+
 /**
  * Updates the global state with the provided partial values.
  * Persists bookmarks, folders and settings to storage if not hydrating.

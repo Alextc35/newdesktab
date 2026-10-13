@@ -1,4 +1,5 @@
 import { getState, requirePersistence } from '../../state/appStore.js';
+import { debug } from '../../shared/diagnostics/debug.js';
 import {
   createBookmarkDraft,
   normalizeBookmarkPreset
@@ -148,6 +149,7 @@ export function openBookmarkPresetEditor(preset, options = {}) {
  * @param {Object} bookmark
  */
 function openBookmarkModal(nextMode, bookmark) {
+  const trace = debug.start('Open bookmark editor', { mode: nextMode });
   mode = nextMode;
   pendingCreationId = null;
   destroyPresetLibraryControls();
@@ -166,6 +168,7 @@ function openBookmarkModal(nextMode, bookmark) {
       : null,
     onChange: updateSaveButtonState
   });
+  trace.mark('Build editor');
 
   modalTitle.textContent = t(
     nextMode === 'add'
@@ -190,6 +193,8 @@ function openBookmarkModal(nextMode, bookmark) {
       ? form.root.querySelector('[role="tab"][aria-selected="true"]')
       : form.elements.name ?? form.elements.backgroundColor
   });
+  trace.mark('Open modal');
+  trace.end();
 }
 
 function initPresetLibraryControls() {

@@ -34,7 +34,17 @@ globalThis.chrome = {
   runtime: { lastError: null, getManifest: () => ({ version: '0.27.0' }) },
   storage: { local: area, sync: area, onChanged: { addListener: listener => listeners.push(listener) } }
 };
-const { getState, hydrateStore, requirePersistence, retryPersistence, setState } = await import('../src/state/appStore.js');
+const { getState, getSettings, hydrateStore, requirePersistence, retryPersistence, setState } = await import('../src/state/appStore.js');
+
+test('settings snapshots cannot mutate the store or include unrelated workspace collections', () => {
+  const snapshot = getSettings();
+  assert.deepEqual(snapshot, getState().data.settings);
+  snapshot.theme.backgroundColor = '#abcdef';
+  snapshot.bookmarkGroups.push({ id: 'unsaved', name: 'Unsaved' });
+  assert.notEqual(getSettings().theme.backgroundColor, '#abcdef');
+  assert.equal(getSettings().bookmarkGroups.some(group => group.id === 'unsaved'), false);
+  assert.equal(Object.hasOwn(snapshot, 'bookmarks'), false);
+});
 
 test('failed writes survive storage refresh and persist with the next change', async t => {
   t.mock.method(console, 'error', () => {});

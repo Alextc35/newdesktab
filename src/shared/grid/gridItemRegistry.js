@@ -57,6 +57,26 @@ export function createGridItemRegistry() {
       return null;
     },
 
+    /** Index one snapshot once for a resize, edit-mode change or drag. */
+    createElementResolver(state) {
+      const indexes = [...definitions.values()].map(definition => {
+        const entries = new Map();
+        for (const selected of definition.select(state)) {
+          const entry = normalizeEntry(selected, definition.type);
+          if (!entries.has(entry.item.id)) entries.set(entry.item.id, entry);
+        }
+        return { definition, entries };
+      });
+      return element => {
+        for (const { definition, entries } of indexes) {
+          if (!element.matches(definition.selector)) continue;
+          const entry = entries.get(definition.getElementId(element));
+          return entry ? { definition, ...entry } : null;
+        }
+        return null;
+      };
+    },
+
     types() {
       return [...definitions.keys()];
     },

@@ -4,6 +4,7 @@ import { registerModal, openModal, closeModal } from '../../shared/ui/modalManag
 import { initTabs } from '../../shared/ui/tabs.js';
 import { initCustomSelect } from '../../shared/ui/customSelect.js';
 import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
+import { debug } from '../../shared/diagnostics/debug.js';
 
 import { changeLanguage, t } from '../../platform/i18n/i18n.js';
 import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
@@ -11,6 +12,7 @@ import {
   changeStorageMode,
   clearAllLocalData,
   getState,
+  getSettings,
   getStorageMode,
   requirePersistence
 } from '../../state/appStore.js';
@@ -211,10 +213,12 @@ export function initSettingsModal() {
    */
   settingsBtn.addEventListener('click', () => {
     if (!ensurePanelFits()) return;
+    const trace = debug.start('Open settings');
     settingsModal.querySelector('#settings-information-year').textContent = String(new Date().getFullYear());
-    const { data: { settings } } = getState();
+    const settings = getSettings();
 
     initDraft(settings, getStorageMode());
+    trace.mark('Prepare settings draft');
 
     generalSection.syncUI();
 
@@ -223,6 +227,7 @@ export function initSettingsModal() {
     languageSection.syncUI();
     syncSection.syncUI();
     shortcutSection.syncUI();
+    trace.mark('Synchronize controls');
 
     updateSaveButtonState();
 
@@ -231,6 +236,8 @@ export function initSettingsModal() {
     openModal('settings', {
       onCancel: handleCancel
     });
+    trace.mark('Open modal');
+    trace.end();
   });
 
   /* ==================================================

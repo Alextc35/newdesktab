@@ -4,7 +4,7 @@ import {
   normalizeKeyboardShortcuts,
   SHORTCUT_ACTIONS
 } from '../../shared/keyboard/keyboardShortcuts.js';
-import { getState } from '../../state/appStore.js';
+import { getSettings } from '../../state/appStore.js';
 import { hasOpenModal, isModalActive } from '../../shared/ui/modalManager.js';
 
 let initialized = false;
@@ -14,7 +14,7 @@ export function initKeyboardShortcuts() {
   if (initialized) return;
   initialized = true;
   document.addEventListener('keydown', handleShortcut, true);
-  syncKeyboardShortcutAccessibility(getState().data.settings.keyboardShortcuts);
+  syncKeyboardShortcutAccessibility(getSettings().keyboardShortcuts);
 }
 
 /** Keeps visible controls aligned with the currently persisted shortcuts. */
@@ -47,7 +47,7 @@ function handleShortcut(event) {
 
   const action = findShortcutAction(
     event,
-    getState().data.settings.keyboardShortcuts
+    getSettings().keyboardShortcuts
   );
   if (!action) return;
 

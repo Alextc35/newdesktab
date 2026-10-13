@@ -6,7 +6,7 @@ import {
 import { DEFAULT_FOLDER_STYLE } from '../../domain/folders/folderDefaults.js';
 import { validateFolderDraft } from '../../domain/folders/folderModel.js';
 import { t } from '../../platform/i18n/i18n.js';
-import { getState, getStorageMode, requirePersistence } from '../../state/appStore.js';
+import { getState, getStorageMode, requirePersistence, subscribe } from '../../state/appStore.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { isDarkInterfaceActive } from '../../shared/ui/interfaceTheme.js';
@@ -66,10 +66,12 @@ let imageError;
 let imageController;
 let submitting = false;
 let appearanceEditor;
+let previewBookmarks = [];
 
 export function initFolderEditorModal() {
   if (initialized) return;
   initialized = true;
+  subscribe(state => { previewBookmarks = state.data.bookmarks; });
 
   modal = document.getElementById('edit-folder-modal');
   modalTitle = modal.querySelector('h2');
@@ -357,7 +359,7 @@ function renderPreview() {
 
 function createFolderPreviewCard(folder) {
   const bookmarks = activeFolderId
-    ? getState().data.bookmarks.filter(bookmark => bookmark.folderId === activeFolderId)
+    ? previewBookmarks.filter(bookmark => bookmark.folderId === activeFolderId)
     : [];
   const count = bookmarks.length;
   const name = folder.name.trim() || t('folder.editor.previewName');

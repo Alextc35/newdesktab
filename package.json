@@ -9,6 +9,7 @@
     "test:dom": "vitest run",
     "test:e2e": "playwright test",
     "test:extension": "node tests/extension-smoke.mjs",
+    "benchmark:ui": "node scripts/benchmark-ui.mjs",
     "assets:store": "node scripts/generate-store-assets.mjs",
     "vendor:zip": "node scripts/vendor-backup-zip.mjs",
     "vendor:domains": "node scripts/vendor-domain-parser.mjs",

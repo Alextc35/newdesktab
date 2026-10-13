@@ -5,7 +5,7 @@ import {
 import { normalizeInterfaceTheme } from '../../domain/settings/interfacePreferences.js';
 import { normalizeRecycleBinRetentionDays } from '../../domain/settings/recycleBinRetention.js';
 import { normalizeKeyboardShortcuts } from '../../shared/keyboard/keyboardShortcuts.js';
-import { getState } from '../../state/appStore.js';
+import { getSettings } from '../../state/appStore.js';
 
 /**
  * Draft theme state used while the settings modal is open.
@@ -126,8 +126,7 @@ export function setDraftInterfaceTheme(value) {
 }
 
 export function getDraftShowRecycleBin() {
-  const { data: { settings } } = getState();
-  return draftShowRecycleBin ?? (settings.showRecycleBin !== false);
+  return draftShowRecycleBin ?? (getSettings().showRecycleBin !== false);
 }
 
 export function setDraftShowRecycleBin(value) {
@@ -135,9 +134,8 @@ export function setDraftShowRecycleBin(value) {
 }
 
 export function getDraftRecycleBinRetentionDays() {
-  const { data: { settings } } = getState();
   return normalizeRecycleBinRetentionDays(
-    draftRecycleBinRetentionDays ?? settings.recycleBinRetentionDays
+    draftRecycleBinRetentionDays ?? getSettings().recycleBinRetentionDays
   );
 }
 
@@ -158,31 +156,26 @@ export function getDraftLanguage() {
  * @returns {Object}
  */
 export function getDraftBookmarkDefault() {
-  const { data: { settings } } = getState();
-  return draftBookmarkDefault ?? settings.bookmarkDefault;
+  return draftBookmarkDefault ?? getSettings().bookmarkDefault;
 }
 
 export function getDraftBookmarkPresets() {
-  const { data: { settings } } = getState();
-  return draftBookmarkPresets ?? settings.bookmarkPresets ?? [];
+  return draftBookmarkPresets ?? getSettings().bookmarkPresets ?? [];
 }
 
 export function getDraftBookmarkDragMode() {
-  const { data: { settings } } = getState();
   return draftBookmarkDragMode
-    ?? normalizeBookmarkDragMode(settings.bookmarkDragMode);
+    ?? normalizeBookmarkDragMode(getSettings().bookmarkDragMode);
 }
 
 export function getDraftBookmarkResizeMode() {
-  const { data: { settings } } = getState();
   return draftBookmarkResizeMode
-    ?? normalizeBookmarkResizeMode(settings.bookmarkResizeMode);
+    ?? normalizeBookmarkResizeMode(getSettings().bookmarkResizeMode);
 }
 
 export function getDraftKeyboardShortcuts() {
-  const { data: { settings } } = getState();
   return draftKeyboardShortcuts
-    ?? normalizeKeyboardShortcuts(settings.keyboardShortcuts);
+    ?? normalizeKeyboardShortcuts(getSettings().keyboardShortcuts);
 }
 
 /**

@@ -17,6 +17,7 @@ import {
 } from '../../platform/browser/browserCapabilities.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
+import { isModalActive } from '../../shared/ui/modalManager.js';
 
 function getBrowserNoticeKey(browser) {
   if (browser === SYNC_BROWSERS.CHROME) {
@@ -91,6 +92,8 @@ export function initSyncSection({ onRequestSaveStateUpdate, onApplyStorageMode }
   );
   const browserSupport = getSyncBrowserSupport();
   const settingsModal = document.getElementById('settings-modal');
+  const syncPanel = document.getElementById('settings-modal-tab-sync');
+  const isVisible = () => isModalActive('settings') && !syncPanel.classList.contains('is-hidden');
   const syncHelp = document.getElementById('storage-sync-help');
   const syncNotice = document.getElementById('storage-sync-notice');
   const usageFormatToggle = document.getElementById('storage-usage-format-toggle');
@@ -604,11 +607,11 @@ export function initSyncSection({ onRequestSaveStateUpdate, onApplyStorageMode }
       persistenceIndicator.dataset.status = persistence.status;
     }
 
-    if (persistence.status === 'saved' && getStorageMode() === 'sync') {
+    if (isVisible() && persistence.status === 'saved' && getStorageMode() === 'sync') {
       void refreshSyncMetadata();
     }
 
-    if (persistence.status === 'saved') void refreshStorageUsage();
+    if (isVisible() && persistence.status === 'saved') void refreshStorageUsage();
   });
 
   subscribeLanguageChange(() => {
@@ -675,9 +678,22 @@ export function initSyncSection({ onRequestSaveStateUpdate, onApplyStorageMode }
 
     renderSyncMetadata();
     renderStorageUsage();
-    void refreshSyncMetadata();
-    void refreshStorageUsage();
+    if (isVisible()) {
+      void refreshSyncMetadata();
+      void refreshStorageUsage();
+    }
   }
+
+  // Quota breakdowns read and serialize the entire library. Load them when
+  // Storage is shown, including keyboard tab changes and restored dialogs.
+  let wasVisible = false;
+  const visibilityObserver = new MutationObserver(() => {
+    const visible = isVisible();
+    if (visible && !wasVisible) syncUI();
+    wasVisible = visible;
+  });
+  visibilityObserver.observe(settingsModal, { attributes: true, attributeFilter: ['class', 'hidden'] });
+  visibilityObserver.observe(syncPanel, { attributes: true, attributeFilter: ['class'] });
 
   for (const input of modeInputs) {
     input.addEventListener('change', async () => {

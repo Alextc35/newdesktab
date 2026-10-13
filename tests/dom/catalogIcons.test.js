@@ -4,6 +4,17 @@ import { createBookmarkElement } from '../../src/features/bookmarks/bookmarkCard
 import { createBookmarkListIcon } from '../../src/features/bookmarks/bookmarkListItem.js';
 import { createFolderVisual } from '../../src/features/folders/folderVisual.js';
 import { createRecycleBinGlyph } from '../../src/features/recycle-bin/recycleBinAppearance.js';
+import { createCatalogIcon } from '../../src/shared/ui/catalogIcon.js';
+
+test('cached SVG templates give each card its own attributes and artwork', () => {
+  const first = createCatalogIcon('mail');
+  first.setAttribute('viewBox', '0 0 1 1');
+  first.firstElementChild.remove();
+  const second = createCatalogIcon('mail');
+  expect(second).not.toBe(first);
+  expect(second.getAttribute('viewBox')).toBe('0 0 24 24');
+  expect(second.children.length).toBeGreaterThan(first.children.length);
+});
 
 test('selected categories render consistently without requesting favicons, including editor placeholders', () => {
   const fetchSpy = vi.fn();
