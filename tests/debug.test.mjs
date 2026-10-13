@@ -114,3 +114,21 @@ test('explicit console queries can print while automatic debug output stays off'
   assert.equal(debug.enabled, false);
   assert.deepEqual(debug.history(), []);
 });
+
+test('timing subscribers receive independent records beyond the history limit and can detach', () => {
+  const { output } = outputSpy();
+  const debug = createDebugger({ enabled: true, output, limit: 1 });
+  const received = [];
+  const detach = debug.subscribe(record => { received.push(record); record.label = 'edited copy'; });
+  debug.subscribe(() => { throw new Error('Broken consumer'); });
+  debug.start('first').end();
+  debug.start('second').end();
+  assert.equal(received.length, 2);
+  assert.equal(debug.history()[0].label, 'second');
+  detach();
+  debug.start('third').end();
+  debug.setEnabled(false);
+  debug.start('disabled').end();
+  assert.equal(received.length, 2);
+  assert.throws(() => debug.subscribe(null), TypeError);
+});

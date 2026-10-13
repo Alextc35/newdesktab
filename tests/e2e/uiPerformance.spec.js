@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './helpers/test.js';
 import { expectAppReady, expectAppSaved } from './helpers/appReady.js';
 
 test.beforeEach(async ({ page }) => {
@@ -64,4 +64,66 @@ test('a lazily opened icon catalog keeps search, translation and selection throu
   await page.reload();
   await expectAppReady(page);
   await expect(page.locator('[data-bookmark-id="test-developed-by"] [data-icon-id="circle"]')).toBeVisible();
+});
+
+async function seedFolderAndTrash(page) {
+  await page.evaluate(async () => {
+    const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
+    const { DEFAULT_FOLDER_STYLE } = await import('/src/domain/folders/folderDefaults.js');
+    const bookmark = { ...DEFAULT_BOOKMARK, id: 'perf-child', name: 'Child', iconId: 'mail',
+      folderId: 'perf-folder', groupId: null, gx: 0, gy: 0 };
+    await new Promise(resolve => chrome.storage.local.set({
+      bookmarks: [bookmark], folders: [{ ...DEFAULT_FOLDER_STYLE, id: 'perf-folder',
+        name: 'Performance', groupId: null, gx: 1, gy: 0, w: 1, h: 1 }],
+      trash: Array.from({ length: 60 }, (_, i) => ({ id: `perf-trash-${i}`, type: 'bookmark',
+        deletedAt: Date.now(), bookmark: { ...bookmark, id: `deleted-${i}`, folderId: null } }))
+    }, resolve));
+  });
+  await page.reload();
+  await expectAppReady(page);
+}
+
+async function changeOnlyUiState(page) {
+  await page.evaluate(async () => {
+    const { setState, getState } = await import('/src/state/appStore.js');
+    await setState({ ui: { isEditing: !getState().ui.isEditing } });
+  });
+}
+
+test('folder contents retain their nodes and keyboard focus across unrelated UI updates', async ({ page }) => {
+  await seedFolderAndTrash(page);
+  await page.evaluate(async () => {
+    (await import('/src/features/folders/folderModal.js')).openFolderModal('perf-folder');
+    window.initialFolderNode = document.querySelector('#folder-modal-items .bookmark');
+  });
+  await expect(page.locator('#folder-modal-items .bookmark')).toHaveCount(1);
+  const edit = page.locator('#folder-modal-edit-toggle');
+  await edit.focus();
+  await changeOnlyUiState(page);
+  expect(await page.evaluate(() => window.initialFolderNode
+    === document.querySelector('#folder-modal-items .bookmark'))).toBe(true);
+  await expect(edit).toBeFocused();
+});
+
+test('recycle bin copies the library once per snapshot and preserves selected row focus', async ({ page }) => {
+  await seedFolderAndTrash(page);
+  await page.evaluate(async () => {
+    window.libraryCopies = 0;
+    const original = window.structuredClone;
+    window.structuredClone = value => {
+      if (value?.data?.bookmarks) window.libraryCopies++;
+      return original(value);
+    };
+    (await import('/src/features/recycle-bin/recycleBinModal.js')).openRecycleBinModal();
+    window.initialTrashNode = document.querySelector('#recycle-bin-list .recycle-bin-item');
+  });
+  expect(await page.evaluate(() => window.libraryCopies)).toBe(2);
+  const checkbox = page.locator('#recycle-bin-list input[type="checkbox"]').first();
+  await checkbox.check();
+  await checkbox.focus();
+  await changeOnlyUiState(page);
+  expect(await page.evaluate(() => window.initialTrashNode
+    === document.querySelector('#recycle-bin-list .recycle-bin-item'))).toBe(true);
+  await expect(checkbox).toBeChecked();
+  await expect(checkbox).toBeFocused();
 });

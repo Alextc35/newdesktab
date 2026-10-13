@@ -13,6 +13,7 @@ import {
 } from '../../domain/folders/folderGrid.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { getState, subscribe } from '../../state/appStore.js';
+import { debug } from '../../shared/diagnostics/debug.js';
 import { createItemActionButton } from '../../shared/ui/itemActionButton.js';
 import { calculateSmartDragLayout } from '../../shared/grid/smartDragLayout.js';
 import { createBookmarkListItem } from '../bookmarks/bookmarkListItem.js';
@@ -136,8 +137,9 @@ export function initFolderModal() {
     closeOnOverlay: true
   });
 
-  subscribe(() => {
-    if (activeFolderId) renderFolderContents();
+  subscribe((state, previous) => {
+    if (activeFolderId && (!previous || ['bookmarks', 'folders', 'settings']
+      .some(key => state.data[key] !== previous.data[key]))) renderFolderContents();
   });
 }
 
@@ -203,6 +205,7 @@ function renderFolderContents() {
     return;
   }
 
+  const trace = debug.start('Render folder contents');
   const contents = bookmarks.filter(bookmark => bookmark.folderId === folder.id);
   const layout = createFolderBookmarkLayout(contents);
   const listView = isListView();
@@ -232,14 +235,16 @@ function renderFolderContents() {
       const second = layout.get(b.id);
       return first.gy - second.gy || first.gx - second.gx;
     });
-    for (const bookmark of ordered) list.append(createBookmarkListItem(bookmark));
+    list.replaceChildren(...ordered.map(bookmark => createBookmarkListItem(bookmark)));
+    trace.end({ bookmarks: contents.length, listView });
     return;
   }
 
-  for (const bookmark of contents) {
+  list.replaceChildren(...contents.flatMap(bookmark => {
     const position = layout.get(bookmark.id);
-    if (position) list.append(createFolderBookmarkItem(bookmark, position));
-  }
+    return position ? [createFolderBookmarkItem(bookmark, position)] : [];
+  }));
+  trace.end({ bookmarks: contents.length, listView });
 }
 
 function startInlineFolderRename(event) {

@@ -36,13 +36,13 @@ const {
   addBookmarkToFolder,
   BOOKMARK_FOLDER_NAME_MAX_LENGTH,
   createBookmarkFolder,
-  deleteBookmarkFolder,
   removeBookmarkFromFolder,
   renameBookmarkFolder,
   updateBookmarkFolder,
   updateFolderBookmarkPositions
 } = await import('../src/features/folders/folderActions.js');
 const { updateGridItemsByIds } = await import('../src/features/grid/gridItemActions.js');
+const { moveFolderToRecycleBin } = await import('../src/features/recycle-bin/recycleBinActions.js');
 const {
   createFolderBookmarkLayout,
   FOLDER_GRID_CAPACITY
@@ -81,7 +81,7 @@ test('deleting a folder deletes its contained bookmarks atomically', () => {
   const folder = getState().data.folders[0];
   addBookmarkToFolder('bookmark', folder.id);
 
-  const result = deleteBookmarkFolder(folder.id);
+  const result = moveFolderToRecycleBin(folder.id);
   assert.deepEqual(result, { deleted: true, bookmarkCount: 1 });
   assert.deepEqual(getState().data.folders, []);
   assert.deepEqual(getState().data.bookmarks, []);

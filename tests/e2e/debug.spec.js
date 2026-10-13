@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './helpers/test.js';
 import { expectAppReady } from './helpers/appReady.js';
 
 async function expectReady(page) {
@@ -43,9 +43,10 @@ test('reports startup, actual quotas and persisted create/edit/delete timings', 
 
   const id = await bookmark.getAttribute('data-bookmark-id');
   await page.evaluate(async id => {
-    const { updateBookmarkById, deleteBookmarksByIds } = await import('/src/features/bookmarks/bookmarkActions.js');
+    const { updateBookmarkById } = await import('/src/features/bookmarks/bookmarkActions.js');
+    const { moveBookmarksToRecycleBin } = await import('/src/features/recycle-bin/recycleBinActions.js');
     updateBookmarkById(id, { name: 'Updated debug example' });
-    deleteBookmarksByIds([id]);
+    moveBookmarksToRecycleBin([id]);
   }, id);
   await expect(bookmark).toHaveCount(0);
   await expect.poll(() => page.evaluate(() => window.NewDeskTabDebug.history().filter(record => (

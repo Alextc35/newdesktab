@@ -3,6 +3,7 @@ import { t } from '../../platform/i18n/i18n.js';
 import { closeModal, openModal, registerModal } from '../../shared/ui/modalManager.js';
 import { getWorkspaces } from '../workspaces/workspaceSelectors.js';
 import { searchBookmarks } from './searchBookmarks.js';
+import { debug } from '../../shared/diagnostics/debug.js';
 
 let initialized = false;
 let input;
@@ -38,6 +39,7 @@ export function openSearchModal() {
 }
 
 function renderResults() {
+  const trace = debug.start('Search bookmarks');
   const { data } = getState();
   const { bookmarks, folders } = data;
   const workspaces = new Map(getWorkspaces(data).map(workspace => [
@@ -53,6 +55,7 @@ function renderResults() {
     empty.className = 'search-empty';
     empty.textContent = t('search.empty');
     results.append(empty);
+    trace.end({ matches: 0 });
     return;
   }
 
@@ -76,4 +79,5 @@ function renderResults() {
     link.append(name, detail);
     results.append(link);
   }
+  trace.end({ matches: matches.length });
 }

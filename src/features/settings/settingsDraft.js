@@ -210,15 +210,6 @@ export function setDraftLanguage(language) {
 }
 
 /**
- * Updates the selected per-device persistence mode.
- *
- * @param {'local'|'sync'} storageMode
- */
-export function setDraftStorageMode(storageMode) {
-  draftStorageMode = storageMode;
-}
-
-/**
  * Reconciles a storage-mode change that was already applied outside the normal
  * settings save flow, while preserving every other draft edit.
  */

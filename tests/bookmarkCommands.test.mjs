@@ -32,7 +32,7 @@ globalThis.chrome = {
   }
 };
 
-const { duplicateBookmarksByIds } = await import('../src/features/bookmarks/bookmarkActions.js');
+const { duplicateGridItems } = await import('../src/features/grid/gridItemActions.js');
 const { getState, hydrateStore, setState } = await import('../src/state/appStore.js');
 
 test('bulk duplication reserves free slots and reports bookmarks that do not fit', async () => {
@@ -46,7 +46,7 @@ test('bulk duplication reserves free slots and reports bookmarks that do not fit
     }
   });
 
-  const result = duplicateBookmarksByIds(['first', 'second'], {
+  const result = duplicateGridItems(getState().data.bookmarks.map(item => ({ kind: 'bookmark', id: item.id })), {
     columns: 3,
     rows: 1,
     nameSuffix: 'copy'
@@ -54,11 +54,12 @@ test('bulk duplication reserves free slots and reports bookmarks that do not fit
 
   assert.equal(result.duplicates.length, 1);
   assert.equal(result.skipped, 1);
-  assert.equal(result.duplicates[0].name, 'First (copy)');
+  const duplicate = result.duplicates[0].item;
+  assert.equal(duplicate.name, 'First (copy)');
   assert.deepEqual(
-    { gx: result.duplicates[0].gx, gy: result.duplicates[0].gy },
+    { gx: duplicate.gx, gy: duplicate.gy },
     { gx: 2, gy: 0 }
   );
-  assert.notEqual(result.duplicates[0].id, 'first');
+  assert.notEqual(duplicate.id, 'first');
   assert.equal(getState().data.bookmarks.length, 3);
 });

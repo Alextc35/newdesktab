@@ -104,6 +104,8 @@ export function createIconPicker({ type, getValue, renderOriginalIcon, onSelect,
     sync();
   }
   function reveal() {
+    const focused = document.activeElement;
+    if (focused !== summary && focused !== search && focused !== document.body) return;
     search.focus({ preventScroll: true });
     element.scrollIntoView({ block: 'nearest', behavior: window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   }

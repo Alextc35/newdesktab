@@ -272,6 +272,12 @@ store, browser capabilities, image cache and startup lifecycle to expose
 `state/stateChangeDescription.js`, keeping the reusable tracer independent from
 application data shapes.
 
+Optional timing subscribers receive isolated copies of completed traces without
+changing the bounded console history. The E2E action audit enables this collector
+only when `NEWDESKTAB_AUDIT_DIR` is set; normal tests and production keep Debug
+disabled. See [the audit procedure](benchmarks/ACTION_AUDIT.md) for the measured
+boundaries, coverage limits and source-reachability checks.
+
 ## Shared UI primitives
 
 Modal stacking, alerts, flash messages, tabs, local-image inputs, lockable

@@ -12,23 +12,6 @@ export function normalizeBookmarkFolderName(name) {
     : '';
 }
 
-export const FOLDER_STYLE_KEYS = Object.freeze([
-  'iconId',
-  'iconColor',
-  'noBackground',
-  'backgroundColor',
-  'outerBackgroundColor',
-  'noOuterBackground',
-  'backgroundImageUrl',
-  'backgroundImageLocal',
-  'backgroundImageSource',
-  'backgroundImageUrlLocked',
-  'textColor',
-  'showFolder',
-  'showPreviews',
-  'showName'
-]);
-
 const IMAGE_PROTOCOLS = new Set(['http:', 'https:', 'data:']);
 
 /** Returns a complete, persistence-safe folder appearance object. */

@@ -1,5 +1,5 @@
 import { readFile } from 'node:fs/promises';
-import { expect, test } from '@playwright/test';
+import { expect, test } from './helpers/test.js';
 import { expectAppReady } from './helpers/appReady.js';
 import { readBackupArchive } from '../../src/platform/backup/backupArchive.js';
 

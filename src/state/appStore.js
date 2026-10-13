@@ -245,10 +245,10 @@ export async function waitForPersistence() {
   return structuredClone(state.ui.persistence);
 }
 
-/** Save flows must confirm durable storage before closing or announcing success. */
-export async function requirePersistence() {
+/** Save flows require a write; commands that made no change may accept hydrated idle state. */
+export async function requirePersistence({ allowIdle = false } = {}) {
   const persistence = await waitForPersistence();
-  if (persistence.status !== 'saved') {
+  if (persistence.status !== 'saved' && !(allowIdle && !isHydrating && persistence.status === 'idle')) {
     const error = new Error(persistence.error || 'Could not save the latest changes.');
     error.code = 'PERSISTENCE_FAILED';
     throw error;

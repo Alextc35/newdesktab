@@ -115,6 +115,7 @@ export function initDebugTools() {
       return debug.enabled;
     },
     report: () => reportDebugState(),
+    subscribe: listener => debug.subscribe(listener),
     history() {
       const records = debug.history();
       if (records.length) {

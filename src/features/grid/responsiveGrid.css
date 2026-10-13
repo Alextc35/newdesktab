@@ -147,6 +147,8 @@
 
   & .folder-visual {
     width: calc(var(--aligned-card-art-height) * 1.36);
+    /* Grid alignment also centers artwork wider than a narrow cell's content. */
+    margin-inline: 0;
   }
 
   & .recycle-bin-glyph {

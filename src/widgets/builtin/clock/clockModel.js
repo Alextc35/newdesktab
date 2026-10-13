@@ -18,11 +18,6 @@ export function normalizeClockConfig(value = {}) {
   };
 }
 
-/** Formats one instant without reading application or browser state. */
-export function formatClockTime(date, config = {}, locale = undefined) {
-  return formatClockTimeParts(date, config, locale).text;
-}
-
 /**
  * Formats one instant and exposes the visible units separately so compact
  * clock surfaces can move seconds onto their own line without parsing a

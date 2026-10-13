@@ -1,19 +1,6 @@
 import { DEFAULT_RECYCLE_BIN_STYLE } from './recycleBinDefaults.js';
 import { normalizeBackgroundImage } from '../../shared/images/backgroundImage.js';
 
-export const RECYCLE_BIN_STYLE_KEYS = Object.freeze([
-  'animateIcon',
-  'noBackground',
-  'backgroundColor',
-  'backgroundImageUrl',
-  'backgroundImageLocal',
-  'backgroundImageSource',
-  'backgroundImageUrlLocked',
-  'iconColor',
-  'textColor',
-  'showName'
-]);
-
 const IMAGE_PROTOCOLS = new Set(['http:', 'https:', 'data:']);
 
 /** Returns a complete, persistence-safe recycle bin appearance object. */

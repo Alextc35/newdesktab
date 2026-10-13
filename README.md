@@ -181,9 +181,10 @@ NewDeskTabDebug.clear()        // Clear console + history and confirm the result
 The commands remain available while Debug is off. Initial load metrics are
 retained for the report, but operations are only recorded while Debug is on.
 
-Debug also measures opening settings and the bookmark editor, preparing a grid
-drag, and rendering after saved changes. A repeatable UI benchmark uses isolated
-browser profiles with 60 and 1,200 synthetic bookmarks and CPU throttling:
+Debug also measures editor and modal actions, folder and recycle-bin rendering,
+search, persisted commands and grid drag preparation. A repeatable UI benchmark
+measures thirteen operations using isolated browser profiles with 60 and 1,200
+synthetic bookmarks, an 18-item folder, a 60-item recycle bin and CPU throttling:
 
 ```sh
 npm run benchmark:ui -- dist/ui-performance.json
@@ -191,6 +192,17 @@ npm run benchmark:ui -- dist/ui-performance.json
 
 See [UI performance measurements](docs/benchmarks/UI_PERFORMANCE.md) for the
 method, before/after results, and how to check an affected Mac directly.
+The [action audit procedure](docs/benchmarks/ACTION_AUDIT.md) explains how to
+collect timings and observed JS/CSS coverage across the E2E suite and review
+source-cleanup candidates. Profiling tools can subscribe beyond the bounded
+history while Debug is enabled:
+
+```js
+const stop = NewDeskTabDebug.subscribe(record => console.log(record));
+// Reproduce the actions to measure, then detach the listener.
+stop();
+```
+
 Disabling keeps the existing history; clearing also discards pending traces
 and reports without disabling Debug. The toggle applies to the current tab
 and resets to the configured default on reload.

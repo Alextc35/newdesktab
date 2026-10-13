@@ -33,6 +33,7 @@ export function createDebugger({
   limit = 100
 } = {}) {
   const records = [];
+  const listeners = new Set();
   let sequence = 0;
   let revision = 0;
 
@@ -74,6 +75,10 @@ export function createDebugger({
         )));
         if (Object.keys(record.details).length) output.table(record.details);
         output.groupEnd();
+        // Profiling consumers must never interrupt the action being measured.
+        for (const listener of listeners) {
+          try { listener(structuredClone(record)); } catch { /* Diagnostics are optional. */ }
+        }
         return structuredClone(record);
       }
     };
@@ -89,6 +94,11 @@ export function createDebugger({
       return enabled;
     },
     start,
+    subscribe(listener) {
+      if (typeof listener !== 'function') throw new TypeError('Expected a timing listener');
+      listeners.add(listener);
+      return () => listeners.delete(listener);
+    },
     info(label, details, { force = false, tone = 'info' } = {}) {
       if (!enabled && !force) return;
       if (details === undefined) output.info(...heading(label, tone));

@@ -176,29 +176,6 @@ export async function deleteLocalVideo(reference) {
   await withStore('readwrite', store => store.delete(reference));
 }
 
-/** IndexedDB is separate from chrome.storage.local, so report its usage separately. */
-export async function getLocalVideoStorageBytes() {
-  const database = await openDatabase();
-  try {
-    return await new Promise((resolve, reject) => {
-      let total = 0;
-      const transaction = database.transaction(STORE, 'readonly');
-      const request = transaction.objectStore(STORE).openCursor();
-      request.onsuccess = () => {
-        const cursor = request.result;
-        if (!cursor) return;
-        total += cursor.value?.blob?.size ?? 0;
-        cursor.continue();
-      };
-      request.onerror = () => reject(request.error);
-      transaction.oncomplete = () => resolve(total);
-      transaction.onerror = () => reject(transaction.error);
-    });
-  } finally {
-    database.close();
-  }
-}
-
 export async function clearLocalVideos() {
   for (const url of urls.values()) URL.revokeObjectURL(url);
   urls.clear();

@@ -251,6 +251,7 @@ export function openModal(id, {
   }
 
   if (stack.some(modal => modal.id === id)) return;
+  const trace = debug.start('Open modal', { modal: id });
 
   const previouslyFocused = document.activeElement;
 
@@ -267,13 +268,13 @@ export function openModal(id, {
   if (onCancel) activeModal.onCancel = onCancel;
 
   stack.push(activeModal);
-  debug.info('Open modal', { modal: id, depth: stack.length });
 
   config.element.hidden = false;
   config.element.classList.add('is-open');
   syncModalStacking();
   syncModalViewport();
   syncPageAccessibility();
+  trace.mark('Show surface');
 
   const focusEl =
     activeModal.initialFocus
@@ -281,6 +282,7 @@ export function openModal(id, {
     || config.element;
 
   focusModal(activeModal, focusEl);
+  trace.end({ depth: stack.length });
 }
 
 /**
@@ -293,12 +295,12 @@ export function closeModal(id) {
     ? stack.find(item => item.id === id)
     : getActive();
   if (!modal) return;
+  const trace = debug.start('Close modal', { modal: modal.id });
   const wasActive = modal === getActive();
   stack.splice(stack.indexOf(modal), 1);
   for (const child of stack) {
     if (child.parent === modal) child.parent = modal.parent;
   }
-  debug.info('Close modal', { modal: modal.id, depth: stack.length });
 
   modal.element.classList.remove('is-open');
   modal.element.hidden = true;
@@ -312,6 +314,7 @@ export function closeModal(id) {
     || nextModal?.element;
 
   if (wasActive) focusModal(nextModal, focusTarget);
+  trace.end({ depth: stack.length });
 }
 
 function focusModal(modal, preferred) {

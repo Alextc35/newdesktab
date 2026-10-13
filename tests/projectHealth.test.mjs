@@ -234,6 +234,19 @@ test('source modules resolve relative imports and do not contain static cycles',
   for (const file of files) visit(file);
 });
 
+test('application and popup entries reach every source JavaScript module', () => {
+  const sourceRoot = resolve('src');
+  const visited = new Set();
+  const visit = file => {
+    if (visited.has(file)) return;
+    visited.add(file);
+    for (const dependency of readStaticDependencies(file)) visit(dependency);
+  };
+  for (const entry of ['main.js', 'popup.js']) visit(resolve(sourceRoot, entry));
+  assert.deepEqual([...visited].sort(), listJavaScriptFiles(sourceRoot).sort(),
+    'Remove orphan modules or connect them to an application entry');
+});
+
 test('domain dependencies stay portable and shared mechanisms do not own item editors', () => {
   const root = resolve('src');
   const files = listJavaScriptFiles(root);

@@ -46,6 +46,14 @@ test('settings snapshots cannot mutate the store or include unrelated workspace 
   assert.equal(Object.hasOwn(snapshot, 'bookmarks'), false);
 });
 
+test('only explicit no-change commands can accept idle persistence after hydration', async () => {
+  await assert.rejects(requirePersistence({ allowIdle: true }), { code: 'PERSISTENCE_FAILED' });
+  await hydrateStore();
+  assert.equal(getState().ui.persistence.status, 'idle');
+  await assert.rejects(requirePersistence(), { code: 'PERSISTENCE_FAILED' });
+  await requirePersistence({ allowIdle: true });
+});
+
 test('failed writes survive storage refresh and persist with the next change', async t => {
   t.mock.method(console, 'error', () => {});
   await hydrateStore();
@@ -53,6 +61,7 @@ test('failed writes survive storage refresh and persist with the next change', a
   failures = 1;
   await setState({ data: { bookmarks: [bookmark] } });
   await assert.rejects(requirePersistence(), { code: 'PERSISTENCE_FAILED' });
+  await assert.rejects(requirePersistence({ allowIdle: true }), { code: 'PERSISTENCE_FAILED' });
   assert.equal(data.bookmarks.length, 0);
 
   area.set({ settings: { ...data.settings, language: 'es' } });

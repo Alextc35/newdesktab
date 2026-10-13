@@ -3,7 +3,6 @@ import test from 'node:test';
 
 import {
   DEFAULT_CLOCK_CONFIG,
-  formatClockTime,
   formatClockTimeParts,
   getClockRefreshDelay,
   normalizeClockConfig
@@ -26,11 +25,11 @@ test('formats local time using the selected hour cycle and precision', () => {
   const instant = new Date(2026, 0, 2, 5, 7, 9);
 
   assert.equal(
-    formatClockTime(instant, { hourCycle: '24', showSeconds: false }, 'en-GB'),
+    formatClockTimeParts(instant, { hourCycle: '24', showSeconds: false }, 'en-GB').text,
     '05:07'
   );
   assert.match(
-    formatClockTime(instant, { hourCycle: '12', showSeconds: true }, 'en-US'),
+    formatClockTimeParts(instant, { hourCycle: '12', showSeconds: true }, 'en-US').text,
     /^05:07:09\s?AM$/i
   );
 

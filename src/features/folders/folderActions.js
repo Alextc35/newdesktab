@@ -15,7 +15,6 @@ import {
   validateFolderDraft
 } from '../../domain/folders/folderModel.js';
 import { getState, setState } from '../../state/appStore.js';
-import { moveFolderToRecycleBin } from '../recycle-bin/recycleBinActions.js';
 import { getGridItemsInGroup } from '../grid/gridSelectors.js';
 import { getActiveWorkspaceId } from '../workspaces/workspaceSelectors.js';
 
@@ -219,13 +218,4 @@ export function removeBookmarkFromFolder(bookmarkId, { columns, rows } = {}) {
     }
   });
   return { bookmark: restored, reason: null };
-}
-
-/**
- * Deletes a folder and every bookmark contained by it in one undoable change.
- *
- * @returns {{deleted: boolean, bookmarkCount: number}}
- */
-export function deleteBookmarkFolder(folderId) {
-  return moveFolderToRecycleBin(folderId);
 }

@@ -28,6 +28,7 @@ import { createBookmarkListIcon } from '../bookmarks/bookmarkListItem.js';
 import { createFolderVisual } from '../folders/folderVisual.js';
 import { openRecycleBinEditor } from './recycleBinEditorModal.js';
 import { applyRecycleBinAppearance } from './recycleBinAppearance.js';
+import { debug } from '../../shared/diagnostics/debug.js';
 
 const selectedIds = new Set();
 let modal;
@@ -39,6 +40,8 @@ let restoreAllButton;
 let deleteAllButton;
 let restoreSelectedButton;
 let deleteSelectedButton;
+let dateFormatter;
+let dateLocale;
 
 export function initRecycleBinModal() {
   modal = document.getElementById('recycle-bin-modal');
@@ -69,8 +72,13 @@ export function initRecycleBinModal() {
   restoreSelectedButton.addEventListener('click', restoreSelected);
   deleteSelectedButton.addEventListener('click', deleteSelected);
 
-  subscribe(() => {
-    if (isModalActive('recycle-bin')) renderRecycleBin();
+  subscribe((state, previous) => {
+    if (isModalActive('recycle-bin') && (!previous
+      || state.data.trash !== previous.data.trash
+      || state.data.recycleBin !== previous.data.recycleBin
+      || state.data.settings.recycleBinRetentionDays !== previous.data.settings.recycleBinRetentionDays)) {
+      renderRecycleBin();
+    }
   });
   subscribeLanguageChange(() => {
     if (isModalActive('recycle-bin')) renderRecycleBin();
@@ -90,7 +98,9 @@ function closeRecycleBin() {
 }
 
 function renderRecycleBin() {
-  const { trash, recycleBin } = getState().data;
+  const trace = debug.start('Render recycle bin');
+  const { trash, recycleBin, settings } = getState().data;
+  const retentionDays = normalizeRecycleBinRetentionDays(settings.recycleBinRetentionDays);
   const customizeButton = document.getElementById('recycle-bin-modal-customize');
   applyRecycleBinAppearance(customizeButton, recycleBin);
   customizeButton.replaceChildren(createRecycleBinSvg({ open: true }), createEditIndicatorSvg());
@@ -101,7 +111,7 @@ function renderRecycleBin() {
 
   summary.textContent = t('recycleBin.summary', {
     count: trash.length,
-    retention: getRetentionLabel(getRecycleBinRetentionDays())
+    retention: getRetentionLabel(retentionDays)
   });
   selectedCount.textContent = t('recycleBin.selected', { count: selectedIds.size });
   empty.hidden = trash.length > 0;
@@ -109,7 +119,7 @@ function renderRecycleBin() {
   list.replaceChildren(...trash
     .slice()
     .sort((a, b) => b.deletedAt - a.deletedAt)
-    .map(createTrashRow));
+    .map(entry => createTrashRow(entry, retentionDays)));
 
   const hasItems = trash.length > 0;
   const hasSelection = selectedIds.size > 0;
@@ -117,9 +127,10 @@ function renderRecycleBin() {
   deleteAllButton.disabled = !hasItems;
   restoreSelectedButton.disabled = !hasSelection;
   deleteSelectedButton.disabled = !hasSelection;
+  trace.end({ entries: trash.length });
 }
 
-function createTrashRow(entry) {
+function createTrashRow(entry, retentionDays) {
   const row = document.createElement('label');
   row.className = 'recycle-bin-item';
   row.dataset.trashId = entry.id;
@@ -153,7 +164,6 @@ function createTrashRow(entry) {
 
   const expiry = document.createElement('span');
   expiry.className = 'recycle-bin-item-expiry';
-  const retentionDays = getRecycleBinRetentionDays();
   expiry.textContent = retentionDays === 0
     ? t('recycleBin.neverExpires')
     : formatExpiry(remainingDays(entry.deletedAt, retentionDays));
@@ -182,18 +192,14 @@ function entryName(entry) {
 }
 
 function formatDeletedAt(timestamp) {
+  const locale = document.documentElement.lang || undefined;
+  if (!dateFormatter || dateLocale !== locale) {
+    dateLocale = locale;
+    dateFormatter = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short' });
+  }
   return t('recycleBin.deletedAt', {
-    date: new Intl.DateTimeFormat(document.documentElement.lang || undefined, {
-      dateStyle: 'medium',
-      timeStyle: 'short'
-    }).format(new Date(timestamp))
+    date: dateFormatter.format(new Date(timestamp))
   });
-}
-
-function getRecycleBinRetentionDays() {
-  return normalizeRecycleBinRetentionDays(
-    getState().data.settings.recycleBinRetentionDays
-  );
 }
 
 function getRetentionLabel(days) {

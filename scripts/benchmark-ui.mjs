@@ -24,6 +24,8 @@ try {
     await expectAppReady(page);
     await page.evaluate(async count => {
       const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
+      const { DEFAULT_FOLDER_STYLE } = await import('/src/domain/folders/folderDefaults.js');
+      const { DEFAULT_RECYCLE_BIN } = await import('/src/domain/recycle-bin/recycleBinDefaults.js');
       const { getState } = await import('/src/state/appStore.js');
       const groups = Array.from({ length: Math.ceil(count / 60) - 1 }, (_, i) => ({ id: `bench-group-${i + 1}`, name: `Workspace ${i + 1}` }));
       const bookmarks = Array.from({ length: count }, (_, i) => ({ ...DEFAULT_BOOKMARK,
@@ -31,8 +33,16 @@ try {
         groupId: i < 60 ? null : `bench-group-${Math.floor(i / 60)}`,
         gx: i % 12, gy: Math.floor((i % 60) / 12), iconId: 'mail',
         backgroundFavicon: false, noBackground: false, backgroundColor: '#111827' }));
-      await new Promise(resolve => chrome.storage.local.set({ bookmarks, folders: [],
-        settings: { ...getState().data.settings, showRecycleBin: false, bookmarkGroups: groups } }, resolve));
+      const folder = { ...DEFAULT_FOLDER_STYLE, id: 'bench-folder', name: 'Benchmark folder',
+        groupId: null, gx: 2, gy: 5, w: 1, h: 1, createdAt: 1, updatedAt: 1 };
+      const children = Array.from({ length: 18 }, (_, i) => ({ ...bookmarks[i], id: `child-${i}`,
+        folderId: folder.id, gx: i % 6, gy: Math.floor(i / 6) }));
+      const trash = Array.from({ length: 60 }, (_, i) => ({ id: `trash-${i}`, type: 'bookmark',
+        deletedAt: Date.now(), bookmark: { ...bookmarks[i], id: `deleted-${i}` } }));
+      await new Promise(resolve => chrome.storage.local.set({ bookmarks: [...bookmarks, ...children],
+        folders: [folder], trash, recycleBin: { ...DEFAULT_RECYCLE_BIN, gx: 11, gy: 5 },
+        settings: { ...getState().data.settings, recycleBinRetentionDays: 0,
+          showRecycleBin: true, bookmarkGroups: groups } }, resolve));
     }, count);
     await page.reload();
     await expectAppReady(page);
@@ -45,6 +55,13 @@ try {
         const timing = await page.evaluate(async operation => {
           const { renderGrid, resizeGridView } = await import('/src/features/grid/gridRenderer.js');
           const { openEditBookmark } = await import('/src/features/bookmarks/bookmarkModal.js');
+          const { openFolderModal } = await import('/src/features/folders/folderModal.js');
+          const { openFolderEditor } = await import('/src/features/folders/folderEditorModal.js');
+          const { openRecycleBinModal } = await import('/src/features/recycle-bin/recycleBinModal.js');
+          const { openRecycleBinEditor } = await import('/src/features/recycle-bin/recycleBinEditorModal.js');
+          const { openSearchModal } = await import('/src/features/search/searchModal.js');
+          const { openWidgetCatalog } = await import('/src/widgets/widgetCatalog.js');
+          const { openCreateClock } = await import('/src/widgets/builtin/clock/clockSettings.js');
           const start = performance.now();
           if (operation === 'settings') document.getElementById('settings').click();
           if (operation === 'editor') openEditBookmark('bench-0');
@@ -55,6 +72,18 @@ try {
           }
           if (operation === 'render') renderGrid(document.getElementById('bookmark-container'));
           if (operation === 'resize') resizeGridView(document.getElementById('bookmark-container'));
+          if (operation === 'folder') openFolderModal('bench-folder');
+          if (operation === 'folderEditor') openFolderEditor('bench-folder');
+          if (operation === 'bin') openRecycleBinModal();
+          if (operation === 'binEditor') openRecycleBinEditor();
+          if (operation === 'search') openSearchModal();
+          if (operation === 'searchFilter') {
+            const input = document.getElementById('search-modal-input');
+            input.value = 'Bookmark 59';
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+          }
+          if (operation === 'catalog') openWidgetCatalog();
+          if (operation === 'clock') openCreateClock();
           const jsMs = performance.now() - start;
           await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
           return { jsMs, frameMs: performance.now() - start };
@@ -67,6 +96,10 @@ try {
         if (operation === 'editor') {
           await page.locator('#edit-bookmark-modal-cancel').click();
           await page.locator('#edit-bookmark-modal').waitFor({ state: 'hidden' });
+        }
+        if (['folder', 'folderEditor', 'bin', 'binEditor', 'search', 'catalog', 'clock'].includes(operation)) {
+          await page.keyboard.press('Escape');
+          await page.locator('.modal.is-open').waitFor({ state: 'hidden' });
         }
       }
       const median = key => {
@@ -84,6 +117,16 @@ try {
     await page.locator('#edit-bookmark-modal').waitFor({ state: 'hidden' });
     await measure('gridRender', 'render');
     await measure('gridResize', 'resize');
+    await measure('folderOpen', 'folder');
+    await measure('folderEditorOpen', 'folderEditor');
+    await measure('recycleBinOpen', 'bin');
+    await measure('recycleBinEditorOpen', 'binEditor');
+    await measure('searchOpen', 'search');
+    await page.evaluate(async () => (await import('/src/features/search/searchModal.js')).openSearchModal());
+    await measure('searchFilter', 'searchFilter');
+    await page.keyboard.press('Escape');
+    await measure('widgetCatalogOpen', 'catalog');
+    await measure('clockCreateOpen', 'clock');
     for (let i = 0; i < 8; i++) {
       await page.evaluate(async i => {
         const { updateGridItemsByIds } = await import('/src/features/grid/gridItemActions.js');
@@ -94,7 +137,8 @@ try {
     }
     const history = await page.evaluate(() => window.NewDeskTabDebug.history());
     assert.deepEqual(errors, [], 'Benchmark journeys must finish without page errors');
-    const result = { bookmarks: count, visibleBookmarks: 60, cpuRate, startup: startup.startup, samples,
+    const result = { bookmarks: count, folderBookmarks: 18, trashEntries: 60,
+      visibleBookmarks: 60, cpuRate, startup: startup.startup, samples,
       lastGridRender: history.filter(value => value.label === 'Render grid').at(-1) };
     results.push(result);
     console.log(JSON.stringify(result));

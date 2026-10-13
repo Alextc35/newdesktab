@@ -35,12 +35,12 @@ globalThis.chrome = {
 const {
   createWorkspace,
   deleteWorkspace,
-  moveBookmarksToWorkspace,
   setActiveWorkspace
 } = await import(
   '../src/features/workspaces/workspaceActions.js'
 );
 const { getState, hydrateStore, setState } = await import('../src/state/appStore.js');
+const { moveGridItemsToWorkspace } = await import('../src/features/grid/gridItemActions.js');
 
 test('deleting a workspace also deletes its bookmarks without moving them to Main', async () => {
   await hydrateStore();
@@ -96,7 +96,7 @@ test('moves bookmarks into available cells in the requested workspace', async ()
   });
 
   assert.deepEqual(
-    moveBookmarksToWorkspace(['source'], 'work', { columns: 2, rows: 1 }),
+    moveGridItemsToWorkspace([{ kind: 'bookmark', id: 'source' }], 'work', { columns: 2, rows: 1 }),
     { moved: 1, skipped: 0 }
   );
   assert.deepEqual(

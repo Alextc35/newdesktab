@@ -2,6 +2,7 @@ import { getState, requirePersistence, retryPersistence, subscribe } from '../..
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { subscribeModalChanges } from '../../shared/ui/modalManager.js';
+import { debug } from '../../shared/diagnostics/debug.js';
 
 const pendingActions = new Map();
 const runningActions = new Set();
@@ -11,6 +12,7 @@ let retryButton;
 /** Executes a command once; a repeated failed command retries its write only. */
 export async function runPersistedAction(key, operation, onSaved = () => {}) {
   if (runningActions.has(key)) return false;
+  const trace = debug.start('Persisted command', { action: key.split(':')[0] });
   runningActions.add(key);
   try {
     if (pendingActions.size && getState().ui.persistence.status === 'saved') {
@@ -20,16 +22,20 @@ export async function runPersistedAction(key, operation, onSaved = () => {}) {
     }
     let pending = pendingActions.get(key);
     if (pending) {
+      trace.mark('Reuse pending result');
       await retryPersistence();
     } else {
       const result = await operation();
+      trace.mark('Execute command');
       pending = { result, onSaved };
       pendingActions.set(key, pending);
-      await requirePersistence();
+      await requirePersistence({ allowIdle: true });
     }
     completePendingActions([[key, pending]]);
+    trace.end({ persisted: true });
     return true;
   } catch {
+    trace.end({ status: 'error', persisted: false });
     flashError('settingsModal.sync.status.error');
     return false;
   } finally {

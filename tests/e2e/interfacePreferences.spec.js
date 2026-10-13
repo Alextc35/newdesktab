@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './helpers/test.js';
 import { expectAppReady } from './helpers/appReady.js';
 
 async function openSettings(page) {

@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './helpers/test.js';
 import { expectAppReady } from './helpers/appReady.js';
 
 const editors = {
@@ -102,16 +102,15 @@ for (const type of ['bookmark', 'folder', 'recycleBin']) {
 
 test('folders and the bin without names center their artwork in cards and previews', async ({ page }) => {
   const centered = async card => {
-    const offsets = await card.evaluate(element => {
+    // Responsive geometry is committed on the next animation frame.
+    await expect.poll(() => card.evaluate(element => {
       const card = element.getBoundingClientRect();
       const visual = element.querySelector('.folder-visual, .recycle-bin-glyph').getBoundingClientRect();
-      return {
-        x: visual.x + visual.width / 2 - card.x - card.width / 2,
-        y: visual.y + visual.height / 2 - card.y - card.height / 2
-      };
-    });
-    expect(Math.abs(offsets.x)).toBeLessThan(0.5);
-    expect(Math.abs(offsets.y)).toBeLessThan(0.5);
+      return Math.max(
+        Math.abs(visual.x + visual.width / 2 - card.x - card.width / 2),
+        Math.abs(visual.y + visual.height / 2 - card.y - card.height / 2)
+      );
+    })).toBeLessThan(0.5);
   };
   for (const type of ['folder', 'recycleBin']) {
     const modal = await openEditor(page, type);
@@ -124,6 +123,11 @@ test('folders and the bin without names center their artwork in cards and previe
     const card = page.locator(type === 'folder' ? '#bookmark-container [data-folder-id="editor-folder"]' : '#bookmark-container .recycle-bin');
     for (const size of [{ width: 1280, height: 800 }, { width: 940, height: 720 }, { width: 601, height: 720 }]) {
       await page.setViewportSize(size);
+      const width = await page.evaluate(async () => {
+        const { GRID_COLS, PADDING } = await import('/src/shared/grid/gridGeometry.js');
+        return document.getElementById('bookmark-viewport').clientWidth / GRID_COLS - PADDING;
+      });
+      await expect.poll(async () => (await card.boundingBox()).width).toBeCloseTo(width, 1);
       await centered(card);
     }
     await page.setViewportSize({ width: 1280, height: 800 });
@@ -276,6 +280,29 @@ test('icon search finds shapes without accents, supports keyboard selection and 
   await expectAppReady(page);
   await expect(page.locator('#bookmark-container [data-bookmark-id="editor-bookmark"] [data-icon-id="circle"]')).toBeVisible();
   expect((await storedValue(page, 'bookmark')).url).toBe('https://youtube.com');
+});
+
+test('finishing the icon opening animation preserves a newer keyboard selection', async ({ page }) => {
+  const modal = await openEditor(page, 'bookmark');
+  const picker = modal.locator('.editor-icon-picker');
+  await picker.locator('summary').click();
+  await picker.locator('.editor-icon-panel').evaluate(element => {
+    window.pendingIconAnimation = element.getAnimations()[0];
+    window.pendingIconAnimation.pause();
+    window.pendingIconAnimation.currentTime = 50;
+  });
+  const search = picker.locator('.editor-icon-search');
+  await search.fill('circle');
+  await search.press('ArrowDown');
+  const circle = picker.locator('[data-icon-choice="circle"]');
+  await expect(circle).toBeFocused();
+  await page.evaluate(async () => {
+    window.pendingIconAnimation.finish();
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  });
+  await expect(circle).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(modal.locator('.bookmark-preview [data-icon-id="circle"]')).toBeVisible();
 });
 
 test('folder symbols keep their shell, independent color and empty option across editing and reloads', async ({ page }) => {

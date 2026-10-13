@@ -10,6 +10,8 @@
     "test:e2e": "playwright test",
     "test:extension": "node tests/extension-smoke.mjs",
     "benchmark:ui": "node scripts/benchmark-ui.mjs",
+    "audit:source": "node scripts/audit-source.mjs",
+    "audit:actions": "node scripts/report-action-audit.mjs",
     "assets:store": "node scripts/generate-store-assets.mjs",
     "vendor:zip": "node scripts/vendor-backup-zip.mjs",
     "vendor:domains": "node scripts/vendor-domain-parser.mjs",

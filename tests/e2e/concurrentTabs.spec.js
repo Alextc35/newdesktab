@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { chromium, expect, test } from '@playwright/test';
+import { chromium, expect, test } from './helpers/test.js';
 import { expectAppReady } from './helpers/appReady.js';
 
 const extensionPath = fileURLToPath(new URL('../..', import.meta.url));
@@ -74,6 +74,7 @@ test.beforeEach(async () => {
       window.commands = await import('./features/bookmarks/bookmarkActions.js');
       window.store = await import('./state/appStore.js');
       window.folders = await import('./features/folders/folderActions.js');
+      window.trashActions = await import('./features/recycle-bin/recycleBinActions.js');
     });
   }
 });
@@ -157,7 +158,7 @@ test('independent edits to the same bookmark merge without losing either field',
 test('a stale edit cannot resurrect a bookmark deleted by another tab', async () => {
   await concurrently(index => {
     const id = window.store.getState().data.bookmarks[0].id;
-    if (index === 0) window.commands.deleteBookmarksByIds([id]);
+    if (index === 0) window.trashActions.moveBookmarksToRecycleBin([id]);
     else window.commands.updateBookmarkById(id, { name: 'Stale edit' });
   });
   for (const page of pages) {

@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './helpers/test.js';
 import { expectAppReady } from './helpers/appReady.js';
 
 test('the recycle bin editor shares retention with settings and cancelling keeps the saved duration', async ({ page }, testInfo) => {

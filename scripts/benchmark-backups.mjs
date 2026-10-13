@@ -1,5 +1,6 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
 import { chromium } from '@playwright/test';
 import { createStaticServer } from './lib/staticServer.mjs';
 import { expectAppReady } from '../tests/e2e/helpers/appReady.js';
@@ -8,6 +9,7 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const sizes = (process.argv.find(value => value.startsWith('--sizes='))?.slice(8) ?? '10,50,200')
   .split(',').map(Number);
 const videoCount = Number(process.argv.find(value => value.startsWith('--count='))?.slice(8) ?? 1);
+const outputPath = process.argv.find(value => value.startsWith('--output='))?.slice(9);
 if (sizes.some(size => !Number.isInteger(size) || size < 1 || size > 200)) {
   throw new Error('Video sizes must be whole MiB between 1 and 200.');
 }
@@ -156,9 +158,10 @@ try {
 } finally {
   await new Promise(resolve => server.close(resolve));
   const output = new URL('../docs/benchmarks/', import.meta.url);
-  await mkdir(output, { recursive: true });
   const filename = videoCount === 1 ? 'backup-media-zip.json' : `backup-media-zip-${videoCount}-videos.json`;
-  await writeFile(new URL(filename, output), JSON.stringify({
+  const target = outputPath ? resolve(root, outputPath) : fileURLToPath(new URL(filename, output));
+  await mkdir(dirname(target), { recursive: true });
+  await writeFile(target, JSON.stringify({
     recordedAt: new Date().toISOString(), browser: browserVersion, platform: process.platform,
     methodology: 'Fresh persistent Chromium profile for each size; actual ZIP export/import actions and IndexedDB; synthetic WebM MIME payloads; byte length and boundary verification of every video; JS heap sampled every 10ms, at Blob creation, stringify/parse and CDP checkpoints. Video decoding, download I/O and whole-process RSS are excluded.',
     results

@@ -1,0 +1,5532 @@
+{
+  "version": "1.0.0",
+  "date": "2026-10-14",
+  "platform": "Windows",
+  "validation": {
+    "lint": "passed",
+    "unit": 283,
+    "dom": 76,
+    "e2e": 338,
+    "e2ePassed": 338,
+    "e2eFailed": [],
+    "fullSuite": 338,
+    "knownDependencyVulnerabilities": 0,
+    "extensionSmoke": [
+      "chromium",
+      "chrome",
+      "brave"
+    ]
+  },
+  "source": {
+    "entries": [
+      "src/main.js",
+      "src/popup.js"
+    ],
+    "modules": 199,
+    "stylesheets": 47,
+    "reachableModules": 199,
+    "unreachableModules": [],
+    "orphanClassCandidates": [],
+    "dynamicClassReferences": [
+      {
+        "name": "manual-sequence-next",
+        "file": "src/features/help/manual.js",
+        "expression": "manual-sequence-${direction}"
+      },
+      {
+        "name": "editor-look-sample-original",
+        "file": "src/features/item-editor/itemAppearanceEditor.js",
+        "expression": "editor-look-sample-${look}"
+      },
+      {
+        "name": "editor-icon-group",
+        "file": "src/features/item-editor/itemAppearanceEditor.js",
+        "expression": "editor-${name}-group"
+      },
+      {
+        "name": "flash-success",
+        "file": "src/shared/ui/flash.js",
+        "expression": "flash-${type}"
+      },
+      {
+        "name": "flash-error",
+        "file": "src/shared/ui/flash.js",
+        "expression": "flash-${type}"
+      },
+      {
+        "name": "flash-info",
+        "file": "src/shared/ui/flash.js",
+        "expression": "flash-${type}"
+      },
+      {
+        "name": "newdesktab-themed-icon-dark",
+        "file": "src/shared/ui/svgIcons.js",
+        "expression": "newdesktab-themed-icon-${theme}"
+      },
+      {
+        "name": "newdesktab-themed-icon-light",
+        "file": "src/shared/ui/svgIcons.js",
+        "expression": "newdesktab-themed-icon-${theme}"
+      }
+    ],
+    "exportCandidates": [],
+    "reviewedExports": [
+      {
+        "file": "src/platform/images/localVideos.js",
+        "name": "exportReferencedLocalVideos",
+        "reason": "Legacy JSON video-backup API, exercised by compatibility and migration tests."
+      },
+      {
+        "file": "src/widgets/widgetRegistry.js",
+        "name": "registerWidget",
+        "reason": "Documented widget registration API, exercised by registry tests."
+      }
+    ],
+    "note": "Candidates require review of dynamic classes, public APIs, tests and assets before removal."
+  },
+  "coverage": {
+    "javascript": {
+      "files": 196,
+      "functions": 2912,
+      "exercisedFunctions": 2400,
+      "exercisedPercent": 82.42
+    },
+    "styles": {
+      "files": 46,
+      "characters": 231809,
+      "exercisedCharacters": 210108,
+      "exercisedPercent": 90.64
+    },
+    "applicationJavascript": {
+      "files": 194,
+      "functions": 2445,
+      "exercisedFunctions": 2221,
+      "exercisedPercent": 90.84
+    }
+  },
+  "unitCoverage": {
+    "files": 77,
+    "lines": {
+      "total": 8550,
+      "covered": 7819,
+      "percent": 91.45
+    },
+    "branches": {
+      "total": 3452,
+      "covered": 2637,
+      "percent": 76.39
+    },
+    "functions": {
+      "total": 1253,
+      "covered": 934,
+      "percent": 74.54
+    },
+    "scope": "Only source modules loaded by Node unit tests; excludes DOM/E2E coverage and unloaded modules.",
+    "modules": [
+      {
+        "file": "src/app/appStateChanges.js",
+        "FNF": 1,
+        "FNH": 1,
+        "BRF": 3,
+        "BRH": 3,
+        "LH": 20,
+        "LF": 20
+      },
+      {
+        "file": "src/domain/bookmarks/bookmarkDefaults.js",
+        "FNF": 0,
+        "FNH": 0,
+        "BRF": 1,
+        "BRH": 1,
+        "LH": 43,
+        "LF": 43
+      },
+      {
+        "file": "src/domain/bookmarks/bookmarkModel.js",
+        "FNF": 12,
+        "FNH": 12,
+        "BRF": 62,
+        "BRH": 58,
+        "LH": 239,
+        "LF": 241
+      },
+      {
+        "file": "src/domain/folders/folderDefaults.js",
+        "FNF": 0,
+        "FNH": 0,
+        "BRF": 1,
+        "BRH": 1,
+        "LH": 19,
+        "LF": 19
+      },
+      {
+        "file": "src/domain/folders/folderGrid.js",
+        "FNF": 4,
+        "FNH": 4,
+        "BRF": 22,
+        "BRH": 22,
+        "LH": 68,
+        "LF": 68
+      },
+      {
+        "file": "src/domain/folders/folderModel.js",
+        "FNF": 4,
+        "FNH": 4,
+        "BRF": 22,
+        "BRH": 19,
+        "LH": 73,
+        "LF": 73
+      },
+      {
+        "file": "src/domain/recycle-bin/recycleBinDefaults.js",
+        "FNF": 0,
+        "FNH": 0,
+        "BRF": 1,
+        "BRH": 1,
+        "LH": 29,
+        "LF": 29
+      },
+      {
+        "file": "src/domain/recycle-bin/recycleBinEntries.js",
+        "FNF": 29,
+        "FNH": 22,
+        "BRF": 37,
+        "BRH": 30,
+        "LH": 258,
+        "LF": 289
+      },
+      {
+        "file": "src/domain/recycle-bin/recycleBinModel.js",
+        "FNF": 4,
+        "FNH": 4,
+        "BRF": 18,
+        "BRH": 16,
+        "LH": 56,
+        "LF": 58
+      },
+      {
+        "file": "src/domain/settings/gridInteractionModes.js",
+        "FNF": 2,
+        "FNH": 2,
+        "BRF": 7,
+        "BRH": 7,
+        "LH": 27,
+        "LF": 27
+      },
+      {
+        "file": "src/domain/settings/interfacePreferences.js",
+        "FNF": 4,
+        "FNH": 4,
+        "BRF": 18,
+        "BRH": 18,
+        "LH": 28,
+        "LF": 28
+      },
+      {
+        "file": "src/domain/settings/recycleBinRetention.js",
+        "FNF": 2,
+        "FNH": 2,
+        "BRF": 9,
+        "BRH": 9,
+        "LH": 21,
+        "LF": 21
+      },
+      {
+        "file": "src/domain/settings/settingsDefaults.js",
+        "FNF": 0,
+        "FNH": 0,
+        "BRF": 1,
+        "BRH": 1,
+        "LH": 43,
+        "LF": 43
+      },
+      {
+        "file": "src/domain/settings/wallpaperMedia.js",
+        "FNF": 8,
+        "FNH": 8,
+        "BRF": 65,
+        "BRH": 56,
+        "LH": 86,
+        "LF": 92
+      },
+      {
+        "file": "src/domain/workspaces/workspaceModel.js",
+        "FNF": 10,
+        "FNH": 10,
+        "BRF": 26,
+        "BRH": 24,
+        "LH": 57,
+        "LF": 57
+      },
+      {
+        "file": "src/features/bookmarks/faviconOrigins.js",
+        "FNF": 1,
+        "FNH": 1,
+        "BRF": 18,
+        "BRH": 18,
+        "LH": 23,
+        "LF": 23
+      },
+      {
+        "file": "src/features/folders/folderActions.js",
+        "FNF": 21,
+        "FNH": 20,
+        "BRF": 51,
+        "BRH": 34,
+        "LH": 221,
+        "LF": 221
+      },
+      {
+        "file": "src/features/grid/gridItemActions.js",
+        "FNF": 40,
+        "FNH": 40,
+        "BRF": 109,
+        "BRH": 82,
+        "LH": 341,
+        "LF": 350
+      },
+      {
+        "file": "src/features/grid/gridSelectors.js",
+        "FNF": 4,
+        "FNH": 4,
+        "BRF": 14,
+        "BRH": 13,
+        "LH": 25,
+        "LF": 25
+      },
+      {
+        "file": "src/features/help/manualCatalog.js",
+        "FNF": 2,
+        "FNH": 1,
+        "BRF": 2,
+        "BRH": 2,
+        "LH": 37,
+        "LF": 39
+      },
+      {
+        "file": "src/features/help/manualSearch.js",
+        "FNF": 20,
+        "FNH": 20,
+        "BRF": 62,
+        "BRH": 59,
+        "LH": 75,
+        "LF": 75
+      },
+      {
+        "file": "src/features/quick-save/quickSaveModel.js",
+        "FNF": 15,
+        "FNH": 14,
+        "BRF": 49,
+        "BRH": 43,
+        "LH": 121,
+        "LF": 126
+      },
+      {
+        "file": "src/features/recycle-bin/recycleBinActions.js",
+        "FNF": 40,
+        "FNH": 36,
+        "BRF": 56,
+        "BRH": 45,
+        "LH": 231,
+        "LF": 285
+      },
+      {
+        "file": "src/features/release-notes/releaseCatalog.js",
+        "FNF": 4,
+        "FNH": 3,
+        "BRF": 8,
+        "BRH": 8,
+        "LH": 22,
+        "LF": 22
+      },
+      {
+        "file": "src/features/search/searchBookmarks.js",
+        "FNF": 3,
+        "FNH": 3,
+        "BRF": 5,
+        "BRH": 5,
+        "LH": 13,
+        "LF": 13
+      },
+      {
+        "file": "src/features/settings/settingsActions.js",
+        "FNF": 1,
+        "FNH": 1,
+        "BRF": 3,
+        "BRH": 3,
+        "LH": 24,
+        "LF": 24
+      },
+      {
+        "file": "src/features/workspaces/workspaceActions.js",
+        "FNF": 5,
+        "FNH": 5,
+        "BRF": 10,
+        "BRH": 7,
+        "LH": 51,
+        "LF": 51
+      },
+      {
+        "file": "src/features/workspaces/workspaceSelectors.js",
+        "FNF": 6,
+        "FNH": 2,
+        "BRF": 4,
+        "BRH": 3,
+        "LH": 28,
+        "LF": 41
+      },
+      {
+        "file": "src/platform/backup/backupArchive.js",
+        "FNF": 10,
+        "FNH": 8,
+        "BRF": 53,
+        "BRH": 43,
+        "LH": 121,
+        "LF": 124
+      },
+      {
+        "file": "src/platform/backup/vendor/zip.js",
+        "FNF": 480,
+        "FNH": 246,
+        "BRF": 849,
+        "BRH": 419,
+        "LH": 2,
+        "LF": 2
+      },
+      {
+        "file": "src/platform/browser/browserCapabilities.js",
+        "FNF": 4,
+        "FNH": 4,
+        "BRF": 16,
+        "BRH": 15,
+        "LH": 53,
+        "LF": 53
+      },
+      {
+        "file": "src/platform/images/faviconService.js",
+        "FNF": 5,
+        "FNH": 5,
+        "BRF": 7,
+        "BRH": 7,
+        "LH": 15,
+        "LF": 15
+      },
+      {
+        "file": "src/platform/images/localImages.js",
+        "FNF": 28,
+        "FNH": 17,
+        "BRF": 93,
+        "BRH": 80,
+        "LH": 245,
+        "LF": 375
+      },
+      {
+        "file": "src/platform/images/localVideos.js",
+        "FNF": 19,
+        "FNH": 2,
+        "BRF": 17,
+        "BRH": 15,
+        "LH": 65,
+        "LF": 257
+      },
+      {
+        "file": "src/platform/storage/chromeStorage.js",
+        "FNF": 5,
+        "FNH": 5,
+        "BRF": 8,
+        "BRH": 8,
+        "LH": 20,
+        "LF": 20
+      },
+      {
+        "file": "src/platform/storage/concurrentPlacement.js",
+        "FNF": 1,
+        "FNH": 0,
+        "BRF": 1,
+        "BRH": 1,
+        "LH": 5,
+        "LF": 36
+      },
+      {
+        "file": "src/platform/storage/dataSchema.js",
+        "FNF": 33,
+        "FNH": 31,
+        "BRF": 158,
+        "BRH": 146,
+        "LH": 425,
+        "LF": 427
+      },
+      {
+        "file": "src/platform/storage/deviceDailyTips.js",
+        "FNF": 14,
+        "FNH": 14,
+        "BRF": 37,
+        "BRH": 35,
+        "LH": 62,
+        "LF": 62
+      },
+      {
+        "file": "src/platform/storage/deviceImageSelections.js",
+        "FNF": 22,
+        "FNH": 21,
+        "BRF": 97,
+        "BRH": 81,
+        "LH": 161,
+        "LF": 168
+      },
+      {
+        "file": "src/platform/storage/deviceOnboarding.js",
+        "FNF": 4,
+        "FNH": 4,
+        "BRF": 11,
+        "BRH": 10,
+        "LH": 23,
+        "LF": 23
+      },
+      {
+        "file": "src/platform/storage/deviceReleaseNotes.js",
+        "FNF": 3,
+        "FNH": 3,
+        "BRF": 14,
+        "BRH": 13,
+        "LH": 20,
+        "LF": 20
+      },
+      {
+        "file": "src/platform/storage/deviceTrashStorage.js",
+        "FNF": 4,
+        "FNH": 4,
+        "BRF": 11,
+        "BRH": 8,
+        "LH": 45,
+        "LF": 45
+      },
+      {
+        "file": "src/platform/storage/deviceWallpapers.js",
+        "FNF": 5,
+        "FNH": 4,
+        "BRF": 22,
+        "BRH": 20,
+        "LH": 87,
+        "LF": 94
+      },
+      {
+        "file": "src/platform/storage/persistedDataDefaults.js",
+        "FNF": 1,
+        "FNH": 1,
+        "BRF": 2,
+        "BRH": 2,
+        "LH": 18,
+        "LF": 18
+      },
+      {
+        "file": "src/platform/storage/schemaVersion.js",
+        "FNF": 0,
+        "FNH": 0,
+        "BRF": 1,
+        "BRH": 1,
+        "LH": 2,
+        "LF": 2
+      },
+      {
+        "file": "src/platform/storage/storageConstants.js",
+        "FNF": 0,
+        "FNH": 0,
+        "BRF": 1,
+        "BRH": 1,
+        "LH": 20,
+        "LF": 20
+      },
+      {
+        "file": "src/platform/storage/storageCoordination.js",
+        "FNF": 9,
+        "FNH": 9,
+        "BRF": 46,
+        "BRH": 45,
+        "LH": 71,
+        "LF": 74
+      },
+      {
+        "file": "src/platform/storage/storageFacade.js",
+        "FNF": 29,
+        "FNH": 27,
+        "BRF": 91,
+        "BRH": 70,
+        "LH": 448,
+        "LF": 480
+      },
+      {
+        "file": "src/platform/storage/storageIO.js",
+        "FNF": 8,
+        "FNH": 8,
+        "BRF": 51,
+        "BRH": 48,
+        "LH": 166,
+        "LF": 173
+      },
+      {
+        "file": "src/platform/storage/storageUsage.js",
+        "FNF": 28,
+        "FNH": 27,
+        "BRF": 136,
+        "BRH": 117,
+        "LH": 359,
+        "LF": 366
+      },
+      {
+        "file": "src/platform/sync/syncTransport.js",
+        "FNF": 11,
+        "FNH": 11,
+        "BRF": 29,
+        "BRH": 27,
+        "LH": 145,
+        "LF": 147
+      },
+      {
+        "file": "src/shared/data/compareVersions.js",
+        "FNF": 3,
+        "FNH": 3,
+        "BRF": 16,
+        "BRH": 16,
+        "LH": 13,
+        "LF": 13
+      },
+      {
+        "file": "src/shared/data/draftHistory.js",
+        "FNF": 9,
+        "FNH": 8,
+        "BRF": 26,
+        "BRH": 24,
+        "LH": 61,
+        "LF": 61
+      },
+      {
+        "file": "src/shared/data/mergeChanges.js",
+        "FNF": 7,
+        "FNH": 7,
+        "BRF": 27,
+        "BRH": 25,
+        "LH": 46,
+        "LF": 48
+      },
+      {
+        "file": "src/shared/data/valuesEqual.js",
+        "FNF": 3,
+        "FNH": 3,
+        "BRF": 20,
+        "BRH": 20,
+        "LH": 12,
+        "LF": 12
+      },
+      {
+        "file": "src/shared/diagnostics/debug.js",
+        "FNF": 22,
+        "FNH": 21,
+        "BRF": 51,
+        "BRH": 46,
+        "LH": 130,
+        "LF": 136
+      },
+      {
+        "file": "src/shared/grid/gridGeometry.js",
+        "FNF": 0,
+        "FNH": 0,
+        "BRF": 1,
+        "BRH": 1,
+        "LH": 4,
+        "LF": 4
+      },
+      {
+        "file": "src/shared/grid/gridItemRegistry.js",
+        "FNF": 19,
+        "FNH": 15,
+        "BRF": 60,
+        "BRH": 46,
+        "LH": 134,
+        "LF": 151
+      },
+      {
+        "file": "src/shared/grid/gridKeyboardRoute.js",
+        "FNF": 24,
+        "FNH": 23,
+        "BRF": 70,
+        "BRH": 51,
+        "LH": 194,
+        "LF": 207
+      },
+      {
+        "file": "src/shared/grid/gridPlacement.js",
+        "FNF": 3,
+        "FNH": 3,
+        "BRF": 19,
+        "BRH": 15,
+        "LH": 77,
+        "LF": 79
+      },
+      {
+        "file": "src/shared/grid/resizeGeometry.js",
+        "FNF": 3,
+        "FNH": 3,
+        "BRF": 23,
+        "BRH": 23,
+        "LH": 131,
+        "LF": 131
+      },
+      {
+        "file": "src/shared/grid/smartDragLayout.js",
+        "FNF": 44,
+        "FNH": 41,
+        "BRF": 126,
+        "BRH": 116,
+        "LH": 509,
+        "LF": 525
+      },
+      {
+        "file": "src/shared/icons/iconCatalog.js",
+        "FNF": 6,
+        "FNH": 5,
+        "BRF": 8,
+        "BRH": 8,
+        "LH": 32,
+        "LF": 36
+      },
+      {
+        "file": "src/shared/icons/iconRecommendations.js",
+        "FNF": 4,
+        "FNH": 4,
+        "BRF": 10,
+        "BRH": 9,
+        "LH": 34,
+        "LF": 34
+      },
+      {
+        "file": "src/shared/icons/interfaceIconPaths.js",
+        "FNF": 0,
+        "FNH": 0,
+        "BRF": 1,
+        "BRH": 1,
+        "LH": 81,
+        "LF": 81
+      },
+      {
+        "file": "src/shared/images/backgroundImage.js",
+        "FNF": 2,
+        "FNH": 2,
+        "BRF": 18,
+        "BRH": 18,
+        "LH": 30,
+        "LF": 30
+      },
+      {
+        "file": "src/shared/keyboard/keyboardShortcuts.js",
+        "FNF": 16,
+        "FNH": 16,
+        "BRF": 63,
+        "BRH": 53,
+        "LH": 175,
+        "LF": 198
+      },
+      {
+        "file": "src/shared/ui/surfaceContrast.js",
+        "FNF": 15,
+        "FNH": 14,
+        "BRF": 48,
+        "BRH": 33,
+        "LH": 91,
+        "LF": 106
+      },
+      {
+        "file": "src/shared/urls/vendor/tldts.js",
+        "FNF": 25,
+        "FNH": 20,
+        "BRF": 161,
+        "BRH": 101,
+        "LH": 2,
+        "LF": 2
+      },
+      {
+        "file": "src/state/appStore.js",
+        "FNF": 33,
+        "FNH": 25,
+        "BRF": 86,
+        "BRH": 73,
+        "LH": 476,
+        "LF": 550
+      },
+      {
+        "file": "src/state/gridHistory.js",
+        "FNF": 9,
+        "FNH": 9,
+        "BRF": 16,
+        "BRH": 15,
+        "LH": 81,
+        "LF": 81
+      },
+      {
+        "file": "src/state/stateChangeDescription.js",
+        "FNF": 1,
+        "FNH": 1,
+        "BRF": 22,
+        "BRH": 17,
+        "LH": 34,
+        "LF": 34
+      },
+      {
+        "file": "src/types/types.js",
+        "FNF": 0,
+        "FNH": 0,
+        "BRF": 1,
+        "BRH": 1,
+        "LH": 219,
+        "LF": 219
+      },
+      {
+        "file": "src/widgets/builtin/clock/clockModel.js",
+        "FNF": 7,
+        "FNH": 7,
+        "BRF": 23,
+        "BRH": 21,
+        "LH": 59,
+        "LF": 59
+      },
+      {
+        "file": "src/widgets/widgetActions.js",
+        "FNF": 7,
+        "FNH": 7,
+        "BRF": 19,
+        "BRH": 14,
+        "LH": 80,
+        "LF": 80
+      },
+      {
+        "file": "src/widgets/widgetModel.js",
+        "FNF": 8,
+        "FNH": 8,
+        "BRF": 46,
+        "BRH": 44,
+        "LH": 79,
+        "LF": 79
+      },
+      {
+        "file": "src/widgets/widgetRegistry.js",
+        "FNF": 18,
+        "FNH": 15,
+        "BRF": 56,
+        "BRH": 46,
+        "LH": 178,
+        "LF": 190
+      }
+    ]
+  },
+  "actionTimings": [
+    {
+      "action": "Add bookmarks",
+      "samples": 11,
+      "errors": 1,
+      "medianMs": 3.4,
+      "p95Ms": 30.9,
+      "maxMs": 30.9
+    },
+    {
+      "action": "Close modal · alert",
+      "samples": 93,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.3,
+      "maxMs": 0.5
+    },
+    {
+      "action": "Close modal · bookmark-modal",
+      "samples": 61,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.3,
+      "maxMs": 0.4
+    },
+    {
+      "action": "Close modal · clock-widget-settings",
+      "samples": 14,
+      "errors": 0,
+      "medianMs": 0.1,
+      "p95Ms": 0.2,
+      "maxMs": 0.2
+    },
+    {
+      "action": "Close modal · folder",
+      "samples": 21,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.3,
+      "maxMs": 0.7
+    },
+    {
+      "action": "Close modal · folder-editor",
+      "samples": 56,
+      "errors": 0,
+      "medianMs": 0.1,
+      "p95Ms": 0.2,
+      "maxMs": 0.2
+    },
+    {
+      "action": "Close modal · manual",
+      "samples": 13,
+      "errors": 0,
+      "medianMs": 0.3,
+      "p95Ms": 2.2,
+      "maxMs": 2.2
+    },
+    {
+      "action": "Close modal · onboarding",
+      "samples": 18,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.3,
+      "maxMs": 0.3
+    },
+    {
+      "action": "Close modal · recycle-bin",
+      "samples": 7,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.5,
+      "maxMs": 0.5
+    },
+    {
+      "action": "Close modal · recycle-bin-editor",
+      "samples": 20,
+      "errors": 0,
+      "medianMs": 0.15,
+      "p95Ms": 0.3,
+      "maxMs": 0.3
+    },
+    {
+      "action": "Close modal · release-notes",
+      "samples": 20,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.3,
+      "maxMs": 0.3
+    },
+    {
+      "action": "Close modal · search",
+      "samples": 1,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.2,
+      "maxMs": 0.2
+    },
+    {
+      "action": "Close modal · settings",
+      "samples": 74,
+      "errors": 0,
+      "medianMs": 0.1,
+      "p95Ms": 0.3,
+      "maxMs": 0.6
+    },
+    {
+      "action": "Close modal · widget-catalog",
+      "samples": 10,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.4,
+      "maxMs": 0.4
+    },
+    {
+      "action": "Create bookmark",
+      "samples": 67,
+      "errors": 3,
+      "medianMs": 12,
+      "p95Ms": 30.1,
+      "maxMs": 32.2
+    },
+    {
+      "action": "Create folder",
+      "samples": 77,
+      "errors": 4,
+      "medianMs": 12.7,
+      "p95Ms": 24.5,
+      "maxMs": 25.9
+    },
+    {
+      "action": "Create workspace",
+      "samples": 16,
+      "errors": 0,
+      "medianMs": 12.95,
+      "p95Ms": 39,
+      "maxMs": 39
+    },
+    {
+      "action": "Delete bookmarks",
+      "samples": 32,
+      "errors": 0,
+      "medianMs": 12.8,
+      "p95Ms": 52.3,
+      "maxMs": 56.3
+    },
+    {
+      "action": "Delete folder",
+      "samples": 13,
+      "errors": 2,
+      "medianMs": 14.8,
+      "p95Ms": 42.9,
+      "maxMs": 42.9
+    },
+    {
+      "action": "Delete workspace",
+      "samples": 1,
+      "errors": 1,
+      "medianMs": 15.2,
+      "p95Ms": 15.2,
+      "maxMs": 15.2
+    },
+    {
+      "action": "Edit bookmark",
+      "samples": 22,
+      "errors": 1,
+      "medianMs": 20.05,
+      "p95Ms": 46.2,
+      "maxMs": 52.3
+    },
+    {
+      "action": "Open bookmark editor",
+      "samples": 88,
+      "errors": 0,
+      "medianMs": 6,
+      "p95Ms": 9.6,
+      "maxMs": 12.9
+    },
+    {
+      "action": "Open modal · alert",
+      "samples": 95,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.4,
+      "maxMs": 0.6
+    },
+    {
+      "action": "Open modal · bookmark-modal",
+      "samples": 88,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.4,
+      "maxMs": 0.6
+    },
+    {
+      "action": "Open modal · clock-widget-settings",
+      "samples": 16,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.4,
+      "maxMs": 0.4
+    },
+    {
+      "action": "Open modal · folder",
+      "samples": 53,
+      "errors": 0,
+      "medianMs": 0.3,
+      "p95Ms": 0.5,
+      "maxMs": 0.7
+    },
+    {
+      "action": "Open modal · folder-editor",
+      "samples": 68,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.5,
+      "maxMs": 0.6
+    },
+    {
+      "action": "Open modal · manual",
+      "samples": 26,
+      "errors": 0,
+      "medianMs": 0.1,
+      "p95Ms": 0.3,
+      "maxMs": 0.6
+    },
+    {
+      "action": "Open modal · onboarding",
+      "samples": 30,
+      "errors": 0,
+      "medianMs": 24.3,
+      "p95Ms": 31.8,
+      "maxMs": 32
+    },
+    {
+      "action": "Open modal · recycle-bin",
+      "samples": 27,
+      "errors": 0,
+      "medianMs": 0.3,
+      "p95Ms": 0.5,
+      "maxMs": 0.8
+    },
+    {
+      "action": "Open modal · recycle-bin-editor",
+      "samples": 25,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.3,
+      "maxMs": 0.3
+    },
+    {
+      "action": "Open modal · release-notes",
+      "samples": 21,
+      "errors": 0,
+      "medianMs": 0.4,
+      "p95Ms": 0.6,
+      "maxMs": 0.6
+    },
+    {
+      "action": "Open modal · search",
+      "samples": 2,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.2,
+      "maxMs": 0.2
+    },
+    {
+      "action": "Open modal · settings",
+      "samples": 132,
+      "errors": 0,
+      "medianMs": 0.4,
+      "p95Ms": 0.5,
+      "maxMs": 0.8
+    },
+    {
+      "action": "Open modal · widget-catalog",
+      "samples": 11,
+      "errors": 0,
+      "medianMs": 0.6,
+      "p95Ms": 0.6,
+      "maxMs": 0.6
+    },
+    {
+      "action": "Open settings",
+      "samples": 132,
+      "errors": 0,
+      "medianMs": 3.8,
+      "p95Ms": 5,
+      "maxMs": 6.7
+    },
+    {
+      "action": "Persisted command · bookmarks-delete-all",
+      "samples": 2,
+      "errors": 0,
+      "medianMs": 45.45,
+      "p95Ms": 45.8,
+      "maxMs": 45.8
+    },
+    {
+      "action": "Persisted command · bulk-delete",
+      "samples": 3,
+      "errors": 1,
+      "medianMs": 16.5,
+      "p95Ms": 23.1,
+      "maxMs": 23.1
+    },
+    {
+      "action": "Persisted command · bulk-duplicate",
+      "samples": 4,
+      "errors": 2,
+      "medianMs": 18.8,
+      "p95Ms": 26.5,
+      "maxMs": 26.5
+    },
+    {
+      "action": "Persisted command · bulk-move",
+      "samples": 2,
+      "errors": 1,
+      "medianMs": 15.9,
+      "p95Ms": 16,
+      "maxMs": 16
+    },
+    {
+      "action": "Persisted command · bulk-style",
+      "samples": 1,
+      "errors": 1,
+      "medianMs": 16.1,
+      "p95Ms": 16.1,
+      "maxMs": 16.1
+    },
+    {
+      "action": "Persisted command · drop-delete",
+      "samples": 1,
+      "errors": 0,
+      "medianMs": 23.6,
+      "p95Ms": 23.6,
+      "maxMs": 23.6
+    },
+    {
+      "action": "Persisted command · drop-folder",
+      "samples": 3,
+      "errors": 0,
+      "medianMs": 15.5,
+      "p95Ms": 35.6,
+      "maxMs": 35.6
+    },
+    {
+      "action": "Persisted command · drop-trash",
+      "samples": 4,
+      "errors": 0,
+      "medianMs": 16.85,
+      "p95Ms": 28.8,
+      "maxMs": 28.8
+    },
+    {
+      "action": "Persisted command · folder-exit",
+      "samples": 3,
+      "errors": 0,
+      "medianMs": 26.4,
+      "p95Ms": 29.7,
+      "maxMs": 29.7
+    },
+    {
+      "action": "Persisted command · folder-rename",
+      "samples": 3,
+      "errors": 0,
+      "medianMs": 25.2,
+      "p95Ms": 26.1,
+      "maxMs": 26.1
+    },
+    {
+      "action": "Persisted command · history-redo",
+      "samples": 1,
+      "errors": 0,
+      "medianMs": 20.7,
+      "p95Ms": 20.7,
+      "maxMs": 20.7
+    },
+    {
+      "action": "Persisted command · history-undo",
+      "samples": 1,
+      "errors": 0,
+      "medianMs": 8.6,
+      "p95Ms": 8.6,
+      "maxMs": 8.6
+    },
+    {
+      "action": "Persisted command · keyboard-delete",
+      "samples": 4,
+      "errors": 0,
+      "medianMs": 25.05,
+      "p95Ms": 37.1,
+      "maxMs": 37.1
+    },
+    {
+      "action": "Persisted command · quick-delete",
+      "samples": 5,
+      "errors": 0,
+      "medianMs": 41,
+      "p95Ms": 64.8,
+      "maxMs": 64.8
+    },
+    {
+      "action": "Persisted command · trash-delete-selected",
+      "samples": 1,
+      "errors": 1,
+      "medianMs": 52.1,
+      "p95Ms": 52.1,
+      "maxMs": 52.1
+    },
+    {
+      "action": "Persisted command · trash-empty",
+      "samples": 0,
+      "errors": 1,
+      "medianMs": null,
+      "p95Ms": null,
+      "maxMs": null
+    },
+    {
+      "action": "Persisted command · trash-restore-all",
+      "samples": 1,
+      "errors": 1,
+      "medianMs": 2.4,
+      "p95Ms": 2.4,
+      "maxMs": 2.4
+    },
+    {
+      "action": "Persisted command · trash-restore-selected",
+      "samples": 3,
+      "errors": 1,
+      "medianMs": 27.8,
+      "p95Ms": 33.2,
+      "maxMs": 33.2
+    },
+    {
+      "action": "Persisted command · workspace-create",
+      "samples": 4,
+      "errors": 0,
+      "medianMs": 41.5,
+      "p95Ms": 45.7,
+      "maxMs": 45.7
+    },
+    {
+      "action": "Persisted command · workspace-delete",
+      "samples": 1,
+      "errors": 1,
+      "medianMs": 17.6,
+      "p95Ms": 17.6,
+      "maxMs": 17.6
+    },
+    {
+      "action": "Prepare grid drag",
+      "samples": 71,
+      "errors": 0,
+      "medianMs": 0.4,
+      "p95Ms": 0.8,
+      "maxMs": 0.9
+    },
+    {
+      "action": "Redo",
+      "samples": 1,
+      "errors": 0,
+      "medianMs": 18.9,
+      "p95Ms": 18.9,
+      "maxMs": 18.9
+    },
+    {
+      "action": "Render folder contents",
+      "samples": 197,
+      "errors": 0,
+      "medianMs": 1.2,
+      "p95Ms": 2.2,
+      "maxMs": 3.9
+    },
+    {
+      "action": "Render grid",
+      "samples": 487,
+      "errors": 0,
+      "medianMs": 3.4,
+      "p95Ms": 9.3,
+      "maxMs": 24
+    },
+    {
+      "action": "Render recycle bin",
+      "samples": 54,
+      "errors": 0,
+      "medianMs": 0.45,
+      "p95Ms": 8.4,
+      "maxMs": 13
+    },
+    {
+      "action": "Save daily tips preference",
+      "samples": 4,
+      "errors": 1,
+      "medianMs": 18.65,
+      "p95Ms": 31.6,
+      "maxMs": 31.6
+    },
+    {
+      "action": "Save settings",
+      "samples": 95,
+      "errors": 3,
+      "medianMs": 26.3,
+      "p95Ms": 61.9,
+      "maxMs": 66.6
+    },
+    {
+      "action": "Search bookmarks",
+      "samples": 4,
+      "errors": 0,
+      "medianMs": 0.2,
+      "p95Ms": 0.4,
+      "maxMs": 0.4
+    },
+    {
+      "action": "Switch storage",
+      "samples": 23,
+      "errors": 2,
+      "medianMs": 2.6,
+      "p95Ms": 3.8,
+      "maxMs": 8.9
+    },
+    {
+      "action": "Switch workspace",
+      "samples": 6,
+      "errors": 0,
+      "medianMs": 4.05,
+      "p95Ms": 5.8,
+      "maxMs": 5.8
+    },
+    {
+      "action": "Undo",
+      "samples": 1,
+      "errors": 0,
+      "medianMs": 6.6,
+      "p95Ms": 6.6,
+      "maxMs": 6.6
+    },
+    {
+      "action": "Update bookmarks / grid",
+      "samples": 32,
+      "errors": 5,
+      "medianMs": 13.55,
+      "p95Ms": 39.6,
+      "maxMs": 50.2
+    },
+    {
+      "action": "Update folders / grid",
+      "samples": 70,
+      "errors": 3,
+      "medianMs": 15.75,
+      "p95Ms": 58,
+      "maxMs": 60.2
+    },
+    {
+      "action": "Update UI state",
+      "samples": 118,
+      "errors": 0,
+      "medianMs": 1.4,
+      "p95Ms": 2.4,
+      "maxMs": 22.9
+    }
+  ],
+  "timingRecords": 2707,
+  "testFiles": {
+    "backupMedia.spec.js": 10,
+    "behaviorPreviews.spec.js": 8,
+    "bookmarkIconColor.spec.js": 2,
+    "bookmarkJourneys.spec.js": 68,
+    "bulkPersistence.spec.js": 10,
+    "capacityLimits.spec.js": 3,
+    "clockWidget.spec.js": 8,
+    "compactView.spec.js": 22,
+    "concurrentTabs.spec.js": 4,
+    "dailyTipsSettings.spec.js": 3,
+    "debug.spec.js": 5,
+    "defaultWallpaper.spec.js": 7,
+    "deviceImageSelections.spec.js": 1,
+    "deviceTrash.spec.js": 1,
+    "editorHistory.spec.js": 14,
+    "favicon.spec.js": 5,
+    "folderAppearance.spec.js": 14,
+    "gridDropPrecision.spec.js": 7,
+    "help.spec.js": 8,
+    "interfacePreferences.spec.js": 11,
+    "inversionControls.spec.js": 1,
+    "itemAppearanceEditor.spec.js": 31,
+    "keyboardShortcuts.spec.js": 5,
+    "listArtwork.spec.js": 2,
+    "localImageFallback.spec.js": 2,
+    "manualDemos.spec.js": 10,
+    "missingLocalImages.spec.js": 6,
+    "onboarding.spec.js": 11,
+    "recycleBin.spec.js": 8,
+    "releaseNotes.spec.js": 14,
+    "saveFailures.spec.js": 11,
+    "settingsGeneral.spec.js": 2,
+    "syncSettings.spec.js": 7,
+    "themeWallpapers.spec.js": 13,
+    "uiPerformance.spec.js": 4
+  },
+  "uiResponseSamples": 8051,
+  "benchmarks": {
+    "beforeCpu4": {
+      "browser": "151.0.7922.34",
+      "results": [
+        {
+          "bookmarks": 60,
+          "visibleBookmarks": 60,
+          "cpuRate": 4,
+          "startup": {
+            "JS start → UI ready (ms)": 252.1,
+            "Navigation → UI ready (ms)": 693.6,
+            "First contentful paint (ms)": 196,
+            "Navigation type": "reload",
+            "Pending images (without waiting for remote images)": 0
+          },
+          "samples": {
+            "settingsOpen": {
+              "jsMs": 9.75,
+              "frameMs": 75.25
+            },
+            "bookmarkEditorOpen": {
+              "jsMs": 28,
+              "frameMs": 90.3
+            },
+            "editName": {
+              "jsMs": 5.7,
+              "frameMs": 80.15
+            },
+            "gridRender": {
+              "jsMs": 25.2,
+              "frameMs": 96.55
+            },
+            "gridResize": {
+              "jsMs": 4.25,
+              "frameMs": 21.8
+            },
+            "folderOpen": {
+              "jsMs": 70.9,
+              "frameMs": 87.2
+            },
+            "folderEditorOpen": {
+              "jsMs": 18.05,
+              "frameMs": 84.1
+            },
+            "recycleBinOpen": {
+              "jsMs": 164.7,
+              "frameMs": 274.95
+            },
+            "recycleBinEditorOpen": {
+              "jsMs": 14.1,
+              "frameMs": 79.65
+            },
+            "searchOpen": {
+              "jsMs": 7.05,
+              "frameMs": 72.55
+            },
+            "searchFilter": {
+              "jsMs": 4.1,
+              "frameMs": 57.35
+            },
+            "widgetCatalogOpen": {
+              "jsMs": 3.1,
+              "frameMs": 75
+            },
+            "clockCreateOpen": {
+              "jsMs": 4.55,
+              "frameMs": 72.6
+            }
+          },
+          "lastGridRender": {
+            "id": 216,
+            "label": "Render grid",
+            "status": "ok",
+            "startedAt": "2026-10-13T20:59:13.493Z",
+            "durationMs": 26.5,
+            "phases": [
+              {
+                "phase": "Resolve local images",
+                "durationMs": 3.3
+              },
+              {
+                "phase": "Build grid DOM",
+                "durationMs": 23.2
+              }
+            ],
+            "details": {
+              "bookmarks": 78,
+              "folders": 1,
+              "widgets": 0
+            }
+          }
+        },
+        {
+          "bookmarks": 1200,
+          "visibleBookmarks": 60,
+          "cpuRate": 4,
+          "startup": {
+            "JS start → UI ready (ms)": 394,
+            "Navigation → UI ready (ms)": 899.5,
+            "First contentful paint (ms)": 280,
+            "Navigation type": "reload",
+            "Pending images (without waiting for remote images)": 0
+          },
+          "samples": {
+            "settingsOpen": {
+              "jsMs": 10.15,
+              "frameMs": 75.65
+            },
+            "bookmarkEditorOpen": {
+              "jsMs": 41.75,
+              "frameMs": 108.2
+            },
+            "editName": {
+              "jsMs": 6.65,
+              "frameMs": 74.9
+            },
+            "gridRender": {
+              "jsMs": 40.3,
+              "frameMs": 107.85
+            },
+            "gridResize": {
+              "jsMs": 18.35,
+              "frameMs": 21.8
+            },
+            "folderOpen": {
+              "jsMs": 91.05,
+              "frameMs": 122.85
+            },
+            "folderEditorOpen": {
+              "jsMs": 28.5,
+              "frameMs": 95
+            },
+            "recycleBinOpen": {
+              "jsMs": 987.45,
+              "frameMs": 1104.3
+            },
+            "recycleBinEditorOpen": {
+              "jsMs": 25.65,
+              "frameMs": 92.9
+            },
+            "searchOpen": {
+              "jsMs": 18.8,
+              "frameMs": 88.5
+            },
+            "searchFilter": {
+              "jsMs": 19.45,
+              "frameMs": 86.1
+            },
+            "widgetCatalogOpen": {
+              "jsMs": 2.95,
+              "frameMs": 70.1
+            },
+            "clockCreateOpen": {
+              "jsMs": 5,
+              "frameMs": 65.95
+            }
+          },
+          "lastGridRender": {
+            "id": 216,
+            "label": "Render grid",
+            "status": "ok",
+            "startedAt": "2026-10-13T20:59:54.177Z",
+            "durationMs": 42.5,
+            "phases": [
+              {
+                "phase": "Resolve local images",
+                "durationMs": 6.2
+              },
+              {
+                "phase": "Build grid DOM",
+                "durationMs": 36.3
+              }
+            ],
+            "details": {
+              "bookmarks": 1218,
+              "folders": 1,
+              "widgets": 0
+            }
+          }
+        }
+      ]
+    },
+    "finalCpu4": {
+      "browser": "151.0.7922.34",
+      "results": [
+        {
+          "bookmarks": 60,
+          "folderBookmarks": 18,
+          "trashEntries": 60,
+          "visibleBookmarks": 60,
+          "cpuRate": 4,
+          "startup": {
+            "JS start → UI ready (ms)": 277.5,
+            "Navigation → UI ready (ms)": 762.2,
+            "First contentful paint (ms)": 236,
+            "Navigation type": "reload",
+            "Pending images (without waiting for remote images)": 0
+          },
+          "samples": {
+            "settingsOpen": {
+              "jsMs": 10.8,
+              "frameMs": 79.3
+            },
+            "bookmarkEditorOpen": {
+              "jsMs": 32.35,
+              "frameMs": 102.85
+            },
+            "editName": {
+              "jsMs": 9.75,
+              "frameMs": 87
+            },
+            "gridRender": {
+              "jsMs": 27.55,
+              "frameMs": 102.4
+            },
+            "gridResize": {
+              "jsMs": 4.3,
+              "frameMs": 19.65
+            },
+            "folderOpen": {
+              "jsMs": 67.25,
+              "frameMs": 83.55
+            },
+            "folderEditorOpen": {
+              "jsMs": 15.3,
+              "frameMs": 86.3
+            },
+            "recycleBinOpen": {
+              "jsMs": 27.85,
+              "frameMs": 134.5
+            },
+            "recycleBinEditorOpen": {
+              "jsMs": 13.9,
+              "frameMs": 83.55
+            },
+            "searchOpen": {
+              "jsMs": 7.25,
+              "frameMs": 88
+            },
+            "searchFilter": {
+              "jsMs": 4.15,
+              "frameMs": 68.4
+            },
+            "widgetCatalogOpen": {
+              "jsMs": 3.1,
+              "frameMs": 71.7
+            },
+            "clockCreateOpen": {
+              "jsMs": 4.25,
+              "frameMs": 74.45
+            }
+          },
+          "lastGridRender": {
+            "id": 216,
+            "label": "Render grid",
+            "status": "ok",
+            "startedAt": "2026-10-13T22:41:50.785Z",
+            "durationMs": 28.2,
+            "phases": [
+              {
+                "phase": "Resolve local images",
+                "durationMs": 3.9
+              },
+              {
+                "phase": "Build grid DOM",
+                "durationMs": 24.3
+              }
+            ],
+            "details": {
+              "bookmarks": 78,
+              "folders": 1,
+              "widgets": 0
+            }
+          }
+        },
+        {
+          "bookmarks": 1200,
+          "folderBookmarks": 18,
+          "trashEntries": 60,
+          "visibleBookmarks": 60,
+          "cpuRate": 4,
+          "startup": {
+            "JS start → UI ready (ms)": 408.2,
+            "Navigation → UI ready (ms)": 935,
+            "First contentful paint (ms)": 280,
+            "Navigation type": "reload",
+            "Pending images (without waiting for remote images)": 0
+          },
+          "samples": {
+            "settingsOpen": {
+              "jsMs": 10.65,
+              "frameMs": 78.95
+            },
+            "bookmarkEditorOpen": {
+              "jsMs": 45.3,
+              "frameMs": 108.6
+            },
+            "editName": {
+              "jsMs": 5.95,
+              "frameMs": 72.6
+            },
+            "gridRender": {
+              "jsMs": 42,
+              "frameMs": 110.9
+            },
+            "gridResize": {
+              "jsMs": 19.1,
+              "frameMs": 21.45
+            },
+            "folderOpen": {
+              "jsMs": 97.85,
+              "frameMs": 115.3
+            },
+            "folderEditorOpen": {
+              "jsMs": 31,
+              "frameMs": 101.6
+            },
+            "recycleBinOpen": {
+              "jsMs": 49.6,
+              "frameMs": 166.2
+            },
+            "recycleBinEditorOpen": {
+              "jsMs": 28.5,
+              "frameMs": 92.25
+            },
+            "searchOpen": {
+              "jsMs": 17.2,
+              "frameMs": 84.95
+            },
+            "searchFilter": {
+              "jsMs": 17.6,
+              "frameMs": 80.6
+            },
+            "widgetCatalogOpen": {
+              "jsMs": 3.05,
+              "frameMs": 68.95
+            },
+            "clockCreateOpen": {
+              "jsMs": 4.3,
+              "frameMs": 74.75
+            }
+          },
+          "lastGridRender": {
+            "id": 216,
+            "label": "Render grid",
+            "status": "ok",
+            "startedAt": "2026-10-13T22:42:23.352Z",
+            "durationMs": 46.6,
+            "phases": [
+              {
+                "phase": "Resolve local images",
+                "durationMs": 6.8
+              },
+              {
+                "phase": "Build grid DOM",
+                "durationMs": 39.8
+              }
+            ],
+            "details": {
+              "bookmarks": 1218,
+              "folders": 1,
+              "widgets": 0
+            }
+          }
+        }
+      ]
+    },
+    "finalCpu1": {
+      "browser": "151.0.7922.34",
+      "results": [
+        {
+          "bookmarks": 60,
+          "folderBookmarks": 18,
+          "trashEntries": 60,
+          "visibleBookmarks": 60,
+          "cpuRate": 1,
+          "startup": {
+            "JS start → UI ready (ms)": 43.9,
+            "Navigation → UI ready (ms)": 257.2,
+            "First contentful paint (ms)": 80,
+            "Navigation type": "reload",
+            "Pending images (without waiting for remote images)": 0
+          },
+          "samples": {
+            "settingsOpen": {
+              "jsMs": 1.6,
+              "frameMs": 50
+            },
+            "bookmarkEditorOpen": {
+              "jsMs": 4.95,
+              "frameMs": 50.05
+            },
+            "editName": {
+              "jsMs": 1.25,
+              "frameMs": 47.2
+            },
+            "gridRender": {
+              "jsMs": 4.15,
+              "frameMs": 29.9
+            },
+            "gridResize": {
+              "jsMs": 0.7,
+              "frameMs": 30.7
+            },
+            "folderOpen": {
+              "jsMs": 11.3,
+              "frameMs": 45.9
+            },
+            "folderEditorOpen": {
+              "jsMs": 3.5,
+              "frameMs": 45.25
+            },
+            "recycleBinOpen": {
+              "jsMs": 4.15,
+              "frameMs": 48.8
+            },
+            "recycleBinEditorOpen": {
+              "jsMs": 2.4,
+              "frameMs": 45.3
+            },
+            "searchOpen": {
+              "jsMs": 1.3,
+              "frameMs": 42.05
+            },
+            "searchFilter": {
+              "jsMs": 0.7,
+              "frameMs": 57.55
+            },
+            "widgetCatalogOpen": {
+              "jsMs": 0.6,
+              "frameMs": 41.35
+            },
+            "clockCreateOpen": {
+              "jsMs": 0.9,
+              "frameMs": 43.55
+            }
+          },
+          "lastGridRender": {
+            "id": 216,
+            "label": "Render grid",
+            "status": "ok",
+            "startedAt": "2026-10-13T22:44:01.770Z",
+            "durationMs": 4.8,
+            "phases": [
+              {
+                "phase": "Resolve local images",
+                "durationMs": 0.7
+              },
+              {
+                "phase": "Build grid DOM",
+                "durationMs": 4.1
+              }
+            ],
+            "details": {
+              "bookmarks": 78,
+              "folders": 1,
+              "widgets": 0
+            }
+          }
+        },
+        {
+          "bookmarks": 1200,
+          "folderBookmarks": 18,
+          "trashEntries": 60,
+          "visibleBookmarks": 60,
+          "cpuRate": 1,
+          "startup": {
+            "JS start → UI ready (ms)": 79.7,
+            "Navigation → UI ready (ms)": 400.7,
+            "First contentful paint (ms)": 128,
+            "Navigation type": "reload",
+            "Pending images (without waiting for remote images)": 0
+          },
+          "samples": {
+            "settingsOpen": {
+              "jsMs": 1.55,
+              "frameMs": 53.9
+            },
+            "bookmarkEditorOpen": {
+              "jsMs": 7.35,
+              "frameMs": 51.9
+            },
+            "editName": {
+              "jsMs": 1.4,
+              "frameMs": 61.8
+            },
+            "gridRender": {
+              "jsMs": 7.05,
+              "frameMs": 30.35
+            },
+            "gridResize": {
+              "jsMs": 3.1,
+              "frameMs": 30.3
+            },
+            "folderOpen": {
+              "jsMs": 17.7,
+              "frameMs": 46.4
+            },
+            "folderEditorOpen": {
+              "jsMs": 7.45,
+              "frameMs": 67.25
+            },
+            "recycleBinOpen": {
+              "jsMs": 10.3,
+              "frameMs": 72.95
+            },
+            "recycleBinEditorOpen": {
+              "jsMs": 5.35,
+              "frameMs": 54.8
+            },
+            "searchOpen": {
+              "jsMs": 4.15,
+              "frameMs": 53.45
+            },
+            "searchFilter": {
+              "jsMs": 2.85,
+              "frameMs": 47.25
+            },
+            "widgetCatalogOpen": {
+              "jsMs": 0.6,
+              "frameMs": 50.05
+            },
+            "clockCreateOpen": {
+              "jsMs": 0.85,
+              "frameMs": 49.3
+            }
+          },
+          "lastGridRender": {
+            "id": 216,
+            "label": "Render grid",
+            "status": "ok",
+            "startedAt": "2026-10-13T22:44:16.595Z",
+            "durationMs": 9,
+            "phases": [
+              {
+                "phase": "Resolve local images",
+                "durationMs": 1.5
+              },
+              {
+                "phase": "Build grid DOM",
+                "durationMs": 7.5
+              }
+            ],
+            "details": {
+              "bookmarks": 1218,
+              "folders": 1,
+              "widgets": 0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "backupBenchmarks": {
+    "singleVideo": {
+      "recordedAt": "2026-10-13T22:45:31.129Z",
+      "browser": "Chrome/151.0.7922.34",
+      "platform": "win32",
+      "methodology": "Fresh persistent Chromium profile for each size; actual ZIP export/import actions and IndexedDB; synthetic WebM MIME payloads; byte length and boundary verification of every video; JS heap sampled every 10ms, at Blob creation, stringify/parse and CDP checkpoints. Video decoding, download I/O and whole-process RSS are excluded.",
+      "results": [
+        {
+          "sizeMiB": 10,
+          "exportMs": 69.60000014305115,
+          "importMs": 72.40000009536743,
+          "videoCount": 1,
+          "backupBytes": 10489968,
+          "format": "application/zip",
+          "filename": "newdesktab-backup-2026-10-13.zip",
+          "restored": true,
+          "restoredVideos": [
+            {
+              "restoredBytes": 10485760,
+              "blobUrlAvailable": true,
+              "boundaryBytesMatch": true
+            }
+          ],
+          "samples": [
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 17316173
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20568511
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20958102
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 27889206
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14557611
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 17354211
+            },
+            {
+              "phase": "export",
+              "point": "application/zip Blob created",
+              "jsHeapBytes": 17355721
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 17366148
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 17842469
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 18105884
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 31937789
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 16363736
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 20921128
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 25315608
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 25379502
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 25806652
+            }
+          ],
+          "heap": {
+            "baseline": {
+              "usedSize": 3906668,
+              "totalSize": 4648960,
+              "embedderHeapUsedSize": 3948432,
+              "backingStorageSize": 1394459
+            },
+            "afterExport": {
+              "usedSize": 4429788,
+              "totalSize": 7270400,
+              "embedderHeapUsedSize": 4358000,
+              "backingStorageSize": 12936336
+            },
+            "afterImport": {
+              "usedSize": 5195064,
+              "totalSize": 7794688,
+              "embedderHeapUsedSize": 4925104,
+              "backingStorageSize": 20611604
+            }
+          }
+        },
+        {
+          "sizeMiB": 50,
+          "exportMs": 250.10000014305115,
+          "importMs": 263.60000014305115,
+          "videoCount": 1,
+          "backupBytes": 52433008,
+          "format": "application/zip",
+          "filename": "newdesktab-backup-2026-10-13.zip",
+          "restored": true,
+          "restoredVideos": [
+            {
+              "restoredBytes": 52428800,
+              "blobUrlAvailable": true,
+              "boundaryBytesMatch": true
+            }
+          ],
+          "samples": [
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 16617265
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 17002852
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14349466
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 26298494
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 32682942
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14723371
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21381147
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21381187
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 33330247
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 35244131
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 46919935
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 53577723
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 64500223
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 16344063
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 27746287
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34404071
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 46357651
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 48270999
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 59946731
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 66331187
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 66604563
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 78826771
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 82840779
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14517075
+            },
+            {
+              "phase": "export",
+              "point": "application/zip Blob created",
+              "jsHeapBytes": 17042013
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 17052448
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 17542761
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 18818051
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 36309691
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 41493155
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 24235548
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 31169580
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 43423936
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 50084360
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 62584276
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 19700404
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28002536
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 38860732
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46068384
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 58021068
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 64681480
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 72709992
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 83567980
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15491372
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 24795256
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 29463064
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 29507562
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 29507610
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 29507658
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 29507706
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 29507754
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 29507802
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 29943884
+            }
+          ],
+          "heap": {
+            "baseline": {
+              "usedSize": 3879948,
+              "totalSize": 4648960,
+              "embedderHeapUsedSize": 3948104,
+              "backingStorageSize": 1394459
+            },
+            "afterExport": {
+              "usedSize": 4378272,
+              "totalSize": 7532544,
+              "embedderHeapUsedSize": 4350400,
+              "backingStorageSize": 12674192
+            },
+            "afterImport": {
+              "usedSize": 5203528,
+              "totalSize": 8843264,
+              "embedderHeapUsedSize": 4973768,
+              "backingStorageSize": 24740372
+            }
+          }
+        },
+        {
+          "sizeMiB": 200,
+          "exportMs": 804.9000000953674,
+          "importMs": 1064.3999998569489,
+          "videoCount": 1,
+          "backupBytes": 209719409,
+          "format": "application/zip",
+          "filename": "newdesktab-backup-2026-10-13.zip",
+          "restored": true,
+          "restoredVideos": [
+            {
+              "restoredBytes": 209715200,
+              "blobUrlAvailable": true,
+              "boundaryBytesMatch": true
+            }
+          ],
+          "samples": [
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 16513170
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 19778337
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20714575
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 16144580
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 27000140
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34204572
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 15031868
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 22509628
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34185360
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40570356
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 52792816
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 59177272
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20870444
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 27801556
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 33366028
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 41668480
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 41668528
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 53617412
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 60548704
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 72770912
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 77678048
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21147944
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 27805728
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40030932
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 46688716
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 59184252
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 66115364
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 73593132
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 84460208
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14778048
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20889176
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 28366944
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34751400
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 46153624
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 52811412
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 64760292
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 71418076
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 79442500
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 83710952
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 26453816
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 33111600
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 45607136
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 51991592
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 60289344
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 65580824
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 77803032
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 84235168
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20069748
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 26727532
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 39223068
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 41136412
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 53631948
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 60293848
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 71969400
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 79447168
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14782568
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21167024
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 33391240
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40322112
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 47526288
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 59748176
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 71150136
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 79447528
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 84514784
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20349232
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 27280104
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 39228672
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 46432848
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 58654724
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 65312292
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 73063076
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 83968504
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 15607052
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 26462404
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34759796
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 45615148
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 52819328
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 64767896
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 69323828
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 73977444
+            },
+            {
+              "phase": "export",
+              "point": "application/zip Blob created",
+              "jsHeapBytes": 74033434
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 74531862
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 74531910
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 74083773
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 5924416
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 17230147
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 30113311
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 36773507
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 48752239
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 55686031
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 67090203
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 74291951
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 19503980
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 26437772
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33918756
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 44776736
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 51984132
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 64210092
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 70870288
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 83096252
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15002080
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 27228040
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 34161832
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46120817
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 52233829
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 60538673
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 71396653
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78604041
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84741393
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 20571969
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 27505761
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 39731721
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46665513
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 54146505
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 65825273
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 72485469
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84260381
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15006205
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 21666401
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33345169
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 39731769
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 47759953
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 58891529
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 65825321
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78051281
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 79692909
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15006421
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 26958785
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33345385
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 41373561
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 52505145
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 59438937
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 71664897
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78598689
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15008061
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 21121065
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33347025
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 40280817
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 52780381
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 59714173
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66921561
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78874841
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 14737281
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 21397477
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28604865
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 39736441
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46670233
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 58896201
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 65556397
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 77782357
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84230813
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15829621
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 26687601
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 34715777
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 45847353
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 53875537
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 60262137
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 72214501
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78874697
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 14732225
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 19016961
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23411253
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456003
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456051
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456099
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456147
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456195
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456243
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456291
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456339
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456387
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456435
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456483
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456531
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456579
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456627
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456675
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456723
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456771
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456819
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456867
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23456915
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23457107
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23457155
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23457203
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23457251
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23457299
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23457347
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23457395
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 23896521
+            }
+          ],
+          "heap": {
+            "baseline": {
+              "usedSize": 3930980,
+              "totalSize": 4911104,
+              "embedderHeapUsedSize": 3953992,
+              "backingStorageSize": 1394457
+            },
+            "afterExport": {
+              "usedSize": 5270812,
+              "totalSize": 7532544,
+              "embedderHeapUsedSize": 4892528,
+              "backingStorageSize": 68773009
+            },
+            "afterImport": {
+              "usedSize": 5185408,
+              "totalSize": 8843264,
+              "embedderHeapUsedSize": 4816792,
+              "backingStorageSize": 18711081
+            }
+          }
+        }
+      ]
+    },
+    "multipleVideos": {
+      "recordedAt": "2026-10-13T22:45:49.656Z",
+      "browser": "Chrome/151.0.7922.34",
+      "platform": "win32",
+      "methodology": "Fresh persistent Chromium profile for each size; actual ZIP export/import actions and IndexedDB; synthetic WebM MIME payloads; byte length and boundary verification of every video; JS heap sampled every 10ms, at Blob creation, stringify/parse and CDP checkpoints. Video decoding, download I/O and whole-process RSS are excluded.",
+      "results": [
+        {
+          "sizeMiB": 200,
+          "exportMs": 1538.5,
+          "importMs": 2946.800000190735,
+          "videoCount": 2,
+          "backupBytes": 419435235,
+          "format": "application/zip",
+          "filename": "newdesktab-backup-2026-10-13.zip",
+          "restored": true,
+          "restoredVideos": [
+            {
+              "restoredBytes": 209715200,
+              "blobUrlAvailable": true,
+              "boundaryBytesMatch": true
+            },
+            {
+              "restoredBytes": 209715200,
+              "blobUrlAvailable": true,
+              "boundaryBytesMatch": true
+            }
+          ],
+          "samples": [
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 16511597
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20308194
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20981693
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 16398614
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 27527502
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34458606
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14739558
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 22763974
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34166378
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 41371398
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 53867190
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14746714
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 26968922
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 33626706
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 41655830
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 53058062
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 59715846
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 71938054
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 78322690
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20862250
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 28340018
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40291894
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 47223006
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 59445218
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 66103002
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 73580770
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 84436338
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14753458
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21684570
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 33360122
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40017906
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 52513442
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 59444554
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 66922322
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 78597874
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 83956990
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21146614
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 28351054
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40299934
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 46957718
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 59179930
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 64744402
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 73042154
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 83897722
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 15037526
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21968638
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 33917518
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40848630
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 52797510
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 53890870
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 65843866
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 72774978
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 84220950
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 15588154
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 26719274
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 33650146
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 45598714
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 52802906
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 65298082
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 71409042
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 79433130
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14497478
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21701654
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 32830310
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 41127702
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 51983058
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 59187234
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 66664714
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 77520066
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 83430382
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20335326
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 27266198
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34743678
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 46692246
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 53623130
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 65578343
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 70680883
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 84569900
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 13987168
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 25935736
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 31773392
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40070784
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 50926172
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 59224132
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 70079484
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 77283660
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14777704
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21161968
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 28092840
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40041408
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 51989980
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 58374244
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 71142724
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 77526988
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14506236
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20070588
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 28094676
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34752244
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 46430580
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 53361504
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 65583376
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 71967640
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 79445120
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14781112
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21165376
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 28369552
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40591424
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 47522296
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 59197572
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 66401748
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 77530404
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 84511296
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 20072012
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 27002884
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34753668
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 46155628
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 53086504
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 65308376
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 71146032
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 78896816
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 83714232
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21985696
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 32841048
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40865136
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 51993796
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 60291188
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 71146540
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 78350716
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14781772
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 21166036
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 28096908
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 40045476
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 47522956
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 58378320
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 66675712
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 77531064
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 14510576
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 15603840
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 27279104
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34209976
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 46705152
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 53636940
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 65585508
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 72789684
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 83918340
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 15318420
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 27540292
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 34471164
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 45873124
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 53623912
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 65025872
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 73049960
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 78152500
+            },
+            {
+              "phase": "export",
+              "point": "application/zip Blob created",
+              "jsHeapBytes": 80698303
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 80713332
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 81197519
+            },
+            {
+              "phase": "export",
+              "point": "interval",
+              "jsHeapBytes": 81197567
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 81228767
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 91184140
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 14663020
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 26386264
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 32801116
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 45574268
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 52234468
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 60262644
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 71941412
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78875204
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 14748728
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 22229712
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33087692
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 40295080
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 47776072
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 58634052
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66388632
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 73048828
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84516376
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15844124
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 26702104
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33909492
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 41116880
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 47777084
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 59455852
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66389644
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78342008
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84277612
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15845196
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 26976772
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33363372
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 40570760
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46683764
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 54164756
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 60551356
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 71682932
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 77795936
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84245920
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15570852
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 21410260
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28617648
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 35004248
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46409420
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 53069624
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 59729820
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66937208
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66937256
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66937304
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66937352
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66937400
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 72503212
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84181988
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 83956532
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 83956580
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 83956628
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 83956676
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 83956724
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 26703072
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28618292
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28618340
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28618388
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28618436
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28618484
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28618532
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 35005132
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46136708
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46683948
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46683996
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46684044
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46684092
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 47778540
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 58911556
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 60555828
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 60555876
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 60555924
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 60555972
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 65027400
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 71689068
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78622860
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78622908
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78622956
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78623004
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78623052
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78623100
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84282272
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15029324
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 22236712
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 22236760
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 22236808
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 22236856
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 22236904
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28349908
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 39755080
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 40302320
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 40302368
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 40302416
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 40302464
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 41396896
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 52528480
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 54170104
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 54170152
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 54170200
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 60283204
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 71688376
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 77801380
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84255392
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15303292
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 21416296
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33095064
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 35010284
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46415456
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 52528468
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 59735856
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 65848860
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 73056248
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 79716452
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 14758616
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 20871620
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 27531816
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 34739204
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 41399400
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 52530984
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 59464776
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66124972
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 73332360
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 77890684
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80643116
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 90927353
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15063859
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 19418611
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28058315
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 35102019
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46233595
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 52620263
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 59827651
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66487847
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 77893019
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 79534643
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 14775575
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 20888579
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 27275179
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 34756163
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 41142763
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 52274347
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 58660947
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66141931
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 72254935
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 79735927
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 14775815
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15870247
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 22256847
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33662019
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 39775023
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 47256015
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 53642615
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 65047787
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 71434387
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78368179
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84334815
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15047531
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 22254919
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28367923
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 39773095
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46159695
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 53640687
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 59480095
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66961079
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 73347679
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78092703
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84885971
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 20339979
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 21708007
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33113179
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 39499779
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46707167
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 53093775
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 60574759
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66961359
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 72253575
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 79734567
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 14776451
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 20889455
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 28370439
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 34209847
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 45888615
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 52275223
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 58935419
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 65048423
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 71708619
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78642411
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84335731
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15048167
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 22255555
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 27547771
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 35028755
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 41415355
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 52546939
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 58933539
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 66140927
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 72527527
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 79734923
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15048539
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 20342979
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 27003175
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33936967
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 40597163
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 47804559
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 53917563
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 65322735
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 71709335
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 78643127
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 84580883
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 15596795
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 27001967
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 33114971
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 40595955
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 46708959
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 54189951
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 60576551
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 71708127
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 76266395
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 79570855
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80698853
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700185
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700233
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700281
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700329
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700377
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700425
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700473
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700521
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700569
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700617
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700665
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700713
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700761
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700809
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700857
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700905
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80700953
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701001
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701049
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701097
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701145
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701193
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701241
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701289
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701337
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701385
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701433
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701481
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701529
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701577
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701625
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80701673
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 80721665
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 81146695
+            },
+            {
+              "phase": "import",
+              "point": "interval",
+              "jsHeapBytes": 81344014
+            }
+          ],
+          "heap": {
+            "baseline": {
+              "usedSize": 3908944,
+              "totalSize": 4648960,
+              "embedderHeapUsedSize": 3740144,
+              "backingStorageSize": 1394547
+            },
+            "afterExport": {
+              "usedSize": 5381724,
+              "totalSize": 7008256,
+              "embedderHeapUsedSize": 4983312,
+              "backingStorageSize": 75326982
+            },
+            "afterImport": {
+              "usedSize": 6074544,
+              "totalSize": 9367552,
+              "embedderHeapUsedSize": 5490656,
+              "backingStorageSize": 75072167
+            }
+          }
+        }
+      ]
+    }
+  },
+  "package": {
+    "version": "1.0.0",
+    "files": 291,
+    "bytes": 2514068,
+    "sha256": "e9172d4298365fbbaced16fbaebad1bbdd20c0c9420e6aeafbfe63f43b49a995",
+    "matchesSource": true
+  },
+  "scope": "Primary Chromium test pages only. Debug enabled except Debug/idle-performance tests. UI response is event capture to two animation frames, not asynchronous action completion. Coverage is observed execution, not proof that unexercised code or CSS is obsolete. External extension contexts are verified separately."
+}
