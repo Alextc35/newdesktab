@@ -1,3 +1,5 @@
+<img src="assets/icons/brand-mark.svg" alt="New DeskTab" width="96" height="96">
+
 # NewDeskTab
 
 Minimalist Chrome/Brave new-tab extension for organizing bookmarks in a visual

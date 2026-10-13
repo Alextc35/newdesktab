@@ -14,8 +14,8 @@ button, input, select { font: inherit; }
 
 .quick-save { padding: 18px; }
 .quick-save-header { display: flex; align-items: center; gap: 11px; margin-bottom: 18px; }
-.quick-save-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: var(--ui-selected); }
-.quick-save-mark img { width: 27px; height: 27px; }
+.quick-save-mark { display: grid; place-items: center; width: 42px; height: 42px; }
+.quick-save-mark img { width: 42px; height: 42px; }
 .quick-save-brand { margin: 0; color: var(--ui-muted); font-size: 11px; }
 h1 { margin: 0; font-size: 17px; line-height: 1.25; }
 

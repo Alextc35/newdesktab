@@ -8,6 +8,12 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 
 ## Cambios aplicados
 
+- **Logo.** Globo con signo «+», basado en la cuarta propuesta elegida por el
+  autor. Un SVG sin fondo ni recuadro alimenta los iconos de la extensión,
+  Información, notas, guía, manual, demos, popup y README. El viewBox recorta
+  los márgenes para aprovechar el tamaño disponible; los PNG y WebP mantienen
+  la transparencia. Se eliminó el recuadro del popup y se regeneró la Store.
+
 - **Referencias de imágenes locales.** Importación y exportación omiten las
   referencias cuyo archivo no existe, conservando URLs alternativas y estilos.
   Los backups JSON/ZIP restauran las imágenes incluidas antes de limpiar;
@@ -137,19 +143,20 @@ los esquemas 2–21 de desarrollo se han descartado por decisión del autor.
 | `node scripts/benchmark-backups.mjs` | ZIP exportado/restaurado con 10, 50, 200 MiB y dos vídeos de 200 MiB; tamaños, tiempos y muestras de memoria registrados. |
 | `npm audit --audit-level=high` | Cero vulnerabilidades tras la actualización de herramientas de desarrollo. |
 | `npm run assets:store` | Generación correcta; cuatro imágenes inspeccionadas. |
+| Logo | PNG de 48, 128 y 512 píxeles y WebP de 512 con transparencia comprobada; márgenes recortados. Revisión visual de tamaños pequeños en temas claro y oscuro; prueba de Información correcta. |
 | `npm run test:extension` | ZIP extraído correcto en Chromium, Google Chrome 155.0.8059.40, Brave 155.1.97.56 y Chrome for Testing 123.0.6312.122: nueva pestaña, botones/atajos y flash del editor, importación con imagen ausente y URL conservada, Ayuda → manual → ajustes, Información, popup, recarga y backup ZIP con vídeo bajo Manifest V3; sin errores de página. |
 | Chrome Sync real | Verificado por el autor entre perfiles/dispositivos; no se sustituye por la simulación de storage de los tests. |
 | Enlaces de la ficha | Privacidad y soporte públicos responden HTTP 200. |
 | `git diff --check` | Sin errores de espacios o conflictos. |
 
-Artefacto: `dist/newdesktab-1.0.0.zip`, 2.484.989 bytes y 281 archivos.
+Artefacto: `dist/newdesktab-1.0.0.zip`, 2.494.061 bytes y 281 archivos.
 Incluye únicamente recursos de la extensión, licencia y política de privacidad.
 El empaquetador comprueba cada entrada y su contenido contra el origen.
 
 SHA-256:
 
 ```text
-1d3ce79eb8965eae6d258e2a6c05148363e29444752ac600faf8fc254770296e
+1c369ecefba0e3dc61f7d7885db693bec905181ba3f0df1a8e9fbb94ac18a206
 ```
 
 Las mediciones de vídeos grandes y las pruebas de rendimiento descritas en este
@@ -188,7 +195,7 @@ el máximo absoluto ni se valida toda biblioteca o sesión de incógnito posible
 
 ## Pasos pendientes de publicación
 
-1. Subir el commit de limpieza de imágenes locales y comprobar GitHub Actions
+1. Subir los cambios finales de la versión y comprobar GitHub Actions
    para el commit definitivo. El commit `176ccfe` ya tiene una
    [ejecución remota correcta](https://github.com/Alextc35/newdesktab/actions/runs/38236420523);
    esa ejecución no cubre los cambios posteriores. Las notas de versión están

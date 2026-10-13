@@ -37,9 +37,9 @@ try {
     [512, 'assets/images/logo-new-desk-tab.png']
   ]) {
     await brandPage.setViewportSize({ width: size, height: size });
-    await brandPage.setContent(`<style>body{margin:0}</style><img src="data:image/svg+xml;base64,${brandSvg.toString('base64')}" width="${size}" height="${size}" style="display:block">`);
+    await brandPage.setContent(`<style>html,body{margin:0;background:transparent}</style><img src="data:image/svg+xml;base64,${brandSvg.toString('base64')}" width="${size}" height="${size}" style="display:block">`);
     await brandPage.locator('img').evaluate(image => image.decode());
-    await brandPage.locator('img').screenshot({ path: resolve(root, target), animations: 'disabled' });
+    await brandPage.locator('img').screenshot({ path: resolve(root, target), animations: 'disabled', omitBackground: true });
   }
   const logoWebp = await brandPage.locator('img').evaluate(image => {
     const canvas = document.createElement('canvas');

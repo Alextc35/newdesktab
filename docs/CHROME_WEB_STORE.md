@@ -104,6 +104,7 @@ to `PRIVACY.md`; do not claim that locally processed data is outside the policy.
 
 ## Required listing images
 
+- `assets/icons/icon-128.png` (product logo)
 - `assets/store/screenshot-1280x800.png`
 - `assets/store/screenshot-settings-1280x800.png`
 - `assets/store/screenshot-information-1280x800.png`
@@ -114,6 +115,11 @@ Regenerate them from the current UI with:
 ```sh
 npm run assets:store
 ```
+
+The globe-and-plus logo comes from `assets/icons/brand-mark.svg`. The same command
+regenerates the transparent 48px and 128px extension icons, the 512px PNG/WebP
+logos, and the Store images. Edit the SVG first so every use stays consistent.
+Its cropped viewBox leaves only a small transparent margin around the mark.
 
 ## Release procedure
 
