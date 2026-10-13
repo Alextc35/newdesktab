@@ -104,7 +104,7 @@
 
     &:focus {
       border-color: var(--ui-accent);
-      box-shadow: 0 0 0 3px var(--ui-focus-ring);
+      box-shadow: none;
     }
   }
 
@@ -410,7 +410,7 @@ input.theme-wallpaper-color[type="color"]::-moz-color-swatch {
 
 .background-image-color input[type="color"]:focus-visible,
 input.theme-wallpaper-color[type="color"]:focus-visible {
-  outline: 2px solid var(--ui-accent);
+  outline: 1px solid var(--ui-accent);
   outline-offset: 2px;
 }
 

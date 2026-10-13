@@ -13,12 +13,8 @@ export function createFolderVisual(folder, bookmarks = [], { compact = false } =
   visual.classList.toggle('is-compact', compact);
   visual.setAttribute('aria-hidden', 'true');
   applyFolderAppearance(visual, folder);
-  const customIcon = createCatalogIcon(folder.iconId);
-  if (customIcon) {
-    customIcon.classList.add('folder-svg', 'folder-catalog-icon');
-    visual.append(customIcon);
-    return visual;
-  }
+  const customIcon = createCatalogIcon(folder.iconId, { fitToContent: true });
+  visual.classList.toggle('has-folder-category', Boolean(customIcon));
 
   const backgroundImage = resolveBackgroundImage(folder);
   // Animated formats repaint reliably as CSS backgrounds, not SVG pattern images.
@@ -33,6 +29,15 @@ export function createFolderVisual(folder, bookmarks = [], { compact = false } =
   }
   const body = document.createElement('span');
   body.className = 'folder-body';
+  if (customIcon) {
+    const category = document.createElement('span');
+    category.className = 'folder-category-icon';
+    customIcon.classList.add('folder-catalog-icon');
+    category.append(customIcon);
+    body.append(category);
+    visual.append(artwork, body);
+    return visual;
+  }
   const previews = document.createElement('span');
   previews.className = 'folder-previews';
 

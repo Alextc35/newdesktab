@@ -25,6 +25,10 @@ async function openClockCreator(page) {
   const catalog = page.locator('#widget-catalog-modal');
   await expect(catalog).toBeVisible();
   await expect(catalog.getByRole('heading', { name: 'Widgets' })).toBeVisible();
+  const status = catalog.locator('[data-widget-type="clock"] .widget-catalog-status');
+  await expect(status.locator('.development-tool-svg')).toBeVisible();
+  await expect(status).toHaveAttribute('title', /In development/);
+  await expect(status).toHaveAttribute('aria-label', /not in its final version/);
   await catalog.locator('[data-widget-type="clock"]').click();
   await expect(catalog).toBeHidden();
 }

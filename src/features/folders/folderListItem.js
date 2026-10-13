@@ -30,10 +30,7 @@ export function createFolderListItem(folder, {
   const name = document.createElement('span');
   name.className = 'bookmark-list-name';
   name.textContent = folder.name || '—';
-  const detail = document.createElement('span');
-  detail.className = 'bookmark-list-detail';
-  detail.textContent = t('folder.count', { count });
-  copy.append(name, detail);
+  copy.append(name);
 
   const arrow = document.createElement('span');
   arrow.className = 'bookmark-list-arrow';

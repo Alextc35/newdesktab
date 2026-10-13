@@ -314,8 +314,7 @@ test('new folders and the default recycle bin have no outer background', async (
 
   const recycleBin = page.locator('#bookmark-container .recycle-bin');
   await expect(recycleBin).toHaveClass(/is-recycle-bin-transparent/);
-  await expect(recycleBin).toHaveClass(/is-recycle-bin-count-hidden/);
-  await expect(recycleBin.locator('.recycle-bin-caption small')).toBeHidden();
+  await expect(recycleBin.locator('.recycle-bin-caption small')).toHaveCount(0);
   await expect(recycleBin).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
 
   await page.mouse.move(5, page.viewportSize().height / 2);
@@ -327,8 +326,7 @@ test('new folders and the default recycle bin have no outer background', async (
 
   const folder = page.locator('#bookmark-container .bookmark-folder', { hasText: 'New folder' });
   await expect(folder).toHaveClass(/is-folder-outer-transparent/);
-  await expect(folder).toHaveClass(/is-folder-count-hidden/);
-  await expect(folder.locator('.folder-count')).toBeHidden();
+  await expect(folder.locator('.folder-count')).toHaveCount(0);
   await expect(folder).toHaveCSS('background-image', 'none');
   await expect(folder).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await expect(folder).toHaveCSS('box-shadow', 'none');
@@ -342,7 +340,7 @@ test('new folders and the default recycle bin have no outer background', async (
   await expect(page.locator('#folder-editor-outer-color')).toBeDisabled();
   await expect(page.locator('#folder-editor-no-background')).not.toBeChecked();
   await page.locator('#edit-folder-modal').getByRole('tab', { name: 'Style' }).click();
-  await expect(page.locator('#folder-editor-show-count')).not.toBeChecked();
+  await expect(page.locator('#folder-editor-show-count')).toHaveCount(0);
   await page.locator('#edit-folder-modal').getByRole('tab', { name: 'Style' }).click();
   await noOuterBackground.uncheck();
   await expect(previewCard(page)).not.toHaveCSS('background-image', 'none');
@@ -355,7 +353,7 @@ test('new folders and the default recycle bin have no outer background', async (
   await expect(folder).not.toHaveClass(/is-folder-outer-transparent/);
 });
 
-test('aligns bookmark, folder and recycle bin independently of their optional counts', async ({ page }) => {
+test('aligns bookmark, folder and recycle bin even with legacy count settings', async ({ page }) => {
   await start(page, [{ id: folderId, gx: 0, gy: 0, w: 1, h: 1, showCount: false }]);
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
@@ -387,15 +385,14 @@ test('aligns bookmark, folder and recycle bin independently of their optional co
       recycleBin: { ...data.recycleBin, showCount: true }
     } });
   }, folderId);
-  await expect(folderCard(page).locator('.folder-count')).toBeVisible();
+  await expect(folderCard(page).locator('.folder-count')).toHaveCount(0);
   await expect(page.locator('#bookmark-container > .recycle-bin .recycle-bin-caption small'))
-    .toBeVisible();
+    .toHaveCount(0);
   const withCounts = await measureGridCardAlignment(page);
   for (const kind of ['folder', 'recycleBin']) {
     expect(Math.abs(withCounts[kind].iconTop - withoutCounts[kind].iconTop)).toBeLessThanOrEqual(1);
     expect(Math.abs(withCounts[kind].titleTop - withoutCounts[kind].titleTop)).toBeLessThanOrEqual(1);
-    expect(withCounts[kind].countTop).toBeGreaterThan(withCounts[kind].titleBottom);
-    expect(withCounts[kind].countBottom).toBeLessThan(withCounts[kind].cardHeight);
+    expect(withCounts[kind].countTop).toBeNull();
   }
 
   await page.evaluate(async id => {
@@ -414,8 +411,7 @@ test('aligns bookmark, folder and recycle bin independently of their optional co
   for (const card of [enlarged.folder, enlarged.recycleBin]) {
     expect(Math.abs(card.iconTop - enlarged.bookmark.iconTop)).toBeLessThanOrEqual(2);
     expect(Math.abs(card.titleTop - enlarged.bookmark.titleTop)).toBeLessThanOrEqual(2);
-    expect(card.countTop).toBeGreaterThan(card.titleBottom);
-    expect(card.countBottom).toBeLessThan(card.cardHeight);
+    expect(card.countTop).toBeNull();
   }
 });
 
@@ -544,21 +540,18 @@ test('keeps folder artwork and captions aligned across visibility and editing st
     const card = element.getBoundingClientRect();
     const visual = element.querySelector('.folder-visual').getBoundingClientRect();
     const title = element.querySelector('.folder-title').getBoundingClientRect();
-    const count = element.querySelector('.folder-count').getBoundingClientRect();
     return {
       card: card.toJSON(),
       visual: visual.toJSON(),
-      title: title.toJSON(),
-      count: count.toJSON()
+      title: title.toJSON()
     };
   });
   const cardCenter = geometry.card.x + geometry.card.width / 2;
   expect(Math.abs(geometry.visual.x + geometry.visual.width / 2 - cardCenter)).toBeLessThanOrEqual(1);
   expect(Math.abs(geometry.title.x + geometry.title.width / 2 - cardCenter)).toBeLessThanOrEqual(1);
-  expect(Math.abs(geometry.count.x + geometry.count.width / 2 - cardCenter)).toBeLessThanOrEqual(1);
   expect(geometry.title.y).toBeGreaterThanOrEqual(geometry.visual.y + geometry.visual.height);
-  expect(geometry.card.y + geometry.card.height - geometry.count.y - geometry.count.height)
-    .toBeLessThanOrEqual(18);
+  const gridBottomGap = geometry.card.y + geometry.card.height - geometry.title.y - geometry.title.height;
+  expect(Math.abs(gridBottomGap - (geometry.visual.y - geometry.card.y))).toBeLessThanOrEqual(4);
 
   await page.keyboard.press('KeyE');
   const editingWidth = await folderCard(page).locator('.folder-visual')
@@ -570,12 +563,10 @@ test('keeps folder artwork and captions aligned across visibility and editing st
     const card = element.getBoundingClientRect();
     const visual = element.querySelector('.folder-visual').getBoundingClientRect();
     const title = element.querySelector('.folder-title').getBoundingClientRect();
-    const count = element.querySelector('.folder-count').getBoundingClientRect();
     return {
       card: card.toJSON(),
       visual: visual.toJSON(),
-      title: title.toJSON(),
-      count: count.toJSON()
+      title: title.toJSON()
     };
   });
   const previewCenter = previewGeometry.card.x + previewGeometry.card.width / 2;
@@ -587,18 +578,14 @@ test('keeps folder artwork and captions aligned across visibility and editing st
   expect(Math.abs(
     previewGeometry.title.x + previewGeometry.title.width / 2 - previewCenter
   )).toBeLessThanOrEqual(1);
-  expect(Math.abs(
-    previewGeometry.count.x + previewGeometry.count.width / 2 - previewCenter
-  )).toBeLessThanOrEqual(1);
   expect(previewGeometry.title.y)
     .toBeGreaterThanOrEqual(previewGeometry.visual.y + previewGeometry.visual.height);
-  expect(
-    previewGeometry.card.y + previewGeometry.card.height
-      - previewGeometry.count.y - previewGeometry.count.height
-  ).toBeLessThanOrEqual(previewGeometry.card.height * .125);
+  const previewBottomGap = previewGeometry.card.y + previewGeometry.card.height
+    - previewGeometry.title.y - previewGeometry.title.height;
+  expect(Math.abs(previewBottomGap - (previewGeometry.visual.y - previewGeometry.card.y))).toBeLessThanOrEqual(4);
 });
 
-test('hides previews and keeps the folder name and saved count independently configurable', async ({ page }) => {
+test('hides previews and configures the folder name without external count badges', async ({ page }) => {
   await start(page);
   await openEditor(page);
   await expect(previewCard(page).locator('.folder-previews .bookmark-favicon')).toHaveCount(3);
@@ -609,7 +596,7 @@ test('hides previews and keeps the folder name and saved count independently con
   await tab(page, 'Style');
   await page.locator('#folder-editor-show-name').uncheck();
   await expect(previewCard(page).locator('.folder-title')).toBeHidden();
-  await expect(previewCard(page).locator('.folder-count')).toBeVisible();
+  await expect(previewCard(page).locator('.folder-count')).toHaveCount(0);
   await saveAndClose(page);
   await page.reload();
   await expectAppReady(page);
@@ -617,17 +604,15 @@ test('hides previews and keeps the folder name and saved count independently con
   await expect(folderCard(page).locator('.folder-previews')).toBeHidden();
   await expect(folderCard(page).locator('.folder-visual')).toBeVisible();
   await expect(folderCard(page).locator('.folder-title')).toBeHidden();
-  await expect(folderCard(page).locator('.folder-count')).toHaveText('3 saved');
-  await expect(folderCard(page).locator('.folder-count')).toBeVisible();
+  await expect(folderCard(page).locator('.folder-count')).toHaveCount(0);
   await openEditor(page);
   await tab(page, 'Style');
   await expect(page.locator('#folder-editor-show-previews')).not.toBeChecked();
   await expect(page.locator('#folder-editor-show-previews')).toBeEnabled();
   await tab(page, 'Style');
   await expect(page.locator('#folder-editor-show-name')).not.toBeChecked();
-  await expect(page.locator('#folder-editor-show-count')).toBeChecked();
+  await expect(page.locator('#folder-editor-show-count')).toHaveCount(0);
   await page.locator('#folder-editor-show-name').check();
-  await page.locator('#folder-editor-show-count').uncheck();
   await expect(previewCard(page).locator('.folder-title')).toBeVisible();
   await expect(previewCard(page).locator('.folder-count')).toBeHidden();
   await saveAndClose(page);
@@ -638,7 +623,7 @@ test('hides previews and keeps the folder name and saved count independently con
   await openEditor(page);
   await tab(page, 'Style');
   await expect(page.locator('#folder-editor-show-name')).toBeChecked();
-  await expect(page.locator('#folder-editor-show-count')).not.toBeChecked();
+  await expect(page.locator('#folder-editor-show-count')).toHaveCount(0);
 });
 
 test('hiding the glyph also hides previews while an empty bordered card still opens its folder', async ({ page }) => {
@@ -655,7 +640,6 @@ test('hiding the glyph also hides previews while an empty bordered card still op
   await expect(previewCard(page).locator('.folder-previews')).toBeHidden();
   await tab(page, 'Style');
   await page.locator('#folder-editor-show-name').uncheck();
-  await page.locator('#folder-editor-show-count').uncheck();
   await expectBorder(previewCard(page));
   await saveAndClose(page);
   await page.reload();
@@ -667,7 +651,7 @@ test('hiding the glyph also hides previews while an empty bordered card still op
     await expect(folderCard(page).locator(selector)).toBeHidden();
   }
   expect(await savedFolder(page)).toMatchObject({
-    name: 'Reading', showFolder: false, showPreviews: false, showName: false, showCount: false
+    name: 'Reading', showFolder: false, showPreviews: false, showName: false
   });
   await folderCard(page).getByRole('button', { name: /Open Reading/ }).click();
   await expect(page.locator('#folder-modal')).toBeVisible();

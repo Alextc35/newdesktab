@@ -116,7 +116,7 @@ test('creates legacy-safe folder styles and updates their appearance', async () 
     backgroundImageUrlLocked: false,
     textColor: '#f8fafc'
   });
-  assert.equal(created.showCount, false);
+  assert.equal(Object.hasOwn(created, 'showCount'), false);
 
   const updated = updateBookmarkFolder(created.id, {
     name: 'Games',
@@ -142,14 +142,13 @@ test('creates a folder with a normalized custom appearance', async () => {
     outerBackgroundColor: '#111827',
     textColor: '#FEF3C7',
     showPreviews: false,
-    showCount: false
   });
 
   assert.equal(created.backgroundColor, '#ef4444');
   assert.equal(created.outerBackgroundColor, '#111827');
   assert.equal(created.textColor, '#fef3c7');
   assert.equal(created.showPreviews, false);
-  assert.equal(created.showCount, false);
+  assert.equal(Object.hasOwn(created, 'showCount'), false);
 });
 
 test('updates bookmark and folder rectangles atomically', async () => {
@@ -191,7 +190,6 @@ test('saves folder visibility and outer color while keeping its identity', async
     showFolder: false,
     showPreviews: true,
     showName: false,
-    showCount: false
   });
   assert.equal(updated.id, created.id);
   assert.equal(updated.name, 'Reading');
@@ -199,7 +197,7 @@ test('saves folder visibility and outer color while keeping its identity', async
   assert.equal(updated.showFolder, false);
   assert.equal(updated.showPreviews, false);
   assert.equal(updated.showName, false);
-  assert.equal(updated.showCount, false);
+  assert.equal(Object.hasOwn(updated, 'showCount'), false);
   assert.deepEqual(getState().data.folders[0], updated);
 
   await new Promise(resolve => setImmediate(resolve));
@@ -211,13 +209,12 @@ test('saves folder visibility and outer color while keeping its identity', async
     showFolder: true,
     showPreviews: true,
     showName: true,
-    showCount: true
   });
   assert.equal(restored.outerBackgroundColor, null);
   assert.equal(restored.showFolder, true);
   assert.equal(restored.showPreviews, true);
   assert.equal(restored.showName, true);
-  assert.equal(restored.showCount, true);
+  assert.equal(Object.hasOwn(restored, 'showCount'), false);
 });
 
 test('keeps a bookmark inside when the grid has no room to remove it', async () => {

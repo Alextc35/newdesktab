@@ -2,6 +2,7 @@ import { t } from '../../platform/i18n/i18n.js';
 import { createItemActionButton } from '../../shared/ui/itemActionButton.js';
 import { isGridItemSurfaceDark } from '../grid/gridItemAppearance.js';
 import { openEditBookmark } from './bookmarkModal.js';
+import { confirmItemRecycle } from '../grid/gridItemRemoval.js';
 
 /** Adds the direct edit control owned by a bookmark card. */
 export function addBookmarkActions(container, bookmark) {
@@ -15,6 +16,10 @@ export function addBookmarkActions(container, bookmark) {
     openEditBookmark(bookmark.id);
   });
   editButton.setAttribute('aria-label', t('bookmarkActions.edit'));
-  actions.append(editButton);
+  const deleteButton = createItemActionButton('', 'delete', themeClass, () => {
+    void confirmItemRecycle('bookmark', bookmark.id);
+  });
+  deleteButton.setAttribute('aria-label', t('bookmarkActions.delete'));
+  actions.append(editButton, deleteButton);
   container.append(actions);
 }

@@ -50,3 +50,5 @@
     color: #fff;
   }
 }
+
+.item-action-button > .catalog-icon { width: 65%; height: 65%; pointer-events: none; }

@@ -15,6 +15,19 @@ export function createChevronSvg() {
   return svg;
 }
 
+/** Compact tool used to mark a feature that is still being developed. */
+export function createDevelopmentSvg() {
+  const svg = createSvg('0 0 24 24', 'development-tool-svg');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('stroke', 'currentColor');
+  svg.setAttribute('stroke-width', '1.7');
+  svg.setAttribute('stroke-linecap', 'round');
+  svg.setAttribute('stroke-linejoin', 'round');
+  svg.append(createPath('m14.5 6.5 3 3L21 6a6 6 0 0 1-7.6 7.6l-6.8 6.8a2.1 2.1 0 0 1-3-3l6.8-6.8A6 6 0 0 1 18 3Z',
+    'development-tool-path'));
+  return svg;
+}
+
 /** Creates the compact undo or redo arrow for draft editor controls. */
 export function createHistorySvg(direction) {
   const svg = createSvg('0 0 24 24', 'editor-history-icon');
@@ -68,19 +81,23 @@ export function createFolderSvg(backgroundImageUrl = null) {
   return svg;
 }
 
-/** Creates the fixed-ratio recycle-bin artwork shared by cards, lists and previews. */
-export function createRecycleBinSvg() {
+/** One bin silhouette: closed on cards, open in its contents and on interaction. */
+export function createRecycleBinSvg({ open = false } = {}) {
   const svg = createSvg('0 0 92 108', 'recycle-bin-svg');
   svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-  svg.append(
+  svg.classList.toggle('is-open', open);
+  const lid = document.createElementNS(SVG_NS, 'g');
+  lid.classList.add('recycle-bin-lid-group');
+  lid.append(
     createPath('M34 14V9.5A5.5 5.5 0 0 1 39.5 4h13A5.5 5.5 0 0 1 58 9.5V14',
       'recycle-bin-handle'),
-    createPath('M15 16.5A6.5 6.5 0 0 1 21.5 10h49a6.5 6.5 0 0 1 6.5 6.5V25H15v-8.5Z',
-      'recycle-bin-lid'),
+    createPath('M13 18h66', 'recycle-bin-lid')
+  );
+  svg.append(
+    lid,
     createPath('M20 31h52l-5.4 64.7a9 9 0 0 1-9 8.3H34.4a9 9 0 0 1-9-8.3L20 31Z',
       'recycle-bin-can'),
-    createPath('M35 46v39M57 46v39', 'recycle-bin-slots'),
-    createPath('M24 33h44', 'recycle-bin-sheen')
+    createPath('M35 46v39M57 46v39', 'recycle-bin-slots')
   );
   return svg;
 }

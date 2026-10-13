@@ -15,13 +15,14 @@ import { gridGesture, SMART_MOVE_DURATION } from './gridGestureState.js';
 import { handleResize } from './gridResizeGesture.js';
 import { createSmartDragSession, applySmartDragPreview, applyInvalidSmartDragPreview, restoreSmartDragPreview, commitSmartDragLayout,
   sameGridPosition, suppressFolderOpen, scheduleSmartPreviewCleanup, planSmartDragSession } from './gridDragSession.js';
-import { findFolderTarget, findRectangleTarget, applyDropLandingGeometry, clearDropLandingGeometry } from './gridPointerGeometry.js';
+import { findFolderTarget, findRectangleTarget, overlapsGridDropTarget, isAmbiguousGridCorner, applyDropLandingGeometry, clearDropLandingGeometry } from './gridPointerGeometry.js';
 import {
   moveBookmarksToRecycleBin,
   moveFolderToRecycleBin
 } from '../recycle-bin/recycleBinActions.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { t } from '../../platform/i18n/i18n.js';
+import { confirmItemRecycle } from './gridItemRemoval.js';
 
 const SELECTION_CLICK_MAX_DURATION = 300;
 const DRAG_HOLD_DELAY = 180;
@@ -53,6 +54,7 @@ export function addGridItemPointerControls(container, div, item, {
 } = {}) {
   let startX = 0, startY = 0;
   let startLeft = 0, startTop = 0;
+  let grabbedColumn = 0, grabbedRow = 0;
 
   let folderTarget = null;
   let recycleBinTarget = null;
@@ -96,6 +98,8 @@ export function addGridItemPointerControls(container, div, item, {
 
     moved = false;
     dragSession = createSmartDragSession(container, item, kind);
+    grabbedColumn = Math.max(0, Math.min(item.w - 1, Math.floor((e.clientX - dragSession.gridOrigin.left - startLeft) / rowWidth)));
+    grabbedRow = Math.max(0, Math.min(item.h - 1, Math.floor((e.clientY - dragSession.gridOrigin.top - startTop) / rowHeight)));
     gridGesture.cancel = () => finishDrag(false);
 
     div.setPointerCapture(e.pointerId);
@@ -106,7 +110,8 @@ export function addGridItemPointerControls(container, div, item, {
     if (event.button !== 1) return;
     event.preventDefault();
     event.stopPropagation();
-    openGridItemEditor(div);
+    if (event.shiftKey && ['bookmark', 'folder'].includes(kind)) void confirmItemRecycle(kind, item.id);
+    else openGridItemEditor(div);
   });
 
   div.addEventListener('pointermove', (e) => {
@@ -121,18 +126,26 @@ export function addGridItemPointerControls(container, div, item, {
       startDragFeedback();
     }
 
-    const newLeft = Math.max(0, Math.min(startLeft + dx, (GRID_COLS - item.w) * rowWidth));
-    const newTop = Math.max(0, Math.min(startTop + dy, (GRID_ROWS - item.h) * rowHeight));
-
-    let newGX = Math.round(newLeft / rowWidth);
-    let newGY = Math.round(newTop / rowHeight);
+    // The pointer chooses the cell, including its padding/gaps. Preserve the
+    // grabbed cell of a larger item without the half-cell blind zone of rounding.
+    let newGX = Math.floor((e.clientX + scrollX - dragSession.gridOrigin.left) / rowWidth) - grabbedColumn;
+    let newGY = Math.floor((e.clientY + scrollY - dragSession.gridOrigin.top) / rowHeight) - grabbedRow;
 
     newGX = Math.max(0, Math.min(newGX, GRID_COLS - item.w));
     newGY = Math.max(0, Math.min(newGY, GRID_ROWS - item.h));
 
+    if (isAmbiguousGridCorner(e.clientX + scrollX - dragSession.gridOrigin.left,
+      e.clientY + scrollY - dragSession.gridOrigin.top, rowWidth, rowHeight)
+      && !findRectangleTarget(e.clientX + scrollX, e.clientY + scrollY,
+        [...dragSession.recycleBinTargets, ...dragSession.folderTargets], { includeHandles: false })) {
+      // The exact junction belongs to no clear destination. Retain the current
+      // layout and landing feedback until the cursor makes a small clear choice.
+      return;
+    }
+
     const wasOverDropTarget = Boolean(recycleBinTarget || folderTarget);
     const nextRecycleBinTarget = kind !== 'recycle-bin'
-      ? findRectangleTarget(e.clientX, e.clientY, dragSession.recycleBinTargets)
+      ? findRectangleTarget(e.clientX + scrollX, e.clientY + scrollY, dragSession.recycleBinTargets)
       : null;
     if (nextRecycleBinTarget) {
       setFolderTarget(null);
@@ -153,6 +166,18 @@ export function addGridItemPointerControls(container, div, item, {
     setFolderTarget(null);
 
     const target = { gx: newGX, gy: newGY };
+    if (overlapsGridDropTarget({ ...target, w: item.w, h: item.h }, dragSession.recycleBinTargets)
+      || overlapsGridDropTarget({ ...target, w: item.w, h: item.h }, dragSession.folderTargets)) {
+      // Keep the last legal layout until the cursor actually enters the drop
+      // target. Never paint a rejected card on top of a bin or folder by snapping.
+      if (wasOverDropTarget || !dragSession.dropIsValid || !sameGridPosition(target, dragSession.lastPreviewTarget)) {
+        applySmartDragPreview(container, dragSession, dragSession.activeLayout);
+      }
+      dragSession.lastPreviewTarget = target;
+      dragSession.dropIsValid = true;
+      div.classList.remove('is-invalid');
+      return;
+    }
     // Pointer events can fire dozens of times while the pointer remains inside
     // one grid cell. The smart-layout calculation is the expensive part of a
     // drag. Leaving a folder/trash target also needs validation, even when the
@@ -302,7 +327,13 @@ export function addGridItemPointerControls(container, div, item, {
       ...dragSession.folderTargets,
       ...dragSession.recycleBinTargets
     ].find(entry => entry.element === target);
-    const targetRect = targetEntry?.rect ?? target.getBoundingClientRect();
+    const cachedRect = targetEntry?.rect;
+    const scrollX = (viewport?.scrollLeft ?? 0) - startScrollX;
+    const scrollY = (viewport?.scrollTop ?? 0) - startScrollY;
+    const targetRect = cachedRect ? {
+      left: cachedRect.left - scrollX, top: cachedRect.top - scrollY,
+      width: cachedRect.width, height: cachedRect.height
+    } : target.getBoundingClientRect();
     applyDropLandingGeometry(container, div, targetRect);
   }
 

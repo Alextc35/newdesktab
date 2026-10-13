@@ -40,7 +40,7 @@
 
 .bookmark-list-search:focus-within {
   border-color: var(--ui-accent);
-  box-shadow: 0 0 0 3px var(--ui-focus-ring);
+  box-shadow: none;
 }
 
 .bookmark-list-search-label {
@@ -174,8 +174,7 @@
 }
 
 .bookmark-list-item.is-folder-name-hidden .bookmark-list-name,
-.bookmark-list-item.is-folder-count-hidden .bookmark-list-detail,
-.bookmark-list-item.is-folder-name-hidden.is-folder-count-hidden .bookmark-list-copy {
+.bookmark-list-item.is-folder-name-hidden .bookmark-list-copy {
   display: none;
 }
 
@@ -311,17 +310,8 @@
   color: var(--recycle-bin-text-color, #f8fafc);
 }
 
-.recycle-bin-list-item .bookmark-list-detail {
-  color: color-mix(
-    in srgb,
-    var(--recycle-bin-text-color, #f8fafc) 68%,
-    transparent
-  );
-}
-
 .recycle-bin-list-item.is-recycle-bin-name-hidden .bookmark-list-name,
-.recycle-bin-list-item.is-recycle-bin-count-hidden .bookmark-list-detail,
-.recycle-bin-list-item.is-recycle-bin-name-hidden.is-recycle-bin-count-hidden
+.recycle-bin-list-item.is-recycle-bin-name-hidden
   .bookmark-list-copy {
   display: none;
 }
@@ -380,14 +370,6 @@
 
   #folder-modal .modal-folder.is-empty-list #folder-modal-items {
     display: none;
-  }
-
-  #folder-modal .modal-folder.is-empty-list .folder-modal-empty {
-    position: static;
-    width: 100%;
-    padding: 22px 16px;
-    font-size: 13px;
-    box-sizing: border-box;
   }
 
   #folder-modal-items.is-list-view {

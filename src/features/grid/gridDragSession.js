@@ -50,15 +50,22 @@ export function createSmartDragSession(container, item, kind) {
     rowWidth: container.clientWidth / GRID_COLS,
     rowHeight: container.clientHeight / GRID_ROWS
   };
+  const dropTarget = (element, includeHandles = false) => ({
+    element,
+    rect: element.getBoundingClientRect(),
+    handleRects: includeHandles
+      ? Array.from(element.querySelectorAll('.resizer'), handle => handle.getBoundingClientRect()) : [],
+    gridRect: resolveElement(element)?.item
+  });
   const folderTargets = kind === 'bookmark'
     ? Array.from(elements.values())
       .filter(element => element.matches('.bookmark-folder[data-folder-id]'))
-      .map(element => ({ element, rect: element.getBoundingClientRect() }))
+      .map(element => dropTarget(element))
     : [];
   const recycleBinTargets = ['bookmark', 'folder', 'widget'].includes(kind)
     ? Array.from(elements.values())
       .filter(element => element.matches('.recycle-bin[data-recycle-bin-id]'))
-      .map(element => ({ element, rect: element.getBoundingClientRect() }))
+      .map(element => dropTarget(element, true))
     : [];
 
   trace.end({ items: items.length });
@@ -75,6 +82,7 @@ export function createSmartDragSession(container, item, kind) {
     lastPreviewTarget: pickGridPosition(currentItem),
     previewPositions: new Map(originals),
     gridMetrics,
+    gridOrigin: container.getBoundingClientRect(),
     folderTargets,
     recycleBinTargets,
     cascadeStep: null,

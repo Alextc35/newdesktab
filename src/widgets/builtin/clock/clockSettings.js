@@ -5,6 +5,7 @@ import { showAlert } from '../../../shared/ui/alertModal.js';
 import { flashError, flashSuccess } from '../../../shared/ui/flash.js';
 import { closeModal, isModalActive, openModal, registerModal } from '../../../shared/ui/modalManager.js';
 import { createEditorHistory } from '../../../shared/ui/editorHistory.js';
+import { setEditorTitle } from '../../../shared/ui/editorTitle.js';
 import { addWidget, deleteWidgetById, updateWidgetById } from '../../widgetActions.js';
 import {
   CLOCK_WIDGET_TYPE,
@@ -77,7 +78,7 @@ export function openCreateClock({ onCancel } = {}) {
   createCancelHandler = typeof onCancel === 'function' ? onCancel : null;
   initialConfig = structuredClone(DEFAULT_CLOCK_CONFIG);
   populateForm(initialConfig);
-  modalTitle.textContent = t('clock.createTitle');
+  setEditorTitle(modalTitle, 'clock.createTitle', { creating: true });
   saveButton.textContent = t('buttons.add');
   deleteButton.hidden = true;
   openEditor();
@@ -94,7 +95,7 @@ export function openClockEditor(widgetId) {
   createCancelHandler = null;
   initialConfig = normalizeClockConfig(widget.config);
   populateForm(initialConfig);
-  modalTitle.textContent = t('clock.editTitle');
+  setEditorTitle(modalTitle, 'clock.editTitle');
   saveButton.textContent = t('buttons.save');
   deleteButton.hidden = false;
   openEditor();

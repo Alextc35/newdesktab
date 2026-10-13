@@ -33,14 +33,29 @@ export function findFolderTarget(clientX, clientY, folderTargets) {
   return findRectangleTarget(clientX, clientY, folderTargets);
 }
 
-export function findRectangleTarget(clientX, clientY, targets) {
+export function findRectangleTarget(clientX, clientY, targets, { includeHandles = true } = {}) {
   return targets
-    .find(({ rect }) => {
-      return clientX >= rect.left
-        && clientX <= rect.right
-        && clientY >= rect.top
-        && clientY <= rect.bottom;
-    })?.element ?? null;
+    .find(({ rect, handleRects = [] }) => containsPoint(rect, clientX, clientY)
+      || (includeHandles && handleRects.some(bounds => containsPoint(bounds, clientX, clientY))))?.element ?? null;
+}
+
+function containsPoint(bounds, x, y) {
+  return x >= bounds.left && x <= bounds.right && y >= bounds.top && y <= bounds.bottom;
+}
+
+/** A 2px margin around a grid junction retains the previous destination. */
+export function isAmbiguousGridCorner(x, y, cellWidth, cellHeight) {
+  return Math.abs(x - Math.round(x / cellWidth) * cellWidth) < 2
+    && Math.abs(y - Math.round(y / cellHeight) * cellHeight) < 2;
+}
+
+/** A snapped cell can reach a drop-only item before the cursor reaches its card. */
+export function overlapsGridDropTarget(rectangle, targets) {
+  return targets.some(({ gridRect }) => gridRect
+    && rectangle.gx < gridRect.gx + gridRect.w
+    && rectangle.gx + rectangle.w > gridRect.gx
+    && rectangle.gy < gridRect.gy + gridRect.h
+    && rectangle.gy + rectangle.h > gridRect.gy);
 }
 
 /** Moves the dragged card into a compact, stacked pose over its drop target. */

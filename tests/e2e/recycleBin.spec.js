@@ -105,6 +105,10 @@ test('shows saved bookmark artwork and folder appearance in trash', async ({ pag
   await expect(folderIcon.locator('.folder-visual')).toBeVisible();
   await expect(folderIcon).toHaveCSS('--folder-color', '#ff8800');
   await expect(folderIcon.locator('.folder-svg image')).toHaveAttribute('href', cover);
+  const folderDetail = page.locator('[data-trash-id="trash-folder-entry"] .recycle-bin-item-copy small');
+  const deletedAt = await page.locator('[data-trash-id="trash-cover-entry"] .recycle-bin-item-copy small').textContent();
+  expect(deletedAt).toMatch(/^Deleted .+\d{1,2}:\d{2}/);
+  await expect(folderDetail).toHaveText(`${deletedAt} · 0 bookmarks`);
 });
 
 test('switches the recycle bin modal to its list layout at and below 600px', async ({ page }) => {
@@ -315,7 +319,7 @@ test('drops a bookmark into the bin and restores the selected item', async ({ pa
   );
   await page.mouse.up();
   await expect(page.locator(`.bookmark[data-bookmark-id="${bookmarkId}"]`)).toHaveCount(0);
-  await expect(bin.locator('.recycle-bin-caption small')).toHaveText('1 item');
+  await expect(bin.locator('.recycle-bin-caption small')).toHaveCount(0);
   await waitForSaved(page);
 
   await toggleEditMode(page);

@@ -370,6 +370,9 @@ folders and the recycle bin. It is composed by each item editor and is not a
 generic Shared UI primitive. `shared/ui` still owns color pickers, tabs,
 lockable inputs and modal coordination. Project-health tests protect this
 ownership and follow domain imports transitively to keep runtime adapters out.
+Image controls use `shared/ui/animatedDisclosure` for reversible height and
+opacity transitions. The summary retains native keyboard activation, hidden
+controls become inert, and reduced-motion preferences bypass animation.
 
 The complete bookmark editing flow is owned by `features/bookmarks`: its modal
 coordinates create, edit and preset use cases; the reusable editor panel owns
@@ -557,7 +560,9 @@ workspaces without interpreting its configuration. A definition supplies a
 stable `type`, `render()` and any optional editing or interaction capabilities
 it needs. A creatable definition also supplies catalog metadata and
 `create({ onCancel })`; the generic widget catalog turns those fields into its
-picker UI and provides the return navigation when creation is abandoned. It may expose
+picker UI and provides the return navigation when creation is abandoned. An
+optional `catalog.statusKey` shows a translated development-tool tooltip
+and accessible status without changing the widget's saved configuration. A definition may expose
 `initialize({ modalHost })` to mount widget-owned support surfaces, such as an
 editor, exactly once. Registration and initialization are synchronous
 local-module composition and are compatible with Manifest V3 CSP; no code is
@@ -700,9 +705,17 @@ the store; versioned data above the supported schema is rejected.
 
 Schema 1 includes folder appearance controls: `outerBackgroundColor` is a nullable
 hex color, where null retains the automatic tile gradient. `showFolder`,
-`showPreviews`, `showName` and `showCount` default to true so existing folders
+`showPreviews` and `showName` default to true so existing folders
 keep their appearance. `normalizeFolderStyle()` disables previews whenever
 the folder graphic is hidden, including when importing or restoring data.
+Folder category symbols stay centered inside the folder silhouette and replace
+bookmark previews. Their nullable `iconColor` selects automatic contrast when
+unset. The recycle bin always uses its shared SVG, with an open lid in its modal
+and on hover, keyboard navigation or a valid drop target. Its `animateIcon`
+preference disables interaction animation without hiding the glyph. Its obsolete
+`iconId` and `showIcon` fields are ignored;
+`settings.showRecycleBin` controls workspace visibility. Legacy `showCount`
+values are ignored: item counts appear inside the open folder or recycle bin.
 
 Schema 1 also includes the five configurable keyboard shortcuts under
 `settings.keyboardShortcuts`. Missing, invalid or conflicting values fall back
@@ -1047,6 +1060,15 @@ Grid pointer controls compose `gridDragSession` for movement planning and
 preview ownership, `gridResizeGesture` for resize lifecycle,
 `gridPointerGeometry` for visual coordinates, and `gridGestureState` for the
 single active gesture. Placement algorithms remain in `shared/grid`.
+The cursor chooses the logical grid cell, including the gaps between cards, and
+preserves the grabbed cell within larger items. Folder and recycle-bin landing
+feedback requires the cursor to enter their actual card bounds or, for the bin,
+one of its visible resize handles. Handle bounds are cached at drag start. An overlapping
+snap outside those bounds retains the last valid layout. A 2px margin at grid
+junctions retains the previous destination until the cursor makes a clear choice.
+Edit controls and
+Shift-middle-click share `gridItemRemoval` for confirmed, persisted recycling of
+bookmarks and folders. Trash rows include the deletion date for both types.
 
 Large-backup measurements run separately from the test suite using
 `scripts/benchmark-backups.mjs`; see

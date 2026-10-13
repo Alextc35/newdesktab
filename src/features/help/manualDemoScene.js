@@ -109,8 +109,6 @@ export function createManualDemoScene(root, t) {
   const folder = place(demoElement('div', 'manual-demo-item manual-demo-folder'), 286, 26, 98, 62);
   const folderArtwork = createFolderVisual({ ...DEFAULT_FOLDER_STYLE, noBackground: false, backgroundColor: '#267ca4' });
   folder.append(folderArtwork, demoElement('span', 'manual-demo-folder-name', t('onboarding.demo.work')));
-  const folderCount = demoElement('span', 'manual-demo-folder-count', '1');
-  folder.append(folderCount);
   const dock = place(demoElement('div', 'manual-demo-dock'), 6, 92, 36);
   const edit = demoElement('span', 'manual-demo-tool', '✎');
   const add = demoElement('span', 'manual-demo-tool', '+');
@@ -199,7 +197,7 @@ export function createManualDemoScene(root, t) {
   }
 
   return {
-    scene, a, b, c, trash, folder, folderArtwork, folderCount, grid, brand,
+    scene, a, b, c, trash, folder, folderArtwork, grid, brand,
     wallpaper, dock, edit, add, settings, toolbar, workspace, plus, undo, redo, search,
     bookmark, place, track, show, move, during, type, textAt, cursor, keys, panel, row, action,
     paint(time) {

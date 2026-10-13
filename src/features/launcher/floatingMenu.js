@@ -1,10 +1,14 @@
 import { hasOpenModal } from '../../shared/ui/modalManager.js';
+import { createCatalogIcon } from '../../shared/ui/catalogIcon.js';
 
 export function initFloatingMenu() {
   const container = document.querySelector('.floating-add');
   const toggle = document.getElementById('add-toggle');
   const options = document.getElementById('add-options');
   const buttons = [...options.querySelectorAll('button')];
+  for (const [id, iconId] of [['add-bookmark', 'ui-bookmark'], ['add-folder', 'ui-folders']]) {
+    document.getElementById(id).querySelector('.launcher-option-icon').replaceChildren(createCatalogIcon(iconId));
+  }
 
   options.hidden = false;
 

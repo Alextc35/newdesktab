@@ -1,7 +1,7 @@
 import { ICON_CATALOG, normalizeCatalogIconId } from '../../shared/icons/iconCatalog.js';
 import { getIconRecommendations, normalizeIconSearch } from '../../shared/icons/iconRecommendations.js';
 import { createCatalogIcon } from '../../shared/ui/catalogIcon.js';
-import { createChevronSvg, createFolderSvg, createRecycleBinSvg, createThemedAssetIcon } from '../../shared/ui/svgIcons.js';
+import { createChevronSvg, createThemedAssetIcon } from '../../shared/ui/svgIcons.js';
 import { applyI18n, subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
 
 /** One compact icon chooser for item and default-bookmark appearance editors. */
@@ -48,10 +48,10 @@ export function createIconPicker({ type, getValue, renderOriginalIcon, onSelect,
   choices.className = 'editor-icon-options custom-scrollbar';
   choices.setAttribute('role', 'group');
   choices.dataset.i18nAriaLabel = 'itemEditor.chooseIcon';
-  const originalKey = type === 'bookmark' ? 'itemEditor.siteLogo' : 'itemEditor.originalIcon';
+  const originalKey = type === 'bookmark' ? 'itemEditor.siteLogo' : 'itemEditor.noSymbol';
   const originalIcon = value => renderOriginalIcon ? renderOriginalIcon(value)
     : type === 'bookmark' ? createThemedAssetIcon('bookmark')
-      : type === 'folder' ? createFolderSvg() : createRecycleBinSvg();
+      : createCatalogIcon('ui-close');
   let originalArtwork;
   function createChoice(iconId, suggested = false) {
     const key = iconId ? `itemEditor.icons.${iconId}` : originalKey;
@@ -163,7 +163,7 @@ export function createIconPicker({ type, getValue, renderOriginalIcon, onSelect,
     const value = getValue();
     const iconId = normalizeCatalogIconId(value.iconId);
     const iconVisible = type === 'bookmark' ? Boolean(value.backgroundFavicon || (value.showFavicon ?? true))
-      : type === 'folder' ? value.showFolder !== false : value.showIcon !== false;
+      : value.showFolder !== false;
     currentIcon.hidden = !iconVisible;
     const originalSignature = JSON.stringify([value.url, value.name]);
     // Request the Logo only when its current thumbnail or its choice is visible.

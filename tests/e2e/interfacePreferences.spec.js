@@ -112,7 +112,7 @@ test('folder captions preserve saved colors with readable badges across themes a
   await expect(grid).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await page.locator('#folder-modal-edit-toggle').click();
   await expect(grid).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
-  await expect(page.locator('#folder-modal-empty')).toHaveCSS('color', 'rgb(36, 36, 40)');
+  await expect(page.locator('#folder-modal-empty')).toHaveCount(0);
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
     const { getState, setState } = await import('/src/state/appStore.js');

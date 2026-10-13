@@ -4,7 +4,7 @@ export const RECYCLE_BIN_ID = 'newdesktab-recycle-bin';
 
 /** Default appearance for the recycle-bin card. */
 export const DEFAULT_RECYCLE_BIN_STYLE = Object.freeze({
-  iconId: null,
+  animateIcon: true,
   noBackground: true,
   backgroundColor: null,
   backgroundImageUrl: null,
@@ -13,9 +13,7 @@ export const DEFAULT_RECYCLE_BIN_STYLE = Object.freeze({
   backgroundImageUrlLocked: false,
   iconColor: '#475569',
   textColor: null,
-  showIcon: true,
-  showName: true,
-  showCount: false
+  showName: true
 });
 
 /** The recycle bin is a first-class grid item, visible only in Main. */

@@ -28,8 +28,7 @@ export function getIconRecommendations(value = {}, type = 'bookmark') {
   try { site = new URL(value.url).hostname; } catch { /* Name-only sections are supported. */ }
   const text = normalizeIconSearch(`${value.name ?? ''} ${site}`);
   const defaults = type === 'folder' ? ['ui-folders', 'projects', 'star', 'ui-learning']
-    : type === 'recycleBin' ? ['ui-trash', 'ui-backup', 'ui-history', 'ui-protect']
-      : ['mail', 'docs', 'ui-bookmark', 'star'];
+    : ['mail', 'docs', 'ui-bookmark', 'star'];
   const suggested = cases.filter(([match]) => match.test(text)).flatMap(([, icons]) => icons);
   return [...new Set([...suggested, ...defaults])].filter(normalizeCatalogIconId).slice(0, 4);
 }

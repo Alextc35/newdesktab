@@ -19,8 +19,7 @@ test('the shared catalog is translated and suggests appropriate icons without re
     [{ url: 'https://github.com/team/project' }, 'bookmark', 'code'],
     [{ url: 'https://www.youtube.com/watch?v=123' }, 'bookmark', 'video'],
     [{ name: 'Compras' }, 'folder', 'cart'],
-    [{ name: 'Figuras geométricas' }, 'folder', 'circle'],
-    [{}, 'recycleBin', 'ui-trash']
+    [{ name: 'Figuras geométricas' }, 'folder', 'circle']
   ]) {
     const recommendations = getIconRecommendations(value, type);
     assert.equal(recommendations[0], expected);
@@ -33,12 +32,12 @@ test('the shared catalog is translated and suggests appropriate icons without re
 test('category selection accepts bundled IDs and preserves original artwork for legacy or invalid data', () => {
   for (const { id } of ICON_CATALOG) {
     assert.equal(normalizeCatalogIconId(id), id);
-    for (const normalize of [normalizeBookmarkPreset, normalizeFolderStyle, normalizeRecycleBinStyle]) {
+    for (const normalize of [normalizeBookmarkPreset, normalizeFolderStyle]) {
       assert.equal(normalize({ iconId: id }).iconId, id);
     }
   }
   for (const iconId of [undefined, null, '', 'unknown', '../icon.svg', '<svg onload="alert(1)">', {}, 1]) {
-    for (const normalize of [normalizeBookmarkPreset, normalizeFolderStyle, normalizeRecycleBinStyle]) {
+    for (const normalize of [normalizeBookmarkPreset, normalizeFolderStyle]) {
       assert.equal(normalize({ iconId }).iconId, null);
     }
   }
@@ -47,10 +46,12 @@ test('category selection accepts bundled IDs and preserves original artwork for 
 test('category icons round-trip through complete backups, bookmark exports, presets and trash', () => {
   const data = createDefaultPersistedData();
   const bookmark = normalizeBookmark({ name: 'Music', url: 'https://music.example', iconId: 'music' });
-  const folder = { ...normalizeFolderStyle({ iconId: 'projects' }), id: 'sections', name: 'Sections', groupId: null, gx: 3, gy: 0, w: 1, h: 1 };
+  const folder = { ...normalizeFolderStyle({ iconId: 'projects', iconColor: '#FFAA00' }), id: 'sections', name: 'Sections', groupId: null, gx: 3, gy: 0, w: 1, h: 1 };
   data.bookmarks = [bookmark];
   data.folders = [folder];
-  data.recycleBin.iconId = 'tasks';
+  data.recycleBin.iconId = 'music';
+  data.recycleBin.showIcon = false;
+  data.recycleBin.animateIcon = false;
   data.settings.bookmarkDefault.iconId = 'mail';
   data.settings.bookmarkPresets = [{ id: 'preset', name: 'Reading', style: normalizeBookmarkPreset({ iconId: 'notes' }) }];
   data.trash = [
@@ -60,13 +61,27 @@ test('category icons round-trip through complete backups, bookmark exports, pres
   const restored = parseBackupPayload(createBackupEnvelope(data), createDefaultPersistedData());
   assert.equal(restored.bookmarks[0].iconId, 'music');
   assert.equal(restored.folders[0].iconId, 'projects');
-  assert.equal(restored.recycleBin.iconId, 'tasks');
+  assert.equal(Object.hasOwn(restored.recycleBin, 'iconId'), false);
+  assert.equal(Object.hasOwn(restored.recycleBin, 'showIcon'), false);
+  assert.equal(restored.recycleBin.animateIcon, false);
+  assert.equal(restored.folders[0].iconColor, '#ffaa00');
   assert.equal(restored.settings.bookmarkDefault.iconId, 'mail');
   assert.equal(restored.settings.bookmarkPresets[0].style.iconId, 'notes');
   const local = migratePersistedData(data);
   assert.equal(local.trash[0].bookmark.iconId, 'music');
   assert.equal(local.trash[1].folder.iconId, 'projects');
+  assert.equal(local.trash[1].folder.iconColor, '#ffaa00');
   const imported = parseBookmarksPayload(createBookmarksEnvelope(data.bookmarks, data.folders));
   assert.equal(imported.bookmarks[0].iconId, 'music');
   assert.equal(imported.folders[0].iconId, 'projects');
+  assert.equal(imported.folders[0].iconColor, '#ffaa00');
+});
+
+test('legacy item counts are ignored and custom folder symbol colors are validated', () => {
+  for (const normalize of [normalizeFolderStyle, normalizeRecycleBinStyle]) {
+    for (const showCount of [true, false]) assert.equal(Object.hasOwn(normalize({ showCount }), 'showCount'), false);
+  }
+  for (const iconColor of [undefined, null, 'red', '#fff', '<svg>', {}]) {
+    assert.equal(normalizeFolderStyle({ iconColor }).iconColor, null);
+  }
 });

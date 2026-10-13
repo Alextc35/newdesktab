@@ -201,7 +201,6 @@ export function buildManualDemo(topic, v, t, variant = 'none', dataLocale = null
       edit(3800);
       v.move(v.a, [[0, 0, 0], [4200, 0, 0], [6600, 112, 0, .6], [12000, 112, 0, .6]]);
       v.show(v.a, 0, 6800);
-      v.show(v.folderCount, 7000);
       const panel = v.panel(t('onboarding.demo.work'), 205, 54, 340);
       const folderGrid = demoElement('div', 'manual-demo-folder-grid');
       for (let i = 0; i < 18; i++) folderGrid.append(demoElement('span', 'manual-demo-cell'));

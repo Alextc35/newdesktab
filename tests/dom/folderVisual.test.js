@@ -103,8 +103,7 @@ describe('folder visual', () => {
     const visual = createFolderVisual({
       outerBackgroundColor: '#123456',
       showFolder: false,
-      showName: false,
-      showCount: false
+      showName: false
     });
     expect(visual.style.getPropertyValue('--folder-outer-color')).toBe('#123456');
 
@@ -113,8 +112,26 @@ describe('folder visual', () => {
     expect(visual.style.getPropertyValue('--folder-outer-color')).toBe('');
     for (const className of [
       'has-folder-outer-color', 'is-folder-hidden', 'is-folder-preview-hidden',
-      'is-folder-name-hidden', 'is-folder-count-hidden'
+      'is-folder-name-hidden'
     ]) expect(visual.classList.contains(className)).toBe(false);
+  });
+
+  test.each([false, true])('keeps custom symbols inside the folder face in compact=%s', compact => {
+    const visual = createFolderVisual({ iconId: 'ideas', iconColor: '#ffaa00', showPreviews: true }, bookmarks(5), { compact });
+    expect(visual.querySelector('.folder-tab')).not.toBeNull();
+    expect(visual.querySelector('.folder-svg-body')).not.toBeNull();
+    expect(visual.querySelector('.folder-body .folder-category-icon [data-icon-id="ideas"]')).not.toBeNull();
+    expect(visual.querySelector('.folder-previews')).toBeNull();
+    expect(visual.querySelector('.folder-preview-compact-more')).toBeNull();
+    expect(visual.style.getPropertyValue('--folder-category-custom-color')).toBe('#ffaa00');
+  });
+
+  test('automatic contrast and symbol color reset do not change the folder fill', () => {
+    const visual = createFolderVisual({ backgroundColor: '#ffffff', iconId: 'mail', iconColor: '#ffaa00' });
+    applyFolderAppearance(visual, { backgroundColor: '#ffffff', iconId: 'mail' });
+    expect(visual.style.getPropertyValue('--folder-color')).toBe('#ffffff');
+    expect(visual.style.getPropertyValue('--folder-category-color')).toBe('#242428');
+    expect(visual.style.getPropertyValue('--folder-category-custom-color')).toBe('');
   });
 });
 

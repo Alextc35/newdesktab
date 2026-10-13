@@ -1,7 +1,7 @@
 # UI performance — release 1.0.0
 
-Measured on 13 October 2026, comparing commit `5e5e134` with the working-tree
-optimizations prepared for the 1.0.0 release.
+Measured on 13 October 2026, comparing commit `5e5e134` with the optimizations
+subsequently committed as `9ef0dcc` for the 1.0.0 release.
 
 ## Method
 
@@ -69,7 +69,7 @@ settings, editing and dragging, then inspect `NewDeskTabDebug.history()` and
 includes preparation, persistence and grid-render timings. Disable debug after
 capturing the comparison to measure everyday operation without live logging.
 
-## Validation of this candidate
+## Validation of the performance change
 
 - ESLint, 278 unit tests and 72 DOM tests pass.
 - All 303 E2E scenarios pass in the complete suite, without retries or skips.
@@ -79,5 +79,6 @@ capturing the comparison to measure everyday operation without live logging.
   installed-extension smoke test in Chromium, Google Chrome and Brave.
 - Dependency audit reports zero vulnerabilities.
 
-These optimizations are prepared as uncommitted changes after `5e5e134`.
-The final commit needs a fresh GitHub Actions run before Store submission.
+These checks preceded commit `9ef0dcc`. Subsequent UI changes have separate
+validation reports in `dist/release-audit/`; the measurements above remain the
+historical performance comparison.

@@ -16,16 +16,14 @@ describe('recycle bin appearance', () => {
       iconColor: '#f59e0b',
       textColor: '#ffffff',
       showIcon: false,
-      showName: false,
-      showCount: true
+      showName: false
     });
 
     expect(card.classList.contains('has-recycle-bin-background')).toBe(true);
     expect(card.classList.contains('has-recycle-bin-bg-image')).toBe(true);
     expect(card.classList.contains('is-recycle-bin-transparent')).toBe(true);
-    expect(card.classList.contains('is-recycle-bin-icon-hidden')).toBe(true);
+    expect(card.classList.contains('is-recycle-bin-icon-hidden')).toBe(false);
     expect(card.classList.contains('is-recycle-bin-name-hidden')).toBe(true);
-    expect(card.classList.contains('is-recycle-bin-count-hidden')).toBe(false);
     expect(card.style.getPropertyValue('--recycle-bin-background')).toBe('#6d28d9');
     expect(card.style.getPropertyValue('--recycle-bin-bg-image')).toContain(
       'https://images.test/bin.png'

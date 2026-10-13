@@ -21,9 +21,10 @@
   }
 }
 
-/* Center the content in both modes and keep a free corner for the edit button. */
+/* Reserve the same corner for edit/delete controls in both viewing modes. */
 #bookmark-container:not(.is-list-view) > .bookmark:not(.bookmark-folder) {
-  --bookmark-action-size: clamp(14px, calc(25cqh - 1px), 20px);
+  --bookmark-action-size: min(clamp(14px, calc(25cqh - 1px), 20px), max(8px, calc((100cqw - 4px) / 2)));
+  --bookmark-action-width: calc(2 * var(--bookmark-action-size) + 2px);
 
   & .bookmark-title {
     font-size: 12px;
@@ -68,10 +69,10 @@
 
   & > .bookmark-link {
     --bookmark-caption-space: 0px;
-    /* Allow the icon beside OR below the corner button, with a 1px gap.
+    /* Allow the icon beside OR below the corner controls, with a 1px gap.
        Container units exclude the card's 5px padding on each side. */
     --bookmark-icon-room: max(
-      100cqw + 10px - 2 * (11px + var(--bookmark-action-size)),
+      100cqw + 10px - 2 * (11px + var(--bookmark-action-width)),
       100cqh + 10px - 2 * (7px + var(--bookmark-action-size)) - var(--bookmark-caption-space)
     );
     padding: 0;
@@ -86,16 +87,24 @@
   }
 }
 
-/* Mirror the bookmark's icon-and-title block for folders and the recycle bin.
-   Their optional count sits below the title without recentering either row. */
-#bookmark-container:not(.is-list-view) > :is(
-  .bookmark-folder:not(.is-folder-hidden):not(.is-folder-name-hidden),
-  .recycle-bin:not(.is-recycle-bin-icon-hidden):not(.is-recycle-bin-name-hidden)
+/* Share the icon-and-title layout between the grid and appearance previews. */
+:is(
+  #bookmark-container:not(.is-list-view) > .bookmark-folder:not(.is-folder-hidden),
+  #bookmark-container:not(.is-list-view) > .recycle-bin,
+  .folder-editor-preview-card:not(.is-folder-hidden),
+  .recycle-bin-editor-preview-card
 ) {
   --aligned-card-action-size: clamp(14px, calc(25cqh - 1px), 20px);
+  --aligned-card-action-width: var(--aligned-card-action-size);
+  &:is(.bookmark-folder, .folder-editor-preview-card) {
+    --aligned-card-action-size: min(clamp(14px, calc(25cqh - 1px), 20px), max(8px, calc((100cqw - 4px) / 2)));
+    --aligned-card-action-width: calc(2 * var(--aligned-card-action-size) + 2px);
+  }
+  --aligned-card-caption-space: 17.4px;
+  --aligned-card-gap: 3px;
   --aligned-card-icon-room: max(
-    100cqw + 12px - 2 * (11px + var(--aligned-card-action-size)),
-    100cqh + 12px - 2 * (7px + var(--aligned-card-action-size)) - 17.4px
+    100cqw + 12px - 2 * (11px + var(--aligned-card-action-width)),
+    100cqh + 12px - 2 * (7px + var(--aligned-card-action-size)) - var(--aligned-card-caption-space)
   );
   /* The 1px border on these cards makes their container 2px smaller. */
   --aligned-card-icon-size: min(
@@ -107,6 +116,15 @@
   --aligned-card-title-height: 14.4px;
   --aligned-card-art-height: max(0px, calc(var(--aligned-card-icon-size) - 3px));
 
+  &:is(.is-folder-name-hidden, .is-recycle-bin-name-hidden) {
+    --aligned-card-caption-space: 0px;
+    --aligned-card-title-height: 0px;
+    --aligned-card-gap: 0px;
+    --aligned-card-art-height: var(--aligned-card-icon-size);
+
+    & :is(.folder-caption, .recycle-bin-caption) { display: none; }
+  }
+
   & :is(.folder-card-content, .recycle-bin-open) {
     display: grid;
     padding: 0;
@@ -114,7 +132,12 @@
     justify-items: center;
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: var(--aligned-card-icon-size) var(--aligned-card-title-height);
-    gap: 3px;
+    gap: var(--aligned-card-gap);
+  }
+
+  & .item-action-button {
+    width: var(--aligned-card-action-size);
+    height: var(--aligned-card-action-size);
   }
 
   & :is(.folder-visual, .recycle-bin-glyph) {
@@ -145,12 +168,6 @@
     line-height: 1.2;
   }
 
-  & :is(.folder-count, .recycle-bin-caption small) {
-    position: absolute;
-    top: calc(100% + 2px);
-    left: 0;
-    width: 100%;
-  }
 }
 
 @media (601px <= width <= 1000px) {

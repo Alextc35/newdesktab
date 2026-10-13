@@ -21,7 +21,6 @@
 .manual-demo-trash .recycle-bin-glyph { width: 29px; height: 35px; }
 .manual-demo-trash > svg { width: 29px; height: 35px; }
 .manual-demo-folder .folder-visual { width: 48px; height: 36px; }
-.manual-demo-folder-count { position: absolute; right: 15px; top: 12px; display: grid; place-items: center; width: 16px; height: 16px; border-radius: 50%; background: #247fac; font-size: 9px; opacity: 0; }
 .manual-demo-folder-grid { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: repeat(3, 44px); width: 100%; gap: 6px; }
 .manual-demo-item.is-demo-folder-content .bookmark-link { padding: 3px; }
 .manual-demo-item.is-demo-folder-content .bookmark-info { --bookmark-caption-icon-size: 18px; gap: 4px; }

@@ -10,15 +10,13 @@ test('legacy and invalid folder styles preserve the default visible appearance',
     showFolder: null,
     showPreviews: 'false',
     showName: 0,
-    showCount: undefined
   }]) {
     assert.deepEqual(normalizeFolderStyle(style), {
       ...DEFAULT_FOLDER_STYLE,
       noOuterBackground: false,
-      showCount: true
     });
   }
-  assert.equal(normalizeFolderStyle(DEFAULT_FOLDER_STYLE).showCount, false);
+  assert.equal(Object.hasOwn(normalizeFolderStyle(DEFAULT_FOLDER_STYLE), 'showCount'), false);
 });
 
 test('folder visibility controls are independent except previews require a folder graphic', () => {
@@ -28,20 +26,19 @@ test('folder visibility controls are independent except previews require a folde
     showFolder: false,
     showPreviews: true,
     showName: false,
-    showCount: false
   });
   assert.equal(hidden.isValid, true);
   assert.equal(hidden.value.outerBackgroundColor, '#abcdef');
   assert.equal(hidden.value.showFolder, false);
   assert.equal(hidden.value.showPreviews, false);
   assert.equal(hidden.value.showName, false);
-  assert.equal(hidden.value.showCount, false);
+  assert.equal(Object.hasOwn(hidden.value, 'showCount'), false);
 
   const withoutPreviews = normalizeFolderStyle({ showPreviews: false, showName: false });
   assert.equal(withoutPreviews.showFolder, true);
   assert.equal(withoutPreviews.showPreviews, false);
   assert.equal(withoutPreviews.showName, false);
-  assert.equal(withoutPreviews.showCount, true);
+  assert.equal(Object.hasOwn(withoutPreviews, 'showCount'), false);
 });
 
 test('clearing or importing an invalid outer color restores the automatic background', () => {

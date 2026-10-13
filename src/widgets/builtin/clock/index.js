@@ -7,6 +7,7 @@ export const clockWidget = Object.freeze({
   catalog: Object.freeze({
     nameKey: 'clock.name',
     descriptionKey: 'clock.description',
+    statusKey: 'clock.inDevelopment',
     icon: '◷'
   }),
   create: openCreateClock,

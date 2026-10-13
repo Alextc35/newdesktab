@@ -23,6 +23,7 @@ import {
   updateBookmarkById
 } from './bookmarkActions.js';
 import { createBookmarkEditorPanel } from './bookmarkEditorPanel.js';
+import { setEditorTitle } from '../../shared/ui/editorTitle.js';
 
 const modal = document.getElementById('edit-bookmark-modal');
 const modalTitle = modal.querySelector('h2');
@@ -170,11 +171,9 @@ function openBookmarkModal(nextMode, bookmark) {
   });
   trace.mark('Build editor');
 
-  modalTitle.textContent = t(
-    nextMode === 'add'
-      ? 'addModal.title'
-      : (nextMode === 'preset' ? 'settingsModal.bookmark.editorTitle' : 'editModal.title')
-  );
+  setEditorTitle(modalTitle, nextMode === 'add' ? 'addModal.title'
+    : (nextMode === 'preset' ? 'settingsModal.bookmark.editorTitle' : 'editModal.title'),
+  { creating: nextMode === 'add' });
   modalSave.textContent = t(
     nextMode === 'add'
       ? 'buttons.add'

@@ -88,46 +88,53 @@
 
 .recycle-bin-handle,
 .recycle-bin-lid,
-.recycle-bin-can {
-  stroke: color-mix(in srgb, var(--recycle-bin-icon-color, currentColor) 42%, #dbeafe);
+.recycle-bin-can,
+.recycle-bin-slots {
+  fill: none;
+  stroke: var(--recycle-bin-icon-color, #475569);
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .recycle-bin-handle {
   fill: none;
-  stroke-width: 4;
+  stroke-width: 5.5;
   stroke-linecap: round;
 }
 
 .recycle-bin-lid,
 .recycle-bin-can {
-  fill: color-mix(in srgb, var(--recycle-bin-icon-color, currentColor) 58%, #26364f);
-  stroke-width: 1.7;
+  stroke-width: 5.5;
 }
 
-.recycle-bin-slots,
-.recycle-bin-sheen {
-  fill: none;
-  stroke-linecap: round;
+.recycle-bin-lid-group {
+  transform-box: view-box;
+  transform-origin: 50% 18%;
+  transition: transform .18s ease;
 }
 
-.recycle-bin-slots {
-  stroke: rgba(234, 244, 255, .72);
-  stroke-width: 2.2;
+.recycle-bin-svg.is-open .recycle-bin-lid-group,
+.recycle-bin:not(.is-recycle-bin-static).is-keyboard-active .recycle-bin-lid-group,
+.recycle-bin:not(.is-recycle-bin-static).is-drop-target .recycle-bin-lid-group,
+.recycle-bin:not(.is-recycle-bin-static) .recycle-bin-open:is(:hover, :focus-visible) .recycle-bin-lid-group,
+.recycle-bin-list-item:not(.is-recycle-bin-static) .recycle-bin-list-link:is(:hover, :focus-visible) .recycle-bin-lid-group {
+  transform: translateY(-1px) rotate(-14deg);
 }
 
-.recycle-bin-sheen {
-  stroke: rgba(255, 255, 255, .3);
-  stroke-width: 1.4;
+.recycle-bin-slots { stroke-width: 4; }
+.is-recycle-bin-static .recycle-bin-lid-group { transition: none; }
+.recycle-bin.is-recycle-bin-static,
+.is-recycle-bin-static :is(.recycle-bin-glyph, .recycle-bin-drop-feedback) { transition: none; }
+.recycle-bin.is-recycle-bin-static.is-drop-target { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .recycle-bin-lid-group { transition: none; }
 }
 
 .recycle-bin-caption { display: grid; min-width: 0; gap: 1px; line-height: 1.15; text-align: center; }
 .recycle-bin-caption strong { overflow: hidden; font-size: clamp(10px, 10cqh, 14px); text-overflow: ellipsis; white-space: nowrap; }
-.recycle-bin-caption small { color: color-mix(in srgb, currentColor 68%, transparent); font-size: clamp(8px, 8cqh, 11px); }
 
-.is-recycle-bin-icon-hidden .recycle-bin-glyph,
-.is-recycle-bin-name-hidden .recycle-bin-caption strong,
-.is-recycle-bin-count-hidden .recycle-bin-caption small,
-.is-recycle-bin-name-hidden.is-recycle-bin-count-hidden .recycle-bin-caption {
+.is-recycle-bin-name-hidden .recycle-bin-caption {
   display: none;
 }
 
@@ -180,8 +187,8 @@
   border: 1px solid var(--ui-border);
 }
 
-.recycle-bin-modal-header { display: flex; padding: 20px 22px 15px; align-items: center; gap: 13px; border-bottom: 1px solid var(--ui-divider); }
-.recycle-bin-modal-header > div { min-width: 0; flex: 1; }
+.recycle-bin-modal-header { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; padding: 18px 22px; align-items: center; gap: 13px; border-bottom: 1px solid var(--ui-divider); }
+.recycle-bin-modal-heading { min-width: 0; }
 .recycle-bin-modal-header h2 { margin: 0 0 3px; }
 .recycle-bin-modal-header p { margin: 0; color: var(--ui-muted); font-size: .78rem; }
 .recycle-bin-modal-icon {
@@ -215,7 +222,21 @@
   transform: translateY(-1px);
 }
 .recycle-bin-modal-icon .recycle-bin-svg { width: auto; height: 33px; filter: drop-shadow(0 4px 6px rgba(2, 8, 23, .28)); }
-.recycle-bin-toolbar { display: flex; padding: 12px 22px; justify-content: flex-end; gap: 9px; border-bottom: 1px solid var(--ui-divider); }
+.recycle-bin-modal-icon.has-recycle-bin-background { background: var(--recycle-bin-background); }
+.recycle-bin-modal-icon.is-recycle-bin-transparent {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+.recycle-bin-modal-icon.has-recycle-bin-bg-image {
+  background-image: var(--recycle-bin-bg-image);
+  background-position: center;
+  background-size: cover;
+}
+.recycle-bin-modal-icon.is-recycle-bin-static { transition: none; }
+.recycle-bin-modal-icon.is-recycle-bin-transparent:focus-visible { outline: 1px solid var(--ui-accent); outline-offset: 2px; }
+.recycle-bin-toolbar { display: flex; justify-content: flex-end; gap: 9px; }
+.recycle-bin-toolbar .btn { white-space: nowrap; }
 .recycle-bin-list { display: grid; min-height: 0; padding: 12px 18px; flex: 1; align-content: start; gap: 8px; overflow-x: hidden; overflow-y: auto; }
 .recycle-bin-item { display: grid; min-width: 0; padding: 10px 12px; align-items: center; grid-template-columns: auto 42px minmax(0, 1fr) auto; gap: 12px; border: 1px solid var(--ui-divider); border-radius: 11px; background: light-dark(rgba(248, 250, 252, .78), rgba(255, 255, 255, .035)); cursor: pointer; }
 .recycle-bin-item:hover { border-color: color-mix(in srgb, var(--ui-accent) 45%, var(--ui-divider)); background: var(--ui-selected-bg); }
@@ -368,8 +389,8 @@
     border-radius: 12px;
   }
 
-  .recycle-bin-modal-header { padding: 16px; }
-  .recycle-bin-toolbar { padding: 10px 16px; }
+  .recycle-bin-modal-header { grid-template-columns: 48px minmax(0, 1fr); padding: 16px; }
+  .recycle-bin-toolbar { grid-column: 1 / -1; }
   .recycle-bin-toolbar .btn { flex: 1; }
   .recycle-bin-list { padding: 10px; }
   .recycle-bin-item { grid-template-columns: auto 36px minmax(0, 1fr); }

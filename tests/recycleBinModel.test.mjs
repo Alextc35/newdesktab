@@ -16,11 +16,9 @@ test('normalizes recycle bin colors and independently hidden elements', () => {
     backgroundImageUrlLocked: true,
     iconColor: '#12AB34',
     textColor: '#F8FAFC',
-    showIcon: false,
     showName: false,
-    showCount: false
   }), {
-    iconId: null,
+    animateIcon: true,
     noBackground: true,
     backgroundColor: '#aa11cc',
     backgroundImageUrl: 'https://images.test/bin.png',
@@ -29,9 +27,7 @@ test('normalizes recycle bin colors and independently hidden elements', () => {
     backgroundImageUrlLocked: true,
     iconColor: '#12ab34',
     textColor: '#f8fafc',
-    showIcon: false,
     showName: false,
-    showCount: false
   });
 });
 
@@ -40,8 +36,8 @@ test('invalid recycle bin appearance falls back without hiding content', () => {
     backgroundColor: 'purple',
     iconColor: null,
     textColor: '#123'
-  }), { ...DEFAULT_RECYCLE_BIN_STYLE, showCount: true });
-  assert.equal(normalizeRecycleBinStyle(DEFAULT_RECYCLE_BIN_STYLE).showCount, false);
+  }), { ...DEFAULT_RECYCLE_BIN_STYLE });
+  assert.equal(Object.hasOwn(normalizeRecycleBinStyle(DEFAULT_RECYCLE_BIN_STYLE), 'showCount'), false);
 });
 
 test('an older recycle bin with a custom background keeps that background', () => {

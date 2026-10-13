@@ -38,7 +38,7 @@
 #settings-manual-search::placeholder,
 #manual-search::placeholder { color: var(--ui-subtle); opacity: 1; }
 #settings-manual-search:focus,
-#manual-search:focus { border-color: var(--ui-accent); box-shadow: 0 0 0 3px var(--ui-focus-ring); }
+#manual-search:focus { border-color: var(--ui-accent); box-shadow: none; }
 #settings-manual-search { box-sizing: border-box; width: 100%; padding: 12px; border-radius: 9px; font-size: 12px; }
 .settings-help-search .help-search-status { margin: 10px 0 8px; font-size: 11px; line-height: 1.6; }
 .settings-help-results { display: grid; gap: 6px; }

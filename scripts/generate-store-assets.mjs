@@ -116,12 +116,11 @@ try {
         showFolder: true,
         showPreviews: true,
         showName: true,
-        showCount: true
       }, {
         id: 'inspiration', name: 'Inspiration', groupId: null,
         gx: 8, gy: 3, w: 2, h: 2,
         noBackground: false, backgroundColor: '#213553', textColor: '#ffffff',
-        showFolder: true, showPreviews: true, showName: true, showCount: true
+        showFolder: true, showPreviews: true, showName: true
       }],
       widgets: [{
         id: 'store-clock', type: 'clock', version: 1, groupId: null,
@@ -133,7 +132,7 @@ try {
         gx: 10, gy: 4, w: 1, h: 1,
         noBackground: false, backgroundColor: '#17273f',
         iconColor: '#94a3b8', textColor: '#ffffff',
-        showIcon: true, showName: true, showCount: false
+        showName: true
       },
       settings: {
         language: 'en',

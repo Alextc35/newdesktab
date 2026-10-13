@@ -14,6 +14,7 @@ export function normalizeBookmarkFolderName(name) {
 
 export const FOLDER_STYLE_KEYS = Object.freeze([
   'iconId',
+  'iconColor',
   'noBackground',
   'backgroundColor',
   'outerBackgroundColor',
@@ -25,8 +26,7 @@ export const FOLDER_STYLE_KEYS = Object.freeze([
   'textColor',
   'showFolder',
   'showPreviews',
-  'showName',
-  'showCount'
+  'showName'
 ]);
 
 const IMAGE_PROTOCOLS = new Set(['http:', 'https:', 'data:']);
@@ -38,6 +38,7 @@ export function normalizeFolderStyle(value = {}) {
   const showFolder = source.showFolder !== false;
   return {
     iconId: normalizeCatalogIconId(source.iconId),
+    iconColor: isHexColor(source.iconColor) ? source.iconColor.toLowerCase() : null,
     noBackground: source.noBackground === true,
     backgroundColor: isHexColor(source.backgroundColor)
       ? source.backgroundColor.toLowerCase()
@@ -55,8 +56,7 @@ export function normalizeFolderStyle(value = {}) {
       : DEFAULT_FOLDER_STYLE.textColor,
     showFolder,
     showPreviews: showFolder && source.showPreviews !== false,
-    showName: source.showName !== false,
-    showCount: source.showCount !== false
+    showName: source.showName !== false
   };
 }
 

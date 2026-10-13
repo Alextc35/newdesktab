@@ -2,6 +2,7 @@ import { t } from '../../platform/i18n/i18n.js';
 import { createItemActionButton } from '../../shared/ui/itemActionButton.js';
 import { isGridItemSurfaceDark } from '../grid/gridItemAppearance.js';
 import { openFolderEditor } from './folderEditorModal.js';
+import { confirmItemRecycle } from '../grid/gridItemRemoval.js';
 
 export function addFolderActions(container, folder) {
   const themeClass = isFolderActionSurfaceDark(folder) ? 'is-dark' : 'is-light';
@@ -18,7 +19,11 @@ export function addFolderActions(container, folder) {
   );
   editButton.setAttribute('aria-label', t('folder.actions.customize'));
 
-  actions.append(editButton);
+  const deleteButton = createItemActionButton('', 'delete', themeClass, () => {
+    void confirmItemRecycle('folder', folder.id);
+  });
+  deleteButton.setAttribute('aria-label', t('folder.actions.delete'));
+  actions.append(editButton, deleteButton);
   container.append(actions);
 }
 

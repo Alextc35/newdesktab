@@ -12,6 +12,16 @@ describe('shared NewDeskTab SVG icons', () => {
     expect(createRecycleBinSvg().getAttribute('viewBox')).toBe('0 0 92 108');
   });
 
+  test('open and closed bins share the exact same body, lid and slots', () => {
+    const closed = createRecycleBinSvg();
+    const open = createRecycleBinSvg({ open: true });
+    expect(closed.classList.contains('is-open')).toBe(false);
+    expect(open.classList.contains('is-open')).toBe(true);
+    for (const selector of ['.recycle-bin-can', '.recycle-bin-lid-group', '.recycle-bin-slots']) {
+      expect(open.querySelector(selector).outerHTML).toBe(closed.querySelector(selector).outerHTML);
+    }
+  });
+
   test('fills the complete folder silhouette with a unique image pattern', () => {
     const first = createFolderSvg('data:image/png;base64,AA==');
     const second = createFolderSvg('https://images.test/folder.png');

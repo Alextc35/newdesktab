@@ -27,7 +27,7 @@ import {
 import { createBookmarkListIcon } from '../bookmarks/bookmarkListItem.js';
 import { createFolderVisual } from '../folders/folderVisual.js';
 import { openRecycleBinEditor } from './recycleBinEditorModal.js';
-import { createCatalogIcon } from '../../shared/ui/catalogIcon.js';
+import { applyRecycleBinAppearance } from './recycleBinAppearance.js';
 
 const selectedIds = new Set();
 let modal;
@@ -43,7 +43,7 @@ let deleteSelectedButton;
 export function initRecycleBinModal() {
   modal = document.getElementById('recycle-bin-modal');
   const customizeButton = document.getElementById('recycle-bin-modal-customize');
-  customizeButton.replaceChildren(createRecycleBinSvg(), createEditIndicatorSvg());
+  customizeButton.replaceChildren(createRecycleBinSvg({ open: true }), createEditIndicatorSvg());
   list = document.getElementById('recycle-bin-list');
   empty = document.getElementById('recycle-bin-empty');
   summary = document.getElementById('recycle-bin-summary');
@@ -92,8 +92,8 @@ function closeRecycleBin() {
 function renderRecycleBin() {
   const { trash, recycleBin } = getState().data;
   const customizeButton = document.getElementById('recycle-bin-modal-customize');
-  customizeButton.style.setProperty('--recycle-bin-icon-color', recycleBin.iconColor);
-  customizeButton.replaceChildren(createCatalogIcon(recycleBin.iconId) || createRecycleBinSvg(), createEditIndicatorSvg());
+  applyRecycleBinAppearance(customizeButton, recycleBin);
+  customizeButton.replaceChildren(createRecycleBinSvg({ open: true }), createEditIndicatorSvg());
   const availableIds = new Set(trash.map(entry => entry.id));
   for (const id of selectedIds) {
     if (!availableIds.has(id)) selectedIds.delete(id);
@@ -147,7 +147,7 @@ function createTrashRow(entry) {
   title.textContent = entryName(entry);
   const detail = document.createElement('small');
   detail.textContent = entry.type === 'folder'
-    ? t('recycleBin.folderDetail', { count: entry.bookmarks.length })
+    ? `${formatDeletedAt(entry.deletedAt)} · ${t('recycleBin.folderContents', { count: entry.bookmarks.length })}`
     : formatDeletedAt(entry.deletedAt);
   copy.append(title, detail);
 

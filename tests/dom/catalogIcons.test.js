@@ -30,10 +30,12 @@ test('selected categories render consistently without requesting favicons, inclu
     }
     const folder = createFolderVisual({ iconId: 'projects' }, [bookmark]);
     expect(folder.querySelector('[data-icon-id="projects"]')).not.toBeNull();
+    expect(folder.querySelector('.folder-body .folder-category-icon [data-icon-id="projects"]')).not.toBeNull();
+    expect(folder.querySelector('.folder-tab')).not.toBeNull();
     expect(folder.querySelector('.folder-previews')).toBeNull();
-    const bin = createRecycleBinGlyph({ iconId: 'tasks' });
-    expect(bin.querySelector('[data-icon-id="tasks"]')).not.toBeNull();
-    expect(bin.querySelector('.recycle-bin-svg')).toBeNull();
+    const bin = createRecycleBinGlyph({ iconId: 'music', showIcon: false });
+    expect(bin.querySelector('[data-icon-id]')).toBeNull();
+    expect(bin.querySelector('.recycle-bin-svg')).not.toBeNull();
     expect(fetchSpy).not.toHaveBeenCalled();
   } finally {
     vi.unstubAllGlobals();
@@ -45,4 +47,5 @@ test('original folder and recycle-bin artwork remains available for unknown or c
     expect(createFolderVisual({ iconId }).querySelector('.folder-tab')).not.toBeNull();
     expect(createRecycleBinGlyph({ iconId }).querySelector('.recycle-bin-can')).not.toBeNull();
   }
+  expect(createRecycleBinGlyph({ iconId: 'music' }).querySelector('.recycle-bin-can')).not.toBeNull();
 });

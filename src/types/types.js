@@ -76,7 +76,7 @@
  * @property {boolean} showFolder
  * @property {boolean} showPreviews Always false when showFolder is false.
  * @property {boolean} showName
- * @property {boolean} showCount
+ * @property {string|null} iconColor Null selects a contrasting symbol color.
  * @property {number} createdAt
  * @property {number} updatedAt
  */
@@ -138,7 +138,7 @@
 
 /**
  * @typedef {Object} RecycleBin
- * @property {string|null} iconId Bundled category icon; null uses recycle-bin artwork.
+ * @property {boolean} animateIcon Whether interaction animates the bin lid.
  * @property {string} id
  * @property {number} gx
  * @property {number} gy
@@ -152,9 +152,7 @@
  * @property {boolean} backgroundImageUrlLocked
  * @property {string} iconColor
  * @property {string|null} textColor
- * @property {boolean} showIcon
  * @property {boolean} showName
- * @property {boolean} showCount
  * @property {null} groupId
  * @property {number} updatedAt
  */

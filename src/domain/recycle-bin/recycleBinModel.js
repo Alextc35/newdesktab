@@ -1,9 +1,8 @@
 import { DEFAULT_RECYCLE_BIN_STYLE } from './recycleBinDefaults.js';
 import { normalizeBackgroundImage } from '../../shared/images/backgroundImage.js';
-import { normalizeCatalogIconId } from '../../shared/icons/iconCatalog.js';
 
 export const RECYCLE_BIN_STYLE_KEYS = Object.freeze([
-  'iconId',
+  'animateIcon',
   'noBackground',
   'backgroundColor',
   'backgroundImageUrl',
@@ -12,9 +11,7 @@ export const RECYCLE_BIN_STYLE_KEYS = Object.freeze([
   'backgroundImageUrlLocked',
   'iconColor',
   'textColor',
-  'showIcon',
-  'showName',
-  'showCount'
+  'showName'
 ]);
 
 const IMAGE_PROTOCOLS = new Set(['http:', 'https:', 'data:']);
@@ -26,7 +23,7 @@ export function normalizeRecycleBinStyle(value = {}) {
   const backgroundColor = normalizeOptionalColor(source.backgroundColor);
   const hasLegacyBackground = Boolean(backgroundColor || image.backgroundImageUrl || image.backgroundImageLocal);
   return {
-    iconId: normalizeCatalogIconId(source.iconId),
+    animateIcon: source.animateIcon !== false,
     noBackground: source.noBackground === undefined
       ? DEFAULT_RECYCLE_BIN_STYLE.noBackground && !hasLegacyBackground
       : source.noBackground === true,
@@ -38,9 +35,7 @@ export function normalizeRecycleBinStyle(value = {}) {
       ? source.iconColor.toLowerCase()
       : DEFAULT_RECYCLE_BIN_STYLE.iconColor,
     textColor: normalizeOptionalColor(source.textColor),
-    showIcon: source.showIcon !== false,
-    showName: source.showName !== false,
-    showCount: source.showCount !== false
+    showName: source.showName !== false
   };
 }
 

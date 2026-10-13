@@ -20,6 +20,7 @@ import {
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { closeModal, isModalActive, openModal, registerModal } from '../../shared/ui/modalManager.js';
 import { createEditorHistory } from '../../shared/ui/editorHistory.js';
+import { setEditorTitle } from '../../shared/ui/editorTitle.js';
 import { refreshCustomColorPickers } from '../../shared/ui/colorPicker.js';
 import { initTabs } from '../../shared/ui/tabs.js';
 import { createItemAppearanceEditor } from '../item-editor/itemAppearanceEditor.js';
@@ -29,6 +30,7 @@ import { createFolderVisual } from './folderVisual.js';
 
 let initialized = false;
 let iconId = null;
+let iconColor = null;
 /** @type {'create'|'edit'|null} */
 let mode = null;
 let activeFolderId = null;
@@ -46,7 +48,7 @@ let outerBackgroundColor = null;
 let showFolderInput;
 let showPreviewsInput;
 let showNameInput;
-let showCountInput;
+let iconColorInput;
 let imageInput;
 let imageSourceField;
 let imageSourceSelect;
@@ -84,7 +86,7 @@ export function initFolderEditorModal() {
   showFolderInput = document.getElementById('folder-editor-show-folder');
   showPreviewsInput = document.getElementById('folder-editor-show-previews');
   showNameInput = document.getElementById('folder-editor-show-name');
-  showCountInput = document.getElementById('folder-editor-show-count');
+  iconColorInput = document.getElementById('folder-editor-symbol-color');
   imageInput = document.getElementById('folder-editor-image');
   imageSourceField = document.getElementById('folder-editor-image-source-field');
   imageSourceSelect = document.getElementById('folder-editor-image-source');
@@ -131,9 +133,13 @@ export function initFolderEditorModal() {
     colorInput.value = localColorInput.value;
     handleInput();
   });
+  iconColorInput.addEventListener('input', () => {
+    iconColor = iconColorInput.value;
+    handleInput();
+  });
   for (const input of [
     noBackgroundInput, noOuterBackgroundInput,
-    showFolderInput, showPreviewsInput, showNameInput, showCountInput
+    showFolderInput, showPreviewsInput, showNameInput
   ]) {
     input.addEventListener('change', handleInput);
   }
@@ -196,7 +202,7 @@ export function openCreateFolder() {
   activeFolderId = null;
   initialValue = editableFolderValue({ ...DEFAULT_FOLDER_STYLE, name: '' });
   populateForm(initialValue);
-  modalTitle.textContent = t('folder.editor.createTitle');
+  setEditorTitle(modalTitle, 'folder.editor.createTitle', { creating: true });
   saveButton.textContent = t('buttons.add');
   setCreateCompactMode(true);
   prepareEditor();
@@ -217,7 +223,7 @@ export function openFolderEditor(folderId) {
   activeFolderId = folderId;
   initialValue = editableFolderValue(folder);
   populateForm(initialValue);
-  modalTitle.textContent = t('folder.editor.title');
+  setEditorTitle(modalTitle, 'folder.editor.title');
   saveButton.textContent = t('buttons.save');
   setCreateCompactMode(false);
   prepareEditor();
@@ -231,6 +237,7 @@ export function openFolderEditor(folderId) {
 
 function populateForm(value) {
   iconId = value.iconId ?? null;
+  iconColor = value.iconColor ?? null;
   nameInput.maxLength = BOOKMARK_FOLDER_NAME_MAX_LENGTH;
   nameInput.value = value.name;
   noBackgroundInput.checked = value.noBackground;
@@ -242,7 +249,6 @@ function populateForm(value) {
   showFolderInput.checked = value.showFolder;
   showPreviewsInput.checked = value.showPreviews;
   showNameInput.checked = value.showName;
-  showCountInput.checked = value.showCount;
   imageSourceSelect.value = value.backgroundImageSource;
   setImageInputValue(imageInput, value.backgroundImageUrl);
   setImageInputValue(localImageInput, value.backgroundImageLocal);
@@ -275,6 +281,7 @@ function handleInput() {
 function currentValue() {
   return {
     iconId,
+    iconColor,
     name: nameInput.value,
     noBackground: noBackgroundInput.checked,
     noOuterBackground: noOuterBackgroundInput.checked,
@@ -283,7 +290,6 @@ function currentValue() {
     showFolder: showFolderInput.checked,
     showPreviews: showFolderInput.checked && showPreviewsInput.checked,
     showName: showNameInput.checked,
-    showCount: showCountInput.checked,
     backgroundImageUrl: getImageInputValue(imageInput) || null,
     backgroundImageLocal: getImageInputValue(localImageInput) || null,
     backgroundImageSource: imageSourceSelect.value,
@@ -302,6 +308,7 @@ function isDirty() {
   const current = currentValue();
   return current.name !== initialValue.name
     || current.iconId !== initialValue.iconId
+    || current.iconColor !== initialValue.iconColor
     || current.noBackground !== initialValue.noBackground
     || current.noOuterBackground !== initialValue.noOuterBackground
     || current.backgroundColor !== initialValue.backgroundColor
@@ -309,7 +316,6 @@ function isDirty() {
     || current.showFolder !== initialValue.showFolder
     || current.showPreviews !== initialValue.showPreviews
     || current.showName !== initialValue.showName
-    || current.showCount !== initialValue.showCount
     || current.backgroundImageUrl !== initialValue.backgroundImageUrl
     || current.backgroundImageLocal !== initialValue.backgroundImageLocal
     || current.backgroundImageSource !== initialValue.backgroundImageSource
@@ -324,13 +330,17 @@ function syncStyleControls() {
   imageSourceField.classList.toggle('is-hidden', !hasLocalImage);
   imageUrlField.classList.toggle('is-hidden', hasLocalImage && activeSource === 'local');
   localImageField.classList.toggle('is-hidden', !hasLocalImage || activeSource === 'url');
-  colorInput.disabled = noBackgroundInput.checked && !iconId;
+  colorInput.disabled = noBackgroundInput.checked;
   localColorInput.disabled = noBackgroundInput.checked || activeSource !== 'local';
   if (!showFolderInput.checked) showPreviewsInput.checked = false;
   showPreviewsInput.disabled = !showFolderInput.checked || Boolean(iconId);
+  showPreviewsInput.closest('.checkbox-wrapper').hidden = Boolean(iconId);
   outerColorResetButton.disabled = outerBackgroundColor === null;
   outerColorInput.disabled = noOuterBackgroundInput.checked;
-  textColorInput.disabled = !showNameInput.checked && !showCountInput.checked;
+  textColorInput.disabled = !showNameInput.checked;
+  iconColorInput.closest('.folder-symbol-color').hidden = !iconId;
+  iconColorInput.disabled = !iconId || !showFolderInput.checked;
+  iconColorInput.value = iconColor || '#f8fafc';
   appearanceEditor?.sync();
 }
 
@@ -378,10 +388,7 @@ function createFolderPreviewCard(folder) {
   const title = document.createElement('span');
   title.className = 'folder-title';
   title.textContent = name;
-  const saved = document.createElement('span');
-  saved.className = 'folder-count';
-  saved.textContent = t('folder.count', { count });
-  caption.append(title, saved);
+  caption.append(title);
   content.append(caption);
   card.append(content);
   return card;

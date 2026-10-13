@@ -1,7 +1,6 @@
 import { resolveBackgroundImage } from '../../platform/images/localImages.js';
 import { createRecycleBinSvg } from '../../shared/ui/svgIcons.js';
 import { captionBackground } from '../../shared/ui/surfaceContrast.js';
-import { createCatalogIcon } from '../../shared/ui/catalogIcon.js';
 
 /** Applies persisted recycle-bin colors and element visibility. */
 export function applyRecycleBinAppearance(element, recycleBin = {}) {
@@ -13,9 +12,8 @@ export function applyRecycleBinAppearance(element, recycleBin = {}) {
   element.classList.toggle('has-recycle-bin-background', Boolean(backgroundColor));
   element.classList.toggle('is-recycle-bin-transparent', noBackground);
   element.classList.toggle('has-recycle-bin-bg-image', Boolean(backgroundImage));
-  element.classList.toggle('is-recycle-bin-icon-hidden', recycleBin.showIcon === false);
   element.classList.toggle('is-recycle-bin-name-hidden', recycleBin.showName === false);
-  element.classList.toggle('is-recycle-bin-count-hidden', recycleBin.showCount === false);
+  element.classList.toggle('is-recycle-bin-static', recycleBin.animateIcon === false);
 
   setOptionalProperty(element, '--recycle-bin-background', backgroundColor);
   setOptionalProperty(
@@ -29,13 +27,11 @@ export function applyRecycleBinAppearance(element, recycleBin = {}) {
 }
 
 /** Creates the glyph shared by grid, list and editor views. */
-export function createRecycleBinGlyph(recycleBin = {}) {
+export function createRecycleBinGlyph() {
   const glyph = document.createElement('span');
   glyph.className = 'recycle-bin-glyph';
   glyph.setAttribute('aria-hidden', 'true');
-  const customIcon = createCatalogIcon(recycleBin.iconId);
-  glyph.classList.toggle('has-catalog-icon', Boolean(customIcon));
-  glyph.append(customIcon || createRecycleBinSvg());
+  glyph.append(createRecycleBinSvg());
   return glyph;
 }
 

@@ -109,7 +109,7 @@ test('orders recycle bin, widgets, folders and bookmarks by grid position in lis
   await expect(recycleBinRow).toHaveClass(/is-recycle-bin-name-hidden/);
   await expect(recycleBinRow).toHaveCSS('color', 'rgb(0, 255, 0)');
   await expect(recycleBinRow.locator('.bookmark-list-name')).toBeHidden();
-  await expect(recycleBinRow.locator('.bookmark-list-detail')).toBeVisible();
+  await expect(recycleBinRow.locator('.bookmark-list-detail')).toHaveCount(0);
   await expect(recycleBinRow.locator('.recycle-bin-list-icon'))
     .toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await expect(recycleBinRow.locator('.recycle-bin-list-icon')).toHaveCSS('box-shadow', 'none');
@@ -420,7 +420,6 @@ test('folder artwork scales continuously without typography or thumbnail shape j
       id: card.dataset.folderId,
       art: { width: art.width, height: art.height, top: art.top - origin.top, captionTop: caption.top - origin.top },
       font: getComputedStyle(card.querySelector('.folder-title')).fontSize,
-      countFont: getComputedStyle(card.querySelector('.folder-count')).fontSize,
       count: icons.length,
       iconCorner: getComputedStyle(icons[0]).borderRadius
     };
@@ -435,7 +434,6 @@ test('folder artwork scales continuously without typography or thumbnail shape j
       expect(folder.count).toBe(folder.id === 'compact-folder' || width > 1000 ? 3 : 1);
       if (!previous) continue;
       expect(folder.font).toBe(previous[index].font);
-      expect(folder.countFont).toBe(previous[index].countFont);
       expect(folder.iconCorner).toBe(previous[index].iconCorner);
       for (const key of Object.keys(folder.art)) {
         expect(Math.abs(folder.art[key] - previous[index].art[key]), `${folder.id}: ${key} at ${width}px`).toBeLessThan(2);
@@ -595,7 +593,7 @@ test('folders also use readable lists and cannot enter editing in compact view',
   expect(await data(page)).toEqual(original);
 });
 
-test('empty folders show a compact list placeholder without a scrollbar', async ({ page }) => {
+test('empty folders show no redundant message in compact or grid layouts', async ({ page }) => {
   await start(page, 430);
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
@@ -612,17 +610,14 @@ test('empty folders show a compact list placeholder without a scrollbar', async 
   const shell = page.locator('#folder-modal .folder-grid-shell');
   await expect(card).toHaveClass(/is-empty-list/);
   await expect(page.locator('#folder-modal-items')).toBeHidden();
-  await expect(page.locator('#folder-modal-empty')).toBeVisible();
-  await expect(page.locator('#folder-modal-empty')).toHaveText('This folder is empty.');
+  await expect(page.locator('#folder-modal-empty')).toHaveCount(0);
   expect(await shell.evaluate(element => getComputedStyle(element).overflowY)).toBe('hidden');
   expect(await shell.evaluate(element => element.scrollHeight <= element.clientHeight)).toBe(true);
 
   await page.setViewportSize({ width: 1280, height: 720 });
   await expect(card).not.toHaveClass(/is-empty-list/);
   await expect(page.locator('#folder-modal-items')).toBeVisible();
-  await expect(page.locator('#folder-modal-empty')).toHaveText(
-    'This folder is empty. Drag bookmarks here from edit mode.'
-  );
+  await expect(page.locator('#folder-modal-empty')).toHaveCount(0);
 });
 
 test('compact view hides unavailable tools and blocks shortcuts through 600px', async ({ page }) => {

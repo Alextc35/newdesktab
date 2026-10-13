@@ -83,8 +83,8 @@
   "itemEditor": {
     "chooseIcon": "Choose an icon",
     "siteLogo": "Logo",
-    "originalIcon": "Original icon",
-    "folderIconHint": "Folder previews and cover images are available with the original icon.",
+    "noSymbol": "None",
+    "folderIconHint": "The symbol replaces the bookmark previews inside the folder.",
     "icons": {
       "mail": "Mail",
       "calendar": "Calendar",
@@ -174,6 +174,7 @@
     "suggestedIcon": "Suggested: {{name}}",
     "logoKeywords": "logo favicon website site brand",
     "iconKeywords": {
+      "ui-trash": "bin trash waste delete classic",
       "mail": "mail email gmail outlook inbox",
       "docs": "documents files pdf drive word",
       "notes": "notes memo notion onenote",
@@ -226,13 +227,13 @@
       },
       "folder": {
         "general": "A name to bring your bookmarks together.",
-        "text": "Show the name, the saved count, or both.",
+        "text": "Show the folder name and adjust its color.",
         "icon": "Customize the folder icon and its bookmark thumbnails."
       },
       "recycleBin": {
         "general": "Choose whether the recycle bin appears in your main workspace.",
-        "text": "Show the name, the item count, or both.",
-        "icon": "Choose whether to show the icon and give it your own color."
+        "text": "Show the recycle bin name and adjust its color.",
+        "icon": "Give the recycle bin your own color. Hide the whole bin from General."
       }
     },
     "addImage": "Add a background image",
@@ -443,7 +444,7 @@
     }
   },
   "addModal": {
-    "title": "➕ Add new bookmark",
+    "title": "Add new bookmark",
     "name": "Name:",
     "url": "URL:",
     "advancedOptions": "⚙ Advanced options",
@@ -451,6 +452,7 @@
   },
   "clock": {
     "name": "Clock",
+    "inDevelopment": "In development: the clock is not in its final version yet. We are working on improving it.",
     "createTitle": "Add clock",
     "editTitle": "Clock settings",
     "description": "Show your local time on this workspace.",
@@ -519,6 +521,7 @@
   "bookmarkActions": {
     "ariaLabel": "Bookmark controls",
     "edit": "Edit bookmark",
+    "delete": "Delete bookmark",
     "copySuffix": "copy"
   },
   "folder": {
@@ -533,8 +536,6 @@
       "disable": "Finish editing"
     },
     "gridLabel": "Folder bookmarks",
-    "empty": "This folder is empty. Drag bookmarks here from edit mode.",
-    "emptyList": "This folder is empty.",
     "dropHint": "Drop to add",
     "noSpace": "There is no free grid cell for a new folder.",
     "removeNoSpace": "There is not enough grid space to remove this bookmark from the folder.",
@@ -552,13 +553,13 @@
       "cancelRename": "Cancel folder rename"
     },
     "editor": {
-      "createTitle": "➕ Add new folder",
+      "createTitle": "Add new folder",
       "title": "Edit folder",
       "name": "Name:",
       "showFolder": "Show folder icon",
       "showPreviews": "Show bookmark previews",
       "showName": "Show folder name",
-      "showCount": "Show saved count",
+      "iconColor": "Symbol color:",
       "outerBackgroundColor": "Outer background color:",
       "noOuterBackground": "No outer background",
       "resetOuterBackground": "Automatic",
@@ -582,14 +583,12 @@
     "title": "Recycle Bin",
     "open": "Open recycle bin",
     "openCount": "Open recycle bin, {{count}} items",
-    "countOne": "1 item",
-    "count": "{{count}} items",
     "dropHint": "Drop to delete",
     "summary": "{{count}} items · Automatic deletion: {{retention}}",
     "empty": "The recycle bin is empty.",
     "selected": "{{count}} selected",
     "select": "Select {{name}}",
-    "folderDetail": "Folder · {{count}} bookmarks",
+    "folderContents": "{{count}} bookmarks",
     "deletedAt": "Deleted {{date}}",
     "expiresIn": "{{days}} days left",
     "expiresInOne": "1 day left",
@@ -600,6 +599,7 @@
     "deleteSelected": "Delete selected",
     "editor": {
       "title": "Edit recycle bin",
+      "animateIcon": "Animate recycle bin",
       "appearance": "Appearance",
       "backgroundColor": "Background color:",
       "backgroundImage": "Background image (URL):",
@@ -610,9 +610,7 @@
       "iconColor": "Icon color:",
       "textColor": "Text color:",
       "elements": "Visible elements",
-      "showIcon": "Show icon",
       "showName": "Show name",
-      "showCount": "Show item count",
       "visible": "Show recycle bin on the main grid",
       "preview": "Preview",
       "actions": "Recycle bin actions",

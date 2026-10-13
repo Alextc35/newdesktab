@@ -81,17 +81,11 @@
       </button>
       <div id="add-options" class="launcher-options" hidden>
         <button id="add-bookmark" type="button">
-          <span class="newdesktab-themed-icon" aria-hidden="true">
-            <img class="newdesktab-themed-icon-light" src="/src/assets/icons/bookmark-light.svg" alt="" draggable="false">
-            <img class="newdesktab-themed-icon-dark" src="/src/assets/icons/bookmark-dark.svg" alt="" draggable="false">
-          </span>
+          <span class="launcher-option-icon" aria-hidden="true"></span>
           <span data-i18n="launcher.bookmark">Favorito</span>
         </button>
         <button id="add-folder" type="button">
-          <span class="newdesktab-themed-icon" aria-hidden="true">
-            <img class="newdesktab-themed-icon-light" src="/src/assets/icons/folder-light.svg" alt="" draggable="false">
-            <img class="newdesktab-themed-icon-dark" src="/src/assets/icons/folder-dark.svg" alt="" draggable="false">
-          </span>
+          <span class="launcher-option-icon" aria-hidden="true"></span>
           <span data-i18n="launcher.folder">Carpeta</span>
         </button>
         <button id="add-widgets" type="button">
@@ -316,9 +310,6 @@
       <div class="folder-grid-shell">
         <div id="folder-modal-items" class="folder-modal-grid custom-scrollbar" role="list"
           aria-label="Folder bookmarks" data-i18n-aria-label="folder.gridLabel"></div>
-        <p id="folder-modal-empty" class="folder-modal-empty" data-i18n="folder.empty">
-          This folder is empty. Drag bookmarks here from edit mode.
-        </p>
       </div>
     </div>
   </div>
@@ -446,11 +437,6 @@
                 <label for="folder-editor-show-name"
                   data-i18n="folder.editor.showName">Show folder name</label>
               </div>
-              <div class="checkbox-wrapper">
-                <input id="folder-editor-show-count" type="checkbox">
-                <label for="folder-editor-show-count"
-                  data-i18n="folder.editor.showCount">Show saved count</label>
-              </div>
               <div class="edit-bookmark-modal-color-options">
                 <label for="folder-editor-text-color"
                   data-i18n="folder.editor.textColor">Text color:</label>
@@ -469,6 +455,10 @@
                 <input id="folder-editor-show-previews" type="checkbox" checked>
                 <label for="folder-editor-show-previews"
                   data-i18n="folder.editor.showPreviews">Show bookmark previews</label>
+              </div>
+              <div class="edit-bookmark-modal-color-options folder-symbol-color" hidden>
+                <label for="folder-editor-symbol-color" data-i18n="folder.editor.iconColor">Symbol color:</label>
+                <input id="folder-editor-symbol-color" type="color" value="#f8fafc">
               </div>
             </div>
           </div>
@@ -520,17 +510,17 @@
       <header class="recycle-bin-modal-header">
         <button id="recycle-bin-modal-customize" class="recycle-bin-modal-icon" type="button"
           aria-label="Edit recycle bin" data-i18n-aria-label="recycleBin.editor.edit"></button>
-        <div>
+        <div class="recycle-bin-modal-heading">
           <h2 data-i18n="recycleBin.title">Papelera de reciclaje</h2>
           <p id="recycle-bin-summary"></p>
         </div>
+        <div class="recycle-bin-toolbar">
+          <button id="recycle-bin-restore-all" class="btn btn-info" type="button"
+            data-i18n="recycleBin.restoreAll">Recuperar todo</button>
+          <button id="recycle-bin-delete-all" class="btn btn-danger" type="button"
+            data-i18n="recycleBin.deleteAll">Borrar todo</button>
+        </div>
       </header>
-      <div class="recycle-bin-toolbar">
-        <button id="recycle-bin-restore-all" class="btn btn-info" type="button"
-          data-i18n="recycleBin.restoreAll">Recuperar todo</button>
-        <button id="recycle-bin-delete-all" class="btn btn-danger" type="button"
-          data-i18n="recycleBin.deleteAll">Borrar todo</button>
-      </div>
       <div id="recycle-bin-list" class="recycle-bin-list custom-scrollbar" role="list"></div>
       <p id="recycle-bin-empty" class="recycle-bin-empty" data-i18n="recycleBin.empty">La papelera está vacía.</p>
       <footer class="recycle-bin-modal-footer">
@@ -581,6 +571,11 @@
                 <input id="recycle-bin-editor-visible" type="checkbox" checked>
                 <label for="recycle-bin-editor-visible"
                   data-i18n="recycleBin.editor.visible">Show recycle bin on the main grid</label>
+              </div>
+              <div class="checkbox-wrapper">
+                <input id="recycle-bin-editor-animate-icon" type="checkbox" checked>
+                <label for="recycle-bin-editor-animate-icon"
+                  data-i18n="recycleBin.editor.animateIcon">Animate recycle bin</label>
               </div>
               <div class="settings-recycle-bin-retention">
                 <label for="recycle-bin-editor-retention" data-i18n="settingsModal.general.recycleBin.retentionLabel">Eliminar los elementos después de</label>
@@ -669,11 +664,6 @@
                 <label for="recycle-bin-editor-show-name"
                   data-i18n="recycleBin.editor.showName">Show name</label>
               </div>
-              <div class="checkbox-wrapper">
-                <input id="recycle-bin-editor-show-count" type="checkbox">
-                <label for="recycle-bin-editor-show-count"
-                  data-i18n="recycleBin.editor.showCount">Show item count</label>
-              </div>
               <div class="edit-bookmark-modal-color-options">
                 <label for="recycle-bin-editor-text-color"
                   data-i18n="recycleBin.editor.textColor">Text color:</label>
@@ -683,11 +673,6 @@
             <div id="recycle-bin-editor-panel-icon"
               class="modal-field edit-bookmark-modal-tab-content is-hidden custom-scrollbar"
               role="tabpanel">
-              <div class="checkbox-wrapper">
-                <input id="recycle-bin-editor-show-icon" type="checkbox" checked>
-                <label for="recycle-bin-editor-show-icon"
-                  data-i18n="recycleBin.editor.showIcon">Show icon</label>
-              </div>
               <div class="edit-bookmark-modal-color-options">
                 <label for="recycle-bin-editor-icon-color"
                   data-i18n="recycleBin.editor.iconColor">Icon color:</label>

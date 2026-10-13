@@ -110,6 +110,10 @@ function validateDefinition(definition) {
         throw new TypeError(`Widget catalog ${key} must be a non-empty string.`);
       }
     }
+    if (definition.catalog.statusKey !== undefined
+      && (typeof definition.catalog.statusKey !== 'string' || !definition.catalog.statusKey.trim())) {
+      throw new TypeError('Widget catalog statusKey must be a non-empty string.');
+    }
     if (typeof definition.create !== 'function') {
       throw new TypeError('Catalog widgets require create().');
     }

@@ -3,7 +3,8 @@ import { resolveBackgroundImage } from '../../platform/images/localImages.js';
 import {
   captionBackground,
   readableSurfaceBorderColor,
-  readableSurfacePalette
+  readableSurfacePalette,
+  readableSurfaceTextColor
 } from '../../shared/ui/surfaceContrast.js';
 
 // Contrast baselines use the darkest light veil and the brightest dark veil
@@ -20,15 +21,28 @@ export function applyFolderAppearance(element, folder = {}) {
   element.classList.toggle('is-folder-hidden', folder.showFolder === false);
   element.classList.toggle('is-folder-preview-hidden', folder.showFolder === false || folder.showPreviews === false);
   element.classList.toggle('is-folder-name-hidden', folder.showName === false);
-  element.classList.toggle('is-folder-count-hidden', folder.showCount === false);
   const outerColor = folder.outerBackgroundColor;
   element.classList.toggle('has-folder-outer-color', Boolean(outerColor));
   if (outerColor) element.style.setProperty('--folder-outer-color', outerColor);
   else element.style.removeProperty('--folder-outer-color');
-  element.style.setProperty('--folder-color', folder.backgroundColor || DEFAULT_FOLDER_STYLE.backgroundColor);
+  const folderColor = folder.backgroundColor || DEFAULT_FOLDER_STYLE.backgroundColor;
+  element.style.setProperty('--folder-color', folderColor);
+  element.style.setProperty('--folder-category-color', folder.iconColor || categoryColor(folderColor));
+  if (folder.iconColor) element.style.setProperty('--folder-category-custom-color', folder.iconColor);
+  else element.style.removeProperty('--folder-category-custom-color');
   element.style.setProperty('--folder-text-color', folder.textColor || DEFAULT_FOLDER_STYLE.textColor);
   element.style.setProperty('--folder-caption-background', captionBackground(folder.textColor || DEFAULT_FOLDER_STYLE.textColor));
   element.classList.toggle('has-folder-bg-image', Boolean(resolveBackgroundImage(folder)));
+}
+
+function categoryColor(folderColor) {
+  if (!/^#[\da-f]{6}$/i.test(folderColor)) return '#f8fafc';
+  // Match the face's CSS fill: 62% folder color, 38% #182338.
+  const shade = [24, 35, 56];
+  const face = `#${folderColor.slice(1).match(/../g).map((channel, index) => (
+    Math.round(parseInt(channel, 16) * .62 + shade[index] * .38).toString(16).padStart(2, '0')
+  )).join('')}`;
+  return readableSurfaceTextColor('#f8fafc', face);
 }
 
 /** Opaque folders accent their border; transparent folders stay entirely neutral. */

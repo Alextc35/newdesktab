@@ -59,12 +59,7 @@ export function createRecycleBinElement({ container, recycleBin, trash, isEditin
   caption.className = 'recycle-bin-caption';
   const title = document.createElement('strong');
   title.textContent = t('recycleBin.title');
-  const count = document.createElement('small');
-  count.textContent = t(
-    trash.length === 1 ? 'recycleBin.countOne' : 'recycleBin.count',
-    { count: trash.length }
-  );
-  caption.append(title, count);
+  caption.append(title);
 
   const dropFeedback = document.createElement('span');
   dropFeedback.className = 'recycle-bin-drop-feedback';
@@ -119,10 +114,7 @@ function createRecycleBinListItem({ recycleBin, count, active, onOpen }) {
   const name = document.createElement('span');
   name.className = 'bookmark-list-name';
   name.textContent = t('recycleBin.title');
-  const detail = document.createElement('span');
-  detail.className = 'bookmark-list-detail';
-  detail.textContent = t(count === 1 ? 'recycleBin.countOne' : 'recycleBin.count', { count });
-  copy.append(name, detail);
+  copy.append(name);
 
   const arrow = document.createElement('span');
   arrow.className = 'bookmark-list-arrow';

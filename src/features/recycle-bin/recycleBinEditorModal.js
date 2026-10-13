@@ -4,7 +4,7 @@ import {
   validateRecycleBinStyle
 } from '../../domain/recycle-bin/recycleBinModel.js';
 import { updateRecycleBinAppearance } from './recycleBinActions.js';
-import { getState, getStorageMode, requirePersistence, subscribe } from '../../state/appStore.js';
+import { getState, getStorageMode, requirePersistence } from '../../state/appStore.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { isDarkInterfaceActive } from '../../shared/ui/interfaceTheme.js';
@@ -21,6 +21,7 @@ import {
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { closeModal, isModalActive, openModal, registerModal } from '../../shared/ui/modalManager.js';
 import { createEditorHistory } from '../../shared/ui/editorHistory.js';
+import { setEditorTitle } from '../../shared/ui/editorTitle.js';
 import { refreshCustomColorPickers } from '../../shared/ui/colorPicker.js';
 import { initTabs } from '../../shared/ui/tabs.js';
 import { createItemAppearanceEditor } from '../item-editor/itemAppearanceEditor.js';
@@ -29,7 +30,6 @@ import { initCustomSelect, refreshCustomSelect } from '../../shared/ui/customSel
 import { normalizeRecycleBinRetentionDays } from '../../domain/settings/recycleBinRetention.js';
 
 let initialized = false;
-let iconId = null;
 let submitting = false;
 let initialValue = null;
 let draftHistory;
@@ -52,21 +52,18 @@ let imageController;
 let iconColorInput;
 let textColorInput;
 let textColorExplicit = false;
-let showIconInput;
 let showNameInput;
-let showCountInput;
 let visibleInput;
+let animateIconInput;
 let retentionSelect;
 let preview;
 let saveButton;
 let tabs;
 let appearanceEditor;
-let previewTrashCount = 0;
 
 export function initRecycleBinEditorModal() {
   if (initialized) return;
   initialized = true;
-  subscribe(state => { previewTrashCount = state.data.trash.length; });
 
   modal = document.getElementById('edit-recycle-bin-modal');
   noBackgroundInput = document.getElementById('recycle-bin-editor-no-background');
@@ -84,10 +81,9 @@ export function initRecycleBinEditorModal() {
   imageError = document.getElementById('recycle-bin-editor-image-error');
   iconColorInput = document.getElementById('recycle-bin-editor-icon-color');
   textColorInput = document.getElementById('recycle-bin-editor-text-color');
-  showIconInput = document.getElementById('recycle-bin-editor-show-icon');
   showNameInput = document.getElementById('recycle-bin-editor-show-name');
-  showCountInput = document.getElementById('recycle-bin-editor-show-count');
   visibleInput = document.getElementById('recycle-bin-editor-visible');
+  animateIconInput = document.getElementById('recycle-bin-editor-animate-icon');
   retentionSelect = document.getElementById('recycle-bin-editor-retention');
   initCustomSelect(retentionSelect);
   retentionSelect.addEventListener('change', handleInput);
@@ -129,10 +125,8 @@ export function initRecycleBinEditorModal() {
   });
   for (const input of [
     noBackgroundInput,
-    showIconInput,
     showNameInput,
-    showCountInput,
-    visibleInput
+    visibleInput, animateIconInput
   ]) {
     input.addEventListener('change', handleInput);
   }
@@ -179,6 +173,7 @@ export function initRecycleBinEditorModal() {
 
 export function openRecycleBinEditor() {
   if (!ensurePanelFits()) return;
+  setEditorTitle(modal.querySelector('h2'), 'recycleBin.editor.title');
   const { recycleBin, settings } = getState().data;
   const style = normalizeRecycleBinStyle(recycleBin);
   initialValue = { ...style, showRecycleBin: settings.showRecycleBin !== false,
@@ -211,7 +206,7 @@ function handleInput() {
 
 function currentValue() {
   return {
-    iconId,
+    animateIcon: animateIconInput.checked,
     noBackground: noBackgroundInput.checked,
     backgroundColor: backgroundColorExplicit ? backgroundColorInput.value : null,
     backgroundImageUrl: getImageInputValue(imageInput) || null,
@@ -220,9 +215,7 @@ function currentValue() {
     backgroundImageUrlLocked: imageController?.isLocked() ?? false,
     iconColor: iconColorInput.value,
     textColor: textColorExplicit ? textColorInput.value : null,
-    showIcon: showIconInput.checked,
     showName: showNameInput.checked,
-    showCount: showCountInput.checked,
     showRecycleBin: visibleInput.checked,
     recycleBinRetentionDays: normalizeRecycleBinRetentionDays(retentionSelect.value)
   };
@@ -238,14 +231,12 @@ function syncControls() {
   localImageField.classList.toggle('is-hidden', !hasLocalImage || activeSource === 'url');
   backgroundColorInput.disabled = noBackgroundInput.checked;
   localColorInput.disabled = noBackgroundInput.checked || activeSource !== 'local';
-  iconColorInput.disabled = !showIconInput.checked;
-  textColorInput.disabled = !showNameInput.checked && !showCountInput.checked;
+  textColorInput.disabled = !showNameInput.checked;
   appearanceEditor?.sync();
 }
 
 function setControlValues(style, showRecycleBin) {
   const value = normalizeRecycleBinStyle(style);
-  iconId = value.iconId;
   backgroundColorExplicit = Boolean(value.backgroundColor);
   textColorExplicit = Boolean(value.textColor);
   noBackgroundInput.checked = value.noBackground;
@@ -256,10 +247,9 @@ function setControlValues(style, showRecycleBin) {
   setImageInputValue(localImageInput, value.backgroundImageLocal);
   iconColorInput.value = value.iconColor;
   textColorInput.value = value.textColor || fallbackTextColor();
-  showIconInput.checked = value.showIcon;
   showNameInput.checked = value.showName;
-  showCountInput.checked = value.showCount;
   visibleInput.checked = showRecycleBin;
+  animateIconInput.checked = value.animateIcon;
   imageController.setLocked(value.backgroundImageUrlLocked);
 }
 
@@ -287,7 +277,6 @@ function renderPreview() {
 }
 
 function createRecycleBinPreviewCard(value) {
-  const countValue = previewTrashCount;
   const card = document.createElement('div');
   card.className = 'recycle-bin recycle-bin-editor-preview-card';
   applyRecycleBinAppearance(card, value);
@@ -298,11 +287,7 @@ function createRecycleBinPreviewCard(value) {
   caption.className = 'recycle-bin-caption';
   const title = document.createElement('strong');
   title.textContent = t('recycleBin.title');
-  const count = document.createElement('small');
-  count.textContent = t(countValue === 1 ? 'recycleBin.countOne' : 'recycleBin.count', {
-    count: countValue
-  });
-  caption.append(title, count);
+  caption.append(title);
   content.append(createRecycleBinGlyph(value), caption);
   card.append(content);
   return card;

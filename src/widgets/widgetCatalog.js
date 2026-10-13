@@ -1,4 +1,4 @@
-import { t } from '../platform/i18n/i18n.js';
+import { subscribeLanguageChange, t } from '../platform/i18n/i18n.js';
 import { closeModal, openModal, registerModal } from '../shared/ui/modalManager.js';
 import { ensurePanelFits } from '../shared/ui/viewportMode.js';
 import { widgetRegistry } from './widgetRegistry.js';
@@ -21,6 +21,11 @@ export function initWidgetCatalog({
   initialized = true;
 
   catalogView = createWidgetCatalogView(registry.catalog(), t);
+  subscribeLanguageChange(() => {
+    for (const status of catalogView.list.querySelectorAll('.widget-catalog-status')) {
+      status.title = t(status.dataset.i18nAriaLabel);
+    }
+  });
   modalHost.append(catalogView.modal);
   launcherButton.addEventListener('click', openWidgetCatalog);
   catalogView.closeButton.addEventListener('click', closeWidgetCatalog);

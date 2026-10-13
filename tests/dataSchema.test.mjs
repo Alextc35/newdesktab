@@ -29,7 +29,7 @@ test('normalizes unversioned folders without changing their saved appearance', (
   const folder = migrated.folders[0];
   assert.equal(migrated.schemaVersion, DATA_SCHEMA_VERSION);
   for (const [key, value] of Object.entries({
-    ...DEFAULT_FOLDER_STYLE, ...savedStyle, noOuterBackground: false, showCount: true
+    ...DEFAULT_FOLDER_STYLE, ...savedStyle, noOuterBackground: false
   })) {
     assert.equal(folder[key], value);
   }
@@ -42,7 +42,7 @@ test('preserves folder controls across backup and bookmarks-only exports', () =>
     folders: [{
       id: 'custom', name: 'Custom', outerBackgroundColor: '#ABCDEF',
       noOuterBackground: true,
-      showFolder: false, showPreviews: true, showName: false, showCount: false
+      showFolder: false, showPreviews: true, showName: false
     }]
   });
   const folder = data.folders[0];
@@ -51,7 +51,7 @@ test('preserves folder controls across backup and bookmarks-only exports', () =>
   assert.equal(folder.showFolder, false);
   assert.equal(folder.showPreviews, false);
   assert.equal(folder.showName, false);
-  assert.equal(folder.showCount, false);
+  assert.equal(Object.hasOwn(folder, 'showCount'), false);
   assert.deepEqual(parseBackupPayload(createBackupEnvelope(data)), data);
   assert.deepEqual(
     parseBookmarksPayload(createBookmarksEnvelope(data.bookmarks, data.folders), data),
@@ -412,9 +412,7 @@ test('round-trips recycle bin geometry and deleted folder contents', () => {
       backgroundImageUrlLocked: true,
       iconColor: '#FFAA00',
       textColor: '#FFFFFF',
-      showIcon: false,
       showName: false,
-      showCount: true
     },
     trash: [{
       id: 'deleted-folder-entry',
@@ -433,11 +431,11 @@ test('round-trips recycle bin geometry and deleted folder contents', () => {
   assert.deepEqual(
     (({
       noBackground, backgroundColor, backgroundImageUrl, backgroundImageSource,
-      backgroundImageUrlLocked, iconColor, textColor, showIcon, showName, showCount
+      backgroundImageUrlLocked, iconColor, textColor, showName
     }) => (
       {
         noBackground, backgroundColor, backgroundImageUrl, backgroundImageSource,
-        backgroundImageUrlLocked, iconColor, textColor, showIcon, showName, showCount
+        backgroundImageUrlLocked, iconColor, textColor, showName
       }
     ))(migrated.recycleBin),
     {
@@ -448,9 +446,7 @@ test('round-trips recycle bin geometry and deleted folder contents', () => {
       backgroundImageUrlLocked: true,
       iconColor: '#ffaa00',
       textColor: '#ffffff',
-      showIcon: false,
       showName: false,
-      showCount: true
     }
   );
   assert.equal(migrated.settings.showRecycleBin, false);

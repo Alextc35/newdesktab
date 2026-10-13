@@ -201,7 +201,7 @@ test('keeps long bookmark titles centered and truncated inside their card', asyn
   expect(titleBox.x + titleBox.width).toBeLessThanOrEqual(bookmarkBox.x + bookmarkBox.width);
 });
 
-test('selects on a short click and exposes only the direct edit control', async ({ page }) => {
+test('selects on a short click and exposes direct edit and recoverable delete controls', async ({ page }) => {
   await enableEditMode(page);
   const bookmark = page.locator('#bookmark-container > .bookmark').first();
   const secondBookmark = page.locator('#bookmark-container > .bookmark').nth(1);
@@ -209,7 +209,7 @@ test('selects on a short click and exposes only the direct edit control', async 
   const edit = bookmark.getByRole('button', { name: 'Edit bookmark' });
 
   await expect(controls).toBeVisible();
-  await expect(controls.getByRole('button')).toHaveCount(1);
+  await expect(controls.getByRole('button')).toHaveCount(2);
   await expect(bookmark.locator('.bookmark-select-toggle')).toHaveCount(0);
   await expect(edit).toBeVisible();
   await expect(bookmark.locator('.bookmark-action-menu, .bookmark-actions')).toHaveCount(0);
@@ -325,7 +325,7 @@ test('customizes and hides the recycle bin from its edit action', async ({ page 
 
   await editor.getByRole('tab', { name: 'Style' }).click();
   await page.locator('#recycle-bin-editor-icon-color').fill('#ffaa00');
-  await page.locator('#recycle-bin-editor-show-icon').uncheck();
+  await expect(page.locator('#recycle-bin-editor-show-icon')).toHaveCount(0);
 
   await editor.getByRole('tab', { name: 'Style' }).click();
   await page.locator('#recycle-bin-editor-text-color').fill('#00ff00');
@@ -335,7 +335,7 @@ test('customizes and hides the recycle bin from its edit action', async ({ page 
 
   recycleBin = page.locator('#bookmark-container .recycle-bin');
   await expect(recycleBin).toHaveClass(/has-recycle-bin-background/);
-  await expect(recycleBin).toHaveClass(/is-recycle-bin-icon-hidden/);
+  await expect(recycleBin.locator('.recycle-bin-svg')).toBeVisible();
   await expect(recycleBin).toHaveClass(/is-recycle-bin-name-hidden/);
   await expect(recycleBin).toHaveCSS('background-color', 'rgb(102, 51, 153)');
 
@@ -399,12 +399,12 @@ test('restores the recycle bin appearance from the editor footer', async ({ page
   await expect(page.locator('#recycle-bin-editor-background-color')).toHaveValue(/#[\da-f]{6}/i);
   await expect(page.locator('#recycle-bin-editor-no-background')).toBeChecked();
   await expect(page.locator('#recycle-bin-editor-show-name')).toBeChecked();
-  await expect(page.locator('#recycle-bin-editor-show-count')).not.toBeChecked();
+  await expect(page.locator('#recycle-bin-editor-show-count')).toHaveCount(0);
   await page.locator('#edit-recycle-bin-modal-save').click();
 
   recycleBin = page.locator('#bookmark-container .recycle-bin');
   await expect(recycleBin).not.toHaveClass(/is-recycle-bin-name-hidden/);
-  await expect(recycleBin).toHaveClass(/is-recycle-bin-count-hidden/);
+  await expect(recycleBin.locator('.recycle-bin-caption > small')).toHaveCount(0);
   await expect(recycleBin).not.toHaveClass(/has-recycle-bin-background/);
 });
 
@@ -1312,7 +1312,7 @@ test('dragging stays snapped to cells and ignores small pointer movements', asyn
   expect((await visibleBox(dragged)).x).toBeCloseTo(settled.x, 0);
 });
 
-test('none drag mode revalidates a blocked cell after leaving a folder landing pose', async ({ page }) => {
+test('none drag mode preserves the last valid layout when leaving a folder landing pose', async ({ page }) => {
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const { DEFAULT_FOLDER_STYLE } = await import('/src/domain/folders/folderDefaults.js');
@@ -1335,13 +1335,18 @@ test('none drag mode revalidates a blocked cell after leaving a folder landing p
   const occupiedStart = await visibleBox(occupied);
   const pointer = { x: source.x + source.width * .75, y: source.y + source.height / 2 };
   const blocked = { x: target.x + target.width / 2, y: target.y - 2 };
+  const cellWidth = (await visibleBox(page.locator('#bookmark-container'))).width / 12;
 
   await page.mouse.move(pointer.x, pointer.y);
   await page.mouse.down();
-  await page.mouse.move(blocked.x, blocked.y, { steps: 8 });
-  await expect(dragged).toHaveClass(/is-invalid/);
+  await page.mouse.move(pointer.x - 2 * cellWidth, pointer.y, { steps: 8 });
   await expect.poll(async () => (await visibleBox(dragged)).x)
-    .toBeCloseTo(occupiedStart.x, 0);
+    .toBeCloseTo(source.x - 2 * cellWidth, 0);
+  const lastValid = await visibleBox(dragged);
+  await page.mouse.move(blocked.x, blocked.y, { steps: 8 });
+  await expect(dragged).not.toHaveClass(/is-invalid/);
+  await expect.poll(async () => (await visibleBox(dragged)).x)
+    .toBeCloseTo(lastValid.x, 0);
   await expect(occupied).toBeVisible();
   await expect(folder).toBeVisible();
   expect(await visibleBox(occupied)).toEqual(occupiedStart);
@@ -1355,17 +1360,17 @@ test('none drag mode revalidates a blocked cell after leaving a folder landing p
   await page.mouse.move(blocked.x, blocked.y, { steps: 8 });
   await expect(folder).not.toHaveClass(/is-drop-target/);
   await expect(dragged).not.toHaveClass(/is-drop-landing/);
-  await expect(dragged).toHaveClass(/is-invalid/);
+  await expect(dragged).not.toHaveClass(/is-invalid/);
   await page.mouse.up();
   await expect(occupied).toBeVisible();
   await expect(folder).toBeVisible();
-  await expect.poll(async () => (await visibleBox(dragged)).x).toBeCloseTo(source.x, 0);
+  await expect.poll(async () => (await visibleBox(dragged)).x).toBeCloseTo(lastValid.x, 0);
   await reloadSavedPage(page);
   expect(await page.evaluate(async () => (
     (await import('/src/state/appStore.js')).getState().data.bookmarks
       .find(bookmark => bookmark.id === 'test-banana').folderId
   ))).toBeNull();
-  await expect.poll(async () => (await visibleBox(dragged)).x).toBeCloseTo(source.x, 0);
+  await expect.poll(async () => (await visibleBox(dragged)).x).toBeCloseTo(lastValid.x, 0);
 });
 
 test('restores the source after a swap and inserts through the released cell', async ({ page }) => {
@@ -1906,7 +1911,8 @@ test('expands compact folder creation and persists its advanced appearance', asy
   const name = page.locator('#folder-editor-name');
   const add = modal.getByRole('button', { name: 'Add', exact: true });
 
-  await expect(modal.getByRole('heading')).toHaveText('➕ Add new folder');
+  await expect(modal.getByRole('heading')).toHaveText('Add new folder');
+  await expect(modal.locator('.editor-title-icon')).toHaveAttribute('data-icon-id', 'plus');
   await expect(modal).toHaveClass(/is-add-compact/);
   await expect(name).toBeFocused();
   await expect(add).toBeDisabled();
@@ -2484,9 +2490,9 @@ test('duplicates from the bulk toolbar and clears selection when edit mode close
   const bookmarkBox = await visibleBox(firstBookmark);
 
   await expect(controls).toBeVisible();
-  await expect(controls.getByRole('button')).toHaveCount(1);
+  await expect(controls.getByRole('button')).toHaveCount(2);
   await expect(firstBookmark.getByRole('button', { name: 'Duplicate bookmark' })).toHaveCount(0);
-  await expect(firstBookmark.getByRole('button', { name: 'Delete bookmark' })).toHaveCount(0);
+  await expect(firstBookmark.getByRole('button', { name: 'Delete bookmark' })).toBeVisible();
   expect(editBox.x).toBeGreaterThan(bookmarkBox.x);
   expect(editBox.y).toBeGreaterThan(bookmarkBox.y);
 
@@ -2622,7 +2628,7 @@ test('runs every bulk action on a mixed bookmark and folder selection', async ({
 
   const bookmark = page.locator('[data-bookmark-id="mixed-bookmark"]');
   const folder = page.locator('[data-folder-id="mixed-folder"]');
-  await expect(folder.getByRole('button', { name: 'Delete folder' })).toHaveCount(0);
+  await expect(folder.getByRole('button', { name: 'Delete folder' })).toBeVisible();
   await bookmark.click();
   await folder.click();
 
@@ -2824,12 +2830,12 @@ test('creates a folder, accepts a dragged bookmark and persists its contents', a
 
   const folder = page.locator('.bookmark-folder', { hasText: 'Reading' });
   await expect(folder).toBeVisible();
-  await expect(folder).toContainText('0 saved');
+  await expect(folder.locator('.folder-count')).toHaveCount(0);
 
   await enableEditMode(page);
   await expect(folder.getByRole('group', { name: 'Folder controls' })).toBeVisible();
   await expect(folder.getByRole('button', { name: 'Customize folder' })).toBeVisible();
-  await expect(folder.getByRole('button', { name: 'Delete folder' })).toHaveCount(0);
+  await expect(folder.getByRole('button', { name: 'Delete folder' })).toBeVisible();
   await expect(folder.locator('.bookmark-action-menu, .bookmark-actions')).toHaveCount(0);
   await expect(folder.locator('.resizer')).toHaveCount(8);
   const bookmark = page.locator('.bookmark[data-bookmark-id]', { hasText: 'Reading item' });
@@ -2891,7 +2897,11 @@ test('creates a folder, accepts a dragged bookmark and persists its contents', a
     hiddenBeforeRemoval: window.folderDropElement?.classList.contains('is-drop-committed')
   }))).toEqual({ connected: false, hiddenBeforeRemoval: true });
   await expect(bookmark).toHaveCount(0);
-  await expect(page.locator('.bookmark-folder')).toContainText('1 saved');
+  await expect.poll(() => page.evaluate(async () => {
+    const { data } = (await import('/src/state/appStore.js')).getState();
+    const id = data.folders.find(folder => folder.name === 'Reading').id;
+    return data.bookmarks.filter(bookmark => bookmark.folderId === id).length;
+  })).toBe(1);
   await expect.poll(() => folder.evaluate(element => element.offsetLeft))
     .toBe(folderGridPosition.left);
   await expect.poll(() => folder.evaluate(element => element.offsetTop))
@@ -2923,7 +2933,7 @@ test('creates a folder, accepts a dragged bookmark and persists its contents', a
   await reloadSavedPage(page);
 
   const persistedFolder = page.locator('.bookmark-folder', { hasText: 'Reading' });
-  await expect(persistedFolder).toContainText('1 saved');
+  await expect(persistedFolder.locator('.folder-count')).toHaveCount(0);
   const persistedFolderBox = await visibleBox(persistedFolder);
   expect(Math.abs(persistedFolderBox.height - resizedFolderBox.height)).toBeLessThan(2);
   await persistedFolder.getByRole('button', { name: /Open Reading/ }).click();
@@ -3566,7 +3576,7 @@ test('returns to the open folder after escaping, cancelling or saving bookmark e
   await expect(folderModal).toContainText('Folder edited');
 });
 
-test('deletes a bookmark permanently from an open folder after confirmation', async ({ page }) => {
+test('recycles a bookmark from an open folder after confirmation and retains its original folder', async ({ page }) => {
   await revealSideDock(page);
   await page.locator('#add-toggle').click();
   await page.locator('#add-folder').click();
@@ -3597,6 +3607,12 @@ test('deletes a bookmark permanently from an open folder after confirmation', as
     .toHaveText('Delete “DEVELOPED BY”?');
   await page.getByRole('button', { name: 'Accept', exact: true }).click();
   await expect(grid.locator('[data-bookmark-id]')).toHaveCount(0);
+  await expect.poll(() => page.evaluate(async () => {
+    const { data } = (await import('/src/state/appStore.js')).getState();
+    const folder = data.folders.find(folder => folder.name === 'Delete inside');
+    return data.trash.some(entry => entry.type === 'bookmark'
+      && entry.bookmark.name === 'DEVELOPED BY' && entry.bookmark.folderId === folder.id);
+  })).toBe(true);
 
   await page.keyboard.press('Escape');
   await reloadSavedPage(page);

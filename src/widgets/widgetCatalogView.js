@@ -1,3 +1,5 @@
+import { createDevelopmentSvg } from '../shared/ui/svgIcons.js';
+
 /** Builds a catalog from registered definitions without knowing widget types. */
 export function createWidgetCatalogView(definitions, translate = key => key) {
   const modal = document.createElement('div');
@@ -38,7 +40,20 @@ export function createWidgetCatalogView(definitions, translate = key => key) {
     const itemDescription = translatedElement(
       'span', definition.catalog.descriptionKey, translate
     );
-    copy.append(itemName, itemDescription);
+    const nameRow = document.createElement('span');
+    nameRow.className = 'widget-catalog-name-row';
+    nameRow.append(itemName);
+    if (definition.catalog.statusKey) {
+      const status = document.createElement('span');
+      status.className = 'widget-catalog-status';
+      status.setAttribute('role', 'img');
+      status.dataset.i18nAriaLabel = definition.catalog.statusKey;
+      status.setAttribute('aria-label', translate(definition.catalog.statusKey));
+      status.title = translate(definition.catalog.statusKey);
+      status.append(createDevelopmentSvg());
+      nameRow.append(status);
+    }
+    copy.append(nameRow, itemDescription);
 
     const arrow = document.createElement('span');
     arrow.className = 'widget-catalog-arrow';

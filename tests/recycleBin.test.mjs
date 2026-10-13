@@ -211,7 +211,6 @@ test('updates recycle bin appearance and visibility together', async () => {
     backgroundImageUrlLocked: true,
     iconColor: '#FFAA00',
     textColor: '#FFFFFF',
-    showIcon: false,
     showName: true,
     showCount: false,
     showRecycleBin: false
@@ -221,11 +220,11 @@ test('updates recycle bin appearance and visibility together', async () => {
   assert.deepEqual(
     (({
       noBackground, backgroundColor, backgroundImageUrl, backgroundImageSource,
-      backgroundImageUrlLocked, iconColor, textColor, showIcon, showName, showCount
+      backgroundImageUrlLocked, iconColor, textColor, showName
     }) => (
       {
         noBackground, backgroundColor, backgroundImageUrl, backgroundImageSource,
-        backgroundImageUrlLocked, iconColor, textColor, showIcon, showName, showCount
+        backgroundImageUrlLocked, iconColor, textColor, showName
       }
     ))(recycleBin),
     {
@@ -236,9 +235,7 @@ test('updates recycle bin appearance and visibility together', async () => {
       backgroundImageUrlLocked: true,
       iconColor: '#ffaa00',
       textColor: '#ffffff',
-      showIcon: false,
       showName: true,
-      showCount: false
     }
   );
   assert.equal(settings.showRecycleBin, false);

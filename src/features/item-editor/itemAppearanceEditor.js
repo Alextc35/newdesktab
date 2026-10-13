@@ -4,6 +4,7 @@ import { DEFAULT_RECYCLE_BIN_STYLE } from '../../domain/recycle-bin/recycleBinDe
 import { applyI18n } from '../../platform/i18n/i18n.js';
 import { openCustomColorPicker } from '../../shared/ui/colorPicker.js';
 import { createIconPicker } from './iconPicker.js';
+import { initAnimatedDisclosure } from '../../shared/ui/animatedDisclosure.js';
 
 const DEFAULTS = {
   bookmark: DEFAULT_BOOKMARK_STYLE,
@@ -18,8 +19,8 @@ const PALETTES = {
 };
 const CONTENT_FIELDS = {
   bookmark: ['iconId', 'backgroundFavicon', 'showText', 'showFavicon', 'invertColorIcon'],
-  folder: ['iconId', 'showFolder', 'showPreviews', 'showName', 'showCount'],
-  recycleBin: ['iconId', 'showIcon', 'showName', 'showCount']
+  folder: ['iconId', 'iconColor', 'showFolder', 'showPreviews', 'showName'],
+  recycleBin: ['showName', 'animateIcon']
 };
 
 function textForBlackOrWhiteBackground(background) {
@@ -32,7 +33,9 @@ export function getItemAppearance(type, look = 'original', current = {}) {
   const defaults = DEFAULTS[type];
   if (!defaults || !Object.hasOwn(PALETTES, look) || (look === 'card' && type !== 'bookmark')) return null;
   const palette = PALETTES[look];
-  if (!palette) return { ...defaults, iconId: current.iconId ?? null };
+  if (!palette) return type === 'recycleBin'
+    ? { ...defaults, animateIcon: current.animateIcon ?? defaults.animateIcon }
+    : { ...defaults, iconId: current.iconId ?? null };
   const style = { ...defaults, noBackground: false, textColor: palette.text ?? defaults.textColor };
   for (const field of CONTENT_FIELDS[type]) {
     if (Object.hasOwn(current, field)) style[field] = current[field];
@@ -132,10 +135,11 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
     content.append(controls);
     groups[name] = controls;
   }
-  const iconPicker = groups.icon ? createIconPicker({
+  const iconPicker = groups.icon && type !== 'recycleBin' ? createIconPicker({
     type, getValue, renderOriginalIcon,
     onSelect: iconId => onApply({
       iconId,
+      ...(type === 'folder' && !iconId ? { showPreviews: false } : {}),
       [type === 'bookmark' ? 'showFavicon' : type === 'folder' ? 'showFolder' : 'showIcon']: true
     }),
     signal: abortController.signal
@@ -172,6 +176,7 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
     : type === 'folder' ? '#folder-editor-image-url-field' : '#recycle-bin-editor-image-url-field')?.parentElement;
   let imageDetails;
   let imageSummary;
+  let imageDisclosure;
   if (imageFields && stylePanel) {
     imageDetails = document.createElement('details');
     imageDetails.className = 'editor-image-section';
@@ -179,9 +184,13 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
     imageSummary = document.createElement('span');
     imageSummary.dataset.i18n = 'itemEditor.addImage';
     summary.append(imageSummary);
-    imageDetails.append(summary, imageFields);
+    const imageContent = document.createElement('div');
+    imageContent.className = 'editor-image-content';
+    imageContent.append(imageFields);
+    imageDetails.append(summary, imageContent);
     const invertBackground = root.querySelector('[data-field="invertBg"]')?.closest('.checkbox-wrapper');
     if (invertBackground) imageFields.append(invertBackground);
+    imageDisclosure = initAnimatedDisclosure(imageDetails, imageContent, { signal: abortController.signal });
   }
   if (stylePanel) {
     stylePanel.append(background, content);
@@ -219,7 +228,7 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
   reset.type = 'button';
   reset.className = 'btn btn-ghost editor-reset-appearance';
   reset.dataset.i18n = 'itemEditor.reset';
-  reset.addEventListener('click', () => onApply(getItemAppearance(type)), options);
+  reset.addEventListener('click', () => onApply(getItemAppearance(type, 'original', type === 'recycleBin' ? getValue() : {})), options);
   // The bookmark editor owns a reusable form; its footer belongs to the modal.
   const actions = root.querySelector('.modal-actions') || root.closest('.modal')?.querySelector('.modal-actions');
   actions?.prepend(reset);
@@ -263,13 +272,12 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
       chip.classList.toggle('is-disabled', input.disabled);
     }
     if (imageDetails) {
-      imageDetails.hidden = type === 'folder' && Boolean(value.iconId);
       const activeImage = value.backgroundImageSource === 'local' ? value.backgroundImageLocal : value.backgroundImageUrl;
-      if (activeImage && activeImage !== lastImage) imageDetails.open = true;
+      if (activeImage && activeImage !== lastImage) imageDisclosure.setOpen(true);
       lastImage = activeImage;
       imageSummary.dataset.i18n = activeImage ? 'itemEditor.changeImage' : 'itemEditor.addImage';
       applyI18n(imageDetails.querySelector('summary'));
-      if (imageFields.querySelector('[aria-invalid="true"]')) imageDetails.open = true;
+      if (imageFields.querySelector('[aria-invalid="true"]')) imageDisclosure.setOpen(true);
     }
   }
 
@@ -280,7 +288,7 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
       if (iconPicker) iconPicker.element.open = false;
       sampleSignature = undefined;
       lastImage = undefined;
-      if (imageDetails) imageDetails.open = false;
+      imageDisclosure?.setOpen(false);
       sync();
     },
     destroy() {

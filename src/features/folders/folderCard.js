@@ -35,13 +35,9 @@ export function createFolderElement({ container, folder, bookmarks, isEditing })
   title.className = 'folder-title';
   title.textContent = folder.name;
 
-  const count = document.createElement('span');
-  count.className = 'folder-count';
-  count.textContent = t('folder.count', { count: bookmarks.length });
-
   const caption = document.createElement('span');
   caption.className = 'folder-caption';
-  caption.append(title, count);
+  caption.append(title);
 
   const dropFeedback = document.createElement('span');
   dropFeedback.className = 'folder-drop-feedback';

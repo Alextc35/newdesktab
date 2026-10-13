@@ -51,6 +51,7 @@ async function openEditor(page, type) {
   }
   const modal = page.locator(editors[type].modal);
   await expect(modal).toBeVisible();
+  await expect(modal.locator('.editor-title-icon')).toHaveAttribute('data-icon-id', 'ui-editing');
   await modal.getByRole('tab', { name: 'Style', exact: true }).click();
   return modal;
 }
@@ -62,6 +63,72 @@ async function storedValue(page, type) {
       : kind === 'folder' ? data.folders.find(item => item.id === 'editor-folder') : data.recycleBin;
   }, type);
 }
+
+for (const type of ['bookmark', 'folder', 'recycleBin']) {
+  test(`${type}: background image disclosure animates both ways, reverses smoothly and respects reduced motion`, async ({ page }) => {
+    const modal = await openEditor(page, type);
+    const section = modal.locator('.editor-image-section');
+    const summary = section.locator('summary');
+    const content = section.locator('.editor-image-content');
+    await expect(section).not.toHaveAttribute('open');
+    await summary.evaluate(element => element.click());
+    const middle = await content.evaluate(element => {
+      const [animation] = element.getAnimations();
+      animation.pause();
+      animation.currentTime = 100;
+      return { height: element.getBoundingClientRect().height, fullHeight: element.scrollHeight,
+        opacity: Number(getComputedStyle(element).opacity) };
+    });
+    expect(middle.height).toBeGreaterThan(0);
+    expect(middle.height).toBeLessThan(middle.fullHeight);
+    expect(middle.opacity).toBeGreaterThan(0);
+    expect(middle.opacity).toBeLessThan(1);
+    await summary.click();
+    await expect(section).not.toHaveAttribute('open');
+    await summary.press('Enter');
+    await expect.poll(() => content.evaluate(element => element.getAnimations().length)).toBe(0);
+    await expect(content.locator('input[type="text"]').first()).toBeVisible();
+    await summary.press('Space');
+    await expect(section).not.toHaveAttribute('open');
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await summary.press('Enter');
+    await expect(content.locator('input[type="text"]').first()).toBeVisible();
+    expect(await content.evaluate(element => element.getAnimations().length)).toBe(0);
+    await summary.press('Space');
+    await expect(section).not.toHaveAttribute('open');
+    await expect(modal).toBeVisible();
+  });
+}
+
+test('folders and the bin without names center their artwork in cards and previews', async ({ page }) => {
+  const centered = async card => {
+    const offsets = await card.evaluate(element => {
+      const card = element.getBoundingClientRect();
+      const visual = element.querySelector('.folder-visual, .recycle-bin-glyph').getBoundingClientRect();
+      return {
+        x: visual.x + visual.width / 2 - card.x - card.width / 2,
+        y: visual.y + visual.height / 2 - card.y - card.height / 2
+      };
+    });
+    expect(Math.abs(offsets.x)).toBeLessThan(0.5);
+    expect(Math.abs(offsets.y)).toBeLessThan(0.5);
+  };
+  for (const type of ['folder', 'recycleBin']) {
+    const modal = await openEditor(page, type);
+    await modal.locator(type === 'folder' ? '#folder-editor-show-name' : '#recycle-bin-editor-show-name').uncheck();
+    await centered(modal.locator(editors[type].preview));
+    await modal.locator(editors[type].preview).screenshot({ path: `dist/release-audit/${type}-without-name-centered.png` });
+    await page.locator(editors[type].save).click();
+    await expect(modal).toBeHidden();
+    if (type === 'folder') await page.keyboard.press('Escape');
+    const card = page.locator(type === 'folder' ? '#bookmark-container [data-folder-id="editor-folder"]' : '#bookmark-container .recycle-bin');
+    for (const size of [{ width: 1280, height: 800 }, { width: 940, height: 720 }, { width: 601, height: 720 }]) {
+      await page.setViewportSize(size);
+      await centered(card);
+    }
+    await page.setViewportSize({ width: 1280, height: 800 });
+  }
+});
 
 test('Logo shows the small site favicon, follows the URL and uses localized labels', async ({ page }) => {
   const modal = await openEditor(page, 'bookmark');
@@ -124,34 +191,36 @@ test('Logo shows the small site favicon, follows the URL and uses localized labe
   await page.screenshot({ path: 'dist/release-audit/site-logo-picker.png' });
 });
 
-for (const type of Object.keys(editors)) {
+for (const type of ['bookmark', 'folder']) {
   test(`${type}: category icons preview, undo, persist, render in lists and return to the original icon`, async ({ page }) => {
+    const iconId = 'music';
     const original = await storedValue(page, type);
     let modal = await openEditor(page, type);
     await modal.locator('.editor-icon-picker summary').click();
-    await modal.locator('[data-icon-choice="music"]').click();
-    await expect(modal.locator(editors[type].preview).locator('[data-icon-id="music"]')).toBeVisible();
+    await modal.locator(`[data-icon-choice="${iconId}"]`).click();
+    await expect(modal.locator(editors[type].preview).locator(`[data-icon-id="${iconId}"]`)).toBeVisible();
+    if (type === 'folder') await expect(modal.locator(editors[type].preview).locator('.folder-tab')).toBeVisible();
     expect((await storedValue(page, type)).iconId).toBeNull();
     await modal.locator('[data-editor-history="undo"]').click();
     await expect(modal.locator(editors[type].preview).locator('[data-icon-id]')).toHaveCount(0);
     await modal.locator('[data-editor-history="redo"]').click();
-    await expect(modal.locator('[data-icon-choice="music"]')).toHaveAttribute('aria-pressed', 'true');
+    await expect(modal.locator(`[data-icon-choice="${iconId}"]`)).toHaveAttribute('aria-pressed', 'true');
     await modal.locator('[data-appearance-look="midnight"]').click();
     await modal.locator('[data-appearance-look="original"]').click();
-    await expect(modal.locator('[data-icon-choice="music"]')).toHaveAttribute('aria-pressed', 'true');
+    await expect(modal.locator(`[data-icon-choice="${iconId}"]`)).toHaveAttribute('aria-pressed', 'true');
     await page.locator(editors[type].save).click();
     await expect(modal).toBeHidden();
     await page.reload();
     await expectAppReady(page);
     const saved = await storedValue(page, type);
-    expect(saved.iconId).toBe('music');
+    expect(saved.iconId).toBe(iconId);
     for (const key of ['id', 'name', 'url', 'folderId', 'groupId', 'gx', 'gy', 'w', 'h']) {
       expect(saved[key]).toEqual(original[key]);
     }
     await page.setViewportSize({ width: 600, height: 800 });
     const row = type === 'bookmark' ? '[data-bookmark-id="editor-bookmark"]'
       : type === 'folder' ? '[data-folder-id="editor-folder"]' : '[data-recycle-bin-id]';
-    await expect(page.locator(`#bookmark-container ${row} [data-icon-id="music"]`)).toBeVisible();
+    await expect(page.locator(`#bookmark-container ${row} [data-icon-id="${iconId}"]`)).toBeVisible();
     await page.setViewportSize({ width: 1280, height: 800 });
     modal = await openEditor(page, type);
     await modal.locator('.editor-icon-picker summary').click();
@@ -207,6 +276,300 @@ test('icon search finds shapes without accents, supports keyboard selection and 
   await expectAppReady(page);
   await expect(page.locator('#bookmark-container [data-bookmark-id="editor-bookmark"] [data-icon-id="circle"]')).toBeVisible();
   expect((await storedValue(page, 'bookmark')).url).toBe('https://youtube.com');
+});
+
+test('folder symbols keep their shell, independent color and empty option across editing and reloads', async ({ page }) => {
+  let modal = await openEditor(page, 'folder');
+  const preview = modal.locator(editors.folder.preview);
+  await expect(modal.locator('.folder-symbol-color')).toBeHidden();
+  await modal.locator('.editor-icon-picker summary').click();
+  await modal.locator('[data-icon-choice="ui-cloud"]').click();
+  await expect(preview.locator('.folder-tab')).toBeVisible();
+  await expect(preview.locator('.folder-body [data-icon-id="ui-cloud"]')).toBeVisible();
+  await expect(preview.locator('.folder-previews')).toHaveCount(0);
+  await expect(modal.locator('#folder-editor-show-previews')).toBeDisabled();
+  await expect(modal.locator('#folder-editor-show-previews')).toBeHidden();
+  await modal.locator('#folder-editor-symbol-color').fill('#ffbb33');
+  await expect(preview.locator('.folder-catalog-icon')).toHaveCSS('color', 'rgb(255, 187, 51)');
+  await modal.locator('[data-editor-history="undo"]').click();
+  await expect(preview.locator('.folder-catalog-icon')).not.toHaveCSS('color', 'rgb(255, 187, 51)');
+  await modal.locator('[data-editor-history="redo"]').click();
+  await expect(preview.locator('.folder-catalog-icon')).toHaveCSS('color', 'rgb(255, 187, 51)');
+  const fill = await preview.locator('.folder-svg-body').evaluate(element => getComputedStyle(element).fill);
+  await modal.locator('[data-editor-history="undo"]').click();
+  await expect(preview.locator('.folder-catalog-icon')).not.toHaveCSS('color', 'rgb(255, 187, 51)');
+  expect(await preview.locator('.folder-svg-body').evaluate(element => getComputedStyle(element).fill)).toBe(fill);
+  await modal.locator('#folder-editor-symbol-color').fill('#ffbb33');
+  await preview.screenshot({ path: 'dist/release-audit/folder-category-large-preview.png' });
+  await page.locator(editors.folder.save).click();
+  await expect(modal).toBeHidden();
+  await page.reload();
+  await expectAppReady(page);
+  expect((await storedValue(page, 'folder')).iconColor).toBe('#ffbb33');
+  const card = page.locator('#bookmark-container [data-folder-id="editor-folder"]');
+  await expect(card.locator('.folder-catalog-icon')).toHaveCSS('color', 'rgb(255, 187, 51)');
+  await card.screenshot({ path: 'dist/release-audit/folder-category-large-grid.png' });
+  await card.locator('.folder-open').click();
+  await page.locator('#folder-modal-edit-toggle').click();
+  await expect(page.locator('#folder-modal-customize .folder-body [data-icon-id="ui-cloud"]')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await page.setViewportSize({ width: 600, height: 800 });
+  await expect(card.locator('.folder-tab')).toBeVisible();
+  await expect(card.locator('.folder-catalog-icon')).toHaveCSS('color', 'rgb(255, 187, 51)');
+  await page.setViewportSize({ width: 1280, height: 800 });
+  modal = await openEditor(page, 'folder');
+  await modal.locator('.editor-icon-picker summary').click();
+  const none = modal.locator('[data-icon-choice=""]');
+  await expect(none).toHaveAttribute('aria-label', 'None');
+  await expect(none.locator('[data-icon-id="ui-close"]')).toBeVisible();
+  await none.click();
+  await expect(modal.locator('#folder-editor-show-previews')).toBeVisible();
+  await expect(modal.locator('#folder-editor-show-previews')).not.toBeChecked();
+  await expect(modal.locator('.folder-symbol-color')).toBeHidden();
+  await expect(modal.locator(editors.folder.preview).locator('.folder-tab')).toBeVisible();
+  await expect(modal.locator(editors.folder.preview).locator('.folder-category-icon, .bookmark-favicon')).toHaveCount(0);
+  await page.locator(editors.folder.save).click();
+  await expect(modal).toBeHidden();
+  await page.reload();
+  await expectAppReady(page);
+  await expect(card.locator('.folder-tab')).toBeVisible();
+  await expect(card.locator('.folder-category-icon, .bookmark-favicon')).toHaveCount(0);
+  expect((await storedValue(page, 'folder')).showPreviews).toBe(false);
+});
+
+test('every folder symbol is centered inside its front face at card, preview, list and header sizes', async ({ page }) => {
+  const result = await page.evaluate(async () => {
+    const { ICON_CATALOG } = await import('/src/shared/icons/iconCatalog.js');
+    const { createFolderVisual } = await import('/src/features/folders/folderVisual.js');
+    const host = document.createElement('div');
+    host.style.cssText = 'position:fixed;left:0;top:0;visibility:hidden;';
+    document.body.append(host);
+    const failures = [];
+    let checked = 0;
+    try {
+      for (const width of [28, 40, 120, 156, 200, 280]) {
+        for (const { id } of ICON_CATALOG) {
+          const visual = createFolderVisual({ iconId: id });
+          visual.style.width = `${width}px`;
+          host.replaceChildren(visual);
+          const face = visual.querySelector('.folder-svg-body');
+          const symbol = visual.querySelector('.folder-catalog-icon');
+          const center = svg => {
+            const bounds = svg.getBBox();
+            return new DOMPoint(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2).matrixTransform(svg.getScreenCTM());
+          };
+          const first = center(face);
+          const second = center(symbol);
+          const box = symbol.getBoundingClientRect();
+          const bounds = symbol.getBBox();
+          const start = new DOMPoint(bounds.x, bounds.y).matrixTransform(symbol.getScreenCTM());
+          const end = new DOMPoint(bounds.x + bounds.width, bounds.y + bounds.height).matrixTransform(symbol.getScreenCTM());
+          if (Math.abs(first.x - second.x) > .1 || Math.abs(first.y - second.y) > .1
+            || start.x < box.left || end.x > box.right || start.y < box.top || end.y > box.bottom) {
+            failures.push({ id, width, first, second });
+          }
+          checked++;
+        }
+      }
+    } finally { host.remove(); }
+    return { checked, failures };
+  });
+  expect(result.failures).toEqual([]);
+  expect(result.checked).toBe(480);
+});
+
+test('the recycle bin keeps one visible SVG and can only be hidden as a whole', async ({ page }) => {
+  const modal = await openEditor(page, 'recycleBin');
+  await expect(modal.locator('.editor-icon-picker, #recycle-bin-editor-show-icon')).toHaveCount(0);
+  const preview = modal.locator(editors.recycleBin.preview);
+  await expect(preview.locator('.recycle-bin-svg')).toBeVisible();
+  await modal.locator('#recycle-bin-editor-icon-color').fill('#94a3b8');
+  await expect(preview.locator('.recycle-bin-can')).toHaveCSS('stroke', 'rgb(148, 163, 184)');
+  await page.locator(editors.recycleBin.save).click();
+  await expect(modal).toBeHidden();
+  await page.keyboard.press('Escape');
+  await page.mouse.move(1000, 700);
+  const card = page.locator('#bookmark-container .recycle-bin');
+  await card.screenshot({ path: 'dist/release-audit/recycle-bin-closed.png' });
+  const lid = card.locator('.recycle-bin-lid-group');
+  await expect(lid).toHaveCSS('transform', 'none');
+  await card.locator('.recycle-bin-open').hover();
+  await expect(lid).not.toHaveCSS('transform', 'none');
+  await card.screenshot({ path: 'dist/release-audit/recycle-bin-open.png' });
+  await card.locator('.recycle-bin-open').click();
+  await expect(page.locator('#recycle-bin-modal-customize .recycle-bin-svg.is-open')).toBeVisible();
+  await page.locator('#recycle-bin-modal-customize').click();
+  await modal.getByRole('tab', { name: 'General', exact: true }).click();
+  await modal.locator('#recycle-bin-editor-visible').uncheck();
+  await page.locator(editors.recycleBin.save).click();
+  await expect(modal).toBeHidden();
+  await page.keyboard.press('Escape');
+  await expect(card).toHaveCount(0);
+  await page.reload();
+  await expectAppReady(page);
+  await expect(card).toHaveCount(0);
+});
+
+test('General can disable recycle bin animation without hiding its SVG or changing the preference with looks', async ({ page }) => {
+  const modal = await openEditor(page, 'recycleBin');
+  await modal.getByRole('tab', { name: 'General', exact: true }).click();
+  const animation = modal.locator('#recycle-bin-editor-animate-icon');
+  await expect(animation).toBeChecked();
+  await animation.uncheck();
+  await modal.getByRole('tab', { name: 'Style', exact: true }).click();
+  await modal.locator('[data-appearance-look="midnight"]').click();
+  await modal.locator('.editor-reset-appearance').click();
+  await modal.getByRole('tab', { name: 'General', exact: true }).click();
+  await expect(animation).not.toBeChecked();
+  await page.locator(editors.recycleBin.save).click();
+  await expect(modal).toBeHidden();
+  await page.keyboard.press('Escape');
+  await page.reload();
+  await expectAppReady(page);
+  const card = page.locator('#bookmark-container .recycle-bin');
+  await expect(card).toHaveClass(/is-recycle-bin-static/);
+  await card.locator('.recycle-bin-open').hover();
+  await expect(card.locator('.recycle-bin-svg')).toBeVisible();
+  await expect(card.locator('.recycle-bin-lid-group')).toHaveCSS('transform', 'none');
+  await card.evaluate(element => element.classList.add('is-drop-target'));
+  await expect(card).toHaveCSS('transform', 'none');
+  await expect(card.locator('.recycle-bin-lid-group')).toHaveCSS('transform', 'none');
+  await card.evaluate(element => element.classList.remove('is-drop-target'));
+  expect((await storedValue(page, 'recycleBin')).animateIcon).toBe(false);
+});
+
+test('external counters are absent while folder contents and launcher symbols remain available', async ({ page }) => {
+  for (const type of ['folder', 'recycleBin']) {
+    const modal = await openEditor(page, type);
+    await expect(modal.locator('[id$="-show-count"]')).toHaveCount(0);
+    await expect(modal.locator('.folder-count, .recycle-bin-caption small')).toHaveCount(0);
+    await page.keyboard.press('Escape');
+    await page.keyboard.press('Escape');
+  }
+  await expect(page.locator('#bookmark-container .folder-count, #bookmark-container .recycle-bin-caption small')).toHaveCount(0);
+  await page.setViewportSize({ width: 600, height: 800 });
+  await expect(page.locator('#bookmark-container [data-folder-id] .bookmark-list-detail')).toHaveCount(0);
+  await expect(page.locator('#bookmark-container [data-recycle-bin-id] .bookmark-list-detail')).toHaveCount(0);
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.mouse.move(5, 400);
+  await page.locator('#add-toggle').click();
+  await expect(page.locator('#add-bookmark [data-icon-id="ui-bookmark"]')).toBeVisible();
+  await expect(page.locator('#add-folder [data-icon-id="ui-folders"]')).toBeVisible();
+  await expect(page.locator('#add-bookmark img, #add-folder img')).toHaveCount(0);
+  await page.screenshot({ path: 'dist/release-audit/launcher-shared-symbols.png' });
+});
+
+test('folder symbol controls fit all languages and cover images retain the centered symbol', async ({ page }) => {
+  const modal = await openEditor(page, 'folder');
+  await modal.locator('.editor-icon-picker summary').click();
+  await modal.locator('[data-icon-choice="ui-cloud"]').click();
+  await modal.locator('.editor-icon-picker summary').click();
+  for (const width of [1280, 900]) {
+    await page.setViewportSize({ width, height: 800 });
+    for (const language of ['en', 'es', 'es_419', 'pt_BR']) {
+      await page.evaluate(async language => {
+        const { changeLanguage } = await import('/src/platform/i18n/i18n.js');
+        await changeLanguage({ language });
+      }, language);
+      const overflow = await modal.locator('.folder-symbol-color').evaluate(row => {
+        const bounds = row.getBoundingClientRect();
+        return [...row.children].some(child => {
+          const box = child.getBoundingClientRect();
+          return box.left < bounds.left - 1 || box.right > bounds.right + 1;
+        });
+      });
+      expect(overflow, `${language}, ${width}px`).toBe(false);
+    }
+  }
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await modal.locator('.editor-image-section summary').click();
+  await modal.locator('#folder-editor-image').fill('https://images.test/cover.png');
+  const preview = modal.locator(editors.folder.preview);
+  await expect(preview.locator('.folder-svg image')).toHaveAttribute('href', 'https://images.test/cover.png');
+  await expect(preview.locator('.folder-catalog-icon')).toBeVisible();
+  await expect(preview.locator('.bookmark-favicon')).toHaveCount(0);
+  await modal.locator('#folder-editor-symbol-color').fill('#ffbb33');
+  await expect(preview.locator('.folder-catalog-icon')).toHaveCSS('color', 'rgb(255, 187, 51)');
+  await preview.screenshot({ path: 'dist/release-audit/folder-symbol-with-cover.png' });
+  await modal.locator('.modal-card').screenshot({ path: 'dist/release-audit/folder-symbol-editor-translated.png' });
+});
+
+for (const type of ['bookmark', 'folder']) {
+  test(`${type}: quick delete and Shift-middle-click confirm, cancel and restore the complete item`, async ({ page }) => {
+    if (type === 'folder') {
+      await page.evaluate(async () => {
+        const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
+        const { getState } = await import('/src/state/appStore.js');
+        await new Promise(resolve => chrome.storage.local.set({ bookmarks: [...getState().data.bookmarks,
+          { ...DEFAULT_BOOKMARK, id: 'delete-child', name: 'Folder child', url: 'https://child.test', folderId: 'editor-folder', gx: 0, gy: 0 }
+        ] }, resolve));
+      });
+      await page.reload();
+      await expectAppReady(page);
+    }
+    await page.keyboard.press('KeyE');
+    const source = page.locator(`#bookmark-container [data-${type}-id="editor-${type}"]`);
+    const edit = source.locator('.item-action-button.edit');
+    const remove = source.locator('.item-action-button.delete');
+    await expect(remove.locator('[data-icon-id="ui-trash"]')).toBeVisible();
+    const pencil = await edit.boundingBox();
+    const trash = await remove.boundingBox();
+    expect(trash.x).toBeGreaterThanOrEqual(pencil.x + pencil.width);
+    expect(Math.abs(trash.y - pencil.y)).toBeLessThan(.1);
+    await remove.click();
+    await expect(page.locator('#alert-modal')).toBeVisible();
+    await page.locator('#alert-modal-cancel').click();
+    await expect(source).toBeVisible();
+    await source.click({ button: 'middle', modifiers: ['Shift'] });
+    await expect(page.locator('#alert-modal')).toBeVisible();
+    await expect(page.locator(editors[type].modal)).toBeHidden();
+    await page.locator('#alert-modal-accept').click();
+    await expect(source).toHaveCount(0);
+    const entry = await page.evaluate(async () => {
+      const { getState } = await import('/src/state/appStore.js');
+      return getState().data.trash[0];
+    });
+    expect(entry.type).toBe(type);
+    if (type === 'folder') expect(entry.bookmarks.map(bookmark => bookmark.id)).toEqual(['delete-child']);
+    await page.keyboard.press('KeyE');
+    await page.locator('#bookmark-container .recycle-bin-open').click();
+    await page.locator('#recycle-bin-list input').check();
+    await page.locator('#recycle-bin-restore-selected').click();
+    await expect(page.locator('#recycle-bin-list input')).toHaveCount(0);
+    await page.keyboard.press('Escape');
+    await expect(source).toBeVisible();
+    if (type === 'folder') {
+      expect(await page.evaluate(async () => (await import('/src/state/appStore.js')).getState().data.bookmarks
+        .find(bookmark => bookmark.id === 'delete-child').folderId)).toBe('editor-folder');
+    }
+  });
+}
+
+test('keyboard focus opens the bin lid and the compact header respects its saved appearance', async ({ page }) => {
+  const bin = page.locator('#bookmark-container .recycle-bin');
+  await page.mouse.move(1000, 700);
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('#bookmark-container [data-folder-id="editor-folder"]')).toHaveClass(/is-keyboard-active/);
+  await page.keyboard.press('ArrowRight');
+  await expect(bin).toHaveClass(/is-keyboard-active/);
+  await expect(bin.locator('.recycle-bin-lid-group')).not.toHaveCSS('transform', 'none');
+  await page.keyboard.press('Enter');
+  const icon = page.locator('#recycle-bin-modal-customize');
+  await expect(icon).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+  await expect(icon).toHaveCSS('box-shadow', 'none');
+  const header = await page.locator('.recycle-bin-modal-header').boundingBox();
+  const restore = await page.locator('#recycle-bin-restore-all').boundingBox();
+  const title = await page.locator('.recycle-bin-modal-heading').boundingBox();
+  expect(restore.x).toBeGreaterThan(title.x + title.width);
+  expect(restore.y).toBeGreaterThanOrEqual(header.y);
+  expect(restore.y + restore.height).toBeLessThanOrEqual(header.y + header.height);
+  await page.locator('#recycle-bin-modal .modal-recycle-bin').screenshot({ path: 'dist/release-audit/recycle-bin-unified-header.png' });
+  await page.setViewportSize({ width: 430, height: 800 });
+  const buttons = await page.locator('.recycle-bin-toolbar').boundingBox();
+  const narrow = await page.locator('#recycle-bin-modal .modal-recycle-bin').boundingBox();
+  expect(buttons.x + buttons.width).toBeLessThanOrEqual(narrow.x + narrow.width);
+  await expect(page.locator('#recycle-bin-restore-all')).toBeVisible();
 });
 
 test('the icon picker can reverse its animation and stays usable with reduced motion', async ({ page }) => {

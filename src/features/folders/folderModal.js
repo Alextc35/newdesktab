@@ -4,7 +4,7 @@ import {
   renameBookmarkFolder,
   updateFolderBookmarkPositions
 } from './folderActions.js';
-import { deleteBookmarksByIds } from '../bookmarks/bookmarkActions.js';
+import { confirmItemRecycle } from '../grid/gridItemRemoval.js';
 import {
   createFolderBookmarkLayout,
   FOLDER_GRID_CAPACITY,
@@ -48,7 +48,6 @@ let renameAccept;
 let renameCancel;
 let summary;
 let list;
-let empty;
 let editToggle;
 let customizeButton;
 let folderIsEditing = false;
@@ -67,7 +66,6 @@ export function initFolderModal() {
   renameCancel = document.getElementById('folder-modal-rename-cancel');
   summary = document.getElementById('folder-modal-summary');
   list = document.getElementById('folder-modal-items');
-  empty = document.getElementById('folder-modal-empty');
   editToggle = document.getElementById('folder-modal-edit-toggle');
   customizeButton = document.getElementById('folder-modal-customize');
 
@@ -226,10 +224,6 @@ function renderFolderContents() {
   list.replaceChildren();
   list.classList.remove('is-folder-grid-settling', 'is-folder-grid-exit-target');
   modalCard.classList.toggle('is-empty-list', listView && contents.length === 0);
-  empty.classList.toggle('is-hidden', contents.length > 0);
-  const emptyKey = listView ? 'folder.emptyList' : 'folder.empty';
-  empty.dataset.i18n = emptyKey;
-  empty.textContent = t(emptyKey);
   list.classList.toggle('is-list-view', listView);
 
   if (listView) {
@@ -346,15 +340,7 @@ function createFolderBookmarkItem(bookmark, position) {
   }));
 
   const deleteButton = createItemActionButton('🗑', 'delete', 'is-dark', async () => {
-    const confirmed = await showAlert(
-      t('alert.bookmark.confirmDelete', { name: bookmark.name }),
-      { type: 'confirm' }
-    );
-    if (!confirmed) return;
-
-    await runPersistedAction(`folder-delete-bookmark:${bookmark.id}`, () => deleteBookmarksByIds([bookmark.id]), deleted => {
-      if (deleted) flashSuccess('flash.bookmark.deleted');
-    });
+    await confirmItemRecycle('bookmark', bookmark.id);
   });
   deleteButton.classList.add('folder-item-delete');
   deleteButton.setAttribute('aria-label', t('folder.actions.deleteBookmark', {
@@ -368,6 +354,15 @@ function createFolderBookmarkItem(bookmark, position) {
 }
 
 function addFolderBookmarkDrag(item, bookmarkId) {
+  item.addEventListener('auxclick', event => {
+    if (event.button !== 1 || !event.shiftKey) return;
+    event.preventDefault();
+    event.stopPropagation();
+    void confirmItemRecycle('bookmark', bookmarkId);
+  });
+  item.addEventListener('pointerdown', event => {
+    if (event.button === 1 && event.shiftKey) event.preventDefault();
+  });
   item.addEventListener('click', event => {
     if (event.target.closest('button')) return;
     event.preventDefault();
