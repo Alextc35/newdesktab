@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Notes de publicació",
+    "settingsDescription": "Què va canviar i la història darrere de cada actualització.",
+    "open": "Llegeix les notes",
+    "history": "Historial de versions",
+    "dismiss": "Tanca les notes de llançament",
+    "continue": "Continua",
+    "back": "Torna a Informació",
+    "highlights": "Què pots fer avui",
+    "generic": {
+      "title": "New DeskTab s'ha actualitzat",
+      "description": "Ja teniu la nova versió. Podeu tornar a consultar les notes de la versió anterior a Informació quan vulgueu. Gràcies per ser aquí."
+    },
+    "v1_0_0": {
+      "title": "El vostre escriptori de llocs web. Per fi.",
+      "thanks": "Gràcies per provar New DeskTab. Estic molt emocionat de compartir finalment el primer llançament públic d'aquest projecte amb vosaltres.",
+      "origin": "Tot va començar el 26 de setembre de 2025. Mentre mirava una emissió de Just Chatting a Twitch, em vaig adonar de la nova pestanya del navegador de l'emissor: una extensió que ordenava els llocs web com a quadrats de colors, sense noms ni logotips. Aquell minimalisme em va fascinar i vaig pensar: per què no construir la meva pròpia extensió? Volia que cada pestanya nova aportés una sensació d'ordre, les meves pàgines a la mà i un panell que m'agradava mirar.",
+      "desktop": "A poc a poc, aquesta idea es va convertir en un escriptori personal de llocs web en lloc d'aplicacions. El rellotge és un primer pas i encara és un treball en curs. En el futur, m'agradaria afegir un bloc de notes i altres ginys que ofereixin alguna cosa útil, tant per a mi com per a tothom que faci servir New DeskTab.",
+      "closing": "Aquesta aplicació està feta per a mi i per a tu. Gràcies per confiar en New DeskTab i donar-li un lloc al vostre navegador. Espero que gaudiu creant el vostre espai tant com jo he gaudit construint-lo.",
+      "highlights": {
+        "workspace": "Organitzeu les vostres pàgines amb adreces d'interès, carpetes i espais de treball independents.",
+        "appearance": "Personalitza els colors, la mida de cada element i el fons de l'escriptori.",
+        "search": "Trobeu les vostres pàgines amb la cerca i utilitzeu les tecles de drecera per navegar i crear elements.",
+        "backup": "Deseu còpies de seguretat i recupereu els elements suprimits de la paperera de reciclatge.",
+        "sync": "Trieu conservar les dades en aquest dispositiu o sincronitzar-les amb Google Chrome.",
+        "help": "Descobriu les funcions amb la guia de benvinguda, el manual i els consells diaris."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "EL TEU PRIMER MINUT",
+    "skip": "Omet la guia",
+    "back": "Enrere",
+    "next": "A continuació",
+    "finish": "Torna a la configuració",
+    "explore": "Explora el meu espai",
+    "addFirst": "Afegeix el meu primer marcador",
+    "progress": "Pas {{current}} de {{total}}",
+    "compactHint": "Amplieu la finestra quan vulgueu afegir adreces d'interès i editar el vostre espai.",
+    "reopenTitle": "Guia ràpida",
+    "reopenDescription": "Redescobreix l'essencial en un minut.",
+    "reopen": "Veure guia",
+    "demo": {
+      "work": "Treballar",
+      "media": "Mitjans de comunicació",
+      "trash": "Paperera de reciclatge",
+      "search": "Trobeu les vostres adreces d'interès"
+    },
+    "steps": {
+      "start": {
+        "title": "Les teves pàgines. El teu propi espai.",
+        "body": "Benvingut a New DeskTab. Manteniu les vostres pàgines preferides a mà sempre que obriu una pestanya. Per afegir-ne un, moveu-vos a la vora esquerra i trieu + → [[bookmarks|Marcador]].",
+        "hint": "També podeu [[quick-save|deseu la pàgina que esteu visitant]] des de la icona d'extensió del vostre navegador."
+      },
+      "edit": {
+        "title": "Doneu a cada marcador el seu lloc.",
+        "body": "Enceneu el llapis al menú de l'esquerra per editar-lo. Mantingueu premut i [[movement|arrossegar]] un element per moure'l; utilitza el seu [[resizing|nanses]] per canviar-ne la mida.",
+        "hint": "El llapis de cada marcador obre el seu [[appearance|editor]]: nom, colors, icona i imatge. Desa [[presets|estils]] per reutilitzar-los."
+      },
+      "organize": {
+        "title": "Menys desordre. Més ordre.",
+        "body": "Creeu un [[folders|carpeta]] des de + i arrossegueu-hi els marcadors en mode d'edició. S'obre en una graella neta amb espai per a fins a 18 adreces d'interès.",
+        "hint": "Utilitza el signe + a [[workspaces|barra d'espai de treball]] per separar la feina i el joc. El [[search|lupa]] també cerca dins de les carpetes."
+      },
+      "style": {
+        "title": "Fes-ho sentir com tu.",
+        "body": "A Configuració → [[wallpapers|Tema]], trieu un color, una imatge o un fons de vídeo i gireu els vostres fons de pantalla preferits. A Configuració → [[sync|Sincronització]], sincronitzeu el vostre espai entre dispositius amb el compte amb què heu iniciat la sessió al vostre perfil de Chrome.",
+        "hint": "Afegeix un [[clock|rellotge]] des de + → Ginys. També pots personalitzar el [[appearance|aparença]] de les teves carpetes."
+      },
+      "ready": {
+        "title": "Saps l'essencial.",
+        "body": "Premeu [[search|/]] per trobar un marcador. Utilitzeu les fletxes [[history|desfer i refer]] per recuperar els canvis; les adreces d'interès suprimides van a [[trash|paperera de reciclatge]].",
+        "hint": "Els canvis es guarden automàticament. A Configuració, exporteu un [[backup|còpia de seguretat]] o activeu Google Chrome [[sync|sincronització]] opcional."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "No s'han pogut desar els darrers canvis.",
+    "retry": "Torna a provar de desar",
+    "saved": "S'han desat els canvis pendents."
+  },
+  "itemEditor": {
+    "chooseIcon": "Trieu una icona",
+    "siteLogo": "Logotip",
+    "noSymbol": "Cap",
+    "folderIconHint": "El símbol substitueix les previsualitzacions d'adreces d'interès dins de la carpeta.",
+    "icons": {
+      "mail": "Correu",
+      "calendar": "Calendari",
+      "notes": "Notes",
+      "projects": "Projectes",
+      "design": "Disseny",
+      "music": "Música",
+      "tasks": "Tasques",
+      "ideas": "Idees",
+      "docs": "Documents",
+      "ui-start": "Brúixola",
+      "ui-organize": "Disseny",
+      "ui-personalize": "Lliscants",
+      "ui-protect": "Escut",
+      "ui-bookmarks": "Afegeix un marcador",
+      "ui-quick-save": "Navegador",
+      "ui-keyboard": "Teclat",
+      "ui-shortcuts": "Llamp",
+      "ui-search": "Cerca",
+      "ui-editing": "Llapis",
+      "ui-movement": "Mou-te",
+      "ui-resizing": "Canvia la mida",
+      "ui-drag-modes": "Arrossegueu",
+      "ui-folders": "Carpeta",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Selecció",
+      "ui-history": "Història",
+      "ui-appearance": "Paleta",
+      "ui-presets": "Presets",
+      "ui-wallpapers": "Imatge",
+      "ui-clock": "Rellotge",
+      "ui-interface": "Globus",
+      "ui-trash": "Paperera",
+      "ui-backup": "Arxiu",
+      "ui-sync": "Sincronització",
+      "ui-compact": "Llista",
+      "ui-data": "Base de dades",
+      "ui-learning": "Llibre",
+      "ui-settings": "Configuració",
+      "ui-controls": "Controls",
+      "ui-cloud": "Núvol",
+      "ui-bookmark": "Marcador",
+      "ui-info": "Informació",
+      "ui-eye": "Ull",
+      "ui-check": "Completat",
+      "ui-lock": "Bloqueig",
+      "ui-unlock": "Desbloqueja",
+      "ui-copy": "Còpia",
+      "ui-close": "Tancar",
+      "ui-undo": "Desfer",
+      "ui-redo": "Refer",
+      "ui-desktop": "Escriptori",
+      "home": "Casa",
+      "briefcase": "Treballar",
+      "code": "Codi",
+      "game": "Jocs",
+      "cart": "Compres",
+      "card": "Pagaments",
+      "people": "Gent",
+      "message": "Missatge",
+      "location": "Ubicació",
+      "phone": "Telèfon",
+      "camera": "Càmera",
+      "headphones": "Auriculars",
+      "link": "Enllaç",
+      "tag": "Etiqueta",
+      "chart": "Estadístiques",
+      "coffee": "Cafè",
+      "sun": "Sol",
+      "moon": "Lluna",
+      "circle": "Cercle",
+      "square": "Plaçada",
+      "triangle": "Triangle",
+      "diamond": "Diamant",
+      "pentagon": "Pentàgon",
+      "hexagon": "Hexàgon",
+      "star": "Estrella",
+      "heart": "Cor",
+      "plus": "A més",
+      "minus": "Menys",
+      "video": "Vídeo"
+    },
+    "searchIcons": "Icones de cerca...",
+    "clearIconSearch": "Esborra la cerca",
+    "noIcons": "No s'ha trobat cap icona",
+    "suggestedIcons": "Suggerit",
+    "suggestedIcon": "Suggerit: {{name}}",
+    "logoKeywords": "logotip de la marca del lloc web del favicon",
+    "iconKeywords": {
+      "ui-trash": "paperera paperera elimina clàssica",
+      "mail": "correu electrònic safata d'entrada de gmail outlook",
+      "docs": "documents fitxers pdf drive word",
+      "notes": "notes nota noció una nota",
+      "ui-protect": "seguretat protecció privacitat",
+      "game": "consola controlador de jocs",
+      "cart": "compres botiga botiga comprar",
+      "card": "finançament bancari crèdit dèbit diners",
+      "people": "grup d'amics de la comunitat social",
+      "ui-learning": "estudi de lectura bibliotecària",
+      "ui-clock": "temps hores rellotge",
+      "ui-interface": "Internet web idioma del món",
+      "ui-data": "emmagatzematge de dades sql",
+      "circle": "figures de formes geomètriques",
+      "square": "figures de formes geomètriques",
+      "triangle": "figures de formes geomètriques",
+      "diamond": "figures de formes geomètriques",
+      "pentagon": "figures de formes geomètriques",
+      "hexagon": "figures de formes geomètriques",
+      "star": "figures de formes geomètriques",
+      "heart": "figures de formes geomètriques"
+    },
+    "history": "Edita l'historial",
+    "description": "Fes-lo sentir com a casa al teu espai de treball.",
+    "looks": "Tria una mirada",
+    "custom": "Personalitzat",
+    "look": {
+      "original": "Original",
+      "card": "Targeta",
+      "midnight": "Fosc",
+      "paper": "Llum"
+    },
+    "reset": "Restableix l'aparença",
+    "cardColor": "Color de la targeta",
+    "folderFill": "Color de la carpeta",
+    "image": "Imatge de fons",
+    "lock": "Bloqueja o desbloqueja l'URL",
+    "copy": "Copia l'URL",
+    "clear": "Clar",
+    "section": {
+      "general": "L'essencial",
+      "text": "Nom i etiquetes",
+      "icon": "Icona",
+      "card": "Targeta"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "El nom que veus i la pàgina que obre.",
+        "text": "Trieu si voleu mostrar el nom i ajustar-ne el color.",
+        "icon": "Utilitzeu un favicon gran i centrat o una icona petita al costat del nom per a les targetes d'imatge."
+      },
+      "folder": {
+        "general": "Un nom per ajuntar els vostres marcadors.",
+        "text": "Mostra el nom de la carpeta i ajusta-ne el color.",
+        "icon": "Personalitzeu la icona de la carpeta i les miniatures de les adreces d'interès."
+      },
+      "recycleBin": {
+        "general": "Trieu si la paperera de reciclatge apareix al vostre espai de treball principal.",
+        "text": "Mostra el nom de la paperera de reciclatge i ajusta-ne el color.",
+        "icon": "Dóna el teu color a la paperera de reciclatge. Amaga tota la paperera de General."
+      }
+    },
+    "addImage": "Afegeix una imatge de fons",
+    "changeImage": "Edita la imatge de fons"
+  },
+  "html": {
+    "title": "Pestanya nova"
+  },
+  "quickSave": {
+    "title": "Desa el marcador",
+    "name": "Nom",
+    "workspace": "Espai de treball",
+    "folder": "Carpeta",
+    "mainWorkspace": "Principal",
+    "noFolder": "Cap carpeta",
+    "save": "Desa el marcador",
+    "saveAnyway": "Estalvia igualment",
+    "savedButton": "Desat",
+    "alreadySaved": "Ja s'ha desat",
+    "savedIn": "A {{location}}",
+    "savedInMore": "A {{location}} i {{count}} més",
+    "open": "Obre New DeskTab",
+    "unavailableTitle": "Aquesta pestanya no es pot desar",
+    "unavailable": "Obriu una pàgina web (http o https) per desar-la.",
+    "loadError": "No s'han pogut carregar les adreces d'interès. Torna-ho a provar.",
+    "saving": "S'està desant…",
+    "saved": "S'ha desat el marcador.",
+    "duplicate": "Aquest URL ja està desat en aquesta destinació.",
+    "noSpace": "No queda espai en aquesta destinació. Trieu-ne un altre.",
+    "invalid": "Comproveu el nom i la destinació seleccionada.",
+    "saveError": "No s'ha pogut desar el marcador. Torna-ho a provar."
+  },
+  "launcher": {
+    "bookmark": "Marcador",
+    "folder": "Carpeta",
+    "widgets": "Ginys",
+    "editMode": {
+      "enter": "Entra al mode d'edició",
+      "exit": "Sortiu del mode d'edició"
+    }
+  },
+  "widgets": {
+    "title": "Ginys",
+    "description": "Trieu un widget per afegir a aquest espai de treball.",
+    "empty": "Encara no hi ha widgets disponibles."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Amplieu la finestra per utilitzar aquesta funció.",
+      "suspended": "Panell amagat. Amplieu la finestra per continuar."
+    },
+    "editMode": {
+      "enabled": "El mode d'edició està activat",
+      "disabled": "El mode d'edició està desactivat"
+    },
+    "selectionMode": {
+      "enabled": "Mode de selecció activat",
+      "disabled": "Mode de selecció desactivat"
+    },
+    "bookmark": {
+      "added": "S'ha afegit un marcador",
+      "notFound": "No s'ha trobat el marcador",
+      "updated": "Marcador actualitzat",
+      "deleted": "S'ha suprimit el marcador"
+    },
+    "clock": {
+      "added": "S'ha afegit el rellotge",
+      "updated": "Rellotge actualitzat",
+      "deleted": "S'ha suprimit el rellotge"
+    },
+    "folder": {
+      "created": "Carpeta creada",
+      "renamed": "S'ha canviat el nom de la carpeta",
+      "updated": "Carpeta actualitzada",
+      "deleted": "S'han suprimit la carpeta i els seus marcadors",
+      "bookmarkAdded": "S'ha afegit un marcador a la carpeta",
+      "folderFull": "Aquesta carpeta ja té 18 adreces d'interès",
+      "bookmarkRemoved": "El marcador s'ha mogut de nou a la quadrícula"
+    },
+    "recycleBin": {
+      "moved": "S'ha traslladat a la paperera de reciclatge",
+      "restored": "Elements restaurats",
+      "deletedPermanently": "Elements suprimits permanentment",
+      "updated": "Paperera de reciclatge actualitzada"
+    },
+    "workspace": {
+      "created": "Espai de treball creat",
+      "deleted": "S'ha suprimit l'espai de treball",
+      "switched": "Espai de treball: {{name}}"
+    },
+    "history": {
+      "undone": "Canvi desfet",
+      "redone": "Canvi refet"
+    },
+    "bookmarks": {
+      "deletedAll": "S'han suprimit tots els marcadors",
+      "deletedAllWithFolders": "S'han suprimit totes les adreces d'interès i carpetes",
+      "deleteAllError": "No s'han pogut suprimir totes les adreces d'interès",
+      "exported": "S'han exportat les adreces d'interès",
+      "exportError": "No s'han pogut exportar les adreces d'interès",
+      "imported": "S'han importat les adreces d'interès",
+      "importError": "No s'han pogut importar les adreces d'interès",
+      "presetApplied": "Estil aplicat a la selecció",
+      "duplicatedSelected": "Elements seleccionats duplicats",
+      "deletedSelected": "S'han suprimit els elements seleccionats",
+      "moved": "Els elements s'han mogut a l'espai de treball seleccionat"
+    },
+    "settings": {
+      "saved": "S'ha desat la configuració",
+      "bookmarkDefaultSaved": "S'ha desat l'aspecte d'adreces d'interès predeterminat",
+      "bookmarkDefaultError": "No s'ha pogut desar l'aspecte predeterminat del marcador",
+      "copied": "El valor s'ha copiat al porta-retalls",
+      "resetBg": "Restableix el tema",
+      "deletedAllData": "S'han suprimit totes les dades NewDeskTab locals",
+      "deleteAllDataError": "No s'han pogut suprimir totes les dades locals de NewDeskTab",
+      "invalidWallpaperUrl": "Introduïu un URL d'imatge/vídeo HTTP o HTTPS vàlid.",
+      "invalidWallpaperFile": "No s'ha pogut afegir aquest fitxer. Utilitzeu una imatge compatible o un vídeo MP4, WebM o Ogg de fins a 200 MB.",
+      "wallpaperLimit": "Podeu afegir fins a 25 fons de pantalla personals."
+    },
+    "localImage": {
+      "invalid": "Trieu una imatge PNG, JPEG, WebP, GIF o AVIF.",
+      "tooLarge": "Aquesta imatge és massa gran per desar-la en aquest dispositiu.",
+      "storageFull": "No hi ha prou espai local per a aquesta imatge.",
+      "processing": "Aquesta imatge no s'ha pogut processar."
+    },
+    "sync": {
+      "enabled": "Sincronització activada",
+      "localEnabled": "Mode local activat",
+      "remoteLoaded": "Dades sincronitzades carregades",
+      "updatedFromOtherDevice": "Canvis sincronitzats rebuts d'un altre dispositiu",
+      "deletedFromOtherDevice": "Les dades del núvol s'han suprimit d'un altre dispositiu. Aquest dispositiu ara utilitza el mode local.",
+      "error": "No s'ha pogut canviar el mode d'emmagatzematge",
+      "versionBlocked": "La sincronització s'ha posat en pausa perquè les dades del núvol requereixen una versió NewDeskTab més nova. S'estan mostrant les dades locals d'aquest dispositiu.",
+      "quotaError": "Les dades superen l'emmagatzematge de sincronització disponible",
+      "deleted": "S'han suprimit les dades sincronitzades",
+      "deleteError": "No s'han pogut suprimir les dades sincronitzades"
+    },
+    "backup": {
+      "exported": "Còpia de seguretat exportada",
+      "exportError": "No s'ha pogut exportar la còpia de seguretat",
+      "mediaUnavailable": "Algunes imatges o vídeos locals referenciats no estan disponibles, de manera que no s'ha creat la còpia de seguretat.",
+      "imported": "S'ha restaurat la còpia de seguretat",
+      "importError": "No s'ha pogut restaurar la còpia de seguretat",
+      "mediaStorageFull": "No hi ha prou emmagatzematge local per restaurar les imatges i els vídeos de còpia de seguretat."
+    }
+  },
+  "view": {
+    "list": "Vista de llista",
+    "search": "Cerca adreces d'interès i carpetes",
+    "clearSearch": "Esborra la cerca",
+    "noResults": "Sense resultats."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Vols suprimir totes les adreces d'interès?",
+      "deleteFolders": "També esborra totes les carpetes",
+      "confirmDeleteSelected": "Esborrar {{count}} elements seleccionats?",
+      "confirmMoveOne": "Voleu moure aquest element a l'àrea de treball \"{{workspace}}\"?",
+      "confirmMoveSelected": "Voleu moure {{count}} elements seleccionats a l'espai de treball \"{{workspace}}\"?",
+      "duplicateNoSpace": "No s'han pogut duplicar {{count}} elements perquè no hi havia prou espai.",
+      "moveNoSpace": "No s'han pogut moure {{count}} elements perquè no hi havia prou espai.",
+      "no_space": "No hi ha espai disponible per a més adreces d'interès 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Vols descartar el marcador nou?"
+      },
+      "confirmDelete": "Vols suprimir “{{name}}”?",
+      "confirmPermanentDelete": "Vols suprimir permanentment \"{{name}}\"? Això no es pot desfer.",
+      "cancel": "Descartar els canvis?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Vols suprimir aquest widget permanentment? Això no es pot desfer.",
+      "confirmDeleteSelected": "Esborrar {{count}} elements seleccionats? Els ginys seleccionats ({{widgetCount}}) se suprimiran permanentment i no es podran restaurar."
+    },
+    "folder": {
+      "createCancel": "Vols descartar la carpeta nova?",
+      "cancel": "Vols descartar els canvis de carpeta?"
+    },
+    "recycleBin": {
+      "folder": "Voleu moure “{{name}}” i els seus {{count}} adreces d'interès a la paperera de reciclatge?",
+      "empty": "Vols suprimir definitivament tot el que hi ha a la paperera de reciclatge? Això no es pot desfer.",
+      "deleteSelected": "Suprimir permanentment els {{count}} elements seleccionats? Això no es pot desfer.",
+      "noSpace": "No s'han pogut restaurar {{count}} elements perquè no hi ha prou espai a la graella. Queden a la paperera de reciclatge.",
+      "cancel": "Vols descartar els canvis de la paperera de reciclatge?"
+    },
+    "settings": {
+      "cancel": "Vols descartar els canvis de configuració?",
+      "reset": "Vols restablir tota la configuració? Les adreces d'interès no se suprimiran.",
+      "deleteAllData": "Vols suprimir totes les dades locals NewDeskTab d'aquest dispositiu? Les adreces d'interès, les carpetes, els ginys, la configuració, els elements de la paperera de reciclatge, les imatges locals i els vídeos locals se suprimiran permanentment. Les dades del núvol no es canviaran. Si la sincronització està activa, aquest dispositiu canviarà primer a Local. Aquesta acció no es pot desfer.",
+      "theme": {
+        "reset": "Vols restablir la configuració del tema?"
+      },
+      "bookmark": {
+        "cancel": "Vols descartar els canvis a l'aspecte predeterminat de les adreces d'interès?"
+      },
+      "shortcuts": {
+        "reset": "Voleu restaurar les dreceres de teclat predeterminades?"
+      },
+      "sync": {
+        "enable": "Vols canviar de local a sincronitzat? Això entrarà en vigor ara, sense fer clic a Desa. Si ja existeixen dades sincronitzades, se'n carregaran les adreces d'interès i la configuració. En cas contrari, les vostres dades locals desades es sincronitzaran.",
+        "local": "Vols canviar de sincronitzat a local? Això entrarà en vigor ara, sense fer clic a Desa. Aquest dispositiu conservarà una còpia de les dades actuals i deixarà de sincronitzar els canvis. Les dades sincronitzades es mantindran emmagatzemades per a altres dispositius.",
+        "delete": "Vols suprimir totes les dades NewDeskTab sincronitzades? Aquest dispositiu i tots els altres dispositius que utilitzin aquestes dades del núvol canviaran al mode local quan detectin la supressió. Això no es pot desfer."
+      }
+    },
+    "backup": {
+      "import": "Voleu restaurar aquesta còpia de seguretat? Substituirà les vostres adreces d'interès i configuració actuals."
+    }
+  },
+  "addModal": {
+    "title": "Afegeix un nou marcador",
+    "name": "Nom:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Opcions avançades",
+    "compactView": "▴ Vista compacta"
+  },
+  "clock": {
+    "name": "Rellotge",
+    "inDevelopment": "En desenvolupament: el rellotge encara no està en la seva versió final. Estem treballant per millorar-lo.",
+    "createTitle": "Afegeix rellotge",
+    "editTitle": "Configuració del rellotge",
+    "description": "Mostra la teva hora local en aquest espai de treball.",
+    "hourCycle": "Format horari",
+    "hour24": "24 hores",
+    "hour12": "12 hores",
+    "showSeconds": "Mostra els segons",
+    "delete": "Suprimeix",
+    "edit": "Edita el rellotge",
+    "actions": "Accions del rellotge",
+    "openSettings": "Obre la configuració del rellotge",
+    "confirmDelete": "Vols suprimir aquest rellotge? Podeu desfer aquesta acció.",
+    "confirmPermanentDelete": "Vols suprimir permanentment aquest rellotge? Això no es pot desfer.",
+    "cancel": "Vols descartar els canvis de rellotge?",
+    "noSpace": "No hi ha prou espai a la graella per a aquest rellotge."
+  },
+  "buttons": {
+    "save": "Desa",
+    "apply": "Aplicar",
+    "add": "Afegeix",
+    "accept": "Acceptar",
+    "cancel": "Cancel·la·la",
+    "close": "Tancar"
+  },
+  "localImage": {
+    "upload": "Carrega des d'aquest dispositiu",
+    "label": "Imatge local:",
+    "activeSource": "Imatge activa:",
+    "sourceLocal": "Local",
+    "sourceUrl": "URL",
+    "remove": "Elimina la imatge local",
+    "notice": "Les imatges locals no es sincronitzen.",
+    "unnamed": "Imatge local"
+  },
+  "workspace": {
+    "ariaLabel": "Controls de l'espai de treball",
+    "current": "Espai de treball",
+    "main": "Principal",
+    "search": "Cerca adreces d'interès",
+    "add": "Crea un espai de treball",
+    "delete": "Suprimeix l'espai de treball",
+    "undo": "Desfer",
+    "redo": "Refer",
+    "shortcutHint": "Canvia l'espai de treball amb Alt o Opció més la fletxa amunt o avall",
+    "prompt": "Introduïu un nom per a l'espai de treball nou",
+    "namePlaceholder": "Treball, lleure...",
+    "confirmDelete": "Voleu suprimir \"{{name}}\", les seves carpetes {{folderCount}} i les adreces d'interès {{bookmarkCount}}? Per conservar-los, moveu-los primer a Principal o a un altre espai de treball."
+  },
+  "search": {
+    "title": "Cerca adreces d'interès",
+    "inputLabel": "Cerca per nom o URL",
+    "placeholder": "Nom o URL",
+    "empty": "No s'han trobat adreces d'interès.",
+    "noUrl": "Sense URL",
+    "inFolder": "Carpeta: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Accions de l'element seleccionat",
+    "selected": "{{count}} seleccionat",
+    "move": "Mou a l'espai de treball",
+    "applyPreset": "Aplica l'estil predeterminat",
+    "duplicate": "Selecció duplicada",
+    "delete": "Suprimeix",
+    "clear": "Esborra la selecció"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Controls de marcadors",
+    "edit": "Edita el marcador",
+    "delete": "Suprimeix el marcador",
+    "copySuffix": "còpia"
+  },
+  "folder": {
+    "create": "Crea una carpeta",
+    "createPrompt": "Anomena la carpeta nova",
+    "namePlaceholder": "Eines, inspiració...",
+    "open": "Obre {{name}}, {{count}} adreces d'interès desades",
+    "count": "{{count}} guardat",
+    "summary": "{{count}} de {{capacity}} espais utilitzats",
+    "editMode": {
+      "enable": "Edita",
+      "disable": "Acabar l'edició"
+    },
+    "gridLabel": "Marcadors de carpeta",
+    "dropHint": "Deixa anar per afegir",
+    "noSpace": "No hi ha cap cel·la de graella lliure per a una carpeta nova.",
+    "removeNoSpace": "No hi ha prou espai a la graella per eliminar aquest marcador de la carpeta.",
+    "confirmDelete": "Voleu moure “{{name}}” i els seus {{count}} adreces d'interès a la paperera de reciclatge?",
+    "confirmPermanentDelete": "Vols suprimir permanentment \"{{name}}\" i els seus {{count}} adreces d'interès? Això no es pot desfer.",
+    "actions": {
+      "ariaLabel": "Controls de carpetes",
+      "customize": "Personalitza la carpeta",
+      "rename": "Canvia el nom de la carpeta",
+      "delete": "Esborra la carpeta",
+      "editBookmark": "Edita {{name}}",
+      "removeBookmark": "Mou {{name}} de la carpeta",
+      "deleteBookmark": "Suprimeix {{name}}",
+      "acceptRename": "Desa el nom de la carpeta",
+      "cancelRename": "Cancel·la·la el canvi de nom de la carpeta"
+    },
+    "editor": {
+      "createTitle": "Afegeix una nova carpeta",
+      "title": "Edita la carpeta",
+      "name": "Nom:",
+      "showPreviews": "Mostra les previsualitzacions d'adreces d'interès",
+      "showName": "Mostra el nom de la carpeta",
+      "iconColor": "Color del símbol:",
+      "outerBackgroundColor": "Color de fons exterior:",
+      "noOuterBackground": "Sense fons exterior",
+      "resetOuterBackground": "Automàtic",
+      "noBackground": "Ompliment de carpeta transparent",
+      "backgroundColor": "Color de la carpeta:",
+      "backgroundImage": "Imatge de fons (URL):",
+      "lockImage": "Bloqueja o desbloqueja l'URL de la imatge",
+      "copyImage": "Copia l'URL de la imatge",
+      "clearImage": "Esborra l'URL de la imatge",
+      "textColor": "Color del text:",
+      "preview": "Vista prèvia",
+      "previewName": "Carpeta",
+      "sections": {
+        "general": "General",
+        "style": "Estil",
+        "text": "Text"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Paperera de reciclatge",
+    "open": "Obriu la paperera de reciclatge",
+    "openCount": "Obre la paperera de reciclatge, {{count}} articles",
+    "dropHint": "Deixa anar per esborrar",
+    "summary": "{{count}} elements · Supressió automàtica: {{retention}}",
+    "empty": "La paperera de reciclatge està buida.",
+    "selected": "{{count}} seleccionat",
+    "select": "Seleccioneu {{name}}",
+    "folderContents": "{{count}} adreces d'interès",
+    "deletedAt": "S'ha suprimit {{date}}",
+    "expiresIn": "Queden {{days}} dies",
+    "expiresInOne": "Queda 1 dia",
+    "neverExpires": "Mai s'ha eliminat automàticament",
+    "restoreAll": "Restaura-ho tot",
+    "deleteAll": "Suprimeix-ho tot",
+    "restoreSelected": "Restaura el seleccionat",
+    "deleteSelected": "Suprimeix el seleccionat",
+    "editor": {
+      "title": "Edita la paperera de reciclatge",
+      "animateIcon": "Anima la paperera de reciclatge",
+      "appearance": "Aparença",
+      "backgroundColor": "Color de fons:",
+      "backgroundImage": "Imatge de fons (URL):",
+      "lockImage": "Bloqueja o desbloqueja l'URL de la imatge",
+      "copyImage": "Copia l'URL de la imatge",
+      "clearImage": "Esborra l'URL de la imatge",
+      "noBackground": "Sense fons",
+      "iconColor": "Color de la icona:",
+      "textColor": "Color del text:",
+      "elements": "Elements visibles",
+      "showName": "Mostra el nom",
+      "visible": "Mostra la paperera de reciclatge a la graella principal",
+      "preview": "Vista prèvia",
+      "actions": "Accions de la paperera de reciclatge",
+      "edit": "Edita la paperera de reciclatge",
+      "sections": {
+        "general": "General",
+        "style": "Estil",
+        "text": "Text",
+        "icon": "Icona"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Introduïu un nom per desar el valor predefinit."
+    },
+    "name": {
+      "required": "Introduïu un nom per al marcador."
+    },
+    "folderName": {
+      "required": "Introduïu un nom per a la carpeta."
+    },
+    "url": {
+      "invalid": "L'URL no és vàlid.",
+      "unsupportedProtocol": "Aquest tipus d'URL no està permès."
+    },
+    "backgroundImageUrl": {
+      "invalid": "L'URL de la imatge no és vàlid.",
+      "unsupportedProtocol": "Aquest tipus d'imatge no està permès."
+    }
+  },
+  "editModal": {
+    "title": "Edita el marcador",
+    "name": "Nom:",
+    "url": "URL:",
+    "backgroundImage": "Imatge de fons (URL):",
+    "backgroundFavicon": "Icona gran i centrada",
+    "invertColorBg": "Inverteix els colors",
+    "noBackground": "Sense fons",
+    "backgroundColor": "Color del marcador:",
+    "showText": "Mostra el text",
+    "textColor": "Color del text:",
+    "showFavicon": "Mostra la icona",
+    "invertColorIcon": "Inverteix els colors de les icones",
+    "iconColor": "Color de la icona:",
+    "sections": {
+      "general": "General",
+      "style": "Estil",
+      "text": "Text",
+      "icon": "Icona"
+    },
+    "preview": "Vista prèvia",
+    "previewName": "Vista prèvia"
+  },
+  "colorPicker": {
+    "title": "Selector de colors",
+    "sample": "Trieu un color de la pantalla",
+    "close": "Tanca el selector de colors",
+    "saturationBrightness": "Saturació i brillantor",
+    "hue": "Hue",
+    "quickColors": "Colors ràpids",
+    "saturation": "Saturació",
+    "brightness": "Brillantor",
+    "hex": "Codi hexadecimal",
+    "copy": "Copia el codi hexadecimal",
+    "copied": "S'ha copiat el codi hexadecimal",
+    "copyFailed": "No s'ha pogut copiar el codi hexadecimal"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "General",
+      "sync": "Sincronització",
+      "theme": "Tema",
+      "bookmark": "Adreces d'interès",
+      "shortcuts": "Dreceres",
+      "language": "Idiomes",
+      "help": "Ajuda",
+      "information": "Informació"
+    },
+    "general": {
+      "title": "General",
+      "subtitle": "Configuració",
+      "export": "Exporta la còpia de seguretat",
+      "import": "Restaura la còpia de seguretat",
+      "resetSettings": "Restableix la configuració",
+      "deleteAllData": "Suprimeix totes les dades locals",
+      "recycleBin": {
+        "title": "Paperera de reciclatge",
+        "show": "Mostra la paperera de reciclatge a la graella principal",
+        "retentionLabel": "Suprimeix elements automàticament:",
+        "retentionOptions": {
+          "oneDay": "1 dia",
+          "sevenDays": "7 dies",
+          "fourteenDays": "14 dies",
+          "twentyEightDays": "28 dies",
+          "never": "Mai"
+        }
+      },
+      "appearance": {
+        "title": "Aparença",
+        "system": "Navegador",
+        "light": "Llum",
+        "dark": "Fosc"
+      }
+    },
+    "sync": {
+      "title": "Sincronització",
+      "description": "Trieu on emmagatzemar la configuració i les adreces d'interès.",
+      "ariaLabel": "Mode d'emmagatzematge",
+      "local": {
+        "title": "Només aquest dispositiu",
+        "description": "Les dades només s'emmagatzemen en aquest perfil de navegador local."
+      },
+      "synced": {
+        "title": "Sincronitzat",
+        "description": "Disponible en Google Chrome perfils connectats al mateix compte.",
+        "tooltip": "Informació de sincronització"
+      },
+      "compatibility": {
+        "newerVersion": "La sincronització està bloquejada en aquest dispositiu perquè les dades del núvol han estat creades per una versió NewDeskTab més nova. Les vostres dades sincronitzades estan segures i no s'han modificat. Actualitza NewDeskTab per tornar a connectar."
+      },
+      "usage": {
+        "title": "Disponibilitat d'emmagatzematge",
+        "showExact": "Mostra els bytes exactes",
+        "showHuman": "Mostra mides llegibles",
+        "local": "Local",
+        "sync": "Sincronitzat",
+        "localSyncCopy": "Còpia de sincronització local",
+        "localAria": "Ús d'emmagatzematge local",
+        "syncAria": "Ús d'emmagatzematge sincronitzat",
+        "loading": "S'està calculant...",
+        "summary": "{{used}} de {{total}} · {{percent}}%",
+        "available": "{{free}} disponible",
+        "system": "Sistema i metadades",
+        "bookmarks": "Adreces d'interès",
+        "folders": "Carpetes",
+        "trash": "Dades de la paperera de reciclatge",
+        "localImages": "Imatges locals",
+        "themeImages": "Tema",
+        "bookmarkImages": "Adreces d'interès",
+        "folderImages": "Carpetes",
+        "trashImages": "Paperera de reciclatge",
+        "otherImages": "Altres",
+        "widgets": "Ginys",
+        "widgetsHint": "La mida que es mostra per a la sincronització és una estimació i exclou el contingut en directe obtingut de serveis externs.",
+        "error": "Ús no disponible"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome sincronitza New DeskTab mitjançant el vostre compte de Google. New DeskTab no executa el seu propi servidor de sincronització.",
+        "brave": "No disponible a Brave: pot emmagatzemar dades New DeskTab a chrome.storage.sync, però actualment no les propaga entre dispositius.",
+        "unsupported": "L'emmagatzematge sincronitzat només està disponible a Google Chrome de moment. Altres navegadors romanen desactivats fins que es verifiqui la compatibilitat entre dispositius."
+      },
+      "existingNotice": "Si accepteu el canvi a Sincronitzat, es carregarà totes les dades sincronitzades que ja existeixen.",
+      "deleteData": "Suprimeix les dades sincronitzades",
+      "metadata": {
+        "loading": "S'estan comprovant les dades sincronitzades...",
+        "updatedAt": "Última actualització sincronitzada: {{date}}",
+        "unknown": "Existeixen dades sincronitzades, però el seu temps d'actualització no està disponible.",
+        "empty": "No s'emmagatzemen dades New DeskTab sincronitzades.",
+        "error": "No s'ha pogut carregar la informació de dades sincronitzades."
+      },
+      "status": {
+        "idle": "Les dades estan a punt.",
+        "saving": "S'estan desant els canvis...",
+        "saved": "Tots els canvis es guarden.",
+        "error": "No s'han pogut desar els darrers canvis."
+      }
+    },
+    "theme": {
+      "title": "Tema",
+      "subtitle": "Fons de la pàgina",
+      "backgroundImageMode": "Imatge/vídeo",
+      "wallpapersTitle": "Els meus fons de pantalla",
+      "ownWallpapersHint": "Aquests fons de pantalla i la seva rotació només s'emmagatzemen en aquest dispositiu.",
+      "mediaUrl": "URL del fons de pantalla",
+      "image": "Imatge",
+      "video": "Vídeo",
+      "addUrl": "Afegeix URL",
+      "addFiles": "Afegeix fitxers locals",
+      "rotationInterval": "Rotació de fons de pantalla",
+      "noRotation": "No canvieu automàticament",
+      "interval5": "5 segons",
+      "interval15": "15 segons",
+      "interval30": "30 segons",
+      "interval60": "1 minut",
+      "interval300": "5 minuts",
+      "interval600": "10 minuts",
+      "interval1800": "30 minuts",
+      "previous": "Anterior",
+      "next": "A continuació",
+      "moveUp": "Mou cap amunt",
+      "moveDown": "Mou cap avall",
+      "remove": "Eliminar",
+      "unavailableLocal": "El fitxer local no està disponible en aquest dispositiu",
+      "mediaColor": "Color darrere d'aquest fons de pantalla",
+      "mediaPreview": "Vista prèvia del fons de pantalla",
+      "activeSource": "Font activa",
+      "backgroundSolid": "Color sòlid",
+      "backgroundColor": "Color:",
+      "editSolidColor": "Canvia el color de fons sòlid",
+      "changeSolidColor": "Canvia de color",
+      "backgroundImageColor": "Color darrere de la imatge/vídeo",
+      "backgroundImage": "URL compartit entre dispositius",
+      "urlHidden": "URL amagat",
+      "resetBackground": "Restableix el tema"
+    },
+    "bookmark": {
+      "title": "Adreces d'interès",
+      "subtitle": "Marcador per defecte",
+      "description": "Trieu l'aspecte utilitzat per crear adreces d'interès noves.",
+      "configure": "Configura el marcador predeterminat",
+      "editorTitle": "Aspecte d'adreces d'interès per defecte",
+      "previewName": "Marcador per defecte",
+      "export": "Exporta les adreces d'interès",
+      "import": "Importa les adreces d'interès",
+      "deleteAll": "Suprimeix totes les adreces d'interès",
+      "preview": "Vista prèvia",
+      "drag": {
+        "title": "Comportament d'arrossegament",
+        "description": "Trieu com es reorganitzen els marcadors quan ocupeu la seva posició.",
+        "none": {
+          "title": "Cap",
+          "description": "Només permet moviments a cel·les lliures."
+        },
+        "cascade": {
+          "title": "Seqüència",
+          "description": "Desplaça la cadena fins que trobi una cel·la lliure.",
+          "experimental": "Experimental · Pot contenir errors menors."
+        },
+        "relocate": {
+          "title": "Reubicació",
+          "description": "Reubica les adreces d'interès que ocupen la destinació."
+        }
+      },
+      "resize": {
+        "title": "Comportament de canvi de mida",
+        "description": "Trieu com responen els elements mentre moveu una nansa de canvi de mida.",
+        "smooth": {
+          "title": "suau",
+          "description": "Estira l'element mentre l'arrossegues i, a continuació, s'ajusta a la quadrícula."
+        },
+        "none": {
+          "title": "Cap",
+          "description": "Salta per cel·la quan creueu el 50% de la cel·la veïna."
+        }
+      },
+      "presets": {
+        "title": "Biblioteca d'estils",
+        "tab": "Biblioteca",
+        "description": "Deseu estils i reutilitzeu-los quan configureu el marcador predeterminat.",
+        "name": "Nom preestablert",
+        "saved": "Preajustos desats",
+        "save": "Desa el valor predefinit",
+        "apply": "Carrega",
+        "delete": "Suprimeix",
+        "empty": "No hi ha preajustos desats"
+      }
+    },
+    "shortcuts": {
+      "title": "Dreceres de teclat",
+      "description": "Seleccioneu un botó de drecera i, a continuació, premeu una lletra o una combinació de tecles. Feu clic amb el botó dret per anul·lar l'assignació.",
+      "change": "Canvia la drecera {{action}}. Drecera actual: {{shortcut}}.",
+      "press": "Premeu la drecera...",
+      "unassigned": "Sense assignar",
+      "unassignedFlash": "Drecera sense assignar.",
+      "modifierRequired": "Utilitzeu una lletra per si sola o una combinació de tecles amb un modificador.",
+      "reserved": "Aquesta drecera la reserva el navegador o el sistema operatiu. Trieu una altra combinació.",
+      "conflict": "Aquesta clau ja està assignada a una altra acció.",
+      "updated": "S'ha actualitzat la drecera.",
+      "cancelled": "S'ha cancel·lat el canvi de drecera.",
+      "restored": "S'han restaurat les dreceres predeterminades.",
+      "reset": "Restableix les dreceres",
+      "actions": {
+        "toggleEditing": {
+          "title": "Mode d'edició",
+          "description": "Introduïu o deixeu l'edició a la graella principal o en una carpeta oberta."
+        },
+        "addBookmark": {
+          "title": "Crea un marcador",
+          "description": "Obriu el formulari per afegir un marcador."
+        },
+        "addFolder": {
+          "title": "Crea una carpeta",
+          "description": "Obriu el diàleg per crear una carpeta."
+        },
+        "openWidgets": {
+          "title": "Obriu ginys",
+          "description": "Obriu la llista de ginys disponibles."
+        },
+        "openSettings": {
+          "title": "Obre la configuració",
+          "description": "Obriu el tauler de configuració de New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Idiomes",
+      "text": "Seleccioneu l'idioma de la interfície:",
+      "system": "Navegador",
+      "search": "Cerca l'idioma o el país",
+      "empty": "No s'han trobat llengües"
+    },
+    "information": {
+      "title": "Informació",
+      "version": "Versió: {{VERSION}}",
+      "author": "Autor:"
+    }
+  }
+}

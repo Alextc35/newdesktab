@@ -725,6 +725,8 @@
 }
 
 .folder-modal-grid {
+  /* Saved cells use physical left-to-right coordinates in every UI language. */
+  direction: ltr;
   --folder-grid-gap: 0px;
   display: grid;
   width: min(100%, 116vh);

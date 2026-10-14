@@ -39,7 +39,9 @@ items on a desktop without relying on a NewDeskTab account or backend.
 * Multi-select, bulk styling, moving, duplication and deletion
 * Bookmark duplication plus atomic undo/redo for bookmark and folder changes
 * Solid, image and muted-video themes with ordered wallpaper rotation; local
-  media or remote URLs, plus favicon previews and four interface locales
+  media or remote URLs, plus favicon previews
+* 52 offline interface locales with native language names, automatic browser
+  detection and language/country search, including localized guides and help
 * Versioned bookmark import/export and complete backups
 * Optional Google Chrome profile synchronization with status and data
   management

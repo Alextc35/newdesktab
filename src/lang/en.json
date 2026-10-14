@@ -908,7 +908,9 @@
     "languages": {
       "title": "Languages",
       "text": "Select the interface language:",
-      "system": "Browser"
+      "system": "Browser",
+      "search": "Search language or country",
+      "empty": "No languages found"
     },
     "information": {
       "title": "Information",

@@ -1,0 +1,517 @@
+{
+  "title": "Uporabniški priročnik",
+  "eyebrow": "VAŠ PROSTOR, VAŠ TEMPO",
+  "intro": "Spoznajte vsako najmanjšo lastnost.",
+  "description": "Poiščite, kar potrebujete, ali odkrijte nekaj novega. Vzemite si čas.",
+  "settingsDescription": "Vsaka funkcija s preprostimi koraki in majhnimi triki, ki jih lahko preizkusite, kadar koli želite.",
+  "search": {
+    "label": "S čim vam lahko pomagamo?",
+    "placeholder": "Na primer: obnovite izbrisani zaznamek",
+    "common": "Pogosta vprašanja",
+    "found": "Odgovori za vaše iskanje · {{count}}",
+    "empty": "Za to iskanje ni bilo mogoče najti pomoči. Poskusite »tipkovnica«, »premakni zaznamke« ali »varnostno kopiranje«.",
+    "resultsLabel": "Ročna vprašanja in odgovori"
+  },
+  "open": "Raziščite priročnik",
+  "searchLabel": "Poiščite priročnik",
+  "searchPlaceholder": "Poskusite »tipkovnica«, »ozadje« ali »varnostna kopija«",
+  "count": "{{count}} razdelkov za raziskovanje",
+  "empty": "Ni ujemanja. Poskusite z drugo besedo ali počistite iskanje, da si ogledate celotno kazalo.",
+  "back": "← Ročno kazalo",
+  "remember": "Dobro si je zapomniti",
+  "related": "Nadaljujte z odkrivanjem",
+  "footer": "Vedno na voljo v Nastavitve → Pomoč.",
+  "guideLinks": "Več o tem v priročniku",
+  "groups": {
+    "start": "Začni tukaj",
+    "organize": "Organizirajte se",
+    "personalize": "Naj bo vaše",
+    "protect": "Poskrbite za svoj prostor"
+  },
+  "demo": {
+    "browse": "Brskajte po razdelkih",
+    "previous": "← Prejšnji razdelek",
+    "next": "Naslednji razdelek →",
+    "title": "Oglejte si ga v akciji",
+    "example": "Demonstracijski primer",
+    "steps": "Predstavitveni koraki",
+    "step": "Korak {{step}} od {{count}}",
+    "play": "Igraj",
+    "pause": "Premor",
+    "replay": "Replay",
+    "progress": "Demonstracijski napredek",
+    "mode": "Vedenje",
+    "nextStep": "Naslednji korak",
+    "reducedMotion": "Zmanjšano gibanje: raziščite korake brez animacije.",
+    "labels": {
+      "settings": "nastavitve",
+      "saved": "Spremembe shranjene",
+      "page": "Stran",
+      "selection": "Izbira",
+      "selected": "izbranih elementov",
+      "color": "barva",
+      "styleName": "Moj vijolični stil",
+      "wallpaper": "Ozadja",
+      "rotation": "Vrtenje",
+      "format": "Oblika",
+      "seconds": "sekund",
+      "language": "Jezik",
+      "system": "Sistem",
+      "currentLanguage": "Slovenščina",
+      "restore": "Obnovi",
+      "copy": "Varnostno kopiranje",
+      "restoreCopy": "Preglejte pred obnovitvijo",
+      "switchSync": "Preklopiti na sinhronizirano?",
+      "applyNow": "Velja ob potrditvi",
+      "status": "Stanje",
+      "synchronized": "Sinhronizirano",
+      "retry": "Shrani v teku · Poskusi znova",
+      "keyboardQuery": "tipkovnico",
+      "deleteExample": "Zaznamki in mape bodo izbrisani. Koš bo prazen."
+    },
+    "topics": {
+      "bookmarks": [
+        "Odprite levi meni in izberite + → Zaznamek.",
+        "Vnesite ime in naslov strani.",
+        "Potrdi: zaznamek se pojavi v prosti celici."
+      ],
+      "quick-save": [
+        "Odprite New DeskTab z njegove razširitvene ikone.",
+        "Preglejte predlagano ime, naslov in cilj.",
+        "Shrani: zaznamek bo v vašem delovnem prostoru, ko odprete zavihek."
+      ],
+      "keyboard": [
+        "Pritisnite Tab, da se osredotočite na prvi element.",
+        "Puščične tipke premikajo fokus. Enter odpre izbrani element.",
+        "Esc ali drug zavihek konča navigacijo."
+      ],
+      "shortcuts": [
+        "Odprite Nastavitve → Bližnjice na tipkovnici.",
+        "Kliknite bližnjico do dejanja in vnesite svojo kombinacijo.",
+        "Shranite, da uporabite novo bližnjico."
+      ],
+      "search": [
+        "Povečevalnik orodne vrstice ali / odpre iskanje.",
+        "Vnesite del imena ali naslova.",
+        "Odprite rezultat. Esc ali Zapri se vrneta v vaš delovni prostor."
+      ],
+      "editing": [
+        "Svinčnik menija razkrije mrežo in kontrolnike.",
+        "Gmailov svinčnik odpre urejevalnik imen in URL-jev.",
+        "Shranite spremembo in znova kliknite menijski svinčnik za dokončanje."
+      ],
+      "movement": [
+        "Omogočite urejanje in pridržite ploščico.",
+        "Kazalec in ploščica se premakneta skupaj v prosto celico.",
+        "Sprostitev: končni položaj je shranjen."
+      ],
+      "resizing": [
+        "Omogočite urejanje in poiščite kotni ročaj.",
+        "Povlecite diagonalno, da spremenite širino in višino.",
+        "Spustite pri 2 × 2. Z izbirnikom primerjajte Brez in Gladko."
+      ],
+      "drag-modes": [
+        "Z izbirnikom primerjajte tri načine vlečenja.",
+        "Povlecite proti zasedeni celici in opazujte druge ploščice.",
+        "Noben ne uporablja proste celice; Premestitev in Zaporedje reorganizirata ploščice."
+      ],
+      "folders": [
+        "Poimenujte mapo, da združite svoje strani.",
+        "Med urejanjem povlecite zaznamek nanj.",
+        "Odprite mapo in poiščite zaznamek v njeni mreži."
+      ],
+      "workspaces": [
+        "Orodna vrstica + ustvari delovni prostor z vašim izbranim imenom.",
+        "Novi delovni prostor ima lastno mrežo.",
+        "Alt + ↑ in Alt + ↓ krožite po svojih delovnih prostorih."
+      ],
+      "selection": [
+        "Omogočite urejanje in izberite ploščico s kratkim klikom.",
+        "Izberite drugo: orodna vrstica ponuja skupinska dejanja.",
+        "Klon ustvari kopije v prostih celicah z enim dejanjem."
+      ],
+      "history": [
+        "Premakni ploščico: ta sprememba se vnese v zgodovino.",
+        "Razveljavi vrne ploščico na prejšnji položaj.",
+        "Ponovi obnovi potezo, ki ste jo pravkar razveljavili."
+      ],
+      "appearance": [
+        "Svinčnik ploščice odpre urejevalnik.",
+        "Spremenite barvo in si oglejte predogled.",
+        "Shranite, da ta videz uporabite za ploščico."
+      ],
+      "presets": [
+        "Odprite knjižnico v Nastavitve → Zaznamki.",
+        "Poimenujte in shranite slog, da ga znova uporabite.",
+        "Naložite ga kot privzetega in shranite za nove zaznamke."
+      ],
+      "wallpapers": [
+        "Odprite Nastavitve → Tema, da izberete ozadje.",
+        "Preglejte predogled in interval vrtenja knjižnice.",
+        "Shrani: izbrano ozadje se prikaže v vašem delovnem prostoru."
+      ],
+      "clock": [
+        "V levem meniju izberite + → Pripomočki → Ura.",
+        "Konfigurirajte obliko in sekunde s predogledom.",
+        "Dodajte uro v prosto celico delovnega prostora."
+      ],
+      "interface": [
+        "Odprite Splošno in izberite jezik menija.",
+        "Primerjajte svetli in temni vmesnik.",
+        "Shranite jezik in nastavitve videza."
+      ],
+      "trash": [
+        "Odprite koš, da poiščete izbrisan zaznamek.",
+        "Izberite ga in kliknite Obnovi: vrne se v mrežo.",
+        "Na splošno izberite, kako dolgo se hranijo izbrisani elementi."
+      ],
+      "backup": [
+        "Poiščite možnosti varnostnega kopiranja v Nastavitve → Splošno.",
+        "Export prenese ZIP s podatki in lokalnimi datotekami.",
+        "Uvoz zahteva potrditev pred zamenjavo podatkov."
+      ],
+      "sync": [
+        "Odprite Nastavitve → Sinhronizacija, da preverite trenutni način.",
+        "Izberite Sinhronizirano in preglejte potrditev.",
+        "Sprejmi takoj uporabi način, ne da bi kliknil Shrani."
+      ],
+      "compact": [
+        "Ko se okno zoži, mreža postane seznam.",
+        "Zaznamki ostanejo dostopni s seznama.",
+        "Razširite okno, da se vrnete na mrežo in urejanje."
+      ],
+      "data": [
+        "Primer uporablja drug jezik, lahek vmesnik in prilagojene ploščice.",
+        "Ponastavitev obnovi privzete nastavitve, hkrati pa ohrani zaznamke in njihove sloge.",
+        "Izbriši odstrani zaznamke in mape, ostane samo prazen koš."
+      ],
+      "learning": [
+        "Dnevni nasvet vas vabi, da odkrijete funkcijo. Kliknite Pokaži mi, kako.",
+        "V iskalno polje vnesite »tipkovnico«, da poiščete Krmarjenje s tipkovnico.",
+        "Kliknite rezultat, da preberete njegova navodila."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "MAJHEN NAMIG ZA DANES",
+    "dismiss": "Zavrzite današnji namig",
+    "read": "Pokaži mi, kako",
+    "pace": "Premaknite miškin kazalec za premor.",
+    "enabled": "Dnevni nasveti",
+    "description": "En nasvet, ko odprete svoj prvi zavihek v dnevu."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Kako dodam stran med svoje zaznamke?",
+      "searchTerms": "dodaj stran; ustvarite zaznamek; shrani spletno stran; novi favorit",
+      "title": "Dodajte zaznamke",
+      "summary": "Vaše najljubše strani pri roki v vsakem novem zavihku.",
+      "steps": [
+        "Premaknite se na levi rob, da prikažete meni. Izberite + → Zaznamek.",
+        "Vnesite ime in naslov strani. Njegov videz lahko prilagodite, preden ga dodate.",
+        "Potrdite, da postavite zaznamek v prosto režo v trenutnem delovnem prostoru. Zunaj načina urejanja ga kliknite, da odprete stran."
+      ],
+      "note": "Če želite spremeniti obstoječi zaznamek, vklopite urejanje in uporabite njegov svinčnik. Naslov lahko zaklenete, da preprečite nenamerne spremembe.",
+      "tip": "Na levem robu je meni za dodajanje zaznamkov. Premaknite kazalec tja in izberite + → Zaznamek."
+    },
+    "quick-save": {
+      "question": "Kako shranim stran, ki jo obiskujem?",
+      "searchTerms": "shrani trenutno stran; shrani odprt zavihek; ikona razširitve; zajem URL-ja",
+      "title": "Shranite trenutno stran",
+      "summary": "Dodajte stran iz ikone razširitve.",
+      "steps": [
+        "Med obiskom strani odprite New DeskTab v meniju razširitev brskalnika.",
+        "Preverite predlagano ime in naslov ter izberite razpoložljivo destinacijo.",
+        "Shranite zaznamek in odprite nov zavihek, da ga najdete v svojem prostoru."
+      ],
+      "note": "Pripnite ikono razširitve v orodno vrstico brskalnika, da bo ta bližnjica na dosegu roke.",
+      "tip": "Ni vam treba kopirati URL-ja: ikona brskalnika New DeskTab vam omogoča shranjevanje strani, ki jo obiščete."
+    },
+    "keyboard": {
+      "question": "Kako krmarim brez miške?",
+      "searchTerms": "brez miške; uporaba tipkovnice; navigacija s puščicami; zavihek enter",
+      "title": "Krmarite s tipkovnico",
+      "summary": "Tab, puščične tipke in Enter za raziskovanje vašega prostora.",
+      "steps": [
+        "Na glavni strani, brez vnašanja v polje ali odprtega pogovornega okna, pritisnite tabulatorko, da začnete krmariti po elementih.",
+        "S puščičnimi tipkami dosežete najbližji predmet v vsaki smeri. Enter odpre zaznamek ali mapo; v načinu urejanja odpre urejevalnik.",
+        "Znova pritisnite Tab ali Esc, da zapustite navigacijo. Znotraj pogovornih oken se Tab in Shift + Tab običajno premikata med kontrolniki."
+      ],
+      "note": "V načinu urejanja S izbere izbrani element. Izbriši ali Backspace ga po potrditvi odstranita. Pripomočki so trajno izbrisani.",
+      "tip": "Poskusite Tab v svojem prostoru: puščice se premikajo med elementi in Enter jih odpre. Drug zavihek zapusti ta način."
+    },
+    "shortcuts": {
+      "question": "Kako spremenim svoje bližnjice na tipkovnici?",
+      "searchTerms": "spreminjanje bližnjic; prilagodite tipke; kombinacije tipk; vroča tipka",
+      "title": "Naredite bližnjice po svoje",
+      "summary": "Preverite in spremenite svoje bližnjice v nastavitvah.",
+      "steps": [
+        "Odprite Nastavitve → Bližnjice, da si ogledate svoje vezave za urejanje, dodajanje zaznamkov, map in pripomočkov ter odpiranje nastavitev.",
+        "Kliknite kombinacijo tipk dejanja in pritisnite novo bližnjico. Esc prekliče snemanje; desni klik pusti dejanje nedodeljeno.",
+        "Shranite nastavitve, da uveljavite svoje spremembe. Ponastavi bližnjice obnovi prvotne kombinacije."
+      ],
+      "note": "Na začetku: E ureja, B doda zaznamek, F mapo, W odpre pripomočke in S odpre nastavitve. Bližnjice upoštevajo besedilna polja in pogovorna okna.",
+      "tip": "Bližnjice lahko spremenite v nastavitvah. Kliknite kombinacijo, da posnamete svojo; Esc prekliče in z desnim klikom prekliče dodelitev."
+    },
+    "search": {
+      "question": "Kako najdem zaznamek, ki ga ne vidim?",
+      "searchTerms": "poišči zaznamek; poiščite stran; manjka zaznamek; iskalni URL",
+      "title": "Poiščite zaznamek",
+      "summary": "Iščite po imenu ali naslovu, vključno z notranjimi mapami.",
+      "steps": [
+        "Ko ne tipkate, pritisnite / ali uporabite povečevalno steklo na vrstici delovnega prostora.",
+        "Vnesite del imena ali naslova. Iskanje vključuje zaznamke v drugih delovnih prostorih in znotraj map.",
+        "Odprite rezultat, ki ga potrebujete. Esc ali Zapri vas popelje nazaj v vaš prostor."
+      ],
+      "note": "Ni vam treba zapomniti, kje ste shranili stran, da bi jo našli.",
+      "tip": "Tipka / odpre iskanje. Prav tako najde zaznamke znotraj map in v drugih delovnih prostorih."
+    },
+    "editing": {
+      "question": "Kako vklopim urejanje?",
+      "searchTerms": "omogočite urejanje; urejanje namizja; urejevalnik svinčnikov; spremeni zaznamek",
+      "title": "Način urejanja",
+      "summary": "Vklopite svinčnik za organiziranje in prilagajanje.",
+      "steps": [
+        "Kliknite svinčnik v levem meniju ali uporabite bližnjico za urejanje, da prikažete mrežo in kontrolnike elementov.",
+        "Premaknite, spremenite velikost ali izberite elemente. Svinčnik vsake kartice odpre urejevalnik imena, naslova in videza.",
+        "Ko končate, znova kliknite svinčnik. Spremembe delovnega prostora se samodejno shranijo; uredniki imajo svoj gumb Shrani."
+      ],
+      "note": "Esc najprej počisti izbiro ali navigacijo s tipkovnico. Ko nobeden ni aktiven, lahko zapusti način urejanja.",
+      "tip": "Svinčnik menija začne urejati: prikažejo se ročaji kartice in kontrolniki. Kliknite znova, da končate."
+    },
+    "movement": {
+      "question": "Kako premaknem zaznamek?",
+      "searchTerms": "premakniti zaznamek; povlecite najljubši; spremeniti položaj; uredi mrežo",
+      "title": "Premik predmetov",
+      "summary": "Povlecite karte na svoje mesto na mreži.",
+      "steps": [
+        "Vklopite način urejanja in pridržite kartico, ki jo želite premakniti.",
+        "Povlecite ga na cilj. Rezultat je odvisen od prostega prostora in načina vlečenja, izbranega v Nastavitve → Zaznamki.",
+        "Spustite, da shranite položaj. Posamezen element lahko izberete tudi s klikom in ga premaknete za eno celico s puščicami izven navigacije z zavihki."
+      ],
+      "note": "Blokirani cilji prikažejo vizualne povratne informacije in element se vrne na veljaven položaj. Spremembe lahko razveljavite.",
+      "tip": "V načinu za urejanje kliknite, da izberete eno kartico, in jo s puščicami premikajte celico za celico. Najprej zapustite navigacijo po zavihkih."
+    },
+    "resizing": {
+      "question": "Kako spremenim velikost ploščice?",
+      "searchTerms": "spreminjanje velikosti ploščice; povečati zaznamek; zmanjšati velikost; spreminjanje velikosti ročajev; kliknite; Shift; širina višina; 2x2",
+      "title": "Spremenite velikost",
+      "summary": "Uporabite stranice in vogale kartice.",
+      "steps": [
+        "Vklopite urejanje in se pomaknite ob stran ali v kot elementa, da uporabite ročice za spreminjanje velikosti.",
+        "Povlecite ročaj. Vogal spreminja širino in višino; stran spremeni samo eno dimenzijo. Lahko tudi kliknete ročico, da povečate za eno celico, ali Shift + kliknite, da se skrčite za eno celico.",
+        "V Nastavitve → Zaznamki izberite Brez, če želite skakati med celicami, ko presežete 50 %, ali Gladko, da raztegnete kartico in se zaskoči ob sprostitvi."
+      ],
+      "note": "Končna velikost upošteva mrežo in veljavne položaje. Predogledi nastavitev pokažejo razliko, preden izberete.",
+      "tip": "Kliknite ročico za povečanje za eno celico ali Shift + klik za zmanjšanje za eno celico. Vogali skupaj spreminjajo širino in višino; strani spremenijo samo eno dimenzijo."
+    },
+    "drag-modes": {
+      "question": "Zakaj ne morem priti na zasedeno celico?",
+      "searchTerms": "zasedena celica; premakniti čez drugo; blokiran padec; premakniti kaskado; vlečno trčenje",
+      "title": "Načini vlečenja",
+      "summary": "Izberite, kaj se zgodi na zasedeni poziciji zaznamka.",
+      "steps": [
+        "Odprite Nastavitve → Zaznamki in razširite vedenje vlečenja.",
+        "Noben se ne premakne v prosta mesta. Premestitev najde položaj za zaznamke na cilju. Zaporedje prerazporedi zaznamke v zaporedju.",
+        "Oglejte si animacijo vsake možnosti in shranite način, ki vam je udoben za organizacijo."
+      ],
+      "note": "Poteza je zavrnjena, če ni veljavne ureditve. Zaradi prozornega ozadja zasedena celica ni prosta.",
+      "tip": "Želite premakniti zaznamek v zasedeno celico? Poglejte Premestitev in Zaporedje v nastavitve → Zaznamki in si oglejte njun predogled."
+    },
+    "folders": {
+      "question": "Kako združim zaznamke v mape?",
+      "searchTerms": "ustvari mapo; skupinski zaznamki; organizirati priljubljene; odstrani iz mape; preimenuj mapo",
+      "title": "Organizirajte z mapami",
+      "summary": "Zberite do 18 zaznamkov v eno mapo.",
+      "steps": [
+        "V levem meniju izberite + → Mapa in jo poimenujte.",
+        "V načinu urejanja povlecite zaznamke nanj, da jih postavite notri. Odprite mapo, da vidite njeno mrežo.",
+        "Uporabite način urejanja mape, da uredite njene zaznamke. Kliknite njegovo ime, da ga preimenujete, in njegovo ikono, da prilagodite njegov videz."
+      ],
+      "note": "Brisanje mape vpliva tudi na njene zaznamke. Pred nadaljevanjem preglejte potrditev; koš lahko obnovi izbrisane elemente.",
+      "tip": "Mapa vsebuje do 18 zaznamkov. Vklopite urejanje in povlecite kartico v mapo, da jo dodate."
+    },
+    "workspaces": {
+      "question": "Kako naj ločim osebne in službene strani?",
+      "searchTerms": "osebno delo; ustvarite delovni prostor; preklopite delovni prostor; namizni računalniki",
+      "title": "Ločite svoje delovne prostore",
+      "summary": "Ena mreža za delo in druga za vse ostalo.",
+      "steps": [
+        "Vrstica delovnega prostora preklaplja med glavnim in delovnim prostorom po meri. Njegov + ustvari novega.",
+        "Pred dodajanjem elementov izberite delovni prostor. Če želite prenesti obstoječe elemente, jih izberite in v vrstici z dejanji izberite cilj.",
+        "Alt + ↑ in Alt + ↓ krožita po delovnih prostorih. Gumb − po potrditvi izbriše trenutni delovni prostor po meri."
+      ],
+      "note": "Z brisanjem delovnega prostora izbrišete tudi njegovo vsebino. Glavni ostane na voljo in ga ni mogoče izbrisati.",
+      "tip": "Alt + ↑ in Alt + ↓ preklapljata med delovnimi prostori, ne da bi odprli izbirnik. Ločite delo, hobije ali projekte z znakom +."
+    },
+    "selection": {
+      "question": "Kako spremenim več elementov hkrati?",
+      "searchTerms": "izberite več; izbor v razsutem stanju; premakniti več; izbor klonov; podvojeni zaznamki",
+      "title": "Izberite in ukrepajte v velikem obsegu",
+      "summary": "Manj ponavljajočih se dejanj pri organiziranju več kart.",
+      "steps": [
+        "Vklopite urejanje in na kratko kliknite vsako kartico, da jo izberete. Znova kliknite za preklic izbire; v navigaciji z zavihki lahko uporabite S.",
+        "Izbirna vrstica vam omogoča podvajanje, uporabo privzetega videza, premik v drug delovni prostor ali brisanje, odvisno od vrste elementa.",
+        "Preverite destinacijo ali potrditev. Esc ali gumb za brisanje izbire prekliče vašo izbiro."
+      ],
+      "note": "Premikanje in podvajanje potrebuje proste reže. Aplikacija vam sporoči, če nekateri predmeti ne ustrezajo. Pripomočki ne gredo v koš.",
+      "tip": "V načinu za urejanje izberite več kartic s kratkimi kliki, da jih skupaj premaknete, podvojite ali preoblikujete. Esc počisti izbor."
+    },
+    "history": {
+      "question": "Kako razveljavim zadnjo spremembo?",
+      "searchTerms": "razveljavi spremembo; ponovi spremembo; pojdi nazaj; obnoviti položaj",
+      "title": "Razveljavi in ponovi",
+      "summary": "Obnovi položaj ali nedavno spremembo.",
+      "steps": [
+        "Za vrnitev v prejšnje stanje uporabite puščico za razveljavitev na vrstici delovnega prostora.",
+        "Puščica za ponovitev obnovi spremembo, ki ste jo pravkar razveljavili. Uporabite lahko tudi Ctrl/Cmd + Z in Ctrl/Cmd + Shift + Z.",
+        "Znotraj urejevalnika uporabite puščice poleg naslova za čakajoče spremembe; besedilna polja ohranijo razveljavitev običajne tipkovnice. Vsako dejanje prikaže kratko sporočilo in nerazpoložljive puščice so onemogočene. Pred shranjevanjem preverite rezultat."
+      ],
+      "note": "Zgodovina urejevalnika se začne znova vsakič, ko odprete urejevalnik; spremembe dosežejo vaš delovni prostor, ko shranite. Zgodovina delovnega prostora je začasna in ni varnostna kopija. Nova seja ali posodobitve z drugega zavihka ga lahko ponastavijo.",
+      "tip": "Če se vam sprememba ne zdi ustrezna, uporabite puščico za razveljavitev ali Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z jo ponovi."
+    },
+    "appearance": {
+      "question": "Kako spremenim barvo, ikono ali besedilo?",
+      "searchTerms": "spremeni barvo; spremeni ikono; spremeni besedilo; videz zaznamka; barva mape; favicon",
+      "title": "Prilagodite svoje kartice",
+      "summary": "Barve, slike, besedilo in ikone na vaš način.",
+      "steps": [
+        "Vklopite urejanje in odprite svinčnik za zaznamke ali nadzor videza za mapo ali koš.",
+        "Raziščite urejevalnik: ozadje, barva, slika, besedilo in ikona. Razpoložljivi kontrolniki so odvisni od vrste predmeta; predogled prikazuje rezultat.",
+        "Varčuj, ko si srečen. Uporabite lahko slike iz URL-ja ali lokalne datoteke, kjer urejevalnik ponuja to možnost."
+      ],
+      "note": "Lokalne slike pripadajo temu brskalniku. Pri sinhronizaciji dodajte nadomestni URL za druge naprave. Uvozi ohranjajo vključene slike in jasne reference brez datoteke; Sinhronizacija prezre datoteke, ki niso na voljo v tej napravi.",
+      "tip": "Svinčnik zaznamka odpre njegov vizualni urejevalnik. Spremenite barve, besedilo, ikono ali sliko in preverite predogled."
+    },
+    "presets": {
+      "question": "Kako ponovno uporabim slog, ki mi je všeč?",
+      "searchTerms": "prihranite slog; videz ponovne uporabe; privzeti slogi; prednastavljena knjižnica; uporabite slog",
+      "title": "Ponovno uporabite videze",
+      "summary": "Shranite videz in ga uporabite za druge zaznamke.",
+      "steps": [
+        "Odprite urednikovo knjižnico, da izberete videz iz razpoložljive zbirke.",
+        "Shranite videz po meri kot prednastavitev, da znova uporabite njegove barve, besedilo in ikono, ne da bi kopirali ime ali naslov zaznamka.",
+        "V Nastavitve → Zaznamki konfigurirajte privzeti videz novih zaznamkov. Izbirna vrstica ga lahko uporabi za združljive elemente."
+      ],
+      "note": "Prednastavitev spremeni videz, ne identitete, cilja ali položaja zaznamka.",
+      "tip": "Shranite videz, ki vam je všeč, v knjižnico videza. Ponovno ga uporabite na drugih karticah, ne da bi spremenili njihova imena ali naslove."
+    },
+    "wallpapers": {
+      "question": "Kako uporabim sliko ali video kot ozadje?",
+      "searchTerms": "spremenite ozadje; video ozadje; vrtenje ozadij; tema",
+      "title": "Ozadja in vrtenje",
+      "summary": "Barva, slika ali video za ustvarjanje razpoloženja.",
+      "steps": [
+        "Odprite Nastavitve → Tema in izberite privzeto ozadje, barvo ali medijsko ozadje.",
+        "Dodajte slike ali videoposnetke iz virov, ponujenih na plošči. Knjižnica zbira več ozadij z intervalom vrtenja.",
+        "Preverite predogled in shranite. Lokalno datoteko lahko seznanite z alternativnim URL-jem za druge naprave."
+      ],
+      "note": "Lokalne datoteke ostanejo v tem brskalniku. Sinhronizacija jih ne prenese; popolna varnostna kopija jih lahko ohrani.",
+      "tip": "Vaše ozadje se lahko samodejno spremeni: dodajte jih več v Nastavitve → Knjižnica tem in nastavite interval vrtenja."
+    },
+    "clock": {
+      "question": "Kako dodam uro?",
+      "searchTerms": "dodaj uro; čas oddaje; sekunde; 24 urni format; pripomoček za uro",
+      "title": "Dodajte uro",
+      "summary": "Pripomoček, ki prikazuje čas vaše naprave.",
+      "steps": [
+        "V levem meniju izberite + → Pripomočki in izberite Ura.",
+        "Izberite 12- ali 24-urno obliko in ali želite prikazati sekunde. Predogled vam pomaga pri odločitvi.",
+        "Dodajte ga v prosto režo. V načinu urejanja lahko premaknete, spremenite velikost ali znova odprete njegove možnosti."
+      ],
+      "note": "Ura sledi času vaše naprave. Brisanje pripomočka je trajno; ne gre v koš.",
+      "tip": "V + → Pripomočki lahko dodate 12- ali 24-urno uro z izbirnimi sekundami in ji spremenite velikost, da bo ustrezala vašemu prostoru."
+    },
+    "interface": {
+      "question": "Kako spremenim jezik ali uporabim temni način?",
+      "searchTerms": "spremeniti jezik; temni način; svetlobni način; videz vmesnika",
+      "title": "Tema jezika in vmesnika",
+      "summary": "Naj bodo meniji, pogovorna okna in kontrolniki udobni.",
+      "steps": [
+        "V Nastavitve → Splošno izberite jezik ali pustite, da sledi vašemu sistemu.",
+        "Izberite svetel, temen ali samodejni vmesnik glede na vaše želje.",
+        "Shrani nastavitve. Tema vmesnika deluje skupaj z ozadjem, ki ste ga izbrali v Temi."
+      ],
+      "note": "Sistemski jezik in samodejni videz sledita vašim nastavitvam naprave.",
+      "tip": "Izberite svetel ali temen vmesnik in obdržite ozadje. Poiščite to možnost in jezik v Nastavitve → Splošno."
+    },
+    "trash": {
+      "question": "Kako obnovim izbrisani zaznamek?",
+      "searchTerms": "obnoviti izbrisani zaznamek; obnoviti odstranjeno; koš za smeti; pomotoma izbrisano; obnovi mapo",
+      "title": "Obnovi iz koša",
+      "summary": "Druga priložnost za zaznamke in mape.",
+      "steps": [
+        "Odprite koš prostora, da pregledate izbrisane zaznamke in mape.",
+        "Izberite, kar želite nazaj, in uporabite Obnovi. Po potrditvi lahko tudi trajno izbrišete predmete ali izpraznite koš.",
+        "V Nastavitve → Splošno izberite, ali želite prikazati in kako dolgo hrani elemente: 1, 7, 14 ali 28 dni ali pa jih nikoli ne izbrišite samodejno."
+      ],
+      "note": "Koš pripada tej napravi. Pretečenih ali trajno izbrisanih elementov iz njega ni več mogoče obnoviti.",
+      "tip": "Ste pomotoma izbrisali zaznamek? Odprite koš in ga obnovite. Prilagodite obdobje hrambe v Nastavitve → Splošno."
+    },
+    "backup": {
+      "question": "Kako varnostno kopiram ali prenesem svoje podatke?",
+      "searchTerms": "varnostna kopija; izvozni podatki; uvozna kopija; obnovitev varnostne kopije; drug brskalnik; prenos podatkov",
+      "title": "Varnostne kopije in uvozi",
+      "summary": "Shranite kopijo svojega prostora in jo vzemite s seboj.",
+      "steps": [
+        "V Nastavitve → Splošno izvozite celotno varnostno kopijo, da ohranite podatke in lokalne datoteke, vključene v arhiv ZIP.",
+        "Za obnovitev uvozite varnostno kopijo in pred zamenjavo podatkov preglejte potrditev. Podprte so tudi združljive varnostne kopije JSON.",
+        "V Nastavitve → Zaznamki lahko izvozite ali uvozite samo zaznamke in mape, ko ne potrebujete popolne varnostne kopije."
+      ],
+      "note": "Izvoz zaznamkov ni popolna varnostna kopija nastavitev in lokalnih medijev. Pred obnovitvijo ali brisanjem podatkov shranite varnostno kopijo.",
+      "tip": "Popolna varnostna kopija iz Nastavitve → Splošno vključuje lokalne datoteke v ZIP. Uporabno je, preden zamenjate brskalnik ali obnovite podatke."
+    },
+    "sync": {
+      "question": "Kako uporabim isti prostor na drugem računalniku?",
+      "searchTerms": "drug računalnik; sinhronizirati naprave; sinhronizacija; oblak; lokalna sinhronizacija; zaustavitev sinhronizacije; onemogoči sinhronizacijo; lokalni način",
+      "title": "Sinhronizirajte med napravami",
+      "summary": "Delite svoj prostor s sinhronizacijo brskalnika.",
+      "steps": [
+        "Prijavite se in omogočite sinhronizacijo razširitev v svojem profilu Google Chrome.",
+        "V Nastavitve → Sinhronizacija izberite Sinhronizirano in sprejmite potrditev. Preklop začne veljati takoj: naložijo se obstoječi sinhronizirani zaznamki in nastavitve ali pa se sinhronizirajo vaši shranjeni lokalni podatki, če ne obstajajo.",
+        "Uporabite isti profil v drugi napravi. Preverite stanje sinhronizacije in razpoložljiv prostor na plošči."
+      ],
+      "note": "Lokalne datoteke, koš in dnevni nasveti pripadajo vsaki napravi. Sinhronizacija ima omejitve prostora za shranjevanje; uporabite alternativne URL-je za lokalne slike in videoposnetke. Izbira Lokalno zahteva tudi potrditev in začne veljati takoj, sinhronizirani podatki pa ostanejo shranjeni.",
+      "tip": "Sinhronizacija deli vaš prostor med napravami, vendar lokalne datoteke potrebujejo alternativni URL. Glejte Nastavitve → Sinhronizacija."
+    },
+    "compact": {
+      "question": "Zakaj vidim seznam namesto mreže?",
+      "searchTerms": "majhno okno; pogled seznama; mreža je izginila; skrita plošča; mobilni",
+      "title": "Uporabite manjše okno",
+      "summary": "Še naprej dosegajte svoje zaznamke, ko je prostor omejen.",
+      "steps": [
+        "Ko se okno zoži, aplikacija preklopi na seznam, da ostanejo vaši predmeti dostopni.",
+        "V tem pogledu odprite zaznamke, mape ali iščite. Priročnik se prilagaja tudi razpoložljivi velikosti.",
+        "Razširite okno, da vrnete mrežo in plošče za urejanje. Prekinjeno pogovorno okno za urejanje ohrani osnutek."
+      ],
+      "note": "Kompaktni pogled vam pomaga brskati po prostoru; reorganizacija potrebuje dovolj široko okno.",
+      "tip": "V ozkem oknu so vaši zaznamki na voljo kot seznam. Razširite ga, ko želite urediti ali reorganizirati mrežo."
+    },
+    "data": {
+      "question": "Kako izbrišem svoje podatke ali ponastavim nastavitve?",
+      "searchTerms": "brisanje podatkov; ponastavitev nastavitev; odstranite vse; začeti znova",
+      "title": "Shranjevanje in ponastavitev",
+      "summary": "Razumeti, kaj je shranjeno in kaj vsako dejanje odstrani.",
+      "steps": [
+        "Dejanja delovnega prostora se samodejno shranijo. V urejevalnikih in nastavitvah potrdite s Shrani; Prekliči zavrže osnutek tega podokna.",
+        "Če se prikaže obvestilo o čakajočem shranjevanju, kliknite Poskusi znova shraniti in počakajte na potrditev, preden zaprete zavihek.",
+        "V Nastavitve → Splošno lahko ponastavite nastavitve ali izbrišete vse podatke. Preberite potrditev in izvozite varnostno kopijo vsega, kar želite obdržati."
+      ],
+      "note": "Ponastavitev nastavitev ohrani vaše zaznamke, njihove velikosti in njihove sloge. Če izbrišete vse lokalne podatke, odstranite elemente in izpraznite koš. Izvoz varnostne kopije pred brisanjem: Razveljavitev ne zamenja varnostne kopije.",
+      "tip": "Če vidite obvestilo o neshranjenih spremembah, uporabite Poskusi znova shraniti, preden zaprete zavihek. Zaščitite svoj prostor s popolno varnostno kopijo."
+    },
+    "learning": {
+      "question": "Kako znova odprem vodnik ali izklopim dnevne nasvete?",
+      "searchTerms": "onemogoči nasvete; izklop pomoči; dnevno opozorilo; ponovno odpri vodnik; uporabniški priročnik",
+      "title": "Učite se v svojem tempu",
+      "summary": "Hiter vodnik, priročnik in majhen dnevni nasvet.",
+      "steps": [
+        "Ponovno si oglejte hitri vodnik iz Nastavitve → Pomoč. Vsak korak je povezan z ustreznimi razlagami v priročniku.",
+        "Raziščite kazalo ali poiščite besedo. Povezane povezave razdelka vas popeljejo do drugih funkcij, ko ste pripravljeni.",
+        "Vaš prvi nov zavihek vsak dan prikaže naključen namig. Zavrzite ga ali odprite njegovo razlago; nasvete lahko onemogočite v pomoči."
+      ],
+      "note": "Nasveti obiščite razdelke brez ponavljanja, dokler zbirka ni končana. Trajajo 20 sekund in se ustavijo med lebdenjem ali fokusiranjem gumbov. Sledijo lokalnemu dnevu in nastavitvam tega brskalnika.",
+      "tip": "Ta priročnik je vedno v nastavitvah → pomoč. Dnevni nasveti odprejo razdelek, kjer jih lahko kadar koli onemogočite."
+    }
+  }
+}

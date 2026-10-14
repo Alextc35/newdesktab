@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Mga tala sa paglabas",
+    "settingsDescription": "Ano ang nagbago at ang kuwento sa likod ng bawat update.",
+    "open": "Basahin ang mga tala",
+    "history": "Kasaysayan ng bersyon",
+    "dismiss": "Isara ang mga tala sa paglabas",
+    "continue": "Magpatuloy",
+    "back": "Bumalik sa Impormasyon",
+    "highlights": "Ano ang maaari mong gawin ngayon",
+    "generic": {
+      "title": "New DeskTab ay na-update",
+      "description": "Mayroon kang bagong bersyon. Maaari mong muling bisitahin ang mga naunang tala sa paglabas sa Impormasyon kung kailan mo gusto. Salamat sa pagpunta dito."
+    },
+    "v1_0_0": {
+      "title": "Ang iyong desktop ng mga website. Sa wakas.",
+      "thanks": "Salamat sa pagsubok sa New DeskTab. Ako ay nasasabik na sa wakas ay ibahagi sa iyo ang unang pampublikong paglabas ng proyektong ito.",
+      "origin": "Nagsimula ang lahat noong Setyembre 26, 2025. Habang nanonood ng Just Chatting stream sa Twitch, napansin ko ang bagong tab ng browser ng streamer: isang extension na nag-aayos ng mga website bilang may kulay na mga parisukat, walang mga pangalan o logo. Ang minimalism na iyon ay nabighani sa akin, at naisip ko: bakit hindi bumuo ng sarili kong extension? Nais kong ang bawat bagong tab ay magdala ng isang pakiramdam ng kaayusan, ang aking mga pahina ay malapit na, at isang panel na kinagigiliwan kong tingnan.",
+      "desktop": "Unti-unti, lumago ang ideyang iyon sa isang personal na desktop ng mga website sa halip na mga application. Ang orasan ay isang unang hakbang at ginagawa pa rin. Sa hinaharap, gusto kong magdagdag ng notepad at iba pang mga widget na nag-aalok ng kapaki-pakinabang, kapwa sa akin at sa lahat ng gumagamit ng New DeskTab.",
+      "closing": "Ang app na ito ay ginawa para sa akin at para sa iyo. Salamat sa pagtitiwala sa New DeskTab at pagbibigay dito ng lugar sa iyong browser. Sana ay masiyahan ka sa paglikha ng iyong espasyo gaya ng kasiyahan kong gawin ito.",
+      "highlights": {
+        "workspace": "Ayusin ang iyong mga pahina gamit ang mga bookmark, folder at mga independiyenteng workspace.",
+        "appearance": "I-customize ang mga kulay, ang laki ng bawat item at ang background ng iyong desktop.",
+        "search": "Hanapin ang iyong mga pahina gamit ang paghahanap at gumamit ng mga keyboard shortcut upang mag-navigate at gumawa ng mga item.",
+        "backup": "I-save ang mga backup at bawiin ang mga tinanggal na item mula sa recycle bin.",
+        "sync": "Piliin na panatilihin ang data sa device na ito o i-synchronize ito sa Google Chrome.",
+        "help": "Tuklasin ang mga feature gamit ang welcome guide, manual at araw-araw na tip."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "UNANG MINUTO MO",
+    "skip": "Laktawan ang gabay",
+    "back": "Bumalik",
+    "next": "Susunod",
+    "finish": "Bumalik sa mga setting",
+    "explore": "Galugarin ang aking espasyo",
+    "addFirst": "Idagdag ang aking unang bookmark",
+    "progress": "Hakbang {{current}} ng {{total}}",
+    "compactHint": "Palawakin ang window kapag gusto mong magdagdag ng mga bookmark at i-edit ang iyong espasyo.",
+    "reopenTitle": "Mabilis na gabay",
+    "reopenDescription": "Tuklasin muli ang mga mahahalaga sa isang minuto.",
+    "reopen": "Tingnan ang gabay",
+    "demo": {
+      "work": "Trabaho",
+      "media": "Media",
+      "trash": "Recycle bin",
+      "search": "Hanapin ang iyong mga bookmark"
+    },
+    "steps": {
+      "start": {
+        "title": "Ang iyong mga pahina. Ang iyong sariling espasyo.",
+        "body": "Maligayang pagdating sa New DeskTab. Panatilihin ang iyong mga paboritong pahina sa tuwing magbubukas ka ng tab. Upang magdagdag ng isa, lumipat sa kaliwang gilid at piliin ang + → [[bookmarks|Bookmark]].",
+        "hint": "Maaari ka ring [[quick-save|i-save ang page na binibisita mo]] mula sa icon ng extension sa iyong browser."
+      },
+      "edit": {
+        "title": "Bigyan ang bawat bookmark ng lugar nito.",
+        "body": "I-on ang lapis sa kaliwang menu para mag-edit. I-hold at [[movement|hilahin]] ang isang item upang ilipat ito; gamitin ang [[resizing|humahawak]] nito upang baguhin ang laki nito.",
+        "hint": "Binubuksan ng lapis ng bawat bookmark ang [[appearance|editor]] nito: pangalan, mga kulay, icon at larawan. I-save ang [[presets|mga istilo]] upang muling magamit ang mga ito."
+      },
+      "organize": {
+        "title": "Mas kaunting kalat. Marami pang order.",
+        "body": "Lumikha ng [[folders|folder]] mula sa + at i-drag ang mga bookmark dito sa mode ng pag-edit. Nagbubukas ito sa isang malinis na grid na may puwang para sa hanggang 18 bookmark.",
+        "hint": "Gamitin ang + sa [[workspaces|workspace bar]] para paghiwalayin ang trabaho at laro. Ang [[search|magnifying glass]] ay naghahanap din sa loob ng mga folder."
+      },
+      "style": {
+        "title": "Iparamdam mo sa iyo.",
+        "body": "Sa Mga Setting → [[wallpapers|Tema]], pumili ng kulay, larawan o background ng video at i-rotate ang iyong mga paboritong wallpaper. Sa Mga Setting → [[sync|Pag-synchronize]], i-sync ang iyong espasyo sa mga device gamit ang account na naka-sign in sa iyong profile sa Chrome.",
+        "hint": "Magdagdag ng [[clock|orasan]] mula sa + → Mga Widget. Maaari mo ring i-customize ang [[appearance|hitsura]] ng iyong mga folder."
+      },
+      "ready": {
+        "title": "Alam mo ang mga mahahalaga.",
+        "body": "Pindutin ang [[search|/]] para maghanap ng bookmark. Gamitin ang [[history|i-undo at gawing muli]] na mga arrow upang mabawi ang mga pagbabago; ang mga tinanggal na bookmark ay mapupunta sa [[trash|recycle bin]].",
+        "hint": "Awtomatikong nai-save ang mga pagbabago. Sa Mga Setting, mag-export ng [[backup|backup]] o paganahin ang opsyonal na Google Chrome [[sync|pag-synchronize]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Hindi ma-save ang iyong mga pinakabagong pagbabago.",
+    "retry": "Subukang muli ang pag-save",
+    "saved": "Na-save ang mga nakabinbing pagbabago."
+  },
+  "itemEditor": {
+    "chooseIcon": "Pumili ng icon",
+    "siteLogo": "Logo",
+    "noSymbol": "wala",
+    "folderIconHint": "Pinapalitan ng simbolo ang mga preview ng bookmark sa loob ng folder.",
+    "icons": {
+      "mail": "Mail",
+      "calendar": "Kalendaryo",
+      "notes": "Mga Tala",
+      "projects": "Mga proyekto",
+      "design": "Disenyo",
+      "music": "Musika",
+      "tasks": "Mga gawain",
+      "ideas": "Mga ideya",
+      "docs": "Mga dokumento",
+      "ui-start": "Kumpas",
+      "ui-organize": "Layout",
+      "ui-personalize": "Mga slider",
+      "ui-protect": "kalasag",
+      "ui-bookmarks": "Magdagdag ng bookmark",
+      "ui-quick-save": "Browser",
+      "ui-keyboard": "Keyboard",
+      "ui-shortcuts": "Kidlat",
+      "ui-search": "Maghanap",
+      "ui-editing": "Lapis",
+      "ui-movement": "Ilipat",
+      "ui-resizing": "Baguhin ang laki",
+      "ui-drag-modes": "I-drag",
+      "ui-folders": "Folder",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Pagpili",
+      "ui-history": "Kasaysayan",
+      "ui-appearance": "Palette",
+      "ui-presets": "Preset",
+      "ui-wallpapers": "Imahe",
+      "ui-clock": "orasan",
+      "ui-interface": "Globe",
+      "ui-trash": "Basura",
+      "ui-backup": "Archive",
+      "ui-sync": "I-sync",
+      "ui-compact": "Listahan",
+      "ui-data": "Database",
+      "ui-learning": "Aklat",
+      "ui-settings": "Mga setting",
+      "ui-controls": "Mga kontrol",
+      "ui-cloud": "Ulap",
+      "ui-bookmark": "Bookmark",
+      "ui-info": "Impormasyon",
+      "ui-eye": "Mata",
+      "ui-check": "Nakumpleto",
+      "ui-lock": "Lock",
+      "ui-unlock": "I-unlock",
+      "ui-copy": "Kopyahin",
+      "ui-close": "Isara",
+      "ui-undo": "I-undo",
+      "ui-redo": "Gawin muli",
+      "ui-desktop": "Desktop",
+      "home": "Bahay",
+      "briefcase": "Trabaho",
+      "code": "Code",
+      "game": "Mga laro",
+      "cart": "Pamimili",
+      "card": "Mga pagbabayad",
+      "people": "Mga tao",
+      "message": "Mensahe",
+      "location": "Lokasyon",
+      "phone": "Telepono",
+      "camera": "Camera",
+      "headphones": "Mga headphone",
+      "link": "Link",
+      "tag": "Tag",
+      "chart": "Mga istatistika",
+      "coffee": "kape",
+      "sun": "Araw",
+      "moon": "Buwan",
+      "circle": "Bilog",
+      "square": "Square",
+      "triangle": "Tatsulok",
+      "diamond": "brilyante",
+      "pentagon": "Pentagon",
+      "hexagon": "Heksagono",
+      "star": "Bituin",
+      "heart": "Puso",
+      "plus": "Dagdag pa",
+      "minus": "Minus",
+      "video": "Video"
+    },
+    "searchIcons": "Mga icon ng paghahanap…",
+    "clearIconSearch": "I-clear ang paghahanap",
+    "noIcons": "Walang nakitang icon",
+    "suggestedIcons": "Iminungkahi",
+    "suggestedIcon": "Iminungkahi: {{name}}",
+    "logoKeywords": "logo favicon website ng tatak ng site",
+    "iconKeywords": {
+      "ui-trash": "basura basura tanggalin classic",
+      "mail": "mail email gmail outlook inbox",
+      "docs": "mga file ng dokumento pdf drive word",
+      "notes": "notes memo paniwala onenote",
+      "ui-protect": "privacy sa proteksyon ng seguridad",
+      "game": "game controller console",
+      "cart": "shopping tindahan tindahan bumili",
+      "card": "bank finance credit debit money",
+      "people": "pangkat ng magkakaibigan sa lipunan",
+      "ui-learning": "pagbabasa ng pag-aaral sa edukasyon sa aklatan",
+      "ui-clock": "oras oras panonood",
+      "ui-interface": "internet web wika sa mundo",
+      "ui-data": "imbakan ng data sql",
+      "circle": "mga figure ng geometric na hugis",
+      "square": "mga figure ng geometric na hugis",
+      "triangle": "mga figure ng geometric na hugis",
+      "diamond": "mga figure ng geometric na hugis",
+      "pentagon": "mga figure ng geometric na hugis",
+      "hexagon": "mga figure ng geometric na hugis",
+      "star": "mga figure ng geometric na hugis",
+      "heart": "mga figure ng geometric na hugis"
+    },
+    "history": "I-edit ang kasaysayan",
+    "description": "Gawin itong feel at home sa iyong workspace.",
+    "looks": "Pumili ng hitsura",
+    "custom": "Custom",
+    "look": {
+      "original": "Orihinal",
+      "card": "Card",
+      "midnight": "Madilim",
+      "paper": "Liwanag"
+    },
+    "reset": "I-reset ang hitsura",
+    "cardColor": "Kulay ng card",
+    "folderFill": "Kulay ng folder",
+    "image": "Larawan sa background",
+    "lock": "I-lock o i-unlock ang URL",
+    "copy": "Kopyahin ang URL",
+    "clear": "Maaliwalas",
+    "section": {
+      "general": "Ang mga mahahalaga",
+      "text": "Pangalan at mga label",
+      "icon": "Icon",
+      "card": "Card"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Ang pangalan na nakikita mo at ang pahinang binubuksan nito.",
+        "text": "Piliin kung ipapakita ang pangalan at ayusin ang kulay nito.",
+        "icon": "Gumamit ng malaki, nakasentro na favicon, o maliit na icon sa tabi ng pangalan para sa mga image card."
+      },
+      "folder": {
+        "general": "Isang pangalan upang pagsama-samahin ang iyong mga bookmark.",
+        "text": "Ipakita ang pangalan ng folder at ayusin ang kulay nito.",
+        "icon": "I-customize ang icon ng folder at ang mga thumbnail ng bookmark nito."
+      },
+      "recycleBin": {
+        "general": "Piliin kung lalabas ang recycle bin sa iyong pangunahing workspace.",
+        "text": "Ipakita ang pangalan ng recycle bin at ayusin ang kulay nito.",
+        "icon": "Bigyan ang recycle bin ng sarili mong kulay. Itago ang buong bin kay Heneral."
+      }
+    },
+    "addImage": "Magdagdag ng larawan sa background",
+    "changeImage": "I-edit ang larawan sa background"
+  },
+  "html": {
+    "title": "Bagong tab"
+  },
+  "quickSave": {
+    "title": "I-save ang bookmark",
+    "name": "Pangalan",
+    "workspace": "Workspace",
+    "folder": "Folder",
+    "mainWorkspace": "Pangunahing",
+    "noFolder": "Walang folder",
+    "save": "I-save ang bookmark",
+    "saveAnyway": "I-save pa rin",
+    "savedButton": "Nai-save",
+    "alreadySaved": "Naka-save na",
+    "savedIn": "Sa {{location}}",
+    "savedInMore": "Sa {{location}} at {{count}} pa",
+    "open": "Buksan ang New DeskTab",
+    "unavailableTitle": "Hindi mase-save ang tab na ito",
+    "unavailable": "Magbukas ng web page (http o https) para i-save ito.",
+    "loadError": "Hindi ma-load ang iyong mga bookmark. Subukan muli.",
+    "saving": "Sine-save...",
+    "saved": "Nai-save ang bookmark.",
+    "duplicate": "Ang URL na ito ay naka-save na sa destinasyong iyon.",
+    "noSpace": "Walang natitirang puwang sa destinasyong iyon. Pumili ng iba.",
+    "invalid": "Suriin ang pangalan at napiling destinasyon.",
+    "saveError": "Hindi ma-save ang bookmark. Subukan muli."
+  },
+  "launcher": {
+    "bookmark": "Bookmark",
+    "folder": "Folder",
+    "widgets": "Mga Widget",
+    "editMode": {
+      "enter": "Ipasok ang edit mode",
+      "exit": "Lumabas sa edit mode"
+    }
+  },
+  "widgets": {
+    "title": "Mga Widget",
+    "description": "Pumili ng widget na idaragdag sa workspace na ito.",
+    "empty": "Wala pang magagamit na mga widget."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Palawakin ang window para magamit ang feature na ito.",
+      "suspended": "Nakatago ang panel. Palakihin ang bintana para magpatuloy."
+    },
+    "editMode": {
+      "enabled": "Pinagana ang edit mode",
+      "disabled": "Naka-disable ang edit mode"
+    },
+    "selectionMode": {
+      "enabled": "Pinagana ang mode ng pagpili",
+      "disabled": "Naka-disable ang selection mode"
+    },
+    "bookmark": {
+      "added": "Idinagdag ang bookmark",
+      "notFound": "Hindi nahanap ang bookmark",
+      "updated": "Na-update ang bookmark",
+      "deleted": "Tinanggal ang bookmark"
+    },
+    "clock": {
+      "added": "Idinagdag ang orasan",
+      "updated": "Na-update ang orasan",
+      "deleted": "Tinanggal ang orasan"
+    },
+    "folder": {
+      "created": "Nagawa ang folder",
+      "renamed": "Pinalitan ang pangalan ng folder",
+      "updated": "Na-update ang folder",
+      "deleted": "Ang folder at ang mga bookmark nito ay tinanggal",
+      "bookmarkAdded": "Idinagdag ang bookmark sa folder",
+      "folderFull": "Ang folder na ito ay mayroon nang 18 bookmark",
+      "bookmarkRemoved": "Ibinalik ang bookmark sa grid"
+    },
+    "recycleBin": {
+      "moved": "Inilipat sa recycle bin",
+      "restored": "Na-restore ang mga item",
+      "deletedPermanently": "Permanenteng tinanggal ang mga item",
+      "updated": "Na-update ang recycle bin"
+    },
+    "workspace": {
+      "created": "Nagawa ang workspace",
+      "deleted": "Na-delete ang workspace",
+      "switched": "Workspace: {{name}}"
+    },
+    "history": {
+      "undone": "Na-undo ang pagbabago",
+      "redone": "Baguhin muli"
+    },
+    "bookmarks": {
+      "deletedAll": "Ang lahat ng mga bookmark ay tinanggal",
+      "deletedAllWithFolders": "Ang lahat ng mga bookmark at folder ay tinanggal",
+      "deleteAllError": "Nabigong tanggalin ang lahat ng mga bookmark",
+      "exported": "Na-export ang mga bookmark",
+      "exportError": "Nabigong i-export ang mga bookmark",
+      "imported": "Na-import ang mga bookmark",
+      "importError": "Nabigong mag-import ng mga bookmark",
+      "presetApplied": "Inilapat ang istilo sa pagpili",
+      "duplicatedSelected": "Nadoble ang mga napiling item",
+      "deletedSelected": "Na-delete ang mga napiling item",
+      "moved": "Inilipat ang mga item sa napiling workspace"
+    },
+    "settings": {
+      "saved": "Na-save ang mga setting",
+      "bookmarkDefaultSaved": "Na-save ang default na hitsura ng bookmark",
+      "bookmarkDefaultError": "Hindi ma-save ang default na hitsura ng bookmark",
+      "copied": "Nakopya ang halaga sa clipboard",
+      "resetBg": "Pag-reset ng tema",
+      "deletedAllData": "Lahat ng lokal na NewDeskTab data ay tinanggal",
+      "deleteAllDataError": "Hindi matanggal ang lahat ng lokal na NewDeskTab data",
+      "invalidWallpaperUrl": "Maglagay ng wastong URL ng larawan/video ng HTTP o HTTPS.",
+      "invalidWallpaperFile": "Hindi maidagdag ang file na ito. Gumamit ng suportadong larawan o isang MP4, WebM o Ogg na video na hanggang 200 MB.",
+      "wallpaperLimit": "Maaari kang magdagdag ng hanggang 25 personal na wallpaper."
+    },
+    "localImage": {
+      "invalid": "Pumili ng PNG, JPEG, WebP, GIF, o AVIF na larawan.",
+      "tooLarge": "Masyadong malaki ang larawang ito para iimbak sa device na ito.",
+      "storageFull": "Walang sapat na lokal na espasyo para sa larawang ito.",
+      "processing": "Hindi maproseso ang larawang ito."
+    },
+    "sync": {
+      "enabled": "Pinagana ang pag-sync",
+      "localEnabled": "Pinagana ang local mode",
+      "remoteLoaded": "Na-load ang naka-sync na data",
+      "updatedFromOtherDevice": "Naka-sync na mga pagbabago na natanggap mula sa isa pang device",
+      "deletedFromOtherDevice": "Ang data ng cloud ay tinanggal mula sa isa pang device. Gumagamit na ngayon ang device na ito ng Lokal mode.",
+      "error": "Hindi mabago ang storage mode",
+      "versionBlocked": "Na-pause ang pag-sync dahil nangangailangan ang cloud data ng mas bagong NewDeskTab na bersyon. Ipinapakita ang lokal na data ng device na ito.",
+      "quotaError": "Ang data ay lumampas sa magagamit na imbakan ng pag-sync",
+      "deleted": "Na-delete ang naka-sync na data",
+      "deleteError": "Hindi matanggal ang naka-sync na data"
+    },
+    "backup": {
+      "exported": "Na-export ang backup",
+      "exportError": "Hindi ma-export ang backup",
+      "mediaUnavailable": "Hindi available ang ilang na-refer na lokal na larawan o video, kaya hindi ginawa ang backup.",
+      "imported": "Na-restore ang backup",
+      "importError": "Hindi maibalik ang backup",
+      "mediaStorageFull": "Walang sapat na lokal na imbakan upang maibalik ang mga backup na larawan at video."
+    }
+  },
+  "view": {
+    "list": "View ng listahan",
+    "search": "Maghanap ng mga bookmark at folder",
+    "clearSearch": "I-clear ang paghahanap",
+    "noResults": "Walang resulta."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Tanggalin ang lahat ng bookmark?",
+      "deleteFolders": "Tanggalin din ang lahat ng folder",
+      "confirmDeleteSelected": "Tanggalin ang {{count}} napiling mga item?",
+      "confirmMoveOne": "Ilipat ang item na ito sa workspace \"{{workspace}}\"?",
+      "confirmMoveSelected": "Ilipat ang {{count}} napiling mga item sa workspace \"{{workspace}}\"?",
+      "duplicateNoSpace": "Hindi ma-duplicate ang {{count}} item dahil walang sapat na espasyo.",
+      "moveNoSpace": "Hindi mailipat ang {{count}} na mga item dahil walang sapat na espasyo.",
+      "no_space": "Walang available na espasyo para sa higit pang mga bookmark 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Itapon ang bagong bookmark?"
+      },
+      "confirmDelete": "Tanggalin ang “{{name}}”?",
+      "confirmPermanentDelete": "Permanenteng tanggalin ang “{{name}}”? Hindi na ito maaaring bawiin.",
+      "cancel": "Itapon ang mga pagbabago?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Permanenteng tanggalin ang widget na ito? Hindi na ito maaaring bawiin.",
+      "confirmDeleteSelected": "Tanggalin ang {{count}} napiling mga item? Ang mga napiling widget ({{widgetCount}}) ay permanenteng tatanggalin at hindi na maibabalik."
+    },
+    "folder": {
+      "createCancel": "Itapon ang bagong folder?",
+      "cancel": "Itapon ang mga pagbabago sa folder?"
+    },
+    "recycleBin": {
+      "folder": "Ilipat ang “{{name}}” at ang {{count}} bookmark nito sa recycle bin?",
+      "empty": "Permanenteng tanggalin ang lahat sa recycle bin? Hindi na ito maaaring bawiin.",
+      "deleteSelected": "Permanenteng tanggalin ang {{count}} napiling mga item? Hindi na ito maaaring bawiin.",
+      "noSpace": "Hindi maibalik ang {{count}} na mga item dahil walang sapat na espasyo sa grid. Nananatili sila sa recycle bin.",
+      "cancel": "Itapon ang mga pagbabago sa recycle bin?"
+    },
+    "settings": {
+      "cancel": "Itapon ang mga pagbabago sa mga setting?",
+      "reset": "I-reset ang lahat ng mga setting? Ang mga bookmark ay hindi tatanggalin.",
+      "deleteAllData": "Tanggalin ang lahat ng lokal na NewDeskTab data mula sa device na ito? Ang mga bookmark, folder, widget, setting, recycle-bin item, lokal na larawan at lokal na video ay permanenteng tatanggalin. Hindi mababago ang data ng cloud. Kung aktibo ang I-sync, lilipat muna ang device na ito sa Lokal. Ang pagkilos na ito ay hindi maaaring i-undo.",
+      "theme": {
+        "reset": "I-reset ang mga setting ng tema?"
+      },
+      "bookmark": {
+        "cancel": "Itapon ang mga pagbabago sa default na hitsura ng bookmark?"
+      },
+      "shortcuts": {
+        "reset": "Ibalik ang mga default na keyboard shortcut?"
+      },
+      "sync": {
+        "enable": "Lumipat mula sa Lokal patungo sa Naka-sync? Nagkakabisa ito ngayon, nang hindi nagki-click sa I-save. Kung mayroon nang naka-sync na data, ilo-load ang mga bookmark at setting nito. Kung hindi, masi-synchronize ang iyong naka-save na lokal na data.",
+        "local": "Lumipat mula sa Naka-sync patungo sa Lokal? Nagkakabisa ito ngayon, nang hindi nagki-click sa I-save. Ang device na ito ay magtatago ng kopya ng kasalukuyang data at hihinto sa pag-synchronize ng mga pagbabago. Ang naka-sync na data ay mananatiling nakaimbak para sa iba pang mga device.",
+        "delete": "Tanggalin ang lahat ng naka-synchronize na NewDeskTab data? Ang device na ito at ang bawat iba pang device na gumagamit ng cloud data na ito ay lilipat sa Lokal mode kapag na-detect nila ang pagtanggal. Hindi na ito maaaring bawiin."
+      }
+    },
+    "backup": {
+      "import": "Ibalik ang backup na ito? Papalitan nito ang iyong kasalukuyang mga bookmark at setting."
+    }
+  },
+  "addModal": {
+    "title": "Magdagdag ng bagong bookmark",
+    "name": "Pangalan:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Mga advanced na opsyon",
+    "compactView": "▴ Compact na view"
+  },
+  "clock": {
+    "name": "orasan",
+    "inDevelopment": "Sa pagbuo: ang orasan ay wala pa sa huling bersyon nito. Kami ay nagtatrabaho sa pagpapabuti nito.",
+    "createTitle": "Magdagdag ng orasan",
+    "editTitle": "Mga setting ng orasan",
+    "description": "Ipakita ang iyong lokal na oras sa workspace na ito.",
+    "hourCycle": "Format ng oras",
+    "hour24": "24 na oras",
+    "hour12": "12 oras",
+    "showSeconds": "Ipakita ang mga segundo",
+    "delete": "Tanggalin",
+    "edit": "I-edit ang orasan",
+    "actions": "Mga pagkilos sa orasan",
+    "openSettings": "Buksan ang mga setting ng orasan",
+    "confirmDelete": "Tanggalin ang orasan na ito? Maaari mong i-undo ang pagkilos na ito.",
+    "confirmPermanentDelete": "Permanenteng tanggalin ang orasan na ito? Hindi na ito maaaring bawiin.",
+    "cancel": "Itapon ang mga pagbabago sa orasan?",
+    "noSpace": "Walang sapat na espasyo sa grid para sa orasan na ito."
+  },
+  "buttons": {
+    "save": "I-save",
+    "apply": "Mag-apply",
+    "add": "Idagdag",
+    "accept": "Tanggapin",
+    "cancel": "Kanselahin",
+    "close": "Isara"
+  },
+  "localImage": {
+    "upload": "Mag-upload mula sa device na ito",
+    "label": "Lokal na larawan:",
+    "activeSource": "Aktibong larawan:",
+    "sourceLocal": "Lokal",
+    "sourceUrl": "URL",
+    "remove": "Alisin ang lokal na larawan",
+    "notice": "Hindi naka-sync ang mga lokal na larawan.",
+    "unnamed": "Lokal na imahe"
+  },
+  "workspace": {
+    "ariaLabel": "Mga kontrol sa workspace",
+    "current": "Workspace",
+    "main": "Pangunahing",
+    "search": "Maghanap ng mga bookmark",
+    "add": "Lumikha ng workspace",
+    "delete": "Tanggalin ang workspace",
+    "undo": "I-undo",
+    "redo": "Gawin muli",
+    "shortcutHint": "Lumipat ng workspace gamit ang Alt o Option kasama ang Up o Down Arrow",
+    "prompt": "Maglagay ng pangalan para sa bagong workspace",
+    "namePlaceholder": "Trabaho, paglilibang…",
+    "confirmDelete": "I-delete ang “{{name}}”, ang {{folderCount}} folder at {{bookmarkCount}} na bookmark nito? Para panatilihin ang mga ito, ilipat muna ang mga ito sa Pangunahing o sa ibang workspace."
+  },
+  "search": {
+    "title": "Maghanap ng mga bookmark",
+    "inputLabel": "Maghanap ayon sa pangalan o URL",
+    "placeholder": "Pangalan o URL",
+    "empty": "Walang nakitang mga bookmark.",
+    "noUrl": "Walang URL",
+    "inFolder": "Folder: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Mga piniling item na aksyon",
+    "selected": "{{count}} ang napili",
+    "move": "Lumipat sa workspace",
+    "applyPreset": "Ilapat ang default na istilo",
+    "duplicate": "Dobleng pagpili",
+    "delete": "Tanggalin",
+    "clear": "I-clear ang pagpili"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Mga kontrol sa bookmark",
+    "edit": "I-edit ang bookmark",
+    "delete": "Tanggalin ang bookmark",
+    "copySuffix": "kopyahin"
+  },
+  "folder": {
+    "create": "Lumikha ng folder",
+    "createPrompt": "Pangalanan ang bagong folder",
+    "namePlaceholder": "Mga tool, inspirasyon...",
+    "open": "Buksan ang {{name}}, {{count}} na naka-save na mga bookmark",
+    "count": "{{count}} ang nai-save",
+    "summary": "{{count}} ng {{capacity}} na espasyong ginamit",
+    "editMode": {
+      "enable": "I-edit",
+      "disable": "Tapusin ang pag-edit"
+    },
+    "gridLabel": "Mga bookmark ng folder",
+    "dropHint": "I-drop para idagdag",
+    "noSpace": "Walang libreng grid cell para sa isang bagong folder.",
+    "removeNoSpace": "Walang sapat na espasyo sa grid upang alisin ang bookmark na ito mula sa folder.",
+    "confirmDelete": "Ilipat ang “{{name}}” at ang {{count}} bookmark nito sa recycle bin?",
+    "confirmPermanentDelete": "Permanenteng tanggalin ang “{{name}}” at ang {{count}} na mga bookmark nito? Hindi na ito maaaring bawiin.",
+    "actions": {
+      "ariaLabel": "Mga kontrol sa folder",
+      "customize": "I-customize ang folder",
+      "rename": "Palitan ang pangalan ng folder",
+      "delete": "Tanggalin ang folder",
+      "editBookmark": "I-edit ang {{name}}",
+      "removeBookmark": "Ilabas ang {{name}} sa folder",
+      "deleteBookmark": "Tanggalin ang {{name}}",
+      "acceptRename": "I-save ang pangalan ng folder",
+      "cancelRename": "Kanselahin ang pagpapalit ng pangalan ng folder"
+    },
+    "editor": {
+      "createTitle": "Magdagdag ng bagong folder",
+      "title": "I-edit ang folder",
+      "name": "Pangalan:",
+      "showPreviews": "Ipakita ang mga preview ng bookmark",
+      "showName": "Ipakita ang pangalan ng folder",
+      "iconColor": "Kulay ng simbolo:",
+      "outerBackgroundColor": "Kulay ng panlabas na background:",
+      "noOuterBackground": "Walang panlabas na background",
+      "resetOuterBackground": "Awtomatiko",
+      "noBackground": "Transparent na punan ng folder",
+      "backgroundColor": "Kulay ng folder:",
+      "backgroundImage": "Larawan sa background (URL):",
+      "lockImage": "I-lock o i-unlock ang URL ng larawan",
+      "copyImage": "Kopyahin ang URL ng larawan",
+      "clearImage": "I-clear ang URL ng larawan",
+      "textColor": "Kulay ng teksto:",
+      "preview": "Silipin",
+      "previewName": "Folder",
+      "sections": {
+        "general": "Heneral",
+        "style": "Estilo",
+        "text": "Text"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Recycle Bin",
+    "open": "Buksan ang recycle bin",
+    "openCount": "Buksan ang recycle bin, {{count}} item",
+    "dropHint": "I-drop para tanggalin",
+    "summary": "{{count}} item · Awtomatikong pagtanggal: {{retention}}",
+    "empty": "Walang laman ang recycle bin.",
+    "selected": "{{count}} ang napili",
+    "select": "Piliin ang {{name}}",
+    "folderContents": "{{count}} mga bookmark",
+    "deletedAt": "Tinanggal ang {{date}}",
+    "expiresIn": "{{days}} araw ang natitira",
+    "expiresInOne": "1 araw na lang ang natitira",
+    "neverExpires": "Hindi kailanman awtomatikong tinanggal",
+    "restoreAll": "Ibalik lahat",
+    "deleteAll": "Tanggalin lahat",
+    "restoreSelected": "Ibalik ang napili",
+    "deleteSelected": "Tanggalin ang napili",
+    "editor": {
+      "title": "I-edit ang recycle bin",
+      "animateIcon": "I-animate ang recycle bin",
+      "appearance": "Hitsura",
+      "backgroundColor": "Kulay ng background:",
+      "backgroundImage": "Larawan sa background (URL):",
+      "lockImage": "I-lock o i-unlock ang URL ng larawan",
+      "copyImage": "Kopyahin ang URL ng larawan",
+      "clearImage": "I-clear ang URL ng larawan",
+      "noBackground": "Walang background",
+      "iconColor": "Kulay ng icon:",
+      "textColor": "Kulay ng teksto:",
+      "elements": "Mga nakikitang elemento",
+      "showName": "Ipakita ang pangalan",
+      "visible": "Ipakita ang recycle bin sa pangunahing grid",
+      "preview": "Silipin",
+      "actions": "Mga aksyon sa recycle bin",
+      "edit": "I-edit ang recycle bin",
+      "sections": {
+        "general": "Heneral",
+        "style": "Estilo",
+        "text": "Text",
+        "icon": "Icon"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Maglagay ng pangalan para i-save ang preset."
+    },
+    "name": {
+      "required": "Maglagay ng pangalan para sa bookmark."
+    },
+    "folderName": {
+      "required": "Maglagay ng pangalan para sa folder."
+    },
+    "url": {
+      "invalid": "Ang URL ay hindi wasto.",
+      "unsupportedProtocol": "Ang uri ng URL na ito ay hindi pinapayagan."
+    },
+    "backgroundImageUrl": {
+      "invalid": "Ang URL ng larawan ay hindi wasto.",
+      "unsupportedProtocol": "Ang ganitong uri ng larawan ay hindi pinapayagan."
+    }
+  },
+  "editModal": {
+    "title": "I-edit ang bookmark",
+    "name": "Pangalan:",
+    "url": "URL:",
+    "backgroundImage": "Larawan sa background (URL):",
+    "backgroundFavicon": "Malaki, nakasentro na icon",
+    "invertColorBg": "Baliktarin ang mga kulay",
+    "noBackground": "Walang background",
+    "backgroundColor": "Kulay ng bookmark:",
+    "showText": "Ipakita ang teksto",
+    "textColor": "Kulay ng teksto:",
+    "showFavicon": "Ipakita ang icon",
+    "invertColorIcon": "Baliktarin ang mga kulay ng icon",
+    "iconColor": "Kulay ng icon:",
+    "sections": {
+      "general": "Heneral",
+      "style": "Estilo",
+      "text": "Text",
+      "icon": "Icon"
+    },
+    "preview": "Silipin",
+    "previewName": "Silipin"
+  },
+  "colorPicker": {
+    "title": "Tagapili ng kulay",
+    "sample": "Pumili ng kulay mula sa screen",
+    "close": "Isara ang tagapili ng kulay",
+    "saturationBrightness": "Saturation at liwanag",
+    "hue": "Hue",
+    "quickColors": "Mabilis na mga kulay",
+    "saturation": "Saturation",
+    "brightness": "Liwanag",
+    "hex": "Hex code",
+    "copy": "Kopyahin ang hex code",
+    "copied": "Nakopya ang hex code",
+    "copyFailed": "Hindi makopya ang hex code"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Heneral",
+      "sync": "I-sync",
+      "theme": "Tema",
+      "bookmark": "Mga bookmark",
+      "shortcuts": "Mga shortcut",
+      "language": "Mga wika",
+      "help": "Tulong",
+      "information": "Impormasyon"
+    },
+    "general": {
+      "title": "Heneral",
+      "subtitle": "Mga setting",
+      "export": "I-export ang backup",
+      "import": "Ibalik ang backup",
+      "resetSettings": "I-reset ang mga setting",
+      "deleteAllData": "Tanggalin ang lahat ng lokal na data",
+      "recycleBin": {
+        "title": "Recycle bin",
+        "show": "Ipakita ang recycle bin sa Pangunahing grid",
+        "retentionLabel": "Awtomatikong tanggalin ang mga item:",
+        "retentionOptions": {
+          "oneDay": "1 araw",
+          "sevenDays": "7 araw",
+          "fourteenDays": "14 na araw",
+          "twentyEightDays": "28 araw",
+          "never": "Hindi kailanman"
+        }
+      },
+      "appearance": {
+        "title": "Hitsura",
+        "system": "Browser",
+        "light": "Liwanag",
+        "dark": "Madilim"
+      }
+    },
+    "sync": {
+      "title": "I-sync",
+      "description": "Piliin kung saan iimbak ang iyong mga setting at bookmark.",
+      "ariaLabel": "Storage mode",
+      "local": {
+        "title": "Ang device na ito lang",
+        "description": "Ang data ay iniimbak lamang sa lokal na profile ng browser na ito."
+      },
+      "synced": {
+        "title": "Naka-sync",
+        "description": "Available sa Google Chrome profile na konektado sa parehong account.",
+        "tooltip": "Impormasyon sa pag-synchronize"
+      },
+      "compatibility": {
+        "newerVersion": "Naka-lock ang pag-sync sa device na ito dahil ang cloud data ay ginawa ng mas bagong NewDeskTab na bersyon. Ang iyong naka-synchronize na data ay ligtas at hindi pa nabago. I-update ang NewDeskTab para kumonekta muli."
+      },
+      "usage": {
+        "title": "Availability ng storage",
+        "showExact": "Ipakita ang eksaktong mga byte",
+        "showHuman": "Ipakita ang mga nababasang laki",
+        "local": "Lokal",
+        "sync": "Naka-sync",
+        "localSyncCopy": "Lokal na I-sync na kopya",
+        "localAria": "Lokal na paggamit ng imbakan",
+        "syncAria": "Naka-sync na paggamit ng storage",
+        "loading": "Kinakalkula…",
+        "summary": "{{used}} ng {{total}} · {{percent}}%",
+        "available": "{{free}} magagamit",
+        "system": "System at metadata",
+        "bookmarks": "Mga bookmark",
+        "folders": "Mga folder",
+        "trash": "Data ng recycle bin",
+        "localImages": "Mga lokal na larawan",
+        "themeImages": "Tema",
+        "bookmarkImages": "Mga bookmark",
+        "folderImages": "Mga folder",
+        "trashImages": "Recycle bin",
+        "otherImages": "Iba pa",
+        "widgets": "Mga Widget",
+        "widgetsHint": "Ang laki na ipinapakita para sa Pag-sync ay isang pagtatantya at hindi kasama ang live na nilalamang kinukuha mula sa mga panlabas na serbisyo.",
+        "error": "Hindi magagamit ang paggamit"
+      },
+      "browserSupport": {
+        "chrome": "Sini-sync ng Google Chrome ang New DeskTab sa pamamagitan ng iyong Google Account. New DeskTab ay hindi nagpapatakbo ng sarili nitong sync server.",
+        "brave": "Hindi available sa Brave: maaari itong mag-imbak ng New DeskTab data sa chrome.storage.sync, ngunit sa kasalukuyan ay hindi ito pinapalaganap sa pagitan ng mga device.",
+        "unsupported": "Available lang ang naka-sync na storage sa Google Chrome sa ngayon. Nananatiling hindi pinagana ang iba pang mga browser hanggang sa ma-verify ang cross-device na suporta."
+      },
+      "existingNotice": "Ang pagtanggap sa paglipat sa Naka-sync ay naglo-load ng anumang naka-synchronize na data na mayroon na.",
+      "deleteData": "Tanggalin ang naka-sync na data",
+      "metadata": {
+        "loading": "Sinusuri ang naka-synchronize na data...",
+        "updatedAt": "Huling na-synchronize na update: {{date}}",
+        "unknown": "Umiiral ang naka-synchronize na data, ngunit hindi available ang oras ng pag-update nito.",
+        "empty": "Walang naka-imbak na naka-synchronize na New DeskTab data.",
+        "error": "Hindi ma-load ang naka-synchronize na impormasyon ng data."
+      },
+      "status": {
+        "idle": "Handa na ang data.",
+        "saving": "Sine-save ang mga pagbabago...",
+        "saved": "Ang lahat ng mga pagbabago ay nai-save.",
+        "error": "Hindi ma-save ang mga pinakabagong pagbabago."
+      }
+    },
+    "theme": {
+      "title": "Tema",
+      "subtitle": "Background ng page",
+      "backgroundImageMode": "Larawan/video",
+      "wallpapersTitle": "Ang sarili kong mga wallpaper",
+      "ownWallpapersHint": "Ang mga wallpaper na ito at ang kanilang pag-ikot ay naka-imbak sa device na ito lamang.",
+      "mediaUrl": "URL ng wallpaper",
+      "image": "Imahe",
+      "video": "Video",
+      "addUrl": "Magdagdag ng URL",
+      "addFiles": "Magdagdag ng mga lokal na file",
+      "rotationInterval": "Pag-ikot ng wallpaper",
+      "noRotation": "Huwag awtomatikong magbago",
+      "interval5": "5 segundo",
+      "interval15": "15 segundo",
+      "interval30": "30 segundo",
+      "interval60": "1 minuto",
+      "interval300": "5 minuto",
+      "interval600": "10 minuto",
+      "interval1800": "30 minuto",
+      "previous": "Nakaraang",
+      "next": "Susunod",
+      "moveUp": "Umakyat",
+      "moveDown": "Ilipat pababa",
+      "remove": "Alisin",
+      "unavailableLocal": "Hindi available ang lokal na file sa device na ito",
+      "mediaColor": "Kulay sa likod ng wallpaper na ito",
+      "mediaPreview": "I-preview ang wallpaper",
+      "activeSource": "Aktibong pinagmulan",
+      "backgroundSolid": "Solid na kulay",
+      "backgroundColor": "Kulay:",
+      "editSolidColor": "Baguhin ang solid na kulay ng background",
+      "changeSolidColor": "Baguhin ang kulay",
+      "backgroundImageColor": "Kulay sa likod ng larawan/video",
+      "backgroundImage": "Ibinahagi ang URL sa pagitan ng mga device",
+      "urlHidden": "Nakatago ang URL",
+      "resetBackground": "I-reset ang tema"
+    },
+    "bookmark": {
+      "title": "Mga bookmark",
+      "subtitle": "Default na bookmark",
+      "description": "Piliin ang hitsura na ginamit kapag gumagawa ng mga bagong bookmark.",
+      "configure": "I-configure ang default na bookmark",
+      "editorTitle": "Default na hitsura ng bookmark",
+      "previewName": "Default na bookmark",
+      "export": "I-export ang mga bookmark",
+      "import": "Mag-import ng mga bookmark",
+      "deleteAll": "Tanggalin ang lahat ng mga bookmark",
+      "preview": "Silipin",
+      "drag": {
+        "title": "Pag-uugali ng pag-drag",
+        "description": "Piliin kung paano muling inaayos ang mga bookmark kapag sinakop mo ang kanilang posisyon.",
+        "none": {
+          "title": "wala",
+          "description": "Pinapayagan lamang ang mga paglipat upang magbakante ng mga cell."
+        },
+        "cascade": {
+          "title": "Pagkakasunod-sunod",
+          "description": "Inilipat ang kadena hanggang sa makakita ito ng libreng cell.",
+          "experimental": "Pang-eksperimento · Maaaring naglalaman ng maliliit na bug."
+        },
+        "relocate": {
+          "title": "Relokasyon",
+          "description": "Nililipat ang mga bookmark na sumasakop sa destinasyon."
+        }
+      },
+      "resize": {
+        "title": "Baguhin ang laki ng pag-uugali",
+        "description": "Piliin kung paano tumugon ang mga item habang naglilipat ng resize handle.",
+        "smooth": {
+          "title": "Makinis",
+          "description": "Iniunat ang item habang dina-drag, pagkatapos ay i-snap sa grid."
+        },
+        "none": {
+          "title": "wala",
+          "description": "Tumalon sa pamamagitan ng cell kapag tumawid ka sa 50% ng kalapit na cell."
+        }
+      },
+      "presets": {
+        "title": "Style library",
+        "tab": "Aklatan",
+        "description": "I-save ang mga istilo at muling gamitin ang mga ito kapag nagse-set up ng default na bookmark.",
+        "name": "Preset na pangalan",
+        "saved": "Naka-save na mga preset",
+        "save": "I-save ang preset",
+        "apply": "Magkarga",
+        "delete": "Tanggalin",
+        "empty": "Walang naka-save na preset"
+      }
+    },
+    "shortcuts": {
+      "title": "Mga keyboard shortcut",
+      "description": "Pumili ng shortcut na button, pagkatapos ay pindutin ang isang kumbinasyon ng titik o key. I-right-click upang i-unassign ito.",
+      "change": "Baguhin ang {{action}} shortcut. Kasalukuyang shortcut: {{shortcut}}.",
+      "press": "Pindutin ang shortcut...",
+      "unassigned": "Hindi nakatalaga",
+      "unassignedFlash": "Hindi nakatalaga ang shortcut.",
+      "modifierRequired": "Gumamit ng isang titik sa sarili nitong, o isang key na kumbinasyon na may modifier.",
+      "reserved": "Ang shortcut na ito ay nakalaan ng browser o operating system. Pumili ng isa pang kumbinasyon.",
+      "conflict": "Ang key na ito ay nakatalaga na sa isa pang aksyon.",
+      "updated": "Na-update ang shortcut.",
+      "cancelled": "Kinansela ang pagbabago ng shortcut.",
+      "restored": "Na-restore ang mga default na shortcut.",
+      "reset": "I-reset ang mga shortcut",
+      "actions": {
+        "toggleEditing": {
+          "title": "I-edit ang mode",
+          "description": "Ipasok o iwanan ang pag-edit sa pangunahing grid o sa isang bukas na folder."
+        },
+        "addBookmark": {
+          "title": "Gumawa ng bookmark",
+          "description": "Buksan ang form para sa pagdaragdag ng bookmark."
+        },
+        "addFolder": {
+          "title": "Lumikha ng folder",
+          "description": "Buksan ang dialog para sa paglikha ng isang folder."
+        },
+        "openWidgets": {
+          "title": "Buksan ang mga widget",
+          "description": "Buksan ang listahan ng mga magagamit na widget."
+        },
+        "openSettings": {
+          "title": "Buksan ang mga setting",
+          "description": "Buksan ang panel ng mga setting ng New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Mga wika",
+      "text": "Piliin ang wika ng interface:",
+      "system": "Browser",
+      "search": "Maghanap ng wika o bansa",
+      "empty": "Walang nahanap na mga wika"
+    },
+    "information": {
+      "title": "Impormasyon",
+      "version": "Bersyon: {{VERSION}}",
+      "author": "May-akda:"
+    }
+  }
+}

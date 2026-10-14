@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Note sulla versione",
+    "settingsDescription": "Cosa è cambiato e la storia dietro ogni aggiornamento.",
+    "open": "Leggi le note",
+    "history": "Cronologia delle versioni",
+    "dismiss": "Chiudi le note sulla versione",
+    "continue": "Continua",
+    "back": "Torna alle Informazioni",
+    "highlights": "Cosa puoi fare oggi",
+    "generic": {
+      "title": "New DeskTab è stato aggiornato",
+      "description": "Hai la nuova versione. Puoi rivisitare le note di rilascio precedenti in Informazioni quando vuoi. Grazie per essere qui."
+    },
+    "v1_0_0": {
+      "title": "Il tuo desktop di siti web. Infine.",
+      "thanks": "Grazie per aver provato New DeskTab. Sono così entusiasta di condividere finalmente con voi la prima versione pubblica di questo progetto.",
+      "origin": "Tutto è iniziato il 26 settembre 2025. Mentre guardavo uno streaming di Just Chatting su Twitch, ho notato la nuova scheda del browser dello streamer: un'estensione che organizzava i siti web come quadrati colorati, senza nomi o loghi. Quel minimalismo mi ha affascinato e ho pensato: perché non costruire la mia estensione? Volevo che ogni nuova scheda desse un senso di ordine, le mie pagine a portata di mano e un pannello che mi piacesse guardare.",
+      "desktop": "A poco a poco, quell'idea si trasformò in un desktop personale di siti Web anziché in applicazioni. L'orologio è un primo passo ed è ancora un work in progress. In futuro, vorrei aggiungere un blocco note e altri widget che offrano qualcosa di utile, sia a me che a tutti coloro che utilizzano New DeskTab.",
+      "closing": "Questa app è fatta per me e per te. Grazie per la fiducia in New DeskTab e per avergli dedicato un posto nel tuo browser. Spero che ti divertirai a creare il tuo spazio tanto quanto a me è piaciuto costruirlo.",
+      "highlights": {
+        "workspace": "Organizza le tue pagine con segnalibri, cartelle e spazi di lavoro indipendenti.",
+        "appearance": "Personalizza i colori, la dimensione di ciascun elemento e lo sfondo del desktop.",
+        "search": "Trova le tue pagine con la ricerca e utilizza le scorciatoie da tastiera per navigare e creare elementi.",
+        "backup": "Salva i backup e recupera gli elementi eliminati dal cestino.",
+        "sync": "Scegli di conservare i dati su questo dispositivo o di sincronizzarli con Google Chrome.",
+        "help": "Scopri le funzionalità con la guida di benvenuto, il manuale e i consigli quotidiani."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "IL TUO PRIMO MINUTO",
+    "skip": "Salta la guida",
+    "back": "Indietro",
+    "next": "Avanti",
+    "finish": "Torna alle impostazioni",
+    "explore": "Esplora il mio spazio",
+    "addFirst": "Aggiungi il mio primo segnalibro",
+    "progress": "Passo {{current}} di {{total}}",
+    "compactHint": "Allarga la finestra quando desideri aggiungere segnalibri e modificare il tuo spazio.",
+    "reopenTitle": "Guida rapida",
+    "reopenDescription": "Riscopri l'essenziale in un minuto.",
+    "reopen": "Visualizza la guida",
+    "demo": {
+      "work": "Lavoro",
+      "media": "Media",
+      "trash": "Cestino",
+      "search": "Trova i tuoi segnalibri"
+    },
+    "steps": {
+      "start": {
+        "title": "Le tue pagine. Il tuo spazio.",
+        "body": "Benvenuto in New DeskTab. Tieni le tue pagine preferite a portata di mano ogni volta che apri una scheda. Per aggiungerne uno, spostati sul bordo sinistro e scegli + → [[bookmarks|Segnalibro]].",
+        "hint": "Puoi anche [[quick-save|salva la pagina che stai visitando]] dall'icona dell'estensione nel tuo browser."
+      },
+      "edit": {
+        "title": "Dai a ogni segnalibro il suo posto.",
+        "body": "Attiva la matita nel menu a sinistra per modificare. Tieni e [[movement|trascinare]] un oggetto per spostarlo; usa il suo [[resizing|maniglie]] per cambiarne le dimensioni.",
+        "hint": "La matita di ogni segnalibro apre il suo [[appearance|editore]]: nome, colori, icona e immagine. Salva [[presets|stili]] per riutilizzarli."
+      },
+      "organize": {
+        "title": "Meno disordine. Più ordine.",
+        "body": "Crea un [[folders|cartella]] da + e trascina i segnalibri al suo interno in modalità di modifica. Si apre in una griglia pulita con spazio per un massimo di 18 segnalibri.",
+        "hint": "Usa il + in [[workspaces|barra dell'area di lavoro]] per separare lavoro e divertimento. [[search|lente d'ingrandimento]] effettua ricerche anche all'interno delle cartelle."
+      },
+      "style": {
+        "title": "Fallo sentire come te.",
+        "body": "In Impostazioni → [[wallpapers|Tema]], scegli un colore, un'immagine o uno sfondo video e ruota i tuoi sfondi preferiti. In Impostazioni → [[sync|Sincronizzazione]], sincronizza il tuo spazio su tutti i dispositivi utilizzando l'account collegato al tuo profilo Chrome.",
+        "hint": "Aggiungi un [[clock|orologio]] da + → Widget. Puoi personalizzare anche [[appearance|aspetto]] delle tue cartelle."
+      },
+      "ready": {
+        "title": "Conosci l'essenziale.",
+        "body": "Premi [[search|/]] per trovare un segnalibro. Utilizza le frecce [[history|annullare e ripetere]] per recuperare le modifiche; i segnalibri eliminati vanno a [[trash|cestino]].",
+        "hint": "Le modifiche vengono salvate automaticamente. In Impostazioni, esporta un [[backup|backup]] o abilita l'opzione Google Chrome [[sync|sincronizzazione]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Impossibile salvare le ultime modifiche.",
+    "retry": "Riprova a salvare",
+    "saved": "Modifiche in sospeso salvate."
+  },
+  "itemEditor": {
+    "chooseIcon": "Scegli un'icona",
+    "siteLogo": "Marchio",
+    "noSymbol": "Nessuno",
+    "folderIconHint": "Il simbolo sostituisce le anteprime dei segnalibri all'interno della cartella.",
+    "icons": {
+      "mail": "Posta",
+      "calendar": "Calendario",
+      "notes": "Note",
+      "projects": "Progetti",
+      "design": "Progettazione",
+      "music": "Musica",
+      "tasks": "Compiti",
+      "ideas": "Idee",
+      "docs": "Documenti",
+      "ui-start": "Bussola",
+      "ui-organize": "Disposizione",
+      "ui-personalize": "Cursori",
+      "ui-protect": "Scudo",
+      "ui-bookmarks": "Aggiungi segnalibro",
+      "ui-quick-save": "Navigatore",
+      "ui-keyboard": "Tastiera",
+      "ui-shortcuts": "Fulmine",
+      "ui-search": "Cerca",
+      "ui-editing": "Matita",
+      "ui-movement": "Muoviti",
+      "ui-resizing": "Ridimensionare",
+      "ui-drag-modes": "Trascina",
+      "ui-folders": "Cartella",
+      "ui-workspaces": "Finestre",
+      "ui-selection": "Selezione",
+      "ui-history": "Storia",
+      "ui-appearance": "Tavolozza",
+      "ui-presets": "Preimpostazioni",
+      "ui-wallpapers": "Immagine",
+      "ui-clock": "Orologio",
+      "ui-interface": "Globo",
+      "ui-trash": "Cestino",
+      "ui-backup": "Archivio",
+      "ui-sync": "Sincronizzazione",
+      "ui-compact": "Elenco",
+      "ui-data": "Banca dati",
+      "ui-learning": "Prenota",
+      "ui-settings": "Impostazioni",
+      "ui-controls": "Controlli",
+      "ui-cloud": "Nuvola",
+      "ui-bookmark": "Segnalibro",
+      "ui-info": "Informazioni",
+      "ui-eye": "Occhio",
+      "ui-check": "Completato",
+      "ui-lock": "Bloccare",
+      "ui-unlock": "Sblocca",
+      "ui-copy": "Copia",
+      "ui-close": "Chiudi",
+      "ui-undo": "Annulla",
+      "ui-redo": "Rifare",
+      "ui-desktop": "Desktop",
+      "home": "Casa",
+      "briefcase": "Lavoro",
+      "code": "Codice",
+      "game": "Giochi",
+      "cart": "Fare acquisti",
+      "card": "Pagamenti",
+      "people": "Persone",
+      "message": "Messaggio",
+      "location": "Posizione",
+      "phone": "Telefono",
+      "camera": "Fotocamera",
+      "headphones": "Cuffie",
+      "link": "Collegamento",
+      "tag": "Etichetta",
+      "chart": "Statistiche",
+      "coffee": "Caffè",
+      "sun": "Sole",
+      "moon": "Luna",
+      "circle": "Cerchio",
+      "square": "Quadrato",
+      "triangle": "Triangolo",
+      "diamond": "Diamante",
+      "pentagon": "Pentagono",
+      "hexagon": "Esagono",
+      "star": "Stella",
+      "heart": "Cuore",
+      "plus": "Inoltre",
+      "minus": "Meno",
+      "video": "Video"
+    },
+    "searchIcons": "Cerca icone...",
+    "clearIconSearch": "Cancella ricerca",
+    "noIcons": "Nessuna icona trovata",
+    "suggestedIcons": "Suggerito",
+    "suggestedIcon": "Consigliato: {{name}}",
+    "logoKeywords": "logo favicon sito web marchio del sito",
+    "iconKeywords": {
+      "ui-trash": "cestino dei rifiuti elimina classico",
+      "mail": "posta elettronica posta in arrivo di Gmail Outlook",
+      "docs": "documenti file pdf unità word",
+      "notes": "note memo nozione onenote",
+      "ui-protect": "privacy protezione sicurezza",
+      "game": "console controller di gioco per giochi",
+      "cart": "negozio di shopping negozio comprare",
+      "card": "denaro di debito di credito di finanza bancaria",
+      "people": "gruppo di amici della comunità sociale",
+      "ui-learning": "studio sull'educazione alla biblioteca di lettura",
+      "ui-clock": "guardare le ore del tempo",
+      "ui-interface": "linguaggio del mondo web di Internet",
+      "ui-data": "archiviazione dati SQL",
+      "circle": "figure di forme geometriche",
+      "square": "figure di forme geometriche",
+      "triangle": "figure di forme geometriche",
+      "diamond": "figure di forme geometriche",
+      "pentagon": "figure di forme geometriche",
+      "hexagon": "figure di forme geometriche",
+      "star": "figure di forme geometriche",
+      "heart": "figure di forme geometriche"
+    },
+    "history": "Modifica la cronologia",
+    "description": "Fallo sentire a casa nel tuo spazio di lavoro.",
+    "looks": "Scegli un aspetto",
+    "custom": "Personalizzato",
+    "look": {
+      "original": "Originale",
+      "card": "Carta",
+      "midnight": "Buio",
+      "paper": "Luce"
+    },
+    "reset": "Ripristina aspetto",
+    "cardColor": "Colore della carta",
+    "folderFill": "Colore della cartella",
+    "image": "Immagine di sfondo",
+    "lock": "Blocca o sblocca l'URL",
+    "copy": "Copia l'URL",
+    "clear": "Chiaro",
+    "section": {
+      "general": "L'essenziale",
+      "text": "Nome ed etichette",
+      "icon": "Icona",
+      "card": "Carta"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Il nome che vedi e la pagina che si apre.",
+        "text": "Scegli se mostrare il nome e regolarne il colore.",
+        "icon": "Utilizza una favicon grande e centrata o una piccola icona accanto al nome per le schede immagine."
+      },
+      "folder": {
+        "general": "Un nome per riunire i tuoi segnalibri.",
+        "text": "Mostra il nome della cartella e regolane il colore.",
+        "icon": "Personalizza l'icona della cartella e le miniature dei segnalibri."
+      },
+      "recycleBin": {
+        "general": "Scegli se visualizzare il cestino nell'area di lavoro principale.",
+        "text": "Mostra il nome del cestino e regolane il colore.",
+        "icon": "Dai al cestino il tuo colore. Nascondi l'intero cestino al Generale."
+      }
+    },
+    "addImage": "Aggiungi un'immagine di sfondo",
+    "changeImage": "Modifica l'immagine di sfondo"
+  },
+  "html": {
+    "title": "Nuova scheda"
+  },
+  "quickSave": {
+    "title": "Salva segnalibro",
+    "name": "Nome",
+    "workspace": "Spazio di lavoro",
+    "folder": "Cartella",
+    "mainWorkspace": "Principale",
+    "noFolder": "Nessuna cartella",
+    "save": "Salva segnalibro",
+    "saveAnyway": "Risparmia comunque",
+    "savedButton": "Salvato",
+    "alreadySaved": "Già salvato",
+    "savedIn": "Tra {{location}}",
+    "savedInMore": "In {{location}} e altri {{count}}",
+    "open": "Apri New DeskTab",
+    "unavailableTitle": "Questa scheda non può essere salvata",
+    "unavailable": "Aprire una pagina Web (http o https) per salvarla.",
+    "loadError": "Impossibile caricare i tuoi segnalibri. Riprova.",
+    "saving": "Salvataggio…",
+    "saved": "Segnalibro salvato.",
+    "duplicate": "Questo URL è già salvato in quella destinazione.",
+    "noSpace": "Nessuno spazio rimasto in quella destinazione. Scegline un altro.",
+    "invalid": "Controlla il nome e la destinazione selezionata.",
+    "saveError": "Impossibile salvare il segnalibro. Riprova."
+  },
+  "launcher": {
+    "bookmark": "Segnalibro",
+    "folder": "Cartella",
+    "widgets": "Widget",
+    "editMode": {
+      "enter": "Accedi alla modalità di modifica",
+      "exit": "Uscire dalla modalità di modifica"
+    }
+  },
+  "widgets": {
+    "title": "Widget",
+    "description": "Scegli un widget da aggiungere a quest'area di lavoro.",
+    "empty": "Nessun widget è ancora disponibile."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Allarga la finestra per utilizzare questa funzione.",
+      "suspended": "Pannello nascosto. Allarga la finestra per continuare."
+    },
+    "editMode": {
+      "enabled": "Modalità modifica abilitata",
+      "disabled": "Modalità modifica disabilitata"
+    },
+    "selectionMode": {
+      "enabled": "Modalità di selezione abilitata",
+      "disabled": "Modalità di selezione disabilitata"
+    },
+    "bookmark": {
+      "added": "Segnalibro aggiunto",
+      "notFound": "Segnalibro non trovato",
+      "updated": "Segnalibro aggiornato",
+      "deleted": "Segnalibro eliminato"
+    },
+    "clock": {
+      "added": "Aggiunto orologio",
+      "updated": "Orologio aggiornato",
+      "deleted": "Orologio cancellato"
+    },
+    "folder": {
+      "created": "Cartella creata",
+      "renamed": "Cartella rinominata",
+      "updated": "Cartella aggiornata",
+      "deleted": "Cartella e relativi segnalibri eliminati",
+      "bookmarkAdded": "Segnalibro aggiunto alla cartella",
+      "folderFull": "Questa cartella contiene già 18 segnalibri",
+      "bookmarkRemoved": "Il segnalibro è stato riportato nella griglia"
+    },
+    "recycleBin": {
+      "moved": "Spostato nel cestino",
+      "restored": "Oggetti ripristinati",
+      "deletedPermanently": "Elementi eliminati definitivamente",
+      "updated": "Cestino aggiornato"
+    },
+    "workspace": {
+      "created": "Area di lavoro creata",
+      "deleted": "Area di lavoro eliminata",
+      "switched": "Area di lavoro: {{name}}"
+    },
+    "history": {
+      "undone": "Modifica annullata",
+      "redone": "Cambio rifatto"
+    },
+    "bookmarks": {
+      "deletedAll": "Tutti i segnalibri eliminati",
+      "deletedAllWithFolders": "Tutti i segnalibri e le cartelle eliminati",
+      "deleteAllError": "Impossibile eliminare tutti i segnalibri",
+      "exported": "Segnalibri esportati",
+      "exportError": "Impossibile esportare i segnalibri",
+      "imported": "Segnalibri importati",
+      "importError": "Impossibile importare i segnalibri",
+      "presetApplied": "Stile applicato alla selezione",
+      "duplicatedSelected": "Elementi selezionati duplicati",
+      "deletedSelected": "Elementi selezionati eliminati",
+      "moved": "Elementi spostati nell'area di lavoro selezionata"
+    },
+    "settings": {
+      "saved": "Impostazioni salvate",
+      "bookmarkDefaultSaved": "Aspetto predefinito dei segnalibri salvato",
+      "bookmarkDefaultError": "Impossibile salvare l'aspetto predefinito dei segnalibri",
+      "copied": "Valore copiato negli appunti",
+      "resetBg": "Reimpostazione del tema",
+      "deletedAllData": "Tutti i dati NewDeskTab locali sono stati eliminati",
+      "deleteAllDataError": "Impossibile eliminare tutti i dati NewDeskTab locali",
+      "invalidWallpaperUrl": "Inserisci un URL immagine/video HTTP o HTTPS valido.",
+      "invalidWallpaperFile": "Impossibile aggiungere questo file. Utilizza un'immagine supportata o un video MP4, WebM o Ogg fino a 200 MB.",
+      "wallpaperLimit": "Puoi aggiungere fino a 25 sfondi personali."
+    },
+    "localImage": {
+      "invalid": "Scegli un'immagine PNG, JPEG, WebP, GIF o AVIF.",
+      "tooLarge": "Questa immagine è troppo grande per essere archiviata su questo dispositivo.",
+      "storageFull": "Spazio locale insufficiente per questa immagine.",
+      "processing": "Impossibile elaborare questa immagine."
+    },
+    "sync": {
+      "enabled": "Sincronizzazione abilitata",
+      "localEnabled": "Modalità locale abilitata",
+      "remoteLoaded": "Dati sincronizzati caricati",
+      "updatedFromOtherDevice": "Modifiche sincronizzate ricevute da un altro dispositivo",
+      "deletedFromOtherDevice": "I dati cloud sono stati eliminati da un altro dispositivo. Questo dispositivo ora utilizza la modalità locale.",
+      "error": "Impossibile modificare la modalità di archiviazione",
+      "versionBlocked": "La sincronizzazione è stata sospesa perché i dati cloud richiedono una versione NewDeskTab più recente. Vengono visualizzati i dati locali di questo dispositivo.",
+      "quotaError": "I dati superano lo spazio di archiviazione di sincronizzazione disponibile",
+      "deleted": "Dati sincronizzati eliminati",
+      "deleteError": "Impossibile eliminare i dati sincronizzati"
+    },
+    "backup": {
+      "exported": "Backup esportato",
+      "exportError": "Impossibile esportare il backup",
+      "mediaUnavailable": "Alcune immagini o video locali di riferimento non sono disponibili, quindi il backup non è stato creato.",
+      "imported": "Backup ripristinato",
+      "importError": "Impossibile ripristinare il backup",
+      "mediaStorageFull": "Lo spazio di archiviazione locale non è sufficiente per ripristinare le immagini e i video di backup."
+    }
+  },
+  "view": {
+    "list": "Visualizzazione elenco",
+    "search": "Cerca segnalibri e cartelle",
+    "clearSearch": "Cancella ricerca",
+    "noResults": "Nessun risultato."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Eliminare tutti i segnalibri?",
+      "deleteFolders": "Elimina anche tutte le cartelle",
+      "confirmDeleteSelected": "Eliminare {{count}} elementi selezionati?",
+      "confirmMoveOne": "Spostare questo elemento nell'area di lavoro \"{{workspace}}\"?",
+      "confirmMoveSelected": "Spostare {{count}} elementi selezionati nell'area di lavoro “{{workspace}}”?",
+      "duplicateNoSpace": "Impossibile duplicare {{count}} elementi perché non c'era spazio sufficiente.",
+      "moveNoSpace": "Impossibile spostare {{count}} elementi perché non c'era abbastanza spazio.",
+      "no_space": "Nessuno spazio disponibile per altri segnalibri 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Eliminare il nuovo segnalibro?"
+      },
+      "confirmDelete": "Eliminare \"{{name}}\"?",
+      "confirmPermanentDelete": "Eliminare definitivamente \"{{name}}\"? Questa operazione non può essere annullata.",
+      "cancel": "Eliminare le modifiche?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Eliminare definitivamente questo widget? Questa operazione non può essere annullata.",
+      "confirmDeleteSelected": "Eliminare {{count}} elementi selezionati? I widget selezionati ({{widgetCount}}) verranno eliminati in modo permanente e non potranno essere ripristinati."
+    },
+    "folder": {
+      "createCancel": "Eliminare la nuova cartella?",
+      "cancel": "Eliminare le modifiche alla cartella?"
+    },
+    "recycleBin": {
+      "folder": "Spostare \"{{name}}\" e i suoi {{count}} segnalibri nel cestino?",
+      "empty": "Eliminare definitivamente tutto nel cestino? Questa operazione non può essere annullata.",
+      "deleteSelected": "Eliminare definitivamente {{count}} elementi selezionati? Questa operazione non può essere annullata.",
+      "noSpace": "Impossibile ripristinare {{count}} elementi perché non c'è spazio sufficiente sulla griglia. Rimangono nel cestino.",
+      "cancel": "Eliminare le modifiche apportate al cestino?"
+    },
+    "settings": {
+      "cancel": "Vuoi eliminare le modifiche alle impostazioni?",
+      "reset": "Ripristinare tutte le impostazioni? I segnalibri non verranno eliminati.",
+      "deleteAllData": "Eliminare tutti i dati NewDeskTab locali da questo dispositivo? Segnalibri, cartelle, widget, impostazioni, elementi del cestino, immagini locali e video locali verranno eliminati definitivamente. I dati del cloud non verranno modificati. Se la sincronizzazione è attiva, questo dispositivo passerà prima a Locale. Questa azione non può essere annullata.",
+      "theme": {
+        "reset": "Ripristinare le impostazioni del tema?"
+      },
+      "bookmark": {
+        "cancel": "Vuoi eliminare le modifiche all'aspetto predefinito dei segnalibri?"
+      },
+      "shortcuts": {
+        "reset": "Ripristinare le scorciatoie da tastiera predefinite?"
+      },
+      "sync": {
+        "enable": "Passare da locale a sincronizzato? Ciò ha effetto ora, senza fare clic su Salva. Se i dati sincronizzati esistono già, verranno caricati i relativi segnalibri e impostazioni. Altrimenti, i tuoi dati locali salvati verranno sincronizzati.",
+        "local": "Passare da Sincronizzato a Locale? Ciò ha effetto ora, senza fare clic su Salva. Questo dispositivo manterrà una copia dei dati correnti e interromperà la sincronizzazione delle modifiche. I dati sincronizzati rimarranno archiviati per altri dispositivi.",
+        "delete": "Eliminare tutti i dati NewDeskTab sincronizzati? Questo dispositivo e ogni altro dispositivo che utilizza questi dati cloud passeranno alla modalità Locale quando rileveranno l'eliminazione. Questa operazione non può essere annullata."
+      }
+    },
+    "backup": {
+      "import": "Ripristinare questo backup? Sostituirà i tuoi segnalibri e le tue impostazioni attuali."
+    }
+  },
+  "addModal": {
+    "title": "Aggiungi nuovo segnalibro",
+    "name": "Nome:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Opzioni avanzate",
+    "compactView": "▴ Visualizzazione compatta"
+  },
+  "clock": {
+    "name": "Orologio",
+    "inDevelopment": "In fase di sviluppo: l'orologio non è ancora nella sua versione finale. Stiamo lavorando per migliorarlo.",
+    "createTitle": "Aggiungi orologio",
+    "editTitle": "Impostazioni dell'orologio",
+    "description": "Mostra la tua ora locale in quest'area di lavoro.",
+    "hourCycle": "Formato ora",
+    "hour24": "24 ore",
+    "hour12": "12 ore",
+    "showSeconds": "Mostra secondi",
+    "delete": "Elimina",
+    "edit": "Modifica orologio",
+    "actions": "Azioni dell'orologio",
+    "openSettings": "Apri le impostazioni dell'orologio",
+    "confirmDelete": "Eliminare questo orologio? Puoi annullare questa azione.",
+    "confirmPermanentDelete": "Eliminare definitivamente questo orologio? Questa operazione non può essere annullata.",
+    "cancel": "Eliminare le modifiche dell'orologio?",
+    "noSpace": "Non c'è abbastanza spazio sulla griglia per questo orologio."
+  },
+  "buttons": {
+    "save": "Salva",
+    "apply": "Applicare",
+    "add": "Aggiungi",
+    "accept": "Accetta",
+    "cancel": "Annulla",
+    "close": "Chiudi"
+  },
+  "localImage": {
+    "upload": "Carica da questo dispositivo",
+    "label": "Immagine locale:",
+    "activeSource": "Immagine attiva:",
+    "sourceLocal": "Locale",
+    "sourceUrl": "URL",
+    "remove": "Rimuovi l'immagine locale",
+    "notice": "Le immagini locali non vengono sincronizzate.",
+    "unnamed": "Immagine locale"
+  },
+  "workspace": {
+    "ariaLabel": "Controlli dell'area di lavoro",
+    "current": "Spazio di lavoro",
+    "main": "Principale",
+    "search": "Cerca segnalibri",
+    "add": "Crea spazio di lavoro",
+    "delete": "Elimina l'area di lavoro",
+    "undo": "Annulla",
+    "redo": "Rifare",
+    "shortcutHint": "Cambia area di lavoro con Alt o Opzione più Freccia su o giù",
+    "prompt": "Immettere un nome per la nuova area di lavoro",
+    "namePlaceholder": "Lavoro, tempo libero…",
+    "confirmDelete": "Eliminare \"{{name}}\", le sue {{folderCount}} cartelle e {{bookmarkCount}} segnalibri? Per conservarli, spostali prima su Principale o su un'altra area di lavoro."
+  },
+  "search": {
+    "title": "Cerca segnalibri",
+    "inputLabel": "Cerca per nome o URL",
+    "placeholder": "Nome o URL",
+    "empty": "Nessun segnalibro trovato.",
+    "noUrl": "Nessun URL",
+    "inFolder": "Cartella: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Azioni dell'elemento selezionato",
+    "selected": "{{count}} selezionato",
+    "move": "Spostarsi nell'area di lavoro",
+    "applyPreset": "Applica lo stile predefinito",
+    "duplicate": "Selezione duplicata",
+    "delete": "Elimina",
+    "clear": "Cancella selezione"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Controlli dei segnalibri",
+    "edit": "Modifica segnalibro",
+    "delete": "Elimina segnalibro",
+    "copySuffix": "copia"
+  },
+  "folder": {
+    "create": "Crea cartella",
+    "createPrompt": "Assegna un nome alla nuova cartella",
+    "namePlaceholder": "Strumenti, ispirazione...",
+    "open": "Apri {{name}}, {{count}} segnalibri salvati",
+    "count": "{{count}} salvati",
+    "summary": "{{count}} di {{capacity}} spazi utilizzati",
+    "editMode": {
+      "enable": "Modifica",
+      "disable": "Termina la modifica"
+    },
+    "gridLabel": "Segnalibri delle cartelle",
+    "dropHint": "Rilascia per aggiungere",
+    "noSpace": "Non è disponibile alcuna cella della griglia libera per una nuova cartella.",
+    "removeNoSpace": "Spazio insufficiente sulla griglia per rimuovere questo segnalibro dalla cartella.",
+    "confirmDelete": "Spostare \"{{name}}\" e i suoi {{count}} segnalibri nel cestino?",
+    "confirmPermanentDelete": "Eliminare definitivamente \"{{name}}\" e i suoi {{count}} segnalibri? Questa operazione non può essere annullata.",
+    "actions": {
+      "ariaLabel": "Controlli delle cartelle",
+      "customize": "Personalizza la cartella",
+      "rename": "Rinomina cartella",
+      "delete": "Elimina cartella",
+      "editBookmark": "Modifica {{name}}",
+      "removeBookmark": "Sposta {{name}} fuori dalla cartella",
+      "deleteBookmark": "Elimina {{name}}",
+      "acceptRename": "Salva il nome della cartella",
+      "cancelRename": "Annulla la ridenominazione della cartella"
+    },
+    "editor": {
+      "createTitle": "Aggiungi nuova cartella",
+      "title": "Modifica cartella",
+      "name": "Nome:",
+      "showPreviews": "Mostra le anteprime dei segnalibri",
+      "showName": "Mostra il nome della cartella",
+      "iconColor": "Colore simbolo:",
+      "outerBackgroundColor": "Colore dello sfondo esterno:",
+      "noOuterBackground": "Nessuno sfondo esterno",
+      "resetOuterBackground": "Automatico",
+      "noBackground": "Riempimento cartella trasparente",
+      "backgroundColor": "Colore della cartella:",
+      "backgroundImage": "Immagine di sfondo (URL):",
+      "lockImage": "Blocca o sblocca l'URL dell'immagine",
+      "copyImage": "Copia l'URL dell'immagine",
+      "clearImage": "Cancella URL immagine",
+      "textColor": "Colore del testo:",
+      "preview": "Anteprima",
+      "previewName": "Cartella",
+      "sections": {
+        "general": "Generale",
+        "style": "Stile",
+        "text": "Testo"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Cestino",
+    "open": "Aprire il cestino",
+    "openCount": "Cestino aperto, {{count}} articoli",
+    "dropHint": "Rilascia per eliminare",
+    "summary": "{{count}} elementi · Eliminazione automatica: {{retention}}",
+    "empty": "Il cestino è vuoto.",
+    "selected": "{{count}} selezionato",
+    "select": "Seleziona {{name}}",
+    "folderContents": "{{count}} segnalibri",
+    "deletedAt": "Eliminato {{date}}",
+    "expiresIn": "{{days}} giorni rimasti",
+    "expiresInOne": "1 giorno rimasto",
+    "neverExpires": "Mai cancellato automaticamente",
+    "restoreAll": "Ripristina tutto",
+    "deleteAll": "Elimina tutto",
+    "restoreSelected": "Ripristina selezionato",
+    "deleteSelected": "Elimina selezionato",
+    "editor": {
+      "title": "Modifica cestino",
+      "animateIcon": "Animare il cestino",
+      "appearance": "Aspetto",
+      "backgroundColor": "Colore di sfondo:",
+      "backgroundImage": "Immagine di sfondo (URL):",
+      "lockImage": "Blocca o sblocca l'URL dell'immagine",
+      "copyImage": "Copia l'URL dell'immagine",
+      "clearImage": "Cancella URL immagine",
+      "noBackground": "Nessuno sfondo",
+      "iconColor": "Colore dell'icona:",
+      "textColor": "Colore del testo:",
+      "elements": "Elementi visibili",
+      "showName": "Mostra nome",
+      "visible": "Mostra il cestino sulla griglia principale",
+      "preview": "Anteprima",
+      "actions": "Azioni del cestino",
+      "edit": "Modifica cestino",
+      "sections": {
+        "general": "Generale",
+        "style": "Stile",
+        "text": "Testo",
+        "icon": "Icona"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Immettere un nome per salvare la preimpostazione."
+    },
+    "name": {
+      "required": "Immettere un nome per il segnalibro."
+    },
+    "folderName": {
+      "required": "Immettere un nome per la cartella."
+    },
+    "url": {
+      "invalid": "L'URL non è valido.",
+      "unsupportedProtocol": "Questo tipo di URL non è consentito."
+    },
+    "backgroundImageUrl": {
+      "invalid": "L'URL dell'immagine non è valido.",
+      "unsupportedProtocol": "Questo tipo di immagine non è consentito."
+    }
+  },
+  "editModal": {
+    "title": "Modifica segnalibro",
+    "name": "Nome:",
+    "url": "URL:",
+    "backgroundImage": "Immagine di sfondo (URL):",
+    "backgroundFavicon": "Icona grande e centrata",
+    "invertColorBg": "Inverti i colori",
+    "noBackground": "Nessuno sfondo",
+    "backgroundColor": "Colore segnalibro:",
+    "showText": "Mostra testo",
+    "textColor": "Colore del testo:",
+    "showFavicon": "Mostra icona",
+    "invertColorIcon": "Inverti i colori delle icone",
+    "iconColor": "Colore dell'icona:",
+    "sections": {
+      "general": "Generale",
+      "style": "Stile",
+      "text": "Testo",
+      "icon": "Icona"
+    },
+    "preview": "Anteprima",
+    "previewName": "Anteprima"
+  },
+  "colorPicker": {
+    "title": "Selettore colore",
+    "sample": "Scegli un colore dallo schermo",
+    "close": "Chiudi il selettore colori",
+    "saturationBrightness": "Saturazione e luminosità",
+    "hue": "Tonalità",
+    "quickColors": "Colori veloci",
+    "saturation": "Saturazione",
+    "brightness": "Luminosità",
+    "hex": "Codice esadecimale",
+    "copy": "Copia il codice esadecimale",
+    "copied": "Codice esadecimale copiato",
+    "copyFailed": "Impossibile copiare il codice esadecimale"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Generale",
+      "sync": "Sincronizzazione",
+      "theme": "Tema",
+      "bookmark": "Segnalibri",
+      "shortcuts": "Scorciatoie",
+      "language": "Lingue",
+      "help": "Aiuto",
+      "information": "Informazioni"
+    },
+    "general": {
+      "title": "Generale",
+      "subtitle": "Impostazioni",
+      "export": "Esporta backup",
+      "import": "Ripristina il backup",
+      "resetSettings": "Ripristina le impostazioni",
+      "deleteAllData": "Elimina tutti i dati locali",
+      "recycleBin": {
+        "title": "Cestino",
+        "show": "Mostra il cestino sulla griglia principale",
+        "retentionLabel": "Elimina automaticamente gli elementi:",
+        "retentionOptions": {
+          "oneDay": "1 giorno",
+          "sevenDays": "7 giorni",
+          "fourteenDays": "14 giorni",
+          "twentyEightDays": "28 giorni",
+          "never": "Mai"
+        }
+      },
+      "appearance": {
+        "title": "Aspetto",
+        "system": "Navigatore",
+        "light": "Luce",
+        "dark": "Buio"
+      }
+    },
+    "sync": {
+      "title": "Sincronizzazione",
+      "description": "Scegli dove memorizzare le impostazioni e i segnalibri.",
+      "ariaLabel": "Modalità di archiviazione",
+      "local": {
+        "title": "Solo questo dispositivo",
+        "description": "I dati vengono memorizzati solo in questo profilo del browser locale."
+      },
+      "synced": {
+        "title": "Sincronizzato",
+        "description": "Disponibile nei profili Google Chrome collegati allo stesso account.",
+        "tooltip": "Informazioni sulla sincronizzazione"
+      },
+      "compatibility": {
+        "newerVersion": "La sincronizzazione è bloccata su questo dispositivo perché i dati cloud sono stati creati da una versione NewDeskTab più recente. I tuoi dati sincronizzati sono al sicuro e non sono stati modificati. Aggiorna NewDeskTab per riconnetterti."
+      },
+      "usage": {
+        "title": "Disponibilità di spazio di archiviazione",
+        "showExact": "Mostra byte esatti",
+        "showHuman": "Mostra dimensioni leggibili",
+        "local": "Locale",
+        "sync": "Sincronizzato",
+        "localSyncCopy": "Copia con sincronizzazione locale",
+        "localAria": "Utilizzo della memoria locale",
+        "syncAria": "Utilizzo dello spazio di archiviazione sincronizzato",
+        "loading": "Calcolo…",
+        "summary": "{{used}} di {{total}} · {{percent}}%",
+        "available": "{{free}} disponibile",
+        "system": "Sistema e metadati",
+        "bookmarks": "Segnalibri",
+        "folders": "Cartelle",
+        "trash": "Dati del cestino",
+        "localImages": "Immagini locali",
+        "themeImages": "Tema",
+        "bookmarkImages": "Segnalibri",
+        "folderImages": "Cartelle",
+        "trashImages": "Cestino",
+        "otherImages": "Altro",
+        "widgets": "Widget",
+        "widgetsHint": "La dimensione mostrata per la sincronizzazione è una stima ed esclude i contenuti live recuperati da servizi esterni.",
+        "error": "Utilizzo non disponibile"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome sincronizza New DeskTab tramite il tuo account Google. New DeskTab non esegue il proprio server di sincronizzazione.",
+        "brave": "Non disponibile in Brave: può memorizzare i dati New DeskTab in chrome.storage.sync, ma attualmente non li propaga tra i dispositivi.",
+        "unsupported": "Per il momento lo spazio di archiviazione sincronizzato è disponibile solo in Google Chrome. Gli altri browser rimangono disabilitati finché non viene verificato il supporto multidispositivo."
+      },
+      "existingNotice": "Accettando il passaggio a Sincronizzato vengono caricati tutti i dati sincronizzati già esistenti.",
+      "deleteData": "Elimina i dati sincronizzati",
+      "metadata": {
+        "loading": "Verifica dei dati sincronizzati…",
+        "updatedAt": "Ultimo aggiornamento sincronizzato: {{date}}",
+        "unknown": "Esistono dati sincronizzati, ma l'ora di aggiornamento non è disponibile.",
+        "empty": "Nessun dato New DeskTab sincronizzato viene memorizzato.",
+        "error": "Impossibile caricare le informazioni sui dati sincronizzati."
+      },
+      "status": {
+        "idle": "I dati sono pronti.",
+        "saving": "Salvataggio modifiche…",
+        "saved": "Tutte le modifiche vengono salvate.",
+        "error": "Impossibile salvare le ultime modifiche."
+      }
+    },
+    "theme": {
+      "title": "Tema",
+      "subtitle": "Sfondo della pagina",
+      "backgroundImageMode": "Immagine/video",
+      "wallpapersTitle": "I miei sfondi",
+      "ownWallpapersHint": "Questi sfondi e la loro rotazione sono memorizzati solo su questo dispositivo.",
+      "mediaUrl": "URL dello sfondo",
+      "image": "Immagine",
+      "video": "Video",
+      "addUrl": "Aggiungi URL",
+      "addFiles": "Aggiungi file locali",
+      "rotationInterval": "Rotazione della carta da parati",
+      "noRotation": "Non cambiare automaticamente",
+      "interval5": "5 secondi",
+      "interval15": "15 secondi",
+      "interval30": "30 secondi",
+      "interval60": "1 minuto",
+      "interval300": "5 minuti",
+      "interval600": "10 minuti",
+      "interval1800": "30 minuti",
+      "previous": "Precedente",
+      "next": "Avanti",
+      "moveUp": "Vai su",
+      "moveDown": "Spostati giù",
+      "remove": "Rimuovi",
+      "unavailableLocal": "File locale non disponibile su questo dispositivo",
+      "mediaColor": "Colore dietro questo sfondo",
+      "mediaPreview": "Anteprima dello sfondo",
+      "activeSource": "Sorgente attiva",
+      "backgroundSolid": "Colore solido",
+      "backgroundColor": "Colore:",
+      "editSolidColor": "Cambia il colore di sfondo a tinta unita",
+      "changeSolidColor": "Cambia colore",
+      "backgroundImageColor": "Colore dietro l'immagine/video",
+      "backgroundImage": "URL condiviso tra dispositivi",
+      "urlHidden": "URL nascosto",
+      "resetBackground": "Reimposta tema"
+    },
+    "bookmark": {
+      "title": "Segnalibri",
+      "subtitle": "Segnalibro predefinito",
+      "description": "Scegli l'aspetto utilizzato durante la creazione di nuovi segnalibri.",
+      "configure": "Configura il segnalibro predefinito",
+      "editorTitle": "Aspetto predefinito dei segnalibri",
+      "previewName": "Segnalibro predefinito",
+      "export": "Esporta segnalibri",
+      "import": "Importa segnalibri",
+      "deleteAll": "Elimina tutti i segnalibri",
+      "preview": "Anteprima",
+      "drag": {
+        "title": "Comportamento di trascinamento",
+        "description": "Scegli come riorganizzare i segnalibri quando occupi la loro posizione.",
+        "none": {
+          "title": "Nessuno",
+          "description": "Consente solo spostamenti verso celle libere."
+        },
+        "cascade": {
+          "title": "Sequenza",
+          "description": "Sposta la catena finché non trova una cella libera.",
+          "experimental": "Sperimentale · Potrebbe contenere bug minori."
+        },
+        "relocate": {
+          "title": "Trasferimento",
+          "description": "Riposiziona i segnalibri che occupano la destinazione."
+        }
+      },
+      "resize": {
+        "title": "Comportamento di ridimensionamento",
+        "description": "Scegli la modalità di risposta degli elementi durante lo spostamento di una maniglia di ridimensionamento.",
+        "smooth": {
+          "title": "Liscio",
+          "description": "Allunga l'elemento durante il trascinamento, quindi lo aggancia alla griglia."
+        },
+        "none": {
+          "title": "Nessuno",
+          "description": "Salta di cella quando attraversi il 50% della cella vicina."
+        }
+      },
+      "presets": {
+        "title": "Libreria di stili",
+        "tab": "Biblioteca",
+        "description": "Salva gli stili e riutilizzali quando imposti il segnalibro predefinito.",
+        "name": "Nome preimpostato",
+        "saved": "Preimpostazioni salvate",
+        "save": "Salva preimpostazione",
+        "apply": "Caricare",
+        "delete": "Elimina",
+        "empty": "Nessun preset salvato"
+      }
+    },
+    "shortcuts": {
+      "title": "Scorciatoie da tastiera",
+      "description": "Seleziona un pulsante di scelta rapida, quindi premi una lettera o una combinazione di tasti. Fare clic con il tasto destro per annullarne l'assegnazione.",
+      "change": "Modifica la scorciatoia {{action}}. Scorciatoia attuale: {{shortcut}}.",
+      "press": "Premi la scorciatoia...",
+      "unassigned": "Non assegnato",
+      "unassignedFlash": "Scorciatoia non assegnata.",
+      "modifierRequired": "Utilizza una lettera da sola o una combinazione di tasti con un modificatore.",
+      "reserved": "Questo collegamento è riservato al browser o al sistema operativo. Scegli un'altra combinazione.",
+      "conflict": "Questo tasto è già assegnato a un'altra azione.",
+      "updated": "Scorciatoia aggiornata.",
+      "cancelled": "Modifica della scorciatoia annullata.",
+      "restored": "Scorciatoie predefinite ripristinate.",
+      "reset": "Reimposta le scorciatoie",
+      "actions": {
+        "toggleEditing": {
+          "title": "Modalità modifica",
+          "description": "Entra o esci dalla modifica sulla griglia principale o in una cartella aperta."
+        },
+        "addBookmark": {
+          "title": "Crea segnalibro",
+          "description": "Apri il modulo per aggiungere un segnalibro."
+        },
+        "addFolder": {
+          "title": "Crea cartella",
+          "description": "Apre la finestra di dialogo per la creazione di una cartella."
+        },
+        "openWidgets": {
+          "title": "Apri widget",
+          "description": "Apri l'elenco dei widget disponibili."
+        },
+        "openSettings": {
+          "title": "Apri le impostazioni",
+          "description": "Apri il pannello delle impostazioni New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Lingue",
+      "text": "Seleziona la lingua dell'interfaccia:",
+      "system": "Navigatore",
+      "search": "Cerca lingua o paese",
+      "empty": "Nessuna lingua trovata"
+    },
+    "information": {
+      "title": "Informazioni",
+      "version": "Versione: {{VERSION}}",
+      "author": "Autore:"
+    }
+  }
+}

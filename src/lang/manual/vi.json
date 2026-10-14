@@ -1,0 +1,517 @@
+{
+  "title": "Hướng dẫn sử dụng",
+  "eyebrow": "KHÔNG GIAN CỦA BẠN, PACE CỦA BẠN",
+  "intro": "Nhận biết từng tính năng nhỏ.",
+  "description": "Tìm những gì bạn cần hoặc khám phá một cái gì đó mới. Hãy dành thời gian của bạn.",
+  "settingsDescription": "Mọi tính năng, với các bước đơn giản và thủ thuật nhỏ để thử bất cứ khi nào bạn muốn.",
+  "search": {
+    "label": "Chúng tôi có thể giúp gì cho bạn?",
+    "placeholder": "Ví dụ: khôi phục dấu trang đã xóa",
+    "common": "Câu hỏi thường gặp",
+    "found": "Câu trả lời cho tìm kiếm của bạn · {{count}}",
+    "empty": "Không tìm thấy trợ giúp cho tìm kiếm đó. Hãy thử “bàn phím”, “di chuyển dấu trang” hoặc “sao lưu”.",
+    "resultsLabel": "Câu hỏi và câu trả lời thủ công"
+  },
+  "open": "Khám phá hướng dẫn",
+  "searchLabel": "Tìm kiếm hướng dẫn",
+  "searchPlaceholder": "Hãy thử “bàn phím”, “hình nền” hoặc “sao lưu”",
+  "count": "{{count}} phần để khám phá",
+  "empty": "Không có trận đấu nào. Hãy thử một từ khác hoặc xóa tìm kiếm để xem toàn bộ chỉ mục.",
+  "back": "← Mục lục thủ công",
+  "remember": "Tốt để nhớ",
+  "related": "Tiếp tục khám phá",
+  "footer": "Luôn có sẵn trong Cài đặt → Trợ giúp.",
+  "guideLinks": "Tìm hiểu thêm trong hướng dẫn",
+  "groups": {
+    "start": "Bắt đầu ở đây",
+    "organize": "Hãy tổ chức",
+    "personalize": "Biến nó thành của bạn",
+    "protect": "Chăm sóc không gian của bạn"
+  },
+  "demo": {
+    "browse": "Duyệt các phần",
+    "previous": "← Phần trước",
+    "next": "Phần tiếp theo →",
+    "title": "Xem nó hoạt động",
+    "example": "Ví dụ trình diễn",
+    "steps": "Các bước trình diễn",
+    "step": "Bước {{step}} trên {{count}}",
+    "play": "Chơi",
+    "pause": "Tạm dừng",
+    "replay": "Phát lại",
+    "progress": "Tiến trình trình diễn",
+    "mode": "Hành vi",
+    "nextStep": "Bước tiếp theo",
+    "reducedMotion": "Giảm chuyển động: khám phá các bước không có hoạt ảnh.",
+    "labels": {
+      "settings": "Cài đặt",
+      "saved": "Đã lưu thay đổi",
+      "page": "Trang",
+      "selection": "Lựa chọn",
+      "selected": "mục đã chọn",
+      "color": "Màu sắc",
+      "styleName": "Phong cách màu tím của tôi",
+      "wallpaper": "Hình nền",
+      "rotation": "Xoay",
+      "format": "định dạng",
+      "seconds": "Giây",
+      "language": "Ngôn ngữ",
+      "system": "Hệ thống",
+      "currentLanguage": "Tiếng Việt",
+      "restore": "Khôi phục",
+      "copy": "Sao lưu",
+      "restoreCopy": "Xem lại trước khi khôi phục",
+      "switchSync": "Chuyển sang Đã đồng bộ hóa?",
+      "applyNow": "Áp dụng khi được xác nhận",
+      "status": "Trạng thái",
+      "synchronized": "Đã đồng bộ hóa",
+      "retry": "Đang chờ lưu · Thử lại",
+      "keyboardQuery": "bàn phím",
+      "deleteExample": "Dấu trang và thư mục sẽ bị xóa. Thùng rác sẽ trống."
+    },
+    "topics": {
+      "bookmarks": [
+        "Mở menu bên trái và chọn + → Bookmark.",
+        "Nhập tên trang và địa chỉ.",
+        "Xác nhận: dấu trang xuất hiện trong ô trống."
+      ],
+      "quick-save": [
+        "Mở New DeskTab từ biểu tượng tiện ích mở rộng của nó.",
+        "Xem lại tên, địa chỉ và điểm đến được đề xuất.",
+        "Lưu: dấu trang sẽ ở trong không gian làm việc của bạn khi bạn mở một tab."
+      ],
+      "keyboard": [
+        "Nhấn Tab để tập trung vào mục đầu tiên.",
+        "Phím mũi tên di chuyển tiêu điểm. Enter sẽ mở mục được đặt tiêu điểm.",
+        "Esc hoặc Tab khác kết thúc điều hướng."
+      ],
+      "shortcuts": [
+        "Mở Cài đặt → Phím tắt.",
+        "Nhấp vào phím tắt của hành động và nhập kết hợp của bạn.",
+        "Lưu để áp dụng phím tắt mới."
+      ],
+      "search": [
+        "Kính lúp thanh công cụ hoặc / mở tìm kiếm.",
+        "Nhập một phần tên hoặc địa chỉ.",
+        "Mở kết quả. Esc hoặc Đóng quay lại không gian làm việc của bạn."
+      ],
+      "editing": [
+        "Bút chì menu hiển thị lưới và các điều khiển.",
+        "Bút chì của Gmail mở trình soạn thảo tên và URL của nó.",
+        "Lưu thay đổi và nhấp lại vào menu bút chì để hoàn tất."
+      ],
+      "movement": [
+        "Bật chỉnh sửa và giữ ô.",
+        "Con trỏ và ô di chuyển cùng nhau đến một ô trống.",
+        "Phát hành: vị trí cuối cùng được lưu."
+      ],
+      "resizing": [
+        "Kích hoạt tính năng chỉnh sửa và tìm tay cầm góc.",
+        "Kéo theo đường chéo để thay đổi chiều rộng và chiều cao.",
+        "Phát hành ở mức 2 × 2. So sánh Không có và Làm mượt bằng cách sử dụng bộ chọn."
+      ],
+      "drag-modes": [
+        "Sử dụng bộ chọn để so sánh ba chế độ kéo.",
+        "Kéo về phía một ô bị chiếm đóng và xem các ô khác.",
+        "Không có ô nào sử dụng ô trống; Di dời và trình tự sắp xếp lại các ô."
+      ],
+      "folders": [
+        "Đặt tên cho một thư mục để nhóm các trang của bạn.",
+        "Trong khi chỉnh sửa, hãy kéo dấu trang vào đó.",
+        "Mở thư mục để tìm dấu trang trong lưới của nó."
+      ],
+      "workspaces": [
+        "Thanh công cụ + tạo không gian làm việc với tên bạn đã chọn.",
+        "Không gian làm việc mới có lưới riêng.",
+        "Alt + ↑ và Alt + ↓ duyệt qua các không gian làm việc của bạn."
+      ],
+      "selection": [
+        "Cho phép chỉnh sửa và chọn một ô bằng một cú nhấp chuột ngắn.",
+        "Chọn cái khác: thanh công cụ cung cấp các hành động nhóm.",
+        "Bản sao tạo bản sao trong các ô trống chỉ bằng một hành động."
+      ],
+      "history": [
+        "Di chuyển một ô: thay đổi đó sẽ đi vào lịch sử.",
+        "Hoàn tác sẽ trả ô về vị trí trước đó.",
+        "Làm lại khôi phục nước đi mà bạn vừa hoàn tác."
+      ],
+      "appearance": [
+        "Bút chì của ô sẽ mở trình soạn thảo của nó.",
+        "Thay đổi màu sắc và xem bản xem trước.",
+        "Lưu để áp dụng giao diện đó cho ô xếp."
+      ],
+      "presets": [
+        "Mở thư viện từ Cài đặt → Dấu trang.",
+        "Đặt tên và lưu kiểu để sử dụng lại.",
+        "Tải nó làm mặc định và lưu cho dấu trang mới."
+      ],
+      "wallpapers": [
+        "Mở Cài đặt → Chủ đề để chọn hình nền.",
+        "Xem lại bản xem trước và khoảng thời gian xoay thư viện.",
+        "Lưu: hình nền đã chọn sẽ xuất hiện trong không gian làm việc của bạn."
+      ],
+      "clock": [
+        "Chọn + → Widget → Đồng hồ ở menu bên trái.",
+        "Định cấu hình định dạng và giây bằng cách sử dụng bản xem trước.",
+        "Thêm đồng hồ vào ô không gian làm việc trống."
+      ],
+      "interface": [
+        "Mở Chung và chọn ngôn ngữ menu.",
+        "So sánh giao diện sáng và tối.",
+        "Lưu tùy chọn ngôn ngữ và giao diện của bạn."
+      ],
+      "trash": [
+        "Mở thùng rác để tìm dấu trang đã xóa.",
+        "Chọn nó và nhấp vào Khôi phục: nó sẽ trở về lưới.",
+        "Nói chung, chọn thời gian lưu giữ các mục đã xóa."
+      ],
+      "backup": [
+        "Tìm các tùy chọn sao lưu trong Cài đặt → Chung.",
+        "Xuất tải xuống một tệp ZIP có dữ liệu và tệp cục bộ.",
+        "Nhập yêu cầu xác nhận trước khi thay thế dữ liệu."
+      ],
+      "sync": [
+        "Mở Cài đặt → Đồng bộ hóa để kiểm tra chế độ hiện tại.",
+        "Chọn Đã đồng bộ hóa và xem lại xác nhận.",
+        "Chấp nhận áp dụng chế độ ngay lập tức mà không cần nhấp vào Lưu."
+      ],
+      "compact": [
+        "Khi cửa sổ thu hẹp lại, lưới sẽ trở thành một danh sách.",
+        "Dấu trang vẫn có thể truy cập được từ danh sách.",
+        "Mở rộng cửa sổ để quay lại lưới và chỉnh sửa."
+      ],
+      "data": [
+        "Ví dụ sử dụng ngôn ngữ khác, giao diện nhẹ và các ô tùy chỉnh.",
+        "Đặt lại khôi phục cài đặt mặc định trong khi vẫn giữ dấu trang và kiểu của chúng.",
+        "Xóa sẽ xóa dấu trang và thư mục, chỉ để lại thùng rác trống."
+      ],
+      "learning": [
+        "Mẹo hàng ngày mời bạn khám phá một tính năng. Nhấp vào Chỉ cho tôi cách thực hiện.",
+        "Nhập “bàn phím” vào hộp tìm kiếm để tìm Điều hướng bằng bàn phím.",
+        "Nhấp vào kết quả để đọc hướng dẫn của nó."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "MẸO NHỎ CHO HÔM NAY",
+    "dismiss": "Loại bỏ mẹo hôm nay",
+    "read": "Chỉ cho tôi cách",
+    "pace": "Di chuột để tạm dừng.",
+    "enabled": "Lời khuyên hàng ngày",
+    "description": "Một mẹo khi bạn mở tab đầu tiên trong ngày."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Làm cách nào để thêm một trang vào dấu trang của tôi?",
+      "searchTerms": "thêm trang; tạo dấu trang; lưu trang web; yêu thích mới",
+      "title": "Thêm dấu trang",
+      "summary": "Các trang yêu thích của bạn luôn sẵn sàng trong mọi tab mới.",
+      "steps": [
+        "Di chuyển sang cạnh trái để hiển thị menu. Chọn + → Đánh dấu.",
+        "Nhập tên trang và địa chỉ. Bạn có thể điều chỉnh giao diện của nó trước khi thêm nó.",
+        "Xác nhận đặt dấu trang vào một ô trống trong không gian làm việc hiện tại. Ở chế độ chỉnh sửa bên ngoài, nhấp vào nó để mở trang."
+      ],
+      "note": "Để thay đổi dấu trang hiện có, hãy bật tính năng chỉnh sửa và sử dụng bút chì của dấu trang đó. Bạn có thể khóa địa chỉ để tránh những thay đổi ngẫu nhiên.",
+      "tip": "Menu thêm dấu trang nằm ở cạnh trái. Di chuyển con trỏ đến đó và chọn + → Dấu trang."
+    },
+    "quick-save": {
+      "question": "Làm cách nào để lưu trang tôi đang truy cập?",
+      "searchTerms": "lưu trang hiện tại; lưu tab đang mở; biểu tượng mở rộng; chụp URL",
+      "title": "Lưu trang hiện tại",
+      "summary": "Thêm một trang từ biểu tượng tiện ích mở rộng.",
+      "steps": [
+        "Khi truy cập một trang, hãy mở New DeskTab từ menu tiện ích mở rộng của trình duyệt.",
+        "Kiểm tra tên và địa chỉ được đề xuất và chọn một điểm đến có sẵn.",
+        "Lưu dấu trang và mở tab mới để tìm nó trong không gian của bạn."
+      ],
+      "note": "Ghim biểu tượng tiện ích mở rộng vào thanh công cụ trình duyệt của bạn để giữ lối tắt này trong tầm tay.",
+      "tip": "Không cần sao chép URL: biểu tượng trình duyệt của New DeskTab cho phép bạn lưu trang bạn đang truy cập."
+    },
+    "keyboard": {
+      "question": "Làm cách nào để điều hướng mà không cần chuột?",
+      "searchTerms": "không có chuột; sử dụng bàn phím; điều hướng mũi tên; nhập tab",
+      "title": "Điều hướng bằng bàn phím",
+      "summary": "Tab, phím mũi tên và Enter để khám phá không gian của bạn.",
+      "steps": [
+        "Trên trang chính, không cần nhập trường hoặc mở hộp thoại, hãy nhấn Tab để bắt đầu điều hướng các mục.",
+        "Sử dụng các phím mũi tên để đến mục gần nhất theo từng hướng. Enter mở dấu trang hoặc thư mục; ở chế độ chỉnh sửa, nó sẽ mở trình soạn thảo của nó.",
+        "Nhấn Tab lần nữa hoặc Esc để rời khỏi điều hướng. Các hộp thoại bên trong, Tab và Shift + Tab di chuyển giữa các điều khiển một cách bình thường."
+      ],
+      "note": "Trong chế độ chỉnh sửa, S chọn mục có tiêu điểm. Xóa hoặc Backspace sẽ xóa nó sau khi xác nhận. Widget sẽ bị xóa vĩnh viễn.",
+      "tip": "Hãy thử Tab trong không gian của bạn: mũi tên di chuyển giữa các mục và Enter sẽ mở chúng. Tab khác rời khỏi chế độ này."
+    },
+    "shortcuts": {
+      "question": "Làm cách nào để thay đổi phím tắt?",
+      "searchTerms": "thay đổi phím tắt; tùy chỉnh các phím; tổ hợp phím; phím nóng",
+      "title": "Tạo lối tắt của riêng bạn",
+      "summary": "Kiểm tra và thay đổi phím tắt của bạn trong Cài đặt.",
+      "steps": [
+        "Mở Cài đặt → Phím tắt để xem các ràng buộc của bạn để chỉnh sửa, thêm dấu trang, thư mục và tiện ích cũng như mở cài đặt.",
+        "Nhấp vào tổ hợp phím của hành động và nhấn phím tắt mới. Esc hủy ghi âm; nhấp chuột phải để lại hành động không được chỉ định.",
+        "Lưu cài đặt để áp dụng các thay đổi của bạn. Đặt lại phím tắt khôi phục các kết hợp ban đầu."
+      ],
+      "note": "Ban đầu: E chỉnh sửa, B thêm dấu trang, F mở thư mục, W mở widget và S mở cài đặt. Các phím tắt tôn trọng các trường văn bản và hộp thoại.",
+      "tip": "Bạn có thể thay đổi phím tắt trong Cài đặt. Bấm vào một tổ hợp để ghi âm của riêng bạn; Esc hủy và nhấp chuột phải để hủy gán nó."
+    },
+    "search": {
+      "question": "Làm cách nào để tìm dấu trang mà tôi không thể nhìn thấy?",
+      "searchTerms": "tìm dấu trang; định vị trang; dấu trang bị thiếu; URL tìm kiếm",
+      "title": "Tìm dấu trang",
+      "summary": "Tìm kiếm theo tên hoặc địa chỉ, bao gồm cả các thư mục bên trong.",
+      "steps": [
+        "Nhấn / khi bạn không gõ hoặc sử dụng kính lúp trên thanh không gian làm việc.",
+        "Nhập một phần tên hoặc địa chỉ. Tìm kiếm bao gồm các dấu trang trong không gian làm việc khác và các thư mục bên trong.",
+        "Mở kết quả bạn cần. Esc hoặc Đóng sẽ đưa bạn trở lại không gian của mình."
+      ],
+      "note": "Bạn không cần phải nhớ nơi bạn đã lưu một trang để tìm thấy nó.",
+      "tip": "Phím / mở tìm kiếm. Nó cũng tìm thấy dấu trang bên trong các thư mục và trong các không gian làm việc khác."
+    },
+    "editing": {
+      "question": "Làm cách nào để bật chỉnh sửa?",
+      "searchTerms": "cho phép chỉnh sửa; chỉnh sửa máy tính để bàn; biên tập bút chì; sửa đổi dấu trang",
+      "title": "Chế độ chỉnh sửa",
+      "summary": "Bật bút chì để sắp xếp và tùy chỉnh.",
+      "steps": [
+        "Nhấp vào bút chì ở menu bên trái hoặc sử dụng phím tắt chỉnh sửa của bạn để hiển thị các điều khiển lưới và mục.",
+        "Di chuyển, thay đổi kích thước hoặc chọn các mục. Bút chì của mỗi thẻ sẽ mở ra trình chỉnh sửa tên, địa chỉ và giao diện của thẻ đó.",
+        "Nhấp vào bút chì một lần nữa khi bạn hoàn thành. Các thay đổi trong không gian làm việc được lưu tự động; người chỉnh sửa có nút Lưu riêng."
+      ],
+      "note": "Esc trước tiên xóa lựa chọn hoặc điều hướng bàn phím. Khi cả hai đều không hoạt động, nó có thể rời khỏi chế độ chỉnh sửa.",
+      "tip": "Bút chì menu bắt đầu chỉnh sửa: các thẻ điều khiển và điều khiển xuất hiện. Bấm vào nó một lần nữa để hoàn tất."
+    },
+    "movement": {
+      "question": "Làm cách nào để di chuyển dấu trang?",
+      "searchTerms": "di chuyển dấu trang; kéo yêu thích; thay đổi vị trí; sắp xếp lưới",
+      "title": "Di chuyển các mục",
+      "summary": "Kéo thẻ vào vị trí trên lưới.",
+      "steps": [
+        "Bật chế độ chỉnh sửa và giữ thẻ muốn di chuyển.",
+        "Kéo nó đến đích của nó. Kết quả phụ thuộc vào dung lượng trống và chế độ kéo được chọn trong Cài đặt → Dấu trang.",
+        "Thả ra để lưu vị trí của nó. Bạn cũng có thể chọn một mục bằng một cú nhấp chuột và di chuyển mục đó sang một ô bằng các mũi tên, bên ngoài điều hướng Tab."
+      ],
+      "note": "Điểm đến bị chặn hiển thị phản hồi trực quan và mục sẽ trở về vị trí hợp lệ. Bạn có thể hoàn tác các thay đổi.",
+      "tip": "Trong chế độ chỉnh sửa, nhấp để chọn một thẻ và sử dụng mũi tên để di chuyển từng ô. Rời khỏi điều hướng Tab trước."
+    },
+    "resizing": {
+      "question": "Làm cách nào để thay đổi kích thước của ô?",
+      "searchTerms": "thay đổi kích thước gạch; phóng to dấu trang; giảm kích thước; thay đổi kích thước tay cầm; nhấp chuột; Sự thay đổi; chiều cao chiều rộng; 2x2",
+      "title": "Thay đổi kích thước",
+      "summary": "Sử dụng các cạnh và góc của thẻ.",
+      "steps": [
+        "Bật chỉnh sửa và di chuyển đến cạnh hoặc góc của mục để sử dụng núm điều khiển đổi kích thước của mục đó.",
+        "Kéo tay cầm. Một góc thay đổi chiều rộng và chiều cao; một bên chỉ thay đổi một chiều. Bạn cũng có thể bấm vào một ô điều khiển để tăng thêm một ô hoặc Shift + bấm để thu nhỏ một ô.",
+        "Trong Cài đặt → Dấu trang, chọn Không để chuyển giữa các ô sau khi vượt qua 50% hoặc Làm mịn để kéo dài thẻ và chụp nhanh khi thả ra."
+      ],
+      "note": "Kích thước cuối cùng tôn trọng lưới và vị trí hợp lệ. Bản xem trước cài đặt hiển thị sự khác biệt trước khi bạn chọn.",
+      "tip": "Bấm vào một tay cầm để tăng thêm một ô hoặc Shift + bấm để thu nhỏ một ô. Các góc thay đổi chiều rộng và chiều cao cùng nhau; các cạnh chỉ thay đổi một chiều."
+    },
+    "drag-modes": {
+      "question": "Tại sao tôi không thể thả vào ô đang có người?",
+      "searchTerms": "ô bị chiếm đóng; chuyển qua cái khác; thả bị chặn; di dời thác; kéo va chạm",
+      "title": "Chế độ kéo",
+      "summary": "Chọn điều gì sẽ xảy ra tại một vị trí đánh dấu đã được sử dụng.",
+      "steps": [
+        "Mở Cài đặt → Dấu trang và mở rộng hành vi kéo.",
+        "Không có di chuyển vào khe miễn phí. Tái định vị tìm vị trí cho dấu trang tại đích. trình tự sắp xếp lại các dấu trang theo trình tự.",
+        "Xem hoạt ảnh của từng tùy chọn và lưu chế độ mà bạn cảm thấy thoải mái khi sắp xếp."
+      ],
+      "note": "Một nước đi sẽ bị từ chối nếu không có thỏa thuận hợp lệ. Nền trong suốt không làm cho ô bị chiếm dụng trống.",
+      "tip": "Bạn muốn di chuyển dấu trang vào một ô bị chiếm dụng? Xem Di chuyển và Xếp tầng trong Cài đặt → Dấu trang và xem bản xem trước của chúng."
+    },
+    "folders": {
+      "question": "Làm cách nào để nhóm dấu trang vào các thư mục?",
+      "searchTerms": "tạo thư mục; dấu trang nhóm; sắp xếp các mục yêu thích; xóa khỏi thư mục; đổi tên thư mục",
+      "title": "Sắp xếp với các thư mục",
+      "summary": "Tập hợp tối đa 18 dấu trang trong một thư mục.",
+      "steps": [
+        "Chọn + → Thư mục ở menu bên trái và đặt tên cho nó.",
+        "Ở chế độ chỉnh sửa, hãy kéo dấu trang vào đó để đặt chúng vào trong. Mở thư mục để xem lưới của nó.",
+        "Sử dụng chế độ chỉnh sửa của thư mục để sắp xếp dấu trang của nó. Nhấp vào tên của nó để đổi tên và biểu tượng của nó để tùy chỉnh giao diện của nó."
+      ],
+      "note": "Việc xóa một thư mục cũng ảnh hưởng đến dấu trang của nó. Xem lại xác nhận trước khi tiếp tục; thùng rác có thể khôi phục các mục đã xóa.",
+      "tip": "Một thư mục chứa tối đa 18 dấu trang. Bật chỉnh sửa và kéo thẻ vào thư mục để thêm thẻ."
+    },
+    "workspaces": {
+      "question": "Làm cách nào để tách biệt trang cá nhân và trang công việc?",
+      "searchTerms": "công việc cá nhân; tạo không gian làm việc; chuyển đổi không gian làm việc; máy tính để bàn",
+      "title": "Tách biệt không gian làm việc của bạn",
+      "summary": "Một lưới dành cho công việc và một lưới khác dành cho mọi thứ khác.",
+      "steps": [
+        "Thanh không gian làm việc chuyển đổi giữa không gian làm việc Chính và không gian làm việc tùy chỉnh của bạn. Nó + tạo ra một cái mới.",
+        "Chọn một không gian làm việc trước khi thêm các mục. Để chuyển các mục hiện có, hãy chọn chúng và chọn đích đến trong thanh hành động.",
+        "Alt + ↑ và Alt + ↓ duyệt qua các không gian làm việc. Nút − xóa không gian làm việc tùy chỉnh hiện tại sau khi xác nhận."
+      ],
+      "note": "Xóa một không gian làm việc cũng sẽ xóa nội dung của nó. Chính vẫn có sẵn và không thể bị xóa.",
+      "tip": "Alt + ↑ và Alt + ↓ chuyển đổi không gian làm việc mà không cần mở bộ chọn. Phân tách công việc, sở thích hoặc dự án bằng dấu +."
+    },
+    "selection": {
+      "question": "Làm cách nào để thay đổi nhiều mục cùng một lúc?",
+      "searchTerms": "chọn nhiều; lựa chọn hàng loạt; di chuyển một số; lựa chọn nhân bản; dấu trang trùng lặp",
+      "title": "Chọn và hành động hàng loạt",
+      "summary": "Ít hành động lặp lại hơn khi sắp xếp nhiều thẻ.",
+      "steps": [
+        "Bật chỉnh sửa và nhấp nhanh vào từng thẻ để chọn. Bấm lại để bỏ chọn; trong điều hướng Tab, bạn có thể sử dụng S.",
+        "Thanh lựa chọn cho phép bạn sao chép, áp dụng giao diện mặc định, di chuyển sang không gian làm việc khác hoặc xóa, tùy thuộc vào loại mục.",
+        "Kiểm tra điểm đến hoặc xác nhận. Esc hoặc nút chọn rõ ràng sẽ hủy lựa chọn của bạn."
+      ],
+      "note": "Di chuyển và nhân bản cần có khe trống. Ứng dụng sẽ cho bạn biết nếu một số mặt hàng không phù hợp. Các widget không đi vào thùng rác.",
+      "tip": "Trong chế độ chỉnh sửa, chọn một số thẻ bằng các cú nhấp chuột ngắn để di chuyển, sao chép hoặc tạo kiểu lại chúng với nhau. Esc xóa lựa chọn."
+    },
+    "history": {
+      "question": "Làm cách nào để hoàn tác thay đổi cuối cùng của tôi?",
+      "searchTerms": "hoàn tác thay đổi; làm lại thay đổi; quay trở lại; khôi phục vị trí",
+      "title": "Hoàn tác và làm lại",
+      "summary": "Khôi phục một vị trí hoặc một thay đổi gần đây.",
+      "steps": [
+        "Sử dụng mũi tên hoàn tác trên thanh không gian làm việc để quay lại trạng thái trước đó.",
+        "Mũi tên làm lại sẽ khôi phục một thay đổi mà bạn vừa hoàn tác. Bạn cũng có thể sử dụng Ctrl/Cmd + Z và Ctrl/Cmd + Shift + Z.",
+        "Bên trong trình chỉnh sửa, hãy sử dụng các mũi tên bên cạnh tiêu đề của nó để biết các thay đổi đang chờ xử lý; các trường văn bản giữ cho bàn phím bình thường của chúng được hoàn tác. Mỗi hành động hiển thị một thông báo ngắn gọn và các mũi tên không khả dụng sẽ bị tắt. Kiểm tra kết quả trước khi lưu."
+      ],
+      "note": "Lịch sử trình chỉnh sửa bắt đầu mới mỗi khi bạn mở trình chỉnh sửa; các thay đổi sẽ đến không gian làm việc của bạn khi bạn lưu. Lịch sử của Workspace chỉ là tạm thời và không phải là bản sao lưu. Phiên mới hoặc cập nhật từ tab khác có thể đặt lại phiên đó.",
+      "tip": "Nếu bạn cảm thấy có một thay đổi không phù hợp, hãy sử dụng mũi tên hoàn tác hoặc Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z sẽ thực hiện lại thay đổi đó."
+    },
+    "appearance": {
+      "question": "Làm cách nào để thay đổi màu sắc, biểu tượng hoặc văn bản?",
+      "searchTerms": "thay đổi màu sắc; thay đổi biểu tượng; thay đổi văn bản; sự xuất hiện của dấu trang; màu thư mục; biểu tượng yêu thích",
+      "title": "Tùy chỉnh thẻ của bạn",
+      "summary": "Màu sắc, hình ảnh, văn bản và biểu tượng theo cách của bạn.",
+      "steps": [
+        "Bật chỉnh sửa và mở bút chì của dấu trang hoặc điều khiển giao diện cho thư mục hoặc thùng rác.",
+        "Khám phá trình chỉnh sửa: nền, màu sắc, hình ảnh, văn bản và biểu tượng. Các điều khiển có sẵn tùy thuộc vào loại vật phẩm; bản xem trước hiển thị kết quả.",
+        "Hãy tiết kiệm khi bạn hạnh phúc. Bạn có thể sử dụng hình ảnh từ URL hoặc tệp cục bộ nơi trình chỉnh sửa cung cấp tùy chọn đó."
+      ],
+      "note": "Hình ảnh cục bộ thuộc về trình duyệt này. Khi đồng bộ hóa, hãy thêm URL dự phòng cho các thiết bị khác. Quá trình nhập sẽ giữ lại hình ảnh đi kèm và tài liệu tham khảo rõ ràng mà không cần tệp; Đồng bộ hóa bỏ qua các tệp không có sẵn trên thiết bị này.",
+      "tip": "Bút chì của dấu trang sẽ mở trình soạn thảo trực quan của nó. Thay đổi màu sắc, văn bản, biểu tượng hoặc hình ảnh và kiểm tra bản xem trước."
+    },
+    "presets": {
+      "question": "Làm cách nào để sử dụng lại phong cách tôi thích?",
+      "searchTerms": "lưu phong cách; tái sử dụng ngoại hình; phong cách mặc định; thư viện cài sẵn; áp dụng phong cách",
+      "title": "Tái sử dụng lần xuất hiện",
+      "summary": "Lưu giao diện và áp dụng nó cho các dấu trang khác.",
+      "steps": [
+        "Mở Thư viện của trình chỉnh sửa để chọn giao diện từ bộ sưu tập có sẵn.",
+        "Lưu giao diện tùy chỉnh làm giá trị đặt trước để sử dụng lại màu sắc, văn bản và biểu tượng của nó mà không cần sao chép tên hoặc địa chỉ của dấu trang.",
+        "Trong Cài đặt → Dấu trang, định cấu hình giao diện mặc định cho dấu trang mới. Thanh lựa chọn có thể áp dụng nó cho các mục tương thích."
+      ],
+      "note": "Giá trị đặt trước thay đổi hình thức chứ không phải danh tính, đích đến hoặc vị trí của dấu trang.",
+      "tip": "Lưu giao diện bạn thích trong thư viện giao diện. Tái sử dụng nó trên các thẻ khác mà không thay đổi tên hoặc địa chỉ của chúng."
+    },
+    "wallpapers": {
+      "question": "Làm cách nào để sử dụng hình ảnh hoặc video làm hình nền?",
+      "searchTerms": "thay đổi nền; nền video; xoay hình nền; chủ đề",
+      "title": "Hình nền và xoay",
+      "summary": "Màu sắc, hình ảnh hoặc video để thiết lập tâm trạng.",
+      "steps": [
+        "Mở Cài đặt → Chủ đề và chọn nền mặc định, màu sắc hoặc nền phương tiện.",
+        "Thêm hình ảnh hoặc video từ các nguồn được cung cấp trong bảng điều khiển. Thư viện thu thập nhiều hình nền với khoảng thời gian luân chuyển.",
+        "Kiểm tra bản xem trước và lưu. Bạn có thể ghép nối tệp cục bộ với URL thay thế cho các thiết bị khác."
+      ],
+      "note": "Các tập tin cục bộ vẫn ở trong trình duyệt này. Đồng bộ hóa không chuyển chúng; một bản sao lưu đầy đủ có thể bảo vệ chúng.",
+      "tip": "Nền của bạn có thể tự động thay đổi: thêm một số nền vào Cài đặt → Thư viện chủ đề và đặt khoảng thời gian xoay."
+    },
+    "clock": {
+      "question": "Làm cách nào để thêm đồng hồ?",
+      "searchTerms": "thêm đồng hồ; hiển thị thời gian; giây; định dạng 24 giờ; tiện ích đồng hồ",
+      "title": "Thêm đồng hồ",
+      "summary": "Một widget hiển thị thời gian trên thiết bị của bạn.",
+      "steps": [
+        "Chọn + → Widget ở menu bên trái và chọn Đồng hồ.",
+        "Chọn định dạng 12 hoặc 24 giờ và hiển thị giây. Bản xem trước giúp bạn quyết định.",
+        "Thêm nó vào một khe miễn phí. Trong chế độ chỉnh sửa, bạn có thể di chuyển, thay đổi kích thước hoặc mở lại các tùy chọn của nó."
+      ],
+      "note": "Đồng hồ theo thời gian của thiết bị của bạn. Việc xóa một tiện ích là vĩnh viễn; nó không vào thùng rác.",
+      "tip": "Trong + → Widget, bạn có thể thêm đồng hồ 12 hoặc 24 giờ với các giây tùy chọn và thay đổi kích thước cho phù hợp với không gian của bạn."
+    },
+    "interface": {
+      "question": "Làm cách nào để thay đổi ngôn ngữ hoặc sử dụng chế độ tối?",
+      "searchTerms": "thay đổi ngôn ngữ; chế độ tối; chế độ ánh sáng; giao diện xuất hiện",
+      "title": "Chủ đề ngôn ngữ và giao diện",
+      "summary": "Làm cho menu, hộp thoại và điều khiển trở nên thoải mái.",
+      "steps": [
+        "Trong Cài đặt → Chung, chọn ngôn ngữ hoặc để ngôn ngữ đó theo hệ thống của bạn.",
+        "Chọn giao diện sáng, tối hoặc tự động tùy theo sở thích của bạn.",
+        "Lưu cài đặt. Chủ đề giao diện hoạt động cùng với nền bạn đã chọn trong Chủ đề."
+      ],
+      "note": "Ngôn ngữ hệ thống và giao diện tự động tuân theo tùy chọn thiết bị của bạn.",
+      "tip": "Chọn giao diện sáng hoặc tối trong khi vẫn giữ hình nền của bạn. Tìm tùy chọn và ngôn ngữ này trong Cài đặt → Chung."
+    },
+    "trash": {
+      "question": "Làm cách nào để khôi phục dấu trang đã xóa?",
+      "searchTerms": "khôi phục dấu trang đã xóa; khôi phục đã bị xóa; thùng rác; vô tình bị xóa; khôi phục thư mục",
+      "title": "Khôi phục từ thùng rác",
+      "summary": "Cơ hội thứ hai cho dấu trang và thư mục.",
+      "steps": [
+        "Mở thùng rác trong không gian của bạn để xem lại các dấu trang và thư mục đã xóa.",
+        "Chọn những gì bạn muốn quay lại và sử dụng Khôi phục. Bạn cũng có thể xóa vĩnh viễn các mục hoặc dọn sạch thùng rác sau khi xác nhận.",
+        "Trong Cài đặt → Chung, chọn hiển thị và thời gian lưu giữ các mục: 1, 7, 14 hoặc 28 ngày hoặc không bao giờ tự động xóa chúng."
+      ],
+      "note": "Thùng rác thuộc về thiết bị này. Các mục đã hết hạn hoặc bị xóa vĩnh viễn không thể khôi phục được nữa.",
+      "tip": "Xóa nhầm một dấu trang? Mở thùng rác và khôi phục nó. Điều chỉnh thời gian lưu giữ trong Cài đặt → Chung."
+    },
+    "backup": {
+      "question": "Làm cách nào để sao lưu hoặc chuyển dữ liệu của tôi?",
+      "searchTerms": "bản sao lưu; xuất dữ liệu; bản sao nhập khẩu; khôi phục bản sao lưu; trình duyệt khác; truyền dữ liệu",
+      "title": "Sao lưu và nhập khẩu",
+      "summary": "Giữ một bản sao không gian của bạn và mang nó theo bên mình.",
+      "steps": [
+        "Trong Cài đặt → Chung xuất bản sao lưu đầy đủ để bảo toàn dữ liệu và các tệp cục bộ có trong kho lưu trữ ZIP.",
+        "Để khôi phục, hãy nhập bản sao lưu và xem lại xác nhận trước khi thay thế dữ liệu. Các bản sao lưu JSON tương thích cũng được hỗ trợ.",
+        "Trong Cài đặt → Dấu trang, bạn chỉ có thể xuất hoặc nhập dấu trang và thư mục khi không cần bản sao lưu đầy đủ."
+      ],
+      "note": "Xuất dấu trang không phải là bản sao lưu đầy đủ các cài đặt và phương tiện cục bộ. Lưu bản sao lưu trước khi khôi phục hoặc xóa dữ liệu.",
+      "tip": "Bản sao lưu đầy đủ từ Cài đặt → Chung bao gồm các tệp cục bộ trong ZIP. Nó hữu ích trước khi chuyển đổi trình duyệt hoặc khôi phục dữ liệu."
+    },
+    "sync": {
+      "question": "Làm cách nào để sử dụng cùng một không gian trên một máy tính khác?",
+      "searchTerms": "một máy tính khác; đồng bộ hóa thiết bị; đồng bộ hóa; đám mây; đồng bộ cục bộ; dừng đồng bộ hóa; vô hiệu hóa đồng bộ hóa; chế độ cục bộ",
+      "title": "Đồng bộ hóa trên các thiết bị",
+      "summary": "Chia sẻ không gian của bạn bằng cách sử dụng đồng bộ hóa trình duyệt.",
+      "steps": [
+        "Đăng nhập và bật đồng bộ hóa tiện ích mở rộng trong hồ sơ Google Chrome của bạn.",
+        "Trong Cài đặt → Đồng bộ hóa, chọn Đã đồng bộ hóa và chấp nhận xác nhận. Việc chuyển đổi sẽ có hiệu lực ngay lập tức: các dấu trang và cài đặt đã đồng bộ hóa hiện có sẽ được tải hoặc dữ liệu cục bộ đã lưu của bạn được đồng bộ hóa nếu không có dữ liệu nào tồn tại.",
+        "Sử dụng cùng một hồ sơ trên thiết bị khác. Kiểm tra trạng thái đồng bộ hóa và dung lượng trống trong bảng điều khiển."
+      ],
+      "note": "Các tệp cục bộ, thùng rác và mẹo hàng ngày thuộc về từng thiết bị. Đồng bộ hóa có giới hạn lưu trữ; sử dụng URL thay thế cho hình ảnh và video địa phương. Việc chọn Địa phương cũng yêu cầu xác nhận và có hiệu lực ngay lập tức, giữ cho dữ liệu đã đồng bộ được lưu trữ.",
+      "tip": "Đồng bộ hóa chia sẻ không gian của bạn trên các thiết bị nhưng các tệp cục bộ cần có URL thay thế. Xem Cài đặt → Đồng bộ hóa."
+    },
+    "compact": {
+      "question": "Tại sao tôi nhìn thấy danh sách thay vì lưới?",
+      "searchTerms": "cửa sổ nhỏ; xem danh sách; lưới biến mất; bảng ẩn; di động",
+      "title": "Sử dụng cửa sổ nhỏ hơn",
+      "summary": "Tiếp tục truy cập dấu trang của bạn khi không gian bị giới hạn.",
+      "steps": [
+        "Khi cửa sổ thu hẹp, ứng dụng sẽ chuyển sang danh sách để giữ cho các mục của bạn có thể truy cập được.",
+        "Mở dấu trang, thư mục hoặc tìm kiếm trong chế độ xem này. Hướng dẫn sử dụng cũng thích ứng với kích thước có sẵn.",
+        "Mở rộng cửa sổ để đưa lưới và bảng chỉnh sửa trở lại. Hộp thoại chỉnh sửa bị tạm dừng sẽ giữ nguyên bản nháp của nó."
+      ],
+      "note": "Chế độ xem nhỏ gọn giúp bạn duyệt không gian của mình; việc tổ chức lại cần có một cửa sổ đủ rộng.",
+      "tip": "Trong một cửa sổ hẹp, dấu trang của bạn vẫn có sẵn dưới dạng danh sách. Mở rộng nó khi bạn muốn chỉnh sửa hoặc sắp xếp lại lưới."
+    },
+    "data": {
+      "question": "Làm cách nào để xóa dữ liệu của tôi hoặc đặt lại cài đặt?",
+      "searchTerms": "xóa dữ liệu; thiết lập lại cài đặt; loại bỏ mọi thứ; bắt đầu lại",
+      "title": "Lưu và đặt lại",
+      "summary": "Hiểu những gì được lưu và những gì mỗi hành động loại bỏ.",
+      "steps": [
+        "Các hành động trong không gian làm việc được lưu tự động. Trong trình chỉnh sửa và Cài đặt, hãy xác nhận bằng Lưu; Hủy sẽ loại bỏ bản nháp của bảng đó.",
+        "Nếu thông báo đang chờ lưu xuất hiện, hãy nhấp vào Thử lưu lại và đợi xác nhận trước khi đóng tab.",
+        "Trong Cài đặt → Chung, bạn có thể đặt lại cài đặt hoặc xóa tất cả dữ liệu. Đọc xác nhận và xuất bản sao lưu của mọi thứ bạn muốn giữ lại."
+      ],
+      "note": "Việc đặt lại cài đặt sẽ giữ lại dấu trang của bạn, kích thước và kiểu dáng của chúng. Xóa tất cả dữ liệu cục bộ sẽ xóa các mục và làm trống thùng rác. Xuất bản sao lưu trước khi xóa: Hoàn tác không thay thế bản sao lưu.",
+      "tip": "Nếu bạn thấy thông báo về các thay đổi chưa được lưu, hãy sử dụng Thử lưu lại trước khi đóng tab. Bảo vệ không gian của bạn với một bản sao lưu đầy đủ."
+    },
+    "learning": {
+      "question": "Làm cách nào để mở lại hướng dẫn hoặc tắt mẹo hàng ngày?",
+      "searchTerms": "vô hiệu hóa lời khuyên; tắt trợ giúp; cảnh báo hàng ngày; mở lại hướng dẫn; hướng dẫn sử dụng",
+      "title": "Học theo tốc độ của riêng bạn",
+      "summary": "Hướng dẫn nhanh, sổ tay và một mẹo nhỏ hàng ngày.",
+      "steps": [
+        "Xem lại hướng dẫn nhanh từ Cài đặt → Trợ giúp. Mỗi bước liên kết đến các giải thích tương ứng trong hướng dẫn.",
+        "Khám phá chỉ mục hoặc tìm kiếm một từ. Các liên kết liên quan của một phần sẽ đưa bạn đến các tính năng khác khi bạn đã sẵn sàng.",
+        "Tab mới đầu tiên của bạn mỗi ngày hiển thị một mẹo ngẫu nhiên. Loại bỏ nó hoặc mở lời giải thích của nó; bạn có thể tắt các mẹo trong Trợ giúp."
+      ],
+      "note": "Mẹo truy cập các phần mà không lặp lại cho đến khi bộ sưu tập hoàn tất. Chúng kéo dài 20 giây và tạm dừng trong khi di chuột hoặc tập trung vào các nút. Họ theo dõi ngày địa phương và sở thích của trình duyệt này.",
+      "tip": "Hướng dẫn này luôn có trong Cài đặt → Trợ giúp. Mẹo hàng ngày mở một phần và bạn có thể tắt chúng ở đó bất cứ khi nào bạn muốn."
+    }
+  }
+}

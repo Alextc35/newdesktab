@@ -1,6 +1,7 @@
 import '../../types/types.js'; // typedefs
 import { VERSION } from '../browser/extensionMetadata.js';
 import { loadTranslations } from '../../lang/index.js';
+import { getLanguageDirection } from '../../domain/settings/languageCatalog.js';
 import {
   normalizeLanguagePreference,
   resolveLanguage
@@ -98,6 +99,7 @@ export function t(key, params = {}) {
  */
 export function applyI18n(root = document, params = {}) {
   document.documentElement.lang = (currentLang || 'en').replaceAll('_', '-');
+  document.documentElement.dir = getLanguageDirection(currentLang);
 
   const elements = root.querySelectorAll('[data-i18n], [data-i18n-aria-label]');
 

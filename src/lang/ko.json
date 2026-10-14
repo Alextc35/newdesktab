@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "릴리스 노트",
+    "settingsDescription": "변경된 사항과 각 업데이트의 비하인드 스토리.",
+    "open": "메모 읽기",
+    "history": "버전 기록",
+    "dismiss": "릴리스 노트 닫기",
+    "continue": "계속",
+    "back": "정보로 돌아가기",
+    "highlights": "오늘 할 수 있는 일",
+    "generic": {
+      "title": "New DeskTab가 업데이트되었습니다.",
+      "description": "새 버전이 있습니다. 원할 때마다 정보에서 이전 릴리스 노트를 다시 방문할 수 있습니다. 여기 있어주셔서 감사합니다."
+    },
+    "v1_0_0": {
+      "title": "웹사이트의 데스크탑. 마침내.",
+      "thanks": "New DeskTab을 사용해 주셔서 감사합니다. 마침내 이 프로젝트의 첫 번째 공개 릴리스를 여러분과 공유하게 되어 매우 기쁩니다.",
+      "origin": "모든 것은 2025년 9월 26일에 시작되었습니다. Twitch에서 Just Chatting 스트림을 시청하는 동안 저는 스트리머의 브라우저 새 탭을 발견했습니다. 이름이나 로고 없이 웹사이트를 컬러 사각형으로 정렬하는 확장 프로그램입니다. 그 미니멀리즘은 나를 매료시켰고 나는 이렇게 생각했습니다. 나만의 확장을 구축해 보는 것은 어떨까요? 나는 모든 새 탭에 질서가 있고, 내 페이지가 가까이에 있고, 내가 즐겨 보는 패널이 있기를 원했습니다.",
+      "desktop": "점차적으로 그 아이디어는 애플리케이션이 아닌 웹사이트의 개인 데스크톱으로 성장했습니다. 시계는 첫 번째 단계이며 여전히 진행 중인 작업입니다. 앞으로는 New DeskTab를 사용하는 모든 사람과 저 모두에게 유용한 것을 제공하는 메모장과 기타 위젯을 추가하고 싶습니다.",
+      "closing": "이 앱은 나와 당신을 위해 만들어졌습니다. New DeskTab을(를) 신뢰하고 브라우저에 추가해 주셔서 감사합니다. 제가 공간을 짓는 것을 즐겼던 것처럼 여러분도 공간을 만드는 것을 즐기시기 바랍니다.",
+      "highlights": {
+        "workspace": "책갈피, 폴더 및 독립적인 작업 공간을 사용하여 페이지를 구성하세요.",
+        "appearance": "색상, 각 항목의 크기 및 데스크탑 배경을 사용자 정의하십시오.",
+        "search": "검색으로 페이지를 찾고 키보드 단축키를 사용하여 항목을 탐색하고 생성하세요.",
+        "backup": "백업을 저장하고 삭제된 항목을 휴지통에서 복구하세요.",
+        "sync": "이 기기에 데이터를 보관하거나 Google Chrome와 동기화하도록 선택하세요.",
+        "help": "환영 가이드, 매뉴얼, 일일 팁을 통해 기능을 알아보세요."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "당신의 첫 순간",
+    "skip": "가이드 건너뛰기",
+    "back": "뒤로",
+    "next": "다음",
+    "finish": "설정으로 돌아가기",
+    "explore": "나의 공간을 탐험해보세요",
+    "addFirst": "내 첫 번째 북마크 추가",
+    "progress": "{{total}} 중 {{current}} 단계",
+    "compactHint": "북마크를 추가하고 공간을 편집하고 싶을 때 창을 넓혀 보세요.",
+    "reopenTitle": "퀵 가이드",
+    "reopenDescription": "단 몇 분 만에 필수 요소를 재발견해 보세요.",
+    "reopen": "가이드 보기",
+    "demo": {
+      "work": "일",
+      "media": "미디어",
+      "trash": "휴지통",
+      "search": "북마크 찾기"
+    },
+    "steps": {
+      "start": {
+        "title": "귀하의 페이지. 나만의 공간.",
+        "body": "New DeskTab에 오신 것을 환영합니다. 탭을 열 때마다 즐겨찾는 페이지를 가까이에 두세요. 추가하려면 왼쪽 가장자리로 이동하여 + → [[bookmarks|북마크]]을 선택하세요.",
+        "hint": "브라우저의 확장 프로그램 아이콘에서 [[quick-save|방문 중인 페이지를 저장하세요.]]할 수도 있습니다."
+      },
+      "edit": {
+        "title": "모든 북마크에 적절한 위치를 지정하세요.",
+        "body": "편집하려면 왼쪽 메뉴에서 연필을 켜세요. 이동하려면 항목을 누르고 [[movement|드래그]]하세요. 크기를 변경하려면 [[resizing|핸들]]을 사용하세요.",
+        "hint": "각 북마크의 연필은 이름, 색상, 아이콘 및 이미지와 같은 [[appearance|편집자]]를 엽니다. 재사용하려면 [[presets|스타일]]을 저장하세요."
+      },
+      "organize": {
+        "title": "덜 복잡합니다. 추가 주문.",
+        "body": "+에서 [[folders|폴더]]를 생성하고 편집 모드에서 북마크를 끌어다 놓습니다. 최대 18개의 북마크를 저장할 수 있는 깔끔한 그리드로 열립니다.",
+        "hint": "일과 놀이를 구분하려면 [[workspaces|작업 공간 바]]에서 +를 사용하세요. [[search|돋보기]]은 폴더 내부도 검색합니다."
+      },
+      "style": {
+        "title": "당신처럼 느껴지도록 만드세요.",
+        "body": "설정 → [[wallpapers|테마]]에서 색상, 이미지 또는 비디오 배경을 선택하고 좋아하는 배경화면을 회전하세요. 설정 → [[sync|동기화]]에서 Chrome 프로필에 로그인된 계정을 사용하여 여러 기기에서 공간을 동기화하세요.",
+        "hint": "+ → 위젯에서 [[clock|시계]]를 추가하세요. 폴더의 [[appearance|외관]]도 사용자 정의할 수 있습니다."
+      },
+      "ready": {
+        "title": "당신은 필수 사항을 알고 있습니다.",
+        "body": "북마크를 찾으려면 [[search|/]]를 누르세요. 변경 사항을 복구하려면 [[history|실행 취소 및 다시 실행]] 화살표를 사용하세요. 삭제된 북마크는 [[trash|휴지통]]로 이동합니다.",
+        "hint": "변경 사항은 자동으로 저장됩니다. 설정에서 [[backup|백업]]를 내보내거나 선택 사항인 Google Chrome [[sync|동기화]]을 활성화하세요."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "최근 변경사항을 저장할 수 없습니다.",
+    "retry": "저장 다시 시도",
+    "saved": "대기 중인 변경사항이 저장되었습니다."
+  },
+  "itemEditor": {
+    "chooseIcon": "아이콘을 선택하세요",
+    "siteLogo": "로고",
+    "noSymbol": "없음",
+    "folderIconHint": "기호는 폴더 내부의 책갈피 미리보기를 대체합니다.",
+    "icons": {
+      "mail": "메일",
+      "calendar": "달력",
+      "notes": "메모",
+      "projects": "프로젝트",
+      "design": "디자인",
+      "music": "음악",
+      "tasks": "작업",
+      "ideas": "아이디어",
+      "docs": "문서",
+      "ui-start": "나침반",
+      "ui-organize": "레이아웃",
+      "ui-personalize": "슬라이더",
+      "ui-protect": "방패",
+      "ui-bookmarks": "북마크 추가",
+      "ui-quick-save": "브라우저",
+      "ui-keyboard": "키보드",
+      "ui-shortcuts": "번개",
+      "ui-search": "검색",
+      "ui-editing": "연필",
+      "ui-movement": "이동",
+      "ui-resizing": "크기 조정",
+      "ui-drag-modes": "드래그",
+      "ui-folders": "폴더",
+      "ui-workspaces": "윈도우",
+      "ui-selection": "선택",
+      "ui-history": "역사",
+      "ui-appearance": "팔레트",
+      "ui-presets": "사전 설정",
+      "ui-wallpapers": "이미지",
+      "ui-clock": "시계",
+      "ui-interface": "지구본",
+      "ui-trash": "휴지통",
+      "ui-backup": "아카이브",
+      "ui-sync": "동기화",
+      "ui-compact": "목록",
+      "ui-data": "데이터베이스",
+      "ui-learning": "도서",
+      "ui-settings": "설정",
+      "ui-controls": "컨트롤",
+      "ui-cloud": "클라우드",
+      "ui-bookmark": "북마크",
+      "ui-info": "정보",
+      "ui-eye": "눈",
+      "ui-check": "완료됨",
+      "ui-lock": "잠금",
+      "ui-unlock": "잠금 해제",
+      "ui-copy": "복사",
+      "ui-close": "닫기",
+      "ui-undo": "실행 취소",
+      "ui-redo": "다시 실행",
+      "ui-desktop": "데스크탑",
+      "home": "홈",
+      "briefcase": "일",
+      "code": "코드",
+      "game": "게임",
+      "cart": "쇼핑",
+      "card": "결제",
+      "people": "사람",
+      "message": "메시지",
+      "location": "위치",
+      "phone": "전화",
+      "camera": "카메라",
+      "headphones": "헤드폰",
+      "link": "링크",
+      "tag": "태그",
+      "chart": "통계",
+      "coffee": "커피",
+      "sun": "태양",
+      "moon": "달",
+      "circle": "서클",
+      "square": "광장",
+      "triangle": "삼각형",
+      "diamond": "다이아몬드",
+      "pentagon": "펜타곤",
+      "hexagon": "육각형",
+      "star": "스타",
+      "heart": "하트",
+      "plus": "플러스",
+      "minus": "마이너스",
+      "video": "비디오"
+    },
+    "searchIcons": "아이콘 검색…",
+    "clearIconSearch": "검색 지우기",
+    "noIcons": "아이콘을 찾을 수 없습니다",
+    "suggestedIcons": "제안",
+    "suggestedIcon": "제안: {{name}}",
+    "logoKeywords": "로고 파비콘 웹사이트 사이트 브랜드",
+    "iconKeywords": {
+      "ui-trash": "휴지통 쓰레기 폐기물 삭제 클래식",
+      "mail": "메일 이메일 Gmail Outlook받은 편지함",
+      "docs": "문서 파일 pdf 드라이브 워드",
+      "notes": "노트 메모 개념 원노트",
+      "ui-protect": "보안 보호 개인 정보 보호",
+      "game": "게임 게임 컨트롤러 콘솔",
+      "cart": "쇼핑 상점 상점 구매",
+      "card": "은행 금융 신용 차변 돈",
+      "people": "소셜 커뮤니티 친구 그룹",
+      "ui-learning": "독서 도서관 교육 연구",
+      "ui-clock": "시간 시계",
+      "ui-interface": "인터넷 웹 세계 언어",
+      "ui-data": "데이터 SQL 스토리지",
+      "circle": "기하학적 모양 인물",
+      "square": "기하학적 모양 인물",
+      "triangle": "기하학적 모양 인물",
+      "diamond": "기하학적 모양 인물",
+      "pentagon": "기하학적 모양 인물",
+      "hexagon": "기하학적 모양 인물",
+      "star": "기하학적 모양 인물",
+      "heart": "기하학적 모양 인물"
+    },
+    "history": "편집 기록",
+    "description": "작업 공간을 집처럼 편안하게 만들어 보세요.",
+    "looks": "룩을 선택하세요",
+    "custom": "맞춤",
+    "look": {
+      "original": "원본",
+      "card": "카드",
+      "midnight": "어둠",
+      "paper": "빛"
+    },
+    "reset": "외모 재설정",
+    "cardColor": "카드 색상",
+    "folderFill": "폴더 색상",
+    "image": "배경 이미지",
+    "lock": "URL 잠금 또는 잠금 해제",
+    "copy": "URL 복사",
+    "clear": "지우기",
+    "section": {
+      "general": "필수사항",
+      "text": "이름 및 라벨",
+      "icon": "아이콘",
+      "card": "카드"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "표시되는 이름과 열리는 페이지입니다.",
+        "text": "이름 표시 여부를 선택하고 색상을 조정합니다.",
+        "icon": "중앙에 위치한 큰 파비콘이나 이미지 카드 이름 옆에 있는 작은 아이콘을 사용하세요."
+      },
+      "folder": {
+        "general": "북마크를 하나로 묶는 이름입니다.",
+        "text": "폴더 이름을 표시하고 색상을 조정합니다.",
+        "icon": "폴더 아이콘과 북마크 축소판을 사용자 정의합니다."
+      },
+      "recycleBin": {
+        "general": "기본 작업 공간에 휴지통을 표시할지 여부를 선택하세요.",
+        "text": "휴지통 이름을 표시하고 색상을 조정합니다.",
+        "icon": "휴지통에 자신만의 색상을 지정하세요. 일반에서 전체 저장소를 숨깁니다."
+      }
+    },
+    "addImage": "배경 이미지 추가",
+    "changeImage": "배경 이미지 수정"
+  },
+  "html": {
+    "title": "새 탭"
+  },
+  "quickSave": {
+    "title": "북마크 저장",
+    "name": "이름",
+    "workspace": "작업공간",
+    "folder": "폴더",
+    "mainWorkspace": "메인",
+    "noFolder": "폴더 없음",
+    "save": "북마크 저장",
+    "saveAnyway": "무시하고 저장",
+    "savedButton": "저장됨",
+    "alreadySaved": "이미 저장되었습니다",
+    "savedIn": "{{location}}에서",
+    "savedInMore": "{{location}} 및 {{count}}에서",
+    "open": "New DeskTab 열기",
+    "unavailableTitle": "이 탭은 저장할 수 없습니다.",
+    "unavailable": "웹페이지(http 또는 https)를 열어 저장하세요.",
+    "loadError": "북마크를 로드할 수 없습니다. 다시 시도해 보세요.",
+    "saving": "저장 중…",
+    "saved": "북마크가 저장되었습니다.",
+    "duplicate": "이 URL은 해당 대상에 이미 저장되어 있습니다.",
+    "noSpace": "해당 대상에 남은 공간이 없습니다. 다른 것을 선택하세요.",
+    "invalid": "이름과 선택한 목적지를 확인하세요.",
+    "saveError": "북마크를 저장할 수 없습니다. 다시 시도해 보세요."
+  },
+  "launcher": {
+    "bookmark": "북마크",
+    "folder": "폴더",
+    "widgets": "위젯",
+    "editMode": {
+      "enter": "편집 모드로 들어가기",
+      "exit": "편집 모드 종료"
+    }
+  },
+  "widgets": {
+    "title": "위젯",
+    "description": "이 작업공간에 추가할 위젯을 선택하세요.",
+    "empty": "아직 사용할 수 있는 위젯이 없습니다."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "이 기능을 사용하려면 창을 확대하세요.",
+      "suspended": "패널이 숨겨졌습니다. 계속하려면 창을 넓히세요."
+    },
+    "editMode": {
+      "enabled": "수정 모드가 활성화되었습니다.",
+      "disabled": "편집 모드가 비활성화되었습니다."
+    },
+    "selectionMode": {
+      "enabled": "선택 모드 활성화됨",
+      "disabled": "선택 모드가 비활성화되었습니다."
+    },
+    "bookmark": {
+      "added": "북마크가 추가됨",
+      "notFound": "북마크를 찾을 수 없습니다",
+      "updated": "북마크가 업데이트되었습니다.",
+      "deleted": "북마크가 삭제되었습니다."
+    },
+    "clock": {
+      "added": "시계가 추가됨",
+      "updated": "시계가 업데이트되었습니다.",
+      "deleted": "시계가 삭제되었습니다."
+    },
+    "folder": {
+      "created": "폴더가 생성되었습니다.",
+      "renamed": "폴더 이름이 변경됨",
+      "updated": "폴더가 업데이트되었습니다.",
+      "deleted": "폴더 및 북마크가 삭제되었습니다.",
+      "bookmarkAdded": "폴더에 북마크가 추가됨",
+      "folderFull": "이 폴더에는 이미 18개의 북마크가 있습니다.",
+      "bookmarkRemoved": "북마크가 그리드로 다시 이동되었습니다."
+    },
+    "recycleBin": {
+      "moved": "휴지통으로 옮겼습니다",
+      "restored": "복원된 항목",
+      "deletedPermanently": "영구적으로 삭제된 항목",
+      "updated": "휴지통이 업데이트되었습니다."
+    },
+    "workspace": {
+      "created": "작업공간이 생성되었습니다.",
+      "deleted": "작업공간이 삭제되었습니다.",
+      "switched": "작업공간: {{name}}"
+    },
+    "history": {
+      "undone": "변경 취소됨",
+      "redone": "변경 다시 완료"
+    },
+    "bookmarks": {
+      "deletedAll": "모든 북마크가 삭제되었습니다.",
+      "deletedAllWithFolders": "모든 북마크 및 폴더가 삭제되었습니다.",
+      "deleteAllError": "모든 북마크를 삭제하지 못했습니다.",
+      "exported": "내보낸 북마크",
+      "exportError": "북마크를 내보내지 못했습니다.",
+      "imported": "북마크를 가져왔습니다.",
+      "importError": "북마크를 가져오지 못했습니다.",
+      "presetApplied": "선택 항목에 스타일이 적용됨",
+      "duplicatedSelected": "선택한 항목이 중복되었습니다.",
+      "deletedSelected": "선택한 항목이 삭제되었습니다.",
+      "moved": "선택한 작업공간으로 항목이 이동되었습니다."
+    },
+    "settings": {
+      "saved": "설정이 저장되었습니다.",
+      "bookmarkDefaultSaved": "기본 북마크 모양이 저장되었습니다.",
+      "bookmarkDefaultError": "기본 북마크 모양을 저장할 수 없습니다.",
+      "copied": "값이 클립보드에 복사되었습니다.",
+      "resetBg": "테마 재설정",
+      "deletedAllData": "모든 로컬 NewDeskTab 데이터가 삭제되었습니다.",
+      "deleteAllDataError": "모든 로컬 NewDeskTab 데이터를 삭제할 수 없습니다.",
+      "invalidWallpaperUrl": "유효한 HTTP 또는 HTTPS 이미지/동영상 URL을 입력하세요.",
+      "invalidWallpaperFile": "이 파일을 추가할 수 없습니다. 지원되는 이미지 또는 최대 200MB의 MP4, WebM 또는 Ogg 비디오를 사용하세요.",
+      "wallpaperLimit": "개인 배경화면은 최대 25개까지 추가할 수 있습니다."
+    },
+    "localImage": {
+      "invalid": "PNG, JPEG, WebP, GIF 또는 AVIF 이미지를 선택하세요.",
+      "tooLarge": "이미지가 너무 커서 이 기기에 저장할 수 없습니다.",
+      "storageFull": "이 이미지를 저장할 로컬 공간이 부족합니다.",
+      "processing": "이 이미지를 처리할 수 없습니다."
+    },
+    "sync": {
+      "enabled": "동기화가 활성화되었습니다.",
+      "localEnabled": "로컬 모드 활성화됨",
+      "remoteLoaded": "동기화된 데이터가 로드되었습니다.",
+      "updatedFromOtherDevice": "다른 기기에서 수신된 동기화된 변경사항",
+      "deletedFromOtherDevice": "클라우드 데이터가 다른 기기에서 삭제되었습니다. 이 장치는 현재 로컬 모드를 사용하고 있습니다.",
+      "error": "저장 모드를 변경할 수 없습니다.",
+      "versionBlocked": "클라우드 데이터에 최신 NewDeskTab 버전이 필요하기 때문에 동기화가 일시중지되었습니다. 이 기기의 로컬 데이터가 표시됩니다.",
+      "quotaError": "데이터가 사용 가능한 동기화 저장 공간을 초과합니다.",
+      "deleted": "동기화된 데이터가 삭제되었습니다.",
+      "deleteError": "동기화된 데이터를 삭제할 수 없습니다."
+    },
+    "backup": {
+      "exported": "백업을 내보냈습니다.",
+      "exportError": "백업을 내보낼 수 없습니다.",
+      "mediaUnavailable": "참조된 일부 로컬 이미지 또는 비디오를 사용할 수 없어 백업이 생성되지 않았습니다.",
+      "imported": "백업이 복원되었습니다.",
+      "importError": "백업을 복원할 수 없습니다.",
+      "mediaStorageFull": "백업 이미지 및 비디오를 복원할 로컬 저장소가 부족합니다."
+    }
+  },
+  "view": {
+    "list": "목록 보기",
+    "search": "북마크 및 폴더 검색",
+    "clearSearch": "검색 지우기",
+    "noResults": "결과가 없습니다."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "북마크를 모두 삭제하시겠습니까?",
+      "deleteFolders": "폴더도 모두 삭제하세요",
+      "confirmDeleteSelected": "선택한 {{count}}개 항목을 삭제하시겠습니까?",
+      "confirmMoveOne": "이 항목을 작업공간 '{{workspace}}'로 이동하시겠습니까?",
+      "confirmMoveSelected": "선택한 {{count}}개 항목을 \"{{workspace}}\" 작업공간으로 이동하시겠습니까?",
+      "duplicateNoSpace": "공간이 부족하여 {{count}}개 항목을 복제할 수 없습니다.",
+      "moveNoSpace": "공간이 부족하여 {{count}}개 항목을 이동할 수 없습니다.",
+      "no_space": "북마크를 더 이상 저장할 수 있는 공간이 없습니다 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "새 북마크를 삭제하시겠습니까?"
+      },
+      "confirmDelete": "'{{name}}'을 삭제하시겠습니까?",
+      "confirmPermanentDelete": "'{{name}}'을(를) 영구적으로 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+      "cancel": "변경사항을 취소하시겠습니까?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "이 위젯을 영구적으로 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+      "confirmDeleteSelected": "선택한 {{count}}개 항목을 삭제하시겠습니까? 선택한 위젯({{widgetCount}})이 영구적으로 삭제되며 복원할 수 없습니다."
+    },
+    "folder": {
+      "createCancel": "새 폴더를 삭제하시겠습니까?",
+      "cancel": "폴더 변경사항을 삭제하시겠습니까?"
+    },
+    "recycleBin": {
+      "folder": "'{{name}}' 및 해당 {{count}} 북마크를 휴지통으로 이동하시겠습니까?",
+      "empty": "휴지통에 있는 모든 항목을 영구적으로 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+      "deleteSelected": "선택한 항목 {{count}}개를 영구적으로 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+      "noSpace": "그리드 공간이 부족하여 {{count}}개 항목을 복원할 수 없습니다. 휴지통에 남아 있습니다.",
+      "cancel": "휴지통 변경사항을 삭제하시겠습니까?"
+    },
+    "settings": {
+      "cancel": "설정 변경사항을 삭제하시겠습니까?",
+      "reset": "모든 설정을 재설정하시겠습니까? 북마크는 삭제되지 않습니다.",
+      "deleteAllData": "이 기기에서 모든 로컬 NewDeskTab 데이터를 삭제하시겠습니까? 북마크, 폴더, 위젯, 설정, 휴지통 항목, 로컬 이미지 및 로컬 비디오가 영구적으로 삭제됩니다. 클라우드 데이터는 변경되지 않습니다. 동기화가 활성화된 경우 이 장치는 먼저 로컬로 전환됩니다. 이 작업은 취소할 수 없습니다.",
+      "theme": {
+        "reset": "테마 설정을 재설정하시겠습니까?"
+      },
+      "bookmark": {
+        "cancel": "기본 북마크 모양 변경사항을 취소하시겠습니까?"
+      },
+      "shortcuts": {
+        "reset": "기본 키보드 단축키를 복원하시겠습니까?"
+      },
+      "sync": {
+        "enable": "로컬에서 동기화로 전환하시겠습니까? 이제 저장을 클릭하지 않아도 이 내용이 적용됩니다. 동기화된 데이터가 이미 존재하는 경우 해당 북마크 및 설정이 로드됩니다. 그렇지 않으면 저장된 로컬 데이터가 동기화됩니다.",
+        "local": "동기화에서 로컬로 전환하시겠습니까? 이제 저장을 클릭하지 않아도 이 내용이 적용됩니다. 이 장치는 현재 데이터의 복사본을 유지하고 변경 사항 동기화를 중지합니다. 동기화된 데이터는 다른 장치에 계속 저장됩니다.",
+        "delete": "동기화된 NewDeskTab 데이터를 모두 삭제하시겠습니까? 이 장치와 이 클라우드 데이터를 사용하는 다른 모든 장치는 삭제가 감지되면 로컬 모드로 전환됩니다. 이 작업은 취소할 수 없습니다."
+      }
+    },
+    "backup": {
+      "import": "이 백업을 복원하시겠습니까? 현재 북마크와 설정을 대체합니다."
+    }
+  },
+  "addModal": {
+    "title": "새 북마크 추가",
+    "name": "이름:",
+    "url": "URL:",
+    "advancedOptions": "⚙ 고급 옵션",
+    "compactView": "▴ 컴팩트한 뷰"
+  },
+  "clock": {
+    "name": "시계",
+    "inDevelopment": "개발 중: 시계는 아직 최종 버전이 아닙니다. 우리는 그것을 개선하기 위해 노력하고 있습니다.",
+    "createTitle": "시계 추가",
+    "editTitle": "시계 설정",
+    "description": "이 작업 공간에 현지 시간을 표시하세요.",
+    "hourCycle": "시간 형식",
+    "hour24": "24시간",
+    "hour12": "12시간",
+    "showSeconds": "초 표시",
+    "delete": "삭제",
+    "edit": "시계 편집",
+    "actions": "시계 동작",
+    "openSettings": "시계 설정 열기",
+    "confirmDelete": "이 시계를 삭제하시겠습니까? 이 작업을 실행취소할 수 있습니다.",
+    "confirmPermanentDelete": "이 시계를 영구적으로 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+    "cancel": "시계 변경사항을 삭제하시겠습니까?",
+    "noSpace": "이 시계에 대한 그리드 공간이 충분하지 않습니다."
+  },
+  "buttons": {
+    "save": "저장",
+    "apply": "적용",
+    "add": "추가",
+    "accept": "수락",
+    "cancel": "취소",
+    "close": "닫기"
+  },
+  "localImage": {
+    "upload": "이 기기에서 업로드",
+    "label": "로컬 이미지:",
+    "activeSource": "활성 이미지:",
+    "sourceLocal": "지역",
+    "sourceUrl": "URL",
+    "remove": "로컬 이미지 제거",
+    "notice": "로컬 이미지는 동기화되지 않습니다.",
+    "unnamed": "로컬 이미지"
+  },
+  "workspace": {
+    "ariaLabel": "작업공간 제어",
+    "current": "작업공간",
+    "main": "메인",
+    "search": "북마크 검색",
+    "add": "작업공간 만들기",
+    "delete": "작업공간 삭제",
+    "undo": "실행 취소",
+    "redo": "다시 실행",
+    "shortcutHint": "Alt 또는 Option과 위쪽 또는 아래쪽 화살표를 사용하여 작업 공간 전환",
+    "prompt": "새 작업공간의 이름을 입력하세요.",
+    "namePlaceholder": "일, 여가…",
+    "confirmDelete": "'{{name}}', 폴더 {{folderCount}}개, 북마크 {{bookmarkCount}}개를 삭제하시겠습니까? 이를 유지하려면 먼저 기본 작업 공간이나 다른 작업 공간으로 이동하세요."
+  },
+  "search": {
+    "title": "북마크 검색",
+    "inputLabel": "이름이나 URL로 검색",
+    "placeholder": "이름 또는 URL",
+    "empty": "북마크를 찾을 수 없습니다.",
+    "noUrl": "URL 없음",
+    "inFolder": "폴더: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "선택한 항목 작업",
+    "selected": "{{count}} 선택됨",
+    "move": "작업공간으로 이동",
+    "applyPreset": "기본 스타일 적용",
+    "duplicate": "중복 선택",
+    "delete": "삭제",
+    "clear": "선택 취소"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "북마크 컨트롤",
+    "edit": "북마크 수정",
+    "delete": "북마크 삭제",
+    "copySuffix": "복사"
+  },
+  "folder": {
+    "create": "폴더 생성",
+    "createPrompt": "새 폴더 이름 지정",
+    "namePlaceholder": "도구, 영감…",
+    "open": "{{name}}, {{count}}개의 저장된 북마크를 엽니다.",
+    "count": "{{count}} 저장됨",
+    "summary": "{{capacity}}개 공간 중 {{count}}개 사용됨",
+    "editMode": {
+      "enable": "편집",
+      "disable": "편집 완료"
+    },
+    "gridLabel": "폴더 북마크",
+    "dropHint": "추가하려면 드롭하세요.",
+    "noSpace": "새 폴더에는 사용 가능한 그리드 셀이 없습니다.",
+    "removeNoSpace": "폴더에서 이 책갈피를 제거할 만큼 격자 공간이 부족합니다.",
+    "confirmDelete": "'{{name}}' 및 해당 {{count}} 북마크를 휴지통으로 이동하시겠습니까?",
+    "confirmPermanentDelete": "'{{name}}' 및 해당 북마크 {{count}}을 영구적으로 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+    "actions": {
+      "ariaLabel": "폴더 컨트롤",
+      "customize": "폴더 사용자 정의",
+      "rename": "폴더 이름 바꾸기",
+      "delete": "폴더 삭제",
+      "editBookmark": "{{name}} 편집",
+      "removeBookmark": "{{name}}을(를) 폴더 밖으로 이동하세요.",
+      "deleteBookmark": "{{name}} 삭제",
+      "acceptRename": "폴더 이름 저장",
+      "cancelRename": "폴더 이름 변경 취소"
+    },
+    "editor": {
+      "createTitle": "새 폴더 추가",
+      "title": "폴더 편집",
+      "name": "이름:",
+      "showPreviews": "북마크 미리보기 표시",
+      "showName": "폴더 이름 표시",
+      "iconColor": "기호 색상:",
+      "outerBackgroundColor": "외부 배경색:",
+      "noOuterBackground": "외부 배경 없음",
+      "resetOuterBackground": "자동",
+      "noBackground": "투명한 폴더 채우기",
+      "backgroundColor": "폴더 색상:",
+      "backgroundImage": "배경 이미지(URL):",
+      "lockImage": "이미지 URL 잠금 또는 잠금 해제",
+      "copyImage": "이미지 URL 복사",
+      "clearImage": "이미지 URL 지우기",
+      "textColor": "텍스트 색상:",
+      "preview": "미리보기",
+      "previewName": "폴더",
+      "sections": {
+        "general": "일반",
+        "style": "스타일",
+        "text": "텍스트"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "휴지통",
+    "open": "휴지통 열기",
+    "openCount": "휴지통 열기, {{count}}개 항목",
+    "dropHint": "삭제하려면 드롭하세요.",
+    "summary": "항목 {{count}}개 · 자동 삭제: {{retention}}",
+    "empty": "휴지통이 비어 있습니다.",
+    "selected": "{{count}} 선택됨",
+    "select": "{{name}}를 선택하세요.",
+    "folderContents": "{{count}} 북마크",
+    "deletedAt": "{{date}} 삭제됨",
+    "expiresIn": "{{days}}일 남음",
+    "expiresInOne": "1일 남음",
+    "neverExpires": "자동으로 삭제되지 않음",
+    "restoreAll": "모두 복원",
+    "deleteAll": "모두 삭제",
+    "restoreSelected": "선택한 복원",
+    "deleteSelected": "선택 항목 삭제",
+    "editor": {
+      "title": "휴지통 수정",
+      "animateIcon": "휴지통 애니메이션",
+      "appearance": "외관",
+      "backgroundColor": "배경색:",
+      "backgroundImage": "배경 이미지(URL):",
+      "lockImage": "이미지 URL 잠금 또는 잠금 해제",
+      "copyImage": "이미지 URL 복사",
+      "clearImage": "이미지 URL 지우기",
+      "noBackground": "배경 없음",
+      "iconColor": "아이콘 색상:",
+      "textColor": "텍스트 색상:",
+      "elements": "보이는 요소",
+      "showName": "이름 표시",
+      "visible": "메인 그리드에 휴지통 표시",
+      "preview": "미리보기",
+      "actions": "휴지통 작업",
+      "edit": "휴지통 수정",
+      "sections": {
+        "general": "일반",
+        "style": "스타일",
+        "text": "텍스트",
+        "icon": "아이콘"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "사전 설정을 저장할 이름을 입력하세요."
+    },
+    "name": {
+      "required": "북마크 이름을 입력합니다."
+    },
+    "folderName": {
+      "required": "폴더 이름을 입력합니다."
+    },
+    "url": {
+      "invalid": "URL이 유효하지 않습니다.",
+      "unsupportedProtocol": "이 URL 유형은 허용되지 않습니다."
+    },
+    "backgroundImageUrl": {
+      "invalid": "이미지 URL이 유효하지 않습니다.",
+      "unsupportedProtocol": "이 이미지 유형은 허용되지 않습니다."
+    }
+  },
+  "editModal": {
+    "title": "북마크 수정",
+    "name": "이름:",
+    "url": "URL:",
+    "backgroundImage": "배경 이미지(URL):",
+    "backgroundFavicon": "큰 중앙 아이콘",
+    "invertColorBg": "색상 반전",
+    "noBackground": "배경 없음",
+    "backgroundColor": "북마크 색상:",
+    "showText": "텍스트 표시",
+    "textColor": "텍스트 색상:",
+    "showFavicon": "아이콘 표시",
+    "invertColorIcon": "아이콘 색상 반전",
+    "iconColor": "아이콘 색상:",
+    "sections": {
+      "general": "일반",
+      "style": "스타일",
+      "text": "텍스트",
+      "icon": "아이콘"
+    },
+    "preview": "미리보기",
+    "previewName": "미리보기"
+  },
+  "colorPicker": {
+    "title": "색상 선택기",
+    "sample": "화면에서 색상을 선택하세요",
+    "close": "색상 선택기 닫기",
+    "saturationBrightness": "채도와 밝기",
+    "hue": "색조",
+    "quickColors": "빠른 색상",
+    "saturation": "채도",
+    "brightness": "밝기",
+    "hex": "16진수 코드",
+    "copy": "16진수 코드 복사",
+    "copied": "16진수 코드가 복사되었습니다.",
+    "copyFailed": "16진수 코드를 복사할 수 없습니다."
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "일반",
+      "sync": "동기화",
+      "theme": "테마",
+      "bookmark": "북마크",
+      "shortcuts": "단축키",
+      "language": "언어",
+      "help": "도움말",
+      "information": "정보"
+    },
+    "general": {
+      "title": "일반",
+      "subtitle": "설정",
+      "export": "백업 내보내기",
+      "import": "백업 복원",
+      "resetSettings": "설정 재설정",
+      "deleteAllData": "모든 로컬 데이터 삭제",
+      "recycleBin": {
+        "title": "휴지통",
+        "show": "메인 그리드에 휴지통 표시",
+        "retentionLabel": "항목 자동 삭제:",
+        "retentionOptions": {
+          "oneDay": "1일",
+          "sevenDays": "7일",
+          "fourteenDays": "14일",
+          "twentyEightDays": "28일",
+          "never": "절대로"
+        }
+      },
+      "appearance": {
+        "title": "외관",
+        "system": "브라우저",
+        "light": "빛",
+        "dark": "어둠"
+      }
+    },
+    "sync": {
+      "title": "동기화",
+      "description": "설정과 북마크를 저장할 위치를 선택하세요.",
+      "ariaLabel": "저장 모드",
+      "local": {
+        "title": "이 장치만",
+        "description": "데이터는 이 로컬 브라우저 프로필에만 저장됩니다."
+      },
+      "synced": {
+        "title": "동기화됨",
+        "description": "동일한 계정에 연결된 Google Chrome 프로필에서 사용할 수 있습니다.",
+        "tooltip": "동기화 정보"
+      },
+      "compatibility": {
+        "newerVersion": "클라우드 데이터가 최신 NewDeskTab 버전으로 생성되었기 때문에 이 기기에서는 동기화가 잠겨 있습니다. 동기화된 데이터는 안전하며 수정되지 않았습니다. 다시 연결하려면 NewDeskTab을 업데이트하세요."
+      },
+      "usage": {
+        "title": "스토리지 가용성",
+        "showExact": "정확한 바이트 표시",
+        "showHuman": "읽을 수 있는 크기 표시",
+        "local": "지역",
+        "sync": "동기화됨",
+        "localSyncCopy": "로컬 동기화 사본",
+        "localAria": "로컬 저장소 사용량",
+        "syncAria": "동기화된 저장용량 사용량",
+        "loading": "계산 중…",
+        "summary": "{{total}} 중 {{used}} · {{percent}}%",
+        "available": "{{free}} 사용 가능",
+        "system": "시스템 및 메타데이터",
+        "bookmarks": "북마크",
+        "folders": "폴더",
+        "trash": "휴지통 데이터",
+        "localImages": "로컬 이미지",
+        "themeImages": "테마",
+        "bookmarkImages": "북마크",
+        "folderImages": "폴더",
+        "trashImages": "휴지통",
+        "otherImages": "기타",
+        "widgets": "위젯",
+        "widgetsHint": "동기화에 표시된 크기는 추정치이며 외부 서비스에서 가져온 라이브 콘텐츠는 제외됩니다.",
+        "error": "이용불가"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome는 Google 계정을 통해 New DeskTab을 동기화합니다. New DeskTab는 자체 동기화 서버를 실행하지 않습니다.",
+        "brave": "Brave에서는 사용할 수 없습니다. chrome.storage.sync에 New DeskTab 데이터를 저장할 수 있지만 현재는 장치 간에 전파되지 않습니다.",
+        "unsupported": "동기화된 저장소는 현재 Google Chrome에서만 사용할 수 있습니다. 다른 브라우저는 교차 장치 지원이 확인될 때까지 비활성화된 상태로 유지됩니다."
+      },
+      "existingNotice": "동기화됨으로의 전환을 수락하면 이미 존재하는 모든 동기화된 데이터가 로드됩니다.",
+      "deleteData": "동기화된 데이터 삭제",
+      "metadata": {
+        "loading": "동기화된 데이터를 확인하는 중…",
+        "updatedAt": "마지막 동기화 업데이트: {{date}}",
+        "unknown": "동기화된 데이터가 존재하지만 업데이트 시간을 확인할 수 없습니다.",
+        "empty": "동기화된 New DeskTab 데이터는 저장되지 않습니다.",
+        "error": "동기화된 데이터 정보를 로드할 수 없습니다."
+      },
+      "status": {
+        "idle": "데이터가 준비되었습니다.",
+        "saving": "변경사항 저장 중…",
+        "saved": "모든 변경 사항이 저장됩니다.",
+        "error": "최신 변경사항을 저장할 수 없습니다."
+      }
+    },
+    "theme": {
+      "title": "테마",
+      "subtitle": "페이지 배경",
+      "backgroundImageMode": "이미지/비디오",
+      "wallpapersTitle": "나만의 배경화면",
+      "ownWallpapersHint": "이러한 배경화면과 해당 회전은 이 장치에만 저장됩니다.",
+      "mediaUrl": "배경화면 URL",
+      "image": "이미지",
+      "video": "비디오",
+      "addUrl": "URL 추가",
+      "addFiles": "로컬 파일 추가",
+      "rotationInterval": "배경 화면 회전",
+      "noRotation": "자동으로 변경하지 않음",
+      "interval5": "5초",
+      "interval15": "15초",
+      "interval30": "30초",
+      "interval60": "1분",
+      "interval300": "5분",
+      "interval600": "10분",
+      "interval1800": "30분",
+      "previous": "이전",
+      "next": "다음",
+      "moveUp": "위로 이동",
+      "moveDown": "아래로 이동",
+      "remove": "제거",
+      "unavailableLocal": "이 장치에서는 로컬 파일을 사용할 수 없습니다.",
+      "mediaColor": "이 배경화면 뒤의 색상",
+      "mediaPreview": "미리보기 배경화면",
+      "activeSource": "활성 소스",
+      "backgroundSolid": "단색",
+      "backgroundColor": "색상:",
+      "editSolidColor": "단색 배경색 변경",
+      "changeSolidColor": "색상 변경",
+      "backgroundImageColor": "이미지/비디오 뒤의 색상",
+      "backgroundImage": "장치 간에 공유되는 URL",
+      "urlHidden": "숨겨진 URL",
+      "resetBackground": "테마 재설정"
+    },
+    "bookmark": {
+      "title": "북마크",
+      "subtitle": "기본 북마크",
+      "description": "새 책갈피를 만들 때 사용되는 모양을 선택합니다.",
+      "configure": "기본 북마크 구성",
+      "editorTitle": "기본 북마크 모양",
+      "previewName": "기본 북마크",
+      "export": "북마크 내보내기",
+      "import": "북마크 가져오기",
+      "deleteAll": "모든 북마크 삭제",
+      "preview": "미리보기",
+      "drag": {
+        "title": "드래그 동작",
+        "description": "북마크 위치를 차지할 때 북마크가 재구성되는 방식을 선택하세요.",
+        "none": {
+          "title": "없음",
+          "description": "빈 셀로만 이동할 수 있습니다."
+        },
+        "cascade": {
+          "title": "순서",
+          "description": "자유 셀을 찾을 때까지 체인을 이동합니다.",
+          "experimental": "실험적 · 사소한 버그가 포함될 수 있습니다."
+        },
+        "relocate": {
+          "title": "재배치",
+          "description": "대상을 차지하는 북마크를 재배치합니다."
+        }
+      },
+      "resize": {
+        "title": "크기 조정 동작",
+        "description": "크기 조정 핸들을 이동하는 동안 항목이 반응하는 방식을 선택합니다.",
+        "smooth": {
+          "title": "부드러운",
+          "description": "드래그하는 동안 항목을 늘린 다음 그리드에 맞춥니다."
+        },
+        "none": {
+          "title": "없음",
+          "description": "인접한 셀의 50%를 넘으면 셀 단위로 점프합니다."
+        }
+      },
+      "presets": {
+        "title": "스타일 라이브러리",
+        "tab": "도서관",
+        "description": "스타일을 저장하고 기본 북마크를 설정할 때 다시 사용하세요.",
+        "name": "프리셋 이름",
+        "saved": "저장된 사전 설정",
+        "save": "사전 설정 저장",
+        "apply": "로드",
+        "delete": "삭제",
+        "empty": "저장된 사전 설정이 없습니다."
+      }
+    },
+    "shortcuts": {
+      "title": "키보드 단축키",
+      "description": "바로가기 버튼을 선택한 다음 문자나 키 조합을 누르세요. 할당을 취소하려면 마우스 오른쪽 버튼을 클릭하세요.",
+      "change": "{{action}} 단축키를 변경하세요. 현재 단축키: {{shortcut}}.",
+      "press": "단축키를 누르세요…",
+      "unassigned": "할당되지 않음",
+      "unassignedFlash": "바로가기가 할당되지 않았습니다.",
+      "modifierRequired": "문자 자체를 사용하거나 수정자와 키 조합을 사용하세요.",
+      "reserved": "이 바로가기는 브라우저나 운영 체제에 의해 예약되어 있습니다. 다른 조합을 선택하세요.",
+      "conflict": "이 키는 이미 다른 작업에 할당되어 있습니다.",
+      "updated": "바로가기가 업데이트되었습니다.",
+      "cancelled": "바로가기 변경이 취소되었습니다.",
+      "restored": "기본 단축키가 복원되었습니다.",
+      "reset": "단축키 재설정",
+      "actions": {
+        "toggleEditing": {
+          "title": "편집 모드",
+          "description": "기본 그리드나 열린 폴더에서 편집 내용을 입력하거나 종료합니다."
+        },
+        "addBookmark": {
+          "title": "북마크 만들기",
+          "description": "북마크를 추가하기 위한 양식을 엽니다."
+        },
+        "addFolder": {
+          "title": "폴더 생성",
+          "description": "폴더 생성을 위한 대화 상자를 엽니다."
+        },
+        "openWidgets": {
+          "title": "위젯 열기",
+          "description": "사용 가능한 위젯 목록을 엽니다."
+        },
+        "openSettings": {
+          "title": "설정 열기",
+          "description": "New DeskTab 설정 패널을 엽니다."
+        }
+      }
+    },
+    "languages": {
+      "title": "언어",
+      "text": "인터페이스 언어를 선택하세요:",
+      "system": "브라우저",
+      "search": "언어 또는 국가 검색",
+      "empty": "언어를 찾을 수 없습니다."
+    },
+    "information": {
+      "title": "정보",
+      "version": "버전: {{VERSION}}",
+      "author": "작성자:"
+    }
+  }
+}

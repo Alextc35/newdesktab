@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Release notes",
+    "settingsDescription": "Vad som förändrades och historien bakom varje uppdatering.",
+    "open": "Läs anteckningar",
+    "history": "Versionshistorik",
+    "dismiss": "Stäng release notes",
+    "continue": "Fortsätt",
+    "back": "Tillbaka till Information",
+    "highlights": "Vad du kan göra idag",
+    "generic": {
+      "title": "New DeskTab har uppdaterats",
+      "description": "Du har den nya versionen. Du kan återgå till tidigare versionsnoteringar i Information när du vill. Tack för att du är här."
+    },
+    "v1_0_0": {
+      "title": "Ditt skrivbord av webbplatser. Äntligen.",
+      "thanks": "Tack för att du testade New DeskTab. Jag är så exalterad över att äntligen dela den första offentliga utgåvan av detta projekt med dig.",
+      "origin": "Allt började den 26 september 2025. När jag tittade på en Just Chatting stream på Twitch lade jag märke till streamerns webbläsares nya flik: ett tillägg som arrangerade webbplatser som färgade rutor, utan namn eller logotyper. Den minimalismen fascinerade mig, och jag tänkte: varför inte bygga en egen tillbyggnad? Jag ville att varje ny flik skulle ge en känsla av ordning, mina sidor nära till hands och en panel som jag tyckte om att titta på.",
+      "desktop": "Gradvis växte den idén till ett personligt skrivbord med webbplatser snarare än applikationer. Klockan är ett första steg och pågår fortfarande. I framtiden skulle jag vilja lägga till ett anteckningsblock och andra widgets som erbjuder något användbart, både för mig och för alla som använder New DeskTab.",
+      "closing": "Den här appen är gjord för mig och för dig. Tack för att du litar på New DeskTab och ger det en plats i din webbläsare. Jag hoppas att du gillar att skapa ditt utrymme lika mycket som jag har njutit av att bygga det.",
+      "highlights": {
+        "workspace": "Organisera dina sidor med bokmärken, mappar och oberoende arbetsytor.",
+        "appearance": "Anpassa färger, storleken på varje objekt och din skrivbordsbakgrund.",
+        "search": "Hitta dina sidor med sökning och använd kortkommandon för att navigera och skapa objekt.",
+        "backup": "Spara säkerhetskopior och återställ raderade objekt från papperskorgen.",
+        "sync": "Välj att behålla data på den här enheten eller synkronisera den med Google Chrome.",
+        "help": "Upptäck funktionerna med välkomstguiden, manualen och dagliga tips."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "DIN FÖRSTA MINUTT",
+    "skip": "Hoppa över guide",
+    "back": "Tillbaka",
+    "next": "Nästa",
+    "finish": "Tillbaka till inställningarna",
+    "explore": "Utforska mitt utrymme",
+    "addFirst": "Lägg till mitt första bokmärke",
+    "progress": "Steg {{current}} av {{total}}",
+    "compactHint": "Vidga fönstret när du vill lägga till bokmärken och redigera ditt utrymme.",
+    "reopenTitle": "Snabbguide",
+    "reopenDescription": "Återupptäck det väsentliga på en minut.",
+    "reopen": "Se guide",
+    "demo": {
+      "work": "Arbete",
+      "media": "Media",
+      "trash": "Papperskorgen",
+      "search": "Hitta dina bokmärken"
+    },
+    "steps": {
+      "start": {
+        "title": "Dina sidor. Ditt eget utrymme.",
+        "body": "Välkommen till New DeskTab. Håll dina favoritsidor till hands när du öppnar en flik. För att lägga till en, flytta till vänster kant och välj + → [[bookmarks|Bokmärke]].",
+        "hint": "Du kan också [[quick-save|spara sidan du besöker]] från tilläggsikonen i din webbläsare."
+      },
+      "edit": {
+        "title": "Ge varje bokmärke sin plats.",
+        "body": "Slå på pennan i menyn till vänster för att redigera. Håll och [[movement|dra]] ett objekt för att flytta det; använd dess [[resizing|handtag]] för att ändra dess storlek.",
+        "hint": "Varje bokmärkes penna öppnar dess [[appearance|redaktör]]: namn, färger, ikon och bild. Spara [[presets|stilar]] för att återanvända dem."
+      },
+      "organize": {
+        "title": "Mindre skräp. Mer ordning.",
+        "body": "Skapa en [[folders|mapp]] från + och dra bokmärken till den i redigeringsläge. Den öppnas i ett rent rutnät med plats för upp till 18 bokmärken.",
+        "hint": "Använd + i [[workspaces|arbetsyta bar]] för att separera arbete och lek. [[search|förstoringsglas]] söker också i mappar."
+      },
+      "style": {
+        "title": "Få det att kännas som du.",
+        "body": "I Inställningar → [[wallpapers|Tema]], välj en färg, bild eller videobakgrund och rotera dina favoritbakgrunder. I Inställningar → [[sync|Synkronisering]] synkroniserar du ditt utrymme mellan enheter med kontot som är inloggat på din Chrome-profil.",
+        "hint": "Lägg till en [[clock|klocka]] från + → Widgets. Du kan också anpassa dina mappars [[appearance|utseende]]."
+      },
+      "ready": {
+        "title": "Du vet det väsentliga.",
+        "body": "Tryck på [[search|/]] för att hitta ett bokmärke. Använd pilarna [[history|ångra och gör om]] för att återställa ändringar; raderade bokmärken går till [[trash|papperskorgen]].",
+        "hint": "Ändringar sparas automatiskt. I Inställningar, exportera en [[backup|backup]] eller aktivera valfri Google Chrome [[sync|synkronisering]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Dina senaste ändringar kunde inte sparas.",
+    "retry": "Försök att spara igen",
+    "saved": "Väntande ändringar har sparats."
+  },
+  "itemEditor": {
+    "chooseIcon": "Välj en ikon",
+    "siteLogo": "Logotyp",
+    "noSymbol": "Inga",
+    "folderIconHint": "Symbolen ersätter bokmärkesförhandsgranskningarna inuti mappen.",
+    "icons": {
+      "mail": "Mail",
+      "calendar": "Kalender",
+      "notes": "Anteckningar",
+      "projects": "Projekt",
+      "design": "Design",
+      "music": "Musik",
+      "tasks": "Uppgifter",
+      "ideas": "Idéer",
+      "docs": "Dokument",
+      "ui-start": "Kompass",
+      "ui-organize": "Layout",
+      "ui-personalize": "Reglage",
+      "ui-protect": "Sköld",
+      "ui-bookmarks": "Lägg till bokmärke",
+      "ui-quick-save": "Webbläsare",
+      "ui-keyboard": "Tangentbord",
+      "ui-shortcuts": "Blixtnedslag",
+      "ui-search": "Sök",
+      "ui-editing": "Penna",
+      "ui-movement": "Flytta",
+      "ui-resizing": "Ändra storlek",
+      "ui-drag-modes": "Dra",
+      "ui-folders": "Mapp",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Urval",
+      "ui-history": "Historia",
+      "ui-appearance": "Palett",
+      "ui-presets": "Förinställningar",
+      "ui-wallpapers": "Bild",
+      "ui-clock": "Klocka",
+      "ui-interface": "Globe",
+      "ui-trash": "Papperskorgen",
+      "ui-backup": "Arkiv",
+      "ui-sync": "Synkronisera",
+      "ui-compact": "Lista",
+      "ui-data": "Databas",
+      "ui-learning": "Boka",
+      "ui-settings": "Inställningar",
+      "ui-controls": "Kontroller",
+      "ui-cloud": "Moln",
+      "ui-bookmark": "Bokmärke",
+      "ui-info": "Information",
+      "ui-eye": "Öga",
+      "ui-check": "Avslutad",
+      "ui-lock": "Lås",
+      "ui-unlock": "Lås upp",
+      "ui-copy": "Kopiera",
+      "ui-close": "Stäng",
+      "ui-undo": "Ångra",
+      "ui-redo": "Gör om",
+      "ui-desktop": "Skrivbord",
+      "home": "Hem",
+      "briefcase": "Arbete",
+      "code": "Kod",
+      "game": "Spel",
+      "cart": "Shopping",
+      "card": "Betalningar",
+      "people": "Människor",
+      "message": "Meddelande",
+      "location": "Plats",
+      "phone": "Telefon",
+      "camera": "Kamera",
+      "headphones": "Hörlurar",
+      "link": "Länk",
+      "tag": "Tagga",
+      "chart": "Statistik",
+      "coffee": "Kaffe",
+      "sun": "Sol",
+      "moon": "Månen",
+      "circle": "Cirkel",
+      "square": "Square",
+      "triangle": "Triangel",
+      "diamond": "Diamant",
+      "pentagon": "Pentagon",
+      "hexagon": "Hexagon",
+      "star": "Stjärna",
+      "heart": "Hjärta",
+      "plus": "Plus",
+      "minus": "Minus",
+      "video": "Video"
+    },
+    "searchIcons": "Sökikoner...",
+    "clearIconSearch": "Rensa sökning",
+    "noIcons": "Inga ikoner hittades",
+    "suggestedIcons": "Föreslog",
+    "suggestedIcon": "Föreslagna: {{name}}",
+    "logoKeywords": "logotyp favicon webbplats webbplats varumärke",
+    "iconKeywords": {
+      "ui-trash": "soptunna avfall radera klassiskt",
+      "mail": "mail e-post gmail outlook inkorg",
+      "docs": "dokument-filer pdf drive word",
+      "notes": "noter memo begrepp onenote",
+      "ui-protect": "säkerhetsskydd integritet",
+      "game": "spel spelkontrollkonsol",
+      "cart": "shopping butik butik köp",
+      "card": "bankfinansiering kredit debet pengar",
+      "people": "sociala vänner grupp",
+      "ui-learning": "läsbiblioteksbildningsstudie",
+      "ui-clock": "tid timmar titta",
+      "ui-interface": "internet webbvärldsspråk",
+      "ui-data": "data sql-lagring",
+      "circle": "geometriska former figurer",
+      "square": "geometriska former figurer",
+      "triangle": "geometriska former figurer",
+      "diamond": "geometriska former figurer",
+      "pentagon": "geometriska former figurer",
+      "hexagon": "geometriska former figurer",
+      "star": "geometriska former figurer",
+      "heart": "geometriska former figurer"
+    },
+    "history": "Redigera historik",
+    "description": "Få det att kännas som hemma på din arbetsplats.",
+    "looks": "Välj en look",
+    "custom": "Anpassad",
+    "look": {
+      "original": "Original",
+      "card": "Kort",
+      "midnight": "Mörkt",
+      "paper": "Ljus"
+    },
+    "reset": "Återställ utseende",
+    "cardColor": "Kort färg",
+    "folderFill": "Mappfärg",
+    "image": "Bakgrundsbild",
+    "lock": "Lås eller lås upp URL",
+    "copy": "Kopiera URL",
+    "clear": "Rensa",
+    "section": {
+      "general": "Det väsentliga",
+      "text": "Namn och etiketter",
+      "icon": "Ikon",
+      "card": "Kort"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Namnet du ser och sidan det öppnas.",
+        "text": "Välj om du vill visa namnet och justera dess färg.",
+        "icon": "Använd en stor, centrerad favicon eller en liten ikon bredvid namnet för bildkort."
+      },
+      "folder": {
+        "general": "Ett namn för att sammanföra dina bokmärken.",
+        "text": "Visa mappnamnet och justera dess färg.",
+        "icon": "Anpassa mappikonen och dess bokmärkesminiatyrer."
+      },
+      "recycleBin": {
+        "general": "Välj om papperskorgen ska visas i din huvudsakliga arbetsyta.",
+        "text": "Visa papperskorgens namn och justera dess färg.",
+        "icon": "Ge papperskorgen din egen färg. Göm hela papperskorgen från Allmänt."
+      }
+    },
+    "addImage": "Lägg till en bakgrundsbild",
+    "changeImage": "Redigera bakgrundsbild"
+  },
+  "html": {
+    "title": "Ny flik"
+  },
+  "quickSave": {
+    "title": "Spara bokmärke",
+    "name": "Namn",
+    "workspace": "Arbetsyta",
+    "folder": "Mapp",
+    "mainWorkspace": "Main",
+    "noFolder": "Ingen mapp",
+    "save": "Spara bokmärke",
+    "saveAnyway": "Spara ändå",
+    "savedButton": "Sparad",
+    "alreadySaved": "Redan sparad",
+    "savedIn": "I {{location}}",
+    "savedInMore": "I {{location}} och {{count}} till",
+    "open": "Öppna New DeskTab",
+    "unavailableTitle": "Den här fliken kan inte sparas",
+    "unavailable": "Öppna en webbsida (http eller https) för att spara den.",
+    "loadError": "Det gick inte att ladda dina bokmärken. Försök igen.",
+    "saving": "Sparar...",
+    "saved": "Bokmärket har sparats.",
+    "duplicate": "Den här webbadressen är redan sparad på den destinationen.",
+    "noSpace": "Inget utrymme kvar på den destinationen. Välj en annan.",
+    "invalid": "Kontrollera namnet och den valda destinationen.",
+    "saveError": "Det gick inte att spara bokmärket. Försök igen."
+  },
+  "launcher": {
+    "bookmark": "Bokmärke",
+    "folder": "Mapp",
+    "widgets": "Widgets",
+    "editMode": {
+      "enter": "Gå in i redigeringsläge",
+      "exit": "Avsluta redigeringsläget"
+    }
+  },
+  "widgets": {
+    "title": "Widgets",
+    "description": "Välj en widget att lägga till i den här arbetsytan.",
+    "empty": "Inga widgets är tillgängliga ännu."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Vidga fönstret för att använda den här funktionen.",
+      "suspended": "Panelen dold. Vidga fönstret för att fortsätta."
+    },
+    "editMode": {
+      "enabled": "Redigera läge aktiverat",
+      "disabled": "Redigeringsläget inaktiverat"
+    },
+    "selectionMode": {
+      "enabled": "Valläge aktiverat",
+      "disabled": "Valläge inaktiverat"
+    },
+    "bookmark": {
+      "added": "Bokmärke har lagts till",
+      "notFound": "Bokmärket hittades inte",
+      "updated": "Bokmärket har uppdaterats",
+      "deleted": "Bokmärket har tagits bort"
+    },
+    "clock": {
+      "added": "Klockan har lagts till",
+      "updated": "Klockan uppdaterad",
+      "deleted": "Klockan har tagits bort"
+    },
+    "folder": {
+      "created": "Mapp skapad",
+      "renamed": "Mappen har bytt namn",
+      "updated": "Mapp uppdaterad",
+      "deleted": "Mappen och dess bokmärken raderade",
+      "bookmarkAdded": "Bokmärke har lagts till i mappen",
+      "folderFull": "Den här mappen har redan 18 bokmärken",
+      "bookmarkRemoved": "Bokmärket har flyttats tillbaka till rutnätet"
+    },
+    "recycleBin": {
+      "moved": "Flyttade till papperskorgen",
+      "restored": "Objekt återställda",
+      "deletedPermanently": "Objekt raderade permanent",
+      "updated": "Papperskorgen uppdaterad"
+    },
+    "workspace": {
+      "created": "Arbetsyta skapad",
+      "deleted": "Arbetsytan har tagits bort",
+      "switched": "Arbetsyta: {{name}}"
+    },
+    "history": {
+      "undone": "Ändring ångrad",
+      "redone": "Ändra gjort om"
+    },
+    "bookmarks": {
+      "deletedAll": "Alla bokmärken raderade",
+      "deletedAllWithFolders": "Alla bokmärken och mappar raderade",
+      "deleteAllError": "Det gick inte att ta bort alla bokmärken",
+      "exported": "Bokmärken exporterade",
+      "exportError": "Det gick inte att exportera bokmärken",
+      "imported": "Bokmärken importerade",
+      "importError": "Det gick inte att importera bokmärken",
+      "presetApplied": "Stil tillämpas på urvalet",
+      "duplicatedSelected": "Markerade objekt duplicerade",
+      "deletedSelected": "Markerade objekt raderade",
+      "moved": "Objekt har flyttats till den valda arbetsytan"
+    },
+    "settings": {
+      "saved": "Inställningar sparade",
+      "bookmarkDefaultSaved": "Standardbokmärkets utseende har sparats",
+      "bookmarkDefaultError": "Det gick inte att spara standardbokmärkets utseende",
+      "copied": "Värdet har kopierats till urklipp",
+      "resetBg": "Tema återställs",
+      "deletedAllData": "Alla lokala NewDeskTab data raderade",
+      "deleteAllDataError": "Det gick inte att ta bort alla lokala NewDeskTab data",
+      "invalidWallpaperUrl": "Ange en giltig HTTP- eller HTTPS-bild/video-URL.",
+      "invalidWallpaperFile": "Det gick inte att lägga till den här filen. Använd en bild som stöds eller en MP4-, WebM- eller Ogg-video upp till 200 MB.",
+      "wallpaperLimit": "Du kan lägga till upp till 25 personliga bakgrundsbilder."
+    },
+    "localImage": {
+      "invalid": "Välj en PNG-, JPEG-, WebP-, GIF- eller AVIF-bild.",
+      "tooLarge": "Den här bilden är för stor för att lagras på den här enheten.",
+      "storageFull": "Det finns inte tillräckligt med lokalt utrymme för den här bilden.",
+      "processing": "Den här bilden kunde inte bearbetas."
+    },
+    "sync": {
+      "enabled": "Synkronisering aktiverad",
+      "localEnabled": "Lokalt läge aktiverat",
+      "remoteLoaded": "Synkroniserad data har laddats",
+      "updatedFromOtherDevice": "Synkroniserade ändringar som tagits emot från en annan enhet",
+      "deletedFromOtherDevice": "Molndata raderades från en annan enhet. Den här enheten använder nu lokalt läge.",
+      "error": "Kunde inte ändra lagringsläge",
+      "versionBlocked": "Synkroniseringen pausades eftersom molndata kräver en nyare NewDeskTab-version. Den här enhetens lokala data visas.",
+      "quotaError": "Datan överskrider det tillgängliga synkroniseringsminnet",
+      "deleted": "Synkroniserad data raderad",
+      "deleteError": "Det gick inte att radera synkroniserad data"
+    },
+    "backup": {
+      "exported": "Backup exporterad",
+      "exportError": "Det gick inte att exportera säkerhetskopian",
+      "mediaUnavailable": "Vissa refererade lokala bilder eller videor är inte tillgängliga, så säkerhetskopian skapades inte.",
+      "imported": "Säkerhetskopieringen återställd",
+      "importError": "Det gick inte att återställa säkerhetskopian",
+      "mediaStorageFull": "Det finns inte tillräckligt med lokal lagring för att återställa säkerhetskopierade bilder och videor."
+    }
+  },
+  "view": {
+    "list": "Listvy",
+    "search": "Sök efter bokmärken och mappar",
+    "clearSearch": "Rensa sökning",
+    "noResults": "Inga resultat."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Ta bort alla bokmärken?",
+      "deleteFolders": "Radera även alla mappar",
+      "confirmDeleteSelected": "Ta bort {{count}} valda objekt?",
+      "confirmMoveOne": "Flytta det här objektet till arbetsytan \"{{workspace}}\"?",
+      "confirmMoveSelected": "Flytta {{count}} markerade objekt till arbetsytan \"{{workspace}}\"?",
+      "duplicateNoSpace": "{{count}} objekt kunde inte dupliceras eftersom det inte fanns tillräckligt med utrymme.",
+      "moveNoSpace": "{{count}} objekt kunde inte flyttas eftersom det inte fanns tillräckligt med utrymme.",
+      "no_space": "Inget utrymme tillgängligt för fler bokmärken 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Släng det nya bokmärket?"
+      },
+      "confirmDelete": "Vill du ta bort \"{{name}}\"?",
+      "confirmPermanentDelete": "Vill du ta bort \"{{name}}\" permanent? Detta kan inte ångras.",
+      "cancel": "Vill du ignorera ändringar?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Vill du ta bort den här widgeten permanent? Detta kan inte ångras.",
+      "confirmDeleteSelected": "Ta bort {{count}} valda objekt? Valda widgetar ({{widgetCount}}) kommer att raderas permanent och kan inte återställas."
+    },
+    "folder": {
+      "createCancel": "Släng ny mapp?",
+      "cancel": "Vill du ignorera mappändringar?"
+    },
+    "recycleBin": {
+      "folder": "Flytta \"{{name}}\" och dess {{count}} bokmärken till papperskorgen?",
+      "empty": "Ta bort allt i papperskorgen permanent? Detta kan inte ångras.",
+      "deleteSelected": "Vill du ta bort {{count}} markerade objekt permanent? Detta kan inte ångras.",
+      "noSpace": "{{count}} objekt kunde inte återställas eftersom det inte finns tillräckligt med rutnätsutrymme. De ligger kvar i papperskorgen.",
+      "cancel": "Släng byten av papperskorgen?"
+    },
+    "settings": {
+      "cancel": "Vill du ignorera inställningarna?",
+      "reset": "Återställa alla inställningar? Bokmärken kommer inte att raderas.",
+      "deleteAllData": "Vill du ta bort all lokal NewDeskTab data från den här enheten? Bokmärken, mappar, widgets, inställningar, papperskorgen, lokala bilder och lokala videor kommer att raderas permanent. Molndata kommer inte att ändras. Om Synkronisera är aktiv kommer den här enheten att byta till lokal först. Denna åtgärd kan inte ångras.",
+      "theme": {
+        "reset": "Återställa temainställningar?"
+      },
+      "bookmark": {
+        "cancel": "Vill du ignorera ändringar av standardbokmärkets utseende?"
+      },
+      "shortcuts": {
+        "reset": "Återställa standardgenvägarna?"
+      },
+      "sync": {
+        "enable": "Byta från lokalt till synkroniserat? Detta träder i kraft nu, utan att klicka på Spara. Om synkroniserad data redan finns, kommer dess bokmärken och inställningar att laddas. Annars kommer dina sparade lokala data att synkroniseras.",
+        "local": "Byta från Synkroniserat till Lokalt? Detta träder i kraft nu, utan att klicka på Spara. Den här enheten kommer att behålla en kopia av aktuell data och sluta synkronisera ändringar. Synkroniserad data förblir lagrad för andra enheter.",
+        "delete": "Vill du ta bort alla synkroniserade NewDeskTab data? Den här enheten och alla andra enheter som använder denna molndata växlar till lokalt läge när de upptäcker raderingen. Detta kan inte ångras."
+      }
+    },
+    "backup": {
+      "import": "Återställa denna säkerhetskopia? Det kommer att ersätta dina nuvarande bokmärken och inställningar."
+    }
+  },
+  "addModal": {
+    "title": "Lägg till nytt bokmärke",
+    "name": "Namn:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Avancerade alternativ",
+    "compactView": "▴ Kompakt vy"
+  },
+  "clock": {
+    "name": "Klocka",
+    "inDevelopment": "Under utveckling: klockan är inte i sin slutliga version ännu. Vi jobbar på att förbättra den.",
+    "createTitle": "Lägg till klocka",
+    "editTitle": "Klockinställningar",
+    "description": "Visa din lokala tid på den här arbetsytan.",
+    "hourCycle": "Tidsformat",
+    "hour24": "24 timmar",
+    "hour12": "12 timmar",
+    "showSeconds": "Visa sekunder",
+    "delete": "Ta bort",
+    "edit": "Redigera klocka",
+    "actions": "Klockåtgärder",
+    "openSettings": "Öppna klockinställningar",
+    "confirmDelete": "Vill du ta bort den här klockan? Du kan ångra den här åtgärden.",
+    "confirmPermanentDelete": "Vill du ta bort den här klockan permanent? Detta kan inte ångras.",
+    "cancel": "Slänga klockändringar?",
+    "noSpace": "Det finns inte tillräckligt med rututrymme för den här klockan."
+  },
+  "buttons": {
+    "save": "Spara",
+    "apply": "Ansök",
+    "add": "Lägg till",
+    "accept": "Acceptera",
+    "cancel": "Avbryt",
+    "close": "Stäng"
+  },
+  "localImage": {
+    "upload": "Ladda upp från den här enheten",
+    "label": "Lokal bild:",
+    "activeSource": "Aktiv bild:",
+    "sourceLocal": "Lokalt",
+    "sourceUrl": "URL",
+    "remove": "Ta bort lokal bild",
+    "notice": "Lokala bilder synkroniseras inte.",
+    "unnamed": "Lokal bild"
+  },
+  "workspace": {
+    "ariaLabel": "Arbetsyta kontroller",
+    "current": "Arbetsyta",
+    "main": "Main",
+    "search": "Sök efter bokmärken",
+    "add": "Skapa arbetsyta",
+    "delete": "Ta bort arbetsyta",
+    "undo": "Ångra",
+    "redo": "Gör om",
+    "shortcutHint": "Byt arbetsyta med Alt eller Alternativ plus upp- eller nedpil",
+    "prompt": "Ange ett namn för den nya arbetsytan",
+    "namePlaceholder": "Jobb, fritid...",
+    "confirmDelete": "Ta bort \"{{name}}\", dess {{folderCount}} mappar och {{bookmarkCount}} bokmärken? För att behålla dem, flytta dem till Main eller en annan arbetsyta först."
+  },
+  "search": {
+    "title": "Sök efter bokmärken",
+    "inputLabel": "Sök på namn eller URL",
+    "placeholder": "Namn eller URL",
+    "empty": "Inga bokmärken hittades.",
+    "noUrl": "Ingen URL",
+    "inFolder": "Mapp: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Valda objektåtgärder",
+    "selected": "{{count}} valt",
+    "move": "Flytta till arbetsytan",
+    "applyPreset": "Använd standardstil",
+    "duplicate": "Duplicera urval",
+    "delete": "Ta bort",
+    "clear": "Rensa val"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Bokmärkskontroller",
+    "edit": "Redigera bokmärke",
+    "delete": "Ta bort bokmärke",
+    "copySuffix": "kopia"
+  },
+  "folder": {
+    "create": "Skapa mapp",
+    "createPrompt": "Namnge den nya mappen",
+    "namePlaceholder": "Verktyg, inspiration...",
+    "open": "Öppna {{name}}, {{count}} sparade bokmärken",
+    "count": "{{count}} sparat",
+    "summary": "{{count}} av {{capacity}} utrymmen används",
+    "editMode": {
+      "enable": "Redigera",
+      "disable": "Slutför redigeringen"
+    },
+    "gridLabel": "Mapp bokmärken",
+    "dropHint": "Släpp för att lägga till",
+    "noSpace": "Det finns ingen ledig rutnätscell för en ny mapp.",
+    "removeNoSpace": "Det finns inte tillräckligt med rutnätsutrymme för att ta bort det här bokmärket från mappen.",
+    "confirmDelete": "Flytta \"{{name}}\" och dess {{count}} bokmärken till papperskorgen?",
+    "confirmPermanentDelete": "Vill du ta bort \"{{name}}\" och dess {{count}} bokmärken permanent? Detta kan inte ångras.",
+    "actions": {
+      "ariaLabel": "Mappkontroller",
+      "customize": "Anpassa mapp",
+      "rename": "Byt namn på mapp",
+      "delete": "Ta bort mapp",
+      "editBookmark": "Redigera {{name}}",
+      "removeBookmark": "Flytta {{name}} från mappen",
+      "deleteBookmark": "Ta bort {{name}}",
+      "acceptRename": "Spara mappnamn",
+      "cancelRename": "Avbryt mappbyte"
+    },
+    "editor": {
+      "createTitle": "Lägg till ny mapp",
+      "title": "Redigera mapp",
+      "name": "Namn:",
+      "showPreviews": "Visa förhandsvisningar av bokmärken",
+      "showName": "Visa mappnamn",
+      "iconColor": "Symbolfärg:",
+      "outerBackgroundColor": "Yttre bakgrundsfärg:",
+      "noOuterBackground": "Ingen yttre bakgrund",
+      "resetOuterBackground": "Automatisk",
+      "noBackground": "Genomskinlig mappfyllning",
+      "backgroundColor": "Mappfärg:",
+      "backgroundImage": "Bakgrundsbild (URL):",
+      "lockImage": "Lås eller lås upp bildens URL",
+      "copyImage": "Kopiera bildens URL",
+      "clearImage": "Rensa bild-URL",
+      "textColor": "Textfärg:",
+      "preview": "Förhandsgranska",
+      "previewName": "Mapp",
+      "sections": {
+        "general": "Allmänt",
+        "style": "Stil",
+        "text": "Text"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Papperskorgen",
+    "open": "Öppna papperskorgen",
+    "openCount": "Öppna papperskorgen, {{count}} föremål",
+    "dropHint": "Släpp för att radera",
+    "summary": "{{count}} objekt · Automatisk radering: {{retention}}",
+    "empty": "Papperskorgen är tom.",
+    "selected": "{{count}} valt",
+    "select": "Välj {{name}}",
+    "folderContents": "{{count}} bokmärken",
+    "deletedAt": "Raderade {{date}}",
+    "expiresIn": "{{days}} dagar kvar",
+    "expiresInOne": "1 dag kvar",
+    "neverExpires": "Raderas aldrig automatiskt",
+    "restoreAll": "Återställ alla",
+    "deleteAll": "Ta bort alla",
+    "restoreSelected": "Återställ valt",
+    "deleteSelected": "Ta bort markerade",
+    "editor": {
+      "title": "Redigera papperskorgen",
+      "animateIcon": "Animera papperskorgen",
+      "appearance": "Utseende",
+      "backgroundColor": "Bakgrundsfärg:",
+      "backgroundImage": "Bakgrundsbild (URL):",
+      "lockImage": "Lås eller lås upp bildens URL",
+      "copyImage": "Kopiera bildens URL",
+      "clearImage": "Rensa bild-URL",
+      "noBackground": "Ingen bakgrund",
+      "iconColor": "Ikonfärg:",
+      "textColor": "Textfärg:",
+      "elements": "Synliga element",
+      "showName": "Visa namn",
+      "visible": "Visa papperskorgen på huvudnätet",
+      "preview": "Förhandsgranska",
+      "actions": "Åtgärder för papperskorgen",
+      "edit": "Redigera papperskorgen",
+      "sections": {
+        "general": "Allmänt",
+        "style": "Stil",
+        "text": "Text",
+        "icon": "Ikon"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Ange ett namn för att spara förinställningen."
+    },
+    "name": {
+      "required": "Ange ett namn för bokmärket."
+    },
+    "folderName": {
+      "required": "Ange ett namn för mappen."
+    },
+    "url": {
+      "invalid": "URL:en är inte giltig.",
+      "unsupportedProtocol": "Denna URL-typ är inte tillåten."
+    },
+    "backgroundImageUrl": {
+      "invalid": "Bildens webbadress är inte giltig.",
+      "unsupportedProtocol": "Den här bildtypen är inte tillåten."
+    }
+  },
+  "editModal": {
+    "title": "Redigera bokmärke",
+    "name": "Namn:",
+    "url": "URL:",
+    "backgroundImage": "Bakgrundsbild (URL):",
+    "backgroundFavicon": "Stor, centrerad ikon",
+    "invertColorBg": "Invertera färger",
+    "noBackground": "Ingen bakgrund",
+    "backgroundColor": "Bokmärkesfärg:",
+    "showText": "Visa text",
+    "textColor": "Textfärg:",
+    "showFavicon": "Visa ikon",
+    "invertColorIcon": "Invertera ikonfärger",
+    "iconColor": "Ikonfärg:",
+    "sections": {
+      "general": "Allmänt",
+      "style": "Stil",
+      "text": "Text",
+      "icon": "Ikon"
+    },
+    "preview": "Förhandsgranska",
+    "previewName": "Förhandsgranska"
+  },
+  "colorPicker": {
+    "title": "Färgväljare",
+    "sample": "Välj en färg från skärmen",
+    "close": "Stäng färgväljaren",
+    "saturationBrightness": "Mättnad och ljusstyrka",
+    "hue": "Nyans",
+    "quickColors": "Snabba färger",
+    "saturation": "Mättnad",
+    "brightness": "Ljusstyrka",
+    "hex": "Hexkod",
+    "copy": "Kopiera hex-koden",
+    "copied": "Hexkod kopierad",
+    "copyFailed": "Det gick inte att kopiera hex-koden"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Allmänt",
+      "sync": "Synkronisera",
+      "theme": "Tema",
+      "bookmark": "Bokmärken",
+      "shortcuts": "Genvägar",
+      "language": "Språk",
+      "help": "Hjälp",
+      "information": "Information"
+    },
+    "general": {
+      "title": "Allmänt",
+      "subtitle": "Inställningar",
+      "export": "Exportera säkerhetskopia",
+      "import": "Återställ säkerhetskopia",
+      "resetSettings": "Återställ inställningarna",
+      "deleteAllData": "Ta bort all lokal data",
+      "recycleBin": {
+        "title": "Papperskorgen",
+        "show": "Visa papperskorgen på huvudnätet",
+        "retentionLabel": "Ta bort objekt automatiskt:",
+        "retentionOptions": {
+          "oneDay": "1 dag",
+          "sevenDays": "7 dagar",
+          "fourteenDays": "14 dagar",
+          "twentyEightDays": "28 dagar",
+          "never": "Aldrig"
+        }
+      },
+      "appearance": {
+        "title": "Utseende",
+        "system": "Webbläsare",
+        "light": "Ljus",
+        "dark": "Mörkt"
+      }
+    },
+    "sync": {
+      "title": "Synkronisera",
+      "description": "Välj var du vill lagra dina inställningar och bokmärken.",
+      "ariaLabel": "Lagringsläge",
+      "local": {
+        "title": "Endast denna enhet",
+        "description": "Data lagras endast i denna lokala webbläsarprofil."
+      },
+      "synced": {
+        "title": "Synkroniserad",
+        "description": "Tillgängligt i Google Chrome profiler kopplade till samma konto.",
+        "tooltip": "Synkroniseringsinformation"
+      },
+      "compatibility": {
+        "newerVersion": "Synkronisering är låst på den här enheten eftersom molndata skapades av en nyare version NewDeskTab. Din synkroniserade data är säker och har inte ändrats. Uppdatera NewDeskTab för att återansluta."
+      },
+      "usage": {
+        "title": "Tillgänglighet för lagring",
+        "showExact": "Visa exakta bytes",
+        "showHuman": "Visa läsbara storlekar",
+        "local": "Lokalt",
+        "sync": "Synkroniserad",
+        "localSyncCopy": "Lokal synk kopia",
+        "localAria": "Användning av lokal lagring",
+        "syncAria": "Synkroniserad lagringsanvändning",
+        "loading": "Beräknar...",
+        "summary": "{{used}} av {{total}} · {{percent}} %",
+        "available": "{{free}} tillgänglig",
+        "system": "System och metadata",
+        "bookmarks": "Bokmärken",
+        "folders": "Mappar",
+        "trash": "Papperskorgen data",
+        "localImages": "Lokala bilder",
+        "themeImages": "Tema",
+        "bookmarkImages": "Bokmärken",
+        "folderImages": "Mappar",
+        "trashImages": "Papperskorgen",
+        "otherImages": "Annat",
+        "widgets": "Widgets",
+        "widgetsHint": "Storleken som visas för Synkronisera är en uppskattning och exkluderar liveinnehåll hämtat från externa tjänster.",
+        "error": "Användning inte tillgänglig"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome synkroniserar New DeskTab via ditt Google-konto. New DeskTab kör inte sin egen synkroniseringsserver.",
+        "brave": "Ej tillgänglig i Brave: den kan lagra New DeskTab data i chrome.storage.sync, men sprider för närvarande inte den mellan enheter.",
+        "unsupported": "Synkroniserad lagring är endast tillgänglig i Google Chrome för närvarande. Andra webbläsare förblir inaktiverade tills stöd över flera enheter har verifierats."
+      },
+      "existingNotice": "Om du accepterar övergången till Synkroniserad laddas all synkroniserad data som redan finns.",
+      "deleteData": "Ta bort synkroniserad data",
+      "metadata": {
+        "loading": "Kontrollerar synkroniserad data...",
+        "updatedAt": "Senaste synkroniserade uppdatering: {{date}}",
+        "unknown": "Synkroniserade data finns, men dess uppdateringstid är inte tillgänglig.",
+        "empty": "Ingen synkroniserad New DeskTab data lagras.",
+        "error": "Synkroniserad datainformation kunde inte laddas."
+      },
+      "status": {
+        "idle": "Data är klara.",
+        "saving": "Sparar ändringar...",
+        "saved": "Alla ändringar sparas.",
+        "error": "Det gick inte att spara de senaste ändringarna."
+      }
+    },
+    "theme": {
+      "title": "Tema",
+      "subtitle": "Sidans bakgrund",
+      "backgroundImageMode": "Bild/video",
+      "wallpapersTitle": "Mina egna tapeter",
+      "ownWallpapersHint": "Dessa bakgrundsbilder och deras rotation lagras endast på den här enheten.",
+      "mediaUrl": "Bakgrunds-URL",
+      "image": "Bild",
+      "video": "Video",
+      "addUrl": "Lägg till URL",
+      "addFiles": "Lägg till lokala filer",
+      "rotationInterval": "Tapetrotation",
+      "noRotation": "Ändra inte automatiskt",
+      "interval5": "5 sekunder",
+      "interval15": "15 sekunder",
+      "interval30": "30 sekunder",
+      "interval60": "1 minut",
+      "interval300": "5 minuter",
+      "interval600": "10 minuter",
+      "interval1800": "30 minuter",
+      "previous": "Föregående",
+      "next": "Nästa",
+      "moveUp": "Flytta uppåt",
+      "moveDown": "Flytta ner",
+      "remove": "Ta bort",
+      "unavailableLocal": "Lokal fil är inte tillgänglig på den här enheten",
+      "mediaColor": "Färg bakom denna tapet",
+      "mediaPreview": "Förhandsgranska bakgrundsbild",
+      "activeSource": "Aktiv källa",
+      "backgroundSolid": "Enfärgad",
+      "backgroundColor": "Färg:",
+      "editSolidColor": "Ändra solid bakgrundsfärg",
+      "changeSolidColor": "Ändra färg",
+      "backgroundImageColor": "Färg bakom bilden/videon",
+      "backgroundImage": "URL delad mellan enheter",
+      "urlHidden": "URL dold",
+      "resetBackground": "Återställ tema"
+    },
+    "bookmark": {
+      "title": "Bokmärken",
+      "subtitle": "Standardbokmärke",
+      "description": "Välj det utseende som används när du skapar nya bokmärken.",
+      "configure": "Konfigurera standardbokmärke",
+      "editorTitle": "Standardbokmärkesutseende",
+      "previewName": "Standardbokmärke",
+      "export": "Exportera bokmärken",
+      "import": "Importera bokmärken",
+      "deleteAll": "Ta bort alla bokmärken",
+      "preview": "Förhandsgranska",
+      "drag": {
+        "title": "Drabeteende",
+        "description": "Välj hur bokmärken ska organiseras om när du intar deras position.",
+        "none": {
+          "title": "Inga",
+          "description": "Tillåter endast rörelser till lediga celler."
+        },
+        "cascade": {
+          "title": "Sekvens",
+          "description": "Förskjuter kedjan tills den hittar en ledig cell.",
+          "experimental": "Experimentell · Kan innehålla mindre buggar."
+        },
+        "relocate": {
+          "title": "Omlokalisering",
+          "description": "Flyttar bokmärken som upptar destinationen."
+        }
+      },
+      "resize": {
+        "title": "Ändra storlek på beteende",
+        "description": "Välj hur objekt ska reagera när du flyttar ett storleksändringshandtag.",
+        "smooth": {
+          "title": "Smidig",
+          "description": "Sträcker ut objektet medan du drar och fäster sedan mot rutnätet."
+        },
+        "none": {
+          "title": "Inga",
+          "description": "Hoppar efter cell när du korsar 50 % av den intilliggande cellen."
+        }
+      },
+      "presets": {
+        "title": "Stilbibliotek",
+        "tab": "Bibliotek",
+        "description": "Spara stilar och återanvänd dem när du ställer in standardbokmärket.",
+        "name": "Förinställt namn",
+        "saved": "Sparade förinställningar",
+        "save": "Spara förinställning",
+        "apply": "Ladda",
+        "delete": "Ta bort",
+        "empty": "Inga sparade förinställningar"
+      }
+    },
+    "shortcuts": {
+      "title": "Kortkommandon",
+      "description": "Välj en genvägsknapp och tryck sedan på en bokstav eller tangentkombination. Högerklicka för att ta bort tilldelningen.",
+      "change": "Ändra genvägen {{action}}. Aktuell genväg: {{shortcut}}.",
+      "press": "Tryck genväg...",
+      "unassigned": "Otilldelad",
+      "unassignedFlash": "Genväg har inte tilldelats.",
+      "modifierRequired": "Använd en bokstav för sig eller en tangentkombination med en modifierare.",
+      "reserved": "Denna genväg är reserverad av webbläsaren eller operativsystemet. Välj en annan kombination.",
+      "conflict": "Den här knappen är redan tilldelad en annan åtgärd.",
+      "updated": "Genväg uppdaterad.",
+      "cancelled": "Genvägsändring avbröts.",
+      "restored": "Standardgenvägar återställda.",
+      "reset": "Återställ genvägar",
+      "actions": {
+        "toggleEditing": {
+          "title": "Redigera läge",
+          "description": "Gå in i eller lämna redigering i huvudrutnätet eller i en öppen mapp."
+        },
+        "addBookmark": {
+          "title": "Skapa bokmärke",
+          "description": "Öppna formuläret för att lägga till ett bokmärke."
+        },
+        "addFolder": {
+          "title": "Skapa mapp",
+          "description": "Öppna dialogrutan för att skapa en mapp."
+        },
+        "openWidgets": {
+          "title": "Öppna widgets",
+          "description": "Öppna listan över tillgängliga widgets."
+        },
+        "openSettings": {
+          "title": "Öppna inställningar",
+          "description": "Öppna inställningspanelen New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Språk",
+      "text": "Välj gränssnittsspråk:",
+      "system": "Webbläsare",
+      "search": "Sök språk eller land",
+      "empty": "Inga språk hittades"
+    },
+    "information": {
+      "title": "Information",
+      "version": "Version: {{VERSION}}",
+      "author": "Författare:"
+    }
+  }
+}

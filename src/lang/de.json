@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Versionshinweise",
+    "settingsDescription": "Was sich geändert hat und die Geschichte hinter jedem Update.",
+    "open": "Notizen lesen",
+    "history": "Versionsgeschichte",
+    "dismiss": "Versionshinweise schließen",
+    "continue": "Weiter",
+    "back": "Zurück zu Informationen",
+    "highlights": "Was Sie heute tun können",
+    "generic": {
+      "title": "New DeskTab wurde aktualisiert",
+      "description": "Sie haben die neue Version. Sie können frühere Versionshinweise jederzeit unter „Informationen“ erneut aufrufen. Danke, dass Sie hier sind."
+    },
+    "v1_0_0": {
+      "title": "Ihr Desktop mit Websites. Endlich.",
+      "thanks": "Vielen Dank, dass Sie New DeskTab ausprobiert haben. Ich freue mich sehr, endlich die erste öffentliche Veröffentlichung dieses Projekts mit Ihnen zu teilen.",
+      "origin": "Alles begann am 26. September 2025. Als ich mir einen Just Chatting-Stream auf Twitch ansah, fiel mir der neue Browser-Tab des Streamers auf: eine Erweiterung, die Websites als farbige Quadrate ohne Namen oder Logos anordnete. Dieser Minimalismus faszinierte mich und ich dachte: Warum nicht meine eigene Erweiterung bauen? Ich wollte, dass jeder neue Tab ein Gefühl der Ordnung vermittelt, meine Seiten griffbereit macht und ein Panel bietet, das ich gerne ansehe.",
+      "desktop": "Nach und nach entwickelte sich aus dieser Idee ein persönlicher Desktop mit Websites statt Anwendungen. Die Uhr ist ein erster Schritt und noch in Arbeit. In Zukunft möchte ich einen Notizblock und andere Widgets hinzufügen, die sowohl mir als auch allen Benutzern von New DeskTab etwas Nützliches bieten.",
+      "closing": "Diese App ist für mich und für Sie gemacht. Vielen Dank, dass Sie New DeskTab vertrauen und ihm einen Platz in Ihrem Browser geben. Ich hoffe, dass es Ihnen genauso viel Spaß macht, Ihren Raum zu gestalten, wie ich es genossen habe, ihn zu bauen.",
+      "highlights": {
+        "workspace": "Organisieren Sie Ihre Seiten mit Lesezeichen, Ordnern und unabhängigen Arbeitsbereichen.",
+        "appearance": "Passen Sie die Farben, die Größe jedes Elements und Ihren Desktop-Hintergrund an.",
+        "search": "Finden Sie Ihre Seiten mit der Suche und verwenden Sie Tastaturkürzel zum Navigieren und Erstellen von Elementen.",
+        "backup": "Speichern Sie Backups und stellen Sie gelöschte Elemente aus dem Papierkorb wieder her.",
+        "sync": "Wählen Sie, ob Sie die Daten auf diesem Gerät behalten oder mit Google Chrome synchronisieren möchten.",
+        "help": "Entdecken Sie die Funktionen mit dem Willkommensleitfaden, dem Handbuch und täglichen Tipps."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "DEINE ERSTE MINUTE",
+    "skip": "Anleitung überspringen",
+    "back": "Zurück",
+    "next": "Als nächstes",
+    "finish": "Zurück zu den Einstellungen",
+    "explore": "Entdecken Sie meinen Raum",
+    "addFirst": "Mein erstes Lesezeichen hinzufügen",
+    "progress": "Schritt {{current}} von {{total}}",
+    "compactHint": "Erweitern Sie das Fenster, wenn Sie Lesezeichen hinzufügen und Ihren Bereich bearbeiten möchten.",
+    "reopenTitle": "Kurzanleitung",
+    "reopenDescription": "Entdecken Sie das Wesentliche in einer Minute neu.",
+    "reopen": "Anleitung ansehen",
+    "demo": {
+      "work": "Arbeit",
+      "media": "Medien",
+      "trash": "Papierkorb",
+      "search": "Finden Sie Ihre Lesezeichen"
+    },
+    "steps": {
+      "start": {
+        "title": "Ihre Seiten. Dein eigener Raum.",
+        "body": "Willkommen bei New DeskTab. Halten Sie Ihre Lieblingsseiten immer griffbereit, wenn Sie einen Tab öffnen. Um einen hinzuzufügen, gehen Sie zum linken Rand und wählen Sie + → [[bookmarks|Lesezeichen]].",
+        "hint": "Sie können [[quick-save|Speichern Sie die Seite, die Sie besuchen]] auch über das Erweiterungssymbol in Ihrem Browser aufrufen."
+      },
+      "edit": {
+        "title": "Geben Sie jedem Lesezeichen seinen Platz.",
+        "body": "Aktivieren Sie zum Bearbeiten den Stift im linken Menü. Halten Sie ein Element gedrückt und [[movement|ziehen]], um es zu verschieben. Verwenden Sie [[resizing|Griffe]], um seine Größe zu ändern.",
+        "hint": "Der Bleistift jedes Lesezeichens öffnet seinen [[appearance|Herausgeber]]: Name, Farben, Symbol und Bild. Speichern Sie [[presets|Stile]], um sie wiederzuverwenden."
+      },
+      "organize": {
+        "title": "Weniger Unordnung. Mehr Ordnung.",
+        "body": "Erstellen Sie einen [[folders|Ordner]] aus + und ziehen Sie im Bearbeitungsmodus Lesezeichen hinein. Es öffnet sich in einem übersichtlichen Raster und bietet Platz für bis zu 18 Lesezeichen.",
+        "hint": "Verwenden Sie das + im [[workspaces|Arbeitsbereichsleiste]], um Arbeit und Freizeit zu trennen. Der [[search|Lupe]] durchsucht auch innerhalb von Ordnern."
+      },
+      "style": {
+        "title": "Lass es sich wie du fühlen.",
+        "body": "Wählen Sie unter Einstellungen → [[wallpapers|Thema]] eine Farbe, ein Bild oder einen Videohintergrund aus und drehen Sie Ihre Lieblingshintergründe. Synchronisieren Sie Ihren Bereich unter Einstellungen → [[sync|Synchronisierung]] geräteübergreifend mit dem Konto, das Sie in Ihrem Chrome-Profil angemeldet haben.",
+        "hint": "Fügen Sie einen [[clock|Uhr]] aus + → Widgets hinzu. Sie können auch den [[appearance|Aussehen]] Ihrer Ordner anpassen."
+      },
+      "ready": {
+        "title": "Sie kennen das Wesentliche.",
+        "body": "Drücken Sie [[search|/]], um ein Lesezeichen zu finden. Verwenden Sie die [[history|rückgängig machen und wiederholen]]-Pfeile, um Änderungen wiederherzustellen. Gelöschte Lesezeichen gehen zu [[trash|Papierkorb]].",
+        "hint": "Änderungen werden automatisch gespeichert. Exportieren Sie in den Einstellungen einen [[backup|Sicherung]] oder aktivieren Sie optional Google Chrome [[sync|Synchronisation]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Ihre letzten Änderungen konnten nicht gespeichert werden.",
+    "retry": "Speichern Sie erneut",
+    "saved": "Ausstehende Änderungen gespeichert."
+  },
+  "itemEditor": {
+    "chooseIcon": "Wählen Sie ein Symbol",
+    "siteLogo": "Logo",
+    "noSymbol": "Keine",
+    "folderIconHint": "Das Symbol ersetzt die Lesezeichenvorschau im Ordner.",
+    "icons": {
+      "mail": "Post",
+      "calendar": "Kalender",
+      "notes": "Notizen",
+      "projects": "Projekte",
+      "design": "Design",
+      "music": "Musik",
+      "tasks": "Aufgaben",
+      "ideas": "Ideen",
+      "docs": "Dokumente",
+      "ui-start": "Kompass",
+      "ui-organize": "Layout",
+      "ui-personalize": "Schieberegler",
+      "ui-protect": "Schild",
+      "ui-bookmarks": "Lesezeichen hinzufügen",
+      "ui-quick-save": "Browser",
+      "ui-keyboard": "Tastatur",
+      "ui-shortcuts": "Blitz",
+      "ui-search": "Suchen",
+      "ui-editing": "Bleistift",
+      "ui-movement": "Bewegen",
+      "ui-resizing": "Größe ändern",
+      "ui-drag-modes": "Ziehen",
+      "ui-folders": "Ordner",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Auswahl",
+      "ui-history": "Geschichte",
+      "ui-appearance": "Palette",
+      "ui-presets": "Voreinstellungen",
+      "ui-wallpapers": "Bild",
+      "ui-clock": "Uhr",
+      "ui-interface": "Globus",
+      "ui-trash": "Müll",
+      "ui-backup": "Archiv",
+      "ui-sync": "Synchronisieren",
+      "ui-compact": "Liste",
+      "ui-data": "Datenbank",
+      "ui-learning": "Buch",
+      "ui-settings": "Einstellungen",
+      "ui-controls": "Kontrollen",
+      "ui-cloud": "Wolke",
+      "ui-bookmark": "Lesezeichen",
+      "ui-info": "Informationen",
+      "ui-eye": "Auge",
+      "ui-check": "Abgeschlossen",
+      "ui-lock": "Sperren",
+      "ui-unlock": "Entsperren",
+      "ui-copy": "Kopieren",
+      "ui-close": "Schließen",
+      "ui-undo": "Rückgängig machen",
+      "ui-redo": "Wiederholen",
+      "ui-desktop": "Desktop",
+      "home": "Zuhause",
+      "briefcase": "Arbeit",
+      "code": "Code",
+      "game": "Spiele",
+      "cart": "Einkaufen",
+      "card": "Zahlungen",
+      "people": "Menschen",
+      "message": "Nachricht",
+      "location": "Standort",
+      "phone": "Telefon",
+      "camera": "Kamera",
+      "headphones": "Kopfhörer",
+      "link": "Link",
+      "tag": "Etikett",
+      "chart": "Statistiken",
+      "coffee": "Kaffee",
+      "sun": "Sonne",
+      "moon": "Mond",
+      "circle": "Kreis",
+      "square": "Quadratisch",
+      "triangle": "Dreieck",
+      "diamond": "Diamant",
+      "pentagon": "Pentagon",
+      "hexagon": "Sechseck",
+      "star": "Stern",
+      "heart": "Herz",
+      "plus": "Plus",
+      "minus": "Minus",
+      "video": "Video"
+    },
+    "searchIcons": "Suchsymbole…",
+    "clearIconSearch": "Suche löschen",
+    "noIcons": "Keine Symbole gefunden",
+    "suggestedIcons": "Vorgeschlagen",
+    "suggestedIcon": "Vorgeschlagen: {{name}}",
+    "logoKeywords": "Logo-Favicon-Website-Site-Marke",
+    "iconKeywords": {
+      "ui-trash": "Mülltonne Abfall löschen Klassiker",
+      "mail": "E-Mail, Gmail, Outlook, Posteingang",
+      "docs": "Dokumente Dateien PDF-Laufwerk Word",
+      "notes": "Notizen Memo Begriff Onenote",
+      "ui-protect": "Sicherheit, Schutz, Privatsphäre",
+      "game": "Spiele-Gaming-Controller-Konsole",
+      "cart": "Einkaufen Shop Shop kaufen",
+      "card": "Bankfinanzierung Kredit Lastschrift Geld",
+      "people": "Freundesgruppe der sozialen Gemeinschaft",
+      "ui-learning": "Studium der Lesebibliothekspädagogik",
+      "ui-clock": "Zeit Stunden Uhr",
+      "ui-interface": "Internet-Web-Weltsprache",
+      "ui-data": "Daten-SQL-Speicher",
+      "circle": "geometrische Formen Figuren",
+      "square": "geometrische Formen Figuren",
+      "triangle": "geometrische Formen Figuren",
+      "diamond": "geometrische Formen Figuren",
+      "pentagon": "geometrische Formen Figuren",
+      "hexagon": "geometrische Formen Figuren",
+      "star": "geometrische Formen Figuren",
+      "heart": "geometrische Formen Figuren"
+    },
+    "history": "Verlauf bearbeiten",
+    "description": "Sorgen Sie dafür, dass es sich an Ihrem Arbeitsplatz wie zu Hause fühlt.",
+    "looks": "Wählen Sie einen Look",
+    "custom": "Benutzerdefiniert",
+    "look": {
+      "original": "Original",
+      "card": "Karte",
+      "midnight": "Dunkel",
+      "paper": "Licht"
+    },
+    "reset": "Aussehen zurücksetzen",
+    "cardColor": "Kartenfarbe",
+    "folderFill": "Ordnerfarbe",
+    "image": "Hintergrundbild",
+    "lock": "URL sperren oder entsperren",
+    "copy": "URL kopieren",
+    "clear": "Klar",
+    "section": {
+      "general": "Das Wesentliche",
+      "text": "Name und Etiketten",
+      "icon": "Symbol",
+      "card": "Karte"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Der Name, den Sie sehen, und die Seite, die geöffnet wird.",
+        "text": "Wählen Sie aus, ob der Name angezeigt werden soll, und passen Sie seine Farbe an.",
+        "icon": "Verwenden Sie für Bildkarten ein großes, zentriertes Favicon oder ein kleines Symbol neben dem Namen."
+      },
+      "folder": {
+        "general": "Ein Name, um Ihre Lesezeichen zusammenzuführen.",
+        "text": "Zeigen Sie den Ordnernamen an und passen Sie seine Farbe an.",
+        "icon": "Passen Sie das Ordnersymbol und die Miniaturansichten seiner Lesezeichen an."
+      },
+      "recycleBin": {
+        "general": "Wählen Sie aus, ob der Papierkorb in Ihrem Hauptarbeitsbereich angezeigt wird.",
+        "text": "Zeigen Sie den Namen des Papierkorbs an und passen Sie seine Farbe an.",
+        "icon": "Geben Sie dem Papierkorb Ihre eigene Farbe. Verstecke den ganzen Mülleimer vor Allgemein."
+      }
+    },
+    "addImage": "Fügen Sie ein Hintergrundbild hinzu",
+    "changeImage": "Hintergrundbild bearbeiten"
+  },
+  "html": {
+    "title": "Neuer Tab"
+  },
+  "quickSave": {
+    "title": "Lesezeichen speichern",
+    "name": "Name",
+    "workspace": "Arbeitsbereich",
+    "folder": "Ordner",
+    "mainWorkspace": "Hauptsächlich",
+    "noFolder": "Kein Ordner",
+    "save": "Lesezeichen speichern",
+    "saveAnyway": "Sparen Sie trotzdem",
+    "savedButton": "Gespeichert",
+    "alreadySaved": "Bereits gespeichert",
+    "savedIn": "In {{location}}",
+    "savedInMore": "In {{location}} und {{count}} mehr",
+    "open": "Öffnen Sie New DeskTab",
+    "unavailableTitle": "Diese Registerkarte kann nicht gespeichert werden",
+    "unavailable": "Öffnen Sie eine Webseite (http oder https), um sie zu speichern.",
+    "loadError": "Ihre Lesezeichen konnten nicht geladen werden. Versuchen Sie es erneut.",
+    "saving": "Sparen…",
+    "saved": "Lesezeichen gespeichert.",
+    "duplicate": "Diese URL ist bereits in diesem Ziel gespeichert.",
+    "noSpace": "In diesem Ziel ist kein Platz mehr vorhanden. Wählen Sie ein anderes.",
+    "invalid": "Überprüfen Sie den Namen und das ausgewählte Ziel.",
+    "saveError": "Das Lesezeichen konnte nicht gespeichert werden. Versuchen Sie es erneut."
+  },
+  "launcher": {
+    "bookmark": "Lesezeichen",
+    "folder": "Ordner",
+    "widgets": "Widgets",
+    "editMode": {
+      "enter": "Wechseln Sie in den Bearbeitungsmodus",
+      "exit": "Bearbeitungsmodus verlassen"
+    }
+  },
+  "widgets": {
+    "title": "Widgets",
+    "description": "Wählen Sie ein Widget aus, das Sie diesem Arbeitsbereich hinzufügen möchten.",
+    "empty": "Es sind noch keine Widgets verfügbar."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Erweitern Sie das Fenster, um diese Funktion zu nutzen.",
+      "suspended": "Panel ausgeblendet. Erweitern Sie das Fenster, um fortzufahren."
+    },
+    "editMode": {
+      "enabled": "Bearbeitungsmodus aktiviert",
+      "disabled": "Bearbeitungsmodus deaktiviert"
+    },
+    "selectionMode": {
+      "enabled": "Auswahlmodus aktiviert",
+      "disabled": "Auswahlmodus deaktiviert"
+    },
+    "bookmark": {
+      "added": "Lesezeichen hinzugefügt",
+      "notFound": "Lesezeichen nicht gefunden",
+      "updated": "Lesezeichen aktualisiert",
+      "deleted": "Lesezeichen gelöscht"
+    },
+    "clock": {
+      "added": "Uhr hinzugefügt",
+      "updated": "Uhr aktualisiert",
+      "deleted": "Uhr gelöscht"
+    },
+    "folder": {
+      "created": "Ordner erstellt",
+      "renamed": "Ordner umbenannt",
+      "updated": "Ordner aktualisiert",
+      "deleted": "Ordner und seine Lesezeichen gelöscht",
+      "bookmarkAdded": "Lesezeichen zum Ordner hinzugefügt",
+      "folderFull": "Dieser Ordner enthält bereits 18 Lesezeichen",
+      "bookmarkRemoved": "Lesezeichen wurde zurück ins Raster verschoben"
+    },
+    "recycleBin": {
+      "moved": "In den Papierkorb verschoben",
+      "restored": "Artikel restauriert",
+      "deletedPermanently": "Elemente dauerhaft gelöscht",
+      "updated": "Papierkorb aktualisiert"
+    },
+    "workspace": {
+      "created": "Arbeitsbereich erstellt",
+      "deleted": "Arbeitsbereich gelöscht",
+      "switched": "Arbeitsbereich: {{name}}"
+    },
+    "history": {
+      "undone": "Änderung rückgängig gemacht",
+      "redone": "Änderung erneuert"
+    },
+    "bookmarks": {
+      "deletedAll": "Alle Lesezeichen gelöscht",
+      "deletedAllWithFolders": "Alle Lesezeichen und Ordner gelöscht",
+      "deleteAllError": "Alle Lesezeichen konnten nicht gelöscht werden",
+      "exported": "Lesezeichen exportiert",
+      "exportError": "Lesezeichen konnten nicht exportiert werden",
+      "imported": "Lesezeichen importiert",
+      "importError": "Lesezeichen konnten nicht importiert werden",
+      "presetApplied": "Auf die Auswahl angewendeter Stil",
+      "duplicatedSelected": "Ausgewählte Elemente dupliziert",
+      "deletedSelected": "Ausgewählte Elemente gelöscht",
+      "moved": "Elemente wurden in den ausgewählten Arbeitsbereich verschoben"
+    },
+    "settings": {
+      "saved": "Einstellungen gespeichert",
+      "bookmarkDefaultSaved": "Standard-Lesezeichendarstellung gespeichert",
+      "bookmarkDefaultError": "Das Standard-Lesezeichen-Erscheinungsbild konnte nicht gespeichert werden",
+      "copied": "Wert in die Zwischenablage kopiert",
+      "resetBg": "Thema zurückgesetzt",
+      "deletedAllData": "Alle lokalen NewDeskTab-Daten gelöscht",
+      "deleteAllDataError": "Es konnten nicht alle lokalen NewDeskTab-Daten gelöscht werden",
+      "invalidWallpaperUrl": "Geben Sie eine gültige HTTP- oder HTTPS-Bild-/Video-URL ein.",
+      "invalidWallpaperFile": "Diese Datei konnte nicht hinzugefügt werden. Verwenden Sie ein unterstütztes Bild oder ein MP4-, WebM- oder Ogg-Video mit bis zu 200 MB.",
+      "wallpaperLimit": "Sie können bis zu 25 persönliche Hintergrundbilder hinzufügen."
+    },
+    "localImage": {
+      "invalid": "Wählen Sie ein PNG-, JPEG-, WebP-, GIF- oder AVIF-Bild.",
+      "tooLarge": "Dieses Bild ist zu groß, um es auf diesem Gerät zu speichern.",
+      "storageFull": "Für dieses Bild ist nicht genügend lokaler Speicherplatz vorhanden.",
+      "processing": "Dieses Bild konnte nicht verarbeitet werden."
+    },
+    "sync": {
+      "enabled": "Synchronisierung aktiviert",
+      "localEnabled": "Lokaler Modus aktiviert",
+      "remoteLoaded": "Synchronisierte Daten geladen",
+      "updatedFromOtherDevice": "Synchronisierte Änderungen, die von einem anderen Gerät empfangen wurden",
+      "deletedFromOtherDevice": "Cloud-Daten wurden von einem anderen Gerät gelöscht. Dieses Gerät verwendet jetzt den lokalen Modus.",
+      "error": "Der Speichermodus konnte nicht geändert werden",
+      "versionBlocked": "Die Synchronisierung wurde angehalten, da für die Cloud-Daten eine neuere Version NewDeskTab erforderlich ist. Die lokalen Daten dieses Geräts werden angezeigt.",
+      "quotaError": "Die Daten überschreiten den verfügbaren Synchronisierungsspeicher",
+      "deleted": "Synchronisierte Daten gelöscht",
+      "deleteError": "Synchronisierte Daten konnten nicht gelöscht werden"
+    },
+    "backup": {
+      "exported": "Backup exportiert",
+      "exportError": "Das Backup konnte nicht exportiert werden",
+      "mediaUnavailable": "Einige referenzierte lokale Bilder oder Videos sind nicht verfügbar, daher wurde kein Backup erstellt.",
+      "imported": "Sicherung wiederhergestellt",
+      "importError": "Die Sicherung konnte nicht wiederhergestellt werden",
+      "mediaStorageFull": "Es ist nicht genügend lokaler Speicher vorhanden, um die Sicherungsbilder und -videos wiederherzustellen."
+    }
+  },
+  "view": {
+    "list": "Listenansicht",
+    "search": "Durchsuchen Sie Lesezeichen und Ordner",
+    "clearSearch": "Suche löschen",
+    "noResults": "Keine Ergebnisse."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Alle Lesezeichen löschen?",
+      "deleteFolders": "Löschen Sie außerdem alle Ordner",
+      "confirmDeleteSelected": "{{count}} ausgewählte Elemente löschen?",
+      "confirmMoveOne": "Dieses Element in den Arbeitsbereich „{{workspace}}“ verschieben?",
+      "confirmMoveSelected": "{{count}} ausgewählte Elemente in den Arbeitsbereich „{{workspace}}“ verschieben?",
+      "duplicateNoSpace": "{{count}} Elemente konnten nicht dupliziert werden, da nicht genügend Speicherplatz vorhanden war.",
+      "moveNoSpace": "{{count}} Elemente konnten nicht verschoben werden, da nicht genügend Platz vorhanden war.",
+      "no_space": "Für weitere Lesezeichen ist kein Platz mehr vorhanden 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Neues Lesezeichen verwerfen?"
+      },
+      "confirmDelete": "„{{name}}“ löschen?",
+      "confirmPermanentDelete": "„{{name}}“ dauerhaft löschen? Dies kann nicht rückgängig gemacht werden.",
+      "cancel": "Änderungen verwerfen?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Dieses Widget dauerhaft löschen? Dies kann nicht rückgängig gemacht werden.",
+      "confirmDeleteSelected": "{{count}} ausgewählte Elemente löschen? Ausgewählte Widgets ({{widgetCount}}) werden dauerhaft gelöscht und können nicht wiederhergestellt werden."
+    },
+    "folder": {
+      "createCancel": "Neuen Ordner verwerfen?",
+      "cancel": "Ordneränderungen verwerfen?"
+    },
+    "recycleBin": {
+      "folder": "„{{name}}“ und seine {{count}} Lesezeichen in den Papierkorb verschieben?",
+      "empty": "Alles im Papierkorb dauerhaft löschen? Dies kann nicht rückgängig gemacht werden.",
+      "deleteSelected": "{{count}} ausgewählte Elemente dauerhaft löschen? Dies kann nicht rückgängig gemacht werden.",
+      "noSpace": "{{count}} Elemente konnten nicht wiederhergestellt werden, da nicht genügend Rasterraum vorhanden ist. Sie verbleiben im Papierkorb.",
+      "cancel": "Änderungen im Papierkorb verwerfen?"
+    },
+    "settings": {
+      "cancel": "Einstellungsänderungen verwerfen?",
+      "reset": "Alle Einstellungen zurücksetzen? Lesezeichen werden nicht gelöscht.",
+      "deleteAllData": "Alle lokalen NewDeskTab-Daten von diesem Gerät löschen? Lesezeichen, Ordner, Widgets, Einstellungen, Papierkorbelemente, lokale Bilder und lokale Videos werden dauerhaft gelöscht. Cloud-Daten werden nicht verändert. Wenn die Synchronisierung aktiv ist, wechselt dieses Gerät zuerst zu „Lokal“. Diese Aktion kann nicht rückgängig gemacht werden.",
+      "theme": {
+        "reset": "Theme-Einstellungen zurücksetzen?"
+      },
+      "bookmark": {
+        "cancel": "Änderungen am Standard-Lesezeichen-Erscheinungsbild verwerfen?"
+      },
+      "shortcuts": {
+        "reset": "Standard-Tastaturkürzel wiederherstellen?"
+      },
+      "sync": {
+        "enable": "Von Lokal auf Synchronisiert wechseln? Dies wird jetzt wirksam, ohne dass Sie auf „Speichern“ klicken müssen. Wenn bereits synchronisierte Daten vorhanden sind, werden deren Lesezeichen und Einstellungen geladen. Andernfalls werden Ihre gespeicherten lokalen Daten synchronisiert.",
+        "local": "Von „Synchronisiert“ zu „Lokal“ wechseln? Dies wird jetzt wirksam, ohne dass Sie auf „Speichern“ klicken müssen. Dieses Gerät speichert eine Kopie der aktuellen Daten und stoppt die Synchronisierung von Änderungen. Synchronisierte Daten bleiben für andere Geräte gespeichert.",
+        "delete": "Alle synchronisierten NewDeskTab-Daten löschen? Dieses Gerät und alle anderen Geräte, die diese Cloud-Daten verwenden, wechseln in den lokalen Modus, wenn sie den Löschvorgang erkennen. Dies kann nicht rückgängig gemacht werden."
+      }
+    },
+    "backup": {
+      "import": "Dieses Backup wiederherstellen? Es ersetzt Ihre aktuellen Lesezeichen und Einstellungen."
+    }
+  },
+  "addModal": {
+    "title": "Neues Lesezeichen hinzufügen",
+    "name": "Name:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Erweiterte Optionen",
+    "compactView": "▴ Kompaktansicht"
+  },
+  "clock": {
+    "name": "Uhr",
+    "inDevelopment": "In Entwicklung: Die Uhr ist noch nicht in ihrer endgültigen Version. Wir arbeiten daran, es zu verbessern.",
+    "createTitle": "Uhr hinzufügen",
+    "editTitle": "Uhreinstellungen",
+    "description": "Zeigen Sie Ihre Ortszeit in diesem Arbeitsbereich an.",
+    "hourCycle": "Zeitformat",
+    "hour24": "24 Stunden",
+    "hour12": "12 Stunden",
+    "showSeconds": "Sekunden anzeigen",
+    "delete": "Löschen",
+    "edit": "Uhr bearbeiten",
+    "actions": "Uhraktionen",
+    "openSettings": "Öffnen Sie die Uhreinstellungen",
+    "confirmDelete": "Diese Uhr löschen? Sie können diese Aktion rückgängig machen.",
+    "confirmPermanentDelete": "Diese Uhr dauerhaft löschen? Dies kann nicht rückgängig gemacht werden.",
+    "cancel": "Uhrumstellung verwerfen?",
+    "noSpace": "Für diese Uhr ist nicht genügend Platz im Raster vorhanden."
+  },
+  "buttons": {
+    "save": "Speichern",
+    "apply": "Bewerben",
+    "add": "Hinzufügen",
+    "accept": "Akzeptiere",
+    "cancel": "Abbrechen",
+    "close": "Schließen"
+  },
+  "localImage": {
+    "upload": "Von diesem Gerät hochladen",
+    "label": "Lokales Bild:",
+    "activeSource": "Aktives Bild:",
+    "sourceLocal": "Lokal",
+    "sourceUrl": "URL",
+    "remove": "Lokales Image entfernen",
+    "notice": "Lokale Bilder werden nicht synchronisiert.",
+    "unnamed": "Lokales Bild"
+  },
+  "workspace": {
+    "ariaLabel": "Arbeitsbereich-Steuerelemente",
+    "current": "Arbeitsbereich",
+    "main": "Hauptsächlich",
+    "search": "Lesezeichen durchsuchen",
+    "add": "Arbeitsbereich erstellen",
+    "delete": "Arbeitsbereich löschen",
+    "undo": "Rückgängig machen",
+    "redo": "Wiederholen",
+    "shortcutHint": "Wechseln Sie den Arbeitsbereich mit Alt oder Option plus Auf- oder Abwärtspfeil",
+    "prompt": "Geben Sie einen Namen für den neuen Arbeitsbereich ein",
+    "namePlaceholder": "Arbeit, Freizeit…",
+    "confirmDelete": "„{{name}}“, seine {{folderCount}} Ordner und {{bookmarkCount}} Lesezeichen löschen? Um sie zu behalten, verschieben Sie sie zunächst in den Hauptarbeitsbereich oder einen anderen Arbeitsbereich."
+  },
+  "search": {
+    "title": "Lesezeichen durchsuchen",
+    "inputLabel": "Suchen Sie nach Name oder URL",
+    "placeholder": "Name oder URL",
+    "empty": "Keine Lesezeichen gefunden.",
+    "noUrl": "Keine URL",
+    "inFolder": "Ordner: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Ausgewählte Elementaktionen",
+    "selected": "{{count}} ausgewählt",
+    "move": "Wechseln Sie zum Arbeitsbereich",
+    "applyPreset": "Standardstil anwenden",
+    "duplicate": "Doppelte Auswahl",
+    "delete": "Löschen",
+    "clear": "Klare Auswahl"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Lesezeichen-Steuerelemente",
+    "edit": "Lesezeichen bearbeiten",
+    "delete": "Lesezeichen löschen",
+    "copySuffix": "kopieren"
+  },
+  "folder": {
+    "create": "Ordner erstellen",
+    "createPrompt": "Benennen Sie den neuen Ordner",
+    "namePlaceholder": "Werkzeuge, Inspiration…",
+    "open": "Öffnen Sie {{name}}, {{count}} gespeicherte Lesezeichen",
+    "count": "{{count}} gespeichert",
+    "summary": "{{count}} von {{capacity}} Plätzen belegt",
+    "editMode": {
+      "enable": "Bearbeiten",
+      "disable": "Beenden Sie die Bearbeitung"
+    },
+    "gridLabel": "Ordner-Lesezeichen",
+    "dropHint": "Zum Hinzufügen ablegen",
+    "noSpace": "Es gibt keine freie Rasterzelle für einen neuen Ordner.",
+    "removeNoSpace": "Es ist nicht genügend Platz im Raster vorhanden, um dieses Lesezeichen aus dem Ordner zu entfernen.",
+    "confirmDelete": "„{{name}}“ und seine {{count}} Lesezeichen in den Papierkorb verschieben?",
+    "confirmPermanentDelete": "„{{name}}“ und seine {{count}} Lesezeichen dauerhaft löschen? Dies kann nicht rückgängig gemacht werden.",
+    "actions": {
+      "ariaLabel": "Ordnersteuerelemente",
+      "customize": "Ordner anpassen",
+      "rename": "Ordner umbenennen",
+      "delete": "Ordner löschen",
+      "editBookmark": "Bearbeiten Sie {{name}}",
+      "removeBookmark": "Verschieben Sie {{name}} aus dem Ordner",
+      "deleteBookmark": "{{name}} löschen",
+      "acceptRename": "Ordnernamen speichern",
+      "cancelRename": "Ordnerumbenennung abbrechen"
+    },
+    "editor": {
+      "createTitle": "Neuen Ordner hinzufügen",
+      "title": "Ordner bearbeiten",
+      "name": "Name:",
+      "showPreviews": "Lesezeichenvorschau anzeigen",
+      "showName": "Ordnernamen anzeigen",
+      "iconColor": "Symbolfarbe:",
+      "outerBackgroundColor": "Äußere Hintergrundfarbe:",
+      "noOuterBackground": "Kein äußerer Hintergrund",
+      "resetOuterBackground": "Automatisch",
+      "noBackground": "Transparente Ordnerfüllung",
+      "backgroundColor": "Ordnerfarbe:",
+      "backgroundImage": "Hintergrundbild (URL):",
+      "lockImage": "Bild-URL sperren oder entsperren",
+      "copyImage": "Bild-URL kopieren",
+      "clearImage": "Bild-URL löschen",
+      "textColor": "Textfarbe:",
+      "preview": "Vorschau",
+      "previewName": "Ordner",
+      "sections": {
+        "general": "Allgemein",
+        "style": "Stil",
+        "text": "Text"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Papierkorb",
+    "open": "Öffnen Sie den Papierkorb",
+    "openCount": "Offener Papierkorb, {{count}} Artikel",
+    "dropHint": "Zum Löschen ablegen",
+    "summary": "{{count}} Artikel · Automatische Löschung: {{retention}}",
+    "empty": "Der Papierkorb ist leer.",
+    "selected": "{{count}} ausgewählt",
+    "select": "Wählen Sie {{name}}",
+    "folderContents": "{{count}} Lesezeichen",
+    "deletedAt": "Gelöscht {{date}}",
+    "expiresIn": "Noch {{days}} Tage",
+    "expiresInOne": "Noch 1 Tag übrig",
+    "neverExpires": "Nie automatisch gelöscht",
+    "restoreAll": "Alles wiederherstellen",
+    "deleteAll": "Alles löschen",
+    "restoreSelected": "Ausgewählte wiederherstellen",
+    "deleteSelected": "Ausgewählte löschen",
+    "editor": {
+      "title": "Papierkorb bearbeiten",
+      "animateIcon": "Animieren Sie den Papierkorb",
+      "appearance": "Aussehen",
+      "backgroundColor": "Hintergrundfarbe:",
+      "backgroundImage": "Hintergrundbild (URL):",
+      "lockImage": "Bild-URL sperren oder entsperren",
+      "copyImage": "Bild-URL kopieren",
+      "clearImage": "Bild-URL löschen",
+      "noBackground": "Kein Hintergrund",
+      "iconColor": "Symbolfarbe:",
+      "textColor": "Textfarbe:",
+      "elements": "Sichtbare Elemente",
+      "showName": "Namen anzeigen",
+      "visible": "Papierkorb im Hauptraster anzeigen",
+      "preview": "Vorschau",
+      "actions": "Aktionen im Papierkorb",
+      "edit": "Papierkorb bearbeiten",
+      "sections": {
+        "general": "Allgemein",
+        "style": "Stil",
+        "text": "Text",
+        "icon": "Symbol"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Geben Sie einen Namen ein, um die Voreinstellung zu speichern."
+    },
+    "name": {
+      "required": "Geben Sie einen Namen für das Lesezeichen ein."
+    },
+    "folderName": {
+      "required": "Geben Sie einen Namen für den Ordner ein."
+    },
+    "url": {
+      "invalid": "Die URL ist ungültig.",
+      "unsupportedProtocol": "Dieser URL-Typ ist nicht zulässig."
+    },
+    "backgroundImageUrl": {
+      "invalid": "Die Bild-URL ist ungültig.",
+      "unsupportedProtocol": "Dieser Bildtyp ist nicht zulässig."
+    }
+  },
+  "editModal": {
+    "title": "Lesezeichen bearbeiten",
+    "name": "Name:",
+    "url": "URL:",
+    "backgroundImage": "Hintergrundbild (URL):",
+    "backgroundFavicon": "Großes, zentriertes Symbol",
+    "invertColorBg": "Farben umkehren",
+    "noBackground": "Kein Hintergrund",
+    "backgroundColor": "Lesezeichenfarbe:",
+    "showText": "Text anzeigen",
+    "textColor": "Textfarbe:",
+    "showFavicon": "Symbol anzeigen",
+    "invertColorIcon": "Symbolfarben umkehren",
+    "iconColor": "Symbolfarbe:",
+    "sections": {
+      "general": "Allgemein",
+      "style": "Stil",
+      "text": "Text",
+      "icon": "Symbol"
+    },
+    "preview": "Vorschau",
+    "previewName": "Vorschau"
+  },
+  "colorPicker": {
+    "title": "Farbauswahl",
+    "sample": "Wählen Sie eine Farbe vom Bildschirm aus",
+    "close": "Farbauswahl schließen",
+    "saturationBrightness": "Sättigung und Helligkeit",
+    "hue": "Farbton",
+    "quickColors": "Schnelle Farben",
+    "saturation": "Sättigung",
+    "brightness": "Helligkeit",
+    "hex": "Hex-Code",
+    "copy": "Hex-Code kopieren",
+    "copied": "Hex-Code kopiert",
+    "copyFailed": "Der Hex-Code konnte nicht kopiert werden"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Allgemein",
+      "sync": "Synchronisieren",
+      "theme": "Thema",
+      "bookmark": "Lesezeichen",
+      "shortcuts": "Verknüpfungen",
+      "language": "Sprachen",
+      "help": "Hilfe",
+      "information": "Informationen"
+    },
+    "general": {
+      "title": "Allgemein",
+      "subtitle": "Einstellungen",
+      "export": "Backup exportieren",
+      "import": "Sicherung wiederherstellen",
+      "resetSettings": "Einstellungen zurücksetzen",
+      "deleteAllData": "Löschen Sie alle lokalen Daten",
+      "recycleBin": {
+        "title": "Papierkorb",
+        "show": "Zeigen Sie den Papierkorb im Hauptraster an",
+        "retentionLabel": "Elemente automatisch löschen:",
+        "retentionOptions": {
+          "oneDay": "1 Tag",
+          "sevenDays": "7 Tage",
+          "fourteenDays": "14 Tage",
+          "twentyEightDays": "28 Tage",
+          "never": "Niemals"
+        }
+      },
+      "appearance": {
+        "title": "Aussehen",
+        "system": "Browser",
+        "light": "Licht",
+        "dark": "Dunkel"
+      }
+    },
+    "sync": {
+      "title": "Synchronisieren",
+      "description": "Wählen Sie, wo Sie Ihre Einstellungen und Lesezeichen speichern möchten.",
+      "ariaLabel": "Speichermodus",
+      "local": {
+        "title": "Nur dieses Gerät",
+        "description": "Die Daten werden nur in diesem lokalen Browserprofil gespeichert."
+      },
+      "synced": {
+        "title": "Synchronisiert",
+        "description": "Verfügbar in Google Chrome Profilen, die mit demselben Konto verbunden sind.",
+        "tooltip": "Synchronisierungsinformationen"
+      },
+      "compatibility": {
+        "newerVersion": "Die Synchronisierung ist auf diesem Gerät gesperrt, da die Cloud-Daten von einer neueren NewDeskTab-Version erstellt wurden. Ihre synchronisierten Daten sind sicher und wurden nicht verändert. Aktualisieren Sie NewDeskTab, um die Verbindung wiederherzustellen."
+      },
+      "usage": {
+        "title": "Speicherverfügbarkeit",
+        "showExact": "Genaue Bytes anzeigen",
+        "showHuman": "Lesbare Größen anzeigen",
+        "local": "Lokal",
+        "sync": "Synchronisiert",
+        "localSyncCopy": "Lokale Synchronisierungskopie",
+        "localAria": "Lokale Speichernutzung",
+        "syncAria": "Synchronisierte Speichernutzung",
+        "loading": "Berechnen…",
+        "summary": "{{used}} von {{total}} · {{percent}} %",
+        "available": "{{free}} verfügbar",
+        "system": "System- und Metadaten",
+        "bookmarks": "Lesezeichen",
+        "folders": "Ordner",
+        "trash": "Papierkorbdaten",
+        "localImages": "Lokale Bilder",
+        "themeImages": "Thema",
+        "bookmarkImages": "Lesezeichen",
+        "folderImages": "Ordner",
+        "trashImages": "Papierkorb",
+        "otherImages": "Andere",
+        "widgets": "Widgets",
+        "widgetsHint": "Die für die Synchronisierung angezeigte Größe ist eine Schätzung und schließt Live-Inhalte aus, die von externen Diensten abgerufen wurden.",
+        "error": "Nutzung nicht verfügbar"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome synchronisiert New DeskTab über Ihr Google-Konto. New DeskTab führt keinen eigenen Synchronisierungsserver aus.",
+        "brave": "In Brave nicht verfügbar: Es kann New DeskTab-Daten in chrome.storage.sync speichern, gibt sie derzeit jedoch nicht zwischen Geräten weiter.",
+        "unsupported": "Synchronisierter Speicher ist derzeit nur in Google Chrome verfügbar. Andere Browser bleiben deaktiviert, bis die geräteübergreifende Unterstützung überprüft wurde."
+      },
+      "existingNotice": "Wenn Sie den Wechsel zu „Synchronisiert“ akzeptieren, werden alle bereits vorhandenen synchronisierten Daten geladen.",
+      "deleteData": "Synchronisierte Daten löschen",
+      "metadata": {
+        "loading": "Synchronisierte Daten werden überprüft…",
+        "updatedAt": "Letztes synchronisiertes Update: {{date}}",
+        "unknown": "Es sind synchronisierte Daten vorhanden, deren Aktualisierungszeit ist jedoch nicht verfügbar.",
+        "empty": "Es werden keine synchronisierten New DeskTab-Daten gespeichert.",
+        "error": "Synchronisierte Dateninformationen konnten nicht geladen werden."
+      },
+      "status": {
+        "idle": "Die Daten sind bereit.",
+        "saving": "Änderungen speichern…",
+        "saved": "Alle Änderungen werden gespeichert.",
+        "error": "Die letzten Änderungen konnten nicht gespeichert werden."
+      }
+    },
+    "theme": {
+      "title": "Thema",
+      "subtitle": "Seitenhintergrund",
+      "backgroundImageMode": "Bild/Video",
+      "wallpapersTitle": "Meine eigenen Hintergrundbilder",
+      "ownWallpapersHint": "Diese Hintergrundbilder und ihre Rotation werden nur auf diesem Gerät gespeichert.",
+      "mediaUrl": "Hintergrundbild-URL",
+      "image": "Bild",
+      "video": "Video",
+      "addUrl": "URL hinzufügen",
+      "addFiles": "Fügen Sie lokale Dateien hinzu",
+      "rotationInterval": "Tapetenrotation",
+      "noRotation": "Nicht automatisch ändern",
+      "interval5": "5 Sekunden",
+      "interval15": "15 Sekunden",
+      "interval30": "30 Sekunden",
+      "interval60": "1 Minute",
+      "interval300": "5 Minuten",
+      "interval600": "10 Minuten",
+      "interval1800": "30 Minuten",
+      "previous": "Zurück",
+      "next": "Als nächstes",
+      "moveUp": "Bewegen Sie sich nach oben",
+      "moveDown": "Bewegen Sie sich nach unten",
+      "remove": "Entfernen",
+      "unavailableLocal": "Lokale Datei auf diesem Gerät nicht verfügbar",
+      "mediaColor": "Farbe hinter dieser Tapete",
+      "mediaPreview": "Vorschau des Hintergrundbilds",
+      "activeSource": "Aktive Quelle",
+      "backgroundSolid": "Einfarbig",
+      "backgroundColor": "Farbe:",
+      "editSolidColor": "Ändern Sie die einfarbige Hintergrundfarbe",
+      "changeSolidColor": "Farbe ändern",
+      "backgroundImageColor": "Farbe hinter dem Bild/Video",
+      "backgroundImage": "Von Geräten gemeinsam genutzte URL",
+      "urlHidden": "URL ausgeblendet",
+      "resetBackground": "Thema zurücksetzen"
+    },
+    "bookmark": {
+      "title": "Lesezeichen",
+      "subtitle": "Standard-Lesezeichen",
+      "description": "Wählen Sie das Erscheinungsbild aus, das beim Erstellen neuer Lesezeichen verwendet werden soll.",
+      "configure": "Standard-Lesezeichen konfigurieren",
+      "editorTitle": "Standard-Lesezeichendarstellung",
+      "previewName": "Standard-Lesezeichen",
+      "export": "Lesezeichen exportieren",
+      "import": "Lesezeichen importieren",
+      "deleteAll": "Alle Lesezeichen löschen",
+      "preview": "Vorschau",
+      "drag": {
+        "title": "Drag-Verhalten",
+        "description": "Wählen Sie aus, wie Lesezeichen neu organisiert werden, wenn Sie ihre Position einnehmen.",
+        "none": {
+          "title": "Keine",
+          "description": "Ermöglicht nur Bewegungen in freie Zellen."
+        },
+        "cascade": {
+          "title": "Reihenfolge",
+          "description": "Verschiebt die Kette, bis eine freie Zelle gefunden wird.",
+          "experimental": "Experimentell · Kann kleinere Fehler enthalten."
+        },
+        "relocate": {
+          "title": "Umzug",
+          "description": "Verschiebt Lesezeichen, die das Ziel belegen."
+        }
+      },
+      "resize": {
+        "title": "Größenverhalten ändern",
+        "description": "Wählen Sie aus, wie Elemente beim Bewegen eines Größenänderungspunkts reagieren.",
+        "smooth": {
+          "title": "Glatt",
+          "description": "Dehnt das Element beim Ziehen und rastet dann am Raster ein."
+        },
+        "none": {
+          "title": "Keine",
+          "description": "Springt um eine Zelle, wenn Sie 50 % der benachbarten Zelle überqueren."
+        }
+      },
+      "presets": {
+        "title": "Stilbibliothek",
+        "tab": "Bibliothek",
+        "description": "Speichern Sie Stile und verwenden Sie sie beim Einrichten des Standardlesezeichens wieder.",
+        "name": "Voreingestellter Name",
+        "saved": "Gespeicherte Voreinstellungen",
+        "save": "Voreinstellung speichern",
+        "apply": "Laden",
+        "delete": "Löschen",
+        "empty": "Keine gespeicherten Voreinstellungen"
+      }
+    },
+    "shortcuts": {
+      "title": "Tastaturkürzel",
+      "description": "Wählen Sie eine Verknüpfungstaste aus und drücken Sie dann einen Buchstaben oder eine Tastenkombination. Klicken Sie mit der rechten Maustaste, um die Zuweisung aufzuheben.",
+      "change": "Ändern Sie die Verknüpfung {{action}}. Aktuelle Verknüpfung: {{shortcut}}.",
+      "press": "Tastenkombination drücken…",
+      "unassigned": "Nicht zugewiesen",
+      "unassignedFlash": "Verknüpfung nicht zugewiesen.",
+      "modifierRequired": "Verwenden Sie einen einzelnen Buchstaben oder eine Tastenkombination mit einem Modifikator.",
+      "reserved": "Diese Verknüpfung ist vom Browser oder Betriebssystem reserviert. Wählen Sie eine andere Kombination.",
+      "conflict": "Diese Taste ist bereits einer anderen Aktion zugeordnet.",
+      "updated": "Verknüpfung aktualisiert.",
+      "cancelled": "Verknüpfungsänderung abgebrochen.",
+      "restored": "Standardverknüpfungen wiederhergestellt.",
+      "reset": "Verknüpfungen zurücksetzen",
+      "actions": {
+        "toggleEditing": {
+          "title": "Bearbeitungsmodus",
+          "description": "Geben Sie die Bearbeitung im Hauptraster oder in einem geöffneten Ordner ein oder verlassen Sie sie."
+        },
+        "addBookmark": {
+          "title": "Lesezeichen erstellen",
+          "description": "Öffnen Sie das Formular zum Hinzufügen eines Lesezeichens."
+        },
+        "addFolder": {
+          "title": "Ordner erstellen",
+          "description": "Öffnen Sie den Dialog zum Erstellen eines Ordners."
+        },
+        "openWidgets": {
+          "title": "Widgets öffnen",
+          "description": "Öffnen Sie die Liste der verfügbaren Widgets."
+        },
+        "openSettings": {
+          "title": "Einstellungen öffnen",
+          "description": "Öffnen Sie das Einstellungsfeld New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Sprachen",
+      "text": "Wählen Sie die Sprache der Benutzeroberfläche aus:",
+      "system": "Browser",
+      "search": "Suchen Sie nach Sprache oder Land",
+      "empty": "Keine Sprachen gefunden"
+    },
+    "information": {
+      "title": "Informationen",
+      "version": "Version: {{VERSION}}",
+      "author": "Autor:"
+    }
+  }
+}

@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Bilješke o izdanju",
+    "settingsDescription": "Što se promijenilo i priča iza svakog ažuriranja.",
+    "open": "Čitajte bilješke",
+    "history": "Povijest verzija",
+    "dismiss": "Zatvori napomene o izdanju",
+    "continue": "nastavi",
+    "back": "Povratak na informacije",
+    "highlights": "Što možete učiniti danas",
+    "generic": {
+      "title": "New DeskTab je ažuriran",
+      "description": "Imate novu verziju. Možete ponovno pregledati ranije napomene o izdanju u informacijama kad god želite. Hvala što ste ovdje."
+    },
+    "v1_0_0": {
+      "title": "Vaša radna površina web stranica. Napokon.",
+      "thanks": "Hvala što ste isprobali New DeskTab. Tako sam uzbuđen što konačno s vama mogu podijeliti prvo javno izdanje ovog projekta.",
+      "origin": "Sve je započelo 26. rujna 2025. Dok sam gledao stream Just Chatting na Twitch, primijetio sam novu karticu preglednika streamera: proširenje koje je web-mjesta raspoređivalo kao kvadrate u boji, bez naziva ili logotipa. Fascinirao me taj minimalizam i pomislio sam: zašto ne bih izgradio vlastiti nastavak? Htio sam da svaka nova kartica donese osjećaj reda, moje stranice pri ruci i ploču koju uživam gledati.",
+      "desktop": "Postupno je ta ideja prerasla u osobnu radnu površinu web stranica umjesto aplikacija. Sat je prvi korak i još se radi na njemu. U budućnosti bih želio dodati notepad i druge widgete koji nude nešto korisno, meni i svima koji koriste New DeskTab.",
+      "closing": "Ova je aplikacija napravljena za mene i za vas. Hvala što vjerujete New DeskTab i dajete mu mjesto u svom pregledniku. Nadam se da ćete uživati ​​u stvaranju svog prostora onoliko koliko sam ja uživao u njegovoj izgradnji.",
+      "highlights": {
+        "workspace": "Organizirajte svoje stranice pomoću oznaka, mapa i neovisnih radnih prostora.",
+        "appearance": "Prilagodite boje, veličinu svake stavke i pozadinu radne površine.",
+        "search": "Pronađite svoje stranice pomoću pretraživanja i koristite tipkovničke prečace za navigaciju i stvaranje stavki.",
+        "backup": "Spremite sigurnosne kopije i vratite izbrisane stavke iz koša za smeće.",
+        "sync": "Odaberite zadržati podatke na ovom uređaju ili ih sinkronizirati s Google Chrome.",
+        "help": "Otkrijte značajke uz vodič dobrodošlice, priručnik i dnevne savjete."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "VAŠA PRVA MINUTA",
+    "skip": "Vodič za preskakanje",
+    "back": "natrag",
+    "next": "Dalje",
+    "finish": "Povratak na postavke",
+    "explore": "Istraži moj prostor",
+    "addFirst": "Dodaj moju prvu oznaku",
+    "progress": "Korak {{current}} od {{total}}",
+    "compactHint": "Proširite prozor kada želite dodati oznake i urediti svoj prostor.",
+    "reopenTitle": "Brzi vodič",
+    "reopenDescription": "Ponovno otkrijte bitne stvari u minuti.",
+    "reopen": "Pogledajte vodič",
+    "demo": {
+      "work": "rad",
+      "media": "Mediji",
+      "trash": "koš za smeće",
+      "search": "Pronađite svoje oznake"
+    },
+    "steps": {
+      "start": {
+        "title": "Vaše stranice. Vaš vlastiti prostor.",
+        "body": "Dobro došli u New DeskTab. Držite svoje omiljene stranice pri ruci kad god otvorite karticu. Da biste ga dodali, pomaknite se na lijevi rub i odaberite + → [[bookmarks|Knjižna oznaka]].",
+        "hint": "Također možete [[quick-save|spremite stranicu koju posjećujete]] iz ikone proširenja u svom pregledniku."
+      },
+      "edit": {
+        "title": "Dajte svakoj knjižnoj oznaci svoje mjesto.",
+        "body": "Uključite olovku u lijevom izborniku za uređivanje. Držite i [[movement|povucite]] stavku da je premjestite; upotrijebite njegov [[resizing|ručke]] za promjenu veličine.",
+        "hint": "Olovka svake oznake otvara svoj [[appearance|urednica]]: naziv, boje, ikonu i sliku. Spremite [[presets|stilovi]] da biste ih ponovno upotrijebili."
+      },
+      "organize": {
+        "title": "Manje nereda. Više reda.",
+        "body": "Stvorite [[folders|mapa]] iz + i povucite oznake u njega u načinu uređivanja. Otvara se u čistoj mreži s prostorom za do 18 knjižnih oznaka.",
+        "hint": "Upotrijebite + u [[workspaces|traka radnog prostora]] za odvajanje posla od zabave. [[search|povećalo]] također pretražuje unutar mapa."
+      },
+      "style": {
+        "title": "Neka se osjeća kao ti.",
+        "body": "U Postavkama → [[wallpapers|Tema]] odaberite boju, sliku ili pozadinu videa i rotirajte svoje omiljene pozadine. U Postavkama → [[sync|Sinkronizacija]], sinkronizirajte svoj prostor na svim uređajima koristeći račun prijavljen na vaš Chrome profil.",
+        "hint": "Dodajte [[clock|sat]] iz + → Widgeti. Također možete prilagoditi svoje mape [[appearance|izgled]]."
+      },
+      "ready": {
+        "title": "Znate ono bitno.",
+        "body": "Pritisnite [[search|/]] da pronađete oznaku. Koristite strelice [[history|poništiti i ponoviti]] za vraćanje promjena; izbrisane oznake idu na [[trash|koš za smeće]].",
+        "hint": "Promjene se spremaju automatski. U Postavkama izvezite [[backup|sigurnosna kopija]] ili omogućite izborni Google Chrome [[sync|sinkronizacija]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Vaše posljednje promjene nisu mogle biti spremljene.",
+    "retry": "Pokušaj ponovno spremiti",
+    "saved": "Promjene na čekanju su spremljene."
+  },
+  "itemEditor": {
+    "chooseIcon": "Odaberite ikonu",
+    "siteLogo": "Logotip",
+    "noSymbol": "Nijedan",
+    "folderIconHint": "Simbol zamjenjuje preglede knjižnih oznaka unutar mape.",
+    "icons": {
+      "mail": "pošta",
+      "calendar": "Kalendar",
+      "notes": "Bilješke",
+      "projects": "Projekti",
+      "design": "Dizajn",
+      "music": "Glazba",
+      "tasks": "Zadaci",
+      "ideas": "Ideje",
+      "docs": "Dokumenti",
+      "ui-start": "kompas",
+      "ui-organize": "Izgled",
+      "ui-personalize": "Klizači",
+      "ui-protect": "Štit",
+      "ui-bookmarks": "Dodaj knjižnu oznaku",
+      "ui-quick-save": "preglednik",
+      "ui-keyboard": "Tipkovnica",
+      "ui-shortcuts": "Munja",
+      "ui-search": "Traži",
+      "ui-editing": "Olovka",
+      "ui-movement": "kreni",
+      "ui-resizing": "Promjena veličine",
+      "ui-drag-modes": "Drag",
+      "ui-folders": "Mapa",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Odabir",
+      "ui-history": "Povijest",
+      "ui-appearance": "Paleta",
+      "ui-presets": "Unaprijed postavljene postavke",
+      "ui-wallpapers": "Slika",
+      "ui-clock": "Sat",
+      "ui-interface": "Globus",
+      "ui-trash": "smeće",
+      "ui-backup": "Arhiva",
+      "ui-sync": "Sinkronizacija",
+      "ui-compact": "Popis",
+      "ui-data": "Baza podataka",
+      "ui-learning": "Knjiga",
+      "ui-settings": "postavke",
+      "ui-controls": "Kontrole",
+      "ui-cloud": "oblak",
+      "ui-bookmark": "Knjižna oznaka",
+      "ui-info": "Informacije",
+      "ui-eye": "Oko",
+      "ui-check": "Završeno",
+      "ui-lock": "brava",
+      "ui-unlock": "Otključaj",
+      "ui-copy": "Kopiraj",
+      "ui-close": "Zatvori",
+      "ui-undo": "Poništi",
+      "ui-redo": "Ponovi",
+      "ui-desktop": "Radna površina",
+      "home": "Dom",
+      "briefcase": "rad",
+      "code": "Šifra",
+      "game": "Igre",
+      "cart": "Kupovina",
+      "card": "Plaćanja",
+      "people": "Ljudi",
+      "message": "Poruka",
+      "location": "Lokacija",
+      "phone": "Telefon",
+      "camera": "Kamera",
+      "headphones": "Slušalice",
+      "link": "Link",
+      "tag": "Oznaka",
+      "chart": "Statistika",
+      "coffee": "kava",
+      "sun": "sunce",
+      "moon": "Mjesec",
+      "circle": "krug",
+      "square": "kvadrat",
+      "triangle": "Trokut",
+      "diamond": "Dijamant",
+      "pentagon": "Pentagon",
+      "hexagon": "šesterokut",
+      "star": "zvijezda",
+      "heart": "srce",
+      "plus": "Plus",
+      "minus": "Minus",
+      "video": "Video"
+    },
+    "searchIcons": "Ikone pretraživanja…",
+    "clearIconSearch": "Očisti pretragu",
+    "noIcons": "Nisu pronađene ikone",
+    "suggestedIcons": "Predloženo",
+    "suggestedIcon": "Predloženo: {{name}}",
+    "logoKeywords": "logo favicon web mjesto brand",
+    "iconKeywords": {
+      "ui-trash": "kanta za smeće waste delete classic",
+      "mail": "pošta email gmail outlook inbox",
+      "docs": "dokumenti datoteke pdf pogon word",
+      "notes": "bilješke memo notion onenote",
+      "ui-protect": "sigurnost zaštita privatnost",
+      "game": "igre igraća upravljačka konzola",
+      "cart": "shopping shop trgovina buy",
+      "card": "bankovne financije kredit debit novac",
+      "people": "društvena zajednica grupa prijatelja",
+      "ui-learning": "čitanje bibliotečko obrazovanje studija",
+      "ui-clock": "vrijeme sati gledati",
+      "ui-interface": "internet web svjetski jezik",
+      "ui-data": "pohrana podataka sql",
+      "circle": "geometrijski oblici figure",
+      "square": "geometrijski oblici figure",
+      "triangle": "geometrijski oblici figure",
+      "diamond": "geometrijski oblici figure",
+      "pentagon": "geometrijski oblici figure",
+      "hexagon": "geometrijski oblici figure",
+      "star": "geometrijski oblici figure",
+      "heart": "geometrijski oblici figure"
+    },
+    "history": "Povijest uređivanja",
+    "description": "Neka se u vašem radnom prostoru osjećate kao kod kuće.",
+    "looks": "Odaberite izgled",
+    "custom": "Custom",
+    "look": {
+      "original": "Izvornik",
+      "card": "kartica",
+      "midnight": "tamno",
+      "paper": "svjetlo"
+    },
+    "reset": "Resetiraj izgled",
+    "cardColor": "Boja kartice",
+    "folderFill": "Boja mape",
+    "image": "Pozadinska slika",
+    "lock": "Zaključaj ili otključaj URL",
+    "copy": "Kopiraj URL",
+    "clear": "čisto",
+    "section": {
+      "general": "Ono bitno",
+      "text": "Naziv i oznake",
+      "icon": "Ikona",
+      "card": "kartica"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Ime koje vidite i stranica koju otvara.",
+        "text": "Odaberite želite li prikazati ime i prilagodite njegovu boju.",
+        "icon": "Upotrijebite veliki, centrirani favicon ili malu ikonu pored naziva za slikovne kartice."
+      },
+      "folder": {
+        "general": "Naziv za spajanje vaših oznaka.",
+        "text": "Prikaži naziv mape i prilagodi boju.",
+        "icon": "Prilagodite ikonu mape i njezine minijature oznaka."
+      },
+      "recycleBin": {
+        "general": "Odaberite hoće li se koš za smeće pojaviti u vašem glavnom radnom prostoru.",
+        "text": "Pokažite naziv koša za smeće i prilagodite njegovu boju.",
+        "icon": "Dajte košu za smeće vlastitu boju. Sakrij cijelu kantu od Generala."
+      }
+    },
+    "addImage": "Dodajte pozadinsku sliku",
+    "changeImage": "Uredi pozadinsku sliku"
+  },
+  "html": {
+    "title": "Nova kartica"
+  },
+  "quickSave": {
+    "title": "Spremi oznaku",
+    "name": "Ime",
+    "workspace": "Radni prostor",
+    "folder": "Mapa",
+    "mainWorkspace": "Glavni",
+    "noFolder": "Nema mape",
+    "save": "Spremi oznaku",
+    "saveAnyway": "Svejedno uštedite",
+    "savedButton": "Spremljeno",
+    "alreadySaved": "Već spremljeno",
+    "savedIn": "U {{location}}",
+    "savedInMore": "U {{location}} i još {{count}}",
+    "open": "Otvori New DeskTab",
+    "unavailableTitle": "Ovu karticu nije moguće spremiti",
+    "unavailable": "Otvorite web stranicu (http ili https) da biste je spremili.",
+    "loadError": "Nije moguće učitati vaše oznake. Pokušajte ponovno.",
+    "saving": "Spremanje...",
+    "saved": "Oznaka spremljena.",
+    "duplicate": "Ovaj je URL već spremljen na tom odredištu.",
+    "noSpace": "Nema više mjesta na tom odredištu. Odaberite drugu.",
+    "invalid": "Provjerite naziv i odabrano odredište.",
+    "saveError": "Nije moguće spremiti oznaku. Pokušajte ponovno."
+  },
+  "launcher": {
+    "bookmark": "Knjižna oznaka",
+    "folder": "Mapa",
+    "widgets": "Widgeti",
+    "editMode": {
+      "enter": "Uđite u način uređivanja",
+      "exit": "Izađite iz moda za uređivanje"
+    }
+  },
+  "widgets": {
+    "title": "Widgeti",
+    "description": "Odaberite widget za dodavanje u ovaj radni prostor.",
+    "empty": "Još nema dostupnih widgeta."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Proširite prozor za korištenje ove značajke.",
+      "suspended": "Ploča skrivena. Proširite prozor za nastavak."
+    },
+    "editMode": {
+      "enabled": "Način uređivanja omogućen",
+      "disabled": "Način uređivanja onemogućen"
+    },
+    "selectionMode": {
+      "enabled": "Način odabira omogućen",
+      "disabled": "Način odabira onemogućen"
+    },
+    "bookmark": {
+      "added": "Knjižna oznaka dodana",
+      "notFound": "Oznaka nije pronađena",
+      "updated": "Knjižna oznaka ažurirana",
+      "deleted": "Knjižna oznaka izbrisana"
+    },
+    "clock": {
+      "added": "Dodan sat",
+      "updated": "Sat ažuriran",
+      "deleted": "Sat izbrisan"
+    },
+    "folder": {
+      "created": "Mapa je stvorena",
+      "renamed": "Mapa je preimenovana",
+      "updated": "Mapa ažurirana",
+      "deleted": "Mapa i njezine oznake izbrisane",
+      "bookmarkAdded": "Oznaka dodana u mapu",
+      "folderFull": "Ova mapa već ima 18 knjižnih oznaka",
+      "bookmarkRemoved": "Oznaka je premještena natrag na mrežu"
+    },
+    "recycleBin": {
+      "moved": "Premješteno u koš za smeće",
+      "restored": "Predmeti obnovljeni",
+      "deletedPermanently": "Stavke trajno izbrisane",
+      "updated": "Koš za smeće ažuriran"
+    },
+    "workspace": {
+      "created": "Radni prostor stvoren",
+      "deleted": "Radni prostor izbrisan",
+      "switched": "Radni prostor: {{name}}"
+    },
+    "history": {
+      "undone": "Promjena poništena",
+      "redone": "Promjena ponovno napravljena"
+    },
+    "bookmarks": {
+      "deletedAll": "Sve oznake izbrisane",
+      "deletedAllWithFolders": "Izbrisane su sve oznake i mape",
+      "deleteAllError": "Brisanje svih oznaka nije uspjelo",
+      "exported": "Oznake su izvezene",
+      "exportError": "Izvoz oznaka nije uspio",
+      "imported": "Oznake su uvezene",
+      "importError": "Uvoz oznaka nije uspio",
+      "presetApplied": "Stil primijenjen na odabir",
+      "duplicatedSelected": "Odabrane stavke duplicirane",
+      "deletedSelected": "Odabrane stavke izbrisane",
+      "moved": "Stavke su premještene u odabrani radni prostor"
+    },
+    "settings": {
+      "saved": "Postavke su spremljene",
+      "bookmarkDefaultSaved": "Zadani izgled oznake spremljen",
+      "bookmarkDefaultError": "Nije moguće spremiti zadani izgled oznake",
+      "copied": "Vrijednost je kopirana u međuspremnik",
+      "resetBg": "Ponovno postavljanje teme",
+      "deletedAllData": "Izbrisani su svi lokalni NewDeskTab podaci",
+      "deleteAllDataError": "Nije moguće izbrisati sve lokalne podatke NewDeskTab",
+      "invalidWallpaperUrl": "Unesite važeći HTTP ili HTTPS URL slike/videozapisa.",
+      "invalidWallpaperFile": "Nije moguće dodati ovu datoteku. Upotrijebite podržanu sliku ili MP4, WebM ili Ogg video do 200 MB.",
+      "wallpaperLimit": "Možete dodati do 25 osobnih pozadina."
+    },
+    "localImage": {
+      "invalid": "Odaberite PNG, JPEG, WebP, GIF ili AVIF sliku.",
+      "tooLarge": "Ova je slika prevelika za pohranu na ovaj uređaj.",
+      "storageFull": "Nema dovoljno lokalnog prostora za ovu sliku.",
+      "processing": "Ovu sliku nije bilo moguće obraditi."
+    },
+    "sync": {
+      "enabled": "Sinkronizacija omogućena",
+      "localEnabled": "Lokalni način rada omogućen",
+      "remoteLoaded": "Sinkronizirani podaci učitani",
+      "updatedFromOtherDevice": "Sinkronizirane promjene primljene s drugog uređaja",
+      "deletedFromOtherDevice": "Podaci iz oblaka izbrisani su s drugog uređaja. Ovaj uređaj sada koristi lokalni način rada.",
+      "error": "Nije moguće promijeniti način pohrane",
+      "versionBlocked": "Sinkronizacija je pauzirana jer podaci u oblaku zahtijevaju noviju verziju NewDeskTab. Prikazuju se lokalni podaci ovog uređaja.",
+      "quotaError": "Podaci premašuju dostupnu pohranu za sinkronizaciju",
+      "deleted": "Sinkronizirani podaci izbrisani",
+      "deleteError": "Nije moguće izbrisati sinkronizirane podatke"
+    },
+    "backup": {
+      "exported": "Sigurnosna kopija je izvezena",
+      "exportError": "Nije moguće izvesti sigurnosnu kopiju",
+      "mediaUnavailable": "Neke navedene lokalne slike ili videozapisi nisu dostupni, stoga sigurnosna kopija nije izrađena.",
+      "imported": "Sigurnosna kopija vraćena",
+      "importError": "Nije moguće vratiti sigurnosnu kopiju",
+      "mediaStorageFull": "Nema dovoljno lokalne pohrane za vraćanje sigurnosne kopije slika i videozapisa."
+    }
+  },
+  "view": {
+    "list": "Prikaz popisa",
+    "search": "Pretraživanje oznaka i mapa",
+    "clearSearch": "Očisti pretragu",
+    "noResults": "Nema rezultata."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Izbrisati sve oznake?",
+      "deleteFolders": "Također izbrišite sve mape",
+      "confirmDeleteSelected": "Izbrisati {{count}} odabranih stavki?",
+      "confirmMoveOne": "Premjestiti ovu stavku u radni prostor “{{workspace}}”?",
+      "confirmMoveSelected": "Premjestiti {{count}} odabranih stavki u radni prostor “{{workspace}}”?",
+      "duplicateNoSpace": "{{count}} stavki nije bilo moguće duplicirati jer nije bilo dovoljno prostora.",
+      "moveNoSpace": "{{count}} stavki nije bilo moguće premjestiti jer nije bilo dovoljno prostora.",
+      "no_space": "Nema slobodnog prostora za više oznaka 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Odbaciti novu oznaku?"
+      },
+      "confirmDelete": "Izbrisati “{{name}}”?",
+      "confirmPermanentDelete": "Trajno izbrisati “{{name}}”? Ovo se ne može poništiti.",
+      "cancel": "Odbaciti promjene?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Trajno izbrisati ovaj widget? Ovo se ne može poništiti.",
+      "confirmDeleteSelected": "Izbrisati {{count}} odabranih stavki? Odabrani widgeti ({{widgetCount}}) bit će trajno izbrisani i ne mogu se vratiti."
+    },
+    "folder": {
+      "createCancel": "Odbaciti novu mapu?",
+      "cancel": "Odbaciti promjene mape?"
+    },
+    "recycleBin": {
+      "folder": "Premjestiti “{{name}}” i njegovih {{count}} oznaka u koš za smeće?",
+      "empty": "Trajno izbrisati sve u košu za smeće? Ovo se ne može poništiti.",
+      "deleteSelected": "Trajno izbrisati {{count}} odabranih stavki? Ovo se ne može poništiti.",
+      "noSpace": "{{count}} stavki nije bilo moguće vratiti jer nema dovoljno prostora u mreži. Ostaju u košu za smeće.",
+      "cancel": "Odbaciti promjene koša za smeće?"
+    },
+    "settings": {
+      "cancel": "Odbaciti promjene postavki?",
+      "reset": "Resetirati sve postavke? Knjižne oznake neće biti izbrisane.",
+      "deleteAllData": "Izbrisati sve lokalne NewDeskTab podatke s ovog uređaja? Oznake, mape, widgeti, postavke, stavke koša za smeće, lokalne slike i lokalni videozapisi bit će trajno izbrisani. Podaci u oblaku neće se mijenjati. Ako je sinkronizacija aktivna, ovaj će se uređaj prvo prebaciti na lokalno. Ova se radnja ne može poništiti.",
+      "theme": {
+        "reset": "Resetirati postavke teme?"
+      },
+      "bookmark": {
+        "cancel": "Odbaciti promjene zadanog izgleda oznake?"
+      },
+      "shortcuts": {
+        "reset": "Vratiti zadane tipkovničke prečace?"
+      },
+      "sync": {
+        "enable": "Prebaciti se s lokalnog na sinkronizirano? Ovo sada stupa na snagu, bez klika Spremi. Ako sinkronizirani podaci već postoje, učitat će se njihove oznake i postavke. U suprotnom će se vaši spremljeni lokalni podaci sinkronizirati.",
+        "local": "Prebaciti se sa sinkroniziranog na lokalno? Ovo sada stupa na snagu, bez klika Spremi. Ovaj uređaj će zadržati kopiju trenutnih podataka i zaustaviti sinkronizaciju promjena. Sinkronizirani podaci ostat će pohranjeni za druge uređaje.",
+        "delete": "Izbrisati sve sinkronizirane NewDeskTab podatke? Ovaj uređaj i svaki drugi uređaj koji koristi ove podatke u oblaku prebacit će se u lokalni način rada kada otkriju brisanje. Ovo se ne može poništiti."
+      }
+    },
+    "backup": {
+      "import": "Vratiti ovu sigurnosnu kopiju? Zamijenit će vaše trenutne oznake i postavke."
+    }
+  },
+  "addModal": {
+    "title": "Dodaj novu oznaku",
+    "name": "Ime:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Napredne opcije",
+    "compactView": "▴ Kompaktan pogled"
+  },
+  "clock": {
+    "name": "Sat",
+    "inDevelopment": "U razvoju: sat još nije u konačnoj verziji. Radimo na poboljšanju.",
+    "createTitle": "Dodajte sat",
+    "editTitle": "Postavke sata",
+    "description": "Pokažite svoje lokalno vrijeme na ovom radnom prostoru.",
+    "hourCycle": "Format vremena",
+    "hour24": "24 sata",
+    "hour12": "12 sati",
+    "showSeconds": "Prikaži sekunde",
+    "delete": "Izbriši",
+    "edit": "Uredi sat",
+    "actions": "Akcije sata",
+    "openSettings": "Otvorite postavke sata",
+    "confirmDelete": "Izbrisati ovaj sat? Možete poništiti ovu radnju.",
+    "confirmPermanentDelete": "Trajno izbrisati ovaj sat? Ovo se ne može poništiti.",
+    "cancel": "Odbaciti promjene sata?",
+    "noSpace": "Nema dovoljno prostora za rešetku za ovaj sat."
+  },
+  "buttons": {
+    "save": "spremiti",
+    "apply": "primijeniti",
+    "add": "Dodaj",
+    "accept": "Prihvati",
+    "cancel": "Odustani",
+    "close": "Zatvori"
+  },
+  "localImage": {
+    "upload": "Prijenos s ovog uređaja",
+    "label": "Lokalna slika:",
+    "activeSource": "Aktivna slika:",
+    "sourceLocal": "Lokalni",
+    "sourceUrl": "URL",
+    "remove": "Ukloni lokalnu sliku",
+    "notice": "Lokalne slike nisu sinkronizirane.",
+    "unnamed": "Lokalna slika"
+  },
+  "workspace": {
+    "ariaLabel": "Kontrole radnog prostora",
+    "current": "Radni prostor",
+    "main": "Glavni",
+    "search": "Pretraži oznake",
+    "add": "Stvorite radni prostor",
+    "delete": "Izbriši radni prostor",
+    "undo": "Poništi",
+    "redo": "Ponovi",
+    "shortcutHint": "Promijenite radni prostor pomoću Alt ili Option plus strelica gore ili dolje",
+    "prompt": "Unesite naziv za novi radni prostor",
+    "namePlaceholder": "Posao, slobodno vrijeme…",
+    "confirmDelete": "Izbrisati “{{name}}”, njegovih {{folderCount}} mapa i {{bookmarkCount}} oznaka? Da biste ih zadržali, prvo ih premjestite u glavni ili drugi radni prostor."
+  },
+  "search": {
+    "title": "Pretraži oznake",
+    "inputLabel": "Pretraživanje po imenu ili URL-u",
+    "placeholder": "Naziv ili URL",
+    "empty": "Nema pronađenih oznaka.",
+    "noUrl": "Nema URL-a",
+    "inFolder": "Mapa: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Radnje odabranih stavki",
+    "selected": "{{count}} odabrano",
+    "move": "Prijeđite na radni prostor",
+    "applyPreset": "Primijeni zadani stil",
+    "duplicate": "Dvostruki odabir",
+    "delete": "Izbriši",
+    "clear": "Očisti odabir"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Kontrole oznaka",
+    "edit": "Uredi oznaku",
+    "delete": "Izbriši oznaku",
+    "copySuffix": "kopija"
+  },
+  "folder": {
+    "create": "Stvori mapu",
+    "createPrompt": "Imenujte novu mapu",
+    "namePlaceholder": "Alati, inspiracija…",
+    "open": "Otvori {{name}}, {{count}} spremljenih oznaka",
+    "count": "{{count}} spremljeno",
+    "summary": "{{count}} od {{capacity}} iskorištenih mjesta",
+    "editMode": {
+      "enable": "Uredi",
+      "disable": "Završite uređivanje"
+    },
+    "gridLabel": "Oznake mape",
+    "dropHint": "Ispustite za dodavanje",
+    "noSpace": "Nema slobodnih ćelija rešetke za novu mapu.",
+    "removeNoSpace": "Nema dovoljno prostora u mreži za uklanjanje ove oznake iz mape.",
+    "confirmDelete": "Premjestiti “{{name}}” i njegovih {{count}} oznaka u koš za smeće?",
+    "confirmPermanentDelete": "Trajno izbrisati “{{name}}” i njegovih {{count}} knjižnih oznaka? Ovo se ne može poništiti.",
+    "actions": {
+      "ariaLabel": "Kontrole mapa",
+      "customize": "Prilagodite mapu",
+      "rename": "Preimenuj mapu",
+      "delete": "Izbriši mapu",
+      "editBookmark": "Uredi {{name}}",
+      "removeBookmark": "Premjesti {{name}} iz mape",
+      "deleteBookmark": "Izbriši {{name}}",
+      "acceptRename": "Spremi naziv mape",
+      "cancelRename": "Otkaži preimenovanje mape"
+    },
+    "editor": {
+      "createTitle": "Dodaj novu mapu",
+      "title": "Uredi mapu",
+      "name": "Ime:",
+      "showPreviews": "Prikaži preglede oznaka",
+      "showName": "Prikaži naziv mape",
+      "iconColor": "Boja simbola:",
+      "outerBackgroundColor": "Boja vanjske pozadine:",
+      "noOuterBackground": "Nema vanjske pozadine",
+      "resetOuterBackground": "Automatski",
+      "noBackground": "Prozirno punjenje mape",
+      "backgroundColor": "Boja mape:",
+      "backgroundImage": "Pozadinska slika (URL):",
+      "lockImage": "Zaključajte ili otključajte URL slike",
+      "copyImage": "Kopiraj URL slike",
+      "clearImage": "Obriši URL slike",
+      "textColor": "Boja teksta:",
+      "preview": "Pregled",
+      "previewName": "Mapa",
+      "sections": {
+        "general": "generalno",
+        "style": "Stil",
+        "text": "Tekst"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Koš za smeće",
+    "open": "Otvorite koš za smeće",
+    "openCount": "Otvoreni koš za smeće, {{count}} predmeta",
+    "dropHint": "Ispustite za brisanje",
+    "summary": "{{count}} stavki · Automatsko brisanje: {{retention}}",
+    "empty": "Koš za otpatke je prazan.",
+    "selected": "{{count}} odabrano",
+    "select": "Odaberite {{name}}",
+    "folderContents": "{{count}} knjižnih oznaka",
+    "deletedAt": "Izbrisano {{date}}",
+    "expiresIn": "Još {{days}} dana",
+    "expiresInOne": "još 1 dan",
+    "neverExpires": "Nikad se ne briše automatski",
+    "restoreAll": "Vrati sve",
+    "deleteAll": "Izbriši sve",
+    "restoreSelected": "Vrati odabrano",
+    "deleteSelected": "Izbriši odabrano",
+    "editor": {
+      "title": "Uredi koš za smeće",
+      "animateIcon": "Animirajte koš za smeće",
+      "appearance": "Izgled",
+      "backgroundColor": "Boja pozadine:",
+      "backgroundImage": "Pozadinska slika (URL):",
+      "lockImage": "Zaključajte ili otključajte URL slike",
+      "copyImage": "Kopiraj URL slike",
+      "clearImage": "Obriši URL slike",
+      "noBackground": "Bez pozadine",
+      "iconColor": "Boja ikone:",
+      "textColor": "Boja teksta:",
+      "elements": "Vidljivi elementi",
+      "showName": "Prikaži naziv",
+      "visible": "Prikaži koš za smeće na glavnoj mreži",
+      "preview": "Pregled",
+      "actions": "Akcije koša za smeće",
+      "edit": "Uredi koš za smeće",
+      "sections": {
+        "general": "generalno",
+        "style": "Stil",
+        "text": "Tekst",
+        "icon": "Ikona"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Unesite naziv za spremanje unaprijed postavljene postavke."
+    },
+    "name": {
+      "required": "Unesite naziv oznake."
+    },
+    "folderName": {
+      "required": "Unesite naziv za mapu."
+    },
+    "url": {
+      "invalid": "URL nije valjan.",
+      "unsupportedProtocol": "Ova vrsta URL-a nije dopuštena."
+    },
+    "backgroundImageUrl": {
+      "invalid": "URL slike nije valjan.",
+      "unsupportedProtocol": "Ova vrsta slike nije dopuštena."
+    }
+  },
+  "editModal": {
+    "title": "Uredi oznaku",
+    "name": "Ime:",
+    "url": "URL:",
+    "backgroundImage": "Pozadinska slika (URL):",
+    "backgroundFavicon": "Velika, centrirana ikona",
+    "invertColorBg": "Invertirajte boje",
+    "noBackground": "Bez pozadine",
+    "backgroundColor": "Boja oznake:",
+    "showText": "Prikaži tekst",
+    "textColor": "Boja teksta:",
+    "showFavicon": "Prikaži ikonu",
+    "invertColorIcon": "Invertiraj boje ikona",
+    "iconColor": "Boja ikone:",
+    "sections": {
+      "general": "generalno",
+      "style": "Stil",
+      "text": "Tekst",
+      "icon": "Ikona"
+    },
+    "preview": "Pregled",
+    "previewName": "Pregled"
+  },
+  "colorPicker": {
+    "title": "Birač boja",
+    "sample": "Odaberite boju sa zaslona",
+    "close": "Zatvori birač boja",
+    "saturationBrightness": "Zasićenost i svjetlina",
+    "hue": "Nijansa",
+    "quickColors": "Brze boje",
+    "saturation": "Zasićenost",
+    "brightness": "Svjetlina",
+    "hex": "Heksadecimalni kod",
+    "copy": "Kopiraj heksadecimalni kod",
+    "copied": "Heksadecimalni kod kopiran",
+    "copyFailed": "Nije moguće kopirati heksadecimalni kod"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "generalno",
+      "sync": "Sinkronizacija",
+      "theme": "Tema",
+      "bookmark": "Knjižne oznake",
+      "shortcuts": "Prečaci",
+      "language": "jezici",
+      "help": "pomoć",
+      "information": "Informacije"
+    },
+    "general": {
+      "title": "generalno",
+      "subtitle": "postavke",
+      "export": "Izvoz sigurnosne kopije",
+      "import": "Vrati sigurnosnu kopiju",
+      "resetSettings": "Resetiraj postavke",
+      "deleteAllData": "Izbrišite sve lokalne podatke",
+      "recycleBin": {
+        "title": "koš za smeće",
+        "show": "Pokažite koš za smeće na glavnoj mreži",
+        "retentionLabel": "Automatsko brisanje stavki:",
+        "retentionOptions": {
+          "oneDay": "1 dan",
+          "sevenDays": "7 dana",
+          "fourteenDays": "14 dana",
+          "twentyEightDays": "28 dana",
+          "never": "nikada"
+        }
+      },
+      "appearance": {
+        "title": "Izgled",
+        "system": "preglednik",
+        "light": "svjetlo",
+        "dark": "tamno"
+      }
+    },
+    "sync": {
+      "title": "Sinkronizacija",
+      "description": "Odaberite gdje želite pohraniti svoje postavke i oznake.",
+      "ariaLabel": "Način pohrane",
+      "local": {
+        "title": "Samo ovaj uređaj",
+        "description": "Podaci se pohranjuju samo u ovom profilu lokalnog preglednika."
+      },
+      "synced": {
+        "title": "Sinkronizirano",
+        "description": "Dostupno u Google Chrome profila povezanih s istim računom.",
+        "tooltip": "Informacije o sinkronizaciji"
+      },
+      "compatibility": {
+        "newerVersion": "Sinkronizacija je zaključana na ovom uređaju jer je podatke u oblaku izradila novija verzija NewDeskTab. Vaši sinkronizirani podaci sigurni su i nisu mijenjani. Ažurirajte NewDeskTab za ponovno povezivanje."
+      },
+      "usage": {
+        "title": "Dostupnost pohrane",
+        "showExact": "Prikaži točne bajtove",
+        "showHuman": "Prikaži čitljive veličine",
+        "local": "Lokalni",
+        "sync": "Sinkronizirano",
+        "localSyncCopy": "Kopija lokalne sinkronizacije",
+        "localAria": "Korištenje lokalne pohrane",
+        "syncAria": "Sinkronizirana upotreba pohrane",
+        "loading": "Izračunavanje...",
+        "summary": "{{used}} od {{total}} · {{percent}}%",
+        "available": "{{free}} dostupno",
+        "system": "Sustav i metapodaci",
+        "bookmarks": "Knjižne oznake",
+        "folders": "mape",
+        "trash": "Podaci o košu za smeće",
+        "localImages": "Lokalne slike",
+        "themeImages": "Tema",
+        "bookmarkImages": "Knjižne oznake",
+        "folderImages": "mape",
+        "trashImages": "koš za smeće",
+        "otherImages": "ostalo",
+        "widgets": "Widgeti",
+        "widgetsHint": "Veličina prikazana za Sinkronizaciju je procjena i isključuje sadržaj uživo dohvaćen s vanjskih usluga.",
+        "error": "Upotreba nedostupna"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome sinkronizira New DeskTab putem vašeg Google računa. New DeskTab ne pokreće vlastiti poslužitelj za sinkronizaciju.",
+        "brave": "Nije dostupno u Braveu: može pohraniti New DeskTab podataka u chrome.storage.sync, ali ih trenutno ne prenosi između uređaja.",
+        "unsupported": "Sinkronizirana pohrana za sada je dostupna samo u Google Chrome. Ostali preglednici ostaju onemogućeni dok se ne potvrdi podrška za više uređaja."
+      },
+      "existingNotice": "Prihvaćanje prebacivanja na Sinkronizirano učitava sve sinkronizirane podatke koji već postoje.",
+      "deleteData": "Izbriši sinkronizirane podatke",
+      "metadata": {
+        "loading": "Provjera sinkroniziranih podataka…",
+        "updatedAt": "Zadnje sinkronizirano ažuriranje: {{date}}",
+        "unknown": "Sinkronizirani podaci postoje, ali vrijeme njihovog ažuriranja nije dostupno.",
+        "empty": "Nema pohranjenih sinkroniziranih New DeskTab podataka.",
+        "error": "Podaci o sinkroniziranim podacima nisu se mogli učitati."
+      },
+      "status": {
+        "idle": "Podaci su spremni.",
+        "saving": "Spremanje promjena…",
+        "saved": "Sve promjene su spremljene.",
+        "error": "Nije moguće spremiti najnovije promjene."
+      }
+    },
+    "theme": {
+      "title": "Tema",
+      "subtitle": "Pozadina stranice",
+      "backgroundImageMode": "Slika/video",
+      "wallpapersTitle": "Moje vlastite pozadine",
+      "ownWallpapersHint": "Ove pozadine i njihova rotacija pohranjuju se samo na ovom uređaju.",
+      "mediaUrl": "URL pozadine",
+      "image": "Slika",
+      "video": "Video",
+      "addUrl": "Dodajte URL",
+      "addFiles": "Dodajte lokalne datoteke",
+      "rotationInterval": "Rotacija pozadine",
+      "noRotation": "Ne mijenjajte automatski",
+      "interval5": "5 sekundi",
+      "interval15": "15 sekundi",
+      "interval30": "30 sekundi",
+      "interval60": "1 minuta",
+      "interval300": "5 minuta",
+      "interval600": "10 minuta",
+      "interval1800": "30 minuta",
+      "previous": "Prethodno",
+      "next": "Dalje",
+      "moveUp": "Pomakni se gore",
+      "moveDown": "Pomakni se dolje",
+      "remove": "Ukloniti",
+      "unavailableLocal": "Lokalna datoteka nije dostupna na ovom uređaju",
+      "mediaColor": "Boja iza ove tapete",
+      "mediaPreview": "Pregled pozadine",
+      "activeSource": "Aktivni izvor",
+      "backgroundSolid": "Jednobojna",
+      "backgroundColor": "boja:",
+      "editSolidColor": "Promijenite čvrstu boju pozadine",
+      "changeSolidColor": "Promjena boje",
+      "backgroundImageColor": "Boja iza slike/video zapisa",
+      "backgroundImage": "URL koji se dijeli između uređaja",
+      "urlHidden": "URL skriven",
+      "resetBackground": "Resetiraj temu"
+    },
+    "bookmark": {
+      "title": "Knjižne oznake",
+      "subtitle": "Zadana knjižna oznaka",
+      "description": "Odaberite izgled koji će se koristiti prilikom stvaranja novih oznaka.",
+      "configure": "Konfigurirajte zadanu oznaku",
+      "editorTitle": "Zadani izgled oznake",
+      "previewName": "Zadana knjižna oznaka",
+      "export": "Izvoz oznaka",
+      "import": "Uvoz oznaka",
+      "deleteAll": "Izbriši sve oznake",
+      "preview": "Pregled",
+      "drag": {
+        "title": "Drag ponašanje",
+        "description": "Odaberite kako će se oznake reorganizirati kada zauzmete njihov položaj.",
+        "none": {
+          "title": "Nijedan",
+          "description": "Dopušta pomicanje samo u slobodne ćelije."
+        },
+        "cascade": {
+          "title": "Slijed",
+          "description": "Pomiče lanac dok ne pronađe slobodnu ćeliju.",
+          "experimental": "Eksperimentalno · Može sadržavati manje pogreške."
+        },
+        "relocate": {
+          "title": "preseljenje",
+          "description": "Premješta oznake koje zauzimaju odredište."
+        }
+      },
+      "resize": {
+        "title": "Promjena veličine ponašanja",
+        "description": "Odaberite kako će stavke reagirati dok pomičete ručicu za promjenu veličine.",
+        "smooth": {
+          "title": "Glatka",
+          "description": "Rasteže stavku tijekom povlačenja, a zatim prianja na mrežu."
+        },
+        "none": {
+          "title": "Nijedan",
+          "description": "Skače po ćeliji kada prijeđete 50% susjedne ćelije."
+        }
+      },
+      "presets": {
+        "title": "Knjižnica stilova",
+        "tab": "Knjižnica",
+        "description": "Spremite stilove i ponovno ih upotrijebite prilikom postavljanja zadane oznake.",
+        "name": "Unaprijed postavljeni naziv",
+        "saved": "Spremljene unaprijed postavljene postavke",
+        "save": "Spremi unaprijed postavljeno",
+        "apply": "Opterećenje",
+        "delete": "Izbriši",
+        "empty": "Nema spremljenih unaprijed postavljenih postavki"
+      }
+    },
+    "shortcuts": {
+      "title": "Tipkovnički prečaci",
+      "description": "Odaberite gumb prečaca, zatim pritisnite slovo ili kombinaciju tipki. Desnom tipkom miša poništite dodjelu.",
+      "change": "Promijenite prečac {{action}}. Trenutačni prečac: {{shortcut}}.",
+      "press": "Pritisnite prečicu…",
+      "unassigned": "Nedodijeljeno",
+      "unassignedFlash": "Prečac nedodijeljen.",
+      "modifierRequired": "Koristite samo slovo ili kombinaciju tipki s modifikatorom.",
+      "reserved": "Ovaj prečac rezerviran je za preglednik ili operativni sustav. Odaberite drugu kombinaciju.",
+      "conflict": "Ova tipka je već dodijeljena drugoj radnji.",
+      "updated": "Prečac ažuriran.",
+      "cancelled": "Promjena prečaca otkazana.",
+      "restored": "Zadani prečaci vraćeni.",
+      "reset": "Poništi prečace",
+      "actions": {
+        "toggleEditing": {
+          "title": "Način uređivanja",
+          "description": "Unesite ili napustite uređivanje na glavnoj mreži ili u otvorenoj mapi."
+        },
+        "addBookmark": {
+          "title": "Stvori knjižnu oznaku",
+          "description": "Otvorite obrazac za dodavanje oznake."
+        },
+        "addFolder": {
+          "title": "Stvori mapu",
+          "description": "Otvorite dijaloški okvir za stvaranje mape."
+        },
+        "openWidgets": {
+          "title": "Otvaranje widgeta",
+          "description": "Otvorite popis dostupnih widgeta."
+        },
+        "openSettings": {
+          "title": "Otvori postavke",
+          "description": "Otvorite ploču postavki New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "jezici",
+      "text": "Odaberite jezik sučelja:",
+      "system": "preglednik",
+      "search": "Pretražite jezik ili zemlju",
+      "empty": "Nema pronađenih jezika"
+    },
+    "information": {
+      "title": "Informacije",
+      "version": "Verzija: {{VERSION}}",
+      "author": "Autor:"
+    }
+  }
+}

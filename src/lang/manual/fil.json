@@ -1,0 +1,517 @@
+{
+  "title": "User manual",
+  "eyebrow": "ANG IYONG LUWAS, ANG IYONG BILIS",
+  "intro": "Kilalanin ang bawat maliit na tampok.",
+  "description": "Hanapin ang kailangan mo o tumuklas ng bago. Maglaan ng oras.",
+  "settingsDescription": "Bawat feature, na may mga simpleng hakbang at maliliit na trick na susubukan kahit kailan mo gusto.",
+  "search": {
+    "label": "Ano ang maitutulong namin sa iyo?",
+    "placeholder": "Halimbawa: mabawi ang isang tinanggal na bookmark",
+    "common": "Mga karaniwang tanong",
+    "found": "Mga sagot para sa iyong paghahanap · {{count}}",
+    "empty": "Walang nakitang tulong para sa paghahanap na iyon. Subukan ang \"keyboard\", \"ilipat ang mga bookmark\" o \"backup\".",
+    "resultsLabel": "Mga manu-manong tanong at sagot"
+  },
+  "open": "I-explore ang manual",
+  "searchLabel": "Hanapin ang manual",
+  "searchPlaceholder": "Subukan ang \"keyboard\", \"wallpaper\" o \"backup\"",
+  "count": "{{count}} mga seksyon upang galugarin",
+  "empty": "Walang tugma. Subukan ang isa pang salita o i-clear ang paghahanap upang makita ang buong index.",
+  "back": "← Manu-manong index",
+  "remember": "Magandang tandaan",
+  "related": "Patuloy na tumuklas",
+  "footer": "Palaging available sa Mga Setting → Tulong.",
+  "guideLinks": "Matuto pa sa manual",
+  "groups": {
+    "start": "Magsimula dito",
+    "organize": "Umayos ka",
+    "personalize": "Gawin itong sa iyo",
+    "protect": "Alagaan ang iyong espasyo"
+  },
+  "demo": {
+    "browse": "Mag-browse ng mga seksyon",
+    "previous": "← Nakaraang seksyon",
+    "next": "Susunod na seksyon →",
+    "title": "Tingnan ito sa aksyon",
+    "example": "Halimbawa ng demonstrasyon",
+    "steps": "Mga hakbang sa pagpapakita",
+    "step": "Hakbang {{step}} ng {{count}}",
+    "play": "Maglaro",
+    "pause": "I-pause",
+    "replay": "I-replay",
+    "progress": "Pag-unlad ng demonstrasyon",
+    "mode": "Pag-uugali",
+    "nextStep": "Susunod na hakbang",
+    "reducedMotion": "Pinababang paggalaw: galugarin ang mga hakbang nang walang animation.",
+    "labels": {
+      "settings": "Mga setting",
+      "saved": "Nai-save ang mga pagbabago",
+      "page": "Pahina",
+      "selection": "Pagpili",
+      "selected": "mga bagay na napili",
+      "color": "Kulay",
+      "styleName": "Ang purple style ko",
+      "wallpaper": "Mga Wallpaper",
+      "rotation": "Pag-ikot",
+      "format": "Format",
+      "seconds": "Mga segundo",
+      "language": "Wika",
+      "system": "Sistema",
+      "currentLanguage": "Filipino",
+      "restore": "Ibalik",
+      "copy": "Backup",
+      "restoreCopy": "Suriin bago ibalik",
+      "switchSync": "Lumipat sa Naka-sync?",
+      "applyNow": "Nalalapat kapag nakumpirma",
+      "status": "Katayuan",
+      "synchronized": "Naka-sync",
+      "retry": "Nakabinbin ang pag-save · Subukang muli",
+      "keyboardQuery": "keyboard",
+      "deleteExample": "Ang mga bookmark at folder ay tatanggalin. Ang recycle bin ay walang laman."
+    },
+    "topics": {
+      "bookmarks": [
+        "Buksan ang kaliwang menu at piliin ang + → Bookmark.",
+        "Ilagay ang pangalan at address ng page.",
+        "Kumpirmahin: lumilitaw ang bookmark sa isang libreng cell."
+      ],
+      "quick-save": [
+        "Buksan ang New DeskTab mula sa icon ng extension nito.",
+        "Suriin ang iminungkahing pangalan, address at destinasyon.",
+        "I-save: ang bookmark ay nasa iyong workspace kapag nagbukas ka ng tab."
+      ],
+      "keyboard": [
+        "Pindutin ang Tab upang ituon ang unang item.",
+        "Ang mga arrow key ay naglilipat ng focus. Binubuksan ng Enter ang nakatutok na item.",
+        "Tinatapos ng Esc o isa pang Tab ang nabigasyon."
+      ],
+      "shortcuts": [
+        "Buksan ang Mga Setting → Mga keyboard shortcut.",
+        "I-click ang shortcut ng isang aksyon at i-type ang iyong kumbinasyon.",
+        "I-save para ilapat ang bagong shortcut."
+      ],
+      "search": [
+        "Ang toolbar magnifier o / ay nagbubukas ng paghahanap.",
+        "I-type ang bahagi ng pangalan o address.",
+        "Buksan ang resulta. Ang Esc o Isara ay babalik sa iyong workspace."
+      ],
+      "editing": [
+        "Ang lapis ng menu ay nagpapakita ng grid at mga kontrol.",
+        "Binubuksan ng lapis ng Gmail ang pangalan nito at editor ng URL.",
+        "I-save ang pagbabago at i-click muli ang lapis ng menu upang matapos."
+      ],
+      "movement": [
+        "Paganahin ang pag-edit at hawakan ang tile.",
+        "Ang cursor at tile ay gumagalaw nang magkasama sa isang libreng cell.",
+        "Paglabas: ang huling posisyon ay nai-save."
+      ],
+      "resizing": [
+        "Paganahin ang pag-edit at hanapin ang hawakan ng sulok.",
+        "I-drag ang pahilis upang baguhin ang lapad at taas.",
+        "Bitawan sa 2 × 2. Ihambing ang Wala at Makinis gamit ang selector."
+      ],
+      "drag-modes": [
+        "Gamitin ang selector upang ihambing ang tatlong drag mode.",
+        "I-drag patungo sa isang okupado na cell at panoorin ang iba pang mga tile.",
+        "Walang gumagamit ng libreng cell; Relokasyon at Pagkakasunod-sunod muling ayusin ang mga tile."
+      ],
+      "folders": [
+        "Pangalanan ang isang folder upang igrupo ang iyong mga pahina.",
+        "Habang nag-e-edit, mag-drag ng bookmark papunta dito.",
+        "Buksan ang folder upang mahanap ang bookmark sa grid nito."
+      ],
+      "workspaces": [
+        "Gumagawa ang toolbar + ng workspace gamit ang iyong napiling pangalan.",
+        "Ang bagong workspace ay may sariling grid.",
+        "Alt + ↑ at Alt + ↓ cycle sa iyong mga workspace."
+      ],
+      "selection": [
+        "Paganahin ang pag-edit at pumili ng tile na may maikling pag-click.",
+        "Pumili ng isa pa: nag-aalok ang toolbar ng mga pagkilos ng pangkat.",
+        "Gumagawa ang Clone ng mga kopya sa mga libreng cell sa isang aksyon."
+      ],
+      "history": [
+        "Maglipat ng tile: ang pagbabagong iyon ay pumapasok sa kasaysayan.",
+        "Ibinabalik ng I-undo ang tile sa dati nitong posisyon.",
+        "Ire-restore ng Gawin muli ang kakaalis mo lang."
+      ],
+      "appearance": [
+        "Binubuksan ng lapis ng tile ang editor nito.",
+        "Baguhin ang kulay at panoorin ang preview.",
+        "I-save upang ilapat ang hitsura na iyon sa tile."
+      ],
+      "presets": [
+        "Buksan ang library mula sa Mga Setting → Mga Bookmark.",
+        "Pangalanan at i-save ang isang istilo upang muling magamit ito.",
+        "I-load ito bilang default at i-save para sa mga bagong bookmark."
+      ],
+      "wallpapers": [
+        "Buksan ang Mga Setting → Tema para pumili ng wallpaper.",
+        "Suriin ang preview at agwat ng pag-ikot ng library.",
+        "I-save: lalabas ang napiling wallpaper sa iyong workspace."
+      ],
+      "clock": [
+        "Piliin ang + → Mga Widget → Orasan sa kaliwang menu.",
+        "I-configure ang format at mga segundo gamit ang preview.",
+        "Idagdag ang orasan sa isang libreng workspace cell."
+      ],
+      "interface": [
+        "Buksan ang Pangkalahatan at piliin ang wika ng menu.",
+        "Ihambing ang liwanag at madilim na interface.",
+        "I-save ang iyong mga kagustuhan sa wika at hitsura."
+      ],
+      "trash": [
+        "Buksan ang recycle bin para maghanap ng tinanggal na bookmark.",
+        "Piliin ito at i-click ang Ibalik: babalik ito sa grid.",
+        "Sa pangkalahatan, piliin kung gaano katagal itatago ang mga tinanggal na item."
+      ],
+      "backup": [
+        "Hanapin ang mga backup na opsyon sa Mga Setting → Pangkalahatan.",
+        "Ang pag-export ay nagda-download ng ZIP na may data at mga lokal na file.",
+        "Humihingi ng kumpirmasyon ang import bago palitan ang data."
+      ],
+      "sync": [
+        "Buksan ang Mga Setting → Pag-synchronize upang suriin ang kasalukuyang mode.",
+        "Piliin ang Naka-sync at suriin ang kumpirmasyon.",
+        "Ilapat agad ang mode na Tanggapin, nang hindi na-click ang I-save."
+      ],
+      "compact": [
+        "Habang lumiliit ang window, nagiging isang listahan ang grid.",
+        "Ang mga bookmark ay nananatiling naa-access mula sa listahan.",
+        "Palawakin ang window upang bumalik sa grid at pag-edit."
+      ],
+      "data": [
+        "Ang halimbawa ay gumagamit ng isa pang wika, isang magaan na interface at naka-customize na mga tile.",
+        "Ibinabalik ng pag-reset ang mga default na setting habang pinapanatili ang mga bookmark at ang kanilang mga istilo.",
+        "Tinatanggal ng Tanggalin ang mga bookmark at folder, na nag-iiwan lamang ng walang laman na recycle bin."
+      ],
+      "learning": [
+        "Iniimbitahan ka ng pang-araw-araw na tip na tumuklas ng isang feature. I-click ang Ipakita sa akin kung paano.",
+        "I-type ang \"keyboard\" sa box para sa paghahanap upang mahanap ang Mag-navigate gamit ang keyboardoard.",
+        "I-click ang resulta upang basahin ang mga tagubilin nito."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "Munting TIP PARA NGAYON",
+    "dismiss": "I-dismiss ang tip ngayong araw",
+    "read": "Ipakita mo sa akin kung paano",
+    "pace": "Mag-hover para i-pause.",
+    "enabled": "Pang-araw-araw na mga tip",
+    "description": "Isang tip kapag binuksan mo ang iyong unang tab ng araw."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Paano ako magdagdag ng pahina sa aking mga bookmark?",
+      "searchTerms": "magdagdag ng pahina; lumikha ng bookmark; i-save ang website; bagong paborito",
+      "title": "Magdagdag ng mga bookmark",
+      "summary": "Ang iyong mga paboritong pahina sa kamay sa bawat bagong tab.",
+      "steps": [
+        "Lumipat sa kaliwang gilid upang ipakita ang menu. Piliin ang + → Bookmark.",
+        "Ilagay ang pangalan at address ng page. Maaari mong ayusin ang hitsura nito bago ito idagdag.",
+        "Kumpirmahin na ilagay ang bookmark sa isang libreng slot sa kasalukuyang workspace. Sa labas ng edit mode, i-click ito para buksan ang page."
+      ],
+      "note": "Upang baguhin ang isang umiiral nang bookmark, i-on ang pag-edit at gamitin ang lapis nito. Maaari mong i-lock ang address upang maiwasan ang mga hindi sinasadyang pagbabago.",
+      "tip": "Ang menu para sa pagdaragdag ng mga bookmark ay nasa kaliwang gilid. Ilipat ang iyong cursor doon at piliin ang + → Bookmark."
+    },
+    "quick-save": {
+      "question": "Paano ko ise-save ang page na binibisita ko?",
+      "searchTerms": "i-save ang kasalukuyang pahina; i-save ang bukas na tab; icon ng extension; kumuha ng URL",
+      "title": "I-save ang kasalukuyang pahina",
+      "summary": "Magdagdag ng pahina mula sa icon ng extension.",
+      "steps": [
+        "Habang bumibisita sa isang page, buksan ang New DeskTab mula sa menu ng mga extension ng browser.",
+        "Suriin ang iminungkahing pangalan at address, at pumili ng available na destinasyon.",
+        "I-save ang bookmark at magbukas ng bagong tab upang mahanap ito sa iyong espasyo."
+      ],
+      "note": "I-pin ang icon ng extension sa toolbar ng iyong browser upang panatilihing abot-kamay ang shortcut na ito.",
+      "tip": "Hindi na kailangang kopyahin ang URL: Hinahayaan ka ng icon ng browser ng New DeskTab na i-save ang page na binibisita mo."
+    },
+    "keyboard": {
+      "question": "Paano ako mag-navigate nang walang mouse?",
+      "searchTerms": "walang mouse; gumamit ng keyboard; arrow nabigasyon; ipasok ang tab",
+      "title": "Mag-navigate gamit ang keyboard",
+      "summary": "Tab, mga arrow key at Enter upang galugarin ang iyong espasyo.",
+      "steps": [
+        "Sa pangunahing pahina, nang hindi nagta-type sa isang field o nagbubukas ng dialog, pindutin ang Tab upang simulan ang pag-navigate sa mga item.",
+        "Gamitin ang mga arrow key upang maabot ang pinakamalapit na item sa bawat direksyon. Binubuksan ng Enter ang bookmark o folder; sa edit mode, binubuksan nito ang editor nito.",
+        "Pindutin muli ang Tab o Esc para umalis sa navigation. Sa loob ng mga dialog, ang Tab at Shift + Tab ay normal na gumagalaw sa pagitan ng mga kontrol."
+      ],
+      "note": "Sa edit mode, pinipili ng S ang nakatutok na item. I-delete o i-backspace ito pagkatapos ng kumpirmasyon. Permanenteng tinatanggal ang mga widget.",
+      "tip": "Subukan ang Tab sa iyong espasyo: gumagalaw ang mga arrow sa pagitan ng mga item at bubuksan sila ng Enter. Ang isa pang Tab ay umalis sa mode na ito."
+    },
+    "shortcuts": {
+      "question": "Paano ko babaguhin ang aking mga keyboard shortcut?",
+      "searchTerms": "baguhin ang mga shortcut; i-customize ang mga susi; mga kumbinasyon ng susi; hotkey",
+      "title": "Gumawa ng sarili mong mga shortcut",
+      "summary": "Suriin at baguhin ang iyong mga shortcut sa Mga Setting.",
+      "steps": [
+        "Buksan ang Mga Setting → Mga Shortcut upang makita ang iyong mga binding para sa pag-edit, pagdaragdag ng mga bookmark, folder at widget, at pagbubukas ng mga setting.",
+        "I-click ang kumbinasyon ng key ng isang aksyon at pindutin ang isang bagong shortcut. Kinansela ng Esc ang pag-record; Ang pag-click sa kanan ay umalis sa pagkilos na hindi nakatalaga.",
+        "I-save ang mga setting para ilapat ang iyong mga pagbabago. Ang pag-reset ng mga shortcut ay nagpapanumbalik ng mga orihinal na kumbinasyon."
+      ],
+      "note": "Sa una: E-edit, B nagdaragdag ng bookmark, F isang folder, W nagbubukas ng mga widget at S nagbubukas ng mga setting. Iginagalang ng mga shortcut ang mga text field at dialog.",
+      "tip": "Maaari mong baguhin ang mga shortcut sa Mga Setting. Mag-click ng kumbinasyon upang i-record ang iyong sarili; Kinakansela ng Esc at inaalis ito ng right-click sa pagkakatalaga."
+    },
+    "search": {
+      "question": "Paano ako makakahanap ng bookmark na hindi ko makita?",
+      "searchTerms": "maghanap ng bookmark; hanapin ang pahina; nawawalang bookmark; URL ng paghahanap",
+      "title": "Maghanap ng bookmark",
+      "summary": "Maghanap ayon sa pangalan o address, kabilang ang mga folder sa loob.",
+      "steps": [
+        "Pindutin ang / kapag hindi ka nagta-type, o gamitin ang magnifying glass sa workspace bar.",
+        "Mag-type ng bahagi ng isang pangalan o address. Kasama sa paghahanap ang mga bookmark sa iba pang mga workspace at sa loob ng mga folder.",
+        "Buksan ang resulta na kailangan mo. Ibabalik ka ng Esc o Isara sa iyong space."
+      ],
+      "note": "Hindi mo kailangang tandaan kung saan mo na-save ang isang page para mahanap ito.",
+      "tip": "Ang / key ay nagbubukas ng paghahanap. Nakahanap din ito ng mga bookmark sa loob ng mga folder at sa iba pang mga workspace."
+    },
+    "editing": {
+      "question": "Paano ko i-on ang pag-edit?",
+      "searchTerms": "paganahin ang pag-edit; i-edit ang desktop; editor ng lapis; baguhin ang bookmark",
+      "title": "I-edit ang mode",
+      "summary": "I-on ang lapis para ayusin at i-customize.",
+      "steps": [
+        "I-click ang lapis sa kaliwang menu, o gamitin ang iyong shortcut sa pag-edit, upang ipakita ang grid at mga kontrol ng item.",
+        "Ilipat, palitan ang laki o pumili ng mga item. Binubuksan ng lapis ng bawat card ang pangalan, address at editor ng hitsura nito.",
+        "I-click muli ang lapis kapag tapos ka na. Awtomatikong nai-save ang mga pagbabago sa workspace; ang mga editor ay may sariling I-save button."
+      ],
+      "note": "Inalis muna ng Esc ang pagpili o pag-navigate sa keyboard. Kapag walang aktibo, maaari itong umalis sa edit mode.",
+      "tip": "Nagsisimulang mag-edit ang lapis ng menu: lalabas ang mga hawakan at kontrol ng card. I-click itong muli upang matapos."
+    },
+    "movement": {
+      "question": "Paano ko ililipat ang isang bookmark?",
+      "searchTerms": "ilipat ang bookmark; i-drag ang paborito; baguhin ang posisyon; ayusin ang grid",
+      "title": "Ilipat ang mga item",
+      "summary": "I-drag ang mga card sa lugar sa grid.",
+      "steps": [
+        "I-on ang edit mode at hawakan ang card na gusto mong ilipat.",
+        "I-drag ito sa destinasyon nito. Ang resulta ay depende sa libreng espasyo at ang drag mode na pinili sa Mga Setting → Mga Bookmark.",
+        "Bitawan upang i-save ang posisyon nito. Maaari ka ring pumili ng isang item na may isang pag-click at ilipat ito sa isang cell na may mga arrow, sa labas ng Tab navigation."
+      ],
+      "note": "Ang mga naka-block na destinasyon ay nagpapakita ng visual na feedback at ang item ay bumalik sa isang wastong posisyon. Maaari mong i-undo ang mga pagbabago.",
+      "tip": "Sa edit mode, i-click upang pumili ng isang card at gumamit ng mga arrow para ilipat ito sa bawat cell. Iwanan muna ang Tab navigation."
+    },
+    "resizing": {
+      "question": "Paano ko babaguhin ang laki ng isang tile?",
+      "searchTerms": "palitan ang laki ng tile; palakihin ang bookmark; bawasan ang laki; baguhin ang laki ng mga hawakan; i-click; Paglipat; lapad taas; 2x2",
+      "title": "Baguhin ang laki",
+      "summary": "Gamitin ang mga gilid at sulok ng isang card.",
+      "steps": [
+        "I-on ang pag-edit at lumipat sa gilid o sulok ng isang item para gamitin ang mga handle nito sa pagbabago ng laki.",
+        "I-drag ang hawakan. Ang isang sulok ay nagbabago sa lapad at taas; ang isang panig ay nagbabago lamang ng isang dimensyon. Maaari ka ring mag-click sa isang handle upang lumaki ng isang cell, o Shift + click upang paliitin ng isang cell.",
+        "Sa Mga Setting → Mga Bookmark, piliin ang Wala upang tumalon sa pagitan ng mga cell pagkatapos tumawid ng 50%, o Makinis upang i-stretch ang card at i-snap sa paglabas."
+      ],
+      "note": "Ang panghuling sukat ay nirerespeto ang grid at mga wastong posisyon. Ipinapakita ng mga preview ng mga setting ang pagkakaiba bago ka pumili.",
+      "tip": "Mag-click sa isang handle para lumaki ng isang cell o Shift + click para lumiit ng isang cell. Ang mga sulok ay nagbabago ng lapad at taas nang magkasama; ang mga panig ay nagbabago lamang ng isang dimensyon."
+    },
+    "drag-modes": {
+      "question": "Bakit hindi ako maaaring mahulog sa isang okupado na cell?",
+      "searchTerms": "inookupahang cell; lumipat sa iba; naka-block na drop; ilipat ang kaskad; kaladkarin banggaan",
+      "title": "I-drag ang mga mode",
+      "summary": "Piliin kung ano ang mangyayari sa isang okupado na posisyon ng bookmark.",
+      "steps": [
+        "Buksan ang Mga Setting → Mga Bookmark at palawakin ang gawi sa pag-drag.",
+        "Walang gumagalaw sa mga libreng puwang. Nakahanap ng posisyon ang relocation para sa mga bookmark sa destinasyon. Inaayos muli ng Pagkakasunod-sunod ang mga bookmark sa pagkakasunud-sunod.",
+        "Panoorin ang animation ng bawat opsyon at i-save ang mode na kumportable sa pag-aayos."
+      ],
+      "note": "Ang isang paglipat ay tinatanggihan kung walang umiiral na wastong pagsasaayos. Ang isang transparent na background ay hindi ginagawang libre ang isang okupado na cell.",
+      "tip": "Gustong maglipat ng bookmark sa isang okupado na cell? Tingnan ang Relokasyon at Pagkakasunod-sunod sa Mga Setting → Mga Bookmark at panoorin ang kanilang mga preview."
+    },
+    "folders": {
+      "question": "Paano ko ipangkat ang mga bookmark sa mga folder?",
+      "searchTerms": "lumikha ng folder; mga bookmark ng pangkat; ayusin ang mga paborito; alisin mula sa folder; palitan ang pangalan ng folder",
+      "title": "Ayusin gamit ang mga folder",
+      "summary": "Magtipon ng hanggang 18 bookmark sa isang folder.",
+      "steps": [
+        "Piliin ang + → Folder sa kaliwang menu at bigyan ito ng pangalan.",
+        "Sa edit mode, i-drag ang mga bookmark dito para ilagay ang mga ito sa loob. Buksan ang folder upang makita ang grid nito.",
+        "Gamitin ang edit mode ng folder upang ayusin ang mga bookmark nito. I-click ang pangalan nito para palitan ang pangalan nito at ang icon nito para i-customize ang hitsura nito."
+      ],
+      "note": "Ang pagtanggal ng folder ay nakakaapekto rin sa mga bookmark nito. Suriin ang kumpirmasyon bago magpatuloy; maaaring ibalik ng recycle bin ang mga tinanggal na item.",
+      "tip": "Ang isang folder ay nagtataglay ng hanggang 18 bookmark. I-on ang pag-edit at mag-drag ng card papunta sa folder para idagdag ito."
+    },
+    "workspaces": {
+      "question": "Paano ko papanatilihing hiwalay ang personal at work page?",
+      "searchTerms": "personal na gawain; lumikha ng workspace; lumipat ng workspace; mga desktop",
+      "title": "Paghiwalayin ang iyong mga workspace",
+      "summary": "Isang grid para sa trabaho at isa pa para sa lahat ng iba pa.",
+      "steps": [
+        "Ang workspace bar ay lumilipat sa pagitan ng Pangunahing at iyong custom na workspaces. Ang + nito ay lumilikha ng bago.",
+        "Pumili ng workspace bago magdagdag ng mga item. Upang ilipat ang mga kasalukuyang item, piliin ang mga ito at pumili ng patutunguhan sa action bar.",
+        "Alt + ↑ at Alt + ↓ cycle sa mga workspace. Tinatanggal ng − button ang kasalukuyang custom na workspace pagkatapos ng kumpirmasyon."
+      ],
+      "note": "Ang pagtanggal ng isang workspace ay nagtatanggal din ng mga nilalaman nito. Available ang mga pangunahing pananatili at hindi matatanggal.",
+      "tip": "Alt + ↑ at Alt + ↓ lumipat ng workspace nang hindi binubuksan ang selector. Paghiwalayin ang trabaho, libangan o proyekto sa mga + ng bar."
+    },
+    "selection": {
+      "question": "Paano ko babaguhin ang ilang item nang sabay-sabay?",
+      "searchTerms": "pumili ng marami; maramihang pagpili; ilipat ang ilang; pagpili ng clone; mga duplicate na bookmark",
+      "title": "Pumili at kumilos nang maramihan",
+      "summary": "Mas kaunting paulit-ulit na pagkilos kapag nag-aayos ng ilang card.",
+      "steps": [
+        "I-on ang pag-edit at i-click sandali ang bawat card para piliin ito. I-click muli upang alisin sa pagkakapili; sa Tab navigation maaari mong gamitin ang S.",
+        "Hinahayaan ka ng selection bar na mag-duplicate, ilapat ang default na hitsura, lumipat sa ibang workspace o magtanggal, depende sa uri ng item.",
+        "Tingnan ang destinasyon o kumpirmasyon. Kakanselahin ng Esc o ang clear-selection button ang iyong pagpili."
+      ],
+      "note": "Ang paglipat at pagdoble ay nangangailangan ng mga libreng puwang. Ang app ay nagsasabi sa iyo kung ang ilang mga item ay hindi magkasya. Ang mga widget ay hindi napupunta sa recycle bin.",
+      "tip": "Sa edit mode, pumili ng ilang card na may maiikling pag-click para ilipat, i-duplicate o i-restyle ang mga ito nang magkasama. Ni-clear ng Esc ang pagpili."
+    },
+    "history": {
+      "question": "Paano ko aalisin ang aking huling pagbabago?",
+      "searchTerms": "i-undo ang pagbabago; gawing muli ang pagbabago; bumalik; ibalik ang posisyon",
+      "title": "I-undo at gawing muli",
+      "summary": "Bawiin ang isang posisyon o kamakailang pagbabago.",
+      "steps": [
+        "Gamitin ang undo arrow sa workspace bar upang bumalik sa dating estado.",
+        "Binabawi ng redo arrow ang isang pagbabagong kakatapos mo lang. Maaari mo ring gamitin ang Ctrl/Cmd + Z at Ctrl/Cmd + Shift + Z.",
+        "Sa loob ng isang editor, gamitin ang mga arrow sa tabi ng pamagat nito para sa mga nakabinbing pagbabago; pinapanatili ng mga text field ang kanilang normal na keyboard na i-undo. Ang bawat aksyon ay nagpapakita ng isang maikling mensahe at ang mga hindi magagamit na mga arrow ay hindi pinagana. Suriin ang resulta bago i-save."
+      ],
+      "note": "Ang kasaysayan ng editor ay nagsisimula nang bago sa tuwing magbubukas ka ng isang editor; maaabot ng mga pagbabago ang iyong workspace kapag nag-save ka. Ang kasaysayan ng workspace ay pansamantala at hindi isang backup. Maaaring i-reset ito ng isang bagong session o mga update mula sa isa pang tab.",
+      "tip": "Kung sa tingin ng isang pagbabago ay hindi tama, gamitin ang undo arrow o Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z redoes ito."
+    },
+    "appearance": {
+      "question": "Paano ko babaguhin ang kulay, icon o teksto?",
+      "searchTerms": "baguhin ang kulay; baguhin ang icon; baguhin ang teksto; hitsura ng bookmark; kulay ng folder; favicon",
+      "title": "I-customize ang iyong mga card",
+      "summary": "Mga kulay, larawan, teksto at mga icon sa iyong paraan.",
+      "steps": [
+        "I-on ang pag-edit at buksan ang lapis ng bookmark, o ang kontrol sa hitsura para sa isang folder o recycle bin.",
+        "Galugarin ang editor: background, kulay, larawan, teksto at icon. Ang mga available na kontrol ay nakadepende sa uri ng item; ipinapakita ng preview ang resulta.",
+        "I-save kapag masaya ka. Maaari kang gumamit ng mga larawan mula sa isang URL o isang lokal na file kung saan inaalok ng editor ang opsyong iyon."
+      ],
+      "note": "Ang mga lokal na larawan ay nabibilang sa browser na ito. Kapag nagsi-sync, magdagdag ng fallback na URL para sa iba pang mga device. Ang mga pag-import ay nagpapanatili ng mga kasamang larawan at malinaw na mga sanggunian nang walang file; Binabalewala ng sync ang mga file na hindi available sa device na ito.",
+      "tip": "Binubuksan ng lapis ng bookmark ang visual editor nito. Baguhin ang mga kulay, teksto, icon o larawan at tingnan ang preview."
+    },
+    "presets": {
+      "question": "Paano ko muling gagamitin ang istilong gusto ko?",
+      "searchTerms": "i-save ang estilo; muling paggamit ng hitsura; mga default na istilo; preset na library; ilapat ang istilo",
+      "title": "Muling gamitin ang mga pagpapakita",
+      "summary": "I-save ang isang hitsura at ilapat ito sa iba pang mga bookmark.",
+      "steps": [
+        "Buksan ang Library ng editor para pumili ng hitsura mula sa available na koleksyon.",
+        "Mag-save ng custom na hitsura bilang preset upang muling gamitin ang mga kulay, text at icon nito nang hindi kinokopya ang pangalan o address ng bookmark.",
+        "Sa Mga Setting → Mga Bookmark i-configure ang default na hitsura para sa mga bagong bookmark. Maaaring ilapat ito ng selection bar sa mga katugmang item."
+      ],
+      "note": "Ang isang preset ay nagbabago ng hitsura, hindi ang pagkakakilanlan, destinasyon o posisyon ng bookmark.",
+      "tip": "Mag-save ng hitsura na gusto mo sa library ng hitsura. Muling gamitin ito sa iba pang mga card nang hindi binabago ang kanilang mga pangalan o address."
+    },
+    "wallpapers": {
+      "question": "Paano ko magagamit ang isang imahe o video bilang aking background?",
+      "searchTerms": "baguhin ang background; background ng video; pag-ikot ng wallpaper; tema",
+      "title": "Mga wallpaper at pag-ikot",
+      "summary": "Kulay, larawan o video upang itakda ang mood.",
+      "steps": [
+        "Buksan ang Mga Setting → Tema at piliin ang default na background, isang kulay o isang background ng media.",
+        "Magdagdag ng mga larawan o video mula sa mga pinagmulang inaalok sa panel. Nangongolekta ang library ng maraming background na may pagitan ng pag-ikot.",
+        "Suriin ang preview at i-save. Maaari mong ipares ang isang lokal na file sa isang alternatibong URL para sa iba pang mga device."
+      ],
+      "note": "Ang mga lokal na file ay mananatili sa browser na ito. Ang pag-synchronize ay hindi naglilipat sa kanila; ang isang buong backup ay maaaring mapanatili ang mga ito.",
+      "tip": "Maaaring awtomatikong magbago ang iyong background: magdagdag ng ilan sa Mga Setting → Tema library at magtakda ng agwat ng pag-ikot."
+    },
+    "clock": {
+      "question": "Paano ako magdagdag ng orasan?",
+      "searchTerms": "magdagdag ng orasan; oras ng palabas; segundo; 24 na oras na format; widget ng orasan",
+      "title": "Magdagdag ng orasan",
+      "summary": "Isang widget na nagpapakita ng oras ng iyong device.",
+      "steps": [
+        "Piliin ang + → Mga Widget sa kaliwang menu at piliin ang Orasan.",
+        "Pumili ng 12- o 24 na oras na format at kung magpapakita ng mga segundo. Tinutulungan ka ng preview na magpasya.",
+        "Idagdag ito sa isang libreng puwang. Sa edit mode maaari mong ilipat, baguhin ang laki o muling buksan ang mga opsyon nito."
+      ],
+      "note": "Sinusundan ng orasan ang oras ng iyong device. Ang pagtanggal ng widget ay permanente; hindi ito pumapasok sa recycle bin.",
+      "tip": "Sa + → Mga Widget maaari kang magdagdag ng 12- o 24 na oras na orasan na may opsyonal na mga segundo at baguhin ang laki nito upang umangkop sa iyong espasyo."
+    },
+    "interface": {
+      "question": "Paano ko babaguhin ang wika o gagamit ng dark mode?",
+      "searchTerms": "baguhin ang wika; madilim na mode; light mode; hitsura ng interface",
+      "title": "Wika at tema ng interface",
+      "summary": "Gawing komportable ang mga menu, dialog at kontrol.",
+      "steps": [
+        "Sa Mga Setting → Pangkalahatan pumili ng isang wika o hayaan itong sundin ang iyong system.",
+        "Pumili ng maliwanag, madilim o awtomatikong interface ayon sa iyong kagustuhan.",
+        "I-save ang mga setting. Gumagana ang tema ng interface sa tabi ng background na pinili mo sa Tema."
+      ],
+      "note": "Ang wika ng system at awtomatikong hitsura ay sumusunod sa iyong mga kagustuhan sa device.",
+      "tip": "Pumili ng maliwanag o madilim na interface habang pinapanatili ang iyong wallpaper. Hanapin ang opsyon at wikang ito sa Mga Setting → Pangkalahatan."
+    },
+    "trash": {
+      "question": "Paano ko mababawi ang isang tinanggal na bookmark?",
+      "searchTerms": "mabawi ang tinanggal na bookmark; ibalik ang tinanggal; recycle bin; aksidenteng natanggal; bawiin ang folder",
+      "title": "Ibalik mula sa recycle bin",
+      "summary": "Ang pangalawang pagkakataon para sa mga bookmark at folder.",
+      "steps": [
+        "Buksan ang recycle bin ng iyong space para suriin ang mga tinanggal na bookmark at folder.",
+        "Piliin kung ano ang gusto mong ibalik at gamitin ang Ibalik. Maaari mo ring permanenteng tanggalin ang mga item o alisan ng laman ang bin pagkatapos ng kumpirmasyon.",
+        "Sa Mga Setting → Pangkalahatan piliin kung ipapakita ito at kung gaano katagal nito pinapanatili ang mga item: 1, 7, 14 o 28 araw, o hindi kailanman awtomatikong tatanggalin ang mga ito."
+      ],
+      "note": "Ang recycle bin ay kabilang sa device na ito. Ang mga nag-expire o permanenteng tinanggal na mga item ay hindi na maibabalik mula dito.",
+      "tip": "Nagtanggal ng bookmark nang hindi sinasadya? Buksan ang recycle bin at ibalik ito. Ayusin ang panahon ng pagpapanatili sa Mga Setting → Pangkalahatan."
+    },
+    "backup": {
+      "question": "Paano ko iba-back up o ililipat ang aking data?",
+      "searchTerms": "backup na kopya; i-export ang data; kopya ng import; ibalik ang backup; isa pang browser; paglipat ng data",
+      "title": "Mga backup at pag-import",
+      "summary": "Magtago ng kopya ng iyong espasyo at dalhin ito sa iyo.",
+      "steps": [
+        "Sa Mga Setting → Pangkalahatang i-export ang isang buong backup upang mapanatili ang data at ang mga lokal na file na kasama sa ZIP archive.",
+        "Upang i-restore, mag-import ng backup at suriin ang kumpirmasyon bago palitan ang data. Sinusuportahan din ang mga katugmang JSON backup.",
+        "Sa Mga Setting → Mga Bookmark maaari kang mag-export o mag-import lamang ng mga bookmark at folder kapag hindi mo kailangan ng buong backup."
+      ],
+      "note": "Ang pag-export ng bookmark ay hindi isang buong backup ng mga setting at lokal na media. Mag-save ng backup bago i-restore o tanggalin ang data.",
+      "tip": "Ang isang buong backup mula sa Mga Setting → Pangkalahatan ay may kasamang mga lokal na file sa isang ZIP. Ito ay kapaki-pakinabang bago lumipat ng mga browser o ibalik ang data."
+    },
+    "sync": {
+      "question": "Paano ko gagamitin ang parehong espasyo sa ibang computer?",
+      "searchTerms": "isa pang computer; i-synchronize ang mga device; pag-synchronize; ulap; lokal na pag-sync; itigil ang pag-synchronize; huwag paganahin ang pag-sync; lokal na mode",
+      "title": "Mag-synchronize sa mga device",
+      "summary": "Ibahagi ang iyong espasyo gamit ang pag-synchronize ng browser.",
+      "steps": [
+        "Mag-sign in at paganahin ang pag-synchronize ng extension sa iyong Google Chrome profile.",
+        "Sa Mga Setting → Pag-synchronize piliin ang Naka-sync at tanggapin ang kumpirmasyon. Agad na magkakabisa ang switch: ang mga kasalukuyang naka-synchronize na bookmark at setting ay nilo-load, o ang iyong naka-save na lokal na data ay naka-synchronize kung wala.",
+        "Gamitin ang parehong profile sa kabilang device. Suriin ang katayuan ng pag-synchronize at available na espasyo sa panel."
+      ],
+      "note": "Ang mga lokal na file, ang recycle bin at mga pang-araw-araw na tip ay nabibilang sa bawat device. Ang pag-synchronize ay may mga limitasyon sa imbakan; gumamit ng mga alternatibong URL para sa mga lokal na larawan at video. Ang pagpili sa Lokal ay humihingi din ng kumpirmasyon at magkakabisa kaagad, na pinapanatili ang naka-synchronize na data.",
+      "tip": "Ibinabahagi ng pag-synchronize ang iyong espasyo sa mga device, ngunit kailangan ng mga lokal na file ng alternatibong URL. Tingnan ang Mga Setting → Pag-synchronize."
+    },
+    "compact": {
+      "question": "Bakit nakikita ko ang isang listahan sa halip na ang grid?",
+      "searchTerms": "maliit na bintana; view ng listahan; nawala ang grid; nakatagong panel; mobile",
+      "title": "Gumamit ng mas maliit na window",
+      "summary": "Patuloy na abutin ang iyong mga bookmark kapag limitado ang espasyo.",
+      "steps": [
+        "Kapag lumiit ang window, lilipat ang app sa isang listahan upang panatilihing naa-access ang iyong mga item.",
+        "Buksan ang mga bookmark, folder o paghahanap sa view na ito. Ang manwal ay umaangkop din sa magagamit na laki.",
+        "Palawakin ang window upang maibalik ang grid at mga panel sa pag-edit. Ang isang nasuspinde na dialog sa pag-edit ay nagpapanatili ng draft nito."
+      ],
+      "note": "Tinutulungan ka ng compact na view na i-browse ang iyong espasyo; ang muling pagsasaayos ay nangangailangan ng sapat na malawak na bintana.",
+      "tip": "Sa isang makitid na window ang iyong mga bookmark ay mananatiling available bilang isang listahan. Palawakin ito kapag gusto mong i-edit o muling ayusin ang grid."
+    },
+    "data": {
+      "question": "Paano ko tatanggalin ang aking data o i-reset ang mga setting?",
+      "searchTerms": "tanggalin ang data; i-reset ang mga setting; alisin ang lahat; magsimula muli",
+      "title": "Pag-save at pag-reset",
+      "summary": "Unawain kung ano ang nai-save at kung ano ang aalisin ng bawat aksyon.",
+      "steps": [
+        "Awtomatikong nagse-save ang mga pagkilos sa workspace. Sa mga editor at Setting, kumpirmahin gamit ang I-save; Ibinasura ng Kanselahin ang draft ng panel na iyon.",
+        "Kung lumitaw ang isang nakabinbing paunawa, i-click ang Subukang muli ang pag-save at maghintay ng kumpirmasyon bago isara ang tab.",
+        "Sa Mga Setting → Pangkalahatan maaari mong i-reset ang mga setting o tanggalin ang lahat ng data. Basahin ang kumpirmasyon at mag-export ng backup ng anumang bagay na gusto mong panatilihin."
+      ],
+      "note": "Ang pag-reset ng mga setting ay nagpapanatili sa iyong mga bookmark, kanilang mga laki at kanilang mga estilo. Ang pagtanggal sa lahat ng lokal na data ay nag-aalis ng mga item at naglalabas ng laman sa recycle bin. Mag-export ng backup bago magtanggal: Hindi pinapalitan ng pag-undo ang isang backup.",
+      "tip": "Kung makakita ka ng abiso sa mga hindi na-save na pagbabago, gamitin ang Muling i-save bago isara ang tab. Protektahan ang iyong espasyo gamit ang isang buong backup."
+    },
+    "learning": {
+      "question": "Paano ko muling bubuksan ang gabay o isasara ang mga pang-araw-araw na tip?",
+      "searchTerms": "huwag paganahin ang mga tip; patayin ang tulong; araw-araw na alerto; muling buksan ang gabay; manwal ng gumagamit",
+      "title": "Matuto sa sarili mong bilis",
+      "summary": "Isang mabilis na gabay, isang manwal at isang maliit na pang-araw-araw na tip.",
+      "steps": [
+        "Bisitahin muli ang mabilis na gabay mula sa Mga Setting → Tulong. Ang bawat hakbang ay nagli-link sa kaukulang mga paliwanag sa manwal.",
+        "Galugarin ang index o maghanap ng isang salita. Dadalhin ka ng mga nauugnay na link ng isang seksyon sa iba pang mga tampok kapag handa ka na.",
+        "Ang iyong unang bagong tab sa bawat araw ay nagpapakita ng random na tip. I-dismiss ito o buksan ang paliwanag nito; maaari mong i-disable ang mga tip sa Tulong."
+      ],
+      "note": "Ang mga tip ay bumisita sa mga seksyon nang hindi umuulit hanggang sa makumpleto ang koleksyon. Tumatagal sila ng 20 segundo at nag-pause habang nagho-hover o nakatutok sa kanilang mga button. Sinusunod nila ang lokal na araw at ang kagustuhan ng browser na ito.",
+      "tip": "Ang manwal na ito ay palaging nasa Mga Setting → Tulong. Ang mga pang-araw-araw na tip ay nagbubukas ng isang seksyon, at maaari mong i-disable ang mga ito doon kahit kailan mo gusto."
+    }
+  }
+}

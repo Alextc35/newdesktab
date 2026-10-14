@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Toa maelezo",
+    "settingsDescription": "Ni nini kilibadilika na hadithi nyuma ya kila sasisho.",
+    "open": "Soma maelezo",
+    "history": "Historia ya toleo",
+    "dismiss": "Funga maelezo kuhusu toleo",
+    "continue": "Endelea",
+    "back": "Rudi kwa Habari",
+    "highlights": "Unachoweza kufanya leo",
+    "generic": {
+      "title": "New DeskTab imesasishwa",
+      "description": "Una toleo jipya. Unaweza kutembelea tena vidokezo vya toleo la mapema katika Maelezo wakati wowote upendao. Asante kwa kuwa hapa."
+    },
+    "v1_0_0": {
+      "title": "Eneo-kazi lako la tovuti. Hatimaye.",
+      "thanks": "Asante kwa kujaribu New DeskTab. Nina furaha sana hatimaye kushiriki nawe toleo la kwanza la umma la mradi huu.",
+      "origin": "Yote yalianza tarehe 26 Septemba 2025. Nilipokuwa nikitazama Just Chatting mtiririko kwenye Twitch, niliona kichupo kipya cha kivinjari cha mtiririshaji: kiendelezi ambacho kilipanga tovuti kama miraba ya rangi, bila majina au nembo. Hiyo minimalism ilinivutia, na nikafikiri: kwa nini nisijenge ugani wangu mwenyewe? Nilitaka kila kichupo kipya kuleta hali ya mpangilio, kurasa zangu ziko karibu, na paneli niliyofurahia kutazama.",
+      "desktop": "Hatua kwa hatua, wazo hilo lilikua kompyuta ya kibinafsi ya tovuti badala ya programu. Saa ni hatua ya kwanza na bado kazi inaendelea. Katika siku zijazo, ningependa kuongeza daftari na wijeti zingine ambazo hutoa kitu muhimu, kwangu na kwa kila mtu anayetumia New DeskTab.",
+      "closing": "Programu hii imeundwa kwa ajili yangu na kwa ajili yako. Asante kwa kuamini New DeskTab na kuipa nafasi katika kivinjari chako. Natumai utafurahiya kuunda nafasi yako kama vile nimefurahiya kuijenga.",
+      "highlights": {
+        "workspace": "Panga kurasa zako na alamisho, folda na nafasi za kazi zinazojitegemea.",
+        "appearance": "Geuza kukufaa rangi, saizi ya kila kipengee na usuli wa eneo-kazi lako.",
+        "search": "Tafuta kurasa zako kwa utafutaji na utumie mikato ya kibodi kusogeza na kuunda vipengee.",
+        "backup": "Hifadhi nakala rudufu na urejeshe vipengee vilivyofutwa kutoka kwa pipa la kuchakata tena.",
+        "sync": "Chagua kuweka data kwenye kifaa hiki au kukisawazisha na Google Chrome.",
+        "help": "Gundua vipengele ukitumia mwongozo wa kukaribisha, mwongozo na vidokezo vya kila siku."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "DAKIKA YAKO YA KWANZA",
+    "skip": "Ruka mwongozo",
+    "back": "Nyuma",
+    "next": "Inayofuata",
+    "finish": "Rudi kwa mipangilio",
+    "explore": "Chunguza nafasi yangu",
+    "addFirst": "Ongeza alamisho yangu ya kwanza",
+    "progress": "Hatua ya {{current}} ya {{total}}",
+    "compactHint": "Panua dirisha unapotaka kuongeza alamisho na uhariri nafasi yako.",
+    "reopenTitle": "Mwongozo wa haraka",
+    "reopenDescription": "Gundua tena mambo muhimu baada ya dakika moja.",
+    "reopen": "Mwongozo wa kutazama",
+    "demo": {
+      "work": "Kazi",
+      "media": "Vyombo vya habari",
+      "trash": "Recycle bin",
+      "search": "Tafuta alamisho zako"
+    },
+    "steps": {
+      "start": {
+        "title": "Kurasa zako. Nafasi yako mwenyewe.",
+        "body": "Karibu New DeskTab. Weka kurasa zako uzipendazo karibu kila unapofungua kichupo. Ili kuongeza moja, nenda kwenye ukingo wa kushoto na uchague + → [[bookmarks|Alamisho]].",
+        "hint": "Unaweza pia [[quick-save|hifadhi ukurasa unaotembelea]] kutoka kwa ikoni ya kiendelezi katika kivinjari chako."
+      },
+      "edit": {
+        "title": "Ipe kila alamisho mahali pake.",
+        "body": "Washa penseli kwenye menyu ya kushoto ili kuhariri. Shikilia na [[movement|buruta]] kipengee ili kukisogeza; tumia [[resizing|Hushughulikia]] yake kubadilisha ukubwa wake.",
+        "hint": "Kila penseli ya alamisho hufungua [[appearance|mhariri]] yake: jina, rangi, ikoni na picha. Okoa [[presets|mitindo]] ili kuzitumia tena."
+      },
+      "organize": {
+        "title": "Upungufu mdogo. Agizo zaidi.",
+        "body": "Unda [[folders|folda]] kutoka + na uburute alamisho ndani yake katika hali ya kuhariri. Inafungua katika gridi safi yenye nafasi ya hadi alamisho 18.",
+        "hint": "Tumia + katika [[workspaces|bar ya nafasi ya kazi]] kutenganisha kazi na kucheza. [[search|kioo cha kukuza]] pia hutafuta ndani ya folda."
+      },
+      "style": {
+        "title": "Ifanye ihisi kama wewe.",
+        "body": "Katika Mipangilio → [[wallpapers|Mandhari]], chagua mandharinyuma ya rangi, picha au video na uzungushe mandhari unazozipenda. Katika Mipangilio → [[sync|Usawazishaji]], sawazisha nafasi yako kwenye vifaa vyote kwa kutumia akaunti iliyoingia katika wasifu wako kwenye Chrome.",
+        "hint": "Ongeza [[clock|saa]] kutoka + → Wijeti. Unaweza kubinafsisha [[appearance|mwonekano]] ya folda zako pia."
+      },
+      "ready": {
+        "title": "Unajua mambo muhimu.",
+        "body": "Bonyeza [[search|/]] ili kupata alamisho. Tumia vishale [[history|tengua na fanya upya]] kurejesha mabadiliko; alamisho zilizofutwa nenda kwa [[trash|recycle bin]].",
+        "hint": "Mabadiliko huhifadhi kiotomatiki. Katika Mipangilio, hamisha [[backup|chelezo]] au uwashe hiari Google Chrome [[sync|ulandanishi]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Mabadiliko yako ya hivi punde hayakuweza kuhifadhiwa.",
+    "retry": "Jaribu kuhifadhi tena",
+    "saved": "Mabadiliko yanayosubiri yamehifadhiwa."
+  },
+  "itemEditor": {
+    "chooseIcon": "Chagua ikoni",
+    "siteLogo": "Nembo",
+    "noSymbol": "Hakuna",
+    "folderIconHint": "Alama inachukua nafasi ya onyesho la kukagua alamisho ndani ya folda.",
+    "icons": {
+      "mail": "Barua",
+      "calendar": "Kalenda",
+      "notes": "Vidokezo",
+      "projects": "Miradi",
+      "design": "Kubuni",
+      "music": "Muziki",
+      "tasks": "Kazi",
+      "ideas": "Mawazo",
+      "docs": "Nyaraka",
+      "ui-start": "Dira",
+      "ui-organize": "Mpangilio",
+      "ui-personalize": "Vitelezi",
+      "ui-protect": "Ngao",
+      "ui-bookmarks": "Ongeza alamisho",
+      "ui-quick-save": "Kivinjari",
+      "ui-keyboard": "Kibodi",
+      "ui-shortcuts": "Umeme",
+      "ui-search": "Tafuta",
+      "ui-editing": "Penseli",
+      "ui-movement": "Sogeza",
+      "ui-resizing": "Badilisha ukubwa",
+      "ui-drag-modes": "Buruta",
+      "ui-folders": "Folda",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Uteuzi",
+      "ui-history": "Historia",
+      "ui-appearance": "Palette",
+      "ui-presets": "Mipangilio mapema",
+      "ui-wallpapers": "Picha",
+      "ui-clock": "Saa",
+      "ui-interface": "Globu",
+      "ui-trash": "Takataka",
+      "ui-backup": "Hifadhi",
+      "ui-sync": "Sawazisha",
+      "ui-compact": "Orodha",
+      "ui-data": "Hifadhidata",
+      "ui-learning": "Kitabu",
+      "ui-settings": "Mipangilio",
+      "ui-controls": "Vidhibiti",
+      "ui-cloud": "Wingu",
+      "ui-bookmark": "Alamisho",
+      "ui-info": "Habari",
+      "ui-eye": "Jicho",
+      "ui-check": "Imekamilika",
+      "ui-lock": "Funga",
+      "ui-unlock": "Fungua",
+      "ui-copy": "Nakili",
+      "ui-close": "Funga",
+      "ui-undo": "Tendua",
+      "ui-redo": "Rudia",
+      "ui-desktop": "Eneo-kazi",
+      "home": "Nyumbani",
+      "briefcase": "Kazi",
+      "code": "Kanuni",
+      "game": "Michezo",
+      "cart": "Ununuzi",
+      "card": "Malipo",
+      "people": "Watu",
+      "message": "Ujumbe",
+      "location": "Mahali",
+      "phone": "Simu",
+      "camera": "Kamera",
+      "headphones": "Vipokea sauti vya masikioni",
+      "link": "Kiungo",
+      "tag": "Lebo",
+      "chart": "Takwimu",
+      "coffee": "Kahawa",
+      "sun": "Jua",
+      "moon": "Mwezi",
+      "circle": "Mduara",
+      "square": "Mraba",
+      "triangle": "Pembetatu",
+      "diamond": "Diamond",
+      "pentagon": "Pentagon",
+      "hexagon": "Hexagon",
+      "star": "Nyota",
+      "heart": "Moyo",
+      "plus": "Pamoja",
+      "minus": "Ondoa",
+      "video": "Video"
+    },
+    "searchIcons": "Tafuta ikoni...",
+    "clearIconSearch": "Futa utafutaji",
+    "noIcons": "Hakuna aikoni zilizopatikana",
+    "suggestedIcons": "Imependekezwa",
+    "suggestedIcon": "Imependekezwa: {{name}}",
+    "logoKeywords": "nembo favicon tovuti chapa",
+    "iconKeywords": {
+      "ui-trash": "bin takataka kufuta classic",
+      "mail": "barua pepe ya gmail mtazamo kikasha pokezi",
+      "docs": "hati faili pdf drive neno",
+      "notes": "maelezo memo notion onenote",
+      "ui-protect": "faragha ya ulinzi wa usalama",
+      "game": "koni ya kudhibiti michezo ya kubahatisha",
+      "cart": "nunua duka la ununuzi",
+      "card": "fedha benki debit debit fedha",
+      "people": "kikundi cha marafiki wa jamii ya kijamii",
+      "ui-learning": "kusoma masomo ya elimu ya maktaba",
+      "ui-clock": "saa za saa za kutazama",
+      "ui-interface": "lugha ya ulimwengu wa wavuti",
+      "ui-data": "uhifadhi wa data sql",
+      "circle": "maumbo ya kijiometri takwimu",
+      "square": "maumbo ya kijiometri takwimu",
+      "triangle": "maumbo ya kijiometri takwimu",
+      "diamond": "maumbo ya kijiometri takwimu",
+      "pentagon": "maumbo ya kijiometri takwimu",
+      "hexagon": "maumbo ya kijiometri takwimu",
+      "star": "maumbo ya kijiometri takwimu",
+      "heart": "maumbo ya kijiometri takwimu"
+    },
+    "history": "Hariri historia",
+    "description": "Ifanye ijisikie nyumbani katika nafasi yako ya kazi.",
+    "looks": "Chagua mwonekano",
+    "custom": "Desturi",
+    "look": {
+      "original": "Asili",
+      "card": "Kadi",
+      "midnight": "Giza",
+      "paper": "Mwanga"
+    },
+    "reset": "Weka upya mwonekano",
+    "cardColor": "Rangi ya kadi",
+    "folderFill": "Rangi ya folda",
+    "image": "Picha ya usuli",
+    "lock": "Funga au fungua URL",
+    "copy": "Nakili URL",
+    "clear": "Wazi",
+    "section": {
+      "general": "Mambo muhimu",
+      "text": "Jina na lebo",
+      "icon": "Aikoni",
+      "card": "Kadi"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Jina unaloona na ukurasa unaofungua.",
+        "text": "Chagua ikiwa utaonyesha jina na urekebishe rangi yake.",
+        "icon": "Tumia aikoni kubwa, iliyowekwa katikati, au ikoni ndogo kando ya jina kwa kadi za picha."
+      },
+      "folder": {
+        "general": "Jina la kuleta vialamisho vyako pamoja.",
+        "text": "Onyesha jina la folda na urekebishe rangi yake.",
+        "icon": "Geuza kukufaa ikoni ya folda na vijipicha vyake vya alamisho."
+      },
+      "recycleBin": {
+        "general": "Chagua ikiwa pipa la kuchakata litaonekana kwenye nafasi yako kuu ya kazi.",
+        "text": "Onyesha jina la pipa la kuchakata na urekebishe rangi yake.",
+        "icon": "Toa pipa la kuchakata rangi yako mwenyewe. Ficha pipa zima kutoka kwa Jenerali."
+      }
+    },
+    "addImage": "Ongeza picha ya usuli",
+    "changeImage": "Badilisha picha ya usuli"
+  },
+  "html": {
+    "title": "Kichupo kipya"
+  },
+  "quickSave": {
+    "title": "Hifadhi alamisho",
+    "name": "Jina",
+    "workspace": "Nafasi ya kazi",
+    "folder": "Folda",
+    "mainWorkspace": "Kuu",
+    "noFolder": "Hakuna folda",
+    "save": "Hifadhi alamisho",
+    "saveAnyway": "Hifadhi hata hivyo",
+    "savedButton": "Imehifadhiwa",
+    "alreadySaved": "Tayari umehifadhiwa",
+    "savedIn": "Katika {{location}}",
+    "savedInMore": "Katika {{location}} na {{count}} zaidi",
+    "open": "Fungua New DeskTab",
+    "unavailableTitle": "Kichupo hiki hakiwezi kuhifadhiwa",
+    "unavailable": "Fungua ukurasa wa wavuti (http au https) ili kuuhifadhi.",
+    "loadError": "Haikuweza kupakia alamisho zako. Jaribu tena.",
+    "saving": "Inahifadhi...",
+    "saved": "Alamisho imehifadhiwa.",
+    "duplicate": "URL hii tayari imehifadhiwa katika eneo hilo.",
+    "noSpace": "Hakuna nafasi iliyosalia katika eneo hilo. Chagua nyingine.",
+    "invalid": "Angalia jina na marudio uliyochagua.",
+    "saveError": "Haikuweza kuhifadhi alamisho. Jaribu tena."
+  },
+  "launcher": {
+    "bookmark": "Alamisho",
+    "folder": "Folda",
+    "widgets": "Wijeti",
+    "editMode": {
+      "enter": "Ingiza hali ya kuhariri",
+      "exit": "Ondoka kwenye hali ya kuhariri"
+    }
+  },
+  "widgets": {
+    "title": "Wijeti",
+    "description": "Chagua wijeti ya kuongeza kwenye nafasi hii ya kazi.",
+    "empty": "Bado hakuna wijeti zinazopatikana."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Panua dirisha ili kutumia kipengele hiki.",
+      "suspended": "Paneli imefichwa. Panua dirisha ili kuendelea."
+    },
+    "editMode": {
+      "enabled": "Hali ya kuhariri imewashwa",
+      "disabled": "Hali ya kuhariri imezimwa"
+    },
+    "selectionMode": {
+      "enabled": "Hali ya uteuzi imewashwa",
+      "disabled": "Hali ya uteuzi imezimwa"
+    },
+    "bookmark": {
+      "added": "Alamisho imeongezwa",
+      "notFound": "Alamisho haijapatikana",
+      "updated": "Alamisho imesasishwa",
+      "deleted": "Alamisho imefutwa"
+    },
+    "clock": {
+      "added": "Saa imeongezwa",
+      "updated": "Saa imesasishwa",
+      "deleted": "Saa imefutwa"
+    },
+    "folder": {
+      "created": "Folda imeundwa",
+      "renamed": "Folda imebadilishwa jina",
+      "updated": "Folda imesasishwa",
+      "deleted": "Folda na vialamisho vyake vimefutwa",
+      "bookmarkAdded": "Alamisho imeongezwa kwenye folda",
+      "folderFull": "Folda hii tayari ina vialamisho 18",
+      "bookmarkRemoved": "Alamisho ilirudishwa kwenye gridi ya taifa"
+    },
+    "recycleBin": {
+      "moved": "Imehamishwa hadi kwenye pipa la kuchakata",
+      "restored": "Vipengee vimerejeshwa",
+      "deletedPermanently": "Vipengee vimefutwa kabisa",
+      "updated": "Recycle bin imesasishwa"
+    },
+    "workspace": {
+      "created": "Nafasi ya kazi imeundwa",
+      "deleted": "Nafasi ya kazi imefutwa",
+      "switched": "Nafasi ya kazi: {{name}}"
+    },
+    "history": {
+      "undone": "Mabadiliko hayajafanywa",
+      "redone": "Mabadiliko yamefanywa upya"
+    },
+    "bookmarks": {
+      "deletedAll": "Alamisho zote zimefutwa",
+      "deletedAllWithFolders": "Alamisho na folda zote zimefutwa",
+      "deleteAllError": "Imeshindwa kufuta alamisho zote",
+      "exported": "Alamisho zimehamishwa",
+      "exportError": "Imeshindwa kuhamisha alamisho",
+      "imported": "Alamisho zimeingizwa",
+      "importError": "Imeshindwa kuleta vialamisho",
+      "presetApplied": "Mtindo unatumika kwa uteuzi",
+      "duplicatedSelected": "Vipengee vilivyochaguliwa vimerudiwa",
+      "deletedSelected": "Vipengee vilivyochaguliwa vimefutwa",
+      "moved": "Vipengee vimehamishwa hadi kwenye nafasi ya kazi iliyochaguliwa"
+    },
+    "settings": {
+      "saved": "Mipangilio imehifadhiwa",
+      "bookmarkDefaultSaved": "Mwonekano chaguomsingi wa alamisho umehifadhiwa",
+      "bookmarkDefaultError": "Haikuweza kuhifadhi mwonekano chaguomsingi wa alamisho",
+      "copied": "Thamani imenakiliwa kwenye ubao wa kunakili",
+      "resetBg": "Weka upya mandhari",
+      "deletedAllData": "Data yote NewDeskTab ya ndani imefutwa",
+      "deleteAllDataError": "Haikuweza kufuta data zote NewDeskTab za ndani",
+      "invalidWallpaperUrl": "Weka URL halali ya picha/video ya HTTP au HTTPS.",
+      "invalidWallpaperFile": "Haikuweza kuongeza faili hii. Tumia picha inayotumika au video ya MP4, WebM au Ogg hadi MB 200.",
+      "wallpaperLimit": "Unaweza kuongeza hadi wallpapers 25 za kibinafsi."
+    },
+    "localImage": {
+      "invalid": "Chagua picha ya PNG, JPEG, WebP, GIF au AVIF.",
+      "tooLarge": "Picha hii ni kubwa sana haiwezi kuhifadhiwa kwenye kifaa hiki.",
+      "storageFull": "Hakuna nafasi ya kutosha ya ndani kwa picha hii.",
+      "processing": "Picha hii haikuweza kuchakatwa."
+    },
+    "sync": {
+      "enabled": "Usawazishaji umewashwa",
+      "localEnabled": "Hali ya ndani imewezeshwa",
+      "remoteLoaded": "Data iliyosawazishwa imepakiwa",
+      "updatedFromOtherDevice": "Mabadiliko yaliyosawazishwa yaliyopokelewa kutoka kwa kifaa kingine",
+      "deletedFromOtherDevice": "Data ya wingu ilifutwa kutoka kwa kifaa kingine. Kifaa hiki sasa kinatumia Hali ya Ndani.",
+      "error": "Haikuweza kubadilisha hali ya uhifadhi",
+      "versionBlocked": "Usawazishaji umesitishwa kwa sababu data ya wingu inahitaji toleo jipya zaidi la NewDeskTab. Data ya ndani ya kifaa hiki inaonyeshwa.",
+      "quotaError": "Data inazidi hifadhi inayopatikana ya usawazishaji",
+      "deleted": "Data iliyosawazishwa imefutwa",
+      "deleteError": "Haikuweza kufuta data iliyosawazishwa"
+    },
+    "backup": {
+      "exported": "Hifadhi rudufu imehamishwa",
+      "exportError": "Haikuweza kuhamisha nakala rudufu",
+      "mediaUnavailable": "Baadhi ya picha au video za ndani zilizorejelewa hazipatikani, kwa hivyo hifadhi rudufu haikuundwa.",
+      "imported": "Hifadhi rudufu imerejeshwa",
+      "importError": "Haikuweza kurejesha nakala rudufu",
+      "mediaStorageFull": "Hakuna hifadhi ya kutosha ya ndani ya kurejesha picha na video zilizohifadhiwa."
+    }
+  },
+  "view": {
+    "list": "Mwonekano wa orodha",
+    "search": "Tafuta alamisho na folda",
+    "clearSearch": "Futa utafutaji",
+    "noResults": "Hakuna matokeo."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Ungependa kufuta alamisho zote?",
+      "deleteFolders": "Pia futa folda zote",
+      "confirmDeleteSelected": "Ungependa kufuta vipengee {{count}} vilivyochaguliwa?",
+      "confirmMoveOne": "Ungependa kuhamisha kipengee hiki hadi kwenye nafasi ya kazi \"{{workspace}}\"?",
+      "confirmMoveSelected": "Ungependa kuhamisha vipengee {{count}} vilivyochaguliwa hadi kwenye nafasi ya kazi “{{workspace}}”?",
+      "duplicateNoSpace": "Vipengee {{count}} havikuweza kunakiliwa kwa sababu hapakuwa na nafasi ya kutosha.",
+      "moveNoSpace": "Vipengee {{count}} havikuweza kuhamishwa kwa sababu hapakuwa na nafasi ya kutosha.",
+      "no_space": "Hakuna nafasi inayopatikana ya alamisho zaidi 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Ungependa kutupa alamisho mpya?"
+      },
+      "confirmDelete": "Ungependa kufuta “{{name}}”?",
+      "confirmPermanentDelete": "Je, ungependa kufuta kabisa “{{name}}”? Hili haliwezi kutenduliwa.",
+      "cancel": "Ungependa kutupa mabadiliko?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Je, ungependa kufuta wijeti hii kabisa? Hili haliwezi kutenduliwa.",
+      "confirmDeleteSelected": "Ungependa kufuta vipengee {{count}} vilivyochaguliwa? Wijeti zilizochaguliwa ({{widgetCount}}) zitafutwa kabisa na haziwezi kurejeshwa."
+    },
+    "folder": {
+      "createCancel": "Ungependa kutupa folda mpya?",
+      "cancel": "Ungependa kutupa mabadiliko ya folda?"
+    },
+    "recycleBin": {
+      "folder": "Ungependa kuhamisha “{{name}}” na alamisho zake {{count}} hadi kwenye pipa la kuchakata tena?",
+      "empty": "Je, ungependa kufuta kabisa kila kitu kwenye pipa la kuchakata tena? Hili haliwezi kutenduliwa.",
+      "deleteSelected": "Je, ungependa kufuta kabisa vipengee {{count}} vilivyochaguliwa? Hili haliwezi kutenduliwa.",
+      "noSpace": "Vipengee {{count}} havikuweza kurejeshwa kwa sababu hakuna nafasi ya kutosha ya gridi ya taifa. Wanabaki kwenye pipa la kusaga.",
+      "cancel": "Ungependa kutupa mabadiliko ya mapipa ya kuchakata?"
+    },
+    "settings": {
+      "cancel": "Ungependa kutupa mabadiliko ya mipangilio?",
+      "reset": "Ungependa kuweka upya mipangilio yote? Alamisho hazitafutwa.",
+      "deleteAllData": "Je, ungependa kufuta data yote ya NewDeskTab ya kifaa hiki? Alamisho, folda, wijeti, mipangilio, vipengee vya kuhifadhi tena, picha za ndani na video za karibu zitafutwa kabisa. Data ya wingu haitabadilishwa. Ikiwa Usawazishaji unatumika, kifaa hiki kitabadilisha hadi kwenye Google Play kwanza. Kitendo hiki hakiwezi kutenduliwa.",
+      "theme": {
+        "reset": "Ungependa kuweka upya mipangilio ya mandhari?"
+      },
+      "bookmark": {
+        "cancel": "Ungependa kutupa mabadiliko kwenye mwonekano chaguomsingi wa alamisho?"
+      },
+      "shortcuts": {
+        "reset": "Ungependa kurejesha mikato ya kibodi chaguomsingi?"
+      },
+      "sync": {
+        "enable": "Je, ungependa kubadilisha kutoka kwenye Eneo la Karibu hadi Iliyosawazishwa? Hii inaanza kutumika sasa, bila kubofya Hifadhi. Ikiwa data iliyosawazishwa tayari ipo, vialamisho na mipangilio yake itapakiwa. Vinginevyo, data yako ya ndani iliyohifadhiwa itasawazishwa.",
+        "local": "Je, ungependa kubadili kutoka kwa Imesawazishwa hadi kwenye Eneo la Karibu? Hii inaanza kutumika sasa, bila kubofya Hifadhi. Kifaa hiki kitahifadhi nakala ya data ya sasa na kuacha kusawazisha mabadiliko. Data iliyosawazishwa itasalia kuhifadhiwa kwa vifaa vingine.",
+        "delete": "Je, ungependa kufuta data yote NewDeskTab iliyosawazishwa? Kifaa hiki na kila kifaa kingine kinachotumia data hii ya wingu kitabadilisha hadi Hali ya Ndani kikitambua ufutaji huo. Hili haliwezi kutenduliwa."
+      }
+    },
+    "backup": {
+      "import": "Ungependa kurejesha nakala hii? Itachukua nafasi ya vialamisho na mipangilio yako ya sasa."
+    }
+  },
+  "addModal": {
+    "title": "Ongeza alamisho mpya",
+    "name": "Jina:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Chaguo za kina",
+    "compactView": "▴ Mwonekano thabiti"
+  },
+  "clock": {
+    "name": "Saa",
+    "inDevelopment": "Katika maendeleo: saa haiko katika toleo lake la mwisho bado. Tunajitahidi kuiboresha.",
+    "createTitle": "Ongeza saa",
+    "editTitle": "Mipangilio ya saa",
+    "description": "Onyesha saa zako za ndani kwenye nafasi hii ya kazi.",
+    "hourCycle": "Umbizo la wakati",
+    "hour24": "Saa 24",
+    "hour12": "Saa 12",
+    "showSeconds": "Onyesha sekunde",
+    "delete": "Futa",
+    "edit": "Badilisha saa",
+    "actions": "Vitendo vya saa",
+    "openSettings": "Fungua mipangilio ya saa",
+    "confirmDelete": "Ungependa kufuta saa hii? Unaweza kutendua kitendo hiki.",
+    "confirmPermanentDelete": "Je, ungependa kufuta saa hii kabisa? Hili haliwezi kutenduliwa.",
+    "cancel": "Ungependa kutupa mabadiliko ya saa?",
+    "noSpace": "Hakuna nafasi ya kutosha ya gridi ya saa hii."
+  },
+  "buttons": {
+    "save": "Hifadhi",
+    "apply": "Omba",
+    "add": "Ongeza",
+    "accept": "Kubali",
+    "cancel": "Ghairi",
+    "close": "Funga"
+  },
+  "localImage": {
+    "upload": "Pakia kutoka kwa kifaa hiki",
+    "label": "Picha ya ndani:",
+    "activeSource": "Picha inayotumika:",
+    "sourceLocal": "Ndani",
+    "sourceUrl": "URL",
+    "remove": "Ondoa picha ya ndani",
+    "notice": "Picha za ndani hazijasawazishwa.",
+    "unnamed": "Picha ya ndani"
+  },
+  "workspace": {
+    "ariaLabel": "Vidhibiti vya nafasi ya kazi",
+    "current": "Nafasi ya kazi",
+    "main": "Kuu",
+    "search": "Tafuta vialamisho",
+    "add": "Unda nafasi ya kazi",
+    "delete": "Futa nafasi ya kazi",
+    "undo": "Tendua",
+    "redo": "Rudia",
+    "shortcutHint": "Badilisha nafasi ya kazi ukitumia Alt au Chaguo pamoja na Kishale cha Juu au Chini",
+    "prompt": "Weka jina la nafasi mpya ya kazi",
+    "namePlaceholder": "Kazi, burudani ...",
+    "confirmDelete": "Ungependa kufuta “{{name}}”, folda zake {{folderCount}} na vialamisho {{bookmarkCount}}? Ili kuziweka, zihamishe hadi kwa Kuu au sehemu nyingine ya kazi kwanza."
+  },
+  "search": {
+    "title": "Tafuta vialamisho",
+    "inputLabel": "Tafuta kwa jina au URL",
+    "placeholder": "Jina au URL",
+    "empty": "Hakuna alamisho zilizopatikana.",
+    "noUrl": "Hakuna URL",
+    "inFolder": "Folda: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Vitendo vya kipengee vilivyochaguliwa",
+    "selected": "{{count}} zilizochaguliwa",
+    "move": "Nenda kwenye nafasi ya kazi",
+    "applyPreset": "Tumia mtindo chaguomsingi",
+    "duplicate": "Chaguo rudufu",
+    "delete": "Futa",
+    "clear": "Futa uteuzi"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Vidhibiti vya alamisho",
+    "edit": "Hariri alamisho",
+    "delete": "Futa alamisho",
+    "copySuffix": "nakala"
+  },
+  "folder": {
+    "create": "Unda folda",
+    "createPrompt": "Taja folda mpya",
+    "namePlaceholder": "Zana, msukumo...",
+    "open": "Fungua {{name}}, {{count}} alamisho zilizohifadhiwa",
+    "count": "{{count}} zimehifadhiwa",
+    "summary": "{{count}} kati ya nafasi {{capacity}} zilizotumika",
+    "editMode": {
+      "enable": "Hariri",
+      "disable": "Maliza kuhariri"
+    },
+    "gridLabel": "Alamisho za folda",
+    "dropHint": "Dondosha ili kuongeza",
+    "noSpace": "Hakuna seli ya gridi isiyolipishwa ya folda mpya.",
+    "removeNoSpace": "Hakuna nafasi ya kutosha ya gridi ya kuondoa alamisho hii kwenye folda.",
+    "confirmDelete": "Ungependa kuhamisha “{{name}}” na alamisho zake {{count}} hadi kwenye pipa la kuchakata tena?",
+    "confirmPermanentDelete": "Je, ungependa kufuta kabisa “{{name}}” na vialamisho vyake {{count}}? Hili haliwezi kutenduliwa.",
+    "actions": {
+      "ariaLabel": "Vidhibiti vya folda",
+      "customize": "Geuza kukufaa kabrasha",
+      "rename": "Badilisha jina la folda",
+      "delete": "Futa folda",
+      "editBookmark": "Hariri {{name}}",
+      "removeBookmark": "Hamisha {{name}} nje ya folda",
+      "deleteBookmark": "Futa {{name}}",
+      "acceptRename": "Hifadhi jina la folda",
+      "cancelRename": "Ghairi jina la folda"
+    },
+    "editor": {
+      "createTitle": "Ongeza folda mpya",
+      "title": "Badilisha folda",
+      "name": "Jina:",
+      "showPreviews": "Onyesha muhtasari wa alamisho",
+      "showName": "Onyesha jina la folda",
+      "iconColor": "Rangi ya alama:",
+      "outerBackgroundColor": "Rangi ya mandharinyuma ya nje:",
+      "noOuterBackground": "Hakuna mandharinyuma ya nje",
+      "resetOuterBackground": "Otomatiki",
+      "noBackground": "Jaza folda ya uwazi",
+      "backgroundColor": "Rangi ya folda:",
+      "backgroundImage": "Picha ya usuli (URL):",
+      "lockImage": "Funga au fungua URL ya picha",
+      "copyImage": "Nakili URL ya picha",
+      "clearImage": "Futa URL ya picha",
+      "textColor": "Rangi ya maandishi:",
+      "preview": "Hakiki",
+      "previewName": "Folda",
+      "sections": {
+        "general": "Mkuu",
+        "style": "Mtindo",
+        "text": "Maandishi"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Recycle Bin",
+    "open": "Fungua pipa la kuchakata tena",
+    "openCount": "Fungua pipa la kuchakata, vitu {{count}}",
+    "dropHint": "Dondosha ili kufuta",
+    "summary": "Vipengee {{count}} · Ufutaji kiotomatiki: {{retention}}",
+    "empty": "Pipa la kuchakata ni tupu.",
+    "selected": "{{count}} zilizochaguliwa",
+    "select": "Chagua {{name}}",
+    "folderContents": "{{count}} alamisho",
+    "deletedAt": "Imefutwa {{date}}",
+    "expiresIn": "Zimesalia siku {{days}}",
+    "expiresInOne": "Imesalia siku 1",
+    "neverExpires": "Haijawahi kufutwa kiotomatiki",
+    "restoreAll": "Rejesha zote",
+    "deleteAll": "Futa zote",
+    "restoreSelected": "Rejesha iliyochaguliwa",
+    "deleteSelected": "Futa iliyochaguliwa",
+    "editor": {
+      "title": "Hariri pipa la kuchakata",
+      "animateIcon": "Huisha pipa la kuchakata",
+      "appearance": "Muonekano",
+      "backgroundColor": "Rangi ya usuli:",
+      "backgroundImage": "Picha ya usuli (URL):",
+      "lockImage": "Funga au fungua URL ya picha",
+      "copyImage": "Nakili URL ya picha",
+      "clearImage": "Futa URL ya picha",
+      "noBackground": "Hakuna usuli",
+      "iconColor": "Rangi ya ikoni:",
+      "textColor": "Rangi ya maandishi:",
+      "elements": "Vipengele vinavyoonekana",
+      "showName": "Onyesha jina",
+      "visible": "Onyesha pipa la kuchakata kwenye gridi kuu",
+      "preview": "Hakiki",
+      "actions": "Recycle bin vitendo",
+      "edit": "Hariri pipa la kuchakata",
+      "sections": {
+        "general": "Mkuu",
+        "style": "Mtindo",
+        "text": "Maandishi",
+        "icon": "Aikoni"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Weka jina ili kuhifadhi uwekaji awali."
+    },
+    "name": {
+      "required": "Ingiza jina la alamisho."
+    },
+    "folderName": {
+      "required": "Ingiza jina la folda."
+    },
+    "url": {
+      "invalid": "URL si halali.",
+      "unsupportedProtocol": "Aina hii ya URL hairuhusiwi."
+    },
+    "backgroundImageUrl": {
+      "invalid": "URL ya picha si sahihi.",
+      "unsupportedProtocol": "Aina hii ya picha hairuhusiwi."
+    }
+  },
+  "editModal": {
+    "title": "Hariri alamisho",
+    "name": "Jina:",
+    "url": "URL:",
+    "backgroundImage": "Picha ya usuli (URL):",
+    "backgroundFavicon": "Aikoni kubwa, iliyowekwa katikati",
+    "invertColorBg": "Geuza rangi",
+    "noBackground": "Hakuna usuli",
+    "backgroundColor": "Rangi ya alamisho:",
+    "showText": "Onyesha maandishi",
+    "textColor": "Rangi ya maandishi:",
+    "showFavicon": "Onyesha ikoni",
+    "invertColorIcon": "Geuza rangi za ikoni",
+    "iconColor": "Rangi ya ikoni:",
+    "sections": {
+      "general": "Mkuu",
+      "style": "Mtindo",
+      "text": "Maandishi",
+      "icon": "Aikoni"
+    },
+    "preview": "Hakiki",
+    "previewName": "Hakiki"
+  },
+  "colorPicker": {
+    "title": "Kiteua rangi",
+    "sample": "Chagua rangi kutoka kwa skrini",
+    "close": "Funga kiteua rangi",
+    "saturationBrightness": "Kueneza na mwangaza",
+    "hue": "Hue",
+    "quickColors": "Rangi za haraka",
+    "saturation": "Kueneza",
+    "brightness": "Mwangaza",
+    "hex": "Msimbo wa Hex",
+    "copy": "Nakili msimbo wa hex",
+    "copied": "Msimbo wa Hex umenakiliwa",
+    "copyFailed": "Haikuweza kunakili msimbo wa hex"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Mkuu",
+      "sync": "Sawazisha",
+      "theme": "Mandhari",
+      "bookmark": "Alamisho",
+      "shortcuts": "Njia za mkato",
+      "language": "Lugha",
+      "help": "Msaada",
+      "information": "Habari"
+    },
+    "general": {
+      "title": "Mkuu",
+      "subtitle": "Mipangilio",
+      "export": "Hamisha nakala rudufu",
+      "import": "Rejesha nakala rudufu",
+      "resetSettings": "Weka upya mipangilio",
+      "deleteAllData": "Futa data yote ya ndani",
+      "recycleBin": {
+        "title": "Recycle bin",
+        "show": "Onyesha pipa la kuchakata kwenye gridi Kuu",
+        "retentionLabel": "Futa vipengee kiotomatiki:",
+        "retentionOptions": {
+          "oneDay": "siku 1",
+          "sevenDays": "siku 7",
+          "fourteenDays": "siku 14",
+          "twentyEightDays": "siku 28",
+          "never": "Kamwe"
+        }
+      },
+      "appearance": {
+        "title": "Muonekano",
+        "system": "Kivinjari",
+        "light": "Mwanga",
+        "dark": "Giza"
+      }
+    },
+    "sync": {
+      "title": "Sawazisha",
+      "description": "Chagua mahali pa kuhifadhi mipangilio na alamisho zako.",
+      "ariaLabel": "Hali ya uhifadhi",
+      "local": {
+        "title": "Kifaa hiki pekee",
+        "description": "Data huhifadhiwa katika wasifu huu wa kivinjari wa ndani pekee."
+      },
+      "synced": {
+        "title": "Imesawazishwa",
+        "description": "Inapatikana katika wasifu Google Chrome uliounganishwa kwa akaunti sawa.",
+        "tooltip": "Maelezo ya maingiliano"
+      },
+      "compatibility": {
+        "newerVersion": "Usawazishaji umefungwa kwenye kifaa hiki kwa sababu data ya wingu iliundwa na toleo jipya zaidi la NewDeskTab. Data yako iliyosawazishwa iko salama na haijarekebishwa. Sasisha NewDeskTab ili kuunganisha tena."
+      },
+      "usage": {
+        "title": "Upatikanaji wa hifadhi",
+        "showExact": "Onyesha baiti kamili",
+        "showHuman": "Onyesha saizi zinazoweza kusomeka",
+        "local": "Ndani",
+        "sync": "Imesawazishwa",
+        "localSyncCopy": "Nakala ya Usawazishaji wa ndani",
+        "localAria": "Matumizi ya hifadhi ya ndani",
+        "syncAria": "Matumizi ya hifadhi yaliyosawazishwa",
+        "loading": "Inakokotoa...",
+        "summary": "{{used}} ya {{total}} · {{percent}}%",
+        "available": "{{free}} inapatikana",
+        "system": "Mfumo na metadata",
+        "bookmarks": "Alamisho",
+        "folders": "Folda",
+        "trash": "Recycle bin data",
+        "localImages": "Picha za ndani",
+        "themeImages": "Mandhari",
+        "bookmarkImages": "Alamisho",
+        "folderImages": "Folda",
+        "trashImages": "Recycle bin",
+        "otherImages": "Nyingine",
+        "widgets": "Wijeti",
+        "widgetsHint": "Ukubwa unaoonyeshwa kwa Usawazishaji ni makadirio na haijumuishi maudhui ya moja kwa moja yanayoletwa kutoka kwa huduma za nje.",
+        "error": "Matumizi hayapatikani"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome inasawazisha New DeskTab kupitia Akaunti yako ya Google. New DeskTab haiendeshi seva yake ya kusawazisha.",
+        "brave": "Haipatikani katika Brave: inaweza kuhifadhi New DeskTab data katika chrome.storage.sync, lakini kwa sasa haienezi kati ya vifaa.",
+        "unsupported": "Hifadhi iliyosawazishwa inapatikana tu katika Google Chrome kwa sasa. Vivinjari vingine husalia kizimwa hadi usaidizi wa vifaa tofauti uthibitishwe."
+      },
+      "existingNotice": "Kukubali ubadilishaji hadi Imesawazishwa hupakia data yoyote iliyosawazishwa ambayo tayari ipo.",
+      "deleteData": "Futa data iliyosawazishwa",
+      "metadata": {
+        "loading": "Inakagua data iliyosawazishwa...",
+        "updatedAt": "Sasisho la mwisho lililosawazishwa: {{date}}",
+        "unknown": "Data iliyosawazishwa ipo, lakini muda wake wa kusasisha haupatikani.",
+        "empty": "Hakuna data New DeskTab iliyosawazishwa iliyohifadhiwa.",
+        "error": "Taarifa ya data iliyosawazishwa haikuweza kupakiwa."
+      },
+      "status": {
+        "idle": "Data iko tayari.",
+        "saving": "Inahifadhi mabadiliko...",
+        "saved": "Mabadiliko yote yamehifadhiwa.",
+        "error": "Haikuweza kuhifadhi mabadiliko ya hivi punde."
+      }
+    },
+    "theme": {
+      "title": "Mandhari",
+      "subtitle": "Mandharinyuma ya ukurasa",
+      "backgroundImageMode": "Picha/video",
+      "wallpapersTitle": "Karatasi zangu mwenyewe",
+      "ownWallpapersHint": "Mandhari haya na mzunguko wake huhifadhiwa kwenye kifaa hiki pekee.",
+      "mediaUrl": "URL ya mandhari",
+      "image": "Picha",
+      "video": "Video",
+      "addUrl": "Ongeza URL",
+      "addFiles": "Ongeza faili za ndani",
+      "rotationInterval": "Mzunguko wa mandhari",
+      "noRotation": "Usibadilishe kiotomatiki",
+      "interval5": "5 sekunde",
+      "interval15": "Sekunde 15",
+      "interval30": "Sekunde 30",
+      "interval60": "Dakika 1",
+      "interval300": "Dakika 5",
+      "interval600": "Dakika 10",
+      "interval1800": "Dakika 30",
+      "previous": "Iliyotangulia",
+      "next": "Inayofuata",
+      "moveUp": "Sogeza juu",
+      "moveDown": "Sogeza chini",
+      "remove": "Ondoa",
+      "unavailableLocal": "Faili ya ndani haipatikani kwenye kifaa hiki",
+      "mediaColor": "Rangi nyuma ya Ukuta huu",
+      "mediaPreview": "Hakiki mandhari",
+      "activeSource": "Chanzo kinachotumika",
+      "backgroundSolid": "Rangi imara",
+      "backgroundColor": "Rangi:",
+      "editSolidColor": "Badilisha rangi thabiti ya usuli",
+      "changeSolidColor": "Badilisha rangi",
+      "backgroundImageColor": "Rangi nyuma ya picha/video",
+      "backgroundImage": "URL iliyoshirikiwa kati ya vifaa",
+      "urlHidden": "URL imefichwa",
+      "resetBackground": "Weka upya mandhari"
+    },
+    "bookmark": {
+      "title": "Alamisho",
+      "subtitle": "Alamisho chaguomsingi",
+      "description": "Chagua mwonekano unaotumiwa wakati wa kuunda alamisho mpya.",
+      "configure": "Sanidi alamisho chaguo-msingi",
+      "editorTitle": "Mwonekano chaguomsingi wa alamisho",
+      "previewName": "Alamisho chaguomsingi",
+      "export": "Hamisha alamisho",
+      "import": "Ingiza alamisho",
+      "deleteAll": "Futa alamisho zote",
+      "preview": "Hakiki",
+      "drag": {
+        "title": "Tabia ya kuvuta",
+        "description": "Chagua jinsi vialamisho hujipanga upya unapochukua nafasi yao.",
+        "none": {
+          "title": "Hakuna",
+          "description": "Inaruhusu uhamishaji hadi seli zisizolipishwa pekee."
+        },
+        "cascade": {
+          "title": "Mfuatano",
+          "description": "Huhamisha mnyororo hadi ipate seli isiyolipishwa.",
+          "experimental": "Jaribio · Huenda ikawa na hitilafu ndogo ndogo."
+        },
+        "relocate": {
+          "title": "Uhamisho",
+          "description": "Huhamisha alamisho zinazomiliki lengwa."
+        }
+      },
+      "resize": {
+        "title": "Badilisha ukubwa wa tabia",
+        "description": "Chagua jinsi vipengee vitakavyojibu unaposogeza kipini cha kubadilisha ukubwa.",
+        "smooth": {
+          "title": "Laini",
+          "description": "Hunyosha kipengee wakati wa kuburuta, kisha huchota hadi kwenye gridi ya taifa."
+        },
+        "none": {
+          "title": "Hakuna",
+          "description": "Inaruka kwa seli unapovuka 50% ya seli ya jirani."
+        }
+      },
+      "presets": {
+        "title": "Maktaba ya mtindo",
+        "tab": "Maktaba",
+        "description": "Hifadhi mitindo na uitumie tena unapoweka alamisho chaguomsingi.",
+        "name": "Weka jina mapema",
+        "saved": "Mipangilio ya awali iliyohifadhiwa",
+        "save": "Hifadhi kuweka mapema",
+        "apply": "Mzigo",
+        "delete": "Futa",
+        "empty": "Hakuna mipangilio ya awali iliyohifadhiwa"
+      }
+    },
+    "shortcuts": {
+      "title": "Njia za mkato za kibodi",
+      "description": "Chagua kitufe cha njia ya mkato, kisha ubonyeze mchanganyiko wa herufi au vitufe. Bofya kulia ili kuiondoa.",
+      "change": "Badilisha {{action}} njia ya mkato. Njia ya mkato ya sasa: {{shortcut}}.",
+      "press": "Bonyeza njia ya mkato...",
+      "unassigned": "Haijakabidhiwa",
+      "unassignedFlash": "Njia ya mkato haijakabidhiwa.",
+      "modifierRequired": "Tumia herufi peke yake, au mchanganyiko muhimu na kirekebishaji.",
+      "reserved": "Njia hii ya mkato imehifadhiwa na kivinjari au mfumo wa uendeshaji. Chagua mchanganyiko mwingine.",
+      "conflict": "Ufunguo huu tayari umekabidhiwa kwa kitendo kingine.",
+      "updated": "Njia ya mkato imesasishwa.",
+      "cancelled": "Mabadiliko ya njia ya mkato yameghairiwa.",
+      "restored": "Njia za mkato chaguo-msingi zimerejeshwa.",
+      "reset": "Weka upya njia za mkato",
+      "actions": {
+        "toggleEditing": {
+          "title": "Hali ya kuhariri",
+          "description": "Ingiza au acha uhariri kwenye gridi kuu au kwenye folda iliyo wazi."
+        },
+        "addBookmark": {
+          "title": "Unda alamisho",
+          "description": "Fungua fomu ya kuongeza alamisho."
+        },
+        "addFolder": {
+          "title": "Unda folda",
+          "description": "Fungua kidirisha cha kuunda folda."
+        },
+        "openWidgets": {
+          "title": "Fungua wijeti",
+          "description": "Fungua orodha ya wijeti zinazopatikana."
+        },
+        "openSettings": {
+          "title": "Fungua mipangilio",
+          "description": "Fungua New DeskTab paneli ya mipangilio."
+        }
+      }
+    },
+    "languages": {
+      "title": "Lugha",
+      "text": "Chagua lugha ya kiolesura:",
+      "system": "Kivinjari",
+      "search": "Tafuta lugha au nchi",
+      "empty": "Hakuna lugha zilizopatikana"
+    },
+    "information": {
+      "title": "Habari",
+      "version": "Toleo: {{VERSION}}",
+      "author": "Mwandishi:"
+    }
+  }
+}

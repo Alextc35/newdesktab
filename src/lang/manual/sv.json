@@ -1,0 +1,517 @@
+{
+  "title": "Användarmanual",
+  "eyebrow": "DITT UTRYMME, DIN PACE",
+  "intro": "Lär känna varje liten funktion.",
+  "description": "Hitta det du behöver eller upptäck något nytt. Ta dig tid.",
+  "settingsDescription": "Varje funktion, med enkla steg och små knep att prova när du vill.",
+  "search": {
+    "label": "Vad kan vi hjälpa dig med?",
+    "placeholder": "Till exempel: återställa ett raderat bokmärke",
+    "common": "Vanliga frågor",
+    "found": "Svar för din sökning · {{count}}",
+    "empty": "Ingen hjälp hittades för den sökningen. Försök med \"tangentbord\", \"flytta bokmärken\" eller \"säkerhetskopiering\".",
+    "resultsLabel": "Manuella frågor och svar"
+  },
+  "open": "Utforska manualen",
+  "searchLabel": "Sök i manualen",
+  "searchPlaceholder": "Prova \"tangentbord\", \"bakgrund\" eller \"säkerhetskopiering\"",
+  "count": "{{count}} sektioner att utforska",
+  "empty": "Inga matchningar. Försök med ett annat ord eller rensa sökningen för att se hela indexet.",
+  "back": "← Manuellt index",
+  "remember": "Bra att komma ihåg",
+  "related": "Fortsätt upptäcka",
+  "footer": "Alltid tillgänglig i Inställningar → Hjälp.",
+  "guideLinks": "Läs mer i manualen",
+  "groups": {
+    "start": "Börja här",
+    "organize": "Gör dig organiserad",
+    "personalize": "Gör det till ditt",
+    "protect": "Ta hand om ditt utrymme"
+  },
+  "demo": {
+    "browse": "Bläddra bland avsnitt",
+    "previous": "← Föregående avsnitt",
+    "next": "Nästa avsnitt →",
+    "title": "Se det i aktion",
+    "example": "Exempel på demonstration",
+    "steps": "Demonstrationssteg",
+    "step": "Steg {{step}} av {{count}}",
+    "play": "Spela",
+    "pause": "Pausa",
+    "replay": "Spela om",
+    "progress": "Demonstrationsframsteg",
+    "mode": "Beteende",
+    "nextStep": "Nästa steg",
+    "reducedMotion": "Minskad rörelse: utforska stegen utan animering.",
+    "labels": {
+      "settings": "Inställningar",
+      "saved": "Ändringar sparade",
+      "page": "Sida",
+      "selection": "Urval",
+      "selected": "valda objekt",
+      "color": "Färg",
+      "styleName": "Min lila stil",
+      "wallpaper": "Bakgrundsbilder",
+      "rotation": "Rotation",
+      "format": "Format",
+      "seconds": "Sekunder",
+      "language": "Språk",
+      "system": "System",
+      "currentLanguage": "Svenska",
+      "restore": "Återställ",
+      "copy": "Säkerhetskopiering",
+      "restoreCopy": "Granska innan du återställer",
+      "switchSync": "Byta till Synkroniserat?",
+      "applyNow": "Gäller vid bekräftelse",
+      "status": "Status",
+      "synchronized": "Synkroniserad",
+      "retry": "Spara väntar · Försök igen",
+      "keyboardQuery": "tangentbord",
+      "deleteExample": "Bokmärken och mappar kommer att raderas. Papperskorgen kommer att vara tom."
+    },
+    "topics": {
+      "bookmarks": [
+        "Öppna den vänstra menyn och välj + → Bokmärke.",
+        "Ange sidans namn och adress.",
+        "Bekräfta: bokmärket visas i en ledig cell."
+      ],
+      "quick-save": [
+        "Öppna New DeskTab från dess tilläggsikon.",
+        "Granska det föreslagna namnet, adressen och destinationen.",
+        "Spara: bokmärket kommer att finnas i din arbetsyta när du öppnar en flik."
+      ],
+      "keyboard": [
+        "Tryck på Tabb för att fokusera det första objektet.",
+        "Piltangenterna flyttar fokus. Enter öppnar det fokuserade objektet.",
+        "Esc eller en annan flik avslutar navigeringen."
+      ],
+      "shortcuts": [
+        "Öppna Inställningar → Kortkommandon.",
+        "Klicka på en åtgärds genväg och skriv din kombination.",
+        "Spara för att tillämpa den nya genvägen."
+      ],
+      "search": [
+        "Verktygsfältsförstoraren eller / öppnar sökningen.",
+        "Skriv en del av namnet eller adressen.",
+        "Öppna resultatet. Esc eller Stäng återgår till din arbetsyta."
+      ],
+      "editing": [
+        "Menypennan avslöjar rutnätet och kontrollerna.",
+        "Gmails penna öppnar dess namn- och webbadressredigerare.",
+        "Spara ändringen och klicka på menypennan igen för att avsluta."
+      ],
+      "movement": [
+        "Aktivera redigering och håll kvar brickan.",
+        "Markören och brickan flyttas tillsammans till en ledig cell.",
+        "Släpp: slutpositionen sparas."
+      ],
+      "resizing": [
+        "Aktivera redigering och hitta hörnhandtaget.",
+        "Dra diagonalt för att ändra bredd och höjd.",
+        "Släpp vid 2 × 2. Jämför Inga och Smidig med hjälp av väljaren."
+      ],
+      "drag-modes": [
+        "Använd väljaren för att jämföra de tre draglägena.",
+        "Dra mot en ockuperad cell och titta på de andra brickorna.",
+        "Ingen använder en fri cell; Omlokalisering och Sekvens omorganiserar brickorna."
+      ],
+      "folders": [
+        "Namnge en mapp för att gruppera dina sidor.",
+        "Dra ett bokmärke till det medan du redigerar.",
+        "Öppna mappen för att hitta bokmärket i dess rutnät."
+      ],
+      "workspaces": [
+        "Verktygsfältet + skapar en arbetsyta med ditt valda namn.",
+        "Den nya arbetsytan har ett eget rutnät.",
+        "Alt + ↑ och Alt + ↓ bläddrar genom dina arbetsytor."
+      ],
+      "selection": [
+        "Aktivera redigering och välj en bricka med ett kort klick.",
+        "Välj en annan: verktygsfältet erbjuder gruppåtgärder.",
+        "Clone skapar kopior i fria celler i en åtgärd."
+      ],
+      "history": [
+        "Flytta en bricka: den ändringen kommer in i historiken.",
+        "Ångra återställer brickan till sin tidigare position.",
+        "Gör om återställer draget du just ångrade."
+      ],
+      "appearance": [
+        "Brickans penna öppnar sin editor.",
+        "Ändra färg och titta på förhandsvisningen.",
+        "Spara för att applicera det utseendet på brickan."
+      ],
+      "presets": [
+        "Öppna biblioteket från Inställningar → Bokmärken.",
+        "Namnge och spara en stil för att återanvända den.",
+        "Ladda den som standard och spara för nya bokmärken."
+      ],
+      "wallpapers": [
+        "Öppna Inställningar → Tema för att välja en bakgrund.",
+        "Granska förhandsgranskningen och bibliotekets rotationsintervall.",
+        "Spara: den valda tapeten visas i din arbetsyta."
+      ],
+      "clock": [
+        "Välj + → Widgets → Klocka i menyn till vänster.",
+        "Konfigurera formatet och sekunderna med hjälp av förhandsgranskningen.",
+        "Lägg till klockan i en ledig arbetsytacell."
+      ],
+      "interface": [
+        "Öppna Allmänt och välj menyspråk.",
+        "Jämför det ljusa och mörka gränssnittet.",
+        "Spara dina språk- och utseendeinställningar."
+      ],
+      "trash": [
+        "Öppna papperskorgen för att hitta ett borttaget bokmärke.",
+        "Välj den och klicka på Återställ: den återgår till rutnätet.",
+        "I allmänhet väljer du hur länge raderade objekt sparas."
+      ],
+      "backup": [
+        "Hitta alternativen för säkerhetskopiering i Inställningar → Allmänt.",
+        "Export laddar ner en ZIP med data och lokala filer.",
+        "Import ber om bekräftelse innan data ersätts."
+      ],
+      "sync": [
+        "Öppna Inställningar → Synkronisering för att kontrollera det aktuella läget.",
+        "Välj Synkroniserat och granska bekräftelsen.",
+        "Acceptera tillämpar läget omedelbart, utan att klicka på Spara."
+      ],
+      "compact": [
+        "När fönstret smalnar av blir rutnätet en lista.",
+        "Bokmärken förblir tillgängliga från listan.",
+        "Vidga fönstret för att återgå till rutnätet och redigering."
+      ],
+      "data": [
+        "Exemplet använder ett annat språk, ett lätt gränssnitt och anpassade brickor.",
+        "Återställ återställer standardinställningarna samtidigt som bokmärken och deras stilar behålls.",
+        "Ta bort tar bort bokmärken och mappar och lämnar bara den tomma papperskorgen."
+      ],
+      "learning": [
+        "Det dagliga tipset inbjuder dig att upptäcka en funktion. Klicka på Visa mig hur.",
+        "Skriv \"tangentbord\" i sökrutan för att hitta Navigera med tangentbordet.",
+        "Klicka på resultatet för att läsa instruktionerna."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "ETT LITE TIPS FÖR IDAG",
+    "dismiss": "Avfärda dagens tips",
+    "read": "Visa mig hur",
+    "pace": "Håll muspekaren för att pausa.",
+    "enabled": "Dagliga tips",
+    "description": "Ett tips när du öppnar din första flik för dagen."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Hur lägger jag till en sida i mina bokmärken?",
+      "searchTerms": "lägg till sida; skapa bokmärke; spara webbplats; ny favorit",
+      "title": "Lägg till bokmärken",
+      "summary": "Dina favoritsidor till hands i varje ny flik.",
+      "steps": [
+        "Flytta till vänster kant för att visa menyn. Välj + → Bokmärke.",
+        "Ange sidans namn och adress. Du kan justera dess utseende innan du lägger till det.",
+        "Bekräfta att placera bokmärket i en ledig plats i den aktuella arbetsytan. Utanför redigeringsläget klickar du på det för att öppna sidan."
+      ],
+      "note": "För att ändra ett befintligt bokmärke, aktivera redigering och använd dess penna. Du kan låsa adressen för att undvika oavsiktliga ändringar.",
+      "tip": "Menyn för att lägga till bokmärken finns till vänster. Flytta markören dit och välj + → Bokmärke."
+    },
+    "quick-save": {
+      "question": "Hur sparar jag sidan jag besöker?",
+      "searchTerms": "spara aktuell sida; spara öppen flik; förlängningsikon; fånga URL",
+      "title": "Spara den aktuella sidan",
+      "summary": "Lägg till en sida från tilläggsikonen.",
+      "steps": [
+        "När du besöker en sida öppnar du New DeskTab från webbläsarens tilläggsmeny.",
+        "Kontrollera det föreslagna namnet och adressen och välj en tillgänglig destination.",
+        "Spara bokmärket och öppna en ny flik för att hitta det i ditt utrymme."
+      ],
+      "note": "Fäst tilläggsikonen i webbläsarens verktygsfält för att hålla denna genväg inom räckhåll.",
+      "tip": "Du behöver inte kopiera webbadressen: New DeskTabs webbläsarikon låter dig spara sidan du besöker."
+    },
+    "keyboard": {
+      "question": "Hur navigerar jag utan mus?",
+      "searchTerms": "utan mus; använd tangentbord; pilnavigering; flik enter",
+      "title": "Navigera med tangentbordet",
+      "summary": "Tab, piltangenter och Enter för att utforska ditt utrymme.",
+      "steps": [
+        "På huvudsidan, utan att skriva i ett fält eller ha en dialogruta öppen, tryck på Tabb för att börja navigera mellan objekten.",
+        "Använd piltangenterna för att nå det närmaste objektet i varje riktning. Enter öppnar bokmärket eller mappen; i redigeringsläge öppnar den sin editor.",
+        "Tryck på Tab igen eller Esc för att lämna navigeringen. I dialogrutor flyttar Tab och Skift + Tab normalt mellan kontrollerna."
+      ],
+      "note": "I redigeringsläge väljer S det fokuserade objektet. Ta bort eller Backsteg tar bort det efter bekräftelse. Widgetar raderas permanent.",
+      "tip": "Prova Tab i ditt utrymme: pilar flyttas mellan objekt och Enter öppnar dem. En annan flik lämnar detta läge."
+    },
+    "shortcuts": {
+      "question": "Hur ändrar jag mina kortkommandon?",
+      "searchTerms": "ändra genvägar; anpassa nycklar; tangentkombinationer; snabbtangent",
+      "title": "Gör genvägar till dina egna",
+      "summary": "Kontrollera och ändra dina genvägar i Inställningar.",
+      "steps": [
+        "Öppna Inställningar → Genvägar för att se dina bindningar för redigering, lägga till bokmärken, mappar och widgetar och öppna inställningar.",
+        "Klicka på en åtgärds tangentkombination och tryck på en ny genväg. Esc avbryter inspelningen; högerklicka lämnar åtgärden otilldelad.",
+        "Spara inställningarna för att tillämpa dina ändringar. Återställ genvägar återställer de ursprungliga kombinationerna."
+      ],
+      "note": "Inledningsvis: E redigerar, B lägger till ett bokmärke, F en mapp, W öppnar widgetar och S öppnar inställningar. Genvägar respekterar textfält och dialogrutor.",
+      "tip": "Du kan ändra genvägar i Inställningar. Klicka på en kombination för att spela in din egen; Esc avbryter och högerklickar tar bort tilldelningen."
+    },
+    "search": {
+      "question": "Hur hittar jag ett bokmärke som jag inte kan se?",
+      "searchTerms": "hitta bokmärke; hitta sidan; saknas bokmärke; sök URL",
+      "title": "Hitta ett bokmärke",
+      "summary": "Sök på namn eller adress, inklusive inuti mappar.",
+      "steps": [
+        "Tryck på / när du inte skriver, eller använd förstoringsglaset på arbetsytan.",
+        "Skriv en del av ett namn eller adress. Sök inkluderar bokmärken i andra arbetsytor och inuti mappar.",
+        "Öppna det resultat du behöver. Esc eller Stäng tar dig tillbaka till ditt utrymme."
+      ],
+      "note": "Du behöver inte komma ihåg var du sparade en sida för att hitta den.",
+      "tip": "Knappen / öppnar sökningen. Den hittar också bokmärken i mappar och i andra arbetsytor."
+    },
+    "editing": {
+      "question": "Hur aktiverar jag redigering?",
+      "searchTerms": "aktivera redigering; redigera skrivbordet; pennredigerare; ändra bokmärke",
+      "title": "Redigera läge",
+      "summary": "Slå på pennan för att organisera och anpassa.",
+      "steps": [
+        "Klicka på pennan i menyn till vänster eller använd din redigeringsgenväg för att visa rutnätet och objektkontrollerna.",
+        "Flytta, ändra storlek eller välj objekt. Varje korts penna öppnar redigeraren för namn, adress och utseende.",
+        "Klicka på pennan igen när du är klar. Ändringar av arbetsytan sparas automatiskt; redaktörer har sin egen Spara-knapp."
+      ],
+      "note": "Esc rensar först val eller tangentbordsnavigering. När ingen av dem är aktiv kan den lämna redigeringsläget.",
+      "tip": "Menypennan börjar redigera: korthandtag och kontroller visas. Klicka på den igen för att avsluta."
+    },
+    "movement": {
+      "question": "Hur flyttar jag ett bokmärke?",
+      "searchTerms": "flytta bokmärke; dra favorit; ändra position; ordna rutnät",
+      "title": "Flytta objekt",
+      "summary": "Dra korten på plats i rutnätet.",
+      "steps": [
+        "Slå på redigeringsläget och håll kvar kortet du vill flytta.",
+        "Dra den till dess destination. Resultatet beror på ledigt utrymme och dragläget som valts i Inställningar → Bokmärken.",
+        "Släpp för att spara dess position. Du kan också välja ett enstaka objekt med ett klick och flytta det en cell med pilar, utanför fliknavigering."
+      ],
+      "note": "Blockerade destinationer visar visuell feedback och objektet återgår till en giltig position. Du kan ångra ändringar.",
+      "tip": "I redigeringsläge, klicka för att välja ett kort och använd pilarna för att flytta det cell för cell. Lämna fliknavigering först."
+    },
+    "resizing": {
+      "question": "Hur ändrar jag storleken på en platta?",
+      "searchTerms": "ändra storlek på brickor; förstora bokmärke; minska storleken; ändra storlek på handtag; klick; Flytta; bredd höjd; 2x2",
+      "title": "Ändra storleken",
+      "summary": "Använd sidorna och hörnen på ett kort.",
+      "steps": [
+        "Aktivera redigering och flytta till ett objekts sida eller hörn för att använda dess storlekshandtag.",
+        "Dra i handtaget. Ett hörn ändrar bredd och höjd; en sida ändrar bara en dimension. Du kan också klicka på ett handtag för att växa med en cell, eller Skift + klicka för att krympa med en cell.",
+        "I Inställningar → Bokmärken väljer du Ingen för att hoppa mellan celler efter att ha korsat 50 %, eller Slät för att sträcka ut kortet och knäppa när det släpps."
+      ],
+      "note": "Den slutliga storleken respekterar rutnätet och giltiga positioner. Inställningsförhandsgranskningar visar skillnaden innan du väljer.",
+      "tip": "Klicka på ett handtag för att växa med en cell eller Skift + klicka för att krympa med en cell. Hörn ändrar bredd och höjd tillsammans; sidor ändrar bara en dimension."
+    },
+    "drag-modes": {
+      "question": "Varför kan jag inte släppa på en upptagen cell?",
+      "searchTerms": "ockuperad cell; flytta över en annan; blockerad droppe; flytta kaskad; dra kollision",
+      "title": "Dra lägen",
+      "summary": "Välj vad som händer vid en upptagen bokmärkesposition.",
+      "steps": [
+        "Öppna Inställningar → Bokmärken och utöka dragbeteendet.",
+        "Ingen flyttar till gratis slots. Omlokalisering hittar en position för bokmärken på destinationen. Sekvens ordnar om bokmärken i sekvens.",
+        "Titta på varje alternativs animering och spara det läge som känns bekvämt att organisera med."
+      ],
+      "note": "Ett drag avvisas om det inte finns något giltigt arrangemang. En genomskinlig bakgrund gör inte en ockuperad cell fri.",
+      "tip": "Vill du flytta ett bokmärke till en upptagen cell? Titta på Omlokalisering and Sekvens i Inställningar → Bokmärken och titta på deras förhandsvisningar."
+    },
+    "folders": {
+      "question": "Hur grupperar jag bokmärken i mappar?",
+      "searchTerms": "skapa mapp; gruppbokmärken; organisera favoriter; ta bort från mappen; byt namn på mapp",
+      "title": "Organisera med mappar",
+      "summary": "Samla upp till 18 bokmärken i en mapp.",
+      "steps": [
+        "Välj + → Mapp i menyn till vänster och ge den ett namn.",
+        "I redigeringsläge, dra bokmärken till den för att sätta in dem. Öppna mappen för att se dess rutnät.",
+        "Använd mappens redigeringsläge för att ordna dess bokmärken. Klicka på dess namn för att byta namn på den och på dess ikon för att anpassa dess utseende."
+      ],
+      "note": "Att ta bort en mapp påverkar också dess bokmärken. Granska bekräftelsen innan du fortsätter; papperskorgen kan återställa raderade föremål.",
+      "tip": "En mapp rymmer upp till 18 bokmärken. Slå på redigering och dra ett kort till mappen för att lägga till det."
+    },
+    "workspaces": {
+      "question": "Hur håller jag personliga och arbetssidor åtskilda?",
+      "searchTerms": "personligt arbete; skapa arbetsyta; byta arbetsyta; stationära datorer",
+      "title": "Separera dina arbetsytor",
+      "summary": "Ett rutnät för arbete och ett annat för allt annat.",
+      "steps": [
+        "Arbetsytefältet växlar mellan Main och dina anpassade arbetsytor. Dess + skapar en ny.",
+        "Välj en arbetsyta innan du lägger till objekt. För att överföra befintliga objekt, välj dem och välj en destination i åtgärdsfältet.",
+        "Alt + ↑ och Alt + ↓ växlar genom arbetsytor. Knappen − tar bort den aktuella anpassade arbetsytan efter bekräftelse."
+      ],
+      "note": "Om du tar bort en arbetsyta raderas även dess innehåll. Main stays tillgängliga och kan inte raderas.",
+      "tip": "Alt + ↑ och Alt + ↓ växlar arbetsytor utan att öppna väljaren. Separera arbete, hobbyer eller projekt med barens +."
+    },
+    "selection": {
+      "question": "Hur ändrar jag flera objekt samtidigt?",
+      "searchTerms": "välj flera; bulkval; flytta flera; klonselektion; dubbletter av bokmärken",
+      "title": "Välj och agera i bulk",
+      "summary": "Färre upprepade åtgärder när du organiserar flera kort.",
+      "steps": [
+        "Slå på redigering och klicka kort på varje kort för att välja det. Klicka igen för att avmarkera; i fliknavigering kan du använda S.",
+        "Markeringsfältet låter dig duplicera, tillämpa standardutseendet, flytta till en annan arbetsyta eller ta bort, beroende på objekttyp.",
+        "Kontrollera destinationen eller bekräftelsen. Esc eller raderingsknappen avbryter ditt val."
+      ],
+      "note": "Flyttningar och duplicering kräver lediga platser. Appen talar om för dig om vissa föremål inte passar. Widgets hamnar inte i papperskorgen.",
+      "tip": "I redigeringsläge, välj flera kort med korta klick för att flytta, duplicera eller styla om dem tillsammans. Esc rensar valet."
+    },
+    "history": {
+      "question": "Hur ångrar jag min senaste ändring?",
+      "searchTerms": "ångra ändring; göra om förändring; gå tillbaka; återställa position",
+      "title": "Ångra och gör om",
+      "summary": "Återställ en position eller en ny förändring.",
+      "steps": [
+        "Använd ångra-pilen på arbetsytan för att återgå till föregående tillstånd.",
+        "Gör om-pilen återställer en ändring som du just har ångrat. Du kan också använda Ctrl/Cmd + Z och Ctrl/Cmd + Shift + Z.",
+        "Inuti en editor, använd pilarna bredvid dess titel för väntande ändringar; textfält behåller sitt normala tangentbord ångra. Varje åtgärd visar ett kort meddelande och otillgängliga pilar är inaktiverade. Kontrollera resultatet innan du sparar."
+      ],
+      "note": "Redaktörshistoriken börjar på nytt varje gång du öppnar en editor; ändringar når din arbetsyta när du sparar. Arbetsytans historik är tillfällig och är inte en säkerhetskopia. En ny session eller uppdateringar från en annan flik kan återställa den.",
+      "tip": "Om en ändring inte känns rätt, använd ångra-pilen eller Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z gör om den."
+    },
+    "appearance": {
+      "question": "Hur ändrar jag färg, ikon eller text?",
+      "searchTerms": "ändra färg; ändra ikon; ändra text; bokmärkes utseende; mappfärg; favicon",
+      "title": "Anpassa dina kort",
+      "summary": "Färger, bilder, text och ikoner på ditt sätt.",
+      "steps": [
+        "Slå på redigering och öppna ett bokmärkes penna, eller utseendekontrollen för en mapp eller papperskorgen.",
+        "Utforska redigeraren: bakgrund, färg, bild, text och ikon. Tillgängliga kontroller beror på objekttypen; förhandsgranskningen visar resultatet.",
+        "Spara när du är nöjd. Du kan använda bilder från en URL eller en lokal fil där redigeraren erbjuder det alternativet."
+      ],
+      "note": "Lokala bilder tillhör den här webbläsaren. Lägg till en reserv-URL för andra enheter vid synkronisering. Importer behåller inkluderade bilder och tydliga referenser utan fil; Synkronisering ignorerar filer som inte är tillgängliga på den här enheten.",
+      "tip": "Ett bokmärkes penna öppnar dess visuella redigerare. Ändra färger, text, ikon eller bild och kontrollera förhandsgranskningen."
+    },
+    "presets": {
+      "question": "Hur återanvänder jag en stil jag gillar?",
+      "searchTerms": "spara stil; återanvända utseende; standardstilar; förinställt bibliotek; tillämpa stil",
+      "title": "Återanvänd utseenden",
+      "summary": "Spara en titt och använd den på andra bokmärken.",
+      "steps": [
+        "Öppna redaktörens bibliotek för att välja en look från den tillgängliga samlingen.",
+        "Spara ett anpassat utseende som en förinställning för att återanvända dess färger, text och ikon utan att kopiera bokmärkets namn eller adress.",
+        "I Inställningar → Bokmärken konfigurerar du standardutseendet för nya bokmärken. Markeringsfältet kan tillämpa det på kompatibla objekt."
+      ],
+      "note": "En förinställning ändrar utseende, inte bokmärkets identitet, destination eller position.",
+      "tip": "Spara en look du gillar i utseendebiblioteket. Återanvänd det på andra kort utan att ändra deras namn eller adresser."
+    },
+    "wallpapers": {
+      "question": "Hur använder jag en bild eller video som bakgrund?",
+      "searchTerms": "ändra bakgrund; videobakgrund; tapetrotation; tema",
+      "title": "Tapeter och rotation",
+      "summary": "Färg, bild eller video för att ställa in stämningen.",
+      "steps": [
+        "Öppna Inställningar → Tema och välj standardbakgrund, en färg eller en mediabakgrund.",
+        "Lägg till bilder eller videor från källorna som erbjuds i panelen. Biblioteket samlar flera bakgrunder med ett rotationsintervall.",
+        "Kontrollera förhandsgranskningen och spara. Du kan para ihop en lokal fil med en alternativ URL för andra enheter."
+      ],
+      "note": "Lokala filer stannar i den här webbläsaren. Synkronisering överför dem inte; en fullständig säkerhetskopia kan bevara dem.",
+      "tip": "Din bakgrund kan ändras automatiskt: lägg till flera i Inställningar → Temabibliotek och ställ in ett rotationsintervall."
+    },
+    "clock": {
+      "question": "Hur lägger jag till en klocka?",
+      "searchTerms": "lägg till klocka; visa tid; sekunder; 24 timmars format; klocka widget",
+      "title": "Lägg till en klocka",
+      "summary": "En widget som visar enhetens tid.",
+      "steps": [
+        "Välj + → Widgets i menyn till vänster och välj Klocka.",
+        "Välj ett 12- eller 24-timmarsformat och om du vill visa sekunder. Förhandsgranskningen hjälper dig att bestämma.",
+        "Lägg till den i en gratis slot. I redigeringsläge kan du flytta, ändra storlek på eller öppna dess alternativ igen."
+      ],
+      "note": "Klockan följer din enhets tid. Att ta bort en widget är permanent; den hamnar inte i papperskorgen.",
+      "tip": "I + → Widgets kan du lägga till en 12- eller 24-timmarsklocka med valfria sekunder och ändra storlek på den för att passa ditt utrymme."
+    },
+    "interface": {
+      "question": "Hur ändrar jag språk eller använder mörkt läge?",
+      "searchTerms": "byta språk; mörkt läge; ljusläge; gränssnittets utseende",
+      "title": "Språk och gränssnittstema",
+      "summary": "Gör menyer, dialogrutor och kontroller bekväma.",
+      "steps": [
+        "Välj ett språk i Inställningar → Allmänt eller låt det följa ditt system.",
+        "Välj ett ljust, mörkt eller automatiskt gränssnitt enligt dina önskemål.",
+        "Spara inställningar. Gränssnittstemat fungerar tillsammans med bakgrunden du valde i Tema."
+      ],
+      "note": "Systemspråk och automatiskt utseende följer dina enhetsinställningar.",
+      "tip": "Välj ett ljust eller mörkt gränssnitt samtidigt som du behåller din bakgrundsbild. Hitta detta alternativ och språk i Inställningar → Allmänt."
+    },
+    "trash": {
+      "question": "Hur återställer jag ett borttaget bokmärke?",
+      "searchTerms": "återställa raderat bokmärke; återställa borttaget; papperskorgen; raderade av misstag; återställa mappen",
+      "title": "Återställ från papperskorgen",
+      "summary": "En andra chans för bokmärken och mappar.",
+      "steps": [
+        "Öppna utrymmets papperskorg för att granska borttagna bokmärken och mappar.",
+        "Välj vad du vill ha tillbaka och använd Återställ. Du kan också ta bort föremål permanent eller tömma soptunnan efter bekräftelse.",
+        "I Inställningar → Allmänt väljer du om du vill visa den och hur länge objekten lagras: 1, 7, 14 eller 28 dagar, eller radera dem aldrig automatiskt."
+      ],
+      "note": "Papperskorgen tillhör denna enhet. Utgångna eller permanent raderade objekt kan inte längre återställas från den.",
+      "tip": "Har du raderat ett bokmärke av misstag? Öppna papperskorgen och återställ den. Justera lagringsperioden i Inställningar → Allmänt."
+    },
+    "backup": {
+      "question": "Hur säkerhetskopierar eller överför jag mina data?",
+      "searchTerms": "säkerhetskopia; exportera data; importera kopia; återställa säkerhetskopia; en annan webbläsare; överföra data",
+      "title": "Säkerhetskopiering och import",
+      "summary": "Behåll en kopia av ditt utrymme och ta det med dig.",
+      "steps": [
+        "I Inställningar → Allmänt exportera en fullständig säkerhetskopia för att bevara data och de lokala filerna som ingår i ZIP-arkivet.",
+        "För att återställa, importera en säkerhetskopia och granska bekräftelsen innan du ersätter data. Kompatibla JSON-säkerhetskopior stöds också.",
+        "I Inställningar → Bokmärken kan du exportera eller importera bara bokmärken och mappar när du inte behöver en fullständig säkerhetskopia."
+      ],
+      "note": "En bokmärkesexport är inte en fullständig säkerhetskopia av inställningar och lokala media. Spara en säkerhetskopia innan du återställer eller raderar data.",
+      "tip": "En fullständig säkerhetskopia från Inställningar → Allmänt inkluderar lokala filer i en ZIP. Det är användbart innan du byter webbläsare eller återställer data."
+    },
+    "sync": {
+      "question": "Hur använder jag samma utrymme på en annan dator?",
+      "searchTerms": "en annan dator; synkronisera enheter; synkronisering; moln; lokal synkronisering; stoppa synkroniseringen; inaktivera synkronisering; lokalt läge",
+      "title": "Synkronisera mellan enheter",
+      "summary": "Dela ditt utrymme med webbläsarsynkronisering.",
+      "steps": [
+        "Logga in och aktivera tilläggssynkronisering i din Google Chrome profil.",
+        "I Inställningar → Synkronisering väljer du Synkroniserat och accepterar bekräftelsen. Växlingen träder i kraft omedelbart: befintliga synkroniserade bokmärken och inställningar laddas eller din sparade lokala data synkroniseras om ingen finns.",
+        "Använd samma profil på den andra enheten. Kontrollera synkroniseringsstatus och tillgängligt utrymme i panelen."
+      ],
+      "note": "Lokala filer, papperskorgen och dagliga tips hör till varje enhet. Synkronisering har lagringsgränser; använd alternativa webbadresser för lokala bilder och videor. Att välja Lokal ber också om bekräftelse och träder i kraft omedelbart, och synkroniserad data lagras.",
+      "tip": "Synkronisering delar ditt utrymme mellan enheter, men lokala filer behöver en alternativ URL. Se Inställningar → Synkronisering."
+    },
+    "compact": {
+      "question": "Varför ser jag en lista istället för rutnätet?",
+      "searchTerms": "litet fönster; listvy; rutnät försvann; dold panel; mobil",
+      "title": "Använd ett mindre fönster",
+      "summary": "Fortsätt nå dina bokmärken när utrymmet är begränsat.",
+      "steps": [
+        "När fönstret blir smalare växlar appen till en lista för att hålla dina föremål tillgängliga.",
+        "Öppna bokmärken, mappar eller sök i den här vyn. Manualen anpassar sig även till den tillgängliga storleken.",
+        "Vidga fönstret för att ta tillbaka rutnätet och redigeringspanelerna. En avstängd redigeringsdialogruta bevarar dess utkast."
+      ],
+      "note": "Kompakt vy hjälper dig att bläddra i ditt utrymme; omorganisering behöver ett tillräckligt brett fönster.",
+      "tip": "I ett smalt fönster förblir dina bokmärken tillgängliga som en lista. Bredda den när du vill redigera eller omorganisera rutnätet."
+    },
+    "data": {
+      "question": "Hur tar jag bort mina data eller återställer inställningarna?",
+      "searchTerms": "radera data; återställ inställningar; ta bort allt; börja om",
+      "title": "Sparar och återställer",
+      "summary": "Förstå vad som sparas och vad varje åtgärd tar bort.",
+      "steps": [
+        "Arbetsområdesåtgärder sparas automatiskt. I redigerare och inställningar, bekräfta med Spara; Avbryt kasserar panelens utkast.",
+        "Om ett meddelande om väntande spara visas klickar du på Försök spara igen och väntar på bekräftelse innan du stänger fliken.",
+        "I Inställningar → Allmänt kan du återställa inställningar eller radera all data. Läs bekräftelsen och exportera en säkerhetskopia av allt du vill behålla."
+      ],
+      "note": "Återställning av inställningar behåller dina bokmärken, deras storlekar och deras stilar. Att radera all lokal data tar bort föremålen och tömmer papperskorgen. Exportera en säkerhetskopia innan du tar bort: Ångra ersätter inte en säkerhetskopia.",
+      "tip": "Om du ser ett meddelande om osparade ändringar, använd Försök spara igen innan du stänger fliken. Skydda ditt utrymme med en fullständig säkerhetskopia."
+    },
+    "learning": {
+      "question": "Hur öppnar jag guiden igen eller stänger av dagliga tips?",
+      "searchTerms": "inaktivera tips; stänga av hjälpen; daglig bevakning; öppna guiden igen; bruksanvisning",
+      "title": "Lär dig i din egen takt",
+      "summary": "En snabbguide, en manual och ett litet dagligt tips.",
+      "steps": [
+        "Gå tillbaka till snabbguiden från Inställningar → Hjälp. Varje steg länkar till motsvarande förklaringar i manualen.",
+        "Utforska indexet eller sök efter ett ord. En sektions relaterade länkar tar dig till andra funktioner när du är redo.",
+        "Din första nya flik varje dag visar ett slumpmässigt tips. Avvisa det eller öppna dess förklaring; du kan inaktivera tips i Hjälp."
+      ],
+      "note": "Tips besök sektionerna utan att upprepa tills samlingen är klar. De varar i 20 sekunder och pausar medan de svävar eller fokuserar på knapparna. De följer den lokala dagen och den här webbläsarens preferenser.",
+      "tip": "Den här handboken finns alltid i Inställningar → Hjälp. Dagliga tips öppnar en sektion och du kan inaktivera dem där när du vill."
+    }
+  }
+}

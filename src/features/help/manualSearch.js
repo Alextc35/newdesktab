@@ -1,14 +1,17 @@
 const STOP_WORDS = new Set(`a al algo algun alguna algunos ante como con cual cuando de del donde el ella en es este esto esta estos estas hago hacer hay la las lo los me mi mis necesito para por porque puedo que quiero se ser su sus tengo un una unos unas y yo
   about an and are can do does for how i in is it me my of on or please the to want what when where which with would you your
   ao aos as com da das dessa desse do dos ela em eu fazer ha isso meu meus minha minhas na nas no nos o os ou pela pelo posso pra preciso qual quando quero sao se sem sua suas tem tenho um uma voce`.split(/\s+/u));
+const segmenter = new Intl.Segmenter('und', { granularity: 'word' });
 
 function normalize(value) {
-  return String(value ?? '').normalize('NFD').replace(/\p{Diacritic}/gu, '')
-    .toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  return String(value ?? '').normalize('NFD')
+    .replace(/([\p{Script=Latin}\p{Script=Greek}\p{Script=Cyrillic}])\p{M}+/gu, '$1')
+    .toLocaleLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim();
 }
 
 function words(value) {
-  return [...new Set(normalize(value).split(' ').filter(word => word && !STOP_WORDS.has(word)))];
+  return [...new Set([...segmenter.segment(normalize(value))]
+    .filter(part => part.isWordLike && !STOP_WORDS.has(part.segment)).map(part => part.segment))];
 }
 
 /** A single missing, added or mistyped letter, without broad fuzzy matches. */

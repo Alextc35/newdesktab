@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Notes de version",
+    "settingsDescription": "Ce qui a changé et l'histoire derrière chaque mise à jour.",
+    "open": "Lire les notes",
+    "history": "Historique des versions",
+    "dismiss": "Fermer les notes de version",
+    "continue": "Continuer",
+    "back": "Retour aux informations",
+    "highlights": "Ce que vous pouvez faire aujourd'hui",
+    "generic": {
+      "title": "New DeskTab a été mis à jour",
+      "description": "Vous avez la nouvelle version. Vous pouvez consulter les notes de version précédentes dans Informations à tout moment. Merci d'être ici."
+    },
+    "v1_0_0": {
+      "title": "Votre bureau de sites Web. Enfin.",
+      "thanks": "Merci d'avoir essayé New DeskTab. Je suis tellement excité de partager enfin avec vous la première version publique de ce projet.",
+      "origin": "Tout a commencé le 26 septembre 2025. En regardant un stream Just Chatting sur Twitch, j'ai remarqué le nouvel onglet du navigateur du streamer : une extension qui disposait les sites Web sous forme de carrés colorés, sans noms ni logos. Ce minimalisme m'a fasciné et je me suis dit : pourquoi ne pas créer ma propre extension ? Je voulais que chaque nouvel onglet apporte une impression d'ordre, que mes pages soient à portée de main et qu'il y ait un panneau que j'aime regarder.",
+      "desktop": "Peu à peu, cette idée s’est transformée en un ordinateur de bureau personnel composé de sites Web plutôt que d’applications. L'horloge est une première étape et est toujours un travail en cours. À l'avenir, j'aimerais ajouter un bloc-notes et d'autres widgets qui offrent quelque chose d'utile, à la fois pour moi et pour tous ceux qui utilisent New DeskTab.",
+      "closing": "Cette application est faite pour moi et pour vous. Merci de faire confiance à New DeskTab et de lui accorder une place dans votre navigateur. J'espère que vous prendrez autant de plaisir à créer votre espace que j'ai eu à le construire.",
+      "highlights": {
+        "workspace": "Organisez vos pages avec des signets, des dossiers et des espaces de travail indépendants.",
+        "appearance": "Personnalisez les couleurs, la taille de chaque élément et l'arrière-plan de votre bureau.",
+        "search": "Trouvez vos pages avec la recherche et utilisez les raccourcis clavier pour naviguer et créer des éléments.",
+        "backup": "Enregistrez les sauvegardes et récupérez les éléments supprimés de la corbeille.",
+        "sync": "Choisissez de conserver les données sur cet appareil ou de les synchroniser avec Google Chrome.",
+        "help": "Découvrez les fonctionnalités avec le guide de bienvenue, le manuel et les conseils quotidiens."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "VOTRE PREMIÈRE MINUTE",
+    "skip": "Passer le guide",
+    "back": "Retour",
+    "next": "Suivant",
+    "finish": "Retour aux paramètres",
+    "explore": "Explorer mon espace",
+    "addFirst": "Ajouter mon premier favori",
+    "progress": "Étape {{current}} sur {{total}}",
+    "compactHint": "Agrandissez la fenêtre lorsque vous souhaitez ajouter des favoris et modifier votre espace.",
+    "reopenTitle": "Guide rapide",
+    "reopenDescription": "Redécouvrez l'essentiel en une minute.",
+    "reopen": "Voir le guide",
+    "demo": {
+      "work": "Travail",
+      "media": "Médias",
+      "trash": "Corbeille",
+      "search": "Trouvez vos favoris"
+    },
+    "steps": {
+      "start": {
+        "title": "Vos pages. Votre propre espace.",
+        "body": "Bienvenue à New DeskTab. Gardez vos pages préférées à portée de main chaque fois que vous ouvrez un onglet. Pour en ajouter un, déplacez-vous vers le bord gauche et choisissez + → [[bookmarks|Marque-page]].",
+        "hint": "Vous pouvez également [[quick-save|enregistrez la page que vous visitez]] à partir de l'icône d'extension de votre navigateur."
+      },
+      "edit": {
+        "title": "Donnez à chaque marque-page sa place.",
+        "body": "Allumez le crayon dans le menu de gauche pour modifier. Maintenez et [[movement|faire glisser]] un élément pour le déplacer ; utilisez son [[resizing|poignées]] pour modifier sa taille.",
+        "hint": "Le crayon de chaque marque-page ouvre son [[appearance|éditeur]] : nom, couleurs, icône et image. Enregistrez [[presets|styles]] pour les réutiliser."
+      },
+      "organize": {
+        "title": "Moins d'encombrement. Plus d'ordre.",
+        "body": "Créez un [[folders|dossier]] à partir de + et faites-y glisser des signets en mode édition. Il s'ouvre sur une grille épurée pouvant accueillir jusqu'à 18 signets.",
+        "hint": "Utilisez le + dans le [[workspaces|barre d'espace de travail]] pour séparer le travail et les loisirs. Le [[search|loupe]] recherche également dans les dossiers."
+      },
+      "style": {
+        "title": "Donnez-lui l'impression d'être à votre image.",
+        "body": "Dans Paramètres → [[wallpapers|Thème]], choisissez une couleur, une image ou un arrière-plan vidéo et faites pivoter vos fonds d'écran préférés. Dans Paramètres → [[sync|Synchronisation]], synchronisez votre espace sur tous les appareils à l'aide du compte connecté à votre profil Chrome.",
+        "hint": "Ajoutez un [[clock|horloge]] depuis + → Widgets. Vous pouvez également personnaliser le [[appearance|apparence]] de vos dossiers."
+      },
+      "ready": {
+        "title": "Vous connaissez l'essentiel.",
+        "body": "Appuyez sur [[search|/]] pour rechercher un signet. Utilisez les flèches [[history|annuler et refaire]] pour récupérer les modifications ; les signets supprimés vont dans [[trash|corbeille]].",
+        "hint": "Les modifications sont enregistrées automatiquement. Dans Paramètres, exportez un [[backup|sauvegarde]] ou activez Google Chrome [[sync|synchronisation]] facultatif."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Vos dernières modifications n'ont pas pu être enregistrées.",
+    "retry": "Réessayez d'enregistrer",
+    "saved": "Modifications en attente enregistrées."
+  },
+  "itemEditor": {
+    "chooseIcon": "Choisissez une icône",
+    "siteLogo": "Logo",
+    "noSymbol": "Aucun",
+    "folderIconHint": "Le symbole remplace les aperçus des signets à l'intérieur du dossier.",
+    "icons": {
+      "mail": "Courrier",
+      "calendar": "Calendrier",
+      "notes": "Remarques",
+      "projects": "Projets",
+      "design": "Conception",
+      "music": "Musique",
+      "tasks": "Tâches",
+      "ideas": "Idées",
+      "docs": "Documents",
+      "ui-start": "Boussole",
+      "ui-organize": "Disposition",
+      "ui-personalize": "Curseurs",
+      "ui-protect": "Bouclier",
+      "ui-bookmarks": "Ajouter un signet",
+      "ui-quick-save": "Navigateur",
+      "ui-keyboard": "Clavier",
+      "ui-shortcuts": "Foudre",
+      "ui-search": "Rechercher",
+      "ui-editing": "Crayon",
+      "ui-movement": "Déplacer",
+      "ui-resizing": "Redimensionner",
+      "ui-drag-modes": "Faites glisser",
+      "ui-folders": "Dossier",
+      "ui-workspaces": "Fenêtres",
+      "ui-selection": "Sélection",
+      "ui-history": "Histoire",
+      "ui-appearance": "Palette",
+      "ui-presets": "Préréglages",
+      "ui-wallpapers": "Images",
+      "ui-clock": "Horloge",
+      "ui-interface": "Globe terrestre",
+      "ui-trash": "Corbeille",
+      "ui-backup": "Archiver",
+      "ui-sync": "Synchroniser",
+      "ui-compact": "Liste",
+      "ui-data": "Base de données",
+      "ui-learning": "Livre",
+      "ui-settings": "Paramètres",
+      "ui-controls": "Contrôles",
+      "ui-cloud": "Nuage",
+      "ui-bookmark": "Marque-page",
+      "ui-info": "Informations",
+      "ui-eye": "Oeil",
+      "ui-check": "Terminé",
+      "ui-lock": "Verrouiller",
+      "ui-unlock": "Déverrouiller",
+      "ui-copy": "Copier",
+      "ui-close": "Fermer",
+      "ui-undo": "Annuler",
+      "ui-redo": "Refaire",
+      "ui-desktop": "Bureau",
+      "home": "Accueil",
+      "briefcase": "Travail",
+      "code": "Coder",
+      "game": "Jeux",
+      "cart": "Achats",
+      "card": "Paiements",
+      "people": "Les gens",
+      "message": "Message",
+      "location": "Emplacement",
+      "phone": "Téléphone",
+      "camera": "Appareil photo",
+      "headphones": "Écouteurs",
+      "link": "Lien",
+      "tag": "Étiquette",
+      "chart": "Statistiques",
+      "coffee": "Café",
+      "sun": "Soleil",
+      "moon": "Lune",
+      "circle": "Cercle",
+      "square": "Carré",
+      "triangle": "Triangle",
+      "diamond": "Diamant",
+      "pentagon": "Pentagone",
+      "hexagon": "Hexagone",
+      "star": "Étoile",
+      "heart": "Coeur",
+      "plus": "Plus",
+      "minus": "Moins",
+      "video": "Vidéo"
+    },
+    "searchIcons": "Icônes de recherche…",
+    "clearIconSearch": "Effacer la recherche",
+    "noIcons": "Aucune icône trouvée",
+    "suggestedIcons": "Suggéré",
+    "suggestedIcon": "Suggéré : {{name}}",
+    "logoKeywords": "logo favicon site web marque du site",
+    "iconKeywords": {
+      "ui-trash": "poubelle poubelle supprimer classique",
+      "mail": "courrier email gmail Outlook boîte de réception",
+      "docs": "documents fichiers pdf lecteur word",
+      "notes": "notes mémo notion onenote",
+      "ui-protect": "sécurité protection confidentialité",
+      "game": "jeux console de contrôleur de jeu",
+      "cart": "faire du shopping magasin magasin acheter",
+      "card": "banque finance crédit débit argent",
+      "people": "groupe d'amis de la communauté sociale",
+      "ui-learning": "lecture bibliothèque éducation étude",
+      "ui-clock": "temps heures regarder",
+      "ui-interface": "internet web monde langue",
+      "ui-data": "stockage de données SQL",
+      "circle": "figures de formes géométriques",
+      "square": "figures de formes géométriques",
+      "triangle": "figures de formes géométriques",
+      "diamond": "figures de formes géométriques",
+      "pentagon": "figures de formes géométriques",
+      "hexagon": "figures de formes géométriques",
+      "star": "figures de formes géométriques",
+      "heart": "figures de formes géométriques"
+    },
+    "history": "Modifier l'historique",
+    "description": "Faites en sorte que vous vous sentiez chez vous dans votre espace de travail.",
+    "looks": "Choisissez un look",
+    "custom": "Personnalisé",
+    "look": {
+      "original": "Originale",
+      "card": "Carte",
+      "midnight": "Sombre",
+      "paper": "Lumière"
+    },
+    "reset": "Réinitialiser l'apparence",
+    "cardColor": "Couleur de la carte",
+    "folderFill": "Couleur du dossier",
+    "image": "Image d'arrière-plan",
+    "lock": "Verrouiller ou déverrouiller l'URL",
+    "copy": "Copier l'URL",
+    "clear": "Effacer",
+    "section": {
+      "general": "Les incontournables",
+      "text": "Nom et étiquettes",
+      "icon": "Icône",
+      "card": "Carte"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Le nom que vous voyez et la page qu'il ouvre.",
+        "text": "Choisissez d'afficher ou non le nom et d'ajuster sa couleur.",
+        "icon": "Utilisez une grande favicon centrée ou une petite icône à côté du nom des cartes image."
+      },
+      "folder": {
+        "general": "Un nom pour rassembler vos favoris.",
+        "text": "Affichez le nom du dossier et ajustez sa couleur.",
+        "icon": "Personnalisez l'icône du dossier et ses vignettes de signets."
+      },
+      "recycleBin": {
+        "general": "Choisissez si la corbeille apparaît dans votre espace de travail principal.",
+        "text": "Affichez le nom de la corbeille et ajustez sa couleur.",
+        "icon": "Donnez à la corbeille votre propre couleur. Cachez toute la poubelle au général."
+      }
+    },
+    "addImage": "Ajouter une image d'arrière-plan",
+    "changeImage": "Modifier l'image d'arrière-plan"
+  },
+  "html": {
+    "title": "Nouvel onglet"
+  },
+  "quickSave": {
+    "title": "Enregistrer le favori",
+    "name": "Nom",
+    "workspace": "Espace de travail",
+    "folder": "Dossier",
+    "mainWorkspace": "Principal",
+    "noFolder": "Aucun dossier",
+    "save": "Enregistrer le favori",
+    "saveAnyway": "Enregistrer quand même",
+    "savedButton": "Enregistré",
+    "alreadySaved": "Déjà enregistré",
+    "savedIn": "Dans {{location}}",
+    "savedInMore": "Dans {{location}} et {{count}} autres",
+    "open": "Ouvrir New DeskTab",
+    "unavailableTitle": "Cet onglet ne peut pas être enregistré",
+    "unavailable": "Ouvrez une page Web (http ou https) pour l'enregistrer.",
+    "loadError": "Impossible de charger vos favoris. Essayer à nouveau.",
+    "saving": "Sauvegarde…",
+    "saved": "Marque-page enregistré.",
+    "duplicate": "Cette URL est déjà enregistrée dans cette destination.",
+    "noSpace": "Il ne reste plus d'espace dans cette destination. Choisissez-en un autre.",
+    "invalid": "Vérifiez le nom et la destination sélectionnée.",
+    "saveError": "Impossible d'enregistrer le favori. Essayer à nouveau."
+  },
+  "launcher": {
+    "bookmark": "Marque-page",
+    "folder": "Dossier",
+    "widgets": "Widgets",
+    "editMode": {
+      "enter": "Passer en mode édition",
+      "exit": "Quitter le mode édition"
+    }
+  },
+  "widgets": {
+    "title": "Widgets",
+    "description": "Choisissez un widget à ajouter à cet espace de travail.",
+    "empty": "Aucun widget n'est encore disponible."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Agrandissez la fenêtre pour utiliser cette fonctionnalité.",
+      "suspended": "Panneau caché. Agrandissez la fenêtre pour continuer."
+    },
+    "editMode": {
+      "enabled": "Mode édition activé",
+      "disabled": "Mode édition désactivé"
+    },
+    "selectionMode": {
+      "enabled": "Mode de sélection activé",
+      "disabled": "Mode de sélection désactivé"
+    },
+    "bookmark": {
+      "added": "Signet ajouté",
+      "notFound": "Signet introuvable",
+      "updated": "Favoris mis à jour",
+      "deleted": "Favoris supprimé"
+    },
+    "clock": {
+      "added": "Horloge ajoutée",
+      "updated": "Horloge mise à jour",
+      "deleted": "Horloge supprimée"
+    },
+    "folder": {
+      "created": "Dossier créé",
+      "renamed": "Dossier renommé",
+      "updated": "Dossier mis à jour",
+      "deleted": "Dossier et ses favoris supprimés",
+      "bookmarkAdded": "Signet ajouté au dossier",
+      "folderFull": "Ce dossier contient déjà 18 favoris",
+      "bookmarkRemoved": "Le signet a été replacé dans la grille"
+    },
+    "recycleBin": {
+      "moved": "Déplacé vers la corbeille",
+      "restored": "Objets restaurés",
+      "deletedPermanently": "Éléments définitivement supprimés",
+      "updated": "Corbeille mise à jour"
+    },
+    "workspace": {
+      "created": "Espace de travail créé",
+      "deleted": "Espace de travail supprimé",
+      "switched": "Espace de travail : {{name}}"
+    },
+    "history": {
+      "undone": "Modification annulée",
+      "redone": "Changement refait"
+    },
+    "bookmarks": {
+      "deletedAll": "Tous les favoris supprimés",
+      "deletedAllWithFolders": "Tous les favoris et dossiers supprimés",
+      "deleteAllError": "Échec de la suppression de tous les favoris",
+      "exported": "Favoris exportés",
+      "exportError": "Échec de l'exportation des favoris",
+      "imported": "Favoris importés",
+      "importError": "Échec de l'importation des favoris",
+      "presetApplied": "Style appliqué à la sélection",
+      "duplicatedSelected": "Éléments sélectionnés dupliqués",
+      "deletedSelected": "Éléments sélectionnés supprimés",
+      "moved": "Éléments déplacés vers l'espace de travail sélectionné"
+    },
+    "settings": {
+      "saved": "Paramètres enregistrés",
+      "bookmarkDefaultSaved": "Apparence du signet par défaut enregistrée",
+      "bookmarkDefaultError": "Impossible d'enregistrer l'apparence par défaut des favoris",
+      "copied": "Valeur copiée dans le presse-papiers",
+      "resetBg": "Réinitialisation du thème",
+      "deletedAllData": "Toutes les données locales NewDeskTab supprimées",
+      "deleteAllDataError": "Impossible de supprimer toutes les données locales NewDeskTab",
+      "invalidWallpaperUrl": "Saisissez une URL d'image/vidéo HTTP ou HTTPS valide.",
+      "invalidWallpaperFile": "Impossible d'ajouter ce fichier. Utilisez une image prise en charge ou une vidéo MP4, WebM ou Ogg jusqu'à 200 Mo.",
+      "wallpaperLimit": "Vous pouvez ajouter jusqu'à 25 fonds d'écran personnels."
+    },
+    "localImage": {
+      "invalid": "Choisissez une image PNG, JPEG, WebP, GIF ou AVIF.",
+      "tooLarge": "Cette image est trop volumineuse pour être stockée sur cet appareil.",
+      "storageFull": "Il n'y a pas assez d'espace local pour cette image.",
+      "processing": "Cette image n'a pas pu être traitée."
+    },
+    "sync": {
+      "enabled": "Synchronisation activée",
+      "localEnabled": "Mode local activé",
+      "remoteLoaded": "Données synchronisées chargées",
+      "updatedFromOtherDevice": "Modifications synchronisées reçues d'un autre appareil",
+      "deletedFromOtherDevice": "Les données cloud ont été supprimées d'un autre appareil. Cet appareil utilise désormais le mode Locale.",
+      "error": "Impossible de changer le mode de stockage",
+      "versionBlocked": "La synchronisation a été suspendue, car les données cloud nécessitent une version NewDeskTab plus récente. Les données locales de cet appareil sont affichées.",
+      "quotaError": "Les données dépassent le stockage de synchronisation disponible",
+      "deleted": "Données synchronisées supprimées",
+      "deleteError": "Impossible de supprimer les données synchronisées"
+    },
+    "backup": {
+      "exported": "Sauvegarde exportée",
+      "exportError": "Impossible d'exporter la sauvegarde",
+      "mediaUnavailable": "Certaines images ou vidéos locales référencées ne sont pas disponibles, la sauvegarde n'a donc pas été créée.",
+      "imported": "Sauvegarde restaurée",
+      "importError": "Impossible de restaurer la sauvegarde",
+      "mediaStorageFull": "Il n'y a pas assez de stockage local pour restaurer les images et vidéos de sauvegarde."
+    }
+  },
+  "view": {
+    "list": "Vue en liste",
+    "search": "Rechercher des favoris et des dossiers",
+    "clearSearch": "Effacer la recherche",
+    "noResults": "Aucun résultat."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Supprimer tous les favoris ?",
+      "deleteFolders": "Supprimez également tous les dossiers",
+      "confirmDeleteSelected": "Supprimer {{count}} éléments sélectionnés ?",
+      "confirmMoveOne": "Déplacer cet élément vers l'espace de travail « {{workspace}} » ?",
+      "confirmMoveSelected": "Déplacer {{count}} éléments sélectionnés vers l'espace de travail « {{workspace}} » ?",
+      "duplicateNoSpace": "{{count}} éléments n'ont pas pu être dupliqués car l'espace disponible était insuffisant.",
+      "moveNoSpace": "{{count}} éléments n’ont pas pu être déplacés car il n’y avait pas assez d’espace.",
+      "no_space": "Pas d'espace disponible pour plus de favoris 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Supprimer le nouveau favori ?"
+      },
+      "confirmDelete": "Supprimer « {{name}} » ?",
+      "confirmPermanentDelete": "Supprimer définitivement « {{name}} » ? Cela ne peut pas être annulé.",
+      "cancel": "Supprimer les modifications ?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Supprimer définitivement ce widget ? Cela ne peut pas être annulé.",
+      "confirmDeleteSelected": "Supprimer {{count}} éléments sélectionnés ? Les widgets sélectionnés ({{widgetCount}}) seront définitivement supprimés et ne pourront pas être restaurés."
+    },
+    "folder": {
+      "createCancel": "Supprimer le nouveau dossier ?",
+      "cancel": "Supprimer les modifications apportées au dossier ?"
+    },
+    "recycleBin": {
+      "folder": "Déplacer « {{name}} » et ses {{count}} favoris vers la corbeille ?",
+      "empty": "Supprimer définitivement tout ce qui se trouve dans la corbeille ? Cela ne peut pas être annulé.",
+      "deleteSelected": "Supprimer définitivement {{count}} éléments sélectionnés ? Cela ne peut pas être annulé.",
+      "noSpace": "{{count}} éléments n’ont pas pu être restaurés car l’espace sur la grille est insuffisant. Ils restent dans la corbeille.",
+      "cancel": "Supprimer les modifications apportées à la corbeille ?"
+    },
+    "settings": {
+      "cancel": "Annuler les modifications des paramètres ?",
+      "reset": "Réinitialiser tous les paramètres ? Les signets ne seront pas supprimés.",
+      "deleteAllData": "Supprimer toutes les données locales NewDeskTab de cet appareil ? Les signets, dossiers, widgets, paramètres, éléments de la corbeille, images locales et vidéos locales seront définitivement supprimés. Les données cloud ne seront pas modifiées. Si la synchronisation est active, cet appareil passera d'abord en local. Cette action ne peut pas être annulée.",
+      "theme": {
+        "reset": "Réinitialiser les paramètres du thème ?"
+      },
+      "bookmark": {
+        "cancel": "Annuler les modifications apportées à l'apparence par défaut des favoris ?"
+      },
+      "shortcuts": {
+        "reset": "Restaurer les raccourcis clavier par défaut ?"
+      },
+      "sync": {
+        "enable": "Passer du local au synchronisé ? Cela prend effet maintenant, sans cliquer sur Enregistrer. Si les données synchronisées existent déjà, leurs signets et paramètres seront chargés. Sinon, vos données locales enregistrées seront synchronisées.",
+        "local": "Passer de synchronisé à local ? Cela prend effet maintenant, sans cliquer sur Enregistrer. Cet appareil conservera une copie des données actuelles et cessera de synchroniser les modifications. Les données synchronisées resteront stockées pour les autres appareils.",
+        "delete": "Supprimer toutes les données NewDeskTab synchronisées ? Cet appareil et tous les autres appareils utilisant ces données cloud passeront en mode local lorsqu'ils détecteront la suppression. Cela ne peut pas être annulé."
+      }
+    },
+    "backup": {
+      "import": "Restaurer cette sauvegarde ? Il remplacera vos favoris et paramètres actuels."
+    }
+  },
+  "addModal": {
+    "title": "Ajouter un nouveau signet",
+    "name": "Nom :",
+    "url": "URL :",
+    "advancedOptions": "⚙ Options avancées",
+    "compactView": "▴ Vue compacte"
+  },
+  "clock": {
+    "name": "Horloge",
+    "inDevelopment": "En développement : l'horloge n'est pas encore dans sa version finale. Nous travaillons à l'améliorer.",
+    "createTitle": "Ajouter une horloge",
+    "editTitle": "Paramètres de l'horloge",
+    "description": "Affichez votre heure locale sur cet espace de travail.",
+    "hourCycle": "Format de l'heure",
+    "hour24": "24 heures",
+    "hour12": "12 heures",
+    "showSeconds": "Afficher les secondes",
+    "delete": "Supprimer",
+    "edit": "Modifier l'horloge",
+    "actions": "Actions d'horloge",
+    "openSettings": "Ouvrir les paramètres de l'horloge",
+    "confirmDelete": "Supprimer cette horloge ? Vous pouvez annuler cette action.",
+    "confirmPermanentDelete": "Supprimer définitivement cette horloge ? Cela ne peut pas être annulé.",
+    "cancel": "Supprimer les changements d'horloge ?",
+    "noSpace": "Il n'y a pas assez d'espace sur la grille pour cette horloge."
+  },
+  "buttons": {
+    "save": "Enregistrer",
+    "apply": "Postuler",
+    "add": "Ajouter",
+    "accept": "Accepter",
+    "cancel": "Annuler",
+    "close": "Fermer"
+  },
+  "localImage": {
+    "upload": "Télécharger depuis cet appareil",
+    "label": "Image locale :",
+    "activeSource": "Image active :",
+    "sourceLocal": "Locale",
+    "sourceUrl": "URL",
+    "remove": "Supprimer l'image locale",
+    "notice": "Les images locales ne sont pas synchronisées.",
+    "unnamed": "Image locale"
+  },
+  "workspace": {
+    "ariaLabel": "Contrôles de l'espace de travail",
+    "current": "Espace de travail",
+    "main": "Principal",
+    "search": "Rechercher des favoris",
+    "add": "Créer un espace de travail",
+    "delete": "Supprimer l'espace de travail",
+    "undo": "Annuler",
+    "redo": "Refaire",
+    "shortcutHint": "Changer d'espace de travail avec Alt ou Option plus flèche vers le haut ou vers le bas",
+    "prompt": "Entrez un nom pour le nouvel espace de travail",
+    "namePlaceholder": "Travail, loisirs…",
+    "confirmDelete": "Supprimer « {{name}} », ses {{folderCount}} dossiers et {{bookmarkCount}} favoris ? Pour les conserver, déplacez-les d’abord vers Principal ou un autre espace de travail."
+  },
+  "search": {
+    "title": "Rechercher des favoris",
+    "inputLabel": "Rechercher par nom ou URL",
+    "placeholder": "Nom ou URL",
+    "empty": "Aucun favori trouvé.",
+    "noUrl": "Aucune URL",
+    "inFolder": "Dossier : {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Actions sur les éléments sélectionnés",
+    "selected": "{{count}} sélectionné",
+    "move": "Déplacer vers l'espace de travail",
+    "applyPreset": "Appliquer le style par défaut",
+    "duplicate": "Sélection en double",
+    "delete": "Supprimer",
+    "clear": "Effacer la sélection"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Contrôles de favoris",
+    "edit": "Modifier le favori",
+    "delete": "Supprimer le favori",
+    "copySuffix": "copie"
+  },
+  "folder": {
+    "create": "Créer un dossier",
+    "createPrompt": "Nommez le nouveau dossier",
+    "namePlaceholder": "Outils, inspirations…",
+    "open": "Ouvrez {{name}}, {{count}} favoris enregistrés",
+    "count": "{{count}} enregistrés",
+    "summary": "{{count}} espaces sur {{capacity}} utilisés",
+    "editMode": {
+      "enable": "Modifier",
+      "disable": "Terminer la modification"
+    },
+    "gridLabel": "Signets de dossiers",
+    "dropHint": "Déposer pour ajouter",
+    "noSpace": "Il n'y a pas de cellule de grille libre pour un nouveau dossier.",
+    "removeNoSpace": "Il n'y a pas assez d'espace sur la grille pour supprimer ce signet du dossier.",
+    "confirmDelete": "Déplacer « {{name}} » et ses {{count}} favoris vers la corbeille ?",
+    "confirmPermanentDelete": "Supprimer définitivement « {{name}} » et ses {{count}} favoris ? Cela ne peut pas être annulé.",
+    "actions": {
+      "ariaLabel": "Contrôles de dossier",
+      "customize": "Personnaliser le dossier",
+      "rename": "Renommer le dossier",
+      "delete": "Supprimer le dossier",
+      "editBookmark": "Modifier {{name}}",
+      "removeBookmark": "Déplacez {{name}} hors du dossier",
+      "deleteBookmark": "Supprimer {{name}}",
+      "acceptRename": "Enregistrer le nom du dossier",
+      "cancelRename": "Annuler le changement de nom du dossier"
+    },
+    "editor": {
+      "createTitle": "Ajouter un nouveau dossier",
+      "title": "Modifier le dossier",
+      "name": "Nom :",
+      "showPreviews": "Afficher les aperçus des favoris",
+      "showName": "Afficher le nom du dossier",
+      "iconColor": "Couleur du symbole :",
+      "outerBackgroundColor": "Couleur du fond extérieur :",
+      "noOuterBackground": "Pas de fond extérieur",
+      "resetOuterBackground": "Automatique",
+      "noBackground": "Remplissage de dossier transparent",
+      "backgroundColor": "Couleur du dossier :",
+      "backgroundImage": "Image d'arrière-plan (URL) :",
+      "lockImage": "Verrouiller ou déverrouiller l'URL de l'image",
+      "copyImage": "Copier l'URL de l'image",
+      "clearImage": "Effacer l'URL de l'image",
+      "textColor": "Couleur du texte :",
+      "preview": "Aperçu",
+      "previewName": "Dossier",
+      "sections": {
+        "general": "Général",
+        "style": "Style",
+        "text": "Texte"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Corbeille",
+    "open": "Ouvrir la corbeille",
+    "openCount": "Corbeille ouverte, {{count}} articles",
+    "dropHint": "Déposer pour supprimer",
+    "summary": "{{count}} éléments · Suppression automatique : {{retention}}",
+    "empty": "La corbeille est vide.",
+    "selected": "{{count}} sélectionné",
+    "select": "Sélectionnez {{name}}",
+    "folderContents": "{{count}} signets",
+    "deletedAt": "Supprimé {{date}}",
+    "expiresIn": "Il reste {{days}} jours",
+    "expiresInOne": "il reste 1 jour",
+    "neverExpires": "Jamais supprimé automatiquement",
+    "restoreAll": "Tout restaurer",
+    "deleteAll": "Supprimer tout",
+    "restoreSelected": "Restaurer la sélection",
+    "deleteSelected": "Supprimer la sélection",
+    "editor": {
+      "title": "Modifier la corbeille",
+      "animateIcon": "Animer la corbeille",
+      "appearance": "Apparence",
+      "backgroundColor": "Couleur de fond :",
+      "backgroundImage": "Image d'arrière-plan (URL) :",
+      "lockImage": "Verrouiller ou déverrouiller l'URL de l'image",
+      "copyImage": "Copier l'URL de l'image",
+      "clearImage": "Effacer l'URL de l'image",
+      "noBackground": "Aucun arrière-plan",
+      "iconColor": "Couleur de l'icône :",
+      "textColor": "Couleur du texte :",
+      "elements": "Éléments visibles",
+      "showName": "Afficher le nom",
+      "visible": "Afficher la corbeille sur la grille principale",
+      "preview": "Aperçu",
+      "actions": "Actions de la corbeille",
+      "edit": "Modifier la corbeille",
+      "sections": {
+        "general": "Général",
+        "style": "Style",
+        "text": "Texte",
+        "icon": "Icône"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Entrez un nom pour enregistrer le préréglage."
+    },
+    "name": {
+      "required": "Entrez un nom pour le signet."
+    },
+    "folderName": {
+      "required": "Entrez un nom pour le dossier."
+    },
+    "url": {
+      "invalid": "L'URL n'est pas valide.",
+      "unsupportedProtocol": "Ce type d'URL n'est pas autorisé."
+    },
+    "backgroundImageUrl": {
+      "invalid": "L'URL de l'image n'est pas valide.",
+      "unsupportedProtocol": "Ce type d'image n'est pas autorisé."
+    }
+  },
+  "editModal": {
+    "title": "Modifier le favori",
+    "name": "Nom :",
+    "url": "URL :",
+    "backgroundImage": "Image d'arrière-plan (URL) :",
+    "backgroundFavicon": "Grande icône centrée",
+    "invertColorBg": "Inverser les couleurs",
+    "noBackground": "Aucun arrière-plan",
+    "backgroundColor": "Couleur du marque-page :",
+    "showText": "Afficher le texte",
+    "textColor": "Couleur du texte :",
+    "showFavicon": "Afficher l'icône",
+    "invertColorIcon": "Inverser les couleurs des icônes",
+    "iconColor": "Couleur de l'icône :",
+    "sections": {
+      "general": "Général",
+      "style": "Style",
+      "text": "Texte",
+      "icon": "Icône"
+    },
+    "preview": "Aperçu",
+    "previewName": "Aperçu"
+  },
+  "colorPicker": {
+    "title": "Sélecteur de couleurs",
+    "sample": "Choisissez une couleur sur l'écran",
+    "close": "Fermer le sélecteur de couleurs",
+    "saturationBrightness": "Saturation et luminosité",
+    "hue": "Teinte",
+    "quickColors": "Couleurs rapides",
+    "saturation": "Saturation",
+    "brightness": "Luminosité",
+    "hex": "Code hexadécimal",
+    "copy": "Copier le code hexadécimal",
+    "copied": "Code hexadécimal copié",
+    "copyFailed": "Impossible de copier le code hexadécimal"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Général",
+      "sync": "Synchroniser",
+      "theme": "Thème",
+      "bookmark": "Signets",
+      "shortcuts": "Raccourcis",
+      "language": "Langues",
+      "help": "Aide",
+      "information": "Informations"
+    },
+    "general": {
+      "title": "Général",
+      "subtitle": "Paramètres",
+      "export": "Exporter la sauvegarde",
+      "import": "Restaurer la sauvegarde",
+      "resetSettings": "Réinitialiser les paramètres",
+      "deleteAllData": "Supprimer toutes les données locales",
+      "recycleBin": {
+        "title": "Corbeille",
+        "show": "Afficher la corbeille sur la grille principale",
+        "retentionLabel": "Supprimer automatiquement les éléments :",
+        "retentionOptions": {
+          "oneDay": "1 jour",
+          "sevenDays": "7 jours",
+          "fourteenDays": "14 jours",
+          "twentyEightDays": "28 jours",
+          "never": "Jamais"
+        }
+      },
+      "appearance": {
+        "title": "Apparence",
+        "system": "Navigateur",
+        "light": "Lumière",
+        "dark": "Sombre"
+      }
+    },
+    "sync": {
+      "title": "Synchroniser",
+      "description": "Choisissez où stocker vos paramètres et favoris.",
+      "ariaLabel": "Mode de stockage",
+      "local": {
+        "title": "Cet appareil uniquement",
+        "description": "Les données sont stockées uniquement dans ce profil de navigateur local."
+      },
+      "synced": {
+        "title": "Synchronisé",
+        "description": "Disponible dans les profils Google Chrome connectés au même compte.",
+        "tooltip": "Informations de synchronisation"
+      },
+      "compatibility": {
+        "newerVersion": "La synchronisation est verrouillée sur cet appareil, car les données cloud ont été créées par une version NewDeskTab plus récente. Vos données synchronisées sont en sécurité et n'ont pas été modifiées. Mettez à jour NewDeskTab pour vous reconnecter."
+      },
+      "usage": {
+        "title": "Disponibilité du stockage",
+        "showExact": "Afficher les octets exacts",
+        "showHuman": "Afficher les tailles lisibles",
+        "local": "Locale",
+        "sync": "Synchronisé",
+        "localSyncCopy": "Copie de synchronisation locale",
+        "localAria": "Utilisation du stockage local",
+        "syncAria": "Utilisation du stockage synchronisée",
+        "loading": "Calcul…",
+        "summary": "{{used}} sur {{total}} · {{percent}}%",
+        "available": "{{free}} disponible",
+        "system": "Système et métadonnées",
+        "bookmarks": "Signets",
+        "folders": "Dossiers",
+        "trash": "Données de la corbeille",
+        "localImages": "Images locales",
+        "themeImages": "Thème",
+        "bookmarkImages": "Signets",
+        "folderImages": "Dossiers",
+        "trashImages": "Corbeille",
+        "otherImages": "Autre",
+        "widgets": "Widgets",
+        "widgetsHint": "La taille indiquée pour Synchroniser est une estimation et exclut le contenu en direct récupéré à partir de services externes.",
+        "error": "Utilisation indisponible"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome synchronise New DeskTab via votre compte Google. New DeskTab n'exécute pas son propre serveur de synchronisation.",
+        "brave": "Indisponible dans Brave : il peut stocker les données New DeskTab dans chrome.storage.sync, mais ne les propage actuellement pas entre les appareils.",
+        "unsupported": "Le stockage synchronisé n'est disponible que dans Google Chrome pour le moment. Les autres navigateurs restent désactivés jusqu'à ce que la prise en charge multi-appareils soit vérifiée."
+      },
+      "existingNotice": "Accepter le passage à Synchronisé charge toutes les données synchronisées qui existent déjà.",
+      "deleteData": "Supprimer les données synchronisées",
+      "metadata": {
+        "loading": "Vérification des données synchronisées…",
+        "updatedAt": "Dernière mise à jour synchronisée : {{date}}",
+        "unknown": "Des données synchronisées existent, mais leur heure de mise à jour n'est pas disponible.",
+        "empty": "Aucune donnée New DeskTab synchronisée n'est stockée.",
+        "error": "Les informations de données synchronisées n'ont pas pu être chargées."
+      },
+      "status": {
+        "idle": "Les données sont prêtes.",
+        "saving": "Enregistrement des modifications…",
+        "saved": "Toutes les modifications sont enregistrées.",
+        "error": "Impossible d'enregistrer les dernières modifications."
+      }
+    },
+    "theme": {
+      "title": "Thème",
+      "subtitle": "Fond de page",
+      "backgroundImageMode": "Image/vidéo",
+      "wallpapersTitle": "Mes propres fonds d'écran",
+      "ownWallpapersHint": "Ces fonds d'écran et leur rotation sont stockés sur cet appareil uniquement.",
+      "mediaUrl": "URL du fond d'écran",
+      "image": "Images",
+      "video": "Vidéo",
+      "addUrl": "Ajouter une URL",
+      "addFiles": "Ajouter des fichiers locaux",
+      "rotationInterval": "Rotation du papier peint",
+      "noRotation": "Ne changez pas automatiquement",
+      "interval5": "5 secondes",
+      "interval15": "15 secondes",
+      "interval30": "30 secondes",
+      "interval60": "1 minute",
+      "interval300": "5 minutes",
+      "interval600": "10 minutes",
+      "interval1800": "30 minutes",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "moveUp": "Monter",
+      "moveDown": "Descendre",
+      "remove": "Supprimer",
+      "unavailableLocal": "Fichier local indisponible sur cet appareil",
+      "mediaColor": "Couleur derrière ce fond d'écran",
+      "mediaPreview": "Aperçu du fond d'écran",
+      "activeSource": "Source active",
+      "backgroundSolid": "Couleur unie",
+      "backgroundColor": "Couleur :",
+      "editSolidColor": "Changer la couleur d'arrière-plan unie",
+      "changeSolidColor": "Changer de couleur",
+      "backgroundImageColor": "Couleur derrière l'image/vidéo",
+      "backgroundImage": "URL partagée entre les appareils",
+      "urlHidden": "URL masquée",
+      "resetBackground": "Réinitialiser le thème"
+    },
+    "bookmark": {
+      "title": "Signets",
+      "subtitle": "Signet par défaut",
+      "description": "Choisissez l'apparence utilisée lors de la création de nouveaux signets.",
+      "configure": "Configurer le favori par défaut",
+      "editorTitle": "Apparence du signet par défaut",
+      "previewName": "Signet par défaut",
+      "export": "Exporter des favoris",
+      "import": "Importer des favoris",
+      "deleteAll": "Supprimer tous les favoris",
+      "preview": "Aperçu",
+      "drag": {
+        "title": "Comportement de glisser",
+        "description": "Choisissez comment les signets se réorganisent lorsque vous occupez leur position.",
+        "none": {
+          "title": "Aucun",
+          "description": "Autorise uniquement les déplacements vers des cellules libres."
+        },
+        "cascade": {
+          "title": "Séquence",
+          "description": "Déplace la chaîne jusqu'à ce qu'elle trouve une cellule libre.",
+          "experimental": "Expérimental · Peut contenir des bugs mineurs."
+        },
+        "relocate": {
+          "title": "Déménagement",
+          "description": "Déplace les signets occupant la destination."
+        }
+      },
+      "resize": {
+        "title": "Comportement de redimensionnement",
+        "description": "Choisissez la façon dont les éléments réagissent lorsque vous déplacez une poignée de redimensionnement.",
+        "smooth": {
+          "title": "Lisse",
+          "description": "Étire l'élément tout en le faisant glisser, puis l'accroche à la grille."
+        },
+        "none": {
+          "title": "Aucun",
+          "description": "Saute par cellule lorsque vous traversez 50% de la cellule voisine."
+        }
+      },
+      "presets": {
+        "title": "Bibliothèque de styles",
+        "tab": "Bibliothèque",
+        "description": "Enregistrez les styles et réutilisez-les lors de la configuration du signet par défaut.",
+        "name": "Nom du préréglage",
+        "saved": "Préréglages enregistrés",
+        "save": "Enregistrer le préréglage",
+        "apply": "Charger",
+        "delete": "Supprimer",
+        "empty": "Aucun préréglage enregistré"
+      }
+    },
+    "shortcuts": {
+      "title": "Raccourcis clavier",
+      "description": "Sélectionnez un bouton de raccourci, puis appuyez sur une lettre ou une combinaison de touches. Cliquez avec le bouton droit pour le désattribuer.",
+      "change": "Modifiez le raccourci {{action}}. Raccourci actuel : {{shortcut}}.",
+      "press": "Appuyez sur le raccourci…",
+      "unassigned": "Non attribué",
+      "unassignedFlash": "Raccourci non attribué.",
+      "modifierRequired": "Utilisez une lettre seule ou une combinaison de touches avec un modificateur.",
+      "reserved": "Ce raccourci est réservé par le navigateur ou le système d'exploitation. Choisissez une autre combinaison.",
+      "conflict": "Cette clé est déjà affectée à une autre action.",
+      "updated": "Raccourci mis à jour.",
+      "cancelled": "Changement de raccourci annulé.",
+      "restored": "Raccourcis par défaut restaurés.",
+      "reset": "Réinitialiser les raccourcis",
+      "actions": {
+        "toggleEditing": {
+          "title": "Mode édition",
+          "description": "Entrez ou quittez l'édition sur la grille principale ou dans un dossier ouvert."
+        },
+        "addBookmark": {
+          "title": "Créer un signet",
+          "description": "Ouvrez le formulaire pour ajouter un signet."
+        },
+        "addFolder": {
+          "title": "Créer un dossier",
+          "description": "Ouvrez la boîte de dialogue de création d'un dossier."
+        },
+        "openWidgets": {
+          "title": "Ouvrir les widgets",
+          "description": "Ouvrez la liste des widgets disponibles."
+        },
+        "openSettings": {
+          "title": "Ouvrir les paramètres",
+          "description": "Ouvrez le panneau de paramètres New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Langues",
+      "text": "Sélectionnez la langue de l'interface :",
+      "system": "Navigateur",
+      "search": "Rechercher une langue ou un pays",
+      "empty": "Aucune langue trouvée"
+    },
+    "information": {
+      "title": "Informations",
+      "version": "Version : {{VERSION}}",
+      "author": "Auteur :"
+    }
+  }
+}

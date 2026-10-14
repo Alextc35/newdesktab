@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Utgivelsesnotater",
+    "settingsDescription": "Hva endret seg og historien bak hver oppdatering.",
+    "open": "Les notater",
+    "history": "Versjonshistorikk",
+    "dismiss": "Lukk utgivelsesnotater",
+    "continue": "Fortsett",
+    "back": "Tilbake til informasjon",
+    "highlights": "Hva du kan gjøre i dag",
+    "generic": {
+      "title": "New DeskTab har blitt oppdatert",
+      "description": "Du har den nye versjonen. Du kan gå tilbake til tidligere versjonsnotater i Informasjon når du vil. Takk for at du er her."
+    },
+    "v1_0_0": {
+      "title": "Ditt skrivebord med nettsteder. Endelig.",
+      "thanks": "Takk for at du prøver New DeskTab. Jeg er så glad for å endelig dele den første offentlige utgivelsen av dette prosjektet med dere.",
+      "origin": "Det hele startet 26. september 2025. Mens jeg så en Just Chatting-strøm på Twitch, la jeg merke til streamerens nye fane i nettleseren: en utvidelse som ordnet nettsteder som fargede firkanter, uten navn eller logoer. Den minimalismen fascinerte meg, og jeg tenkte: hvorfor ikke bygge min egen utvidelse? Jeg ønsket at hver nye fane skulle gi en følelse av orden, sidene mine for hånden, og et panel jeg likte å se på.",
+      "desktop": "Gradvis vokste den ideen til et personlig skrivebord med nettsteder i stedet for applikasjoner. Klokken er et første skritt og er fortsatt et arbeid som pågår. I fremtiden vil jeg gjerne legge til en notisblokk og andre widgets som tilbyr noe nyttig, både for meg og for alle som bruker New DeskTab.",
+      "closing": "Denne appen er laget for meg og for deg. Takk for at du stoler på New DeskTab og gir den en plass i nettleseren din. Jeg håper du liker å skape rommet ditt like mye som jeg har likt å bygge det.",
+      "highlights": {
+        "workspace": "Organiser sidene dine med bokmerker, mapper og uavhengige arbeidsområder.",
+        "appearance": "Tilpass farger, størrelsen på hvert element og skrivebordsbakgrunnen.",
+        "search": "Finn sidene dine med søk og bruk hurtigtaster for å navigere og lage elementer.",
+        "backup": "Lagre sikkerhetskopier og gjenopprett slettede elementer fra papirkurven.",
+        "sync": "Velg å beholde data på denne enheten eller synkroniser dem med Google Chrome.",
+        "help": "Oppdag funksjonene med velkomstguiden, manualen og daglige tips."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "DITT FØRSTE MINUTT",
+    "skip": "Hopp over guide",
+    "back": "Tilbake",
+    "next": "Neste",
+    "finish": "Tilbake til innstillinger",
+    "explore": "Utforsk rommet mitt",
+    "addFirst": "Legg til mitt første bokmerke",
+    "progress": "Trinn {{current}} av {{total}}",
+    "compactHint": "Utvid vinduet når du vil legge til bokmerker og redigere plassen din.",
+    "reopenTitle": "Hurtigguide",
+    "reopenDescription": "Gjenoppdag det viktigste på et minutt.",
+    "reopen": "Se guide",
+    "demo": {
+      "work": "Arbeid",
+      "media": "Media",
+      "trash": "Papirkurv",
+      "search": "Finn bokmerkene dine"
+    },
+    "steps": {
+      "start": {
+        "title": "Dine sider. Din egen plass.",
+        "body": "Velkommen til New DeskTab. Hold favorittsidene dine for hånden når du åpner en fane. For å legge til en, flytt til venstre kant og velg + → [[bookmarks|Bokmerke]].",
+        "hint": "Du kan også [[quick-save|lagre siden du besøker]] fra utvidelsesikonet i nettleseren din."
+      },
+      "edit": {
+        "title": "Gi hvert bokmerke sin plass.",
+        "body": "Slå på blyanten i venstremenyen for å redigere. Hold og [[movement|dra]] et element for å flytte det; bruk [[resizing|håndtak]] for å endre størrelsen.",
+        "hint": "Hvert bokmerkes blyant åpner [[appearance|redaktør]]: navn, farger, ikon og bilde. Lagre [[presets|stiler]] for å gjenbruke dem."
+      },
+      "organize": {
+        "title": "Mindre rot. Mer orden.",
+        "body": "Lag en [[folders|mappe]] fra + og dra bokmerker inn i den i redigeringsmodus. Den åpnes i et rent rutenett med plass til opptil 18 bokmerker.",
+        "hint": "Bruk + i [[workspaces|arbeidsområde bar]] for å skille arbeid og lek. [[search|forstørrelsesglass]] søker også i mapper."
+      },
+      "style": {
+        "title": "Få det til å føles som deg.",
+        "body": "I Innstillinger → [[wallpapers|Tema]], velg en farge, bilde eller videobakgrunn og roter favorittbakgrunnene dine. I Innstillinger → [[sync|Synkronisering]], synkroniser plassen din på tvers av enheter ved å bruke kontoen som er logget på Chrome-profilen din.",
+        "hint": "Legg til en [[clock|klokke]] fra + → Widgets. Du kan også tilpasse mappenes [[appearance|utseende]]."
+      },
+      "ready": {
+        "title": "Du vet det vesentlige.",
+        "body": "Trykk på [[search|/]] for å finne et bokmerke. Bruk [[history|angre og gjøre om]] pilene for å gjenopprette endringer; slettede bokmerker går til [[trash|papirkurven]].",
+        "hint": "Endringer lagres automatisk. I Innstillinger, eksporter en [[backup|backup]] eller aktiver valgfri Google Chrome [[sync|synkronisering]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "De siste endringene dine kunne ikke lagres.",
+    "retry": "Prøv å lagre på nytt",
+    "saved": "Ventende endringer lagret."
+  },
+  "itemEditor": {
+    "chooseIcon": "Velg et ikon",
+    "siteLogo": "Logo",
+    "noSymbol": "Ingen",
+    "folderIconHint": "Symbolet erstatter bokmerkeforhåndsvisningene inne i mappen.",
+    "icons": {
+      "mail": "Mail",
+      "calendar": "Kalender",
+      "notes": "Notater",
+      "projects": "Prosjekter",
+      "design": "Design",
+      "music": "Musikk",
+      "tasks": "Oppgaver",
+      "ideas": "Ideer",
+      "docs": "Dokumenter",
+      "ui-start": "Kompass",
+      "ui-organize": "Oppsett",
+      "ui-personalize": "Skyveknapper",
+      "ui-protect": "Skjold",
+      "ui-bookmarks": "Legg til bokmerke",
+      "ui-quick-save": "Nettleser",
+      "ui-keyboard": "Tastatur",
+      "ui-shortcuts": "Lyn",
+      "ui-search": "Søk",
+      "ui-editing": "Blyant",
+      "ui-movement": "Flytt",
+      "ui-resizing": "Endre størrelse",
+      "ui-drag-modes": "Dra",
+      "ui-folders": "Mappe",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Utvalg",
+      "ui-history": "Historie",
+      "ui-appearance": "Palett",
+      "ui-presets": "Forhåndsinnstillinger",
+      "ui-wallpapers": "Bilde",
+      "ui-clock": "Klokke",
+      "ui-interface": "Globus",
+      "ui-trash": "Søppel",
+      "ui-backup": "Arkiv",
+      "ui-sync": "Synkroniser",
+      "ui-compact": "Liste",
+      "ui-data": "Database",
+      "ui-learning": "Bok",
+      "ui-settings": "Innstillinger",
+      "ui-controls": "Kontroller",
+      "ui-cloud": "Sky",
+      "ui-bookmark": "Bokmerke",
+      "ui-info": "Informasjon",
+      "ui-eye": "Øye",
+      "ui-check": "Fullført",
+      "ui-lock": "Lås",
+      "ui-unlock": "Lås opp",
+      "ui-copy": "Kopier",
+      "ui-close": "Lukk",
+      "ui-undo": "Angre",
+      "ui-redo": "Gjenta",
+      "ui-desktop": "Skrivebord",
+      "home": "Hjem",
+      "briefcase": "Arbeid",
+      "code": "Kode",
+      "game": "Spill",
+      "cart": "Shopping",
+      "card": "Betalinger",
+      "people": "Folk",
+      "message": "Melding",
+      "location": "Beliggenhet",
+      "phone": "Telefon",
+      "camera": "Kamera",
+      "headphones": "Hodetelefoner",
+      "link": "Link",
+      "tag": "Tag",
+      "chart": "Statistikk",
+      "coffee": "Kaffe",
+      "sun": "Sol",
+      "moon": "Måne",
+      "circle": "Sirkel",
+      "square": "Square",
+      "triangle": "Trekant",
+      "diamond": "Diamant",
+      "pentagon": "Pentagon",
+      "hexagon": "Sekskant",
+      "star": "Stjerne",
+      "heart": "Hjerte",
+      "plus": "Pluss",
+      "minus": "Minus",
+      "video": "Video"
+    },
+    "searchIcons": "Søkeikoner...",
+    "clearIconSearch": "Tøm søk",
+    "noIcons": "Ingen ikoner funnet",
+    "suggestedIcons": "Foreslått",
+    "suggestedIcon": "Foreslått: {{name}}",
+    "logoKeywords": "logo favicon nettsted merkevare",
+    "iconKeywords": {
+      "ui-trash": "bin søppel avfall slette klassisk",
+      "mail": "mail e-post gmail outlook innboks",
+      "docs": "Dokumenter-filer pdf drive word",
+      "notes": "notater memo begrepet onenote",
+      "ui-protect": "sikkerhetsbeskyttelse personvern",
+      "game": "spillkontrollkonsoll",
+      "cart": "shopping butikk butikk kjøp",
+      "card": "bankfinans kreditt debet penger",
+      "people": "vennegruppe i sosialt fellesskap",
+      "ui-learning": "lesebibliotekutdanningsstudium",
+      "ui-clock": "tid timer se",
+      "ui-interface": "internett web verdens språk",
+      "ui-data": "data sql lagring",
+      "circle": "geometriske figurer",
+      "square": "geometriske figurer",
+      "triangle": "geometriske figurer",
+      "diamond": "geometriske figurer",
+      "pentagon": "geometriske figurer",
+      "hexagon": "geometriske figurer",
+      "star": "geometriske figurer",
+      "heart": "geometriske figurer"
+    },
+    "history": "Rediger historikk",
+    "description": "Få det til å føle seg hjemme på arbeidsplassen din.",
+    "looks": "Velg et utseende",
+    "custom": "Egendefinert",
+    "look": {
+      "original": "Original",
+      "card": "Kort",
+      "midnight": "Mørkt",
+      "paper": "Lys"
+    },
+    "reset": "Tilbakestill utseendet",
+    "cardColor": "Kort farge",
+    "folderFill": "Farge på mappen",
+    "image": "Bakgrunnsbilde",
+    "lock": "Lås eller lås opp URL",
+    "copy": "Kopier URL",
+    "clear": "Klart",
+    "section": {
+      "general": "Det vesentlige",
+      "text": "Navn og etiketter",
+      "icon": "Ikon",
+      "card": "Kort"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Navnet du ser og siden det åpner.",
+        "text": "Velg om du vil vise navnet og justere fargen.",
+        "icon": "Bruk et stort, sentrert favorittikon eller et lite ikon ved siden av navnet for bildekort."
+      },
+      "folder": {
+        "general": "Et navn for å samle bokmerkene dine.",
+        "text": "Vis mappenavnet og juster fargen.",
+        "icon": "Tilpass mappeikonet og bokmerkeminiatyrene."
+      },
+      "recycleBin": {
+        "general": "Velg om papirkurven skal vises i hovedarbeidsområdet ditt.",
+        "text": "Vis papirkurvens navn og juster fargen.",
+        "icon": "Gi papirkurven din egen farge. Skjul hele søppelkassen for Generelt."
+      }
+    },
+    "addImage": "Legg til et bakgrunnsbilde",
+    "changeImage": "Rediger bakgrunnsbilde"
+  },
+  "html": {
+    "title": "Ny fane"
+  },
+  "quickSave": {
+    "title": "Lagre bokmerke",
+    "name": "Navn",
+    "workspace": "Arbeidsområde",
+    "folder": "Mappe",
+    "mainWorkspace": "Hoved",
+    "noFolder": "Ingen mappe",
+    "save": "Lagre bokmerke",
+    "saveAnyway": "Lagre uansett",
+    "savedButton": "Lagret",
+    "alreadySaved": "Allerede lagret",
+    "savedIn": "I {{location}}",
+    "savedInMore": "I {{location}} og {{count}} til",
+    "open": "Åpne New DeskTab",
+    "unavailableTitle": "Denne fanen kan ikke lagres",
+    "unavailable": "Åpne en nettside (http eller https) for å lagre den.",
+    "loadError": "Kunne ikke laste inn bokmerkene dine. Prøv igjen.",
+    "saving": "Lagrer …",
+    "saved": "Bokmerket er lagret.",
+    "duplicate": "Denne nettadressen er allerede lagret i den destinasjonen.",
+    "noSpace": "Ingen plass igjen på den destinasjonen. Velg en annen.",
+    "invalid": "Kontroller navnet og valgt destinasjon.",
+    "saveError": "Kunne ikke lagre bokmerket. Prøv igjen."
+  },
+  "launcher": {
+    "bookmark": "Bokmerke",
+    "folder": "Mappe",
+    "widgets": "Widgets",
+    "editMode": {
+      "enter": "Gå inn i redigeringsmodus",
+      "exit": "Avslutt redigeringsmodus"
+    }
+  },
+  "widgets": {
+    "title": "Widgets",
+    "description": "Velg en widget du vil legge til i dette arbeidsområdet.",
+    "empty": "Ingen widgets er tilgjengelig ennå."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Utvid vinduet for å bruke denne funksjonen.",
+      "suspended": "Panelet er skjult. Utvid vinduet for å fortsette."
+    },
+    "editMode": {
+      "enabled": "Redigeringsmodus aktivert",
+      "disabled": "Redigeringsmodus deaktivert"
+    },
+    "selectionMode": {
+      "enabled": "Valgmodus aktivert",
+      "disabled": "Valgmodus deaktivert"
+    },
+    "bookmark": {
+      "added": "Bokmerke lagt til",
+      "notFound": "Finner ikke bokmerket",
+      "updated": "Bokmerket er oppdatert",
+      "deleted": "Bokmerket er slettet"
+    },
+    "clock": {
+      "added": "Klokke lagt til",
+      "updated": "Klokken er oppdatert",
+      "deleted": "Klokken er slettet"
+    },
+    "folder": {
+      "created": "Mappe opprettet",
+      "renamed": "Mappe endret navn",
+      "updated": "Mappe oppdatert",
+      "deleted": "Mappen og dens bokmerker slettet",
+      "bookmarkAdded": "Bokmerke lagt til i mappen",
+      "folderFull": "Denne mappen har allerede 18 bokmerker",
+      "bookmarkRemoved": "Bokmerket flyttet tilbake til rutenettet"
+    },
+    "recycleBin": {
+      "moved": "Flyttet til papirkurven",
+      "restored": "Elementer gjenopprettet",
+      "deletedPermanently": "Elementer slettet permanent",
+      "updated": "Papirkurv oppdatert"
+    },
+    "workspace": {
+      "created": "Arbeidsområde opprettet",
+      "deleted": "Arbeidsområdet er slettet",
+      "switched": "Arbeidsområde: {{name}}"
+    },
+    "history": {
+      "undone": "Endring angret",
+      "redone": "Endre omgjort"
+    },
+    "bookmarks": {
+      "deletedAll": "Alle bokmerker er slettet",
+      "deletedAllWithFolders": "Alle bokmerker og mapper slettet",
+      "deleteAllError": "Kunne ikke slette alle bokmerker",
+      "exported": "Bokmerker eksportert",
+      "exportError": "Kunne ikke eksportere bokmerker",
+      "imported": "Bokmerker importert",
+      "importError": "Kunne ikke importere bokmerker",
+      "presetApplied": "Stil brukt på utvalget",
+      "duplicatedSelected": "Valgte elementer duplisert",
+      "deletedSelected": "Valgte elementer er slettet",
+      "moved": "Elementer flyttet til det valgte arbeidsområdet"
+    },
+    "settings": {
+      "saved": "Innstillinger lagret",
+      "bookmarkDefaultSaved": "Standard bokmerkeutseende lagret",
+      "bookmarkDefaultError": "Kunne ikke lagre standard bokmerkeutseende",
+      "copied": "Verdien er kopiert til utklippstavlen",
+      "resetBg": "Tema tilbakestilt",
+      "deletedAllData": "Alle lokale NewDeskTab data slettet",
+      "deleteAllDataError": "Kunne ikke slette alle lokale NewDeskTab data",
+      "invalidWallpaperUrl": "Skriv inn en gyldig URL-adresse for HTTP- eller HTTPS-bilde/video.",
+      "invalidWallpaperFile": "Kunne ikke legge til denne filen. Bruk et støttet bilde eller en MP4-, WebM- eller Ogg-video på opptil 200 MB.",
+      "wallpaperLimit": "Du kan legge til opptil 25 personlige bakgrunnsbilder."
+    },
+    "localImage": {
+      "invalid": "Velg et PNG-, JPEG-, WebP-, GIF- eller AVIF-bilde.",
+      "tooLarge": "Dette bildet er for stort til å lagre på denne enheten.",
+      "storageFull": "Det er ikke nok lokal plass for dette bildet.",
+      "processing": "Dette bildet kunne ikke behandles."
+    },
+    "sync": {
+      "enabled": "Synkronisering aktivert",
+      "localEnabled": "Lokal modus aktivert",
+      "remoteLoaded": "Synkroniserte data er lastet inn",
+      "updatedFromOtherDevice": "Synkroniserte endringer mottatt fra en annen enhet",
+      "deletedFromOtherDevice": "Skydata ble slettet fra en annen enhet. Denne enheten bruker nå lokal modus.",
+      "error": "Kunne ikke endre lagringsmodus",
+      "versionBlocked": "Synkronisering ble satt på pause fordi skydataene krever en nyere NewDeskTab-versjon. Denne enhetens lokale data vises.",
+      "quotaError": "Dataene overskrider tilgjengelig synkroniseringslagring",
+      "deleted": "Synkroniserte data slettet",
+      "deleteError": "Kunne ikke slette synkroniserte data"
+    },
+    "backup": {
+      "exported": "Sikkerhetskopien er eksportert",
+      "exportError": "Kunne ikke eksportere sikkerhetskopien",
+      "mediaUnavailable": "Noen refererte lokale bilder eller videoer er utilgjengelige, så sikkerhetskopien ble ikke opprettet.",
+      "imported": "Sikkerhetskopien gjenopprettet",
+      "importError": "Kunne ikke gjenopprette sikkerhetskopien",
+      "mediaStorageFull": "Det er ikke nok lokal lagringsplass til å gjenopprette sikkerhetskopibildene og videoene."
+    }
+  },
+  "view": {
+    "list": "Listevisning",
+    "search": "Søk i bokmerker og mapper",
+    "clearSearch": "Tøm søk",
+    "noResults": "Ingen resultater."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Vil du slette alle bokmerker?",
+      "deleteFolders": "Slett også alle mapper",
+      "confirmDeleteSelected": "Vil du slette {{count}} valgte elementer?",
+      "confirmMoveOne": "Vil du flytte dette elementet til arbeidsområdet «{{workspace}}»?",
+      "confirmMoveSelected": "Flytte {{count}} valgte elementer til arbeidsområdet \"{{workspace}}\"?",
+      "duplicateNoSpace": "{{count}} elementer kunne ikke dupliseres fordi det ikke var nok plass.",
+      "moveNoSpace": "{{count}} elementer kunne ikke flyttes fordi det ikke var nok plass.",
+      "no_space": "Ingen plass tilgjengelig for flere bokmerker 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Vil du forkaste det nye bokmerket?"
+      },
+      "confirmDelete": "Vil du slette «{{name}}»?",
+      "confirmPermanentDelete": "Vil du slette «{{name}}» permanent? Dette kan ikke angres.",
+      "cancel": "Vil du forkaste endringer?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Vil du slette denne modulen permanent? Dette kan ikke angres.",
+      "confirmDeleteSelected": "Vil du slette {{count}} valgte elementer? Valgte widgets ({{widgetCount}}) vil bli permanent slettet og kan ikke gjenopprettes."
+    },
+    "folder": {
+      "createCancel": "Vil du forkaste den nye mappen?",
+      "cancel": "Vil du forkaste mappeendringer?"
+    },
+    "recycleBin": {
+      "folder": "Flytte \"{{name}}\" og dets {{count}}-bokmerker til papirkurven?",
+      "empty": "Vil du slette alt i papirkurven permanent? Dette kan ikke angres.",
+      "deleteSelected": "Vil du slette {{count}} valgte elementer permanent? Dette kan ikke angres.",
+      "noSpace": "{{count}} elementer kunne ikke gjenopprettes fordi det ikke er nok rutenettplass. De forblir i papirkurven.",
+      "cancel": "Vil du forkaste endringer i papirkurven?"
+    },
+    "settings": {
+      "cancel": "Vil du forkaste endringene i innstillingene?",
+      "reset": "Vil du tilbakestille alle innstillinger? Bokmerker vil ikke bli slettet.",
+      "deleteAllData": "Vil du slette alle lokale NewDeskTab data fra denne enheten? Bokmerker, mapper, widgets, innstillinger, papirkurv, lokale bilder og lokale videoer vil bli slettet permanent. Skydata vil ikke bli endret. Hvis synkronisering er aktiv, vil denne enheten bytte til lokal først. Denne handlingen kan ikke angres.",
+      "theme": {
+        "reset": "Vil du tilbakestille temainnstillingene?"
+      },
+      "bookmark": {
+        "cancel": "Vil du forkaste endringer i standard bokmerkeutseende?"
+      },
+      "shortcuts": {
+        "reset": "Vil du gjenopprette standard hurtigtaster?"
+      },
+      "sync": {
+        "enable": "Bytte fra lokalt til synkronisert? Dette trer i kraft nå, uten å klikke på Lagre. Hvis synkroniserte data allerede eksisterer, vil bokmerkene og innstillingene lastes inn. Ellers vil dine lagrede lokale data bli synkronisert.",
+        "local": "Bytte fra synkronisert til lokalt? Dette trer i kraft nå, uten å klikke på Lagre. Denne enheten vil beholde en kopi av gjeldende data og slutte å synkronisere endringer. Synkroniserte data forblir lagret for andre enheter.",
+        "delete": "Vil du slette alle synkroniserte NewDeskTab data? Denne enheten og alle andre enheter som bruker disse skydataene, vil bytte til lokal modus når de oppdager slettingen. Dette kan ikke angres."
+      }
+    },
+    "backup": {
+      "import": "Vil du gjenopprette denne sikkerhetskopien? Det vil erstatte dine nåværende bokmerker og innstillinger."
+    }
+  },
+  "addModal": {
+    "title": "Legg til nytt bokmerke",
+    "name": "Navn:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Avanserte alternativer",
+    "compactView": "▴ Kompakt visning"
+  },
+  "clock": {
+    "name": "Klokke",
+    "inDevelopment": "Under utvikling: klokken er ikke i sin endelige versjon ennå. Vi jobber med å forbedre den.",
+    "createTitle": "Legg til klokke",
+    "editTitle": "Klokkeinnstillinger",
+    "description": "Vis din lokale tid på dette arbeidsområdet.",
+    "hourCycle": "Tidsformat",
+    "hour24": "24 timer",
+    "hour12": "12 timer",
+    "showSeconds": "Vis sekunder",
+    "delete": "Slett",
+    "edit": "Rediger klokke",
+    "actions": "Klokkehandlinger",
+    "openSettings": "Åpne klokkeinnstillinger",
+    "confirmDelete": "Vil du slette denne klokken? Du kan angre denne handlingen.",
+    "confirmPermanentDelete": "Vil du slette denne klokken permanent? Dette kan ikke angres.",
+    "cancel": "Vil du forkaste klokkendringer?",
+    "noSpace": "Det er ikke nok rutenettplass for denne klokken."
+  },
+  "buttons": {
+    "save": "Lagre",
+    "apply": "Søk",
+    "add": "Legg til",
+    "accept": "Godta",
+    "cancel": "Avbryt",
+    "close": "Lukk"
+  },
+  "localImage": {
+    "upload": "Last opp fra denne enheten",
+    "label": "Lokalt bilde:",
+    "activeSource": "Aktivt bilde:",
+    "sourceLocal": "Lokalt",
+    "sourceUrl": "URL",
+    "remove": "Fjern lokalt bilde",
+    "notice": "Lokale bilder synkroniseres ikke.",
+    "unnamed": "Lokalt bilde"
+  },
+  "workspace": {
+    "ariaLabel": "Arbeidsområdekontroller",
+    "current": "Arbeidsområde",
+    "main": "Hoved",
+    "search": "Søk etter bokmerker",
+    "add": "Lag arbeidsområde",
+    "delete": "Slett arbeidsområde",
+    "undo": "Angre",
+    "redo": "Gjenta",
+    "shortcutHint": "Bytt arbeidsområde med Alt eller Tilvalg pluss Pil opp eller Ned",
+    "prompt": "Skriv inn et navn for det nye arbeidsområdet",
+    "namePlaceholder": "Jobb, fritid...",
+    "confirmDelete": "Vil du slette «{{name}}», dens {{folderCount}} mapper og {{bookmarkCount}} bokmerker? For å beholde dem, flytt dem til Hoved eller et annet arbeidsområde først."
+  },
+  "search": {
+    "title": "Søk etter bokmerker",
+    "inputLabel": "Søk etter navn eller URL",
+    "placeholder": "Navn eller URL",
+    "empty": "Fant ingen bokmerker.",
+    "noUrl": "Ingen URL",
+    "inFolder": "Mappe: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Valgte elementhandlinger",
+    "selected": "{{count}} valgt",
+    "move": "Flytt til arbeidsområdet",
+    "applyPreset": "Bruk standard stil",
+    "duplicate": "Duplikatvalg",
+    "delete": "Slett",
+    "clear": "Fjern valg"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Bokmerkekontroller",
+    "edit": "Rediger bokmerke",
+    "delete": "Slett bokmerke",
+    "copySuffix": "kopi"
+  },
+  "folder": {
+    "create": "Opprett mappe",
+    "createPrompt": "Gi den nye mappen et navn",
+    "namePlaceholder": "Verktøy, inspirasjon...",
+    "open": "Åpne {{name}}, {{count}} lagrede bokmerker",
+    "count": "{{count}} lagret",
+    "summary": "{{count}} av {{capacity}} mellomrom brukt",
+    "editMode": {
+      "enable": "Rediger",
+      "disable": "Fullfør redigeringen"
+    },
+    "gridLabel": "Mappe bokmerker",
+    "dropHint": "Slipp for å legge til",
+    "noSpace": "Det er ingen ledig rutenettcelle for en ny mappe.",
+    "removeNoSpace": "Det er ikke nok rutenettplass til å fjerne dette bokmerket fra mappen.",
+    "confirmDelete": "Flytte \"{{name}}\" og dets {{count}}-bokmerker til papirkurven?",
+    "confirmPermanentDelete": "Vil du slette «{{name}}» og dets {{count}} bokmerker permanent? Dette kan ikke angres.",
+    "actions": {
+      "ariaLabel": "Mappekontroller",
+      "customize": "Tilpass mappe",
+      "rename": "Gi nytt navn til mappen",
+      "delete": "Slett mappe",
+      "editBookmark": "Rediger {{name}}",
+      "removeBookmark": "Flytt {{name}} ut av mappen",
+      "deleteBookmark": "Slett {{name}}",
+      "acceptRename": "Lagre mappenavn",
+      "cancelRename": "Avbryt navn på mappe"
+    },
+    "editor": {
+      "createTitle": "Legg til ny mappe",
+      "title": "Rediger mappe",
+      "name": "Navn:",
+      "showPreviews": "Vis forhåndsvisninger av bokmerker",
+      "showName": "Vis mappenavn",
+      "iconColor": "Symbolfarge:",
+      "outerBackgroundColor": "Ytre bakgrunnsfarge:",
+      "noOuterBackground": "Ingen ytre bakgrunn",
+      "resetOuterBackground": "Automatisk",
+      "noBackground": "Gjennomsiktig mappefyll",
+      "backgroundColor": "Mappefarge:",
+      "backgroundImage": "Bakgrunnsbilde (URL):",
+      "lockImage": "Lås eller lås opp bilde-URL",
+      "copyImage": "Kopier bilde-URL",
+      "clearImage": "Slett bilde-URL",
+      "textColor": "Tekstfarge:",
+      "preview": "Forhåndsvisning",
+      "previewName": "Mappe",
+      "sections": {
+        "general": "Generelt",
+        "style": "Stil",
+        "text": "Tekst"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Papirkurv",
+    "open": "Åpne papirkurven",
+    "openCount": "Åpen papirkurven, {{count}} gjenstander",
+    "dropHint": "Slipp for å slette",
+    "summary": "{{count}} elementer · Automatisk sletting: {{retention}}",
+    "empty": "Papirkurven er tom.",
+    "selected": "{{count}} valgt",
+    "select": "Velg {{name}}",
+    "folderContents": "{{count}} bokmerker",
+    "deletedAt": "Slettet {{date}}",
+    "expiresIn": "{{days}} dager igjen",
+    "expiresInOne": "1 dag igjen",
+    "neverExpires": "Aldri slettet automatisk",
+    "restoreAll": "Gjenopprett alle",
+    "deleteAll": "Slett alle",
+    "restoreSelected": "Gjenopprett valgt",
+    "deleteSelected": "Slett valgte",
+    "editor": {
+      "title": "Rediger papirkurven",
+      "animateIcon": "Animer papirkurven",
+      "appearance": "Utseende",
+      "backgroundColor": "Bakgrunnsfarge:",
+      "backgroundImage": "Bakgrunnsbilde (URL):",
+      "lockImage": "Lås eller lås opp bilde-URL",
+      "copyImage": "Kopier bilde-URL",
+      "clearImage": "Slett bilde-URL",
+      "noBackground": "Ingen bakgrunn",
+      "iconColor": "Ikon farge:",
+      "textColor": "Tekstfarge:",
+      "elements": "Synlige elementer",
+      "showName": "Vis navn",
+      "visible": "Vis papirkurven på hovednettet",
+      "preview": "Forhåndsvisning",
+      "actions": "Handlinger for papirkurven",
+      "edit": "Rediger papirkurven",
+      "sections": {
+        "general": "Generelt",
+        "style": "Stil",
+        "text": "Tekst",
+        "icon": "Ikon"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Skriv inn et navn for å lagre forhåndsinnstillingen."
+    },
+    "name": {
+      "required": "Skriv inn et navn for bokmerket."
+    },
+    "folderName": {
+      "required": "Skriv inn et navn for mappen."
+    },
+    "url": {
+      "invalid": "URL-en er ikke gyldig.",
+      "unsupportedProtocol": "Denne URL-typen er ikke tillatt."
+    },
+    "backgroundImageUrl": {
+      "invalid": "Bildets URL er ikke gyldig.",
+      "unsupportedProtocol": "Denne bildetypen er ikke tillatt."
+    }
+  },
+  "editModal": {
+    "title": "Rediger bokmerke",
+    "name": "Navn:",
+    "url": "URL:",
+    "backgroundImage": "Bakgrunnsbilde (URL):",
+    "backgroundFavicon": "Stort, sentrert ikon",
+    "invertColorBg": "Inverter farger",
+    "noBackground": "Ingen bakgrunn",
+    "backgroundColor": "Bokmerkefarge:",
+    "showText": "Vis tekst",
+    "textColor": "Tekstfarge:",
+    "showFavicon": "Vis ikon",
+    "invertColorIcon": "Inverter ikonfarger",
+    "iconColor": "Ikon farge:",
+    "sections": {
+      "general": "Generelt",
+      "style": "Stil",
+      "text": "Tekst",
+      "icon": "Ikon"
+    },
+    "preview": "Forhåndsvisning",
+    "previewName": "Forhåndsvisning"
+  },
+  "colorPicker": {
+    "title": "Fargevelger",
+    "sample": "Velg en farge fra skjermen",
+    "close": "Lukk fargevelgeren",
+    "saturationBrightness": "Metning og lysstyrke",
+    "hue": "Hue",
+    "quickColors": "Raske farger",
+    "saturation": "Metning",
+    "brightness": "Lysstyrke",
+    "hex": "Hex-kode",
+    "copy": "Kopier hex-kode",
+    "copied": "Hex-kode kopiert",
+    "copyFailed": "Kunne ikke kopiere hex-koden"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Generelt",
+      "sync": "Synkroniser",
+      "theme": "Tema",
+      "bookmark": "Bokmerker",
+      "shortcuts": "Snarveier",
+      "language": "Språk",
+      "help": "Hjelp",
+      "information": "Informasjon"
+    },
+    "general": {
+      "title": "Generelt",
+      "subtitle": "Innstillinger",
+      "export": "Eksporter sikkerhetskopi",
+      "import": "Gjenopprett sikkerhetskopi",
+      "resetSettings": "Tilbakestill innstillinger",
+      "deleteAllData": "Slett alle lokale data",
+      "recycleBin": {
+        "title": "Papirkurv",
+        "show": "Vis papirkurven på hovednettet",
+        "retentionLabel": "Slett elementer automatisk:",
+        "retentionOptions": {
+          "oneDay": "1 dag",
+          "sevenDays": "7 dager",
+          "fourteenDays": "14 dager",
+          "twentyEightDays": "28 dager",
+          "never": "Aldri"
+        }
+      },
+      "appearance": {
+        "title": "Utseende",
+        "system": "Nettleser",
+        "light": "Lys",
+        "dark": "Mørkt"
+      }
+    },
+    "sync": {
+      "title": "Synkroniser",
+      "description": "Velg hvor du vil lagre innstillingene og bokmerkene.",
+      "ariaLabel": "Lagringsmodus",
+      "local": {
+        "title": "Kun denne enheten",
+        "description": "Data lagres kun i denne lokale nettleserprofilen."
+      },
+      "synced": {
+        "title": "Synkronisert",
+        "description": "Tilgjengelig i Google Chrome profiler koblet til samme konto.",
+        "tooltip": "Synkroniseringsinformasjon"
+      },
+      "compatibility": {
+        "newerVersion": "Synkronisering er låst på denne enheten fordi skydataene ble opprettet av en nyere NewDeskTab versjon. Dine synkroniserte data er trygge og har ikke blitt endret. Oppdater NewDeskTab for å koble til på nytt."
+      },
+      "usage": {
+        "title": "Lagring tilgjengelig",
+        "showExact": "Vis nøyaktige byte",
+        "showHuman": "Vis lesbare størrelser",
+        "local": "Lokalt",
+        "sync": "Synkronisert",
+        "localSyncCopy": "Lokal synkronisering kopi",
+        "localAria": "Bruk av lokal lagring",
+        "syncAria": "Synkronisert lagringsbruk",
+        "loading": "Beregner …",
+        "summary": "{{used}} av {{total}} · {{percent}} %",
+        "available": "{{free}} tilgjengelig",
+        "system": "System og metadata",
+        "bookmarks": "Bokmerker",
+        "folders": "Mapper",
+        "trash": "Papirkurvdata",
+        "localImages": "Lokale bilder",
+        "themeImages": "Tema",
+        "bookmarkImages": "Bokmerker",
+        "folderImages": "Mapper",
+        "trashImages": "Papirkurv",
+        "otherImages": "Annet",
+        "widgets": "Widgets",
+        "widgetsHint": "Størrelsen som vises for Synkroniser er et estimat og ekskluderer direkteinnhold hentet fra eksterne tjenester.",
+        "error": "Bruk utilgjengelig"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome synkroniserer New DeskTab gjennom Google-kontoen din. New DeskTab kjører ikke sin egen synkroniseringsserver.",
+        "brave": "Utilgjengelig i Brave: den kan lagre New DeskTab data i chrome.storage.sync, men formidler det for øyeblikket ikke mellom enheter.",
+        "unsupported": "Synkronisert lagring er bare tilgjengelig i Google Chrome foreløpig. Andre nettlesere forblir deaktivert inntil støtte for flere enheter er bekreftet."
+      },
+      "existingNotice": "Hvis du godtar byttet til Synkronisert, lastes alle synkroniserte data som allerede eksisterer.",
+      "deleteData": "Slett synkroniserte data",
+      "metadata": {
+        "loading": "Sjekker synkroniserte data …",
+        "updatedAt": "Siste synkroniserte oppdatering: {{date}}",
+        "unknown": "Synkroniserte data finnes, men oppdateringstiden er utilgjengelig.",
+        "empty": "Ingen synkroniserte New DeskTab data er lagret.",
+        "error": "Synkronisert datainformasjon kunne ikke lastes."
+      },
+      "status": {
+        "idle": "Data er klare.",
+        "saving": "Lagrer endringer …",
+        "saved": "Alle endringer lagres.",
+        "error": "Kunne ikke lagre de siste endringene."
+      }
+    },
+    "theme": {
+      "title": "Tema",
+      "subtitle": "Sidebakgrunn",
+      "backgroundImageMode": "Bilde/video",
+      "wallpapersTitle": "Mine egne bakgrunnsbilder",
+      "ownWallpapersHint": "Disse bakgrunnsbildene og deres rotasjon lagres kun på denne enheten.",
+      "mediaUrl": "Bakgrunn URL",
+      "image": "Bilde",
+      "video": "Video",
+      "addUrl": "Legg til URL",
+      "addFiles": "Legg til lokale filer",
+      "rotationInterval": "Bakgrunnsrotasjon",
+      "noRotation": "Ikke endre automatisk",
+      "interval5": "5 sekunder",
+      "interval15": "15 sekunder",
+      "interval30": "30 sekunder",
+      "interval60": "1 minutt",
+      "interval300": "5 minutter",
+      "interval600": "10 minutter",
+      "interval1800": "30 minutter",
+      "previous": "Forrige",
+      "next": "Neste",
+      "moveUp": "Flytt opp",
+      "moveDown": "Flytt ned",
+      "remove": "Fjern",
+      "unavailableLocal": "Lokal fil er utilgjengelig på denne enheten",
+      "mediaColor": "Farge bak denne tapeten",
+      "mediaPreview": "Forhåndsvis bakgrunnsbilde",
+      "activeSource": "Aktiv kilde",
+      "backgroundSolid": "Ensfarget",
+      "backgroundColor": "Farge:",
+      "editSolidColor": "Endre solid bakgrunnsfarge",
+      "changeSolidColor": "Bytt farge",
+      "backgroundImageColor": "Farge bak bildet/videoen",
+      "backgroundImage": "URL delt mellom enheter",
+      "urlHidden": "URL skjult",
+      "resetBackground": "Tilbakestill tema"
+    },
+    "bookmark": {
+      "title": "Bokmerker",
+      "subtitle": "Standard bokmerke",
+      "description": "Velg utseendet som skal brukes når du oppretter nye bokmerker.",
+      "configure": "Konfigurer standard bokmerke",
+      "editorTitle": "Standard bokmerkeutseende",
+      "previewName": "Standard bokmerke",
+      "export": "Eksporter bokmerker",
+      "import": "Importer bokmerker",
+      "deleteAll": "Slett alle bokmerker",
+      "preview": "Forhåndsvisning",
+      "drag": {
+        "title": "Dra-adferd",
+        "description": "Velg hvordan bokmerker omorganiseres når du inntar posisjonen deres.",
+        "none": {
+          "title": "Ingen",
+          "description": "Tillater kun bevegelser til frie celler."
+        },
+        "cascade": {
+          "title": "Sekvens",
+          "description": "Skifter kjeden til den finner en ledig celle.",
+          "experimental": "Eksperimentell · Kan inneholde mindre feil."
+        },
+        "relocate": {
+          "title": "Flytting",
+          "description": "Flytter bokmerker som opptar destinasjonen."
+        }
+      },
+      "resize": {
+        "title": "Endre størrelse på atferd",
+        "description": "Velg hvordan elementer reagerer mens du flytter et størrelseshåndtak.",
+        "smooth": {
+          "title": "Glatt",
+          "description": "Strekker elementet mens du drar, og fester deretter til rutenettet."
+        },
+        "none": {
+          "title": "Ingen",
+          "description": "Hopper etter celle når du krysser 50 % av nabocellen."
+        }
+      },
+      "presets": {
+        "title": "Stilbibliotek",
+        "tab": "Bibliotek",
+        "description": "Lagre stiler og gjenbruk dem når du setter opp standardbokmerket.",
+        "name": "Forhåndsinnstilt navn",
+        "saved": "Lagrede forhåndsinnstillinger",
+        "save": "Lagre forhåndsinnstilling",
+        "apply": "Last",
+        "delete": "Slett",
+        "empty": "Ingen lagrede forhåndsinnstillinger"
+      }
+    },
+    "shortcuts": {
+      "title": "Tastatursnarveier",
+      "description": "Velg en snarveisknapp, og trykk deretter på en bokstav eller tastekombinasjon. Høyreklikk for å oppheve tilordningen.",
+      "change": "Endre snarveien {{action}}. Gjeldende snarvei: {{shortcut}}.",
+      "press": "Trykk snarvei...",
+      "unassigned": "Ikke tilordnet",
+      "unassignedFlash": "Snarvei ikke tilordnet.",
+      "modifierRequired": "Bruk en bokstav alene, eller en tastekombinasjon med en modifikator.",
+      "reserved": "Denne snarveien er reservert av nettleseren eller operativsystemet. Velg en annen kombinasjon.",
+      "conflict": "Denne tasten er allerede tilordnet en annen handling.",
+      "updated": "Snarvei oppdatert.",
+      "cancelled": "Snarveisendring avbrutt.",
+      "restored": "Standard snarveier gjenopprettet.",
+      "reset": "Tilbakestill snarveier",
+      "actions": {
+        "toggleEditing": {
+          "title": "Redigeringsmodus",
+          "description": "Gå inn i eller forlat redigering på hovedrutenettet eller i en åpen mappe."
+        },
+        "addBookmark": {
+          "title": "Lag bokmerke",
+          "description": "Åpne skjemaet for å legge til et bokmerke."
+        },
+        "addFolder": {
+          "title": "Opprett mappe",
+          "description": "Åpne dialogboksen for å opprette en mappe."
+        },
+        "openWidgets": {
+          "title": "Åpne widgets",
+          "description": "Åpne listen over tilgjengelige widgets."
+        },
+        "openSettings": {
+          "title": "Åpne innstillinger",
+          "description": "Åpne innstillingspanelet for New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Språk",
+      "text": "Velg grensesnittspråk:",
+      "system": "Nettleser",
+      "search": "Søk etter språk eller land",
+      "empty": "Ingen språk funnet"
+    },
+    "information": {
+      "title": "Informasjon",
+      "version": "Versjon: {{VERSION}}",
+      "author": "Forfatter:"
+    }
+  }
+}

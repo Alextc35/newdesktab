@@ -1,0 +1,517 @@
+{
+  "title": "Felhasználói kézikönyv",
+  "eyebrow": "A TE TERED, A TE TEMPED",
+  "intro": "Ismerjen meg minden apró funkciót.",
+  "description": "Találja meg, amire szüksége van, vagy fedezzen fel valami újat. Csak nyugodtan.",
+  "settingsDescription": "Minden funkció egyszerű lépésekkel és apró trükkökkel, amelyeket bármikor kipróbálhat.",
+  "search": {
+    "label": "Miben tudunk segíteni?",
+    "placeholder": "Például: a törölt könyvjelző visszaállítása",
+    "common": "Gyakori kérdések",
+    "found": "Válaszok a keresésre · {{count}}",
+    "empty": "A kereséshez nem találtunk segítséget. Próbálkozzon a „billentyűzet”, a „könyvjelzők áthelyezése” vagy a „biztonsági mentés” lehetőséggel.",
+    "resultsLabel": "Kézi kérdések és válaszok"
+  },
+  "open": "Fedezze fel a kézikönyvet",
+  "searchLabel": "Keresse meg a kézikönyvet",
+  "searchPlaceholder": "Próbáld ki a „billentyűzet”, „háttérkép” vagy „biztonsági mentés” funkciót",
+  "count": "{{count}} szakaszt fedezhet fel",
+  "empty": "Nincs egyezés. Próbáljon ki egy másik szót, vagy törölje a keresést a teljes index megtekintéséhez.",
+  "back": "← Kézi index",
+  "remember": "Jó emlékezni",
+  "related": "Folytasd a felfedezést",
+  "footer": "Mindig elérhető a Beállítások → Súgó menüpontban.",
+  "guideLinks": "Tudjon meg többet a kézikönyvben",
+  "groups": {
+    "start": "Kezdje itt",
+    "organize": "Szervezd magad",
+    "personalize": "Legyen a tiéd",
+    "protect": "Vigyázz a helyedre"
+  },
+  "demo": {
+    "browse": "Tallózás szakaszok között",
+    "previous": "← Előző rész",
+    "next": "Következő szakasz →",
+    "title": "Nézze meg működés közben",
+    "example": "Bemutató példa",
+    "steps": "Bemutató lépések",
+    "step": "{{step}}/{{count}} lépés",
+    "play": "Játssz",
+    "pause": "Szünet",
+    "replay": "Újrajátszás",
+    "progress": "A demonstráció haladása",
+    "mode": "Viselkedés",
+    "nextStep": "Következő lépés",
+    "reducedMotion": "Csökkentett mozgás: fedezze fel a lépéseket animáció nélkül.",
+    "labels": {
+      "settings": "Beállítások elemre",
+      "saved": "A változtatások mentve",
+      "page": "oldal",
+      "selection": "Kiválasztás",
+      "selected": "kiválasztott elemek",
+      "color": "Szín",
+      "styleName": "Az én lila stílusom",
+      "wallpaper": "Háttérképek",
+      "rotation": "Forgatás",
+      "format": "Formátum",
+      "seconds": "Másodpercek",
+      "language": "Nyelv",
+      "system": "Rendszer",
+      "currentLanguage": "Magyar",
+      "restore": "Visszaállítás",
+      "copy": "Biztonsági mentés",
+      "restoreCopy": "Tekintse át a visszaállítás előtt",
+      "switchSync": "Szinkronizálva vált?",
+      "applyNow": "Megerősítéskor érvényes",
+      "status": "Állapot",
+      "synchronized": "Szinkronizálva",
+      "retry": "Mentés függőben · Újrapróbálkozás",
+      "keyboardQuery": "billentyűzet",
+      "deleteExample": "A könyvjelzők és mappák törlődnek. A lomtár üres lesz."
+    },
+    "topics": {
+      "bookmarks": [
+        "Nyissa meg a bal oldali menüt, és válassza a + → Könyvjelző lehetőséget.",
+        "Írja be az oldal nevét és címét.",
+        "Megerősítés: a könyvjelző szabad cellában jelenik meg."
+      ],
+      "quick-save": [
+        "Nyissa meg a New DeskTab webhelyet a bővítmény ikonjáról.",
+        "Tekintse át a javasolt nevet, címet és úti célt.",
+        "Mentés: a könyvjelző a munkaterületen lesz, amikor megnyit egy lapot."
+      ],
+      "keyboard": [
+        "Nyomja meg a Tab billentyűt az első elem fókuszálásához.",
+        "A nyílbillentyűk mozgatják a fókuszt. Az Enter megnyitja a fókuszált elemet.",
+        "Az Esc vagy egy másik Tab leállítja a navigációt."
+      ],
+      "shortcuts": [
+        "Nyissa meg a Beállítások → Billentyűparancsok lehetőséget.",
+        "Kattintson egy művelet parancsikonjára, és írja be a kombinációt.",
+        "Mentse az új parancsikon alkalmazásához."
+      ],
+      "search": [
+        "Az eszköztár nagyítója vagy / megnyitja a keresést.",
+        "Írja be a név vagy cím egy részét.",
+        "Nyissa meg az eredményt. Az Esc vagy Bezárás visszatér a munkaterületre."
+      ],
+      "editing": [
+        "A menüceruza felfedi a rácsot és a vezérlőket.",
+        "A Gmail ceruzája megnyitja a név- és URL-szerkesztőt.",
+        "Mentse el a módosítást, és kattintson ismét a menüceruzára a befejezéshez."
+      ],
+      "movement": [
+        "Engedélyezze a szerkesztést, és tartsa lenyomva a csempét.",
+        "A kurzor és a csempe együtt mozog egy szabad cellába.",
+        "Elengedés: a végső pozíció mentésre kerül."
+      ],
+      "resizing": [
+        "Engedélyezze a szerkesztést, és keresse meg a sarokfogantyút.",
+        "A szélesség és a magasság módosításához húzza átlósan.",
+        "Kioldás 2 × 2-nél. Hasonlítsa össze a Nincs és a Sima értéket a választó segítségével."
+      ],
+      "drag-modes": [
+        "A választó segítségével hasonlítsa össze a három húzási módot.",
+        "Húzza az elfoglalt cella felé, és figyelje a többi lapkát.",
+        "Egyik sem használ szabad cellát; Az áthelyezés és a kaszkád átszervezi a csempéket."
+      ],
+      "folders": [
+        "Adjon nevet egy mappának az oldalak csoportosításához.",
+        "Szerkesztés közben húzzon rá egy könyvjelzőt.",
+        "Nyissa meg a mappát, és keresse meg a könyvjelzőt a rácsában."
+      ],
+      "workspaces": [
+        "Az eszköztár + létrehoz egy munkaterületet a választott névvel.",
+        "Az új munkaterületnek saját rácsja van.",
+        "Az Alt + ↑ és az Alt + ↓ billentyűk lépkednek a munkaterületeken."
+      ],
+      "selection": [
+        "Engedélyezze a szerkesztést, és rövid kattintással válasszon ki egy csempét.",
+        "Válasszon másikat: az eszköztár csoportos műveleteket kínál.",
+        "A klónozás egy műveletben másolatokat hoz létre szabad cellákban."
+      ],
+      "history": [
+        "Mozgasson egy csempét: a változás bekerül az előzményekbe.",
+        "A visszavonás visszaállítja a lapkát az előző helyére.",
+        "Az újbóli művelet visszaállítja az imént visszavont lépést."
+      ],
+      "appearance": [
+        "A csempe ceruzája megnyitja a szerkesztőjét.",
+        "Változtassa meg a színt, és nézze meg az előnézetet.",
+        "Mentse el, hogy ezt a megjelenést alkalmazza a csempére."
+      ],
+      "presets": [
+        "Nyissa meg a könyvtárat a Beállítások → Könyvjelzők menüpontból.",
+        "Nevezze el és mentse el a stílust az újrafelhasználáshoz.",
+        "Töltse be alapértelmezettként, és mentse el az új könyvjelzők számára."
+      ],
+      "wallpapers": [
+        "A háttérkép kiválasztásához nyissa meg a Beállítások → Téma menüpontot.",
+        "Tekintse át az előnézetet és a könyvtárforgatási időközt.",
+        "Mentés: a kiválasztott háttérkép megjelenik a munkaterületen."
+      ],
+      "clock": [
+        "Válassza a + → Widgetek → Óra lehetőséget a bal oldali menüben.",
+        "Állítsa be a formátumot és a másodperceket az előnézet segítségével.",
+        "Adja hozzá az órát egy szabad munkaterület cellához."
+      ],
+      "interface": [
+        "Nyissa meg az Általános lehetőséget, és válassza ki a menü nyelvét.",
+        "Hasonlítsa össze a világos és sötét felületet.",
+        "Mentse el nyelvi és megjelenési beállításait."
+      ],
+      "trash": [
+        "A törölt könyvjelző megkereséséhez nyissa ki a lomtárat.",
+        "Jelölje ki, majd kattintson a Visszaállítás gombra: visszatér a rácshoz.",
+        "Általánosságban adja meg, hogy mennyi ideig maradjon meg a törölt elemek."
+      ],
+      "backup": [
+        "Keresse meg a biztonsági mentési beállításokat a Beállítások → Általános menüpontban.",
+        "Az exportálás letölti az adatokat és a helyi fájlokat tartalmazó ZIP-fájlt.",
+        "Az importálás megerősítést kér az adatok cseréje előtt."
+      ],
+      "sync": [
+        "Az aktuális mód ellenőrzéséhez nyissa meg a Beállítások → Szinkronizálás lehetőséget.",
+        "Válassza a Szinkronizált lehetőséget, és tekintse át a megerősítést.",
+        "Az Elfogadás azonnal alkalmazza a módot, a Mentés gombra kattintva."
+      ],
+      "compact": [
+        "Ahogy az ablak szűkül, a rács listává válik.",
+        "A könyvjelzők továbbra is elérhetők maradnak a listából.",
+        "Szélesítse az ablakot, hogy visszatérjen a rácshoz és a szerkesztéshez."
+      ],
+      "data": [
+        "A példa egy másik nyelvet, egy könnyű felületet és testreszabott csempéket használ.",
+        "A Reset visszaállítja az alapértelmezett beállításokat, miközben megtartja a könyvjelzőket és stílusaikat.",
+        "A Törlés eltávolítja a könyvjelzőket és mappákat, és csak az üres lomtár marad meg."
+      ],
+      "learning": [
+        "A napi tipp egy funkció felfedezésére hív. Kattintson a Mutasd meg, hogyan.",
+        "Írja be a „billentyűzet” kifejezést a keresőmezőbe, hogy megtalálja a Navigálás a billentyűzettel elemet.",
+        "Kattintson az eredményre az utasítások elolvasásához."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "EGY KIS TIPP MÁRA",
+    "dismiss": "Hagyja el a mai tippet",
+    "read": "Mutasd meg, hogyan",
+    "pace": "Szünethez vigye az egérmutatót.",
+    "enabled": "Napi tippek",
+    "description": "Egy tipp, amikor megnyitja a nap első lapját."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Hogyan adhatok hozzá oldalt a könyvjelzőimhez?",
+      "searchTerms": "oldal hozzáadása; könyvjelző létrehozása; weboldal mentése; új kedvenc",
+      "title": "Könyvjelzők hozzáadása",
+      "summary": "Kedvenc oldalai kéznél vannak minden új lapon.",
+      "steps": [
+        "A menü megjelenítéséhez lépjen a bal szélre. Válassza a + → Könyvjelző lehetőséget.",
+        "Írja be az oldal nevét és címét. Hozzáadás előtt módosíthatja a megjelenését.",
+        "Erősítse meg, hogy a könyvjelzőt az aktuális munkaterület szabad helyére helyezi. A szerkesztési módon kívül kattintson rá az oldal megnyitásához."
+      ],
+      "note": "Meglévő könyvjelző módosításához kapcsolja be a szerkesztést, és használja a ceruzát. A véletlen módosítások elkerülése érdekében zárolhatja a címet.",
+      "tip": "A könyvjelzők hozzáadására szolgáló menü a bal szélen található. Vigye oda a kurzort, és válassza a + → Könyvjelző lehetőséget."
+    },
+    "quick-save": {
+      "question": "Hogyan menthetem el a meglátogatott oldalt?",
+      "searchTerms": "aktuális oldal mentése; nyitott lap mentése; kiterjesztés ikon; rögzítési URL",
+      "title": "Az aktuális oldal mentése",
+      "summary": "Adjon hozzá egy oldalt a bővítmény ikonjáról.",
+      "steps": [
+        "Egy oldal meglátogatása közben nyissa meg a New DeskTab webhelyet a böngésző bővítményeinek menüjéből.",
+        "Ellenőrizze a javasolt nevet és címet, és válasszon egy elérhető célállomást.",
+        "Mentse el a könyvjelzőt, és nyisson meg egy új lapot, hogy megtalálja a helyén."
+      ],
+      "note": "Rögzítse a bővítmény ikonját a böngésző eszköztárához, hogy elérhesse ezt a parancsikont.",
+      "tip": "Nem kell másolni az URL-t: New DeskTab böngészőikonja lehetővé teszi a meglátogatott oldal mentését."
+    },
+    "keyboard": {
+      "question": "Hogyan navigálhatok egér nélkül?",
+      "searchTerms": "egér nélkül; billentyűzet használata; nyíl navigáció; tab enter",
+      "title": "Navigáljon a billentyűzettel",
+      "summary": "Tab, nyílbillentyűk és Enter a tér felfedezéséhez.",
+      "steps": [
+        "A főoldalon anélkül, hogy begépelne egy mezőt vagy megnyitna egy párbeszédpanelt, nyomja meg a Tab billentyűt az elemek közötti navigálás megkezdéséhez.",
+        "Használja a nyílbillentyűket a legközelebbi tétel eléréséhez mindkét irányban. Enter megnyitja a könyvjelzőt vagy mappát; szerkesztés módban megnyitja a szerkesztőjét.",
+        "Nyomja meg ismét a Tab vagy az Esc billentyűt a navigáció elhagyásához. A párbeszédpaneleken belül a Tab és a Shift + Tab a szokásos módon mozoghat a vezérlők között."
+      ],
+      "note": "Szerkesztés módban az S kiválasztja a fókuszált elemet. A Törölje vagy a Backspace eltávolítja a megerősítést követően. A widgetek véglegesen törlődnek.",
+      "tip": "Próbálja ki a Tab-ot a térben: a nyilak mozognak az elemek között, és az Enter megnyitja őket. Egy másik lap elhagyja ezt a módot."
+    },
+    "shortcuts": {
+      "question": "Hogyan változtathatom meg a billentyűparancsaimat?",
+      "searchTerms": "parancsikonok módosítása; testreszabhatja a kulcsokat; billentyűkombinációk; gyorsbillentyű",
+      "title": "Készítse el saját parancsikonokat",
+      "summary": "Ellenőrizze és módosítsa a parancsikonokat a Beállításokban.",
+      "steps": [
+        "Nyissa meg a Beállítások → Parancsikonokat a szerkesztéshez, könyvjelzők hozzáadásához, mappák és widgetek hozzáadásához, valamint a megnyitási beállítások megtekintéséhez.",
+        "Kattintson egy művelet billentyűkombinációjára, és nyomjon meg egy új billentyűparancsot. Az Esc megszakítja a felvételt; jobb gombbal a művelet nincs hozzárendelve.",
+        "A módosítások alkalmazásához mentse a beállításokat. A Reset parancsikonok visszaállítják az eredeti kombinációkat."
+      ],
+      "note": "Kezdetben: E szerkeszt, B könyvjelzőt ad hozzá, F mappát, W widgeteket nyit meg, S beállításokat. A parancsikonok figyelembe veszik a szövegmezőket és a párbeszédpaneleket.",
+      "tip": "A parancsikonokat a Beállításokban módosíthatja. Kattintson egy kombinációra a saját rögzítéséhez; Az Esc törli, és a jobb gombbal kattintva megszünteti a hozzárendelést."
+    },
+    "search": {
+      "question": "Hogyan találhatok olyan könyvjelzőt, amelyet nem látok?",
+      "searchTerms": "könyvjelző keresése; keresse meg az oldalt; hiányzó könyvjelző; keresési URL",
+      "title": "Keressen egy könyvjelzőt",
+      "summary": "Keresés név vagy cím alapján, beleértve a mappákat is.",
+      "steps": [
+        "Nyomja meg a / gombot, amikor éppen nem gépel, vagy használja a nagyítót a munkaterület sávján.",
+        "Írja be a név vagy cím egy részét. A keresés más munkaterületeken és mappákon belüli könyvjelzőket is tartalmaz.",
+        "Nyissa meg a kívánt eredményt. Az Esc vagy a Bezárás billentyű visszaviszi a terére."
+      ],
+      "note": "Nem kell emlékeznie arra, hogy hová mentette az oldalt, hogy megtalálja azt.",
+      "tip": "A / gomb megnyitja a keresést. A könyvjelzőket mappákban és más munkaterületeken is megtalálja."
+    },
+    "editing": {
+      "question": "Hogyan kapcsolhatom be a szerkesztést?",
+      "searchTerms": "szerkesztés engedélyezése; asztal szerkesztése; ceruzaszerkesztő; könyvjelző módosítása",
+      "title": "Szerkesztés mód",
+      "summary": "A rendszerezéshez és testreszabáshoz kapcsolja be a ceruzát.",
+      "steps": [
+        "Kattintson a ceruzára a bal oldali menüben, vagy használja a szerkesztési parancsikont a rács és az elemvezérlők megjelenítéséhez.",
+        "Elemek áthelyezése, átméretezése vagy kiválasztása. Minden kártya ceruzája megnyitja a nevét, címét és megjelenési szerkesztőjét.",
+        "Ha végzett, kattintson újra a ceruzára. A munkaterület módosításai automatikusan mentésre kerülnek; a szerkesztőknek saját Mentés gombjuk van."
+      ],
+      "note": "Az Esc először törli a kijelölést vagy a billentyűzet navigációját. Ha egyik sem aktív, kiléphet a szerkesztési módból.",
+      "tip": "A menüceruza megkezdi a szerkesztést: megjelennek a kártyafogantyúk és a vezérlők. Kattintson újra a befejezéshez."
+    },
+    "movement": {
+      "question": "Hogyan helyezhetek át egy könyvjelzőt?",
+      "searchTerms": "könyvjelző mozgatása; drag kedvenc; pozíció megváltoztatása; rács elrendezése",
+      "title": "Elemek áthelyezése",
+      "summary": "Húzd a kártyákat a helyükre a rácson.",
+      "steps": [
+        "Kapcsolja be a szerkesztési módot, és tartsa lenyomva az áthelyezni kívánt kártyát.",
+        "Húzza a rendeltetési helyére. Az eredmény a szabad helytől és a Beállítások → Könyvjelzők menüpontban kiválasztott húzási módtól függ.",
+        "Engedje el a pozíció mentéséhez. Egyetlen elemet is kiválaszthat egy kattintással, és a nyilakkal egy cellával áthelyezheti a lapon kívülre."
+      ],
+      "note": "A blokkolt célhelyek vizuális visszajelzést adnak, és a tétel visszatér az érvényes pozícióba. A változtatásokat visszavonhatja.",
+      "tip": "Szerkesztés módban kattintson egy kártya kiválasztásához, és a nyilak segítségével mozgassa cellánként. Először hagyja el a Tab navigációt."
+    },
+    "resizing": {
+      "question": "Hogyan változtathatom meg a csempe méretét?",
+      "searchTerms": "csempe átméretezése; könyvjelző nagyítása; méret csökkentése; átméretező fogantyúk; kattintás; Váltás; szélesség magasság; 2x2",
+      "title": "Módosítsa a méretet",
+      "summary": "Használja a kártya oldalait és sarkait.",
+      "steps": [
+        "Kapcsolja be a szerkesztést, és lépjen az elem oldalára vagy sarkára az átméretező fogantyúk használatához.",
+        "Húzza el a fogantyút. A sarok megváltoztatja a szélességet és a magasságot; egy oldal csak egy dimenziót változtat meg. A fogantyúra kattintva egy cellával nőhet, vagy a Shift + kattintással egy cellával csökkenhet.",
+        "A Beállítások → Könyvjelzők menüben válassza a Nincs lehetőséget, ha az 50% átlépése után szeretne a cellák között ugrani, vagy a Sima lehetőséget a kártya nyújtásához és felengedéskor kattanásához."
+      ],
+      "note": "A végső méret figyelembe veszi a rácsot és az érvényes pozíciókat. A beállítások előnézete a választás előtt megmutatja a különbséget.",
+      "tip": "Kattintson egy fogantyúra, ha egy cellával szeretne növekedni, vagy a Shift + kattintással egy cellával csökken. A sarkok együtt változtatják a szélességet és a magasságot; az oldalak csak egy dimenziót változtatnak."
+    },
+    "drag-modes": {
+      "question": "Miért nem szállhatok le egy elfoglalt cellára?",
+      "searchTerms": "elfoglalt cella; átlépni a másikon; blokkolt csepp; kaszkád áthelyezése; húzó ütközés",
+      "title": "Drag módok",
+      "summary": "Válassza ki, hogy mi történjen egy foglalt könyvjelző pozícióban.",
+      "steps": [
+        "Nyissa meg a Beállítások → Könyvjelzők lehetőséget, és bontsa ki a húzási viselkedést.",
+        "Egyik sem kerül szabad helyekre. A Áthelyezés megkeresi a könyvjelzők helyét a célállomáson. A Sorozat sorban átrendezi a könyvjelzőket.",
+        "Nézze meg az egyes opciók animációit, és mentse el azt a módot, amellyel kényelmesnek érzi a rendszerezést."
+      ],
+      "note": "A lépés elutasításra kerül, ha nincs érvényes megállapodás. Az átlátszó háttér nem teszi szabaddá a foglalt cellát.",
+      "tip": "Könyvjelzőt szeretne áthelyezni egy foglalt cellába? Tekintse meg az Áthelyezés és kaszkád menüpontot a Beállítások → Könyvjelzők menüpontban, és nézze meg az előnézetüket."
+    },
+    "folders": {
+      "question": "Hogyan csoportosíthatom a könyvjelzőket mappákba?",
+      "searchTerms": "mappa létrehozása; csoportos könyvjelzők; kedvenceket szervezni; távolítsa el a mappából; mappa átnevezése",
+      "title": "Rendszerezés mappákkal",
+      "summary": "Akár 18 könyvjelzőt gyűjthet egy mappába.",
+      "steps": [
+        "Válassza a + → Mappa lehetőséget a bal oldali menüben, és adjon neki nevet.",
+        "Szerkesztés módban húzza rá a könyvjelzőket, hogy behelyezze őket. Nyissa meg a mappát a rács megtekintéséhez.",
+        "Használja a mappa szerkesztési módját a könyvjelzők elrendezéséhez. Kattintson a nevére az átnevezéshez, az ikonjára pedig a megjelenés testreszabásához."
+      ],
+      "note": "Egy mappa törlése hatással van a könyvjelzőire is. A folytatás előtt tekintse át a megerősítést; a lomtár vissza tudja állítani a törölt elemeket.",
+      "tip": "Egy mappa legfeljebb 18 könyvjelzőt tartalmazhat. Kapcsolja be a szerkesztést, és a hozzáadáshoz húzzon egy kártyát a mappába."
+    },
+    "workspaces": {
+      "question": "Hogyan tudom elkülöníteni a személyes és a munkahelyi oldalakat?",
+      "searchTerms": "személyes munka; munkaterület létrehozása; munkaterület váltása; asztali számítógépek",
+      "title": "Válassza szét a munkaterületeket",
+      "summary": "Egy rács a munkához, egy másik minden máshoz.",
+      "steps": [
+        "A munkaterület sávja vált a Fő és az egyéni munkaterületek között. A + egy újat hoz létre.",
+        "Az elemek hozzáadása előtt válasszon egy munkaterületet. Meglévő elemek átviteléhez jelölje ki őket, és válasszon célt a műveletsoron.",
+        "Az Alt + ↑ és az Alt + ↓ váltogatják a munkaterületeket. A − gomb a jóváhagyást követően törli az aktuális egyéni munkaterületet."
+      ],
+      "note": "A munkaterület törlésével a tartalma is törlődik. A fő elérhető marad, és nem törölhető.",
+      "tip": "Az Alt + ↑ és az Alt + ↓ a választó kinyitása nélkül válthat a munkaterületek között. Különítse el a munkát, hobbit vagy projektet a bár + jelével."
+    },
+    "selection": {
+      "question": "Hogyan módosíthatok egyszerre több elemet?",
+      "searchTerms": "több kiválasztása; tömeges kiválasztás; mozgatni több; klón szelekció; ismétlődő könyvjelzők",
+      "title": "Válasszon és cselekedjen tömegesen",
+      "summary": "Több kártya rendszerezésekor kevesebb ismétlődő művelet.",
+      "steps": [
+        "Kapcsolja be a szerkesztést, és röviden kattintson az egyes kártyákra a kiválasztásához. Kattintson ismét a kijelölés megszüntetéséhez; a Tab navigációban használhatja az S-t.",
+        "A kijelölősáv lehetővé teszi az elem típusától függően másolást, az alapértelmezett megjelenés alkalmazását, másik munkaterületre való áthelyezést vagy törlést.",
+        "Ellenőrizze a célállomást vagy a megerősítést. Az Esc vagy a kijelölés törlése gomb törli a kijelölést."
+      ],
+      "note": "Az áthelyezéshez és a sokszorosításhoz szabad helyekre van szükség. Az alkalmazás jelzi, ha egyes elemek nem férnek el. A widgetek nem kerülnek a kukába.",
+      "tip": "Szerkesztés módban jelöljön ki több kártyát rövid kattintással, hogy együtt mozgassa, másolja vagy alakítsa át őket. Az Esc törli a kijelölést."
+    },
+    "history": {
+      "question": "Hogyan vonhatom vissza a legutóbbi módosításomat?",
+      "searchTerms": "módosítás visszavonása; módosítás újraindítása; menj vissza; pozíció visszaállítása",
+      "title": "Visszavonás és újra",
+      "summary": "Helyreállítás vagy legutóbbi változás visszaállítása.",
+      "steps": [
+        "Az előző állapothoz való visszatéréshez használja a munkaterület sávon található visszavonó nyilat.",
+        "Az újrakészítés nyíl visszaállítja az éppen visszavont módosítást. Használhatja a Ctrl/Cmd + Z és a Ctrl/Cmd + Shift + Z billentyűkombinációt is.",
+        "A szerkesztőben használja a címe melletti nyilakat a függőben lévő változtatásokhoz; szövegmezők megtartják normál billentyűzetük visszavonását. Minden művelet egy rövid üzenetet jelenít meg, és a nem elérhető nyilak le vannak tiltva. Mentés előtt ellenőrizze az eredményt."
+      ],
+      "note": "A szerkesztő előzményei minden alkalommal frissen indulnak, amikor megnyit egy szerkesztőt; a változtatások mentéskor érik el a munkaterületet. A munkaterület előzményei ideiglenesek, és nem biztonsági másolatok. Egy új munkamenet vagy egy másik lapról származó frissítések visszaállíthatják.",
+      "tip": "Ha a módosítás nem tűnik megfelelőnek, használja a visszavonó nyilat vagy a Ctrl/Cmd + Z billentyűkombinációt. A Ctrl/Cmd + Shift + Z billentyűkombináció újra végrehajtja."
+    },
+    "appearance": {
+      "question": "Hogyan változtathatom meg a színt, az ikont vagy a szöveget?",
+      "searchTerms": "szín megváltoztatása; változás ikon; szöveg módosítása; könyvjelző megjelenése; mappa színe; favicon",
+      "title": "Szabja személyre kártyáit",
+      "summary": "Színek, képek, szövegek és ikonok az Ön igényei szerint.",
+      "steps": [
+        "Kapcsolja be a szerkesztést, és nyissa meg a könyvjelző ceruzáját, vagy egy mappa vagy a lomtár megjelenési vezérlőjét.",
+        "Fedezze fel a szerkesztőt: háttér, szín, kép, szöveg és ikon. Az elérhető vezérlők az elem típusától függenek; az előnézet mutatja az eredményt.",
+        "Mentse el, amikor boldog. Használhat képeket egy URL-ből vagy egy helyi fájlból, ahol a szerkesztő ezt a lehetőséget kínálja."
+      ],
+      "note": "A helyi képek ehhez a böngészőhöz tartoznak. Szinkronizáláskor adjon hozzá tartalék URL-t más eszközökhöz. Az importálás fájl nélkül tárolja a mellékelt képeket és egyértelmű hivatkozásokat; A Szinkronizálás figyelmen kívül hagyja az ezen az eszközön nem elérhető fájlokat.",
+      "tip": "A könyvjelző ceruzája megnyitja a vizuális szerkesztőjét. Módosítsa a színeket, szöveget, ikont vagy képet, és ellenőrizze az előnézetet."
+    },
+    "presets": {
+      "question": "Hogyan használhatom fel újra az általam kedvelt stílust?",
+      "searchTerms": "stílus mentése; újrahasználat megjelenése; alapértelmezett stílusok; előre beállított könyvtár; stílust alkalmazni",
+      "title": "Használja újra a megjelenéseket",
+      "summary": "Mentse el a megjelenést, és alkalmazza más könyvjelzőkre.",
+      "steps": [
+        "Nyissa meg a szerkesztő könyvtárát, és válasszon kinézetet a rendelkezésre álló gyűjteményből.",
+        "Mentse el az egyéni megjelenést előre beállított értékként, hogy újra felhasználhassa annak színeit, szövegét és ikonját a könyvjelző nevének vagy címének másolása nélkül.",
+        "A Beállítások → Könyvjelzők menüpontban állítsa be az új könyvjelzők alapértelmezett megjelenését. A kiválasztó sáv kompatibilis elemekre alkalmazhatja."
+      ],
+      "note": "Az előre beállított beállítások megváltoztatják a megjelenést, nem pedig a könyvjelző identitását, célját vagy pozícióját.",
+      "tip": "Mentse el a kívánt megjelenést a megjelenési könyvtárban. Használja újra más kártyákon anélkül, hogy megváltoztatná a nevüket vagy címüket."
+    },
+    "wallpapers": {
+      "question": "Hogyan használhatok képet vagy videót háttérként?",
+      "searchTerms": "háttér megváltoztatása; videó háttér; tapéta forgatása; téma",
+      "title": "Háttérképek és forgatás",
+      "summary": "Szín, kép vagy videó a hangulat megteremtéséhez.",
+      "steps": [
+        "Nyissa meg a Beállítások → Téma lehetőséget, és válassza ki az alapértelmezett hátteret, színt vagy média hátteret.",
+        "Adjon hozzá képeket vagy videókat a panelen kínált forrásokból. A könyvtár több hátteret gyűjt össze egy forgatási időközönként.",
+        "Ellenőrizze az előnézetet, és mentse. Párosíthat egy helyi fájlt egy másik eszköz URL-címével."
+      ],
+      "note": "A helyi fájlok ebben a böngészőben maradnak. A szinkronizálás nem viszi át őket; a teljes biztonsági másolat megőrzi őket.",
+      "tip": "A háttér automatikusan változhat: adjon hozzá néhányat a Beállítások → Témakönyvtárhoz, és állítson be egy forgatási intervallumot."
+    },
+    "clock": {
+      "question": "Hogyan adhatok hozzá órát?",
+      "searchTerms": "óra hozzáadása; műsoridő; másodperc; 24 órás formátum; óra widget",
+      "title": "Adjon hozzá egy órát",
+      "summary": "Egy widget, amely az eszköz idejét mutatja.",
+      "steps": [
+        "Válassza a + → Widgetek lehetőséget a bal oldali menüben, majd válassza az Óra lehetőséget.",
+        "Válassza ki a 12 vagy 24 órás formátumot, és azt, hogy megjelenjenek-e a másodpercek. Az előnézet segít a döntésben.",
+        "Adja hozzá egy szabad helyhez. Szerkesztési módban áthelyezheti, átméretezheti vagy újra megnyithatja a beállításait."
+      ],
+      "note": "Az óra követi a készülék idejét. A widget törlése végleges; nem kerül a lomtárba.",
+      "tip": "A + → Widgetek menüpontban hozzáadhat egy 12 vagy 24 órás órát opcionális másodpercekkel, és átméretezheti a helynek megfelelően."
+    },
+    "interface": {
+      "question": "Hogyan tudom megváltoztatni a nyelvet vagy használni a sötét módot?",
+      "searchTerms": "nyelvet váltani; sötét mód; fény mód; felület megjelenése",
+      "title": "Nyelv és felület téma",
+      "summary": "Tegye kényelmessé a menüket, párbeszédpaneleket és vezérlőket.",
+      "steps": [
+        "A Beállítások → Általános menüpontban válasszon nyelvet, vagy hagyja, hogy kövesse a rendszert.",
+        "Ízlés szerint válasszon világos, sötét vagy automatikus interfészt.",
+        "Mentse el a beállításokat. A felület témája a Témában kiválasztott háttérrel együtt működik."
+      ],
+      "note": "A rendszer nyelve és az automatikus megjelenés követi az eszköz beállításait.",
+      "tip": "Válasszon világos vagy sötét felületet, miközben megtartja a háttérképet. Ezt a lehetőséget és a nyelvet a Beállítások → Általános menüpontban találja."
+    },
+    "trash": {
+      "question": "Hogyan állíthatok vissza egy törölt könyvjelzőt?",
+      "searchTerms": "a törölt könyvjelző visszaállítása; visszaállítás eltávolítva; Lomtár; véletlenül törölve; mappa helyreállítása",
+      "title": "Helyezze vissza a lomtárból",
+      "summary": "Egy második lehetőség a könyvjelzők és mappák számára.",
+      "steps": [
+        "A törölt könyvjelzők és mappák áttekintéséhez nyissa meg a terület lomtárát.",
+        "Válassza ki, hogy mit szeretne visszaállítani, és használja a Visszaállítás funkciót. A megerősítést követően véglegesen törölheti a tételeket, vagy kiürítheti a kukát.",
+        "A Beállítások → Általános részben válassza ki, hogy megjelenjen-e, és mennyi ideig őrizze meg az elemeket: 1, 7, 14 vagy 28 napig, vagy soha ne törölje őket automatikusan."
+      ],
+      "note": "A lomtár ehhez az eszközhöz tartozik. A lejárt vagy véglegesen törölt elemek már nem állíthatók vissza róla.",
+      "tip": "Véletlenül törölt egy könyvjelzőt? Nyissa ki a lomtárt, és állítsa vissza. Állítsa be a megőrzési időszakot a Beállítások → Általános menüpontban."
+    },
+    "backup": {
+      "question": "Hogyan készíthetek biztonsági másolatot vagy vihetek át adataimat?",
+      "searchTerms": "biztonsági másolat; adatok exportálása; import másolat; biztonsági mentés visszaállítása; egy másik böngésző; adatok átvitele",
+      "title": "Biztonsági mentések és importálások",
+      "summary": "Tartsa meg a hely másolatát, és vigye magával.",
+      "steps": [
+        "A Beállítások → Általános részben exportáljon egy teljes biztonsági másolatot a ZIP-archívumban lévő adatok és helyi fájlok megőrzéséhez.",
+        "A visszaállításhoz importáljon biztonsági másolatot, és az adatok cseréje előtt tekintse át a megerősítést. A kompatibilis JSON biztonsági mentések is támogatottak.",
+        "A Beállítások → Könyvjelzők menüpontban csak könyvjelzőket és mappákat exportálhat vagy importálhat, ha nincs szüksége teljes biztonsági másolatra."
+      ],
+      "note": "A könyvjelző-exportálás nem a beállítások és a helyi média teljes biztonsági másolata. Az adatok visszaállítása vagy törlése előtt készítsen biztonsági másolatot.",
+      "tip": "A Beállítások → Általános menüből készült teljes biztonsági másolat helyi fájlokat tartalmaz ZIP-fájlban. Böngészőváltás vagy adatok visszaállítása előtt hasznos."
+    },
+    "sync": {
+      "question": "Hogyan használhatom ugyanazt a helyet egy másik számítógépen?",
+      "searchTerms": "egy másik számítógép; eszközök szinkronizálása; szinkronizálás; felhő; helyi szinkronizálás; szinkronizálás leállítása; szinkronizálás letiltása; helyi mód",
+      "title": "Szinkronizálás az eszközök között",
+      "summary": "Ossza meg terét a böngésző szinkronizálásával.",
+      "steps": [
+        "Jelentkezzen be, és engedélyezze a bővítmények szinkronizálását Google Chrome profiljában.",
+        "A Beállítások → Szinkronizálás menüpontban válassza a Szinkronizált lehetőséget, és fogadja el a megerősítést. A váltás azonnal életbe lép: a meglévő szinkronizált könyvjelzők és beállítások betöltődnek, vagy a mentett helyi adatok szinkronizálódnak, ha nincsenek.",
+        "Használja ugyanazt a profilt a másik eszközön. Ellenőrizze a szinkronizálás állapotát és a rendelkezésre álló helyet a panelen."
+      ],
+      "note": "A helyi fájlok, a lomtár és a napi tippek minden eszközhöz tartoznak. A szinkronizálásnak vannak tárolási korlátai; alternatív URL-eket használjon a helyi képekhez és videókhoz. A Helyi lehetőség választása szintén megerősítést kér, és azonnal hatályba lép, tárolva a szinkronizált adatokat.",
+      "tip": "A szinkronizálás megosztja a helyet az eszközök között, de a helyi fájloknak alternatív URL-címre van szükségük. Lásd: Beállítások → Szinkronizálás."
+    },
+    "compact": {
+      "question": "Miért látok listát a rács helyett?",
+      "searchTerms": "kis ablak; lista nézet; rács eltűnt; rejtett panel; mobil",
+      "title": "Használjon kisebb ablakot",
+      "summary": "Továbbra is elérje könyvjelzőit, ha korlátozott a hely.",
+      "steps": [
+        "Amikor az ablak szűkül, az alkalmazás listára vált, hogy az elemek elérhetők maradjanak.",
+        "Nyisson meg könyvjelzőket, mappákat vagy keressen ebben a nézetben. A kézikönyv a rendelkezésre álló mérethez is igazodik.",
+        "Szélesítse az ablakot a rács és a szerkesztőpanelek visszaállításához. A felfüggesztett szerkesztési párbeszédpanel megőrzi a piszkozatát."
+      ],
+      "note": "A kompakt nézet segít böngészni a térben; az átszervezés kellően széles ablakot igényel.",
+      "tip": "Egy szűk ablakban a könyvjelzői lista formájában elérhetők maradnak. Szélesítse, ha szerkeszteni vagy átszervezni szeretné a rácsot."
+    },
+    "data": {
+      "question": "Hogyan törölhetem az adataimat vagy állíthatom vissza a beállításokat?",
+      "searchTerms": "adatok törlése; beállítások visszaállítása; távolítson el mindent; kezdje elölről",
+      "title": "Mentés és visszaállítás",
+      "summary": "Értse meg, hogy mi kerül mentésre, és mit távolít el az egyes műveletek.",
+      "steps": [
+        "A munkaterületi műveletek automatikusan mentésre kerülnek. A szerkesztőkben és a beállításokban erősítse meg a Mentés gombbal; A Mégse elveti a panel piszkozatát.",
+        "Ha megjelenik egy függőben lévő mentési értesítés, kattintson a Mentés újra gombra, és várja meg a megerősítést, mielőtt bezárja a lapot.",
+        "A Beállítások → Általános menüpontban visszaállíthatja a beállításokat, vagy törölheti az összes adatot. Olvassa el a megerősítést, és készítsen biztonsági másolatot mindenről, amelyet meg szeretne tartani."
+      ],
+      "note": "A beállítások visszaállítása megőrzi könyvjelzőit, méretét és stílusát. Az összes helyi adat törlésével eltávolítja az elemeket, és kiüríti a lomtárt. Biztonsági másolat exportálása törlés előtt: A visszavonás nem helyettesíti a biztonsági másolatot.",
+      "tip": "Ha nem mentett változtatásokról szóló értesítést lát, használja a Mentés újra lehetőséget a lap bezárása előtt. Védje meg a terét teljes biztonsági mentéssel."
+    },
+    "learning": {
+      "question": "Hogyan nyithatom meg újra az útmutatót vagy kapcsolhatom ki a napi tippeket?",
+      "searchTerms": "tippek letiltása; kapcsolja ki a segítséget; napi riasztás; nyissa meg újra az útmutatót; felhasználói kézikönyv",
+      "title": "Tanuljon a saját tempójában",
+      "summary": "Egy gyors útmutató, egy kézikönyv és egy kis napi tipp.",
+      "steps": [
+        "Tekintse meg újra a gyors útmutatót a Beállítások → Súgó menüpontban. Minden lépés a kézikönyv megfelelő magyarázataihoz kapcsolódik.",
+        "Fedezze fel az indexet, vagy keressen rá egy szóra. Egy szakaszhoz kapcsolódó linkek más funkciókhoz vezetnek, amikor készen áll.",
+        "Az első új lap minden nap egy véletlenszerű tippet jelenít meg. Hagyja el, vagy nyissa meg a magyarázatát; a Súgóban letilthatja a tippeket."
+      ],
+      "note": "A tippek ismétlés nélkül látogassák meg a szakaszokat, amíg a gyűjtemény be nem fejeződik. 20 másodpercig tartanak, és szünetet tartanak a gombok lebegtetése vagy fókuszálása közben. Követik a helyi napot és a böngésző preferenciáit.",
+      "tip": "Ez a kézikönyv mindig a Beállítások → Súgó menüpontban található. A napi tippek megnyitnak egy szakaszt, és ott bármikor letilthatod őket."
+    }
+  }
+}

@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Väljalaske märkmed",
+    "settingsDescription": "Mis muutus ja iga värskenduse lugu.",
+    "open": "Loe märkmeid",
+    "history": "Versiooni ajalugu",
+    "dismiss": "Sule väljalaskemärkmed",
+    "continue": "Jätka",
+    "back": "Tagasi teabe juurde",
+    "highlights": "Mida saate täna teha",
+    "generic": {
+      "title": "New DeskTab on värskendatud",
+      "description": "Teil on uus versioon. Saate igal ajal uuesti vaadata varasemaid väljalaskemärkmeid jaotises Teave. Aitäh, et olete siin."
+    },
+    "v1_0_0": {
+      "title": "Teie veebisaitide töölaud. Lõpuks ometi.",
+      "thanks": "Täname, et proovisite New DeskTab. Mul on nii hea meel, et saan lõpuks teiega jagada selle projekti esimest avalikku väljaannet.",
+      "origin": "Kõik algas 26. septembril 2025. Vaadates voogu Just Chatting saidil Twitch, märkasin striimija brauseris uut vahekaarti: laiendust, mis korraldas veebisaidid värviliste ruutudena, ilma nimede ja logodeta. See minimalism võlus mind ja ma mõtlesin: miks mitte ehitada oma juurdeehitus? Tahtsin, et iga uus vahekaart annaks korratunde, mu lehed käeulatuses ja paneeli, mida mulle meeldis vaadata.",
+      "desktop": "Järk-järgult kasvas see idee pigem veebisaitide kui rakenduste isiklikuks töölauaks. Kell on esimene samm ja see on veel pooleli. Tulevikus soovin lisada märkmiku ja muid vidinaid, mis pakuvad midagi kasulikku nii mulle kui ka kõigile, kes kasutavad New DeskTab.",
+      "closing": "See rakendus on loodud minu ja teie jaoks. Täname, et usaldate kohta New DeskTab ja andsite sellele oma brauseris koha. Loodan, et teile meeldib oma ruumi loomine sama palju kui mulle selle ehitamine.",
+      "highlights": {
+        "workspace": "Korraldage oma lehti järjehoidjate, kaustade ja iseseisvate tööruumidega.",
+        "appearance": "Kohandage värve, iga üksuse suurust ja töölaua tausta.",
+        "search": "Otsige üles oma lehed otsinguga ning kasutage navigeerimiseks ja üksuste loomiseks klaviatuuri otseteid.",
+        "backup": "Salvestage varukoopiad ja taastage kustutatud üksused prügikastist.",
+        "sync": "Valige, kas hoida andmeid selles seadmes või sünkroonida need seadmega Google Chrome.",
+        "help": "Avastage funktsioonid tervitusjuhendi, juhendi ja igapäevaste näpunäidete abil."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "SINU ESIMENE MINUT",
+    "skip": "Juhend vahele jätta",
+    "back": "Tagasi",
+    "next": "Edasi",
+    "finish": "Tagasi seadete juurde",
+    "explore": "Uurige minu ruumi",
+    "addFirst": "Lisa minu esimene järjehoidja",
+    "progress": "Samm {{current}}/{{total}}",
+    "compactHint": "Laiendage akent, kui soovite järjehoidjaid lisada ja oma ruumi muuta.",
+    "reopenTitle": "Kiirjuhend",
+    "reopenDescription": "Avastage esmatähtis uuesti minutiga.",
+    "reopen": "Vaata juhendit",
+    "demo": {
+      "work": "Töö",
+      "media": "Meedia",
+      "trash": "Prügikast",
+      "search": "Otsige üles oma järjehoidjad"
+    },
+    "steps": {
+      "start": {
+        "title": "Teie lehed. Oma ruum.",
+        "body": "Tere tulemast kohta New DeskTab. Hoidke oma lemmiklehed alati käepärast, kui avate vahekaardi. Ühe lisamiseks liikuge vasakusse serva ja valige + → [[bookmarks|Järjehoidja]].",
+        "hint": "[[quick-save|salvestage külastatav leht]] saate ka oma brauseri laienduse ikooni kaudu."
+      },
+      "edit": {
+        "title": "Andke igale järjehoidjale oma koht.",
+        "body": "Muutmiseks lülitage vasakpoolses menüüs pliiats sisse. Üksust liigutamiseks hoidke all ja [[movement|lohistada]]; kasutage selle suuruse muutmiseks [[resizing|käepidemed]].",
+        "hint": "Iga järjehoidja pliiats avab selle [[appearance|toimetaja]]: nimi, värvid, ikoon ja pilt. Salvestage [[presets|stiilid]], et neid uuesti kasutada."
+      },
+      "organize": {
+        "title": "Vähem segadust. Rohkem tellimust.",
+        "body": "Looge +-st [[folders|kausta]] ja lohistage redigeerimisrežiimis sinna järjehoidjad. See avaneb puhtas ruudustikus, kus on ruumi kuni 18 järjehoidjale.",
+        "hint": "Kasutage töö ja mängimise eraldamiseks märgis [[workspaces|tööruumi riba]] olevat +. [[search|luup]] otsib ka kaustadest."
+      },
+      "style": {
+        "title": "Laske end tunda nagu sina.",
+        "body": "Valige jaotises Seaded → [[wallpapers|Teema]] värv, pilt või video taust ja pöörake oma lemmiktaustapilte. Menüüs Seaded → [[sync|Sünkroonimine]] sünkroonige oma ruum seadmete vahel, kasutades oma Chrome'i profiilile sisse logitud kontot.",
+        "hint": "Lisage [[clock|kella]] jaotisest + → Vidinad. Saate kohandada ka oma kaustu [[appearance|välimus]]."
+      },
+      "ready": {
+        "title": "Sa tead olulisi asju.",
+        "body": "Järjehoidja leidmiseks vajutage klahvi [[search|/]]. Kasutage muudatuste taastamiseks nooli [[history|tagasi võtta ja uuesti teha]]; kustutatud järjehoidjad lähevad [[trash|prügikast]].",
+        "hint": "Muudatused salvestatakse automaatselt. Menüüs Seaded eksportige [[backup|varukoopia]] või lubage valikuline Google Chrome [[sync|sünkroonimine]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Teie viimaseid muudatusi ei saanud salvestada.",
+    "retry": "Proovi uuesti salvestada",
+    "saved": "Ootel muudatused on salvestatud."
+  },
+  "itemEditor": {
+    "chooseIcon": "Valige ikoon",
+    "siteLogo": "Logo",
+    "noSymbol": "Mitte ühtegi",
+    "folderIconHint": "Sümbol asendab järjehoidjate eelvaateid kaustas.",
+    "icons": {
+      "mail": "Mail",
+      "calendar": "Kalender",
+      "notes": "Märkmed",
+      "projects": "Projektid",
+      "design": "Disain",
+      "music": "Muusika",
+      "tasks": "Ülesanded",
+      "ideas": "Ideed",
+      "docs": "Dokumendid",
+      "ui-start": "Kompass",
+      "ui-organize": "Paigutus",
+      "ui-personalize": "Liugurid",
+      "ui-protect": "Kilp",
+      "ui-bookmarks": "Lisa järjehoidja",
+      "ui-quick-save": "Brauser",
+      "ui-keyboard": "Klaviatuur",
+      "ui-shortcuts": "Välk",
+      "ui-search": "Otsi",
+      "ui-editing": "Pliiats",
+      "ui-movement": "Liiguta",
+      "ui-resizing": "Muuda suurust",
+      "ui-drag-modes": "Lohistage",
+      "ui-folders": "Kaust",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Valik",
+      "ui-history": "Ajalugu",
+      "ui-appearance": "Palett",
+      "ui-presets": "Eelseaded",
+      "ui-wallpapers": "Pilt",
+      "ui-clock": "Kell",
+      "ui-interface": "Maakera",
+      "ui-trash": "Prügikast",
+      "ui-backup": "Arhiiv",
+      "ui-sync": "Sünkroonimine",
+      "ui-compact": "Nimekiri",
+      "ui-data": "Andmebaas",
+      "ui-learning": "Raamat",
+      "ui-settings": "Seaded",
+      "ui-controls": "Juhtnupud",
+      "ui-cloud": "Pilv",
+      "ui-bookmark": "Järjehoidja",
+      "ui-info": "Teave",
+      "ui-eye": "Silm",
+      "ui-check": "Lõpetatud",
+      "ui-lock": "Lukk",
+      "ui-unlock": "Avage lukustus",
+      "ui-copy": "Kopeeri",
+      "ui-close": "Sule",
+      "ui-undo": "Võta tagasi",
+      "ui-redo": "Tee uuesti",
+      "ui-desktop": "Töölaud",
+      "home": "Kodu",
+      "briefcase": "Töö",
+      "code": "Kood",
+      "game": "Mängud",
+      "cart": "Ostlemine",
+      "card": "Maksed",
+      "people": "Inimesed",
+      "message": "Sõnum",
+      "location": "Asukoht",
+      "phone": "Telefon",
+      "camera": "Kaamera",
+      "headphones": "Kõrvaklapid",
+      "link": "Link",
+      "tag": "Tag",
+      "chart": "Statistika",
+      "coffee": "Kohv",
+      "sun": "Päike",
+      "moon": "Kuu",
+      "circle": "Ring",
+      "square": "Ruut",
+      "triangle": "Kolmnurk",
+      "diamond": "Teemant",
+      "pentagon": "Viisnurk",
+      "hexagon": "Kuusnurk",
+      "star": "Täht",
+      "heart": "Süda",
+      "plus": "Pluss",
+      "minus": "Miinus",
+      "video": "Video"
+    },
+    "searchIcons": "Otsi ikoone…",
+    "clearIconSearch": "Tühjenda otsing",
+    "noIcons": "Ikoone ei leitud",
+    "suggestedIcons": "Soovitatud",
+    "suggestedIcon": "Soovitatav: {{name}}",
+    "logoKeywords": "logo favicon veebisaidi saidi bränd",
+    "iconKeywords": {
+      "ui-trash": "prügikast prügi kustutada klassikaline",
+      "mail": "meilipost gmail Outlooki postkast",
+      "docs": "dokumendifailid pdf-draivi Word",
+      "notes": "märkmed memo mõiste onenote",
+      "ui-protect": "turvalisuse kaitse privaatsus",
+      "game": "mängude mängukontrolleri konsool",
+      "cart": "pood kauplus ostma",
+      "card": "panga finantseerimine krediit deebetraha",
+      "people": "sotsiaalse kogukonna sõprade grupp",
+      "ui-learning": "raamatukoguhariduse uuringu lugemine",
+      "ui-clock": "aeg tundi vaadata",
+      "ui-interface": "Interneti-veebi maailma keel",
+      "ui-data": "andmete SQL-i salvestusruum",
+      "circle": "geomeetrilised kujundid",
+      "square": "geomeetrilised kujundid",
+      "triangle": "geomeetrilised kujundid",
+      "diamond": "geomeetrilised kujundid",
+      "pentagon": "geomeetrilised kujundid",
+      "hexagon": "geomeetrilised kujundid",
+      "star": "geomeetrilised kujundid",
+      "heart": "geomeetrilised kujundid"
+    },
+    "history": "Redigeeri ajalugu",
+    "description": "Tundke end oma tööruumis koduselt.",
+    "looks": "Valige välimus",
+    "custom": "Kohandatud",
+    "look": {
+      "original": "Originaal",
+      "card": "Kaart",
+      "midnight": "Tume",
+      "paper": "Valgus"
+    },
+    "reset": "Lähtesta välimus",
+    "cardColor": "Kaardi värv",
+    "folderFill": "Kausta värv",
+    "image": "Taustapilt",
+    "lock": "Lukustage või avage URL",
+    "copy": "Kopeeri URL",
+    "clear": "Selge",
+    "section": {
+      "general": "Põhilised",
+      "text": "Nimi ja sildid",
+      "icon": "Ikoon",
+      "card": "Kaart"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Nimi, mida näete, ja leht, mille see avab.",
+        "text": "Valige, kas soovite kuvada nime ja kohandada selle värvi.",
+        "icon": "Kasutage pildikaartide puhul suurt, keskel asuvat faviconit või väikest ikooni nime kõrval."
+      },
+      "folder": {
+        "general": "Nimi järjehoidjate koondamiseks.",
+        "text": "Näidake kausta nime ja reguleerige selle värvi.",
+        "icon": "Kohandage kaustaikooni ja selle järjehoidjate pisipilte."
+      },
+      "recycleBin": {
+        "general": "Valige, kas prügikast kuvatakse teie põhitööruumis.",
+        "text": "Näidake prügikasti nime ja reguleerige selle värvi.",
+        "icon": "Andke prügikastile oma värv. Peida kogu prügikast kindrali eest."
+      }
+    },
+    "addImage": "Lisage taustpilt",
+    "changeImage": "Redigeeri taustapilti"
+  },
+  "html": {
+    "title": "Uus vahekaart"
+  },
+  "quickSave": {
+    "title": "Salvesta järjehoidja",
+    "name": "Nimi",
+    "workspace": "Tööruum",
+    "folder": "Kaust",
+    "mainWorkspace": "Peamine",
+    "noFolder": "Pole kausta",
+    "save": "Salvesta järjehoidja",
+    "saveAnyway": "Säästke ikkagi",
+    "savedButton": "Salvestatud",
+    "alreadySaved": "Juba salvestatud",
+    "savedIn": "Asukohas {{location}}",
+    "savedInMore": "{{location}} ja veel {{count}}",
+    "open": "Ava New DeskTab",
+    "unavailableTitle": "Seda vahekaarti ei saa salvestada",
+    "unavailable": "Avage selle salvestamiseks veebileht (http või https).",
+    "loadError": "Teie järjehoidjaid ei saanud laadida. Proovi uuesti.",
+    "saving": "Salvestamine…",
+    "saved": "Järjehoidja salvestatud.",
+    "duplicate": "See URL on sellesse sihtkohta juba salvestatud.",
+    "noSpace": "Selles sihtkohas pole vaba ruumi. Valige teine.",
+    "invalid": "Kontrollige nime ja valitud sihtkohta.",
+    "saveError": "Järjehoidjat ei saanud salvestada. Proovi uuesti."
+  },
+  "launcher": {
+    "bookmark": "Järjehoidja",
+    "folder": "Kaust",
+    "widgets": "Vidinad",
+    "editMode": {
+      "enter": "Sisenege redigeerimisrežiimi",
+      "exit": "Välju redigeerimisrežiimist"
+    }
+  },
+  "widgets": {
+    "title": "Vidinad",
+    "description": "Valige sellele tööruumile lisamiseks vidin.",
+    "empty": "Ühtegi vidinat pole veel saadaval."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Selle funktsiooni kasutamiseks laiendage akent.",
+      "suspended": "Paneel peidetud. Jätkamiseks laiendage akent."
+    },
+    "editMode": {
+      "enabled": "Redigeerimisrežiim on lubatud",
+      "disabled": "Redigeerimisrežiim on keelatud"
+    },
+    "selectionMode": {
+      "enabled": "Valikurežiim on lubatud",
+      "disabled": "Valikurežiim on keelatud"
+    },
+    "bookmark": {
+      "added": "Järjehoidja lisatud",
+      "notFound": "Järjehoidjat ei leitud",
+      "updated": "Järjehoidja värskendatud",
+      "deleted": "Järjehoidja kustutatud"
+    },
+    "clock": {
+      "added": "Kell lisatud",
+      "updated": "Kell uuendatud",
+      "deleted": "Kell kustutatud"
+    },
+    "folder": {
+      "created": "Kaust loodud",
+      "renamed": "Kaust on ümber nimetatud",
+      "updated": "Kaust värskendatud",
+      "deleted": "Kaust ja selle järjehoidjad on kustutatud",
+      "bookmarkAdded": "Järjehoidja lisati kausta",
+      "folderFull": "Sellel kaustal on juba 18 järjehoidjat",
+      "bookmarkRemoved": "Järjehoidja teisaldati tagasi ruudustikule"
+    },
+    "recycleBin": {
+      "moved": "Kolis prügikasti",
+      "restored": "Esemed taastatud",
+      "deletedPermanently": "Üksused on jäädavalt kustutatud",
+      "updated": "Prügikast uuendatud"
+    },
+    "workspace": {
+      "created": "Tööruum loodud",
+      "deleted": "Tööruum on kustutatud",
+      "switched": "Tööruum: {{name}}"
+    },
+    "history": {
+      "undone": "Muudatus on tagasi võetud",
+      "redone": "Muudatus uuesti tehtud"
+    },
+    "bookmarks": {
+      "deletedAll": "Kõik järjehoidjad kustutatud",
+      "deletedAllWithFolders": "Kõik järjehoidjad ja kaustad kustutatud",
+      "deleteAllError": "Kõigi järjehoidjate kustutamine ebaõnnestus",
+      "exported": "Järjehoidjad eksporditud",
+      "exportError": "Järjehoidjate eksportimine ebaõnnestus",
+      "imported": "Järjehoidjad imporditud",
+      "importError": "Järjehoidjate importimine ebaõnnestus",
+      "presetApplied": "Valikule rakendatud stiil",
+      "duplicatedSelected": "Valitud üksused on dubleeritud",
+      "deletedSelected": "Valitud üksused on kustutatud",
+      "moved": "Üksused teisaldati valitud tööruumi"
+    },
+    "settings": {
+      "saved": "Seaded salvestatud",
+      "bookmarkDefaultSaved": "Järjehoidja vaikeilm on salvestatud",
+      "bookmarkDefaultError": "Järjehoidja vaikevälimust ei saanud salvestada",
+      "copied": "Väärtus kopeeriti lõikelauale",
+      "resetBg": "Teema lähtestamine",
+      "deletedAllData": "Kõik kohalikud NewDeskTab andmed on kustutatud",
+      "deleteAllDataError": "Kõiki kohalikke NewDeskTab andmeid ei saanud kustutada",
+      "invalidWallpaperUrl": "Sisestage kehtiv HTTP- või HTTPS-pildi/video URL.",
+      "invalidWallpaperFile": "Seda faili ei saanud lisada. Kasutage toetatud pilti või kuni 200 MB MP4-, WebM- või Ogg-videot.",
+      "wallpaperLimit": "Saate lisada kuni 25 isiklikku taustapilti."
+    },
+    "localImage": {
+      "invalid": "Valige PNG-, JPEG-, WebP-, GIF- või AVIF-pilt.",
+      "tooLarge": "See pilt on sellesse seadmesse salvestamiseks liiga suur.",
+      "storageFull": "Selle pildi jaoks pole piisavalt kohalikku ruumi.",
+      "processing": "Seda pilti ei saanud töödelda."
+    },
+    "sync": {
+      "enabled": "Sünkroonimine lubatud",
+      "localEnabled": "Kohalik režiim on lubatud",
+      "remoteLoaded": "Sünkroonitud andmed on laaditud",
+      "updatedFromOtherDevice": "Teisest seadmest saadud sünkroonitud muudatused",
+      "deletedFromOtherDevice": "Pilveandmed kustutati teisest seadmest. See seade kasutab nüüd kohalikku režiimi.",
+      "error": "Salvestusrežiimi ei saanud muuta",
+      "versionBlocked": "Sünkroonimine peatati, kuna pilvandmete jaoks on vaja uuemat NewDeskTab versiooni. Kuvatakse selle seadme kohalikke andmeid.",
+      "quotaError": "Andmed ületavad saadaoleva sünkroonimissalvestusruumi",
+      "deleted": "Sünkroonitud andmed kustutatud",
+      "deleteError": "Sünkroonitud andmeid ei saanud kustutada"
+    },
+    "backup": {
+      "exported": "Varukoopia eksporditud",
+      "exportError": "Varukoopiat ei saanud eksportida",
+      "mediaUnavailable": "Mõned viidatud kohalikud pildid või videod pole saadaval, mistõttu varukoopiat ei loodud.",
+      "imported": "Varukoopia taastatud",
+      "importError": "Varukoopiat ei saanud taastada",
+      "mediaStorageFull": "Varupiltide ja -videote taastamiseks pole piisavalt kohalikku salvestusruumi."
+    }
+  },
+  "view": {
+    "list": "Loendivaade",
+    "search": "Otsige järjehoidjaid ja kaustu",
+    "clearSearch": "Tühjenda otsing",
+    "noResults": "Tulemusi pole."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Kas kustutada kõik järjehoidjad?",
+      "deleteFolders": "Kustutage ka kõik kaustad",
+      "confirmDeleteSelected": "Kas kustutada {{count}} valitud üksust?",
+      "confirmMoveOne": "Kas teisaldada see üksus tööruumi „{{workspace}}”?",
+      "confirmMoveSelected": "Kas teisaldada {{count}} valitud üksust tööruumi „{{workspace}}”?",
+      "duplicateNoSpace": "{{count}} üksust ei saanud dubleerida, kuna ruumi ei olnud piisavalt.",
+      "moveNoSpace": "{{count}} eset ei saanud teisaldada, kuna ruumi polnud piisavalt.",
+      "no_space": "Rohkemate järjehoidjate jaoks pole vaba ruumi 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Kas loobuda uuest järjehoidjast?"
+      },
+      "confirmDelete": "Kas kustutada „{{name}}”?",
+      "confirmPermanentDelete": "Kas kustutada „{{name}}” jäädavalt? Seda ei saa tagasi võtta.",
+      "cancel": "Kas loobuda muudatustest?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Kas kustutada see vidin jäädavalt? Seda ei saa tagasi võtta.",
+      "confirmDeleteSelected": "Kas kustutada {{count}} valitud üksust? Valitud vidinad ({{widgetCount}}) kustutatakse jäädavalt ja neid ei saa taastada."
+    },
+    "folder": {
+      "createCancel": "Kas loobuda uuest kaustast?",
+      "cancel": "Kas loobuda kaustade muudatustest?"
+    },
+    "recycleBin": {
+      "folder": "Kas teisaldada „{{name}}” ja selle {{count}} järjehoidjad prügikasti?",
+      "empty": "Kas kustutada kõik prügikastist jäädavalt? Seda ei saa tagasi võtta.",
+      "deleteSelected": "Kas kustutada {{count}} valitud üksust jäädavalt? Seda ei saa tagasi võtta.",
+      "noSpace": "{{count}} üksust ei saanud taastada, kuna ruudustikul pole piisavalt ruumi. Need jäävad prügikasti.",
+      "cancel": "Kas visata prügikasti muudatused ära?"
+    },
+    "settings": {
+      "cancel": "Kas loobuda seadete muudatustest?",
+      "reset": "Kas lähtestada kõik seaded? Järjehoidjaid ei kustutata.",
+      "deleteAllData": "Kas kustutada sellest seadmest kõik kohalikud NewDeskTab andmed? Järjehoidjad, kaustad, vidinad, seaded, prügikasti üksused, kohalikud pildid ja kohalikud videod kustutatakse jäädavalt. Pilveandmeid ei muudeta. Kui sünkroonimine on aktiivne, lülitub see seade esmalt kohalikule. Seda toimingut ei saa tagasi võtta.",
+      "theme": {
+        "reset": "Kas lähtestada teema seaded?"
+      },
+      "bookmark": {
+        "cancel": "Kas loobuda järjehoidja vaikeilme muudatustest?"
+      },
+      "shortcuts": {
+        "reset": "Kas taastada vaikeklaviatuuri otseteed?"
+      },
+      "sync": {
+        "enable": "Kas lülitada kohalikult režiimilt Sünkroonitud? See jõustub kohe ilma nupul Salvesta klõpsamata. Kui sünkroonitud andmed on juba olemas, laaditakse nende järjehoidjad ja seaded. Vastasel juhul sünkroonitakse teie salvestatud kohalikud andmed.",
+        "local": "Kas lülituda sünkroonimiselt kohalikule? See jõustub kohe ilma nupul Salvesta klõpsamata. See seade säilitab praeguste andmete koopia ja lõpetab muudatuste sünkroonimise. Sünkroonitud andmed jäävad teiste seadmete jaoks salvestatuks.",
+        "delete": "Kas kustutada kõik sünkroonitud NewDeskTab andmed? See seade ja kõik teised pilvandmeid kasutavad seadmed lülituvad kustutamise tuvastamisel kohalikule režiimile. Seda ei saa tagasi võtta."
+      }
+    },
+    "backup": {
+      "import": "Kas taastada see varukoopia? See asendab teie praegused järjehoidjad ja seaded."
+    }
+  },
+  "addModal": {
+    "title": "Lisa uus järjehoidja",
+    "name": "Nimi:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Täpsemad valikud",
+    "compactView": "▴ Kompaktne vaade"
+  },
+  "clock": {
+    "name": "Kell",
+    "inDevelopment": "Arendamisel: kell pole veel lõplikus versioonis. Töötame selle täiustamise nimel.",
+    "createTitle": "Lisage kell",
+    "editTitle": "Kella seaded",
+    "description": "Näidake sellel tööalal oma kohalikku aega.",
+    "hourCycle": "Aja formaat",
+    "hour24": "24 tundi",
+    "hour12": "12 tundi",
+    "showSeconds": "Näita sekundeid",
+    "delete": "Kustuta",
+    "edit": "Redigeeri kella",
+    "actions": "Kella toimingud",
+    "openSettings": "Avage kella seaded",
+    "confirmDelete": "Kas kustutada see kell? Saate selle toimingu tagasi võtta.",
+    "confirmPermanentDelete": "Kas kustutada see kell jäädavalt? Seda ei saa tagasi võtta.",
+    "cancel": "Kas loobuda kella muudatustest?",
+    "noSpace": "Selle kella jaoks pole piisavalt ruumi."
+  },
+  "buttons": {
+    "save": "Salvesta",
+    "apply": "Rakenda",
+    "add": "Lisa",
+    "accept": "Nõustu",
+    "cancel": "Tühista",
+    "close": "Sule"
+  },
+  "localImage": {
+    "upload": "Laadi üles sellest seadmest",
+    "label": "Kohalik pilt:",
+    "activeSource": "Aktiivne pilt:",
+    "sourceLocal": "Kohalik",
+    "sourceUrl": "URL",
+    "remove": "Eemaldage kohalik pilt",
+    "notice": "Kohalikke pilte ei sünkroonita.",
+    "unnamed": "Kohalik pilt"
+  },
+  "workspace": {
+    "ariaLabel": "Tööruumi juhtnupud",
+    "current": "Tööruum",
+    "main": "Peamine",
+    "search": "Otsige järjehoidjaid",
+    "add": "Loo tööruum",
+    "delete": "Kustuta tööruum",
+    "undo": "Võta tagasi",
+    "redo": "Tee uuesti",
+    "shortcutHint": "Vahetage tööala klahviga Alt või Option ja noolega üles või alla",
+    "prompt": "Sisestage uuele tööruumile nimi",
+    "namePlaceholder": "Töö, vaba aeg…",
+    "confirmDelete": "Kas kustutada „{{name}}”, selle {{folderCount}} kausta ja {{bookmarkCount}} järjehoidjat? Nende säilitamiseks teisaldage need esmalt põhilehele või mõnele muule tööalale."
+  },
+  "search": {
+    "title": "Otsige järjehoidjaid",
+    "inputLabel": "Otsige nime või URL-i järgi",
+    "placeholder": "Nimi või URL",
+    "empty": "Järjehoidjaid ei leitud.",
+    "noUrl": "URL puudub",
+    "inFolder": "Kaust: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Valitud üksuse toimingud",
+    "selected": "{{count}} valitud",
+    "move": "Liikuge tööruumi",
+    "applyPreset": "Rakenda vaikestiil",
+    "duplicate": "Duplikaatvalik",
+    "delete": "Kustuta",
+    "clear": "Tühjenda valik"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Järjehoidjate juhtnupud",
+    "edit": "Muuda järjehoidjat",
+    "delete": "Kustuta järjehoidja",
+    "copySuffix": "kopeerida"
+  },
+  "folder": {
+    "create": "Loo kaust",
+    "createPrompt": "Nimetage uus kaust",
+    "namePlaceholder": "Tööriistad, inspiratsioon…",
+    "open": "Ava {{name}}, {{count}} salvestatud järjehoidjat",
+    "count": "{{count}} salvestatud",
+    "summary": "Kasutatud {{count}} kohta {{capacity}}-st",
+    "editMode": {
+      "enable": "Muuda",
+      "disable": "Lõpetage toimetamine"
+    },
+    "gridLabel": "Kaustade järjehoidjad",
+    "dropHint": "Lisamiseks kukutage",
+    "noSpace": "Uue kausta jaoks pole vaba ruudustikulahtrit.",
+    "removeNoSpace": "Selle järjehoidja kaustast eemaldamiseks pole piisavalt ruumi.",
+    "confirmDelete": "Kas teisaldada „{{name}}” ja selle {{count}} järjehoidjad prügikasti?",
+    "confirmPermanentDelete": "Kas kustutada „{{name}}” ja selle {{count}} järjehoidjad jäädavalt? Seda ei saa tagasi võtta.",
+    "actions": {
+      "ariaLabel": "Kausta juhtelemendid",
+      "customize": "Kausta kohandamine",
+      "rename": "Nimeta kaust ümber",
+      "delete": "Kustuta kaust",
+      "editBookmark": "Muuda {{name}}",
+      "removeBookmark": "Teisalda {{name}} kaustast välja",
+      "deleteBookmark": "Kustuta {{name}}",
+      "acceptRename": "Salvesta kausta nimi",
+      "cancelRename": "Tühista kausta ümbernimetamine"
+    },
+    "editor": {
+      "createTitle": "Lisa uus kaust",
+      "title": "Redigeeri kausta",
+      "name": "Nimi:",
+      "showPreviews": "Näita järjehoidjate eelvaateid",
+      "showName": "Kuva kausta nimi",
+      "iconColor": "Sümboli värv:",
+      "outerBackgroundColor": "Väline taustavärv:",
+      "noOuterBackground": "Väline taust puudub",
+      "resetOuterBackground": "Automaatne",
+      "noBackground": "Läbipaistev kausta täitmine",
+      "backgroundColor": "Kausta värv:",
+      "backgroundImage": "Taustapilt (URL):",
+      "lockImage": "Lukustage või avage pildi URL",
+      "copyImage": "Kopeeri pildi URL",
+      "clearImage": "Kustuta pildi URL",
+      "textColor": "Teksti värv:",
+      "preview": "Eelvaade",
+      "previewName": "Kaust",
+      "sections": {
+        "general": "Kindral",
+        "style": "Stiil",
+        "text": "Tekst"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Prügikast",
+    "open": "Avage prügikast",
+    "openCount": "Avatud prügikast, {{count}} eset",
+    "dropHint": "Kustutamiseks kukutage",
+    "summary": "{{count}} üksust · Automaatne kustutamine: {{retention}}",
+    "empty": "Prügikast on tühi.",
+    "selected": "{{count}} valitud",
+    "select": "Valige {{name}}",
+    "folderContents": "{{count}} järjehoidjat",
+    "deletedAt": "Kustutatud {{date}}",
+    "expiresIn": "{{days}} päeva jäänud",
+    "expiresInOne": "1 päev jäänud",
+    "neverExpires": "Pole kunagi automaatselt kustutatud",
+    "restoreAll": "Taasta kõik",
+    "deleteAll": "Kustuta kõik",
+    "restoreSelected": "Taasta valitud",
+    "deleteSelected": "Kustuta valitud",
+    "editor": {
+      "title": "Redigeeri prügikasti",
+      "animateIcon": "Animate prügikast",
+      "appearance": "Välimus",
+      "backgroundColor": "Taustavärv:",
+      "backgroundImage": "Taustapilt (URL):",
+      "lockImage": "Lukustage või avage pildi URL",
+      "copyImage": "Kopeeri pildi URL",
+      "clearImage": "Kustuta pildi URL",
+      "noBackground": "Taustata",
+      "iconColor": "Ikooni värv:",
+      "textColor": "Teksti värv:",
+      "elements": "Nähtavad elemendid",
+      "showName": "Näita nime",
+      "visible": "Näita põhivõrgus prügikasti",
+      "preview": "Eelvaade",
+      "actions": "Prügikasti toimingud",
+      "edit": "Redigeeri prügikasti",
+      "sections": {
+        "general": "Kindral",
+        "style": "Stiil",
+        "text": "Tekst",
+        "icon": "Ikoon"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Sisestage eelseade salvestamiseks nimi."
+    },
+    "name": {
+      "required": "Sisestage järjehoidjale nimi."
+    },
+    "folderName": {
+      "required": "Sisestage kausta nimi."
+    },
+    "url": {
+      "invalid": "URL ei ole kehtiv.",
+      "unsupportedProtocol": "See URL-i tüüp pole lubatud."
+    },
+    "backgroundImageUrl": {
+      "invalid": "Pildi URL ei kehti.",
+      "unsupportedProtocol": "See pilditüüp pole lubatud."
+    }
+  },
+  "editModal": {
+    "title": "Muuda järjehoidjat",
+    "name": "Nimi:",
+    "url": "URL:",
+    "backgroundImage": "Taustapilt (URL):",
+    "backgroundFavicon": "Suur tsentreeritud ikoon",
+    "invertColorBg": "Inverteeri värvid",
+    "noBackground": "Taustata",
+    "backgroundColor": "Järjehoidja värv:",
+    "showText": "Näita teksti",
+    "textColor": "Teksti värv:",
+    "showFavicon": "Näita ikooni",
+    "invertColorIcon": "Pöörake ikooni värvid ümber",
+    "iconColor": "Ikooni värv:",
+    "sections": {
+      "general": "Kindral",
+      "style": "Stiil",
+      "text": "Tekst",
+      "icon": "Ikoon"
+    },
+    "preview": "Eelvaade",
+    "previewName": "Eelvaade"
+  },
+  "colorPicker": {
+    "title": "Värvivalija",
+    "sample": "Valige ekraanilt värv",
+    "close": "Sulgege värvivalija",
+    "saturationBrightness": "Küllastus ja heledus",
+    "hue": "Toon",
+    "quickColors": "Kiired värvid",
+    "saturation": "Küllastus",
+    "brightness": "Heledus",
+    "hex": "Kuueteistkümnendkood",
+    "copy": "Kopeerige kuueteistkümnendkood",
+    "copied": "Kuueteistkümnendkood on kopeeritud",
+    "copyFailed": "Kuueteistkümnendkoodi ei saanud kopeerida"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Kindral",
+      "sync": "Sünkroonimine",
+      "theme": "Teema",
+      "bookmark": "Järjehoidjad",
+      "shortcuts": "Otseteed",
+      "language": "Keeled",
+      "help": "Abi",
+      "information": "Teave"
+    },
+    "general": {
+      "title": "Kindral",
+      "subtitle": "Seaded",
+      "export": "Ekspordi varukoopia",
+      "import": "Taasta varukoopia",
+      "resetSettings": "Lähtestage seaded",
+      "deleteAllData": "Kustutage kõik kohalikud andmed",
+      "recycleBin": {
+        "title": "Prügikast",
+        "show": "Näidake põhivõrgul prügikasti",
+        "retentionLabel": "Üksuste automaatne kustutamine:",
+        "retentionOptions": {
+          "oneDay": "1 päev",
+          "sevenDays": "7 päeva",
+          "fourteenDays": "14 päeva",
+          "twentyEightDays": "28 päeva",
+          "never": "Mitte kunagi"
+        }
+      },
+      "appearance": {
+        "title": "Välimus",
+        "system": "Brauser",
+        "light": "Valgus",
+        "dark": "Tume"
+      }
+    },
+    "sync": {
+      "title": "Sünkroonimine",
+      "description": "Valige, kuhu oma seaded ja järjehoidjad salvestada.",
+      "ariaLabel": "Salvestusrežiim",
+      "local": {
+        "title": "Ainult see seade",
+        "description": "Andmeid salvestatakse ainult selles kohalikus brauseri profiilis."
+      },
+      "synced": {
+        "title": "Sünkroonitud",
+        "description": "Saadaval sama kontoga ühendatud Google Chrome profiilides.",
+        "tooltip": "Sünkroonimise teave"
+      },
+      "compatibility": {
+        "newerVersion": "Sünkroonimine on selles seadmes lukustatud, kuna pilvandmed lõi uuem NewDeskTab versioon. Teie sünkroonitud andmed on turvalised ja neid ei ole muudetud. Uuesti ühendamiseks värskendage NewDeskTab."
+      },
+      "usage": {
+        "title": "Salvestusruumi saadavus",
+        "showExact": "Näita täpseid baite",
+        "showHuman": "Näita loetavaid suurusi",
+        "local": "Kohalik",
+        "sync": "Sünkroonitud",
+        "localSyncCopy": "Kohaliku sünkroonimise koopia",
+        "localAria": "Kohaliku salvestusruumi kasutamine",
+        "syncAria": "Sünkroonitud salvestusruumi kasutus",
+        "loading": "Arvutamine…",
+        "summary": "{{used}}/{{total}} · {{percent}}%",
+        "available": "{{free}} saadaval",
+        "system": "Süsteem ja metaandmed",
+        "bookmarks": "Järjehoidjad",
+        "folders": "Kaustad",
+        "trash": "Prügikasti andmed",
+        "localImages": "Kohalikud pildid",
+        "themeImages": "Teema",
+        "bookmarkImages": "Järjehoidjad",
+        "folderImages": "Kaustad",
+        "trashImages": "Prügikast",
+        "otherImages": "muud",
+        "widgets": "Vidinad",
+        "widgetsHint": "Sünkroonimise jaoks kuvatav suurus on hinnanguline ega hõlma välistest teenustest hangitud reaalajas sisu.",
+        "error": "Kasutamine pole saadaval"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome sünkroonib New DeskTab teie Google'i konto kaudu. New DeskTab ei käita oma sünkroonimisserverit.",
+        "brave": "Pole Brave'is saadaval: see võib salvestada New DeskTab andmeid kaustas chrome.storage.sync, kuid praegu ei levita neid seadmete vahel.",
+        "unsupported": "Sünkroonitud salvestusruum on praegu saadaval ainult asukohas Google Chrome. Teised brauserid jäävad keelatuks, kuni seadmeteülene tugi on kinnitatud."
+      },
+      "existingNotice": "Sünkroonitud lülitiga nõustumisel laaditakse kõik juba olemasolevad sünkroonitud andmed.",
+      "deleteData": "Kustutage sünkroonitud andmed",
+      "metadata": {
+        "loading": "Sünkroonitud andmete kontrollimine…",
+        "updatedAt": "Viimane sünkroonitud värskendus: {{date}}",
+        "unknown": "Sünkroonitud andmed on olemas, kuid nende värskendamise aeg pole saadaval.",
+        "empty": "Sünkroonitud New DeskTab andmeid ei salvestata.",
+        "error": "Sünkroonitud andmete teavet ei saanud laadida."
+      },
+      "status": {
+        "idle": "Andmed on valmis.",
+        "saving": "Muudatuste salvestamine…",
+        "saved": "Kõik muudatused salvestatakse.",
+        "error": "Viimaseid muudatusi ei saanud salvestada."
+      }
+    },
+    "theme": {
+      "title": "Teema",
+      "subtitle": "Lehekülje taust",
+      "backgroundImageMode": "Pilt/video",
+      "wallpapersTitle": "Minu enda taustapildid",
+      "ownWallpapersHint": "Need taustapildid ja nende pööramine salvestatakse ainult selles seadmes.",
+      "mediaUrl": "Taustapildi URL",
+      "image": "Pilt",
+      "video": "Video",
+      "addUrl": "Lisa URL",
+      "addFiles": "Lisage kohalikud failid",
+      "rotationInterval": "Taustapildi pööramine",
+      "noRotation": "Ärge muutke automaatselt",
+      "interval5": "5 sekundit",
+      "interval15": "15 sekundit",
+      "interval30": "30 sekundit",
+      "interval60": "1 minut",
+      "interval300": "5 minutit",
+      "interval600": "10 minutit",
+      "interval1800": "30 minutit",
+      "previous": "Eelmine",
+      "next": "Edasi",
+      "moveUp": "Liigu üles",
+      "moveDown": "Liigu alla",
+      "remove": "Eemalda",
+      "unavailableLocal": "Kohalik fail pole selles seadmes saadaval",
+      "mediaColor": "Värv selle tapeedi taga",
+      "mediaPreview": "Taustapildi eelvaade",
+      "activeSource": "Aktiivne allikas",
+      "backgroundSolid": "Ühevärviline",
+      "backgroundColor": "Värv:",
+      "editSolidColor": "Muutke kindlat taustavärvi",
+      "changeSolidColor": "Muuda värvi",
+      "backgroundImageColor": "Värv pildi/video taga",
+      "backgroundImage": "Seadmete vahel jagatud URL",
+      "urlHidden": "URL peidetud",
+      "resetBackground": "Lähtesta teema"
+    },
+    "bookmark": {
+      "title": "Järjehoidjad",
+      "subtitle": "Vaikejärjehoidja",
+      "description": "Valige uute järjehoidjate loomisel kasutatav välimus.",
+      "configure": "Vaikejärjehoidja seadistamine",
+      "editorTitle": "Järjehoidja vaikevälimus",
+      "previewName": "Vaikejärjehoidja",
+      "export": "Ekspordi järjehoidjad",
+      "import": "Järjehoidjate importimine",
+      "deleteAll": "Kustuta kõik järjehoidjad",
+      "preview": "Eelvaade",
+      "drag": {
+        "title": "Lohistuskäitumine",
+        "description": "Valige, kuidas järjehoidjad nende positsiooni hõivamisel ümber korraldatakse.",
+        "none": {
+          "title": "Mitte ühtegi",
+          "description": "Lubab liikuda ainult rakkude vabastamiseks."
+        },
+        "cascade": {
+          "title": "Järjestus",
+          "description": "Nihutab ketti, kuni leiab vaba lahtri.",
+          "experimental": "Eksperimentaalne · Võib sisaldada väiksemaid vigu."
+        },
+        "relocate": {
+          "title": "Ümberpaigutamine",
+          "description": "Paigutab sihtkoha hõivavad järjehoidjad ümber."
+        }
+      },
+      "resize": {
+        "title": "Käitumise suuruse muutmine",
+        "description": "Valige, kuidas üksused suuruse muutmise käepideme liigutamisel reageerivad.",
+        "smooth": {
+          "title": "Sujuv",
+          "description": "Venitab üksust lohistamise ajal ja klõpsab seejärel ruudustikule."
+        },
+        "none": {
+          "title": "Mitte ühtegi",
+          "description": "Hüppab lahtri kaupa, kui ületate 50% naaberlahtrist."
+        }
+      },
+      "presets": {
+        "title": "Stiili raamatukogu",
+        "tab": "Raamatukogu",
+        "description": "Salvestage stiilid ja kasutage neid vaikejärjehoidja seadistamisel uuesti.",
+        "name": "Eelseadistatud nimi",
+        "saved": "Salvestatud eelseaded",
+        "save": "Salvesta eelseade",
+        "apply": "Laadige",
+        "delete": "Kustuta",
+        "empty": "Salvestatud eelseadeid pole"
+      }
+    },
+    "shortcuts": {
+      "title": "Klaviatuuri otseteed",
+      "description": "Valige otseteenupp, seejärel vajutage tähte või klahvikombinatsiooni. Selle määramise tühistamiseks paremklõpsake.",
+      "change": "Muutke otseteed {{action}}. Praegune otsetee: {{shortcut}}.",
+      "press": "Vajutage otseteed…",
+      "unassigned": "Määramata",
+      "unassignedFlash": "Otsetee määramata.",
+      "modifierRequired": "Kasutage tähte eraldi või klahvikombinatsiooni koos modifikaatoriga.",
+      "reserved": "See otsetee on reserveeritud brauseris või operatsioonisüsteemis. Valige teine ​​kombinatsioon.",
+      "conflict": "See võti on juba mõnele teisele toimingule määratud.",
+      "updated": "Otsetee on värskendatud.",
+      "cancelled": "Otsetee muudatus tühistati.",
+      "restored": "Vaikeotseteed on taastatud.",
+      "reset": "Lähtesta otseteed",
+      "actions": {
+        "toggleEditing": {
+          "title": "Redigeerimisrežiim",
+          "description": "Sisestage või jätke redigeerimine põhivõrgule või avatud kausta."
+        },
+        "addBookmark": {
+          "title": "Loo järjehoidja",
+          "description": "Avage järjehoidja lisamise vorm."
+        },
+        "addFolder": {
+          "title": "Loo kaust",
+          "description": "Avage kausta loomise dialoog."
+        },
+        "openWidgets": {
+          "title": "Ava vidinad",
+          "description": "Avage saadaolevate vidinate loend."
+        },
+        "openSettings": {
+          "title": "Ava seaded",
+          "description": "Avage seadete paneel New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Keeled",
+      "text": "Valige liidese keel:",
+      "system": "Brauser",
+      "search": "Otsige keelt või riiki",
+      "empty": "Keeli ei leitud"
+    },
+    "information": {
+      "title": "Teave",
+      "version": "Versioon: {{VERSION}}",
+      "author": "Autor:"
+    }
+  }
+}

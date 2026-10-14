@@ -33,7 +33,7 @@
   color: var(--ui-text);
   font: inherit;
   line-height: 1.25;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
   transition: border-color .16s ease, background-color .16s ease,
     box-shadow .16s ease;
@@ -103,6 +103,91 @@
 }
 
 .custom-select-menu[hidden] { display: none; }
+
+.custom-select-menu-searchable {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 5px;
+}
+
+.custom-select-search {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 9px;
+  margin: 2px 2px 4px;
+  padding: 8px 9px;
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  background: var(--ui-input);
+  color: var(--ui-subtle);
+  transition: border-color .16s ease;
+}
+
+.custom-select-search:focus-within {
+  border-color: color-mix(in srgb, var(--ui-accent) 65%, var(--ui-border));
+}
+
+.custom-select-search-icon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  margin-inline-end: 2px;
+}
+
+.custom-select-search-icon::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 1.5px;
+  inset-inline-start: 8px;
+  top: 9px;
+  border-radius: 1px;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+
+.custom-select-search-input {
+  width: 100%;
+  min-width: 0;
+  min-height: 20px;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--ui-menu-text);
+  font: inherit;
+  font-size: 12px;
+  text-align: start;
+}
+
+.custom-select-search-input::placeholder { color: var(--ui-subtle); }
+.custom-select-search-input::-webkit-search-cancel-button { cursor: pointer; }
+
+.custom-select-options {
+  display: grid;
+  min-height: 0;
+  gap: 3px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ui-scroll-thumb) transparent;
+}
+
+.custom-select-empty {
+  margin: 0;
+  padding: 16px 10px;
+  color: var(--ui-subtle);
+  font-size: 12px;
+  text-align: center;
+}
+
+.custom-select-empty[hidden],
+.custom-select-option[hidden] { display: none; }
 
 .custom-select-option {
   display: flex;

@@ -1,0 +1,517 @@
+{
+  "title": "Gebruikershandleiding",
+  "eyebrow": "UW RUIMTE, UW TEMPO",
+  "intro": "Maak kennis met elke kleine functie.",
+  "description": "Vind wat je nodig hebt of ontdek iets nieuws. Neem de tijd.",
+  "settingsDescription": "Elke functie, met eenvoudige stappen en kleine trucjes die je kunt proberen wanneer je maar wilt.",
+  "search": {
+    "label": "Waarmee kunnen wij u helpen?",
+    "placeholder": "Bijvoorbeeld: herstel een verwijderde bladwijzer",
+    "common": "Veelgestelde vragen",
+    "found": "Antwoorden voor uw zoekopdracht · {{count}}",
+    "empty": "Er is geen hulp gevonden voor die zoekopdracht. Probeer “toetsenbord”, “bladwijzers verplaatsen” of “back-up”.",
+    "resultsLabel": "Handmatige vragen en antwoorden"
+  },
+  "open": "Verken de handleiding",
+  "searchLabel": "Zoek in de handleiding",
+  "searchPlaceholder": "Probeer “toetsenbord”, “achtergrond” of “back-up”",
+  "count": "{{count}} secties om te verkennen",
+  "empty": "Geen overeenkomsten. Probeer een ander woord of wis de zoekopdracht om de hele index te zien.",
+  "back": "← Handmatige index",
+  "remember": "Goed om te onthouden",
+  "related": "Blijf ontdekken",
+  "footer": "Altijd beschikbaar via Instellingen → Hulp.",
+  "guideLinks": "Lees meer in de handleiding",
+  "groups": {
+    "start": "Begin hier",
+    "organize": "Organiseer je",
+    "personalize": "Maak het de jouwe",
+    "protect": "Zorg voor je ruimte"
+  },
+  "demo": {
+    "browse": "Blader door secties",
+    "previous": "← Vorige sectie",
+    "next": "Volgende sectie →",
+    "title": "Zie het in actie",
+    "example": "Demonstratie voorbeeld",
+    "steps": "Demonstratie stappen",
+    "step": "Stap {{step}} van {{count}}",
+    "play": "Spelen",
+    "pause": "Pauze",
+    "replay": "Opnieuw afspelen",
+    "progress": "Demonstratie voortgang",
+    "mode": "Gedrag",
+    "nextStep": "Volgende stap",
+    "reducedMotion": "Verminderde beweging: verken de stappen zonder animatie.",
+    "labels": {
+      "settings": "Instellingen",
+      "saved": "Wijzigingen opgeslagen",
+      "page": "Pagina",
+      "selection": "Selectie",
+      "selected": "geselecteerde artikelen",
+      "color": "Kleur",
+      "styleName": "Mijn paarse stijl",
+      "wallpaper": "Achtergronden",
+      "rotation": "Rotatie",
+      "format": "Formaat",
+      "seconds": "Seconden",
+      "language": "Taal",
+      "system": "Systeem",
+      "currentLanguage": "Nederlands",
+      "restore": "Herstellen",
+      "copy": "Back-up",
+      "restoreCopy": "Controleer voordat u herstelt",
+      "switchSync": "Overschakelen naar gesynchroniseerd?",
+      "applyNow": "Van toepassing bij bevestiging",
+      "status": "Status",
+      "synchronized": "Gesynchroniseerd",
+      "retry": "Opslaan in behandeling · Opnieuw proberen",
+      "keyboardQuery": "toetsenbord",
+      "deleteExample": "Bladwijzers en mappen worden verwijderd. De prullenbak zal leeg zijn."
+    },
+    "topics": {
+      "bookmarks": [
+        "Open het linkermenu en kies + → Bladwijzer.",
+        "Voer de paginanaam en het adres in.",
+        "Bevestigen: de bladwijzer verschijnt in een vrije cel."
+      ],
+      "quick-save": [
+        "Open New DeskTab via het extensiepictogram.",
+        "Controleer de voorgestelde naam, adres en bestemming.",
+        "Opslaan: de bladwijzer staat in uw werkruimte wanneer u een tabblad opent."
+      ],
+      "keyboard": [
+        "Druk op Tab om de focus op het eerste item te zetten.",
+        "Pijltjestoetsen verplaatsen de focus. Enter opent het item met de focus.",
+        "Esc of een ander tabblad beëindigt de navigatie."
+      ],
+      "shortcuts": [
+        "Open Instellingen → Sneltoetsen.",
+        "Klik op de snelkoppeling van een actie en typ uw combinatie.",
+        "Opslaan om de nieuwe snelkoppeling toe te passen."
+      ],
+      "search": [
+        "Met het vergrootglas op de werkbalk of / wordt de zoekopdracht geopend.",
+        "Typ een deel van de naam of het adres.",
+        "Open het resultaat. Esc of Sluiten keert terug naar uw werkruimte."
+      ],
+      "editing": [
+        "Het menupotlood onthult het raster en de bedieningselementen.",
+        "Het potlood van Gmail opent de naam- en URL-editor.",
+        "Sla de wijziging op en klik nogmaals op het menupotlood om te voltooien."
+      ],
+      "movement": [
+        "Schakel bewerken in en houd de tegel vast.",
+        "De cursor en tegel bewegen samen naar een vrije cel.",
+        "Loslaten: de eindpositie wordt opgeslagen."
+      ],
+      "resizing": [
+        "Schakel bewerken in en zoek de hoekgreep.",
+        "Sleep diagonaal om de breedte en hoogte te wijzigen.",
+        "Laat los bij 2 × 2. Vergelijk Geen en Glad met behulp van de selector."
+      ],
+      "drag-modes": [
+        "Gebruik de selector om de drie sleepmodi te vergelijken.",
+        "Sleep naar een bezette cel en bekijk de andere tegels.",
+        "Geen gebruikt een vrije cel; Verplaatsing en Volgorde reorganiseren de tegels."
+      ],
+      "folders": [
+        "Geef een map een naam om uw pagina's te groeperen.",
+        "Sleep tijdens het bewerken een bladwijzer ernaartoe.",
+        "Open de map om de bladwijzer in het raster te vinden."
+      ],
+      "workspaces": [
+        "De werkbalk + creëert een werkruimte met de door u gekozen naam.",
+        "De nieuwe werkruimte heeft een eigen raster.",
+        "Alt + ↑ en Alt + ↓ bladeren door uw werkruimten."
+      ],
+      "selection": [
+        "Schakel bewerken in en selecteer een tegel met een korte klik.",
+        "Selecteer een andere: de werkbalk biedt groepsacties.",
+        "Klonen maakt in één handeling kopieën in vrije cellen."
+      ],
+      "history": [
+        "Verplaats een tegel: die verandering komt in de geschiedenis terecht.",
+        "Ongedaan maken brengt de tegel terug naar zijn vorige positie.",
+        "Met Opnieuw wordt de zet hersteld die u zojuist ongedaan hebt gemaakt."
+      ],
+      "appearance": [
+        "Het potlood van de tegel opent de editor.",
+        "Verander de kleur en bekijk het voorbeeld.",
+        "Bewaar om dat uiterlijk op de tegel toe te passen."
+      ],
+      "presets": [
+        "Open de bibliotheek via Instellingen → Bladwijzers.",
+        "Geef een stijl een naam en sla deze op om deze opnieuw te gebruiken.",
+        "Laad het als standaard en bewaar het voor nieuwe bladwijzers."
+      ],
+      "wallpapers": [
+        "Open Instellingen → Thema om een achtergrond te kiezen.",
+        "Bekijk het voorbeeld en het bibliotheekrotatie-interval.",
+        "Opslaan: de gekozen achtergrond verschijnt in uw werkruimte."
+      ],
+      "clock": [
+        "Kies + → Widgets → Klok in het linkermenu.",
+        "Configureer het formaat en de seconden met behulp van het voorbeeld.",
+        "Voeg de klok toe aan een vrije werkruimtecel."
+      ],
+      "interface": [
+        "Open Algemeen en kies de menutaal.",
+        "Vergelijk de lichte en donkere interface.",
+        "Bewaar uw taal- en uiterlijkvoorkeuren."
+      ],
+      "trash": [
+        "Open de prullenbak om een verwijderde bladwijzer te vinden.",
+        "Selecteer het en klik op Herstellen: het keert terug naar het raster.",
+        "Kies in het algemeen hoe lang verwijderde items bewaard blijven."
+      ],
+      "backup": [
+        "Zoek de back-upopties in Instellingen → Algemeen.",
+        "Exporteren downloadt een ZIP met gegevens en lokale bestanden.",
+        "Import vraagt om bevestiging voordat gegevens worden vervangen."
+      ],
+      "sync": [
+        "Open Instellingen → Synchronisatie om de huidige modus te controleren.",
+        "Kies Gesynchroniseerd en bekijk de bevestiging.",
+        "Accepteren past de modus onmiddellijk toe, zonder op Opslaan te klikken."
+      ],
+      "compact": [
+        "Naarmate het venster smaller wordt, wordt het raster een lijst.",
+        "Bladwijzers blijven toegankelijk vanuit de lijst.",
+        "Vergroot het venster om terug te keren naar het raster en te bewerken."
+      ],
+      "data": [
+        "In het voorbeeld wordt een andere taal, een lichte interface en aangepaste tegels gebruikt.",
+        "Met Reset worden de standaardinstellingen hersteld, terwijl de bladwijzers en hun stijlen behouden blijven.",
+        "Verwijderen verwijdert bladwijzers en mappen, waardoor alleen de lege prullenbak overblijft."
+      ],
+      "learning": [
+        "De dagelijkse tip nodigt je uit om een ​​kenmerk te ontdekken. Klik op Laat zien hoe.",
+        "Typ 'toetsenbord' in het zoekvak om Navigeren met het toetsenbord te vinden.",
+        "Klik op het resultaat om de instructies te lezen."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "EEN KLEINE TIP VOOR VANDAAG",
+    "dismiss": "Negeer de tip van vandaag",
+    "read": "Laat me zien hoe",
+    "pace": "Beweeg om te pauzeren.",
+    "enabled": "Dagelijkse tips",
+    "description": "Eén tip als u uw eerste tabblad van de dag opent."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Hoe voeg ik een pagina toe aan mijn bladwijzers?",
+      "searchTerms": "pagina toevoegen; bladwijzer maken; website opslaan; nieuwe favoriet",
+      "title": "Voeg bladwijzers toe",
+      "summary": "Uw favoriete pagina's bij de hand op elk nieuw tabblad.",
+      "steps": [
+        "Ga naar de linkerrand om het menu weer te geven. Kies + → Bladwijzer.",
+        "Voer de paginanaam en het adres in. U kunt het uiterlijk aanpassen voordat u het toevoegt.",
+        "Bevestig om de bladwijzer in een vrije ruimte in de huidige werkruimte te plaatsen. Buiten de bewerkingsmodus klikt u erop om de pagina te openen."
+      ],
+      "note": "Om een bestaande bladwijzer te wijzigen, schakelt u bewerken in en gebruikt u het potlood ervan. U kunt het adres vergrendelen om onbedoelde wijzigingen te voorkomen.",
+      "tip": "Het menu voor het toevoegen van bladwijzers bevindt zich aan de linkerrand. Verplaats uw cursor daarheen en kies + → Bladwijzer."
+    },
+    "quick-save": {
+      "question": "Hoe bewaar ik de pagina die ik bezoek?",
+      "searchTerms": "huidige pagina opslaan; open tabblad opslaan; extensiepictogram; URL vastleggen",
+      "title": "Sla de huidige pagina op",
+      "summary": "Voeg een pagina toe via het extensiepictogram.",
+      "steps": [
+        "Terwijl u een pagina bezoekt, opent u New DeskTab vanuit het extensiemenu van de browser.",
+        "Controleer de voorgestelde naam en adres en kies een beschikbare bestemming.",
+        "Sla de bladwijzer op en open een nieuw tabblad om deze in uw ruimte te vinden."
+      ],
+      "note": "Zet het extensiepictogram vast op de werkbalk van uw browser om deze snelkoppeling binnen handbereik te houden.",
+      "tip": "U hoeft de URL niet te kopiëren: met het browserpictogram van New DeskTab kunt u de pagina die u bezoekt opslaan."
+    },
+    "keyboard": {
+      "question": "Hoe navigeer ik zonder muis?",
+      "searchTerms": "zonder muis; gebruik toetsenbord; pijlnavigatie; tabblad invoeren",
+      "title": "Navigeer met het toetsenbord",
+      "summary": "Tab, pijltjestoetsen en Enter om je ruimte te verkennen.",
+      "steps": [
+        "Op de hoofdpagina, zonder een veld in te typen of een dialoogvenster te openen, drukt u op Tab om door de items te navigeren.",
+        "Gebruik de pijltjestoetsen om in elke richting het dichtstbijzijnde item te bereiken. Enter opent de bladwijzer of map; in de bewerkingsmodus wordt de editor geopend.",
+        "Druk nogmaals op Tab of Esc om de navigatie te verlaten. In dialoogvensters bewegen Tab en Shift + Tab normaal tussen de besturingselementen."
+      ],
+      "note": "In de bewerkingsmodus selecteert S het item waarop de focus ligt. Verwijderen of Backspace verwijdert het na bevestiging. Widgets worden permanent verwijderd.",
+      "tip": "Probeer Tab in uw ruimte: pijlen bewegen tussen items en Enter opent ze. Een ander tabblad verlaat deze modus."
+    },
+    "shortcuts": {
+      "question": "Hoe wijzig ik mijn sneltoetsen?",
+      "searchTerms": "snelkoppelingen wijzigen; sleutels aanpassen; toetscombinaties; sneltoets",
+      "title": "Maak uw eigen snelkoppelingen",
+      "summary": "Controleer en wijzig uw snelkoppelingen in Instellingen.",
+      "steps": [
+        "Open Instellingen → Snelkoppelingen om uw bindingen te bekijken voor bewerking, het toevoegen van bladwijzers, mappen en widgets, en openingsinstellingen.",
+        "Klik op de toetsencombinatie van een actie en druk op een nieuwe snelkoppeling. Esc annuleert de opname; Als u met de rechtermuisknop klikt, blijft de actie niet toegewezen.",
+        "Sla instellingen op om uw wijzigingen toe te passen. Snelkoppelingen opnieuw instellen herstelt de originele combinaties."
+      ],
+      "note": "Aanvankelijk: E bewerkingen, B voegt een bladwijzer toe, F een map, W opent widgets en S opent instellingen. Snelkoppelingen respecteren tekstvelden en dialoogvensters.",
+      "tip": "Je kunt snelkoppelingen wijzigen in Instellingen. Klik op een combinatie om uw eigen combinatie op te nemen; Esc annuleert en klikken met de rechtermuisknop maakt de toewijzing ongedaan."
+    },
+    "search": {
+      "question": "Hoe vind ik een bladwijzer die ik niet kan zien?",
+      "searchTerms": "vind bladwijzer; pagina zoeken; ontbrekende bladwijzer; zoek-URL",
+      "title": "Zoek een bladwijzer",
+      "summary": "Zoeken op naam of adres, ook in mappen.",
+      "steps": [
+        "Druk op / wanneer u niet aan het typen bent, of gebruik het vergrootglas op de werkruimtebalk.",
+        "Typ een deel van een naam of adres. Zoeken omvat bladwijzers in andere werkruimten en in mappen.",
+        "Open het resultaat dat u nodig hebt. Esc of Sluiten brengt u terug naar uw ruimte."
+      ],
+      "note": "U hoeft niet te onthouden waar u een pagina hebt opgeslagen om deze te vinden.",
+      "tip": "Met de /-toets wordt de zoekopdracht geopend. Het vindt ook bladwijzers in mappen en in andere werkruimten."
+    },
+    "editing": {
+      "question": "Hoe schakel ik bewerken in?",
+      "searchTerms": "bewerking inschakelen; bureaublad bewerken; potlood-editor; bladwijzer wijzigen",
+      "title": "Bewerkingsmodus",
+      "summary": "Schakel het potlood in om te ordenen en aan te passen.",
+      "steps": [
+        "Klik op het potlood in het linkermenu of gebruik uw bewerkingssnelkoppeling om de raster- en itembesturingselementen weer te geven.",
+        "Verplaats, wijzig het formaat of selecteer items. Het potlood van elke kaart opent de naam-, adres- en uiterlijkeditor.",
+        "Klik nogmaals op het potlood als je klaar bent. Wijzigingen in de werkruimte worden automatisch opgeslagen; editors hebben hun eigen knop Opslaan."
+      ],
+      "note": "Esc wist eerst de selectie of toetsenbordnavigatie. Als geen van beide actief is, kan het de bewerkingsmodus verlaten.",
+      "tip": "Het menupotlood begint te bewerken: kaarthandvatten en bedieningselementen verschijnen. Klik er nogmaals op om te voltooien."
+    },
+    "movement": {
+      "question": "Hoe verplaats ik een bladwijzer?",
+      "searchTerms": "bladwijzer verplaatsen; sleep favoriet; van positie veranderen; rooster regelen",
+      "title": "Verplaats artikelen",
+      "summary": "Sleep kaarten naar hun plaats op het raster.",
+      "steps": [
+        "Schakel de bewerkingsmodus in en houd de kaart vast die u wilt verplaatsen.",
+        "Sleep het naar zijn bestemming. Het resultaat hangt af van de vrije ruimte en de gekozen sleepmodus in Instellingen → Bladwijzers.",
+        "Laat los om de positie op te slaan. U kunt ook een enkel item selecteren met een klik en het één cel verplaatsen met pijlen, buiten de tabbladnavigatie."
+      ],
+      "note": "Geblokkeerde bestemmingen tonen visuele feedback en het item keert terug naar een geldige positie. U kunt wijzigingen ongedaan maken.",
+      "tip": "In de bewerkingsmodus klikt u om één kaart te selecteren en gebruikt u de pijlen om deze cel voor cel te verplaatsen. Verlaat eerst de tabbladnavigatie."
+    },
+    "resizing": {
+      "question": "Hoe wijzig ik de grootte van een tegel?",
+      "searchTerms": "formaat tegel wijzigen; bladwijzer vergroten; verkleinen; formaatgrepen wijzigen; klik; Verschuiving; breedte hoogte; 2x2",
+      "title": "Verander de maat",
+      "summary": "Gebruik de zijkanten en hoeken van een kaart.",
+      "steps": [
+        "Schakel bewerken in en ga naar de zijkant of hoek van een item om de formaatgrepen te gebruiken.",
+        "Versleep de hendel. Een hoek verandert van breedte en hoogte; een zijde verandert slechts één dimensie. U kunt ook op een handvat klikken om één cel groter te maken, of Shift + klikken om één cel te verkleinen.",
+        "In Instellingen → Bladwijzers kiest u Geen om tussen cellen te springen nadat u 50% bent gepasseerd, of Vloeiend om de kaart uit te rekken en vast te klikken bij het loslaten."
+      ],
+      "note": "De uiteindelijke maat respecteert het raster en geldige posities. Instellingenvoorbeelden laten het verschil zien voordat u kiest.",
+      "tip": "Klik op een handvat om één cel groter te worden of Shift + klik om één cel te verkleinen. Hoeken veranderen samen van breedte en hoogte; zijden veranderen slechts één dimensie."
+    },
+    "drag-modes": {
+      "question": "Waarom kan ik niet op een bezette cel terechtkomen?",
+      "searchTerms": "bezette cel; over een ander heen bewegen; geblokkeerde val; cascade verplaatsen; botsing slepen",
+      "title": "Sleepmodi",
+      "summary": "Kies wat er gebeurt op een bezette bladwijzerpositie.",
+      "steps": [
+        "Open Instellingen → Bladwijzers en vouw het sleepgedrag uit.",
+        "Niemand gaat naar vrije slots. Verhuizing vindt een positie voor bladwijzers op de bestemming. Volgorde herschikt bladwijzers in volgorde.",
+        "Bekijk de animatie van elke optie en sla de modus op die prettig is om mee te organiseren."
+      ],
+      "note": "Een zet wordt afgewezen als er geen geldige regeling bestaat. Een transparante achtergrond maakt een bezette cel niet vrij.",
+      "tip": "Wilt u een bladwijzer naar een bezette cel verplaatsen? Kijk naar Verhuizing en Volgorde in Instellingen → Bladwijzers en bekijk hun voorbeelden."
+    },
+    "folders": {
+      "question": "Hoe groepeer ik bladwijzers in mappen?",
+      "searchTerms": "map aanmaken; groepsbladwijzers; favorieten organiseren; verwijderen uit map; map hernoemen",
+      "title": "Organiseer met mappen",
+      "summary": "Verzamel maximaal 18 bladwijzers in één map.",
+      "steps": [
+        "Kies + → Map in het linkermenu en geef deze een naam.",
+        "Sleep in de bewerkingsmodus bladwijzers ernaartoe om ze erin te plaatsen. Open de map om het raster te bekijken.",
+        "Gebruik de bewerkingsmodus van de map om de bladwijzers te ordenen. Klik op de naam om de naam te wijzigen en op het pictogram om het uiterlijk aan te passen."
+      ],
+      "note": "Het verwijderen van een map heeft ook gevolgen voor de bladwijzers. Controleer de bevestiging voordat u verdergaat; de prullenbak kan verwijderde items herstellen.",
+      "tip": "Een map kan maximaal 18 bladwijzers bevatten. Schakel bewerken in en sleep een kaart naar de map om deze toe te voegen."
+    },
+    "workspaces": {
+      "question": "Hoe houd ik persoonlijke en werkpagina's gescheiden?",
+      "searchTerms": "persoonlijk werk; werkruimte creëren; wissel werkruimte; bureaubladen",
+      "title": "Scheid uw werkruimtes",
+      "summary": "Eén raster voor werk en een ander voor al het andere.",
+      "steps": [
+        "De werkruimtebalk schakelt tussen de hoofdwerkruimte en uw aangepaste werkruimte. De + creëert een nieuwe.",
+        "Kies een werkruimte voordat u items toevoegt. Om bestaande items over te dragen, selecteert u ze en kiest u een bestemming in de actiebalk.",
+        "Alt + ↑ en Alt + ↓ bladeren door werkruimten. Met de knop − verwijdert u na bevestiging de huidige aangepaste werkruimte."
+      ],
+      "note": "Als u een werkruimte verwijdert, wordt ook de inhoud ervan verwijderd. Belangrijkste blijft beschikbaar en kan niet worden verwijderd.",
+      "tip": "Alt + ↑ en Alt + ↓ wisselen van werkruimte zonder de selector te openen. Scheid werk, hobby's of projecten met de + van de bar."
+    },
+    "selection": {
+      "question": "Hoe wijzig ik meerdere artikelen tegelijk?",
+      "searchTerms": "selecteer meerdere; bulkselectie; meerdere verplaatsen; kloonselectie; dubbele bladwijzers",
+      "title": "Selecteer en handel in bulk",
+      "summary": "Minder herhaalde acties bij het organiseren van meerdere kaarten.",
+      "steps": [
+        "Schakel bewerken in en klik kort op elke kaart om deze te selecteren. Klik nogmaals om de selectie ongedaan te maken; in Tabnavigatie kunt u S.",
+        "Met de selectiebalk kunt u dupliceren, de standaardweergave toepassen, naar een andere werkruimte verplaatsen of verwijderen, afhankelijk van het itemtype.",
+        "Controleer de bestemming of bevestiging. Esc of de knop 'Selectie wissen' annuleert uw selectie."
+      ],
+      "note": "Verplaatsen en dupliceren heeft vrije slots nodig. De app vertelt je of sommige items niet passen. Widgets gaan niet naar de prullenbak.",
+      "tip": "Selecteer in de bewerkingsmodus meerdere kaarten met korte muisklikken om ze samen te verplaatsen, dupliceren of opnieuw op te maken. Esc wist de selectie."
+    },
+    "history": {
+      "question": "Hoe kan ik mijn laatste wijziging ongedaan maken?",
+      "searchTerms": "wijziging ongedaan maken; verandering opnieuw uitvoeren; ga terug; positie herstellen",
+      "title": "Ongedaan maken en opnieuw uitvoeren",
+      "summary": "Herstel een positie of een recente wijziging.",
+      "steps": [
+        "Gebruik de pijl voor ongedaan maken op de werkruimtebalk om terug te keren naar de vorige status.",
+        "Met de pijl voor opnieuw uitvoeren wordt een wijziging hersteld die u zojuist ongedaan hebt gemaakt. U kunt ook Ctrl/Cmd + Z en Ctrl/Cmd + Shift + Z gebruiken.",
+        "Gebruik in een editor de pijlen naast de titel voor openstaande wijzigingen; tekstvelden behouden hun normale toetsenbord ongedaan. Bij elke actie wordt een kort bericht weergegeven en de niet-beschikbare pijlen zijn uitgeschakeld. Controleer het resultaat voordat u het opslaat."
+      ],
+      "note": "De editorgeschiedenis begint opnieuw elke keer dat u een editor opent; wijzigingen bereiken uw werkruimte wanneer u opslaat. De geschiedenis van de werkruimte is tijdelijk en is geen back-up. Een nieuwe sessie of updates van een ander tabblad kunnen deze opnieuw instellen.",
+      "tip": "Als een wijziging niet goed voelt, gebruik dan de pijl voor ongedaan maken of Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z voert de wijziging opnieuw uit."
+    },
+    "appearance": {
+      "question": "Hoe wijzig ik de kleur, het pictogram of de tekst?",
+      "searchTerms": "kleur veranderen; pictogram wijzigen; tekst wijzigen; uiterlijk van bladwijzer; mapkleur; favicon",
+      "title": "Pas uw kaarten aan",
+      "summary": "Kleuren, afbeeldingen, tekst en iconen op jouw manier.",
+      "steps": [
+        "Schakel bewerken in en open het potlood van een bladwijzer, of de weergaveregelaar voor een map of de prullenbak.",
+        "Verken de editor: achtergrond, kleur, afbeelding, tekst en pictogram. Beschikbare besturingselementen zijn afhankelijk van het itemtype; het voorbeeld toont het resultaat.",
+        "Bespaar als u tevreden bent. U kunt afbeeldingen van een URL of een lokaal bestand gebruiken waar de editor die optie biedt."
+      ],
+      "note": "Lokale afbeeldingen horen bij deze browser. Voeg tijdens het synchroniseren een reserve-URL toe voor andere apparaten. Bij import blijven de opgenomen afbeeldingen en duidelijke referenties behouden zonder bestand; Bij synchronisatie worden bestanden genegeerd die niet beschikbaar zijn op dit apparaat.",
+      "tip": "Het potlood van een bladwijzer opent de visuele editor. Verander kleuren, tekst, pictogram of afbeelding en bekijk het voorbeeld."
+    },
+    "presets": {
+      "question": "Hoe hergebruik ik een stijl die ik leuk vind?",
+      "searchTerms": "stijl opslaan; hergebruik uiterlijk; standaardstijlen; vooraf ingestelde bibliotheek; stijl toepassen",
+      "title": "Hergebruik verschijningen",
+      "summary": "Bewaar een look en pas deze toe op andere bladwijzers.",
+      "steps": [
+        "Open de bibliotheek van de editor om een uiterlijk uit de beschikbare collectie te kiezen.",
+        "Sla een aangepast uiterlijk op als voorinstelling om de kleuren, tekst en het pictogram ervan opnieuw te gebruiken zonder de naam of het adres van de bladwijzer te kopiëren.",
+        "Configureer in Instellingen → Bladwijzers de standaardweergave voor nieuwe bladwijzers. De selectiebalk kan dit toepassen op compatibele items."
+      ],
+      "note": "Een voorinstelling verandert het uiterlijk, niet de identiteit, bestemming of positie van de bladwijzer.",
+      "tip": "Bewaar een look die je leuk vindt in de uiterlijkbibliotheek. Hergebruik het op andere kaarten zonder de naam of het adres te wijzigen."
+    },
+    "wallpapers": {
+      "question": "Hoe gebruik ik een afbeelding of video als achtergrond?",
+      "searchTerms": "achtergrond veranderen; video-achtergrond; behangrotatie; thema",
+      "title": "Achtergronden en rotatie",
+      "summary": "Kleur, afbeelding of video om de sfeer te bepalen.",
+      "steps": [
+        "Open Instellingen → Thema en kies de standaardachtergrond, een kleur of een mediaachtergrond.",
+        "Voeg afbeeldingen of video's toe uit de bronnen die in het paneel worden aangeboden. De bibliotheek verzamelt meerdere achtergronden met een rotatie-interval.",
+        "Controleer het voorbeeld en sla het op. U kunt een lokaal bestand koppelen aan een alternatieve URL voor andere apparaten."
+      ],
+      "note": "Lokale bestanden blijven in deze browser. Synchronisatie brengt ze niet over; een volledige back-up kan ze behouden.",
+      "tip": "Je achtergrond kan automatisch veranderen: voeg er meerdere toe aan de Instellingen → Themabibliotheek en stel een rotatie-interval in."
+    },
+    "clock": {
+      "question": "Hoe voeg ik een klok toe?",
+      "searchTerms": "klok toevoegen; showtijd; seconden; 24-uursformaat; klokwidget",
+      "title": "Voeg een klok toe",
+      "summary": "Een widget die de tijd van uw apparaat weergeeft.",
+      "steps": [
+        "Kies + → Widgets in het linkermenu en selecteer Klok.",
+        "Kies een 12- of 24-uursformaat en of u seconden wilt weergeven. Het voorbeeld helpt u beslissen.",
+        "Voeg het toe aan een vrij slot. In de bewerkingsmodus kunt u de opties verplaatsen, vergroten of verkleinen of opnieuw openen."
+      ],
+      "note": "De klok volgt de tijd van uw apparaat. Het verwijderen van een widget is permanent; het komt niet in de prullenbak terecht.",
+      "tip": "In + → Widgets kunt u een 12- of 24-uursklok met optionele seconden toevoegen en de grootte ervan aanpassen aan uw ruimte."
+    },
+    "interface": {
+      "question": "Hoe wijzig ik de taal of gebruik ik de donkere modus?",
+      "searchTerms": "taal veranderen; donkere modus; lichte modus; uiterlijk van de interface",
+      "title": "Taal- en interfacethema",
+      "summary": "Maak menu's, dialoogvensters en bedieningselementen comfortabel.",
+      "steps": [
+        "Kies in Instellingen → Algemeen een taal of laat deze uw systeem volgen.",
+        "Kies een lichte, donkere of automatische interface volgens uw voorkeur.",
+        "Instellingen opslaan. Het interfacethema werkt samen met de achtergrond die u in Thema hebt gekozen."
+      ],
+      "note": "Systeemtaal en automatisch uiterlijk volgen uw apparaatvoorkeuren.",
+      "tip": "Kies een lichte of donkere interface terwijl je je achtergrond behoudt. Zoek deze optie en taal in Instellingen → Algemeen."
+    },
+    "trash": {
+      "question": "Hoe herstel ik een verwijderde bladwijzer?",
+      "searchTerms": "verwijderde bladwijzer herstellen; herstel verwijderd; prullenbak; per ongeluk verwijderd; map herstellen",
+      "title": "Herstellen vanuit de prullenbak",
+      "summary": "Een tweede kans voor bladwijzers en mappen.",
+      "steps": [
+        "Open de prullenbak van uw ruimte om verwijderde bladwijzers en mappen te bekijken.",
+        "Selecteer wat je terug wilt en gebruik Herstellen. U kunt na bevestiging ook artikelen definitief verwijderen of de prullenbak legen.",
+        "Kies in Instellingen → Algemeen of u het wilt tonen en hoe lang de items bewaard blijven: 1, 7, 14 of 28 dagen, of verwijder ze nooit automatisch."
+      ],
+      "note": "De prullenbak hoort bij dit apparaat. Verlopen of permanent verwijderde items kunnen niet meer worden hersteld.",
+      "tip": "Per ongeluk een bladwijzer verwijderd? Open de prullenbak en herstel deze. Pas de bewaartermijn aan via Instellingen → Algemeen."
+    },
+    "backup": {
+      "question": "Hoe maak ik een back-up van mijn gegevens of draag ik deze over?",
+      "searchTerms": "reservekopie; gegevens exporteren; kopie importeren; back-up herstellen; een andere browser; gegevens overbrengen",
+      "title": "Back-ups en import",
+      "summary": "Bewaar een kopie van uw ruimte en neem deze mee.",
+      "steps": [
+        "Exporteer in Instellingen → Algemeen een volledige back-up om gegevens en de lokale bestanden in het ZIP-archief te behouden.",
+        "Om te herstellen importeert u een back-up en bekijkt u de bevestiging voordat u gegevens vervangt. Compatibele JSON-back-ups worden ook ondersteund.",
+        "In Instellingen → Bladwijzers kunt u alleen bladwijzers en mappen exporteren of importeren als u geen volledige back-up nodig heeft."
+      ],
+      "note": "Een bladwijzerexport is geen volledige back-up van instellingen en lokale media. Sla een back-up op voordat u gegevens herstelt of verwijdert.",
+      "tip": "Een volledige back-up van Instellingen → Algemeen bevat lokale bestanden in een ZIP. Dit is handig voordat u van browser wisselt of gegevens herstelt."
+    },
+    "sync": {
+      "question": "Hoe gebruik ik dezelfde ruimte op een andere computer?",
+      "searchTerms": "een andere computer; apparaten synchroniseren; synchronisatie; wolk; lokale synchronisatie; synchronisatie stoppen; synchronisatie uitschakelen; lokale modus",
+      "title": "Synchroniseer tussen apparaten",
+      "summary": "Deel uw ruimte met behulp van browsersynchronisatie.",
+      "steps": [
+        "Meld u aan en schakel extensiesynchronisatie in uw Google Chrome profiel in.",
+        "In Instellingen → Synchronisatie kies Gesynchroniseerd en accepteer de bevestiging. De overstap wordt onmiddellijk van kracht: bestaande gesynchroniseerde bladwijzers en instellingen worden geladen, of uw opgeslagen lokale gegevens worden gesynchroniseerd als deze niet bestaan.",
+        "Gebruik hetzelfde profiel op het andere apparaat. Controleer de synchronisatiestatus en beschikbare ruimte in het paneel."
+      ],
+      "note": "Bij elk apparaat horen lokale bestanden, de prullenbak en dagelijkse tips. Synchronisatie heeft opslaglimieten; gebruik alternatieve URL's voor lokale afbeeldingen en video's. Als u voor Lokaal kiest, wordt ook om bevestiging gevraagd en wordt deze onmiddellijk van kracht, waarbij de gesynchroniseerde gegevens bewaard blijven.",
+      "tip": "Synchronisatie deelt uw ruimte op verschillende apparaten, maar lokale bestanden hebben een alternatieve URL nodig. Zie Instellingen → Synchronisatie."
+    },
+    "compact": {
+      "question": "Waarom zie ik een lijst in plaats van het raster?",
+      "searchTerms": "klein raam; lijstweergave; rooster verdwenen; verborgen paneel; mobiel",
+      "title": "Gebruik een kleiner venster",
+      "summary": "Blijf uw bladwijzers bereiken wanneer de ruimte beperkt is.",
+      "steps": [
+        "Wanneer het venster kleiner wordt, schakelt de app over naar een lijst om uw items toegankelijk te houden.",
+        "Open bladwijzers, mappen of zoek in deze weergave. Ook de handleiding past zich aan de beschikbare maat aan.",
+        "Vergroot het venster om het raster en de bewerkingspanelen terug te brengen. Een opgeschort bewerkingsdialoogvenster behoudt zijn concept."
+      ],
+      "note": "Dankzij de compacte weergave kunt u door uw ruimte bladeren; reorganiseren heeft een voldoende breed venster nodig.",
+      "tip": "In een smal venster blijven uw bladwijzers beschikbaar als lijst. Vergroot het als u het raster wilt bewerken of reorganiseren."
+    },
+    "data": {
+      "question": "Hoe verwijder ik mijn gegevens of reset ik instellingen?",
+      "searchTerms": "gegevens verwijderen; instellingen resetten; verwijder alles; opnieuw beginnen",
+      "title": "Opslaan en resetten",
+      "summary": "Begrijp wat er wordt opgeslagen en wat elke actie verwijdert.",
+      "steps": [
+        "Werkruimteacties worden automatisch opgeslagen. Bevestig in Editors en Instellingen met Opslaan; Met Annuleren wordt het concept van dat paneel weggegooid.",
+        "Als er een melding verschijnt dat het bestand in behandeling is, klikt u op Opnieuw opslaan en wacht u op bevestiging voordat u het tabblad sluit.",
+        "In Instellingen → Algemeen kunt u instellingen resetten of alle gegevens verwijderen. Lees de bevestiging en exporteer een back-up van alles wat u wilt behouden."
+      ],
+      "note": "Als u de instellingen opnieuw instelt, blijven uw bladwijzers, hun afmetingen en hun stijl behouden. Als u alle lokale gegevens verwijdert, worden de items verwijderd en wordt de prullenbak geleegd. Een back-up exporteren voordat u deze verwijdert: Ongedaan maken vervangt een back-up niet.",
+      "tip": "Als u een melding ziet dat de wijzigingen niet zijn opgeslagen, gebruik dan Opnieuw opslaan voordat u het tabblad sluit. Bescherm uw ruimte met een volledige back-up."
+    },
+    "learning": {
+      "question": "Hoe heropen ik de gids of schakel ik dagelijkse tips uit?",
+      "searchTerms": "tips uitschakelen; hulp uitschakelen; dagelijkse waarschuwing; heropenen gids; gebruikershandleiding",
+      "title": "Leer in je eigen tempo",
+      "summary": "Een korte handleiding, een handleiding en een kleine dagelijkse tip.",
+      "steps": [
+        "Bekijk de korte handleiding opnieuw via Instellingen → Hulp. Elke stap linkt naar de bijbehorende uitleg in de handleiding.",
+        "Verken de index of zoek naar een woord. De gerelateerde links van een sectie brengen u naar andere functies wanneer u er klaar voor bent.",
+        "Op uw eerste nieuwe tabblad wordt elke dag een willekeurige tip weergegeven. Sluit het af of open de uitleg ervan; u kunt tips uitschakelen in Hulp."
+      ],
+      "note": "Tips bezoek de secties zonder te herhalen totdat de verzameling compleet is. Ze duren 20 seconden en pauzeren terwijl ze zweven of hun knoppen scherpstellen. Ze volgen de lokale dag en de voorkeur van deze browser.",
+      "tip": "Deze handleiding staat altijd in Instellingen → Hulp. Dagelijkse tips openen een sectie en u kunt ze daar wanneer u maar wilt uitschakelen."
+    }
+  }
+}

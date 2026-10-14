@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Ghi chú phát hành",
+    "settingsDescription": "Điều gì đã thay đổi và câu chuyện đằng sau mỗi bản cập nhật.",
+    "open": "Đọc ghi chú",
+    "history": "Lịch sử phiên bản",
+    "dismiss": "Đóng ghi chú phát hành",
+    "continue": "Tiếp tục",
+    "back": "Quay lại thông tin",
+    "highlights": "Những gì bạn có thể làm hôm nay",
+    "generic": {
+      "title": "New DeskTab đã được cập nhật",
+      "description": "Bạn có phiên bản mới. Bạn có thể xem lại ghi chú phát hành trước đó trong Thông tin bất cứ khi nào bạn muốn. Cảm ơn vì đã ở đây."
+    },
+    "v1_0_0": {
+      "title": "Máy tính để bàn của bạn của các trang web. Cuối cùng.",
+      "thanks": "Cảm ơn bạn đã thử New DeskTab. Tôi rất vui mừng được chia sẻ bản phát hành công khai đầu tiên của dự án này với bạn.",
+      "origin": "Mọi chuyện bắt đầu vào ngày 26 tháng 9 năm 2025. Trong khi xem luồng Just Chatting trên Twitch, tôi nhận thấy tab mới trên trình duyệt của người truyền phát: một tiện ích mở rộng sắp xếp các trang web dưới dạng hình vuông màu, không có tên hoặc biểu tượng. Sự tối giản đó đã mê hoặc tôi và tôi nghĩ: tại sao không xây dựng tiện ích mở rộng của riêng mình? Tôi muốn mỗi tab mới mang lại cảm giác trật tự, các trang của tôi luôn ở trong tầm tay và một bảng điều khiển mà tôi thích xem.",
+      "desktop": "Dần dần, ý tưởng đó phát triển thành một máy tính để bàn cá nhân chứa các trang web hơn là các ứng dụng. Đồng hồ là bước đầu tiên và vẫn đang trong quá trình hoàn thiện. Trong tương lai, tôi muốn thêm sổ ghi chú và các tiện ích khác mang lại điều gì đó hữu ích cho cả tôi và mọi người sử dụng New DeskTab.",
+      "closing": "Ứng dụng này được tạo ra cho tôi và cho bạn. Cảm ơn bạn đã tin tưởng New DeskTab và dành cho nó một vị trí trong trình duyệt của bạn. Tôi hy vọng bạn thích việc tạo ra không gian của mình cũng như tôi đã thích thú khi xây dựng nó.",
+      "highlights": {
+        "workspace": "Sắp xếp các trang của bạn bằng dấu trang, thư mục và không gian làm việc độc lập.",
+        "appearance": "Tùy chỉnh màu sắc, kích thước của từng mục và hình nền màn hình của bạn.",
+        "search": "Tìm các trang của bạn bằng tính năng tìm kiếm và sử dụng phím tắt để điều hướng và tạo các mục.",
+        "backup": "Lưu bản sao lưu và khôi phục các mục đã xóa từ thùng rác.",
+        "sync": "Chọn giữ dữ liệu trên thiết bị này hoặc đồng bộ hóa dữ liệu với Google Chrome.",
+        "help": "Khám phá các tính năng với hướng dẫn chào mừng, hướng dẫn sử dụng và các mẹo hàng ngày."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "PHÚT ĐẦU TIÊN CỦA BẠN",
+    "skip": "Bỏ qua hướng dẫn",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "finish": "Quay lại cài đặt",
+    "explore": "Khám phá không gian của tôi",
+    "addFirst": "Thêm dấu trang đầu tiên của tôi",
+    "progress": "Bước {{current}} trên {{total}}",
+    "compactHint": "Mở rộng cửa sổ khi bạn muốn thêm dấu trang và chỉnh sửa không gian của mình.",
+    "reopenTitle": "Hướng dẫn nhanh",
+    "reopenDescription": "Khám phá lại những điều cần thiết trong một phút.",
+    "reopen": "Xem hướng dẫn",
+    "demo": {
+      "work": "công việc",
+      "media": "Phương tiện truyền thông",
+      "trash": "Thùng rác",
+      "search": "Tìm dấu trang của bạn"
+    },
+    "steps": {
+      "start": {
+        "title": "Các trang của bạn. Không gian riêng của bạn.",
+        "body": "Chào mừng bạn đến với New DeskTab. Giữ các trang yêu thích của bạn trong tầm tay bất cứ khi nào bạn mở một tab. Để thêm một, hãy di chuyển đến cạnh trái và chọn + → [[bookmarks|Đánh dấu]].",
+        "hint": "Bạn cũng có thể [[quick-save|lưu trang bạn đang truy cập]] từ biểu tượng tiện ích mở rộng trong trình duyệt của mình."
+      },
+      "edit": {
+        "title": "Đặt mỗi dấu trang vào vị trí của nó.",
+        "body": "Bật bút chì ở menu bên trái để chỉnh sửa. Giữ và [[movement|kéo]] một mục để di chuyển nó; sử dụng [[resizing|tay cầm]] để thay đổi kích thước của nó.",
+        "hint": "Bút chì của mỗi dấu trang sẽ mở [[appearance|biên tập viên]]: tên, màu sắc, biểu tượng và hình ảnh. Lưu [[presets|phong cách]] để sử dụng lại chúng."
+      },
+      "organize": {
+        "title": "Ít lộn xộn hơn. Nhiều trật tự hơn.",
+        "body": "Tạo [[folders|thư mục]] từ + và kéo dấu trang vào đó ở chế độ chỉnh sửa. Nó mở ra trong một lưới sạch có chỗ cho tối đa 18 dấu trang.",
+        "hint": "Sử dụng dấu + trong [[workspaces|thanh không gian làm việc]] để phân tách công việc và giải trí. [[search|kính lúp]] cũng tìm kiếm bên trong các thư mục."
+      },
+      "style": {
+        "title": "Làm cho nó cảm thấy như bạn.",
+        "body": "Trong Cài đặt → [[wallpapers|chủ đề]], chọn màu, hình ảnh hoặc nền video và xoay hình nền yêu thích của bạn. Trong Cài đặt → [[sync|Đồng bộ hóa]], đồng bộ hóa không gian của bạn trên các thiết bị bằng tài khoản đã đăng nhập vào hồ sơ Chrome của bạn.",
+        "hint": "Thêm [[clock|đồng hồ]] từ + → Tiện ích. Bạn cũng có thể tùy chỉnh [[appearance|sự xuất hiện]] của thư mục của mình."
+      },
+      "ready": {
+        "title": "Bạn biết những điều cần thiết.",
+        "body": "Nhấn [[search|/]] để tìm dấu trang. Sử dụng mũi tên [[history|hoàn tác và làm lại]] để khôi phục các thay đổi; dấu trang đã xóa sẽ chuyển đến [[trash|thùng rác]].",
+        "hint": "Các thay đổi được lưu tự động. Trong Cài đặt, xuất [[backup|sao lưu]] hoặc bật Google Chrome [[sync|đồng bộ hóa]] tùy chọn."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Không thể lưu những thay đổi mới nhất của bạn.",
+    "retry": "Thử lưu lại",
+    "saved": "Đã lưu các thay đổi đang chờ xử lý."
+  },
+  "itemEditor": {
+    "chooseIcon": "Chọn một biểu tượng",
+    "siteLogo": "biểu tượng",
+    "noSymbol": "không có",
+    "folderIconHint": "Biểu tượng này thay thế các bản xem trước dấu trang bên trong thư mục.",
+    "icons": {
+      "mail": "Thư",
+      "calendar": "Lịch",
+      "notes": "Ghi chú",
+      "projects": "Dự án",
+      "design": "Thiết kế",
+      "music": "Âm nhạc",
+      "tasks": "Nhiệm vụ",
+      "ideas": "Ý tưởng",
+      "docs": "Tài liệu",
+      "ui-start": "La bàn",
+      "ui-organize": "Bố cục",
+      "ui-personalize": "Thanh trượt",
+      "ui-protect": "Khiên",
+      "ui-bookmarks": "Thêm dấu trang",
+      "ui-quick-save": "Trình duyệt",
+      "ui-keyboard": "Bàn phím",
+      "ui-shortcuts": "Sét",
+      "ui-search": "Tìm kiếm",
+      "ui-editing": "bút chì",
+      "ui-movement": "Di chuyển",
+      "ui-resizing": "Thay đổi kích thước",
+      "ui-drag-modes": "Kéo",
+      "ui-folders": "Thư mục",
+      "ui-workspaces": "cửa sổ",
+      "ui-selection": "Lựa chọn",
+      "ui-history": "Lịch sử",
+      "ui-appearance": "Bảng màu",
+      "ui-presets": "cài đặt trước",
+      "ui-wallpapers": "Hình ảnh",
+      "ui-clock": "Đồng hồ",
+      "ui-interface": "quả địa cầu",
+      "ui-trash": "Thùng rác",
+      "ui-backup": "Lưu trữ",
+      "ui-sync": "Đồng bộ hóa",
+      "ui-compact": "Danh sách",
+      "ui-data": "Cơ sở dữ liệu",
+      "ui-learning": "Sách",
+      "ui-settings": "Cài đặt",
+      "ui-controls": "Điều khiển",
+      "ui-cloud": "đám mây",
+      "ui-bookmark": "Đánh dấu",
+      "ui-info": "Thông tin",
+      "ui-eye": "Mắt",
+      "ui-check": "Đã hoàn thành",
+      "ui-lock": "Khóa",
+      "ui-unlock": "Mở khóa",
+      "ui-copy": "Sao chép",
+      "ui-close": "Đóng",
+      "ui-undo": "Hoàn tác",
+      "ui-redo": "Làm lại",
+      "ui-desktop": "Máy tính để bàn",
+      "home": "Trang chủ",
+      "briefcase": "công việc",
+      "code": "Mã",
+      "game": "Trò chơi",
+      "cart": "Mua sắm",
+      "card": "Thanh toán",
+      "people": "mọi người",
+      "message": "Tin nhắn",
+      "location": "Vị trí",
+      "phone": "Điện thoại",
+      "camera": "Máy ảnh",
+      "headphones": "Tai nghe",
+      "link": "liên kết",
+      "tag": "Gắn thẻ",
+      "chart": "Thống kê",
+      "coffee": "cà phê",
+      "sun": "mặt trời",
+      "moon": "mặt trăng",
+      "circle": "vòng tròn",
+      "square": "hình vuông",
+      "triangle": "Tam giác",
+      "diamond": "kim cương",
+      "pentagon": "Lầu Năm Góc",
+      "hexagon": "lục giác",
+      "star": "Ngôi sao",
+      "heart": "trái tim",
+      "plus": "Cộng thêm",
+      "minus": "Điểm trừ",
+      "video": "Video"
+    },
+    "searchIcons": "Biểu tượng tìm kiếm…",
+    "clearIconSearch": "Xóa tìm kiếm",
+    "noIcons": "Không tìm thấy biểu tượng nào",
+    "suggestedIcons": "được đề xuất",
+    "suggestedIcon": "Được đề xuất: {{name}}",
+    "logoKeywords": "logo favicon trang web trang web thương hiệu",
+    "iconKeywords": {
+      "ui-trash": "thùng rác chất thải xóa cổ điển",
+      "mail": "thư email gmail hộp thư đến triển vọng",
+      "docs": "tài liệu tập tin ổ đĩa pdf word",
+      "notes": "ghi chú bản ghi nhớ khái niệm onenote",
+      "ui-protect": "an ninh bảo vệ sự riêng tư",
+      "game": "trò chơi điều khiển chơi game",
+      "cart": "cửa hàng mua sắm cửa hàng mua",
+      "card": "ngân hàng tài chính tín dụng ghi nợ tiền",
+      "people": "cộng đồng xã hội nhóm bạn bè",
+      "ui-learning": "đọc thư viện giáo dục nghiên cứu",
+      "ui-clock": "xem giờ giờ",
+      "ui-interface": "Internet ngôn ngữ thế giới web",
+      "ui-data": "lưu trữ dữ liệu sql",
+      "circle": "hình dạng hình học",
+      "square": "hình dạng hình học",
+      "triangle": "hình dạng hình học",
+      "diamond": "hình dạng hình học",
+      "pentagon": "hình dạng hình học",
+      "hexagon": "hình dạng hình học",
+      "star": "hình dạng hình học",
+      "heart": "hình dạng hình học"
+    },
+    "history": "Chỉnh sửa lịch sử",
+    "description": "Tạo cảm giác như ở nhà trong không gian làm việc của bạn.",
+    "looks": "Chọn một cái nhìn",
+    "custom": "tùy chỉnh",
+    "look": {
+      "original": "Bản gốc",
+      "card": "Thẻ",
+      "midnight": "Tối",
+      "paper": "Ánh sáng"
+    },
+    "reset": "Đặt lại giao diện",
+    "cardColor": "Màu thẻ",
+    "folderFill": "Màu thư mục",
+    "image": "Hình nền",
+    "lock": "Khóa hoặc mở khóa URL",
+    "copy": "Sao chép URL",
+    "clear": "Xóa",
+    "section": {
+      "general": "Những điều cần thiết",
+      "text": "Tên và nhãn",
+      "icon": "Biểu tượng",
+      "card": "Thẻ"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Tên bạn nhìn thấy và trang nó mở ra.",
+        "text": "Chọn có hiển thị tên và điều chỉnh màu của nó hay không.",
+        "icon": "Sử dụng biểu tượng yêu thích lớn, ở giữa hoặc biểu tượng nhỏ bên cạnh tên cho thẻ hình ảnh."
+      },
+      "folder": {
+        "general": "Một cái tên để tập hợp các dấu trang của bạn lại với nhau.",
+        "text": "Hiển thị tên thư mục và điều chỉnh màu sắc của nó.",
+        "icon": "Tùy chỉnh biểu tượng thư mục và hình thu nhỏ dấu trang của nó."
+      },
+      "recycleBin": {
+        "general": "Chọn xem thùng rác có xuất hiện trong không gian làm việc chính của bạn hay không.",
+        "text": "Hiển thị tên thùng rác và điều chỉnh màu sắc của nó.",
+        "icon": "Tạo cho thùng rác màu sắc của riêng bạn. Ẩn toàn bộ thùng khỏi Tướng."
+      }
+    },
+    "addImage": "Thêm hình nền",
+    "changeImage": "Chỉnh sửa hình nền"
+  },
+  "html": {
+    "title": "Tab mới"
+  },
+  "quickSave": {
+    "title": "Lưu dấu trang",
+    "name": "Tên",
+    "workspace": "Không gian làm việc",
+    "folder": "Thư mục",
+    "mainWorkspace": "Chính",
+    "noFolder": "Không có thư mục",
+    "save": "Lưu dấu trang",
+    "saveAnyway": "Vẫn lưu",
+    "savedButton": "Đã lưu",
+    "alreadySaved": "Đã lưu rồi",
+    "savedIn": "Trong {{location}}",
+    "savedInMore": "Trong {{location}} và {{count}} địa điểm khác",
+    "open": "Mở New DeskTab",
+    "unavailableTitle": "Tab này không thể lưu được",
+    "unavailable": "Mở một trang web (http hoặc https) để lưu nó.",
+    "loadError": "Không thể tải dấu trang của bạn. Hãy thử lại.",
+    "saving": "Đang lưu…",
+    "saved": "Đã lưu dấu trang.",
+    "duplicate": "URL này đã được lưu ở đích đó.",
+    "noSpace": "Không còn chỗ trống ở điểm đến đó. Chọn cái khác.",
+    "invalid": "Kiểm tra tên và điểm đến đã chọn.",
+    "saveError": "Không thể lưu dấu trang. Hãy thử lại."
+  },
+  "launcher": {
+    "bookmark": "Đánh dấu",
+    "folder": "Thư mục",
+    "widgets": "Widget",
+    "editMode": {
+      "enter": "Vào chế độ chỉnh sửa",
+      "exit": "Thoát chế độ chỉnh sửa"
+    }
+  },
+  "widgets": {
+    "title": "Widget",
+    "description": "Chọn một tiện ích để thêm vào không gian làm việc này.",
+    "empty": "Chưa có vật dụng nào có sẵn."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Mở rộng cửa sổ để sử dụng tính năng này.",
+      "suspended": "Bảng điều khiển ẩn. Mở rộng cửa sổ để tiếp tục."
+    },
+    "editMode": {
+      "enabled": "Đã bật chế độ chỉnh sửa",
+      "disabled": "Đã tắt chế độ chỉnh sửa"
+    },
+    "selectionMode": {
+      "enabled": "Đã bật chế độ lựa chọn",
+      "disabled": "Đã tắt chế độ lựa chọn"
+    },
+    "bookmark": {
+      "added": "Đã thêm dấu trang",
+      "notFound": "Không tìm thấy dấu trang",
+      "updated": "Đã cập nhật dấu trang",
+      "deleted": "Đã xóa dấu trang"
+    },
+    "clock": {
+      "added": "Đã thêm đồng hồ",
+      "updated": "Đã cập nhật đồng hồ",
+      "deleted": "Đồng hồ đã bị xóa"
+    },
+    "folder": {
+      "created": "Đã tạo thư mục",
+      "renamed": "Đã đổi tên thư mục",
+      "updated": "Đã cập nhật thư mục",
+      "deleted": "Thư mục và dấu trang của nó đã bị xóa",
+      "bookmarkAdded": "Đã thêm dấu trang vào thư mục",
+      "folderFull": "Thư mục này đã có 18 dấu trang",
+      "bookmarkRemoved": "Dấu trang được di chuyển trở lại lưới"
+    },
+    "recycleBin": {
+      "moved": "Đã chuyển vào thùng rác",
+      "restored": "Các mục đã được khôi phục",
+      "deletedPermanently": "Các mục đã bị xóa vĩnh viễn",
+      "updated": "Đã cập nhật thùng rác"
+    },
+    "workspace": {
+      "created": "Đã tạo không gian làm việc",
+      "deleted": "Đã xóa không gian làm việc",
+      "switched": "Không gian làm việc: {{name}}"
+    },
+    "history": {
+      "undone": "Thay đổi đã hoàn tác",
+      "redone": "Thay đổi làm lại"
+    },
+    "bookmarks": {
+      "deletedAll": "Tất cả dấu trang đã bị xóa",
+      "deletedAllWithFolders": "Tất cả dấu trang và thư mục đã bị xóa",
+      "deleteAllError": "Không thể xóa tất cả dấu trang",
+      "exported": "Đã xuất dấu trang",
+      "exportError": "Không xuất được dấu trang",
+      "imported": "Dấu trang đã được nhập",
+      "importError": "Không thể nhập dấu trang",
+      "presetApplied": "Kiểu được áp dụng cho vùng chọn",
+      "duplicatedSelected": "Các mục đã chọn bị trùng lặp",
+      "deletedSelected": "Đã xóa các mục đã chọn",
+      "moved": "Các mục đã được chuyển đến không gian làm việc đã chọn"
+    },
+    "settings": {
+      "saved": "Đã lưu cài đặt",
+      "bookmarkDefaultSaved": "Đã lưu giao diện dấu trang mặc định",
+      "bookmarkDefaultError": "Không thể lưu giao diện dấu trang mặc định",
+      "copied": "Đã sao chép giá trị vào bảng nhớ tạm",
+      "resetBg": "Đặt lại chủ đề",
+      "deletedAllData": "Đã xóa tất cả dữ liệu NewDeskTab cục bộ",
+      "deleteAllDataError": "Không thể xóa tất cả dữ liệu NewDeskTab cục bộ",
+      "invalidWallpaperUrl": "Nhập URL hình ảnh/video HTTP hoặc HTTPS hợp lệ.",
+      "invalidWallpaperFile": "Không thể thêm tập tin này. Sử dụng hình ảnh được hỗ trợ hoặc video MP4, WebM hoặc Ogg có dung lượng lên tới 200 MB.",
+      "wallpaperLimit": "Bạn có thể thêm tối đa 25 hình nền cá nhân."
+    },
+    "localImage": {
+      "invalid": "Chọn hình ảnh PNG, JPEG, WebP, GIF hoặc AVIF.",
+      "tooLarge": "Hình ảnh này quá lớn để lưu trữ trên thiết bị này.",
+      "storageFull": "Không có đủ không gian cục bộ cho hình ảnh này.",
+      "processing": "Không thể xử lý hình ảnh này."
+    },
+    "sync": {
+      "enabled": "Đã bật đồng bộ hóa",
+      "localEnabled": "Đã bật chế độ cục bộ",
+      "remoteLoaded": "Đã tải dữ liệu đã đồng bộ hóa",
+      "updatedFromOtherDevice": "Đã nhận được các thay đổi đã đồng bộ hóa từ một thiết bị khác",
+      "deletedFromOtherDevice": "Dữ liệu đám mây đã bị xóa khỏi thiết bị khác. Thiết bị này hiện đang sử dụng chế độ Cục bộ.",
+      "error": "Không thể thay đổi chế độ lưu trữ",
+      "versionBlocked": "Đồng bộ hóa đã bị tạm dừng vì dữ liệu đám mây yêu cầu phiên bản NewDeskTab mới hơn. Dữ liệu cục bộ của thiết bị này đang được hiển thị.",
+      "quotaError": "Dữ liệu vượt quá dung lượng lưu trữ đồng bộ sẵn có",
+      "deleted": "Đã xóa dữ liệu được đồng bộ hóa",
+      "deleteError": "Không thể xóa dữ liệu đã đồng bộ hóa"
+    },
+    "backup": {
+      "exported": "Đã xuất bản sao lưu",
+      "exportError": "Không thể xuất bản sao lưu",
+      "mediaUnavailable": "Một số hình ảnh hoặc video cục bộ được tham chiếu không có sẵn nên bản sao lưu không được tạo.",
+      "imported": "Đã khôi phục bản sao lưu",
+      "importError": "Không thể khôi phục bản sao lưu",
+      "mediaStorageFull": "Không có đủ bộ nhớ cục bộ để khôi phục hình ảnh và video sao lưu."
+    }
+  },
+  "view": {
+    "list": "Chế độ xem danh sách",
+    "search": "Tìm kiếm dấu trang và thư mục",
+    "clearSearch": "Xóa tìm kiếm",
+    "noResults": "Không có kết quả."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Xóa tất cả dấu trang?",
+      "deleteFolders": "Đồng thời xóa tất cả các thư mục",
+      "confirmDeleteSelected": "Xóa {{count}} mục đã chọn?",
+      "confirmMoveOne": "Di chuyển mục này sang không gian làm việc “{{workspace}}”?",
+      "confirmMoveSelected": "Di chuyển {{count}} mục đã chọn sang không gian làm việc “{{workspace}}”?",
+      "duplicateNoSpace": "Không thể sao chép {{count}} mục vì không đủ dung lượng.",
+      "moveNoSpace": "{{count}} mục không thể di chuyển được vì không đủ chỗ.",
+      "no_space": "Không còn chỗ trống để thêm dấu trang 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Hủy dấu trang mới?"
+      },
+      "confirmDelete": "Xóa “{{name}}”?",
+      "confirmPermanentDelete": "Xóa vĩnh viễn “{{name}}”? Điều này không thể hoàn tác được.",
+      "cancel": "Hủy thay đổi?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Xóa vĩnh viễn tiện ích này? Điều này không thể hoàn tác được.",
+      "confirmDeleteSelected": "Xóa {{count}} mục đã chọn? Các vật dụng đã chọn ({{widgetCount}}) sẽ bị xóa vĩnh viễn và không thể khôi phục được."
+    },
+    "folder": {
+      "createCancel": "Hủy thư mục mới?",
+      "cancel": "Hủy thay đổi thư mục?"
+    },
+    "recycleBin": {
+      "folder": "Di chuyển “{{name}}” và {{count}} dấu trang của nó vào thùng rác?",
+      "empty": "Xóa vĩnh viễn mọi thứ trong thùng rác? Điều này không thể hoàn tác được.",
+      "deleteSelected": "Xóa vĩnh viễn {{count}} mục đã chọn? Điều này không thể hoàn tác được.",
+      "noSpace": "Không thể khôi phục {{count}} mục vì không đủ dung lượng lưới. Chúng vẫn còn trong thùng rác.",
+      "cancel": "Hủy các thay đổi trong thùng rác?"
+    },
+    "settings": {
+      "cancel": "Hủy các thay đổi cài đặt?",
+      "reset": "Đặt lại tất cả cài đặt? Dấu trang sẽ không bị xóa.",
+      "deleteAllData": "Xóa tất cả dữ liệu NewDeskTab cục bộ khỏi thiết bị này? Dấu trang, thư mục, tiện ích, cài đặt, mục thùng rác, hình ảnh cục bộ và video cục bộ sẽ bị xóa vĩnh viễn. Dữ liệu đám mây sẽ không bị thay đổi. Nếu Đồng bộ hóa đang hoạt động, thiết bị này sẽ chuyển sang Cục bộ trước tiên. Không thể hoàn tác hành động này.",
+      "theme": {
+        "reset": "Đặt lại cài đặt chủ đề?"
+      },
+      "bookmark": {
+        "cancel": "Hủy các thay đổi về giao diện dấu trang mặc định?"
+      },
+      "shortcuts": {
+        "reset": "Khôi phục các phím tắt mặc định?"
+      },
+      "sync": {
+        "enable": "Chuyển từ cục bộ sang đồng bộ hóa? Điều này có hiệu lực ngay bây giờ mà không cần nhấp vào Lưu. Nếu dữ liệu đã đồng bộ hóa đã tồn tại thì dấu trang và cài đặt của dữ liệu đó sẽ được tải. Nếu không, dữ liệu cục bộ đã lưu của bạn sẽ được đồng bộ hóa.",
+        "local": "Chuyển từ Đồng bộ hóa sang Cục bộ? Điều này có hiệu lực ngay bây giờ mà không cần nhấp vào Lưu. Thiết bị này sẽ giữ một bản sao của dữ liệu hiện tại và ngừng đồng bộ hóa các thay đổi. Dữ liệu đã đồng bộ hóa sẽ vẫn được lưu trữ cho các thiết bị khác.",
+        "delete": "Xóa tất cả dữ liệu NewDeskTab đã đồng bộ hóa? Thiết bị này và mọi thiết bị khác sử dụng dữ liệu đám mây này sẽ chuyển sang chế độ Cục bộ khi phát hiện hành động xóa. Điều này không thể hoàn tác được."
+      }
+    },
+    "backup": {
+      "import": "Khôi phục bản sao lưu này? Nó sẽ thay thế các dấu trang và cài đặt hiện tại của bạn."
+    }
+  },
+  "addModal": {
+    "title": "Thêm dấu trang mới",
+    "name": "Tên:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Tùy chọn nâng cao",
+    "compactView": "▴ Chế độ xem nhỏ gọn"
+  },
+  "clock": {
+    "name": "Đồng hồ",
+    "inDevelopment": "Đang trong quá trình phát triển: đồng hồ vẫn chưa có phiên bản cuối cùng. Chúng tôi đang nỗ lực cải thiện nó.",
+    "createTitle": "Thêm đồng hồ",
+    "editTitle": "Cài đặt đồng hồ",
+    "description": "Hiển thị giờ địa phương của bạn trên không gian làm việc này.",
+    "hourCycle": "Định dạng thời gian",
+    "hour24": "24 giờ",
+    "hour12": "12 giờ",
+    "showSeconds": "Hiển thị giây",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa đồng hồ",
+    "actions": "Hành động của đồng hồ",
+    "openSettings": "Mở cài đặt đồng hồ",
+    "confirmDelete": "Xóa đồng hồ này? Bạn có thể hoàn tác hành động này.",
+    "confirmPermanentDelete": "Xóa vĩnh viễn đồng hồ này? Điều này không thể hoàn tác được.",
+    "cancel": "Hủy thay đổi đồng hồ?",
+    "noSpace": "Không có đủ không gian lưới cho đồng hồ này."
+  },
+  "buttons": {
+    "save": "Lưu",
+    "apply": "Áp dụng",
+    "add": "Thêm",
+    "accept": "Chấp nhận",
+    "cancel": "Hủy bỏ",
+    "close": "Đóng"
+  },
+  "localImage": {
+    "upload": "Tải lên từ thiết bị này",
+    "label": "Hình ảnh địa phương:",
+    "activeSource": "Hình ảnh hoạt động:",
+    "sourceLocal": "Địa phương",
+    "sourceUrl": "URL",
+    "remove": "Xóa hình ảnh cục bộ",
+    "notice": "Hình ảnh cục bộ không được đồng bộ hóa.",
+    "unnamed": "Hình ảnh cục bộ"
+  },
+  "workspace": {
+    "ariaLabel": "Kiểm soát không gian làm việc",
+    "current": "Không gian làm việc",
+    "main": "Chính",
+    "search": "Tìm kiếm dấu trang",
+    "add": "Tạo không gian làm việc",
+    "delete": "Xóa không gian làm việc",
+    "undo": "Hoàn tác",
+    "redo": "Làm lại",
+    "shortcutHint": "Chuyển đổi không gian làm việc bằng Alt hoặc Option cộng với Mũi tên lên hoặc xuống",
+    "prompt": "Nhập tên cho không gian làm việc mới",
+    "namePlaceholder": "Công việc, giải trí…",
+    "confirmDelete": "Xóa “{{name}}”, {{folderCount}} thư mục và {{bookmarkCount}} dấu trang của nó? Để giữ chúng, trước tiên hãy di chuyển chúng đến Chính hoặc không gian làm việc khác."
+  },
+  "search": {
+    "title": "Tìm kiếm dấu trang",
+    "inputLabel": "Tìm kiếm theo tên hoặc URL",
+    "placeholder": "Tên hoặc URL",
+    "empty": "Không tìm thấy dấu trang nào.",
+    "noUrl": "Không có URL",
+    "inFolder": "Thư mục: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Hành động mục đã chọn",
+    "selected": "{{count}} đã chọn",
+    "move": "Di chuyển đến không gian làm việc",
+    "applyPreset": "Áp dụng kiểu mặc định",
+    "duplicate": "Lựa chọn trùng lặp",
+    "delete": "Xóa",
+    "clear": "Xóa lựa chọn"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Kiểm soát dấu trang",
+    "edit": "Chỉnh sửa dấu trang",
+    "delete": "Xóa dấu trang",
+    "copySuffix": "sao chép"
+  },
+  "folder": {
+    "create": "Tạo thư mục",
+    "createPrompt": "Đặt tên cho thư mục mới",
+    "namePlaceholder": "Công cụ, nguồn cảm hứng…",
+    "open": "Mở {{name}}, {{count}} dấu trang đã lưu",
+    "count": "{{count}} đã lưu",
+    "summary": "{{count}} trên {{capacity}} khoảng trống được sử dụng",
+    "editMode": {
+      "enable": "Chỉnh sửa",
+      "disable": "Hoàn tất chỉnh sửa"
+    },
+    "gridLabel": "Dấu trang thư mục",
+    "dropHint": "Thả để thêm",
+    "noSpace": "Không có ô lưới trống nào cho một thư mục mới.",
+    "removeNoSpace": "Không có đủ không gian lưới để xóa dấu trang này khỏi thư mục.",
+    "confirmDelete": "Di chuyển “{{name}}” và {{count}} dấu trang của nó vào thùng rác?",
+    "confirmPermanentDelete": "Xóa vĩnh viễn “{{name}}” và {{count}} dấu trang của nó? Điều này không thể hoàn tác được.",
+    "actions": {
+      "ariaLabel": "Điều khiển thư mục",
+      "customize": "Tùy chỉnh thư mục",
+      "rename": "Đổi tên thư mục",
+      "delete": "Xóa thư mục",
+      "editBookmark": "Chỉnh sửa {{name}}",
+      "removeBookmark": "Di chuyển {{name}} ra khỏi thư mục",
+      "deleteBookmark": "Xóa {{name}}",
+      "acceptRename": "Lưu tên thư mục",
+      "cancelRename": "Hủy đổi tên thư mục"
+    },
+    "editor": {
+      "createTitle": "Thêm thư mục mới",
+      "title": "Chỉnh sửa thư mục",
+      "name": "Tên:",
+      "showPreviews": "Hiển thị bản xem trước dấu trang",
+      "showName": "Hiển thị tên thư mục",
+      "iconColor": "Màu biểu tượng:",
+      "outerBackgroundColor": "Màu nền bên ngoài:",
+      "noOuterBackground": "Không có nền bên ngoài",
+      "resetOuterBackground": "tự động",
+      "noBackground": "Điền vào thư mục trong suốt",
+      "backgroundColor": "Màu thư mục:",
+      "backgroundImage": "Hình nền (URL):",
+      "lockImage": "Khóa hoặc mở khóa URL hình ảnh",
+      "copyImage": "Sao chép URL hình ảnh",
+      "clearImage": "Xóa URL hình ảnh",
+      "textColor": "Màu văn bản:",
+      "preview": "Xem trước",
+      "previewName": "Thư mục",
+      "sections": {
+        "general": "chung",
+        "style": "phong cách",
+        "text": "văn bản"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Thùng rác",
+    "open": "Mở thùng rác",
+    "openCount": "Mở thùng rác, {{count}} mục",
+    "dropHint": "Thả để xóa",
+    "summary": "{{count}} mục · Tự động xóa: {{retention}}",
+    "empty": "Thùng rác trống rỗng.",
+    "selected": "{{count}} đã chọn",
+    "select": "Chọn {{name}}",
+    "folderContents": "{{count}} dấu trang",
+    "deletedAt": "Đã xóa {{date}}",
+    "expiresIn": "Còn {{days}} ngày",
+    "expiresInOne": "còn 1 ngày",
+    "neverExpires": "Không bao giờ tự động xóa",
+    "restoreAll": "Khôi phục tất cả",
+    "deleteAll": "Xóa tất cả",
+    "restoreSelected": "Khôi phục đã chọn",
+    "deleteSelected": "Xóa đã chọn",
+    "editor": {
+      "title": "Chỉnh sửa thùng rác",
+      "animateIcon": "Làm sinh động thùng rác",
+      "appearance": "Ngoại hình",
+      "backgroundColor": "Màu nền:",
+      "backgroundImage": "Hình nền (URL):",
+      "lockImage": "Khóa hoặc mở khóa URL hình ảnh",
+      "copyImage": "Sao chép URL hình ảnh",
+      "clearImage": "Xóa URL hình ảnh",
+      "noBackground": "Không có nền",
+      "iconColor": "Màu biểu tượng:",
+      "textColor": "Màu văn bản:",
+      "elements": "Yếu tố nhìn thấy được",
+      "showName": "Hiển thị tên",
+      "visible": "Hiển thị thùng rác trên lưới chính",
+      "preview": "Xem trước",
+      "actions": "Hành động của thùng rác",
+      "edit": "Chỉnh sửa thùng rác",
+      "sections": {
+        "general": "chung",
+        "style": "phong cách",
+        "text": "văn bản",
+        "icon": "Biểu tượng"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Nhập tên để lưu cài đặt trước."
+    },
+    "name": {
+      "required": "Nhập tên cho dấu trang."
+    },
+    "folderName": {
+      "required": "Nhập tên cho thư mục."
+    },
+    "url": {
+      "invalid": "URL không hợp lệ.",
+      "unsupportedProtocol": "Loại URL này không được phép."
+    },
+    "backgroundImageUrl": {
+      "invalid": "URL hình ảnh không hợp lệ.",
+      "unsupportedProtocol": "Loại hình ảnh này không được phép."
+    }
+  },
+  "editModal": {
+    "title": "Chỉnh sửa dấu trang",
+    "name": "Tên:",
+    "url": "URL:",
+    "backgroundImage": "Hình nền (URL):",
+    "backgroundFavicon": "Biểu tượng lớn, ở giữa",
+    "invertColorBg": "Đảo ngược màu sắc",
+    "noBackground": "Không có nền",
+    "backgroundColor": "Màu đánh dấu:",
+    "showText": "Hiển thị văn bản",
+    "textColor": "Màu văn bản:",
+    "showFavicon": "Hiển thị biểu tượng",
+    "invertColorIcon": "Đảo ngược màu biểu tượng",
+    "iconColor": "Màu biểu tượng:",
+    "sections": {
+      "general": "chung",
+      "style": "phong cách",
+      "text": "văn bản",
+      "icon": "Biểu tượng"
+    },
+    "preview": "Xem trước",
+    "previewName": "Xem trước"
+  },
+  "colorPicker": {
+    "title": "Bộ chọn màu",
+    "sample": "Chọn một màu từ màn hình",
+    "close": "Đóng bộ chọn màu",
+    "saturationBrightness": "Độ bão hòa và độ sáng",
+    "hue": "Huế",
+    "quickColors": "Màu sắc nhanh",
+    "saturation": "Độ bão hòa",
+    "brightness": "Độ sáng",
+    "hex": "Mã hex",
+    "copy": "Sao chép mã hex",
+    "copied": "Đã sao chép mã hex",
+    "copyFailed": "Không thể sao chép mã hex"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "chung",
+      "sync": "Đồng bộ hóa",
+      "theme": "chủ đề",
+      "bookmark": "Dấu trang",
+      "shortcuts": "Phím tắt",
+      "language": "Ngôn ngữ",
+      "help": "Trợ giúp",
+      "information": "Thông tin"
+    },
+    "general": {
+      "title": "chung",
+      "subtitle": "Cài đặt",
+      "export": "Xuất bản sao lưu",
+      "import": "Khôi phục bản sao lưu",
+      "resetSettings": "Đặt lại cài đặt",
+      "deleteAllData": "Xóa tất cả dữ liệu cục bộ",
+      "recycleBin": {
+        "title": "Thùng rác",
+        "show": "Hiển thị thùng rác trên lưới chính",
+        "retentionLabel": "Tự động xóa các mục:",
+        "retentionOptions": {
+          "oneDay": "1 ngày",
+          "sevenDays": "7 ngày",
+          "fourteenDays": "14 ngày",
+          "twentyEightDays": "28 ngày",
+          "never": "không bao giờ"
+        }
+      },
+      "appearance": {
+        "title": "Ngoại hình",
+        "system": "Trình duyệt",
+        "light": "Ánh sáng",
+        "dark": "Tối"
+      }
+    },
+    "sync": {
+      "title": "Đồng bộ hóa",
+      "description": "Chọn nơi lưu trữ cài đặt và dấu trang của bạn.",
+      "ariaLabel": "Chế độ lưu trữ",
+      "local": {
+        "title": "Chỉ thiết bị này",
+        "description": "Dữ liệu chỉ được lưu trữ trong hồ sơ trình duyệt cục bộ này."
+      },
+      "synced": {
+        "title": "Đã đồng bộ hóa",
+        "description": "Có sẵn trong Google Chrome hồ sơ được kết nối với cùng một tài khoản.",
+        "tooltip": "Thông tin đồng bộ hóa"
+      },
+      "compatibility": {
+        "newerVersion": "Đồng bộ hóa bị khóa trên thiết bị này vì dữ liệu đám mây được tạo bởi phiên bản NewDeskTab mới hơn. Dữ liệu được đồng bộ hóa của bạn an toàn và chưa bị sửa đổi. Cập nhật NewDeskTab để kết nối lại."
+      },
+      "usage": {
+        "title": "Tính khả dụng của bộ nhớ",
+        "showExact": "Hiển thị byte chính xác",
+        "showHuman": "Hiển thị kích thước có thể đọc được",
+        "local": "Địa phương",
+        "sync": "Đã đồng bộ hóa",
+        "localSyncCopy": "Bản sao đồng bộ hóa cục bộ",
+        "localAria": "Mức sử dụng bộ nhớ cục bộ",
+        "syncAria": "Mức sử dụng bộ nhớ đã đồng bộ hóa",
+        "loading": "Đang tính…",
+        "summary": "{{used}} trên {{total}} · {{percent}}%",
+        "available": "{{free}} có sẵn",
+        "system": "Hệ thống và siêu dữ liệu",
+        "bookmarks": "Dấu trang",
+        "folders": "Thư mục",
+        "trash": "Dữ liệu thùng rác",
+        "localImages": "Hình ảnh địa phương",
+        "themeImages": "chủ đề",
+        "bookmarkImages": "Dấu trang",
+        "folderImages": "Thư mục",
+        "trashImages": "Thùng rác",
+        "otherImages": "Khác",
+        "widgets": "Widget",
+        "widgetsHint": "Kích thước hiển thị cho Đồng bộ hóa là kích thước ước tính và không bao gồm nội dung trực tiếp được tìm nạp từ các dịch vụ bên ngoài.",
+        "error": "Không sử dụng được"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome đồng bộ hóa New DeskTab thông qua Tài khoản Google của bạn. New DeskTab không chạy máy chủ đồng bộ hóa của chính nó.",
+        "brave": "Không khả dụng trong Brave: nó có thể lưu trữ dữ liệu New DeskTab trong chrome.storage.sync nhưng hiện không truyền dữ liệu đó giữa các thiết bị.",
+        "unsupported": "Bộ nhớ đã đồng bộ hóa hiện chỉ khả dụng ở Google Chrome. Các trình duyệt khác vẫn bị vô hiệu hóa cho đến khi hỗ trợ trên nhiều thiết bị được xác minh."
+      },
+      "existingNotice": "Việc chấp nhận chuyển sang Đã đồng bộ hóa sẽ tải mọi dữ liệu được đồng bộ hóa đã tồn tại.",
+      "deleteData": "Xóa dữ liệu đã đồng bộ hóa",
+      "metadata": {
+        "loading": "Đang kiểm tra dữ liệu đã đồng bộ hóa…",
+        "updatedAt": "Cập nhật được đồng bộ hóa lần cuối: {{date}}",
+        "unknown": "Dữ liệu được đồng bộ hóa tồn tại nhưng không có thời gian cập nhật.",
+        "empty": "Không có dữ liệu New DeskTab đã đồng bộ hóa nào được lưu trữ.",
+        "error": "Không thể tải thông tin dữ liệu đã đồng bộ hóa."
+      },
+      "status": {
+        "idle": "Dữ liệu đã sẵn sàng.",
+        "saving": "Đang lưu thay đổi…",
+        "saved": "Tất cả các thay đổi đều được lưu.",
+        "error": "Không thể lưu những thay đổi mới nhất."
+      }
+    },
+    "theme": {
+      "title": "chủ đề",
+      "subtitle": "Nền trang",
+      "backgroundImageMode": "Hình ảnh/video",
+      "wallpapersTitle": "Hình nền của riêng tôi",
+      "ownWallpapersHint": "Những hình nền này và cách xoay của chúng chỉ được lưu trữ trên thiết bị này.",
+      "mediaUrl": "URL hình nền",
+      "image": "Hình ảnh",
+      "video": "Video",
+      "addUrl": "Thêm URL",
+      "addFiles": "Thêm tập tin cục bộ",
+      "rotationInterval": "Xoay hình nền",
+      "noRotation": "Đừng tự động thay đổi",
+      "interval5": "5 giây",
+      "interval15": "15 giây",
+      "interval30": "30 giây",
+      "interval60": "1 phút",
+      "interval300": "5 phút",
+      "interval600": "10 phút",
+      "interval1800": "30 phút",
+      "previous": "trước đó",
+      "next": "Tiếp theo",
+      "moveUp": "Di chuyển lên",
+      "moveDown": "Di chuyển xuống",
+      "remove": "Xóa",
+      "unavailableLocal": "Tệp cục bộ không có sẵn trên thiết bị này",
+      "mediaColor": "Màu sắc đằng sau hình nền này",
+      "mediaPreview": "Xem trước hình nền",
+      "activeSource": "Nguồn hoạt động",
+      "backgroundSolid": "Màu đặc",
+      "backgroundColor": "Màu sắc:",
+      "editSolidColor": "Thay đổi màu nền đồng nhất",
+      "changeSolidColor": "Thay đổi màu sắc",
+      "backgroundImageColor": "Màu sắc đằng sau hình ảnh/video",
+      "backgroundImage": "URL được chia sẻ giữa các thiết bị",
+      "urlHidden": "URL bị ẩn",
+      "resetBackground": "Đặt lại chủ đề"
+    },
+    "bookmark": {
+      "title": "Dấu trang",
+      "subtitle": "Dấu trang mặc định",
+      "description": "Chọn giao diện được sử dụng khi tạo dấu trang mới.",
+      "configure": "Định cấu hình dấu trang mặc định",
+      "editorTitle": "Giao diện dấu trang mặc định",
+      "previewName": "Dấu trang mặc định",
+      "export": "Xuất dấu trang",
+      "import": "Nhập dấu trang",
+      "deleteAll": "Xóa tất cả dấu trang",
+      "preview": "Xem trước",
+      "drag": {
+        "title": "Hành vi kéo",
+        "description": "Chọn cách sắp xếp lại dấu trang khi bạn chiếm vị trí của chúng.",
+        "none": {
+          "title": "không có",
+          "description": "Chỉ cho phép di chuyển đến các ô trống."
+        },
+        "cascade": {
+          "title": "trình tự",
+          "description": "Dịch chuyển chuỗi cho đến khi tìm thấy một ô trống.",
+          "experimental": "Thử nghiệm · Có thể có lỗi nhỏ."
+        },
+        "relocate": {
+          "title": "tái định cư",
+          "description": "Di chuyển các dấu trang đang chiếm giữ đích đến."
+        }
+      },
+      "resize": {
+        "title": "Thay đổi kích thước hành vi",
+        "description": "Chọn cách các mục phản hồi trong khi di chuyển núm điều khiển đổi kích thước.",
+        "smooth": {
+          "title": "mịn màng",
+          "description": "Kéo dãn mục trong khi kéo, sau đó gắn vào lưới."
+        },
+        "none": {
+          "title": "không có",
+          "description": "Nhảy theo ô khi bạn vượt qua 50% ô lân cận."
+        }
+      },
+      "presets": {
+        "title": "Thư viện kiểu",
+        "tab": "Thư viện",
+        "description": "Lưu kiểu và sử dụng lại chúng khi thiết lập dấu trang mặc định.",
+        "name": "Tên đặt trước",
+        "saved": "Giá trị đặt trước đã lưu",
+        "save": "Lưu giá trị đặt trước",
+        "apply": "Tải",
+        "delete": "Xóa",
+        "empty": "Không có cài đặt trước nào được lưu"
+      }
+    },
+    "shortcuts": {
+      "title": "Phím tắt",
+      "description": "Chọn một nút tắt, sau đó nhấn một chữ cái hoặc tổ hợp phím. Nhấp chuột phải để bỏ gán nó.",
+      "change": "Thay đổi phím tắt {{action}}. Phím tắt hiện tại: {{shortcut}}.",
+      "press": "Nhấn phím tắt…",
+      "unassigned": "Chưa được chỉ định",
+      "unassignedFlash": "Phím tắt chưa được chỉ định.",
+      "modifierRequired": "Sử dụng riêng một chữ cái hoặc tổ hợp phím với từ bổ nghĩa.",
+      "reserved": "Phím tắt này được trình duyệt hoặc hệ điều hành dành riêng. Chọn một sự kết hợp khác.",
+      "conflict": "Phím này đã được gán cho một hành động khác.",
+      "updated": "Đã cập nhật lối tắt.",
+      "cancelled": "Đã hủy thay đổi lối tắt.",
+      "restored": "Đã khôi phục các phím tắt mặc định.",
+      "reset": "Đặt lại phím tắt",
+      "actions": {
+        "toggleEditing": {
+          "title": "Chế độ chỉnh sửa",
+          "description": "Nhập hoặc để lại chỉnh sửa trên lưới chính hoặc trong một thư mục đang mở."
+        },
+        "addBookmark": {
+          "title": "Tạo dấu trang",
+          "description": "Mở biểu mẫu để thêm dấu trang."
+        },
+        "addFolder": {
+          "title": "Tạo thư mục",
+          "description": "Mở hộp thoại để tạo thư mục."
+        },
+        "openWidgets": {
+          "title": "Mở tiện ích",
+          "description": "Mở danh sách các vật dụng có sẵn."
+        },
+        "openSettings": {
+          "title": "Mở cài đặt",
+          "description": "Mở bảng cài đặt New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Ngôn ngữ",
+      "text": "Chọn ngôn ngữ giao diện:",
+      "system": "Trình duyệt",
+      "search": "Tìm kiếm ngôn ngữ hoặc quốc gia",
+      "empty": "Không tìm thấy ngôn ngữ nào"
+    },
+    "information": {
+      "title": "Thông tin",
+      "version": "Phiên bản: {{VERSION}}",
+      "author": "tác giả:"
+    }
+  }
+}

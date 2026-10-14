@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Note de lansare",
+    "settingsDescription": "Ce s-a schimbat și povestea din spatele fiecărei actualizări.",
+    "open": "Citiți notele",
+    "history": "Istoricul versiunilor",
+    "dismiss": "Închideți notele de lansare",
+    "continue": "Continuă",
+    "back": "Înapoi la Informații",
+    "highlights": "Ce poți face astăzi",
+    "generic": {
+      "title": "New DeskTab a fost actualizat",
+      "description": "Ai noua versiune. Puteți revedea notele de lansare anterioare în Informații oricând doriți. Mulțumesc că ești aici."
+    },
+    "v1_0_0": {
+      "title": "Desktopul dvs. de site-uri web. În sfârșit.",
+      "thanks": "Vă mulțumim că ați încercat New DeskTab. Sunt atât de încântat să vă împărtășesc în sfârșit prima lansare publică a acestui proiect.",
+      "origin": "Totul a început pe 26 septembrie 2025. În timp ce urmăream un flux Just Chatting pe Twitch, am observat noua filă a browserului streamerului: o extensie care aranja site-urile web ca pătrate colorate, fără nume sau sigle. Acel minimalism m-a fascinat și m-am gândit: de ce să nu îmi construiesc propria extensie? Am vrut ca fiecare filă nouă să aducă un sentiment de ordine, paginile mele la îndemână și un panou la care îmi plăcea să mă uit.",
+      "desktop": "Treptat, această idee a devenit un desktop personal de site-uri web, mai degrabă decât aplicații. Ceasul este un prim pas și este încă o lucrare în curs. Pe viitor, aș dori să adaug un notepad și alte widget-uri care oferă ceva util, atât mie, cât și tuturor celor care folosesc New DeskTab.",
+      "closing": "Această aplicație este făcută pentru mine și pentru tine. Vă mulțumim că ați avut încredere în New DeskTab și i-ați acordat un loc în browser. Sper că vă place să vă creați spațiul la fel de mult cum mi-a plăcut mie să-l construiesc.",
+      "highlights": {
+        "workspace": "Organizați-vă paginile cu marcaje, foldere și spații de lucru independente.",
+        "appearance": "Personalizați culorile, dimensiunea fiecărui articol și fundalul desktopului.",
+        "search": "Găsiți paginile dvs. cu căutare și folosiți comenzile rapide de la tastatură pentru a naviga și a crea elemente.",
+        "backup": "Salvați copii de rezervă și recuperați elementele șterse din coșul de reciclare.",
+        "sync": "Alegeți să păstrați datele pe acest dispozitiv sau să le sincronizați cu Google Chrome.",
+        "help": "Descoperiți funcțiile cu ghidul de bun venit, manualul și sfaturile zilnice."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "PRIMUL TĂU MINUT",
+    "skip": "Sari peste ghid",
+    "back": "Înapoi",
+    "next": "În continuare",
+    "finish": "Înapoi la setări",
+    "explore": "Explorează spațiul meu",
+    "addFirst": "Adăugați primul meu marcaj",
+    "progress": "Pasul {{current}} din {{total}}",
+    "compactHint": "Lărgiți fereastra când doriți să adăugați marcaje și să vă editați spațiul.",
+    "reopenTitle": "Ghid rapid",
+    "reopenDescription": "Redescoperă elementele esențiale într-un minut.",
+    "reopen": "Vezi ghidul",
+    "demo": {
+      "work": "Munca",
+      "media": "Media",
+      "trash": "Coșul de reciclare",
+      "search": "Găsiți marcajele dvs"
+    },
+    "steps": {
+      "start": {
+        "title": "Paginile tale. Propriul tău spațiu.",
+        "body": "Bun venit la New DeskTab. Păstrați paginile preferate la îndemână ori de câte ori deschideți o filă. Pentru a adăuga unul, deplasați-vă la marginea din stânga și alegeți + → [[bookmarks|Marcaj]].",
+        "hint": "De asemenea, puteți să [[quick-save|salvați pagina pe care o vizitați]] din pictograma extensiei din browser."
+      },
+      "edit": {
+        "title": "Oferă fiecărui marcaj locul său.",
+        "body": "Porniți creionul din meniul din stânga pentru a edita. Țineți și [[movement|trage]] un element pentru a-l muta; folosește [[resizing|mânere]] pentru a-i schimba dimensiunea.",
+        "hint": "Creionul fiecărui marcaj își deschide [[appearance|editor]]: nume, culori, pictogramă și imagine. Salvați [[presets|stiluri]] pentru a le reutiliza."
+      },
+      "organize": {
+        "title": "Mai puțină dezordine. Mai multă ordine.",
+        "body": "Creați un [[folders|folder]] din + și trageți marcajele în el în modul de editare. Se deschide într-o grilă curată, cu spațiu pentru până la 18 marcaje.",
+        "hint": "Folosiți + din [[workspaces|bara de spațiu de lucru]] pentru a separa munca de joacă. [[search|lupa]] caută și în dosare."
+      },
+      "style": {
+        "title": "Fă-l să se simtă ca tine.",
+        "body": "În Setări → [[wallpapers|Temă]], alegeți o culoare, o imagine sau un fundal video și rotiți imaginile de fundal preferate. În Setări → [[sync|Sincronizare]], sincronizați-vă spațiul pe dispozitive folosind contul conectat la profilul dvs. Chrome.",
+        "hint": "Adăugați un [[clock|ceas]] din + → Widgeturi. Puteți personaliza și [[appearance|aspectul]] dosarele dvs."
+      },
+      "ready": {
+        "title": "Știi esențialul.",
+        "body": "Apăsați [[search|/]] pentru a găsi un marcaj. Utilizați săgețile [[history|anulați și refaceți]] pentru a recupera modificările; marcajele șterse ajung la [[trash|coșul de reciclare]].",
+        "hint": "Modificările se salvează automat. În Setări, exportați un [[backup|backup]] sau activați opțional Google Chrome [[sync|sincronizare]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Cele mai recente modificări ale dvs. nu au putut fi salvate.",
+    "retry": "Reîncercați să salvați",
+    "saved": "Modificările în așteptare au fost salvate."
+  },
+  "itemEditor": {
+    "chooseIcon": "Alegeți o pictogramă",
+    "siteLogo": "Logo",
+    "noSymbol": "Niciuna",
+    "folderIconHint": "Simbolul înlocuiește previzualizările marcajelor din dosar.",
+    "icons": {
+      "mail": "Mail",
+      "calendar": "Calendar",
+      "notes": "Note",
+      "projects": "Proiecte",
+      "design": "Design",
+      "music": "Muzica",
+      "tasks": "Sarcini",
+      "ideas": "Idei",
+      "docs": "Documente",
+      "ui-start": "busola",
+      "ui-organize": "Aspect",
+      "ui-personalize": "Glisoare",
+      "ui-protect": "Scut",
+      "ui-bookmarks": "Adăugați marcaj",
+      "ui-quick-save": "Browser",
+      "ui-keyboard": "Tastatura",
+      "ui-shortcuts": "Fulgerul",
+      "ui-search": "Caută",
+      "ui-editing": "creion",
+      "ui-movement": "Mișcă-te",
+      "ui-resizing": "Redimensionați",
+      "ui-drag-modes": "Trageți",
+      "ui-folders": "Folder",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Selectie",
+      "ui-history": "istorie",
+      "ui-appearance": "Paleta",
+      "ui-presets": "Presetări",
+      "ui-wallpapers": "Imagine",
+      "ui-clock": "Ceasul",
+      "ui-interface": "Glob",
+      "ui-trash": "Coș de gunoi",
+      "ui-backup": "Arhiva",
+      "ui-sync": "Sincronizare",
+      "ui-compact": "Lista",
+      "ui-data": "Baza de date",
+      "ui-learning": "carte",
+      "ui-settings": "Setări",
+      "ui-controls": "Controale",
+      "ui-cloud": "nor",
+      "ui-bookmark": "Marcaj",
+      "ui-info": "Informații",
+      "ui-eye": "Ochi",
+      "ui-check": "Terminat",
+      "ui-lock": "Blocare",
+      "ui-unlock": "Deblocați",
+      "ui-copy": "Copiere",
+      "ui-close": "Închide",
+      "ui-undo": "Anulați",
+      "ui-redo": "Reface",
+      "ui-desktop": "Desktop",
+      "home": "Acasă",
+      "briefcase": "Munca",
+      "code": "Cod",
+      "game": "Jocuri",
+      "cart": "Cumpărături",
+      "card": "Plăți",
+      "people": "Oameni",
+      "message": "Mesaj",
+      "location": "Locație",
+      "phone": "Telefon",
+      "camera": "Camera foto",
+      "headphones": "Căști",
+      "link": "Link",
+      "tag": "Etichetați",
+      "chart": "Statistici",
+      "coffee": "cafea",
+      "sun": "soare",
+      "moon": "Luna",
+      "circle": "Cercul",
+      "square": "pătrat",
+      "triangle": "Triunghi",
+      "diamond": "Diamant",
+      "pentagon": "Pentagonul",
+      "hexagon": "Hexagon",
+      "star": "Steaua",
+      "heart": "inima",
+      "plus": "Plus",
+      "minus": "Minus",
+      "video": "Videoclip"
+    },
+    "searchIcons": "Pictograme de căutare...",
+    "clearIconSearch": "Ștergeți căutarea",
+    "noIcons": "Nu s-au găsit pictograme",
+    "suggestedIcons": "Sugerat",
+    "suggestedIcon": "Sugerat: {{name}}",
+    "logoKeywords": "logo favicon site-ul site-ului brand",
+    "iconKeywords": {
+      "ui-trash": "coș de gunoi deșeuri șterge clasic",
+      "mail": "e-mail e-mail gmail Outlook inbox",
+      "docs": "documente fisiere pdf drive word",
+      "notes": "note noțiune memo onenote",
+      "ui-protect": "securitate protecție confidențialitate",
+      "game": "console de control de jocuri de jocuri",
+      "cart": "cumpărături magazin magazin cumpărare",
+      "card": "finanțare bancară credit debit bani",
+      "people": "grupul de prieteni din comunitatea socială",
+      "ui-learning": "lectură bibliotecă studiu educație",
+      "ui-clock": "timp ore ceas",
+      "ui-interface": "Internet web limba lumii",
+      "ui-data": "stocarea datelor sql",
+      "circle": "forme geometrice figuri",
+      "square": "forme geometrice figuri",
+      "triangle": "forme geometrice figuri",
+      "diamond": "forme geometrice figuri",
+      "pentagon": "forme geometrice figuri",
+      "hexagon": "forme geometrice figuri",
+      "star": "forme geometrice figuri",
+      "heart": "forme geometrice figuri"
+    },
+    "history": "Editați istoricul",
+    "description": "Fă-l să te simți ca acasă în spațiul tău de lucru.",
+    "looks": "Alegeți o privire",
+    "custom": "Personalizat",
+    "look": {
+      "original": "Original",
+      "card": "Card",
+      "midnight": "Întuneric",
+      "paper": "Lumină"
+    },
+    "reset": "Resetați aspectul",
+    "cardColor": "Culoarea cardului",
+    "folderFill": "Culoarea folderului",
+    "image": "Imagine de fundal",
+    "lock": "Blocați sau deblocați adresa URL",
+    "copy": "Copiați adresa URL",
+    "clear": "Clar",
+    "section": {
+      "general": "Esențiale",
+      "text": "Nume și etichete",
+      "icon": "Pictogramă",
+      "card": "Card"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Numele pe care îl vedeți și pagina pe care o deschide.",
+        "text": "Alegeți dacă doriți să afișați numele și ajustați culoarea acestuia.",
+        "icon": "Utilizați o favicon mare, centrată, sau o pictogramă mică lângă numele pentru cardurile cu imagine."
+      },
+      "folder": {
+        "general": "Un nume pentru a vă aduce marcajele împreună.",
+        "text": "Afișați numele folderului și ajustați-i culoarea.",
+        "icon": "Personalizați pictograma folderului și miniaturile marcajelor acesteia."
+      },
+      "recycleBin": {
+        "general": "Alegeți dacă coșul de reciclare apare în spațiul dvs. principal de lucru.",
+        "text": "Afișați numele coșului de reciclare și ajustați-i culoarea.",
+        "icon": "Dați coșului de reciclare propria culoare. Ascunde întregul coș de la general."
+      }
+    },
+    "addImage": "Adăugați o imagine de fundal",
+    "changeImage": "Editați imaginea de fundal"
+  },
+  "html": {
+    "title": "Filă nouă"
+  },
+  "quickSave": {
+    "title": "Salvați marcajul",
+    "name": "Nume",
+    "workspace": "Spațiul de lucru",
+    "folder": "Folder",
+    "mainWorkspace": "Principal",
+    "noFolder": "Niciun folder",
+    "save": "Salvați marcajul",
+    "saveAnyway": "Salvați oricum",
+    "savedButton": "Salvat",
+    "alreadySaved": "Deja salvat",
+    "savedIn": "În {{location}}",
+    "savedInMore": "În {{location}} și încă {{count}}",
+    "open": "Deschideți New DeskTab",
+    "unavailableTitle": "Această filă nu poate fi salvată",
+    "unavailable": "Deschideți o pagină web (http sau https) pentru a o salva.",
+    "loadError": "Nu s-au putut încărca marcajele dvs. Încearcă din nou.",
+    "saving": "Se salvează…",
+    "saved": "Marcaj salvat.",
+    "duplicate": "Această adresă URL este deja salvată în acea destinație.",
+    "noSpace": "Nu a mai rămas spațiu în acea destinație. Alege altul.",
+    "invalid": "Verificați numele și destinația selectată.",
+    "saveError": "Nu s-a putut salva marcajul. Încearcă din nou."
+  },
+  "launcher": {
+    "bookmark": "Marcaj",
+    "folder": "Folder",
+    "widgets": "Widgeturi",
+    "editMode": {
+      "enter": "Intrați în modul de editare",
+      "exit": "Ieși din modul de editare"
+    }
+  },
+  "widgets": {
+    "title": "Widgeturi",
+    "description": "Alegeți un widget pe care să îl adăugați la acest spațiu de lucru.",
+    "empty": "Încă nu sunt disponibile widget-uri."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Lărgiți fereastra pentru a utiliza această funcție.",
+      "suspended": "Panoul ascuns. Lărgiți fereastra pentru a continua."
+    },
+    "editMode": {
+      "enabled": "Modul de editare este activat",
+      "disabled": "Modul de editare a fost dezactivat"
+    },
+    "selectionMode": {
+      "enabled": "Modul de selecție este activat",
+      "disabled": "Modul de selecție dezactivat"
+    },
+    "bookmark": {
+      "added": "Semn de carte adăugat",
+      "notFound": "Marcaj nu a fost găsit",
+      "updated": "Marcaj actualizat",
+      "deleted": "Marcaj șters"
+    },
+    "clock": {
+      "added": "Ceas adăugat",
+      "updated": "Ceasul a fost actualizat",
+      "deleted": "Ceasul a fost șters"
+    },
+    "folder": {
+      "created": "Folder creat",
+      "renamed": "Dosar redenumit",
+      "updated": "Dosarul a fost actualizat",
+      "deleted": "Dosarul și marcajele sale au fost șterse",
+      "bookmarkAdded": "Marcaj adăugat în dosar",
+      "folderFull": "Acest folder are deja 18 marcaje",
+      "bookmarkRemoved": "Marcaj a fost mutat înapoi în grilă"
+    },
+    "recycleBin": {
+      "moved": "Mutat la coșul de reciclare",
+      "restored": "Elemente restaurate",
+      "deletedPermanently": "Articole șterse definitiv",
+      "updated": "Coșul de reciclare a fost actualizat"
+    },
+    "workspace": {
+      "created": "Spațiul de lucru creat",
+      "deleted": "Spațiul de lucru a fost șters",
+      "switched": "Spațiu de lucru: {{name}}"
+    },
+    "history": {
+      "undone": "Modificare anulată",
+      "redone": "Modificare refăcută"
+    },
+    "bookmarks": {
+      "deletedAll": "Toate marcajele au fost șterse",
+      "deletedAllWithFolders": "Toate marcajele și folderele au fost șterse",
+      "deleteAllError": "Nu s-au șters toate marcajele",
+      "exported": "Marcaje exportate",
+      "exportError": "Nu s-au putut exporta marcajele",
+      "imported": "Marcaje importate",
+      "importError": "Nu s-au putut importa marcaje",
+      "presetApplied": "Stil aplicat selecției",
+      "duplicatedSelected": "Elementele selectate au fost duplicate",
+      "deletedSelected": "Elementele selectate au fost șterse",
+      "moved": "Elementele mutate în spațiul de lucru selectat"
+    },
+    "settings": {
+      "saved": "Setările au fost salvate",
+      "bookmarkDefaultSaved": "Aspectul de marcaj implicit a fost salvat",
+      "bookmarkDefaultError": "Nu s-a putut salva aspectul implicit al marcajului",
+      "copied": "Valoarea a fost copiată în clipboard",
+      "resetBg": "Resetarea temei",
+      "deletedAllData": "Toate datele locale NewDeskTab au fost șterse",
+      "deleteAllDataError": "Nu s-au putut șterge toate datele locale NewDeskTab",
+      "invalidWallpaperUrl": "Introduceți o adresă URL validă pentru imagine/video HTTP sau HTTPS.",
+      "invalidWallpaperFile": "Nu s-a putut adăuga acest fișier. Utilizați o imagine acceptată sau un videoclip MP4, WebM sau Ogg de până la 200 MB.",
+      "wallpaperLimit": "Puteți adăuga până la 25 de imagini de fundal personale."
+    },
+    "localImage": {
+      "invalid": "Alegeți o imagine PNG, JPEG, WebP, GIF sau AVIF.",
+      "tooLarge": "Această imagine este prea mare pentru a fi stocată pe acest dispozitiv.",
+      "storageFull": "Nu există suficient spațiu local pentru această imagine.",
+      "processing": "Această imagine nu a putut fi procesată."
+    },
+    "sync": {
+      "enabled": "Sincronizarea este activată",
+      "localEnabled": "Modul local este activat",
+      "remoteLoaded": "Datele sincronizate au fost încărcate",
+      "updatedFromOtherDevice": "Modificări sincronizate primite de pe alt dispozitiv",
+      "deletedFromOtherDevice": "Datele din cloud au fost șterse de pe alt dispozitiv. Acest dispozitiv utilizează acum modul Local.",
+      "error": "Nu s-a putut schimba modul de stocare",
+      "versionBlocked": "Sincronizarea a fost întreruptă deoarece datele din cloud necesită o versiune mai nouă NewDeskTab. Datele locale ale acestui dispozitiv sunt afișate.",
+      "quotaError": "Datele depășesc spațiul de stocare de sincronizare disponibil",
+      "deleted": "Datele sincronizate au fost șterse",
+      "deleteError": "Nu s-au putut șterge datele sincronizate"
+    },
+    "backup": {
+      "exported": "Backup exportat",
+      "exportError": "Nu s-a putut exporta copia de rezervă",
+      "mediaUnavailable": "Unele imagini sau videoclipuri locale la care se face referire nu sunt disponibile, așa că copia de rezervă nu a fost creată.",
+      "imported": "Backup restaurat",
+      "importError": "Nu s-a putut restabili copia de rezervă",
+      "mediaStorageFull": "Nu există suficient spațiu de stocare local pentru a restabili imaginile și videoclipurile de rezervă."
+    }
+  },
+  "view": {
+    "list": "Vizualizare listă",
+    "search": "Căutați marcaje și foldere",
+    "clearSearch": "Ștergeți căutarea",
+    "noResults": "Niciun rezultat."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Ștergeți toate marcajele?",
+      "deleteFolders": "De asemenea, ștergeți toate folderele",
+      "confirmDeleteSelected": "Ștergeți {{count}} articole selectate?",
+      "confirmMoveOne": "Mutați acest articol în spațiul de lucru „{{workspace}}”?",
+      "confirmMoveSelected": "Mutați {{count}} articole selectate în spațiul de lucru „{{workspace}}”?",
+      "duplicateNoSpace": "{{count}} articole nu au putut fi duplicate deoarece nu era suficient spațiu.",
+      "moveNoSpace": "{{count}} de articole nu au putut fi mutate deoarece nu era suficient spațiu.",
+      "no_space": "Nu există spațiu disponibil pentru mai multe marcaje 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Renunțați la noul marcaj?"
+      },
+      "confirmDelete": "Ștergeți „{{name}}”?",
+      "confirmPermanentDelete": "Ștergeți definitiv „{{name}}”? Acest lucru nu poate fi anulat.",
+      "cancel": "Renunțați la modificări?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Ștergeți definitiv acest widget? Acest lucru nu poate fi anulat.",
+      "confirmDeleteSelected": "Ștergeți {{count}} articole selectate? Widgeturile selectate ({{widgetCount}}) vor fi șterse definitiv și nu pot fi restaurate."
+    },
+    "folder": {
+      "createCancel": "Renunțați la folderul nou?",
+      "cancel": "Renunțați la modificările folderului?"
+    },
+    "recycleBin": {
+      "folder": "Mutați „{{name}}” și marcajele sale {{count}} în coșul de reciclare?",
+      "empty": "Ștergeți definitiv tot ce se află în coșul de reciclare? Acest lucru nu poate fi anulat.",
+      "deleteSelected": "Ștergeți definitiv {{count}} articole selectate? Acest lucru nu poate fi anulat.",
+      "noSpace": "{{count}} de elemente nu au putut fi restaurate deoarece nu există suficient spațiu în grilă. Acestea rămân în coșul de reciclare.",
+      "cancel": "Renunțați la modificările coșului de reciclare?"
+    },
+    "settings": {
+      "cancel": "Renunțați la modificările setărilor?",
+      "reset": "Resetați toate setările? Marcajele nu vor fi șterse.",
+      "deleteAllData": "Ștergeți toate datele locale NewDeskTab de pe acest dispozitiv? Marcajele, folderele, widget-urile, setările, articolele din coșul de reciclare, imaginile locale și videoclipurile locale vor fi șterse definitiv. Datele din cloud nu vor fi modificate. Dacă Sincronizarea este activă, acest dispozitiv va comuta mai întâi la Local. Această acțiune nu poate fi anulată.",
+      "theme": {
+        "reset": "Resetați setările temei?"
+      },
+      "bookmark": {
+        "cancel": "Renunțați la modificările la aspectul implicit al marcajului?"
+      },
+      "shortcuts": {
+        "reset": "Restabiliți comenzile rapide de la tastatură implicite?"
+      },
+      "sync": {
+        "enable": "Treceți de la local la sincronizat? Aceasta intră în vigoare acum, fără să faceți clic pe Salvare. Dacă datele sincronizate există deja, marcajele și setările acestora vor fi încărcate. În caz contrar, datele dvs. locale salvate vor fi sincronizate.",
+        "local": "Treceți de la sincronizat la local? Aceasta intră în vigoare acum, fără să faceți clic pe Salvare. Acest dispozitiv va păstra o copie a datelor curente și va opri sincronizarea modificărilor. Datele sincronizate vor rămâne stocate pentru alte dispozitive.",
+        "delete": "Ștergeți toate datele NewDeskTab sincronizate? Acest dispozitiv și orice alt dispozitiv care utilizează aceste date cloud vor trece în modul Local atunci când detectează ștergerea. Acest lucru nu poate fi anulat."
+      }
+    },
+    "backup": {
+      "import": "Restabiliți această copie de rezervă? Acesta va înlocui marcajele și setările dvs. actuale."
+    }
+  },
+  "addModal": {
+    "title": "Adăugați un nou marcaj",
+    "name": "Nume:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Opțiuni avansate",
+    "compactView": "▴ Vizualizare compactă"
+  },
+  "clock": {
+    "name": "Ceasul",
+    "inDevelopment": "În dezvoltare: ceasul nu este încă în versiunea finală. Lucrăm la îmbunătățirea acestuia.",
+    "createTitle": "Adăugați ceasul",
+    "editTitle": "Setările ceasului",
+    "description": "Afișați ora locală în acest spațiu de lucru.",
+    "hourCycle": "Format de timp",
+    "hour24": "24 de ore",
+    "hour12": "12 ore",
+    "showSeconds": "Arată secunde",
+    "delete": "Ștergeți",
+    "edit": "Editați ceasul",
+    "actions": "Acțiunile ceasului",
+    "openSettings": "Deschideți setările ceasului",
+    "confirmDelete": "Ștergeți acest ceas? Puteți anula această acțiune.",
+    "confirmPermanentDelete": "Ștergeți definitiv acest ceas? Acest lucru nu poate fi anulat.",
+    "cancel": "Renunțați la schimbările de ceas?",
+    "noSpace": "Nu există suficient spațiu în grilă pentru acest ceas."
+  },
+  "buttons": {
+    "save": "Salvați",
+    "apply": "Aplicați",
+    "add": "Adăugați",
+    "accept": "Acceptați",
+    "cancel": "Anulează",
+    "close": "Închide"
+  },
+  "localImage": {
+    "upload": "Încărcați de pe acest dispozitiv",
+    "label": "Imagine locală:",
+    "activeSource": "Imagine activă:",
+    "sourceLocal": "Local",
+    "sourceUrl": "URL",
+    "remove": "Eliminați imaginea locală",
+    "notice": "Imaginile locale nu sunt sincronizate.",
+    "unnamed": "Imagine locală"
+  },
+  "workspace": {
+    "ariaLabel": "Controale spațiului de lucru",
+    "current": "Spațiul de lucru",
+    "main": "Principal",
+    "search": "Căutați marcaje",
+    "add": "Creați spațiu de lucru",
+    "delete": "Șterge spațiul de lucru",
+    "undo": "Anulați",
+    "redo": "Reface",
+    "shortcutHint": "Schimbați spațiul de lucru cu Alt sau Opțiune plus săgeata sus sau jos",
+    "prompt": "Introduceți un nume pentru noul spațiu de lucru",
+    "namePlaceholder": "Munca, petrecerea timpului liber…",
+    "confirmDelete": "Ștergeți „{{name}}”, folderele sale {{folderCount}} și marcajele {{bookmarkCount}}? Pentru a le păstra, mutați-le mai întâi în principal sau în alt spațiu de lucru."
+  },
+  "search": {
+    "title": "Căutați marcaje",
+    "inputLabel": "Căutați după nume sau URL",
+    "placeholder": "Nume sau URL",
+    "empty": "Nu s-au găsit marcaje.",
+    "noUrl": "Nicio adresă URL",
+    "inFolder": "Dosar: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Acțiuni ale articolului selectat",
+    "selected": "{{count}} selectat",
+    "move": "Mutați-vă în spațiul de lucru",
+    "applyPreset": "Aplicați stilul implicit",
+    "duplicate": "Selecție duplicată",
+    "delete": "Ștergeți",
+    "clear": "Ștergeți selecția"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Comenzile marcajelor",
+    "edit": "Editați marcajul",
+    "delete": "Ștergeți marcajul",
+    "copySuffix": "copie"
+  },
+  "folder": {
+    "create": "Creați folder",
+    "createPrompt": "Denumiți noul folder",
+    "namePlaceholder": "Instrumente, inspirație...",
+    "open": "Deschideți {{name}}, {{count}} marcaje salvate",
+    "count": "{{count}} salvat",
+    "summary": "{{count}} din {{capacity}} spatii folosite",
+    "editMode": {
+      "enable": "Editați",
+      "disable": "Terminați editarea"
+    },
+    "gridLabel": "Dosar marcaje",
+    "dropHint": "Aruncă pentru a adăuga",
+    "noSpace": "Nu există o celulă de grilă liberă pentru un folder nou.",
+    "removeNoSpace": "Nu există suficient spațiu în grilă pentru a elimina acest marcaj din dosar.",
+    "confirmDelete": "Mutați „{{name}}” și marcajele sale {{count}} în coșul de reciclare?",
+    "confirmPermanentDelete": "Ștergeți definitiv „{{name}}” și marcajele sale {{count}}? Acest lucru nu poate fi anulat.",
+    "actions": {
+      "ariaLabel": "Controale pentru foldere",
+      "customize": "Personalizați folderul",
+      "rename": "Redenumiți folderul",
+      "delete": "Ștergeți folderul",
+      "editBookmark": "Editați {{name}}",
+      "removeBookmark": "Mutați {{name}} din dosar",
+      "deleteBookmark": "Ștergeți {{name}}",
+      "acceptRename": "Salvați numele folderului",
+      "cancelRename": "Anulați redenumirea folderului"
+    },
+    "editor": {
+      "createTitle": "Adăugați un folder nou",
+      "title": "Editați folderul",
+      "name": "Nume:",
+      "showPreviews": "Afișează previzualizările marcajelor",
+      "showName": "Afișează numele folderului",
+      "iconColor": "Culoarea simbolului:",
+      "outerBackgroundColor": "Culoare exterioară de fundal:",
+      "noOuterBackground": "Fără fundal exterior",
+      "resetOuterBackground": "automată",
+      "noBackground": "Umplere transparentă a folderului",
+      "backgroundColor": "Culoare folder:",
+      "backgroundImage": "Imagine de fundal (URL):",
+      "lockImage": "Blocați sau deblocați adresa URL a imaginii",
+      "copyImage": "Copiați adresa URL a imaginii",
+      "clearImage": "Ștergeți adresa URL a imaginii",
+      "textColor": "Culoarea textului:",
+      "preview": "Previzualizare",
+      "previewName": "Folder",
+      "sections": {
+        "general": "general",
+        "style": "Stil",
+        "text": "Text"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Coșul de reciclare",
+    "open": "Deschideți coșul de reciclare",
+    "openCount": "Deschideți coșul de reciclare, {{count}} articole",
+    "dropHint": "Drop pentru a șterge",
+    "summary": "{{count}} articole · Ștergere automată: {{retention}}",
+    "empty": "Coșul de reciclare este gol.",
+    "selected": "{{count}} selectat",
+    "select": "Selectați {{name}}",
+    "folderContents": "{{count}} marcaje",
+    "deletedAt": "S-a șters {{date}}",
+    "expiresIn": "Au mai rămas {{days}} zile",
+    "expiresInOne": "1 zi ramasa",
+    "neverExpires": "Nu s-a șters niciodată automat",
+    "restoreAll": "Restaurați totul",
+    "deleteAll": "Ștergeți tot",
+    "restoreSelected": "Restabiliți selectat",
+    "deleteSelected": "Ștergeți selectat",
+    "editor": {
+      "title": "Editați coșul de reciclare",
+      "animateIcon": "Animați coșul de reciclare",
+      "appearance": "Aspectul",
+      "backgroundColor": "Culoare de fundal:",
+      "backgroundImage": "Imagine de fundal (URL):",
+      "lockImage": "Blocați sau deblocați adresa URL a imaginii",
+      "copyImage": "Copiați adresa URL a imaginii",
+      "clearImage": "Ștergeți adresa URL a imaginii",
+      "noBackground": "Fără fundal",
+      "iconColor": "Culoarea pictogramei:",
+      "textColor": "Culoarea textului:",
+      "elements": "Elemente vizibile",
+      "showName": "Arată numele",
+      "visible": "Afișați coșul de reciclare pe grila principală",
+      "preview": "Previzualizare",
+      "actions": "Acțiuni de coș de reciclare",
+      "edit": "Editați coșul de reciclare",
+      "sections": {
+        "general": "general",
+        "style": "Stil",
+        "text": "Text",
+        "icon": "Pictogramă"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Introduceți un nume pentru a salva presetarea."
+    },
+    "name": {
+      "required": "Introduceți un nume pentru marcaj."
+    },
+    "folderName": {
+      "required": "Introduceți un nume pentru folder."
+    },
+    "url": {
+      "invalid": "Adresa URL nu este validă.",
+      "unsupportedProtocol": "Acest tip de adresă URL nu este permis."
+    },
+    "backgroundImageUrl": {
+      "invalid": "Adresa URL a imaginii nu este validă.",
+      "unsupportedProtocol": "Acest tip de imagine nu este permis."
+    }
+  },
+  "editModal": {
+    "title": "Editați marcajul",
+    "name": "Nume:",
+    "url": "URL:",
+    "backgroundImage": "Imagine de fundal (URL):",
+    "backgroundFavicon": "Pictogramă mare, centrată",
+    "invertColorBg": "Inversa culorile",
+    "noBackground": "Fără fundal",
+    "backgroundColor": "Culoare marcaj:",
+    "showText": "Afișează text",
+    "textColor": "Culoarea textului:",
+    "showFavicon": "Afișați pictograma",
+    "invertColorIcon": "Inversați culorile pictogramei",
+    "iconColor": "Culoarea pictogramei:",
+    "sections": {
+      "general": "general",
+      "style": "Stil",
+      "text": "Text",
+      "icon": "Pictogramă"
+    },
+    "preview": "Previzualizare",
+    "previewName": "Previzualizare"
+  },
+  "colorPicker": {
+    "title": "Selector de culoare",
+    "sample": "Alegeți o culoare de pe ecran",
+    "close": "Închideți selectorul de culori",
+    "saturationBrightness": "Saturație și luminozitate",
+    "hue": "Hue",
+    "quickColors": "Culori rapide",
+    "saturation": "Saturație",
+    "brightness": "Luminozitate",
+    "hex": "Cod hexadecimal",
+    "copy": "Copiați codul hexadecimal",
+    "copied": "Cod hexadecimal copiat",
+    "copyFailed": "Nu s-a putut copia codul hexadecimal"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "general",
+      "sync": "Sincronizare",
+      "theme": "Temă",
+      "bookmark": "Marcaje",
+      "shortcuts": "Comenzi rapide",
+      "language": "Limbi",
+      "help": "Ajutor",
+      "information": "Informații"
+    },
+    "general": {
+      "title": "general",
+      "subtitle": "Setări",
+      "export": "Exportați backup",
+      "import": "Restaurați backupul",
+      "resetSettings": "Resetați setările",
+      "deleteAllData": "Ștergeți toate datele locale",
+      "recycleBin": {
+        "title": "Coșul de reciclare",
+        "show": "Afișați coșul de reciclare pe grila principală",
+        "retentionLabel": "Ștergeți automat elementele:",
+        "retentionOptions": {
+          "oneDay": "1 zi",
+          "sevenDays": "7 zile",
+          "fourteenDays": "14 zile",
+          "twentyEightDays": "28 de zile",
+          "never": "Niciodată"
+        }
+      },
+      "appearance": {
+        "title": "Aspectul",
+        "system": "Browser",
+        "light": "Lumină",
+        "dark": "Întuneric"
+      }
+    },
+    "sync": {
+      "title": "Sincronizare",
+      "description": "Alegeți unde să vă stocați setările și marcajele.",
+      "ariaLabel": "Modul de stocare",
+      "local": {
+        "title": "Numai acest dispozitiv",
+        "description": "Datele sunt stocate numai în acest profil local de browser."
+      },
+      "synced": {
+        "title": "Sincronizat",
+        "description": "Disponibil în Google Chrome profiluri conectate la același cont.",
+        "tooltip": "Informații de sincronizare"
+      },
+      "compatibility": {
+        "newerVersion": "Sincronizarea este blocată pe acest dispozitiv deoarece datele din cloud au fost create de o versiune mai nouă NewDeskTab. Datele dvs. sincronizate sunt în siguranță și nu au fost modificate. Actualizați NewDeskTab pentru a vă reconecta."
+      },
+      "usage": {
+        "title": "Disponibilitatea stocării",
+        "showExact": "Afișați octeții exacti",
+        "showHuman": "Afișați dimensiuni care pot fi citite",
+        "local": "Local",
+        "sync": "Sincronizat",
+        "localSyncCopy": "Copie de sincronizare locală",
+        "localAria": "Utilizarea stocării locale",
+        "syncAria": "Utilizarea stocării sincronizate",
+        "loading": "Se calculează...",
+        "summary": "{{used}} din {{total}} · {{percent}}%",
+        "available": "{{free}} disponibil",
+        "system": "Sistem și metadate",
+        "bookmarks": "Marcaje",
+        "folders": "Foldere",
+        "trash": "Datele coșului de reciclare",
+        "localImages": "Imagini locale",
+        "themeImages": "Temă",
+        "bookmarkImages": "Marcaje",
+        "folderImages": "Foldere",
+        "trashImages": "Coșul de reciclare",
+        "otherImages": "Altele",
+        "widgets": "Widgeturi",
+        "widgetsHint": "Dimensiunea afișată pentru Sincronizare este o estimare și exclude conținutul live preluat de la servicii externe.",
+        "error": "Utilizare indisponibilă"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome sincronizează New DeskTab prin Contul dvs. Google. New DeskTab nu rulează propriul server de sincronizare.",
+        "brave": "Indisponibil în Brave: poate stoca date New DeskTab în chrome.storage.sync, dar în prezent nu le propagă între dispozitive.",
+        "unsupported": "Stocarea sincronizată este disponibilă pentru moment numai în Google Chrome. Alte browsere rămân dezactivate până când este verificată compatibilitatea între dispozitive."
+      },
+      "existingNotice": "Acceptarea trecerii la Sincronizat încarcă toate datele sincronizate care există deja.",
+      "deleteData": "Ștergeți datele sincronizate",
+      "metadata": {
+        "loading": "Se verifică datele sincronizate...",
+        "updatedAt": "Ultima actualizare sincronizată: {{date}}",
+        "unknown": "Datele sincronizate există, dar timpul de actualizare nu este disponibil.",
+        "empty": "Nu sunt stocate date New DeskTab sincronizate.",
+        "error": "Informațiile de date sincronizate nu au putut fi încărcate."
+      },
+      "status": {
+        "idle": "Datele sunt gata.",
+        "saving": "Se salvează modificările...",
+        "saved": "Toate modificările sunt salvate.",
+        "error": "Nu s-au putut salva cele mai recente modificări."
+      }
+    },
+    "theme": {
+      "title": "Temă",
+      "subtitle": "Fundalul paginii",
+      "backgroundImageMode": "Imagine/video",
+      "wallpapersTitle": "propriile mele imagini de fundal",
+      "ownWallpapersHint": "Aceste imagini de fundal și rotația lor sunt stocate numai pe acest dispozitiv.",
+      "mediaUrl": "URL de fundal",
+      "image": "Imagine",
+      "video": "Videoclip",
+      "addUrl": "Adăugați adresa URL",
+      "addFiles": "Adăugați fișiere locale",
+      "rotationInterval": "Rotirea tapetului",
+      "noRotation": "Nu schimbați automat",
+      "interval5": "5 secunde",
+      "interval15": "15 secunde",
+      "interval30": "30 de secunde",
+      "interval60": "1 minut",
+      "interval300": "5 minute",
+      "interval600": "10 minute",
+      "interval1800": "30 de minute",
+      "previous": "Anterior",
+      "next": "În continuare",
+      "moveUp": "Mișcă-te în sus",
+      "moveDown": "Deplasați-vă în jos",
+      "remove": "Eliminați",
+      "unavailableLocal": "Fișierul local nu este disponibil pe acest dispozitiv",
+      "mediaColor": "Culoare în spatele acestui tapet",
+      "mediaPreview": "Previzualizează imaginea de fundal",
+      "activeSource": "Sursă activă",
+      "backgroundSolid": "Culoare solidă",
+      "backgroundColor": "Culoare:",
+      "editSolidColor": "Schimbați culoarea de fundal solidă",
+      "changeSolidColor": "Schimbați culoarea",
+      "backgroundImageColor": "Culoare în spatele imaginii/videoclipului",
+      "backgroundImage": "Adresa URL partajată între dispozitive",
+      "urlHidden": "Adresa URL ascunsă",
+      "resetBackground": "Resetați tema"
+    },
+    "bookmark": {
+      "title": "Marcaje",
+      "subtitle": "Marcaj implicit",
+      "description": "Alegeți aspectul folosit atunci când creați marcaje noi.",
+      "configure": "Configurați marcajul implicit",
+      "editorTitle": "Aspectul implicit al marcajului",
+      "previewName": "Marcaj implicit",
+      "export": "Exportați marcaje",
+      "import": "Importați marcaje",
+      "deleteAll": "Ștergeți toate marcajele",
+      "preview": "Previzualizare",
+      "drag": {
+        "title": "Comportamentul de tragere",
+        "description": "Alegeți cum se reorganizează marcajele atunci când le ocupați poziția.",
+        "none": {
+          "title": "Niciuna",
+          "description": "Permite doar mutarea în celule libere."
+        },
+        "cascade": {
+          "title": "Secvență",
+          "description": "Mută lanțul până când găsește o celulă liberă.",
+          "experimental": "Experimental · Poate conține erori minore."
+        },
+        "relocate": {
+          "title": "Relocare",
+          "description": "Mută marcajele care ocupă destinația."
+        }
+      },
+      "resize": {
+        "title": "Comportamentul de redimensionare",
+        "description": "Alegeți modul în care elementele răspund în timp ce mutați un mâner de redimensionare.",
+        "smooth": {
+          "title": "Netedă",
+          "description": "Întinde elementul în timp ce trageți, apoi se fixează pe grilă."
+        },
+        "none": {
+          "title": "Niciuna",
+          "description": "Salt de celulă când traversați 50% din celula vecină."
+        }
+      },
+      "presets": {
+        "title": "Biblioteca de stiluri",
+        "tab": "Biblioteca",
+        "description": "Salvați stilurile și reutilizați-le atunci când configurați marcajul implicit.",
+        "name": "Nume presetat",
+        "saved": "Presetări salvate",
+        "save": "Salvați presetarea",
+        "apply": "Încărcare",
+        "delete": "Ștergeți",
+        "empty": "Nicio presetare salvată"
+      }
+    },
+    "shortcuts": {
+      "title": "Comenzi rapide de la tastatură",
+      "description": "Selectați un buton de comandă rapidă, apoi apăsați o literă sau o combinație de taste. Faceți clic dreapta pentru a-l anula atribuirea.",
+      "change": "Schimbați comanda rapidă {{action}}. Comandă rapidă actuală: {{shortcut}}.",
+      "press": "Apăsați pe scurtătură...",
+      "unassigned": "Nealocat",
+      "unassignedFlash": "Comandă rapidă nealocată.",
+      "modifierRequired": "Utilizați o literă singură sau o combinație de taste cu un modificator.",
+      "reserved": "Această comandă rapidă este rezervată de browser sau de sistemul de operare. Alege o altă combinație.",
+      "conflict": "Această tastă este deja atribuită unei alte acțiuni.",
+      "updated": "Scurtătură actualizată.",
+      "cancelled": "Schimbarea comenzii rapide a fost anulată.",
+      "restored": "Comenzile rapide implicite au fost restaurate.",
+      "reset": "Resetați comenzile rapide",
+      "actions": {
+        "toggleEditing": {
+          "title": "Modul de editare",
+          "description": "Introduceți sau părăsiți editarea în grila principală sau într-un folder deschis."
+        },
+        "addBookmark": {
+          "title": "Creați marcaj",
+          "description": "Deschideți formularul pentru adăugarea unui marcaj."
+        },
+        "addFolder": {
+          "title": "Creați folder",
+          "description": "Deschideți caseta de dialog pentru crearea unui folder."
+        },
+        "openWidgets": {
+          "title": "Deschideți widget-uri",
+          "description": "Deschideți lista de widget-uri disponibile."
+        },
+        "openSettings": {
+          "title": "Deschideți setările",
+          "description": "Deschideți panoul de setări New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Limbi",
+      "text": "Selectați limba interfeței:",
+      "system": "Browser",
+      "search": "Căutați limba sau țara",
+      "empty": "Nu s-au găsit limbi"
+    },
+    "information": {
+      "title": "Informații",
+      "version": "Versiune: {{VERSION}}",
+      "author": "Autor:"
+    }
+  }
+}

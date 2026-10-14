@@ -106,7 +106,7 @@
 
 /**
  * @typedef {Object} Settings
- * @property {'system'|'en'|'es'|'es_419'|'pt_BR'} language
+ * @property {string} language - 'system' or a shipped locale from LANGUAGE_CATALOG.
  * @property {'system'|'light'|'dark'} interfaceTheme
  * @property {'none'|'cascade'|'relocate'} bookmarkDragMode
  * @property {'smooth'|'none'} bookmarkResizeMode

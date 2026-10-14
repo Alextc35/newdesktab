@@ -1,0 +1,517 @@
+{
+  "title": "Manual d'usuari",
+  "eyebrow": "EL TEU ESPAI, EL TEU RITME",
+  "intro": "Coneix cada petita característica.",
+  "description": "Troba el que necessites o descobreix alguna cosa nova. Preneu-vos el vostre temps.",
+  "settingsDescription": "Totes les funcions, amb passos senzills i petits trucs per provar quan vulguis.",
+  "search": {
+    "label": "En què et podem ajudar?",
+    "placeholder": "Per exemple: recuperar un marcador suprimit",
+    "common": "Preguntes habituals",
+    "found": "Respostes per a la teva cerca · {{count}}",
+    "empty": "No s'ha trobat cap ajuda per a aquesta cerca. Prova \"teclat\", \"mou els marcadors\" o \"còpia de seguretat\".",
+    "resultsLabel": "Preguntes i respostes manuals"
+  },
+  "open": "Exploreu el manual",
+  "searchLabel": "Busca el manual",
+  "searchPlaceholder": "Prova \"teclat\", \"fons de pantalla\" o \"còpia de seguretat\"",
+  "count": "{{count}} seccions per explorar",
+  "empty": "Sense coincidències. Prova amb una altra paraula o esborra la cerca per veure tot l'índex.",
+  "back": "← Índex manual",
+  "remember": "És bo de recordar",
+  "related": "Segueix descobrint",
+  "footer": "Sempre disponible a Configuració → Ajuda.",
+  "guideLinks": "Més informació al manual",
+  "groups": {
+    "start": "Comenceu aquí",
+    "organize": "Organitza't",
+    "personalize": "Fes-ho teu",
+    "protect": "Cuida el teu espai"
+  },
+  "demo": {
+    "browse": "Navega per seccions",
+    "previous": "← Secció anterior",
+    "next": "Secció següent →",
+    "title": "Veure-ho en acció",
+    "example": "Exemple de demostració",
+    "steps": "Passos de demostració",
+    "step": "Pas {{step}} de {{count}}",
+    "play": "Jugar",
+    "pause": "Pausa",
+    "replay": "Repetició",
+    "progress": "Progrés de la demostració",
+    "mode": "Comportament",
+    "nextStep": "Següent pas",
+    "reducedMotion": "Moviment reduït: explora els passos sense animació.",
+    "labels": {
+      "settings": "Configuració",
+      "saved": "S'han guardat els canvis",
+      "page": "Pàgina",
+      "selection": "Selecció",
+      "selected": "elements seleccionats",
+      "color": "Color",
+      "styleName": "El meu estil morat",
+      "wallpaper": "Fons de pantalla",
+      "rotation": "Rotació",
+      "format": "Format",
+      "seconds": "Segons",
+      "language": "Llengua",
+      "system": "Sistema",
+      "currentLanguage": "Català",
+      "restore": "Restaurar",
+      "copy": "Còpia de seguretat",
+      "restoreCopy": "Revisar abans de restaurar",
+      "switchSync": "Vols canviar a sincronitzat?",
+      "applyNow": "S'aplica quan es confirma",
+      "status": "Estat",
+      "synchronized": "Sincronitzat",
+      "retry": "Desa pendent · Torna-ho a provar",
+      "keyboardQuery": "teclat",
+      "deleteExample": "Les adreces d'interès i les carpetes se suprimiran. La paperera de reciclatge estarà buida."
+    },
+    "topics": {
+      "bookmarks": [
+        "Obriu el menú de l'esquerra i trieu + → Marcador.",
+        "Introduïu el nom i l'adreça de la pàgina.",
+        "Confirmar: el marcador apareix en una cel·la lliure."
+      ],
+      "quick-save": [
+        "Obriu New DeskTab des de la seva icona d'extensió.",
+        "Reviseu el nom, l'adreça i la destinació suggerits.",
+        "Desa: el marcador estarà al vostre espai de treball quan obriu una pestanya."
+      ],
+      "keyboard": [
+        "Premeu Tab per centrar el primer element.",
+        "Les tecles de fletxa mouen el focus. Enter obre l'element enfocat.",
+        "Esc o una altra pestanya finalitza la navegació."
+      ],
+      "shortcuts": [
+        "Obriu Configuració → Dreceres de teclat.",
+        "Feu clic a la drecera d'una acció i escriviu la vostra combinació.",
+        "Desa per aplicar la drecera nova."
+      ],
+      "search": [
+        "La lupa de la barra d'eines o / obre la cerca.",
+        "Escriviu part del nom o l'adreça.",
+        "Obriu el resultat. Esc o Tanca torna al vostre espai de treball."
+      ],
+      "editing": [
+        "El llapis del menú revela la graella i els controls.",
+        "El llapis de Gmail obre el seu nom i l'editor d'URL.",
+        "Deseu el canvi i torneu a fer clic al llapis del menú per acabar."
+      ],
+      "movement": [
+        "Activeu l'edició i manteniu premuda la fitxa.",
+        "El cursor i la fitxa es mouen junts a una cel·la lliure.",
+        "Alliberament: es desa la posició final."
+      ],
+      "resizing": [
+        "Activeu l'edició i cerqueu la nansa de la cantonada.",
+        "Arrossegueu en diagonal per canviar l'amplada i l'alçada.",
+        "Alliberament a 2 × 2. Compara Cap i Suau mitjançant el selector."
+      ],
+      "drag-modes": [
+        "Utilitzeu el selector per comparar els tres modes d'arrossegament.",
+        "Arrossegueu cap a una cel·la ocupada i observeu les altres fitxes.",
+        "Cap utilitza una cel·la lliure; Reubicació i Cascada reorganitzen les rajoles."
+      ],
+      "folders": [
+        "Anomena una carpeta per agrupar les teves pàgines.",
+        "Mentre editeu, arrossegueu-hi un marcador.",
+        "Obriu la carpeta per trobar el marcador a la seva quadrícula."
+      ],
+      "workspaces": [
+        "La barra d'eines + crea un espai de treball amb el nom escollit.",
+        "El nou espai de treball té la seva pròpia graella.",
+        "Alt + ↑ i Alt + ↓ recorren els vostres espais de treball."
+      ],
+      "selection": [
+        "Activeu l'edició i seleccioneu una fitxa amb un clic breu.",
+        "Seleccioneu-ne un altre: la barra d'eines ofereix accions de grup.",
+        "Clonar crea còpies en cel·les lliures en una acció."
+      ],
+      "history": [
+        "Mou una fitxa: aquest canvi entra a l'historial.",
+        "Desfés torna la fitxa a la seva posició anterior.",
+        "Refes restaura el moviment que acabes de fer."
+      ],
+      "appearance": [
+        "El llapis de la fitxa obre el seu editor.",
+        "Canvia el color i mira la vista prèvia.",
+        "Desa per aplicar aquest aspecte a la rajola."
+      ],
+      "presets": [
+        "Obriu la biblioteca des de Configuració → Adreces d'interès.",
+        "Anomena i desa un estil per reutilitzar-lo.",
+        "Carregueu-lo com a predeterminat i deseu-lo per a adreces d'interès noves."
+      ],
+      "wallpapers": [
+        "Obriu Configuració → Tema per triar un fons de pantalla.",
+        "Reviseu la vista prèvia i l'interval de rotació de la biblioteca.",
+        "Desa: el fons de pantalla escollit apareix al vostre espai de treball."
+      ],
+      "clock": [
+        "Trieu + → Ginys → Rellotge al menú de l'esquerra.",
+        "Configura el format i els segons mitjançant la vista prèvia.",
+        "Afegiu el rellotge a una cel·la d'espai de treball lliure."
+      ],
+      "interface": [
+        "Obriu General i seleccioneu l'idioma del menú.",
+        "Compareu la interfície clara i fosca.",
+        "Deseu les vostres preferències d'idioma i aspecte."
+      ],
+      "trash": [
+        "Obriu la paperera de reciclatge per trobar un marcador suprimit.",
+        "Seleccioneu-lo i feu clic a Restaura: torna a la graella.",
+        "En general, trieu quant de temps es conserven els elements suprimits."
+      ],
+      "backup": [
+        "Cerqueu les opcions de còpia de seguretat a Configuració → General.",
+        "Exporta baixa un ZIP amb dades i fitxers locals.",
+        "Importació demana confirmació abans de substituir les dades."
+      ],
+      "sync": [
+        "Obriu Configuració → Sincronització per comprovar el mode actual.",
+        "Trieu Sincronitzat i reviseu la confirmació.",
+        "Accepta aplica el mode immediatament, sense fer clic a Desa."
+      ],
+      "compact": [
+        "A mesura que la finestra s'estreny, la graella es converteix en una llista.",
+        "Els marcadors segueixen sent accessibles des de la llista.",
+        "Amplieu la finestra per tornar a la graella i editar."
+      ],
+      "data": [
+        "L'exemple utilitza un altre llenguatge, una interfície lleugera i fitxes personalitzades.",
+        "Restablir restaura la configuració predeterminada mantenint les adreces d'interès i els seus estils.",
+        "Suprimeix elimina les adreces d'interès i les carpetes, deixant només la paperera de reciclatge buida."
+      ],
+      "learning": [
+        "El consell diari us convida a descobrir una característica. Feu clic a Mostra'm com.",
+        "Escriviu \"teclat\" al quadre de cerca per trobar Navega amb el teclat.",
+        "Feu clic al resultat per llegir-ne les instruccions."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "UN PETIT CONSELL PER AVUI",
+    "dismiss": "Descarta el consell d'avui",
+    "read": "Mostra'm com",
+    "pace": "Passa el cursor per posar en pausa.",
+    "enabled": "Consells diaris",
+    "description": "Un consell quan obriu la primera pestanya del dia."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Com puc afegir una pàgina als meus marcadors?",
+      "searchTerms": "afegir pàgina; crear un marcador; desar el lloc web; nou favorit",
+      "title": "Afegeix adreces d'interès",
+      "summary": "Les teves pàgines preferides a mà en cada pestanya nova.",
+      "steps": [
+        "Mou-te a l'extrem esquerre per mostrar el menú. Trieu + → Marcador.",
+        "Introduïu el nom i l'adreça de la pàgina. Podeu ajustar-ne l'aspecte abans d'afegir-lo.",
+        "Confirmeu per col·locar el marcador en una ranura lliure de l'espai de treball actual. Fora del mode d'edició, feu-hi clic per obrir la pàgina."
+      ],
+      "note": "Per canviar un marcador existent, activeu l'edició i feu servir el seu llapis. Podeu bloquejar l'adreça per evitar canvis accidentals.",
+      "tip": "El menú per afegir adreces d'interès es troba a l'extrem esquerre. Mou el cursor allà i tria + → Marcador."
+    },
+    "quick-save": {
+      "question": "Com deso la pàgina que estic visitant?",
+      "searchTerms": "desar la pàgina actual; desa la pestanya oberta; icona d'extensió; URL de captura",
+      "title": "Desa la pàgina actual",
+      "summary": "Afegiu una pàgina des de la icona de l'extensió.",
+      "steps": [
+        "Mentre visiteu una pàgina, obriu New DeskTab des del menú d'extensions del navegador.",
+        "Comproveu el nom i l'adreça proposats i trieu una destinació disponible.",
+        "Desa el marcador i obre una pestanya nova per trobar-lo al teu espai."
+      ],
+      "note": "Fixeu la icona de l'extensió a la barra d'eines del vostre navegador per mantenir aquesta drecera a l'abast.",
+      "tip": "No cal copiar l'URL: la icona del navegador de New DeskTab us permet desar la pàgina que esteu visitant."
+    },
+    "keyboard": {
+      "question": "Com puc navegar sense ratolí?",
+      "searchTerms": "sense ratolí; utilitzar el teclat; navegació amb fletxes; pestanya entrar",
+      "title": "Navega amb el teclat",
+      "summary": "Tabulador, tecles de fletxa i Retorn per explorar el vostre espai.",
+      "steps": [
+        "A la pàgina principal, sense escriure cap camp ni tenir un diàleg obert, premeu Tab per començar a navegar pels elements.",
+        "Utilitzeu les tecles de fletxa per arribar a l'element més proper en cada direcció. Enter obre el marcador o la carpeta; en mode d'edició, obre el seu editor.",
+        "Premeu Tab de nou o Esc per sortir de la navegació. Dins dels diàlegs, Tab i Maj + Tab es mouen entre els controls amb normalitat."
+      ],
+      "note": "En el mode d'edició, S selecciona l'element enfocat. Suprimeix o retrocés l'elimina després de la confirmació. Els widgets s'eliminen permanentment.",
+      "tip": "Prova Tab al teu espai: les fletxes es mouen entre els elements i Retorn els obre. Una altra pestanya surt d'aquest mode."
+    },
+    "shortcuts": {
+      "question": "Com puc canviar les meves dreceres de teclat?",
+      "searchTerms": "canviar les dreceres; personalitzar les claus; combinacions de tecles; tecla d'accés ràpid",
+      "title": "Feu les vostres dreceres",
+      "summary": "Comproveu i canvieu les teves dreceres a Configuració.",
+      "steps": [
+        "Obriu Configuració → Dreceres per veure els vostres enllaços per editar, afegir adreces d'interès, carpetes i widgets i obrir la configuració.",
+        "Feu clic a la combinació de tecles d'una acció i premeu una drecera nova. Esc cancel·la la gravació; fer clic amb el botó dret deixa l'acció sense assignar.",
+        "Desa la configuració per aplicar els canvis. Restableix les dreceres restaura les combinacions originals."
+      ],
+      "note": "Inicialment: E edita, B afegeix un marcador, F una carpeta, W obre widgets i S obre la configuració. Les dreceres respecten els camps de text i els diàlegs.",
+      "tip": "Pots canviar les dreceres a Configuració. Feu clic a una combinació per gravar la vostra; Esc s'anul·la i, fent clic amb el botó dret, l'anul·la l'assignació."
+    },
+    "search": {
+      "question": "Com puc trobar un marcador que no veig?",
+      "searchTerms": "trobar un marcador; trobar pàgina; falta un marcador; URL de cerca",
+      "title": "Cerca un marcador",
+      "summary": "Cerca per nom o adreça, inclòs dins de les carpetes.",
+      "steps": [
+        "Premeu / quan no estigueu escrivint o utilitzeu la lupa de la barra d'espai de treball.",
+        "Escriviu part d'un nom o adreça. La cerca inclou adreces d'interès en altres espais de treball i dins de carpetes.",
+        "Obriu el resultat que necessiteu. Esc o Tanca et porta de nou al teu espai."
+      ],
+      "note": "No cal que recordeu on heu desat una pàgina per trobar-la.",
+      "tip": "La tecla / obre la cerca. També troba adreces d'interès dins de carpetes i en altres espais de treball."
+    },
+    "editing": {
+      "question": "Com puc activar l'edició?",
+      "searchTerms": "habilitar l'edició; editar escriptori; editor de llapis; modificar el marcador",
+      "title": "Mode d'edició",
+      "summary": "Enceneu el llapis per organitzar-lo i personalitzar-lo.",
+      "steps": [
+        "Feu clic al llapis al menú de l'esquerra o utilitzeu la drecera d'edició per mostrar els controls de la quadrícula i dels elements.",
+        "Moure, canviar la mida o seleccionar elements. El llapis de cada targeta obre el seu nom, adreça i editor d'aparença.",
+        "Torna a fer clic al llapis quan hagis acabat. Els canvis de l'espai de treball es guarden automàticament; els editors tenen el seu propi botó Desa."
+      ],
+      "note": "Esc primer esborra la selecció o la navegació per teclat. Quan cap dels dos està actiu, pot sortir del mode d'edició.",
+      "tip": "El llapis de menú comença a editar-se: apareixen les nanses i els controls de la targeta. Feu-hi clic de nou per acabar."
+    },
+    "movement": {
+      "question": "Com puc moure un marcador?",
+      "searchTerms": "moure el marcador; arrossegament preferit; canviar de posició; organitza la graella",
+      "title": "Moure elements",
+      "summary": "Arrossegueu les cartes al seu lloc a la graella.",
+      "steps": [
+        "Activa el mode d'edició i mantén premuda la targeta que vols moure.",
+        "Arrossegueu-lo fins al seu destí. El resultat depèn de l'espai lliure i del mode d'arrossegament escollit a Configuració → Adreces d'interès.",
+        "Allibera per guardar la seva posició. També podeu seleccionar un únic element amb un clic i moure'l una cel·la amb fletxes, fora de la navegació de pestanyes."
+      ],
+      "note": "Les destinacions bloquejades mostren comentaris visuals i l'element torna a una posició vàlida. Podeu desfer els canvis.",
+      "tip": "En el mode d'edició, feu clic per seleccionar una targeta i utilitzeu les fletxes per moure-la cel·la per cel·la. Deixeu primer la navegació per pestanya."
+    },
+    "resizing": {
+      "question": "Com puc canviar la mida d'una rajola?",
+      "searchTerms": "canviar la mida de la rajola; ampliar el marcador; reduir la mida; nanses de canvi de mida; clic; Canvi; ample alçada; 2x2",
+      "title": "Canvia la mida",
+      "summary": "Utilitzeu els costats i les cantonades d'una targeta.",
+      "steps": [
+        "Activeu l'edició i moveu-vos al costat o a la cantonada d'un element per utilitzar-ne les nanses de canvi de mida.",
+        "Arrossegueu el mànec. Una cantonada canvia d'amplada i d'alçada; un costat canvia només una dimensió. També podeu fer clic a un mànec per créixer una cel·la, o Maj+clic per reduir-lo una cel·la.",
+        "A Configuració → Adreces d'interès, trieu Cap per saltar entre cel·les després de creuar el 50%, o Suavitza per estirar la targeta i enganxar-la al llançar-la."
+      ],
+      "note": "La mida final respecta la graella i les posicions vàlides. Les previsualitzacions de la configuració mostren la diferència abans de triar.",
+      "tip": "Feu clic a un mànec per créixer una cel·la o Maj+clic per reduir-lo una cel·la. Les cantonades canvien d'amplada i d'alçada junts; els costats canvien només una dimensió."
+    },
+    "drag-modes": {
+      "question": "Per què no em puc deixar caure en una cel·la ocupada?",
+      "searchTerms": "cel·la ocupada; passar per sobre d'un altre; gota bloquejada; reubicar la cascada; col·lisió d'arrossegament",
+      "title": "Modes d'arrossegament",
+      "summary": "Trieu què passa en una posició de marcador ocupada.",
+      "steps": [
+        "Obriu Configuració → Adreces d'interès i amplieu el comportament d'arrossegament.",
+        "Cap es mou a les ranures lliures. La reubicació troba una posició per a les adreces d'interès a la destinació. Seqüència reordena les adreces d'interès en seqüència.",
+        "Mireu l'animació de cada opció i deseu el mode que us resulti còmode d'organitzar."
+      ],
+      "note": "Un moviment es rebutja si no hi ha cap acord vàlid. Un fons transparent no deixa lliure una cel·la ocupada.",
+      "tip": "Voleu moure un marcador a una cel·la ocupada? Mireu Reubicació i Cascada a Configuració → Adreces d'interès i mireu les seves previsualitzacions."
+    },
+    "folders": {
+      "question": "Com puc agrupar les adreces d'interès en carpetes?",
+      "searchTerms": "crear una carpeta; marcadors de grup; organitzar els preferits; eliminar de la carpeta; canviar el nom de la carpeta",
+      "title": "Organitzar amb carpetes",
+      "summary": "Reuneix fins a 18 adreces d'interès en una carpeta.",
+      "steps": [
+        "Trieu + → Carpeta al menú de l'esquerra i doneu-li un nom.",
+        "En el mode d'edició, arrossegueu-hi els marcadors per posar-los dins. Obriu la carpeta per veure'n la graella.",
+        "Utilitzeu el mode d'edició de la carpeta per organitzar-ne les adreces d'interès. Feu clic al seu nom per canviar-ne el nom i a la seva icona per personalitzar-ne l'aparença."
+      ],
+      "note": "La supressió d'una carpeta també afecta els seus marcadors. Reviseu la confirmació abans de continuar; la paperera de reciclatge pot restaurar els elements suprimits.",
+      "tip": "Una carpeta conté fins a 18 adreces d'interès. Activeu l'edició i arrossegueu una targeta a la carpeta per afegir-la."
+    },
+    "workspaces": {
+      "question": "Com puc mantenir les pàgines personals i laborals separades?",
+      "searchTerms": "treball personal; crear un espai de treball; canviar d'espai de treball; escriptoris",
+      "title": "Separeu els vostres espais de treball",
+      "summary": "Una graella per a la feina i una altra per a tota la resta.",
+      "steps": [
+        "La barra d'espai de treball canvia entre els espais de treball principal i personalitzats. El seu + en crea un de nou.",
+        "Trieu un espai de treball abans d'afegir elements. Per transferir elements existents, seleccioneu-los i trieu una destinació a la barra d'accions.",
+        "Alt + ↑ i Alt + ↓ recorren els espais de treball. El botó − elimina l'espai de treball personalitzat actual després de la confirmació."
+      ],
+      "note": "Suprimir un espai de treball també se n'elimina el contingut. Estades principals disponibles i no es poden suprimir.",
+      "tip": "Alt + ↑ i Alt + ↓ canvien d'espai de treball sense obrir el selector. Separa feina, aficions o projectes amb el bar's +."
+    },
+    "selection": {
+      "question": "Com puc canviar diversos elements alhora?",
+      "searchTerms": "seleccionar múltiples; selecció a granel; moure diversos; selecció de clons; marcadors duplicats",
+      "title": "Seleccioneu i actueu a granel",
+      "summary": "Menys accions repetides en organitzar diverses cartes.",
+      "steps": [
+        "Activeu l'edició i feu clic breument a cada targeta per seleccionar-la. Feu clic de nou per anul·lar la selecció; a la navegació de pestanyes podeu utilitzar S.",
+        "La barra de selecció us permet duplicar, aplicar l'aspecte predeterminat, moure's a un altre espai de treball o suprimir, depenent del tipus d'element.",
+        "Comproveu la destinació o la confirmació. Esc o el botó d'esborrar la selecció cancel·la la vostra selecció."
+      ],
+      "note": "El moviment i la duplicació necessiten espais lliures. L'aplicació us indica si alguns articles no encaixen. Els widgets no van a la paperera de reciclatge.",
+      "tip": "En el mode d'edició, seleccioneu diverses targetes amb clics curts per moure-les, duplicar-les o modificar-les. Esc esborra la selecció."
+    },
+    "history": {
+      "question": "Com puc desfer el meu darrer canvi?",
+      "searchTerms": "desfer el canvi; refer el canvi; tornar enrere; restaurar la posició",
+      "title": "Desfer i refer",
+      "summary": "Recuperar una posició o un canvi recent.",
+      "steps": [
+        "Utilitzeu la fletxa desfer a la barra d'espai de treball per tornar a l'estat anterior.",
+        "La fletxa de refer recupera un canvi que acabes de fer. També podeu utilitzar Ctrl/Cmd + Z i Ctrl/Cmd + Maj + Z.",
+        "Dins d'un editor, utilitzeu les fletxes al costat del títol per als canvis pendents; els camps de text mantenen el seu teclat normal desfer. Cada acció mostra un missatge breu i les fletxes no disponibles estan desactivades. Comproveu el resultat abans de desar."
+      ],
+      "note": "L'historial de l'editor comença de nou cada cop que obriu un editor; els canvis arriben al vostre espai de treball quan deseu. L'historial de l'espai de treball és temporal i no és una còpia de seguretat. Una sessió nova o actualitzacions d'una altra pestanya la poden restablir.",
+      "tip": "Si un canvi no us sembla bé, feu servir la fletxa desfer o Ctrl/Cmd + Z. Ctrl/Cmd + Maj + Z el torna a fer."
+    },
+    "appearance": {
+      "question": "Com puc canviar el color, la icona o el text?",
+      "searchTerms": "canviar de color; canviar la icona; canviar el text; aspecte de marcador; color de la carpeta; favicon",
+      "title": "Personalitza les teves targetes",
+      "summary": "Colors, imatges, text i icones a la teva manera.",
+      "steps": [
+        "Activa l'edició i obriu el llapis d'un marcador, o el control d'aparença d'una carpeta o la paperera de reciclatge.",
+        "Exploreu l'editor: fons, color, imatge, text i icona. Els controls disponibles depenen del tipus d'element; la vista prèvia mostra el resultat.",
+        "Estalvia quan siguis feliç. Podeu utilitzar imatges d'una URL o d'un fitxer local on l'editor ofereix aquesta opció."
+      ],
+      "note": "Les imatges locals pertanyen a aquest navegador. Quan sincronitzeu, afegiu un URL alternatiu per a altres dispositius. Les importacions mantenen les imatges incloses i les referències clares sense un fitxer; La sincronització ignora els fitxers que no estan disponibles en aquest dispositiu.",
+      "tip": "El llapis d'un marcador obre el seu editor visual. Canvieu els colors, el text, la icona o la imatge i comproveu la vista prèvia."
+    },
+    "presets": {
+      "question": "Com puc reutilitzar un estil que m'agrada?",
+      "searchTerms": "guardar estil; aspecte de reutilització; estils per defecte; biblioteca preestablerta; aplicar l'estil",
+      "title": "Reutilitza les aparences",
+      "summary": "Deseu un cop d'ull i apliqueu-lo a altres adreces d'interès.",
+      "steps": [
+        "Obriu la biblioteca de l'editor per triar un aspecte de la col·lecció disponible.",
+        "Desa una aparença personalitzada com a valor predefinit per reutilitzar-ne els colors, el text i la icona sense copiar el nom o l'adreça del marcador.",
+        "A Configuració → Adreces d'interès configureu l'aspecte predeterminat per a les adreces d'interès noves. La barra de selecció la pot aplicar als elements compatibles."
+      ],
+      "note": "Un valor predefinit canvia l'aspecte, no la identitat, la destinació o la posició del marcador.",
+      "tip": "Deseu un aspecte que us agradi a la biblioteca d'aparences. Reutilitza'l en altres targetes sense canviar-ne el nom o l'adreça."
+    },
+    "wallpapers": {
+      "question": "Com puc utilitzar una imatge o un vídeo com a fons?",
+      "searchTerms": "canviar el fons; fons de vídeo; rotació de fons de pantalla; tema",
+      "title": "Fons de pantalla i rotació",
+      "summary": "Color, imatge o vídeo per crear l'ambient.",
+      "steps": [
+        "Obriu Configuració → Tema i trieu el fons predeterminat, un color o un fons multimèdia.",
+        "Afegiu imatges o vídeos de les fonts que s'ofereixen al panell. La biblioteca recull diversos fons amb un interval de rotació.",
+        "Comproveu la vista prèvia i deseu. Podeu vincular un fitxer local amb un URL alternatiu per a altres dispositius."
+      ],
+      "note": "Els fitxers locals romanen en aquest navegador. La sincronització no els transfereix; una còpia de seguretat completa els pot conservar.",
+      "tip": "El vostre fons pot canviar automàticament: afegiu-ne diversos a Configuració → Biblioteca de temes i configureu un interval de rotació."
+    },
+    "clock": {
+      "question": "Com puc afegir un rellotge?",
+      "searchTerms": "afegir rellotge; hora d'espectacle; segons; format 24 hores; giny del rellotge",
+      "title": "Afegeix un rellotge",
+      "summary": "Un giny que mostra l'hora del dispositiu.",
+      "steps": [
+        "Trieu + → Ginys al menú de l'esquerra i seleccioneu Rellotge.",
+        "Trieu un format de 12 o 24 hores i si voleu mostrar els segons. La vista prèvia t'ajuda a decidir.",
+        "Afegiu-lo a una ranura gratuïta. En el mode d'edició podeu moure, canviar la mida o tornar a obrir les seves opcions."
+      ],
+      "note": "El rellotge segueix l'hora del dispositiu. La supressió d'un widget és permanent; no entra a la paperera de reciclatge.",
+      "tip": "A + → Ginys podeu afegir un rellotge de 12 o 24 hores amb segons opcionals i canviar-ne la mida perquè s'adapti al vostre espai."
+    },
+    "interface": {
+      "question": "Com puc canviar l'idioma o utilitzar el mode fosc?",
+      "searchTerms": "canviar d'idioma; mode fosc; mode de llum; aspecte de la interfície",
+      "title": "Tema d'idioma i interfície",
+      "summary": "Feu que els menús, els diàlegs i els controls siguin còmodes.",
+      "steps": [
+        "A Configuració → General, trieu un idioma o deixeu-lo seguir el vostre sistema.",
+        "Trieu una interfície clara, fosca o automàtica segons les vostres preferències.",
+        "Desa la configuració. El tema de la interfície funciona juntament amb el fons que heu triat al tema."
+      ],
+      "note": "L'idioma del sistema i l'aparença automàtica segueixen les preferències del dispositiu.",
+      "tip": "Trieu una interfície clara o fosca mantenint el fons de pantalla. Cerqueu aquesta opció i l'idioma a Configuració → General."
+    },
+    "trash": {
+      "question": "Com puc recuperar un marcador suprimit?",
+      "searchTerms": "recuperar el marcador suprimit; restaurar eliminat; paperera de reciclatge; esborrat accidentalment; recuperar carpeta",
+      "title": "Restaurar de la paperera de reciclatge",
+      "summary": "Una segona oportunitat per als marcadors i carpetes.",
+      "steps": [
+        "Obriu la paperera de reciclatge del vostre espai per revisar les adreces d'interès i les carpetes suprimides.",
+        "Seleccioneu el que voleu tornar i utilitzeu Restaura. També podeu suprimir elements permanentment o buidar la paperera després de la confirmació.",
+        "A Configuració → General, trieu si voleu mostrar-lo i quant de temps conserva els elements: 1, 7, 14 o 28 dies, o no els suprimiu mai automàticament."
+      ],
+      "note": "La paperera de reciclatge pertany a aquest dispositiu. Els elements caducats o suprimits permanentment ja no es poden restaurar des d'ell.",
+      "tip": "Heu suprimit un marcador per error? Obriu la paperera de reciclatge i restaura-la. Ajusteu el període de retenció a Configuració → General."
+    },
+    "backup": {
+      "question": "Com puc fer una còpia de seguretat o transferir les meves dades?",
+      "searchTerms": "còpia de seguretat; exportar dades; importar còpia; restaurar la còpia de seguretat; un altre navegador; transferir dades",
+      "title": "Còpies de seguretat i importacions",
+      "summary": "Guardeu una còpia del vostre espai i porteu-lo amb vosaltres.",
+      "steps": [
+        "A Configuració → General exporteu una còpia de seguretat completa per conservar les dades i els fitxers locals inclosos a l'arxiu ZIP.",
+        "Per restaurar, importeu una còpia de seguretat i reviseu la confirmació abans de substituir les dades. També s'admeten còpies de seguretat JSON compatibles.",
+        "A Configuració → Adreces d'interès podeu exportar o importar només adreces d'interès i carpetes quan no necessiteu una còpia de seguretat completa."
+      ],
+      "note": "Una exportació d'adreces d'interès no és una còpia de seguretat completa de la configuració i dels mitjans locals. Deseu una còpia de seguretat abans de restaurar o suprimir dades.",
+      "tip": "Una còpia de seguretat completa des de Configuració → General inclou fitxers locals en un ZIP. És útil abans de canviar de navegador o restaurar dades."
+    },
+    "sync": {
+      "question": "Com puc utilitzar el mateix espai en un altre ordinador?",
+      "searchTerms": "un altre ordinador; sincronitzar dispositius; sincronització; núvol; sincronització local; aturar la sincronització; desactivar la sincronització; manera local",
+      "title": "Sincronitza entre dispositius",
+      "summary": "Comparteix el teu espai mitjançant la sincronització del navegador.",
+      "steps": [
+        "Inicieu la sessió i activeu la sincronització d'extensions al vostre perfil Google Chrome.",
+        "A Configuració → Sincronització, trieu Sincronitzat i accepteu la confirmació. El canvi té efecte immediatament: es carreguen les adreces d'interès i la configuració sincronitzades existents, o les dades locals desades es sincronitzen si no n'hi ha cap.",
+        "Utilitzeu el mateix perfil a l'altre dispositiu. Comproveu l'estat de sincronització i l'espai disponible al panell."
+      ],
+      "note": "Els fitxers locals, la paperera de reciclatge i els consells diaris pertanyen a cada dispositiu. La sincronització té límits d'emmagatzematge; utilitzeu URL alternatius per a imatges i vídeos locals. Si escolliu Local també es demana confirmació i té efecte immediatament, mantenint les dades sincronitzades emmagatzemades.",
+      "tip": "La sincronització comparteix el vostre espai entre dispositius, però els fitxers locals necessiten un URL alternatiu. Vegeu Configuració → Sincronització."
+    },
+    "compact": {
+      "question": "Per què veig una llista en lloc de la graella?",
+      "searchTerms": "finestra petita; vista de llista; la graella va desaparèixer; panell ocult; mòbil",
+      "title": "Utilitzeu una finestra més petita",
+      "summary": "Continueu arribant a les vostres adreces d'interès quan l'espai sigui limitat.",
+      "steps": [
+        "Quan la finestra s'estreny, l'aplicació canvia a una llista per mantenir els vostres articles accessibles.",
+        "Obriu adreces d'interès, carpetes o cerqueu en aquesta vista. El manual també s'adapta a la mida disponible.",
+        "Amplieu la finestra per recuperar la graella i els panells d'edició. Un diàleg d'edició suspès conserva el seu esborrany."
+      ],
+      "note": "La vista compacta us ajuda a navegar pel vostre espai; la reorganització necessita una finestra prou àmplia.",
+      "tip": "En una finestra estreta, les vostres adreces d'interès estan disponibles com a llista. Amplieu-lo quan vulgueu editar o reorganitzar la graella."
+    },
+    "data": {
+      "question": "Com puc eliminar les meves dades o restablir la configuració?",
+      "searchTerms": "eliminar dades; restablir la configuració; treure-ho tot; començar de nou",
+      "title": "Desa i restabliment",
+      "summary": "Entendre què es guarda i què elimina cada acció.",
+      "steps": [
+        "Les accions de l'espai de treball es desen automàticament. A Editors i Configuració, confirmeu amb Desa; Cancel·la·la descarta l'esborrany del panell.",
+        "Si apareix un avís de desat pendent, feu clic a Torna a provar de desar i espereu la confirmació abans de tancar la pestanya.",
+        "A Configuració → General podeu restablir la configuració o suprimir totes les dades. Llegiu la confirmació i exporteu una còpia de seguretat de tot el que vulgueu conservar."
+      ],
+      "note": "En restablir la configuració, es mantindran les adreces d'interès, les seves mides i els seus estils. L'eliminació de totes les dades locals elimina els elements i buida la paperera de reciclatge. Exporta una còpia de seguretat abans de suprimir: Desfer no substitueix una còpia de seguretat.",
+      "tip": "Si veieu un avís de canvis no desats, utilitzeu Torna a provar desar abans de tancar la pestanya. Protegiu el vostre espai amb una còpia de seguretat completa."
+    },
+    "learning": {
+      "question": "Com puc tornar a obrir la guia o desactivar els consells diaris?",
+      "searchTerms": "desactivar consells; desactivar l'ajuda; alerta diària; guia reobrir; manual d'usuari",
+      "title": "Aprèn al teu ritme",
+      "summary": "Una guia ràpida, un manual i un petit consell diari.",
+      "steps": [
+        "Reviseu la guia ràpida des de Configuració → Ajuda. Cada pas enllaça amb les explicacions corresponents del manual.",
+        "Exploreu l'índex o cerqueu una paraula. Els enllaços relacionats d'una secció et porten a altres funcions quan estiguis preparat.",
+        "La teva primera pestanya nova cada dia mostra un consell aleatori. Descartar-lo o obrir-ne l'explicació; podeu desactivar els consells a l'Ajuda."
+      ],
+      "note": "Els consells visiten les seccions sense repetir fins que s'hagi completat la col·lecció. Duren 20 segons i s'aturen mentre passen el cursor o enfocan els botons. Segueixen el dia local i la preferència d'aquest navegador.",
+      "tip": "Aquest manual sempre es troba a Configuració → Ajuda. Els consells diaris obren una secció i els podeu desactivar quan vulgueu."
+    }
+  }
+}

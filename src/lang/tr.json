@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Sürüm notları",
+    "settingsDescription": "Neler değişti ve her güncellemenin arkasındaki hikaye.",
+    "open": "Notları oku",
+    "history": "Sürüm geçmişi",
+    "dismiss": "Sürüm notlarını kapat",
+    "continue": "Devam et",
+    "back": "Bilgiye Geri Dön",
+    "highlights": "Bugün ne yapabilirsin",
+    "generic": {
+      "title": "New DeskTab güncellendi",
+      "description": "Yeni sürüme sahipsiniz. Bilgiler bölümündeki önceki sürüm notlarını istediğiniz zaman yeniden ziyaret edebilirsiniz. Burada olduğunuz için teşekkürler."
+    },
+    "v1_0_0": {
+      "title": "Web sitelerinden oluşan masaüstünüz. Sonunda.",
+      "thanks": "New DeskTab'yu denediğiniz için teşekkür ederiz. Nihayet bu projenin halka açık ilk yayınını sizinle paylaşacağım için çok heyecanlıyım.",
+      "origin": "Her şey 26 Eylül 2025'te başladı. Twitch üzerinde bir Just Chatting akışını izlerken, yayıncının tarayıcısının yeni sekmesini fark ettim: web sitelerini isim veya logo olmadan renkli kareler halinde düzenleyen bir uzantı. Bu minimalizm beni büyüledi ve şöyle düşündüm: neden kendi uzantımı oluşturmayayım? Her yeni sekmenin bir düzen duygusu getirmesini, sayfalarımın yakınımda olmasını ve bakmaktan keyif aldığım bir panelin olmasını istedim.",
+      "desktop": "Yavaş yavaş, bu fikir uygulamalardan ziyade web sitelerinden oluşan kişisel bir masaüstüne dönüştü. Saat bir ilk adımdır ve halen devam eden bir çalışmadır. Gelecekte, hem bana hem de New DeskTab kullanan herkese yararlı şeyler sunan bir not defteri ve diğer widget'ları eklemek istiyorum.",
+      "closing": "Bu uygulama benim ve sizin için yapıldı. New DeskTab'ya güvendiğiniz ve tarayıcınızda ona yer verdiğiniz için teşekkür ederiz. Umarım benim inşa etmekten keyif aldığım kadar, siz de alanınızı yaratmaktan keyif alırsınız.",
+      "highlights": {
+        "workspace": "Sayfalarınızı yer imleri, klasörler ve bağımsız çalışma alanlarıyla düzenleyin.",
+        "appearance": "Renkleri, her öğenin boyutunu ve masaüstü arka planınızı özelleştirin.",
+        "search": "Aramayla sayfalarınızı bulun ve gezinmek ve öğeler oluşturmak için klavye kısayollarını kullanın.",
+        "backup": "Yedeklemeleri kaydedin ve silinen öğeleri geri dönüşüm kutusundan kurtarın.",
+        "sync": "Verileri bu cihazda tutmayı veya Google Chrome ile senkronize etmeyi seçin.",
+        "help": "Hoş geldiniz kılavuzu, kılavuz ve günlük ipuçlarıyla özellikleri keşfedin."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "İLK DAKİKA",
+    "skip": "Kılavuzu atla",
+    "back": "Geri",
+    "next": "Sonraki",
+    "finish": "Ayarlara geri dön",
+    "explore": "Alanımı keşfedin",
+    "addFirst": "İlk yer işaretimi ekle",
+    "progress": "Adım {{current}} / {{total}}",
+    "compactHint": "Yer imleri eklemek ve alanınızı düzenlemek istediğinizde pencereyi genişletin.",
+    "reopenTitle": "Hızlı kılavuz",
+    "reopenDescription": "Bir dakika içinde temel bilgileri yeniden keşfedin.",
+    "reopen": "Kılavuzu görüntüle",
+    "demo": {
+      "work": "iş",
+      "media": "Medya",
+      "trash": "Geri dönüşüm kutusu",
+      "search": "Yer işaretlerinizi bulun"
+    },
+    "steps": {
+      "start": {
+        "title": "Sayfalarınız. Kendi alanınız.",
+        "body": "New DeskTab'ya hoş geldiniz. Bir sekme açtığınızda favori sayfalarınızı elinizin altında tutun. Bir tane eklemek için sol kenara gidin ve + → [[bookmarks|Yer imi]] seçeneğini seçin.",
+        "hint": "Ayrıca tarayıcınızdaki uzantı simgesinden [[quick-save|ziyaret ettiğiniz sayfayı kaydedin]] da yapabilirsiniz."
+      },
+      "edit": {
+        "title": "Her yer imine yerini verin.",
+        "body": "Düzenlemek için sol menüdeki kalemi açın. Taşımak için bir öğeyi basılı tutun ve [[movement|sürükle]]; boyutunu değiştirmek için [[resizing|kolları]] kullanın.",
+        "hint": "Her yer iminin kalemi [[appearance|editör]]'yu açar: ad, renkler, simge ve resim. Yeniden kullanmak için [[presets|stiller]] kaydedin."
+      },
+      "organize": {
+        "title": "Daha az dağınıklık. Daha fazla sipariş.",
+        "body": "+'dan bir [[folders|klasör]] oluşturun ve düzenleme modunda yer imlerini buna sürükleyin. 18'e kadar yer imine yer veren temiz bir ızgarada açılır.",
+        "hint": "İş ve eğlenceyi ayırmak için [[workspaces|çalışma alanı çubuğu]] içindeki + işaretini kullanın. [[search|büyüteç]] ayrıca klasörlerin içinde de arama yapar."
+      },
+      "style": {
+        "title": "Kendin gibi hissetmesini sağla.",
+        "body": "Ayarlar → [[wallpapers|Tema]]'da bir renk, resim veya video arka planı seçin ve favori duvar kağıtlarınızı döndürün. Ayarlar → [[sync|Senkronizasyon]] bölümünde, Chrome profilinizde oturum açmış olduğunuz hesabı kullanarak alanınızı cihazlar arasında senkronize edin.",
+        "hint": "+ → Widget'lardan bir [[clock|saat]] ekleyin. [[appearance|görünüm]] klasörlerinizi de özelleştirebilirsiniz."
+      },
+      "ready": {
+        "title": "Esasları biliyorsun.",
+        "body": "Bir yer imini bulmak için [[search|/]] tuşuna basın. Değişiklikleri kurtarmak için [[history|geri al ve yeniden yap]] oklarını kullanın; silinen yer imleri [[trash|geri dönüşüm kutusu]] dizinine gider.",
+        "hint": "Değişiklikler otomatik olarak kaydedilir. Ayarlar'da, bir [[backup|yedekleme]] dışa aktarın veya isteğe bağlı Google Chrome [[sync|senkronizasyon]]'yu etkinleştirin."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Son değişiklikleriniz kaydedilemedi.",
+    "retry": "Kaydetmeyi yeniden dene",
+    "saved": "Bekleyen değişiklikler kaydedildi."
+  },
+  "itemEditor": {
+    "chooseIcon": "Bir simge seçin",
+    "siteLogo": "logosu",
+    "noSymbol": "Yok",
+    "folderIconHint": "Sembol, klasör içindeki yer imi önizlemelerinin yerine geçer.",
+    "icons": {
+      "mail": "Posta",
+      "calendar": "Takvim",
+      "notes": "Notlar",
+      "projects": "Projeler",
+      "design": "Tasarım",
+      "music": "Müzik",
+      "tasks": "Görevler",
+      "ideas": "Fikirler",
+      "docs": "Belgeler",
+      "ui-start": "Pusula",
+      "ui-organize": "Düzen",
+      "ui-personalize": "Kaydırıcılar",
+      "ui-protect": "Kalkan",
+      "ui-bookmarks": "Yer işareti ekle",
+      "ui-quick-save": "Tarayıcı",
+      "ui-keyboard": "Klavye",
+      "ui-shortcuts": "Yıldırım",
+      "ui-search": "Ara",
+      "ui-editing": "Kalem",
+      "ui-movement": "Taşı",
+      "ui-resizing": "Yeniden boyutlandır",
+      "ui-drag-modes": "Sürükle",
+      "ui-folders": "Klasör",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Seçim",
+      "ui-history": "Tarih",
+      "ui-appearance": "Palet",
+      "ui-presets": "Ön ayarlar",
+      "ui-wallpapers": "Resim",
+      "ui-clock": "Saat",
+      "ui-interface": "Küre",
+      "ui-trash": "Çöp kutusu",
+      "ui-backup": "Arşiv",
+      "ui-sync": "Senkronizasyon",
+      "ui-compact": "Liste",
+      "ui-data": "Veritabanı",
+      "ui-learning": "Kitap",
+      "ui-settings": "Ayarlar",
+      "ui-controls": "Kontroller",
+      "ui-cloud": "Bulut",
+      "ui-bookmark": "Yer imi",
+      "ui-info": "Bilgi",
+      "ui-eye": "Göz",
+      "ui-check": "Tamamlandı",
+      "ui-lock": "Kilit",
+      "ui-unlock": "Kilidi aç",
+      "ui-copy": "Kopyala",
+      "ui-close": "Kapat",
+      "ui-undo": "Geri al",
+      "ui-redo": "Yinele",
+      "ui-desktop": "Masaüstü",
+      "home": "Ana sayfa",
+      "briefcase": "iş",
+      "code": "Kod",
+      "game": "Oyunlar",
+      "cart": "Alışveriş",
+      "card": "Ödemeler",
+      "people": "İnsanlar",
+      "message": "Mesaj",
+      "location": "Konum",
+      "phone": "Telefon",
+      "camera": "Kamera",
+      "headphones": "Kulaklıklar",
+      "link": "Bağlantı",
+      "tag": "Etiket",
+      "chart": "İstatistikler",
+      "coffee": "Kahve",
+      "sun": "Güneş",
+      "moon": "Ay",
+      "circle": "daire",
+      "square": "Kare",
+      "triangle": "Üçgen",
+      "diamond": "Elmas",
+      "pentagon": "Pentagon",
+      "hexagon": "Altıgen",
+      "star": "Yıldız",
+      "heart": "Kalp",
+      "plus": "Artı",
+      "minus": "Eksi",
+      "video": "video"
+    },
+    "searchIcons": "Simgeleri arayın…",
+    "clearIconSearch": "Aramayı temizle",
+    "noIcons": "Hiçbir simge bulunamadı",
+    "suggestedIcons": "Önerilen",
+    "suggestedIcon": "Önerilen: {{name}}",
+    "logoKeywords": "logo favicon web sitesi site markası",
+    "iconKeywords": {
+      "ui-trash": "çöp kutusu atık sil klasik",
+      "mail": "posta e-posta gmail görünüm gelen kutusu",
+      "docs": "belge dosyaları pdf sürücü kelimesi",
+      "notes": "notlar not kavramı onenote",
+      "ui-protect": "güvenlik koruma gizlilik",
+      "game": "oyunlar oyun kumandası konsolu",
+      "cart": "alışveriş mağaza mağaza satın al",
+      "card": "banka finansman kredi borç para",
+      "people": "sosyal topluluk arkadaş grubu",
+      "ui-learning": "okuma kütüphane eğitimi çalışması",
+      "ui-clock": "zaman saat izle",
+      "ui-interface": "internet web dünya dili",
+      "ui-data": "veri sql depolama",
+      "circle": "geometrik şekiller rakamlar",
+      "square": "geometrik şekiller rakamlar",
+      "triangle": "geometrik şekiller rakamlar",
+      "diamond": "geometrik şekiller rakamlar",
+      "pentagon": "geometrik şekiller rakamlar",
+      "hexagon": "geometrik şekiller rakamlar",
+      "star": "geometrik şekiller rakamlar",
+      "heart": "geometrik şekiller rakamlar"
+    },
+    "history": "Geçmişi düzenle",
+    "description": "Çalışma alanınızda kendinizi evinizdeymiş gibi hissettirin.",
+    "looks": "Bir görünüm seçin",
+    "custom": "Özel",
+    "look": {
+      "original": "Orijinal",
+      "card": "Kart",
+      "midnight": "Karanlık",
+      "paper": "Işık"
+    },
+    "reset": "Görünümü sıfırla",
+    "cardColor": "Kart rengi",
+    "folderFill": "Klasör rengi",
+    "image": "Arka plan resmi",
+    "lock": "URL'yi kilitleme veya kilidini açma",
+    "copy": "URL'yi kopyala",
+    "clear": "Temizle",
+    "section": {
+      "general": "Temeller",
+      "text": "Ad ve etiketler",
+      "icon": "Simge",
+      "card": "Kart"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Gördüğünüz isim ve açtığı sayfa.",
+        "text": "Adın gösterilip gösterilmeyeceğini seçin ve rengini ayarlayın.",
+        "icon": "Resim kartları için adın yanında büyük, ortalanmış bir sık kullanılan simgesi veya küçük bir simge kullanın."
+      },
+      "folder": {
+        "general": "Yer işaretlerinizi bir araya getirecek bir ad.",
+        "text": "Klasör adını gösterin ve rengini ayarlayın.",
+        "icon": "Klasör simgesini ve yer işareti küçük resimlerini özelleştirin."
+      },
+      "recycleBin": {
+        "general": "Geri dönüşüm kutusunun ana çalışma alanınızda görünüp görünmeyeceğini seçin.",
+        "text": "Geri dönüşüm kutusu adını gösterin ve rengini ayarlayın.",
+        "icon": "Geri dönüşüm kutusuna kendi renginizi verin. Bütün çöp kutusunu Genel'den sakla."
+      }
+    },
+    "addImage": "Arka plan resmi ekleyin",
+    "changeImage": "Arka plan resmini düzenle"
+  },
+  "html": {
+    "title": "Yeni sekme"
+  },
+  "quickSave": {
+    "title": "Yer işaretini kaydet",
+    "name": "İsim",
+    "workspace": "Çalışma alanı",
+    "folder": "Klasör",
+    "mainWorkspace": "Ana Sayfa",
+    "noFolder": "Klasör yok",
+    "save": "Yer işaretini kaydet",
+    "saveAnyway": "Yine de kaydet",
+    "savedButton": "Kaydedildi",
+    "alreadySaved": "Zaten kaydedildi",
+    "savedIn": "{{location}}'da",
+    "savedInMore": "{{location}} ve {{count}} tane daha",
+    "open": "New DeskTab'yu açın",
+    "unavailableTitle": "Bu sekme kaydedilemez",
+    "unavailable": "Kaydetmek için bir web sayfasını (http veya https) açın.",
+    "loadError": "Yer işaretleriniz yüklenemedi. Tekrar deneyin.",
+    "saving": "Kaydediliyor…",
+    "saved": "Yer işareti kaydedildi.",
+    "duplicate": "Bu URL zaten söz konusu hedefe kayıtlı.",
+    "noSpace": "O hedefte yer kalmadı. Başka birini seç.",
+    "invalid": "Adı ve seçilen hedefi kontrol edin.",
+    "saveError": "Yer işareti kaydedilemedi. Tekrar deneyin."
+  },
+  "launcher": {
+    "bookmark": "Yer imi",
+    "folder": "Klasör",
+    "widgets": "Widget'lar",
+    "editMode": {
+      "enter": "Düzenleme moduna girin",
+      "exit": "Düzenleme modundan çık"
+    }
+  },
+  "widgets": {
+    "title": "Widget'lar",
+    "description": "Bu çalışma alanına eklenecek bir widget seçin.",
+    "empty": "Henüz herhangi bir widget mevcut değil."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Bu özelliği kullanmak için pencereyi genişletin.",
+      "suspended": "Panel gizlendi. Devam etmek için pencereyi genişletin."
+    },
+    "editMode": {
+      "enabled": "Düzenleme modu etkinleştirildi",
+      "disabled": "Düzenleme modu devre dışı bırakıldı"
+    },
+    "selectionMode": {
+      "enabled": "Seçim modu etkinleştirildi",
+      "disabled": "Seçim modu devre dışı"
+    },
+    "bookmark": {
+      "added": "Yer işareti eklendi",
+      "notFound": "Yer işareti bulunamadı",
+      "updated": "Yer işareti güncellendi",
+      "deleted": "Yer işareti silindi"
+    },
+    "clock": {
+      "added": "Saat eklendi",
+      "updated": "Saat güncellendi",
+      "deleted": "Saat silindi"
+    },
+    "folder": {
+      "created": "Klasör oluşturuldu",
+      "renamed": "Klasör yeniden adlandırıldı",
+      "updated": "Klasör güncellendi",
+      "deleted": "Klasör ve yer işaretleri silindi",
+      "bookmarkAdded": "Yer işareti klasöre eklendi",
+      "folderFull": "Bu klasörde zaten 18 yer işareti var",
+      "bookmarkRemoved": "Yer işareti ızgaraya geri taşındı"
+    },
+    "recycleBin": {
+      "moved": "Geri dönüşüm kutusuna taşındı",
+      "restored": "Öğeler geri yüklendi",
+      "deletedPermanently": "Öğeler kalıcı olarak silindi",
+      "updated": "Geri dönüşüm kutusu güncellendi"
+    },
+    "workspace": {
+      "created": "Çalışma alanı oluşturuldu",
+      "deleted": "Çalışma alanı silindi",
+      "switched": "Çalışma alanı: {{name}}"
+    },
+    "history": {
+      "undone": "Değişiklik geri alındı",
+      "redone": "Değişiklik yeniden yapıldı"
+    },
+    "bookmarks": {
+      "deletedAll": "Tüm yer işaretleri silindi",
+      "deletedAllWithFolders": "Tüm yer işaretleri ve klasörler silindi",
+      "deleteAllError": "Tüm yer işaretleri silinemedi",
+      "exported": "Yer işaretleri dışa aktarıldı",
+      "exportError": "Yer işaretleri dışa aktarılamadı",
+      "imported": "İçe aktarılan yer işaretleri",
+      "importError": "Yer işaretleri içe aktarılamadı",
+      "presetApplied": "Seçime uygulanan stil",
+      "duplicatedSelected": "Seçilen öğeler kopyalandı",
+      "deletedSelected": "Seçilen öğeler silindi",
+      "moved": "Öğeler seçilen çalışma alanına taşındı"
+    },
+    "settings": {
+      "saved": "Ayarlar kaydedildi",
+      "bookmarkDefaultSaved": "Varsayılan yer işareti görünümü kaydedildi",
+      "bookmarkDefaultError": "Varsayılan yer işareti görünümü kaydedilemedi",
+      "copied": "Değer panoya kopyalandı",
+      "resetBg": "Tema sıfırlama",
+      "deletedAllData": "Tüm yerel NewDeskTab verileri silindi",
+      "deleteAllDataError": "Yerel NewDeskTab verilerinin tümü silinemedi",
+      "invalidWallpaperUrl": "Geçerli bir HTTP veya HTTPS resim/video URL'si girin.",
+      "invalidWallpaperFile": "Bu dosya eklenemedi. Desteklenen bir görüntüyü veya 200 MB'a kadar MP4, WebM veya Ogg videosunu kullanın.",
+      "wallpaperLimit": "En fazla 25 kişisel duvar kağıdı ekleyebilirsiniz."
+    },
+    "localImage": {
+      "invalid": "PNG, JPEG, WebP, GIF veya AVIF görüntüsü seçin.",
+      "tooLarge": "Bu resim bu cihazda depolanamayacak kadar büyük.",
+      "storageFull": "Bu görüntü için yeterli yerel alan yok.",
+      "processing": "Bu resim işlenemedi."
+    },
+    "sync": {
+      "enabled": "Senkronizasyon etkinleştirildi",
+      "localEnabled": "Yerel mod etkin",
+      "remoteLoaded": "Senkronize edilen veriler yüklendi",
+      "updatedFromOtherDevice": "Başka bir cihazdan alınan senkronize değişiklikler",
+      "deletedFromOtherDevice": "Bulut verileri başka bir cihazdan silindi. Bu cihaz artık Yerel modu kullanıyor.",
+      "error": "Depolama modu değiştirilemedi",
+      "versionBlocked": "Bulut verileri daha yeni bir NewDeskTab sürümü gerektirdiğinden senkronizasyon duraklatıldı. Bu cihazın yerel verileri gösteriliyor.",
+      "quotaError": "Veriler mevcut senkronizasyon depolama alanını aşıyor",
+      "deleted": "Senkronize edilen veriler silindi",
+      "deleteError": "Senkronize edilen veriler silinemedi"
+    },
+    "backup": {
+      "exported": "Yedekleme dışa aktarıldı",
+      "exportError": "Yedekleme dışa aktarılamadı",
+      "mediaUnavailable": "Başvurulan bazı yerel görseller veya videolar kullanılamadığından yedekleme oluşturulmadı.",
+      "imported": "Yedekleme geri yüklendi",
+      "importError": "Yedekleme geri yüklenemedi",
+      "mediaStorageFull": "Yedek görselleri ve videoları geri yüklemek için yeterli yerel depolama alanı yok."
+    }
+  },
+  "view": {
+    "list": "Liste görünümü",
+    "search": "Yer işaretlerini ve klasörleri arayın",
+    "clearSearch": "Aramayı temizle",
+    "noResults": "Sonuç yok."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Tüm yer işaretleri silinsin mi?",
+      "deleteFolders": "Ayrıca tüm klasörleri sil",
+      "confirmDeleteSelected": "{{count}} seçili öğe silinsin mi?",
+      "confirmMoveOne": "Bu öğe “{{workspace}}” çalışma alanına taşınsın mı?",
+      "confirmMoveSelected": "Seçilen {{count}} öğe “{{workspace}}” çalışma alanına taşınsın mı?",
+      "duplicateNoSpace": "{{count}} öğe yeterli alan olmadığından kopyalanamadı.",
+      "moveNoSpace": "{{count}} öğe yeterli alan olmadığından taşınamadı.",
+      "no_space": "Daha fazla yer işareti için yer yok 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Yeni yer işareti silinsin mi?"
+      },
+      "confirmDelete": "“{{name}}” silinsin mi?",
+      "confirmPermanentDelete": "“{{name}}” kalıcı olarak silinsin mi? Bu geri alınamaz.",
+      "cancel": "Değişiklikler silinsin mi?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Bu widget kalıcı olarak silinsin mi? Bu geri alınamaz.",
+      "confirmDeleteSelected": "{{count}} seçili öğe silinsin mi? Seçilen widget'lar ({{widgetCount}}) kalıcı olarak silinecek ve geri yüklenemeyecektir."
+    },
+    "folder": {
+      "createCancel": "Yeni klasör silinsin mi?",
+      "cancel": "Klasör değişiklikleri silinsin mi?"
+    },
+    "recycleBin": {
+      "folder": "“{{name}}” ve {{count}} yer imleri geri dönüşüm kutusuna taşınsın mı?",
+      "empty": "Geri dönüşüm kutusundaki her şey kalıcı olarak silinsin mi? Bu geri alınamaz.",
+      "deleteSelected": "Seçilen {{count}} öğe kalıcı olarak silinsin mi? Bu geri alınamaz.",
+      "noSpace": "{{count}} öğe yeterli ızgara alanı olmadığından geri yüklenemedi. Geri dönüşüm kutusunda kalırlar.",
+      "cancel": "Geri dönüşüm kutusu değişiklikleri silinsin mi?"
+    },
+    "settings": {
+      "cancel": "Ayar değişiklikleri silinsin mi?",
+      "reset": "Tüm ayarlar sıfırlansın mı? Yer imleri silinmeyecek.",
+      "deleteAllData": "Bu cihazdaki tüm yerel NewDeskTab verileri silinsin mi? Yer işaretleri, klasörler, widget'lar, ayarlar, geri dönüşüm kutusu öğeleri, yerel görseller ve yerel videolar kalıcı olarak silinecektir. Bulut verileri değişmeyecek. Senkronizasyon etkinse bu cihaz önce Yerel'e geçecektir. Bu eylem geri alınamaz.",
+      "theme": {
+        "reset": "Tema ayarları sıfırlansın mı?"
+      },
+      "bookmark": {
+        "cancel": "Varsayılan yer işareti görünümündeki değişiklikler silinsin mi?"
+      },
+      "shortcuts": {
+        "reset": "Varsayılan klavye kısayolları geri yüklensin mi?"
+      },
+      "sync": {
+        "enable": "Yerel'den Senkronize Edilmiş'e geçilsin mi? Bu artık Kaydet'e tıklamanıza gerek kalmadan geçerli olur. Senkronize edilmiş veriler zaten mevcutsa yer işaretleri ve ayarları yüklenecektir. Aksi takdirde kayıtlı yerel verileriniz senkronize edilecektir.",
+        "local": "Senkronize Edilmiş'ten Yerel'e geçilsin mi? Bu artık Kaydet'e tıklamanıza gerek kalmadan geçerli olur. Bu cihaz mevcut verilerin bir kopyasını saklayacak ve değişiklikleri senkronize etmeyi bırakacaktır. Senkronize edilen veriler diğer cihazlar için saklanmaya devam edecek.",
+        "delete": "Senkronize edilen tüm NewDeskTab verileri silinsin mi? Bu cihaz ve bu bulut verilerini kullanan diğer tüm cihazlar, silme işlemini algıladıklarında Yerel moda geçiş yapacaktır. Bu geri alınamaz."
+      }
+    },
+    "backup": {
+      "import": "Bu yedekleme geri yüklensin mi? Mevcut yer işaretlerinizin ve ayarlarınızın yerini alacaktır."
+    }
+  },
+  "addModal": {
+    "title": "Yeni yer işareti ekle",
+    "name": "İsim:",
+    "url": "URL'si:",
+    "advancedOptions": "⚙ Gelişmiş seçenekler",
+    "compactView": "▴ Kompakt görünüm"
+  },
+  "clock": {
+    "name": "Saat",
+    "inDevelopment": "Geliştirme aşamasında: saat henüz son versiyonunda değil. Bunu geliştirmek için çalışıyoruz.",
+    "createTitle": "Saat ekle",
+    "editTitle": "Saat ayarları",
+    "description": "Bu çalışma alanında yerel saatinizi gösterin.",
+    "hourCycle": "Zaman formatı",
+    "hour24": "24 saat",
+    "hour12": "12 saat",
+    "showSeconds": "Saniyeleri göster",
+    "delete": "Sil",
+    "edit": "Saati düzenle",
+    "actions": "Saat eylemleri",
+    "openSettings": "Saat ayarlarını aç",
+    "confirmDelete": "Bu saat silinsin mi? Bu işlemi geri alabilirsiniz.",
+    "confirmPermanentDelete": "Bu saat kalıcı olarak silinsin mi? Bu geri alınamaz.",
+    "cancel": "Saat değişiklikleri silinsin mi?",
+    "noSpace": "Bu saat için yeterli ızgara alanı yok."
+  },
+  "buttons": {
+    "save": "Kaydet",
+    "apply": "Uygula",
+    "add": "Ekle",
+    "accept": "Kabul et",
+    "cancel": "İptal",
+    "close": "Kapat"
+  },
+  "localImage": {
+    "upload": "Bu cihazdan yükle",
+    "label": "Yerel resim:",
+    "activeSource": "Aktif resim:",
+    "sourceLocal": "Yerel",
+    "sourceUrl": "URL'si",
+    "remove": "Yerel resmi kaldır",
+    "notice": "Yerel resimler senkronize edilmez.",
+    "unnamed": "Yerel resim"
+  },
+  "workspace": {
+    "ariaLabel": "Çalışma alanı kontrolleri",
+    "current": "Çalışma alanı",
+    "main": "Ana Sayfa",
+    "search": "Yer imlerinde ara",
+    "add": "Çalışma alanı oluştur",
+    "delete": "Çalışma alanını sil",
+    "undo": "Geri al",
+    "redo": "Yinele",
+    "shortcutHint": "Çalışma alanını Alt veya Option artı Yukarı veya Aşağı Ok tuşlarıyla değiştirin",
+    "prompt": "Yeni çalışma alanı için bir ad girin",
+    "namePlaceholder": "Çalışmak, eğlenmek…",
+    "confirmDelete": "“{{name}}”, {{folderCount}} klasörü ve {{bookmarkCount}} yer işareti silinsin mi? Bunları saklamak için önce Ana'ya veya başka bir çalışma alanına taşıyın."
+  },
+  "search": {
+    "title": "Yer imlerinde ara",
+    "inputLabel": "Ada veya URL'ye göre arayın",
+    "placeholder": "Ad veya URL",
+    "empty": "Hiçbir yer işareti bulunamadı.",
+    "noUrl": "URL yok",
+    "inFolder": "Klasör: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Seçilen öğe eylemleri",
+    "selected": "{{count}} seçildi",
+    "move": "Çalışma alanına taşı",
+    "applyPreset": "Varsayılan stili uygula",
+    "duplicate": "Yinelenen seçim",
+    "delete": "Sil",
+    "clear": "Seçimi temizle"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Yer imi kontrolleri",
+    "edit": "Yer işaretini düzenle",
+    "delete": "Yer işaretini sil",
+    "copySuffix": "kopyala"
+  },
+  "folder": {
+    "create": "Klasör oluştur",
+    "createPrompt": "Yeni klasöre ad verin",
+    "namePlaceholder": "Araçlar, ilham…",
+    "open": "{{name}}, {{count}} kayıtlı yer işaretini aç",
+    "count": "{{count}} kaydedildi",
+    "summary": "{{capacity}} alandan {{count}}'si kullanıldı",
+    "editMode": {
+      "enable": "Düzenle",
+      "disable": "Düzenlemeyi bitir"
+    },
+    "gridLabel": "Klasör yer imleri",
+    "dropHint": "Eklemek için bırakın",
+    "noSpace": "Yeni bir klasör için boş ızgara hücresi yoktur.",
+    "removeNoSpace": "Bu yer işaretini klasörden kaldırmak için yeterli ızgara alanı yok.",
+    "confirmDelete": "“{{name}}” ve {{count}} yer imleri geri dönüşüm kutusuna taşınsın mı?",
+    "confirmPermanentDelete": "“{{name}}” ve {{count}} yer imleri kalıcı olarak silinsin mi? Bu geri alınamaz.",
+    "actions": {
+      "ariaLabel": "Klasör kontrolleri",
+      "customize": "Klasörü özelleştir",
+      "rename": "Klasörü yeniden adlandır",
+      "delete": "Klasörü sil",
+      "editBookmark": "{{name}}'yu düzenleyin",
+      "removeBookmark": "{{name}} öğesini klasörün dışına taşıyın",
+      "deleteBookmark": "{{name}}'yu sil",
+      "acceptRename": "Klasör adını kaydet",
+      "cancelRename": "Klasör yeniden adlandırmayı iptal et"
+    },
+    "editor": {
+      "createTitle": "Yeni klasör ekle",
+      "title": "Klasörü düzenle",
+      "name": "İsim:",
+      "showPreviews": "Yer işareti önizlemelerini göster",
+      "showName": "Klasör adını göster",
+      "iconColor": "Sembol rengi:",
+      "outerBackgroundColor": "Dış arka plan rengi:",
+      "noOuterBackground": "Dış arka plan yok",
+      "resetOuterBackground": "Otomatik",
+      "noBackground": "Şeffaf klasör dolgusu",
+      "backgroundColor": "Klasör rengi:",
+      "backgroundImage": "Arka plan resmi (URL):",
+      "lockImage": "Resim URL'sini kilitleme veya kilidini açma",
+      "copyImage": "Resim URL'sini kopyala",
+      "clearImage": "Resim URL'sini temizle",
+      "textColor": "Metin rengi:",
+      "preview": "Önizleme",
+      "previewName": "Klasör",
+      "sections": {
+        "general": "Genel",
+        "style": "Stil",
+        "text": "Metin"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Geri Dönüşüm Kutusu",
+    "open": "Geri dönüşüm kutusunu aç",
+    "openCount": "Geri dönüşüm kutusunu açın, {{count}} öğe",
+    "dropHint": "Silmek için bırakın",
+    "summary": "{{count}} öğe · Otomatik silme: {{retention}}",
+    "empty": "Geri dönüşüm kutusu boş.",
+    "selected": "{{count}} seçildi",
+    "select": "{{name}}'yu seçin",
+    "folderContents": "{{count}} yer imleri",
+    "deletedAt": "Silindi {{date}}",
+    "expiresIn": "{{days}} gün kaldı",
+    "expiresInOne": "1 gün kaldı",
+    "neverExpires": "Hiçbir zaman otomatik olarak silinmedi",
+    "restoreAll": "Tümünü geri yükle",
+    "deleteAll": "Tümünü sil",
+    "restoreSelected": "Seçileni geri yükle",
+    "deleteSelected": "Seçileni sil",
+    "editor": {
+      "title": "Geri dönüşüm kutusunu düzenle",
+      "animateIcon": "Geri dönüşüm kutusunu canlandır",
+      "appearance": "Görünüm",
+      "backgroundColor": "Arka plan rengi:",
+      "backgroundImage": "Arka plan resmi (URL):",
+      "lockImage": "Resim URL'sini kilitleme veya kilidini açma",
+      "copyImage": "Resim URL'sini kopyala",
+      "clearImage": "Resim URL'sini temizle",
+      "noBackground": "Arka plan yok",
+      "iconColor": "Simge rengi:",
+      "textColor": "Metin rengi:",
+      "elements": "Görünür öğeler",
+      "showName": "Adı göster",
+      "visible": "Ana ızgarada geri dönüşüm kutusunu göster",
+      "preview": "Önizleme",
+      "actions": "Geri dönüşüm kutusu eylemleri",
+      "edit": "Geri dönüşüm kutusunu düzenle",
+      "sections": {
+        "general": "Genel",
+        "style": "Stil",
+        "text": "Metin",
+        "icon": "Simge"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Ön ayarı kaydetmek için bir ad girin."
+    },
+    "name": {
+      "required": "Yer işareti için bir ad girin."
+    },
+    "folderName": {
+      "required": "Klasör için bir ad girin."
+    },
+    "url": {
+      "invalid": "URL geçerli değil.",
+      "unsupportedProtocol": "Bu URL türüne izin verilmiyor."
+    },
+    "backgroundImageUrl": {
+      "invalid": "Resim URL'si geçerli değil.",
+      "unsupportedProtocol": "Bu resim türüne izin verilmiyor."
+    }
+  },
+  "editModal": {
+    "title": "Yer işaretini düzenle",
+    "name": "İsim:",
+    "url": "URL'si:",
+    "backgroundImage": "Arka plan resmi (URL):",
+    "backgroundFavicon": "Büyük, ortalanmış simge",
+    "invertColorBg": "Renkleri ters çevir",
+    "noBackground": "Arka plan yok",
+    "backgroundColor": "Yer imi rengi:",
+    "showText": "Metni göster",
+    "textColor": "Metin rengi:",
+    "showFavicon": "Simgeyi göster",
+    "invertColorIcon": "Simge renklerini ters çevir",
+    "iconColor": "Simge rengi:",
+    "sections": {
+      "general": "Genel",
+      "style": "Stil",
+      "text": "Metin",
+      "icon": "Simge"
+    },
+    "preview": "Önizleme",
+    "previewName": "Önizleme"
+  },
+  "colorPicker": {
+    "title": "Renk seçici",
+    "sample": "Ekrandan bir renk seçin",
+    "close": "Renk seçiciyi kapat",
+    "saturationBrightness": "Doygunluk ve parlaklık",
+    "hue": "renk tonu",
+    "quickColors": "Hızlı renkler",
+    "saturation": "Doygunluk",
+    "brightness": "Parlaklık",
+    "hex": "Onaltılı kod",
+    "copy": "Hex kodunu kopyala",
+    "copied": "Hex kodu kopyalandı",
+    "copyFailed": "Hex kodu kopyalanamadı"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Genel",
+      "sync": "Senkronizasyon",
+      "theme": "Tema",
+      "bookmark": "Yer imleri",
+      "shortcuts": "Kısayollar",
+      "language": "Diller",
+      "help": "Yardım",
+      "information": "Bilgi"
+    },
+    "general": {
+      "title": "Genel",
+      "subtitle": "Ayarlar",
+      "export": "Yedeği dışa aktar",
+      "import": "Yedeği geri yükle",
+      "resetSettings": "Ayarları sıfırla",
+      "deleteAllData": "Tüm yerel verileri sil",
+      "recycleBin": {
+        "title": "Geri dönüşüm kutusu",
+        "show": "Ana ızgarada geri dönüşüm kutusunu göster",
+        "retentionLabel": "Öğeleri otomatik olarak sil:",
+        "retentionOptions": {
+          "oneDay": "1 gün",
+          "sevenDays": "7 gün",
+          "fourteenDays": "14 gün",
+          "twentyEightDays": "28 gün",
+          "never": "Asla"
+        }
+      },
+      "appearance": {
+        "title": "Görünüm",
+        "system": "Tarayıcı",
+        "light": "Işık",
+        "dark": "Karanlık"
+      }
+    },
+    "sync": {
+      "title": "Senkronizasyon",
+      "description": "Ayarlarınızın ve yer işaretlerinizin nerede saklanacağını seçin.",
+      "ariaLabel": "Depolama modu",
+      "local": {
+        "title": "Yalnızca bu cihaz",
+        "description": "Veriler yalnızca bu yerel tarayıcı profilinde depolanır."
+      },
+      "synced": {
+        "title": "Senkronize edildi",
+        "description": "Aynı hesaba bağlı Google Chrome profillerinde mevcuttur.",
+        "tooltip": "Senkronizasyon bilgileri"
+      },
+      "compatibility": {
+        "newerVersion": "Bulut verileri daha yeni bir NewDeskTab sürümü tarafından oluşturulduğundan senkronizasyon bu cihazda kilitlendi. Senkronize edilen verileriniz güvendedir ve değiştirilmemiştir. Yeniden bağlanmak için NewDeskTab adresini güncelleyin."
+      },
+      "usage": {
+        "title": "Depolama kullanılabilirliği",
+        "showExact": "Tam baytları göster",
+        "showHuman": "Okunabilir boyutları göster",
+        "local": "Yerel",
+        "sync": "Senkronize edildi",
+        "localSyncCopy": "Yerel Senkronizasyon kopyası",
+        "localAria": "Yerel depolama kullanımı",
+        "syncAria": "Senkronize depolama kullanımı",
+        "loading": "Hesaplanıyor…",
+        "summary": "{{used}} / {{total}} · %{{percent}}",
+        "available": "{{free}} mevcut",
+        "system": "Sistem ve meta veriler",
+        "bookmarks": "Yer imleri",
+        "folders": "Klasörler",
+        "trash": "Geri dönüşüm kutusu verileri",
+        "localImages": "Yerel görseller",
+        "themeImages": "Tema",
+        "bookmarkImages": "Yer imleri",
+        "folderImages": "Klasörler",
+        "trashImages": "Geri dönüşüm kutusu",
+        "otherImages": "Diğer",
+        "widgets": "Widget'lar",
+        "widgetsHint": "Senkronizasyon için gösterilen boyut bir tahmindir ve harici hizmetlerden getirilen canlı içeriği kapsamaz.",
+        "error": "Kullanım mevcut değil"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome, New DeskTab öğesini Google Hesabınız aracılığıyla senkronize eder. New DeskTab kendi senkronizasyon sunucusunu çalıştırmıyor.",
+        "brave": "Brave'de mevcut değil: New DeskTab verilerini chrome.storage.sync'de depolayabilir, ancak şu anda bunu cihazlar arasında yaymaz.",
+        "unsupported": "Senkronize depolama şimdilik yalnızca Google Chrome konumunda kullanılabilir. Cihazlar arası destek doğrulanana kadar diğer tarayıcılar devre dışı kalır."
+      },
+      "existingNotice": "Senkronize edilmiş durumuna geçişin kabul edilmesi, halihazırda mevcut olan tüm senkronize edilmiş verileri yükler.",
+      "deleteData": "Senkronize edilen verileri silin",
+      "metadata": {
+        "loading": "Senkronize edilen veriler kontrol ediliyor…",
+        "updatedAt": "Son senkronize edilen güncelleme: {{date}}",
+        "unknown": "Senkronize veriler mevcut ancak güncelleme zamanı mevcut değil.",
+        "empty": "Senkronize edilmiş New DeskTab verisi saklanmıyor.",
+        "error": "Senkronize veri bilgileri yüklenemedi."
+      },
+      "status": {
+        "idle": "Veriler hazır.",
+        "saving": "Değişiklikler kaydediliyor…",
+        "saved": "Tüm değişiklikler kaydedilir.",
+        "error": "En son değişiklikler kaydedilemedi."
+      }
+    },
+    "theme": {
+      "title": "Tema",
+      "subtitle": "Sayfa arka planı",
+      "backgroundImageMode": "Resim/video",
+      "wallpapersTitle": "Kendi duvar kağıtlarım",
+      "ownWallpapersHint": "Bu duvar kağıtları ve rotasyonları yalnızca bu cihazda saklanır.",
+      "mediaUrl": "Duvar kağıdı URL'si",
+      "image": "Resim",
+      "video": "video",
+      "addUrl": "URL ekle",
+      "addFiles": "Yerel dosyalar ekleyin",
+      "rotationInterval": "Duvar kağıdı döndürme",
+      "noRotation": "Otomatik olarak değişme",
+      "interval5": "5 saniye",
+      "interval15": "15 saniye",
+      "interval30": "30 saniye",
+      "interval60": "1 dakika",
+      "interval300": "5 dakika",
+      "interval600": "10 dakika",
+      "interval1800": "30 dakika",
+      "previous": "Önceki",
+      "next": "Sonraki",
+      "moveUp": "Yukarı taşı",
+      "moveDown": "Aşağı taşı",
+      "remove": "Kaldır",
+      "unavailableLocal": "Yerel dosya bu cihazda kullanılamıyor",
+      "mediaColor": "Bu duvar kağıdının arkasındaki renk",
+      "mediaPreview": "Duvar kağıdını önizle",
+      "activeSource": "Aktif kaynak",
+      "backgroundSolid": "Düz renk",
+      "backgroundColor": "Renk:",
+      "editSolidColor": "Düz arka plan rengini değiştirme",
+      "changeSolidColor": "Rengi değiştir",
+      "backgroundImageColor": "Resmin/videonun arkasındaki renk",
+      "backgroundImage": "Cihazlar arasında paylaşılan URL",
+      "urlHidden": "URL gizlendi",
+      "resetBackground": "Temayı sıfırla"
+    },
+    "bookmark": {
+      "title": "Yer imleri",
+      "subtitle": "Varsayılan yer imi",
+      "description": "Yeni yer imleri oluştururken kullanılacak görünümü seçin.",
+      "configure": "Varsayılan yer işaretini yapılandır",
+      "editorTitle": "Varsayılan yer imi görünümü",
+      "previewName": "Varsayılan yer imi",
+      "export": "Yer işaretlerini dışa aktar",
+      "import": "Yer işaretlerini içe aktar",
+      "deleteAll": "Tüm yer işaretlerini sil",
+      "preview": "Önizleme",
+      "drag": {
+        "title": "Sürükleme davranışı",
+        "description": "Yer işaretlerinin konumlarını işgal ettiğinizde nasıl yeniden düzenleneceğini seçin.",
+        "none": {
+          "title": "Yok",
+          "description": "Yalnızca serbest hücrelere yapılan hamlelere izin verir."
+        },
+        "cascade": {
+          "title": "Sıra",
+          "description": "Serbest bir hücre bulana kadar zinciri kaydırır.",
+          "experimental": "Deneysel · Küçük hatalar içerebilir."
+        },
+        "relocate": {
+          "title": "Yer değiştirme",
+          "description": "Hedefi işgal eden yer imlerinin yerini değiştirir."
+        }
+      },
+      "resize": {
+        "title": "Davranışı yeniden boyutlandır",
+        "description": "Yeniden boyutlandırma tutamacını hareket ettirirken öğelerin nasıl tepki vereceğini seçin.",
+        "smooth": {
+          "title": "Pürüzsüz",
+          "description": "Sürüklerken öğeyi uzatır, ardından ızgaraya yaslar."
+        },
+        "none": {
+          "title": "Yok",
+          "description": "Komşu hücrenin %50'sini geçtiğinizde hücre bazında atlar."
+        }
+      },
+      "presets": {
+        "title": "Stil kitaplığı",
+        "tab": "Kütüphane",
+        "description": "Stilleri kaydedin ve varsayılan yer imini ayarlarken bunları yeniden kullanın.",
+        "name": "Ön ayar adı",
+        "saved": "Kaydedilen ön ayarlar",
+        "save": "Ön ayarı kaydet",
+        "apply": "Yük",
+        "delete": "Sil",
+        "empty": "Kaydedilmiş ön ayar yok"
+      }
+    },
+    "shortcuts": {
+      "title": "Klavye kısayolları",
+      "description": "Bir kısayol düğmesi seçin, ardından bir harfe veya tuş birleşimine basın. Atamasını kaldırmak için sağ tıklayın.",
+      "change": "{{action}} kısayolunu değiştirin. Geçerli kısayol: {{shortcut}}.",
+      "press": "Kısayola basın…",
+      "unassigned": "Atanmamış",
+      "unassignedFlash": "Kısayolun ataması kaldırıldı.",
+      "modifierRequired": "Tek başına bir harf veya değiştiricili bir tuş kombinasyonu kullanın.",
+      "reserved": "Bu kısayol tarayıcı veya işletim sistemi tarafından ayrılmıştır. Başka bir kombinasyon seçin.",
+      "conflict": "Bu anahtar zaten başka bir eyleme atanmış.",
+      "updated": "Kısayol güncellendi.",
+      "cancelled": "Kısayol değişikliği iptal edildi.",
+      "restored": "Varsayılan kısayollar geri yüklendi.",
+      "reset": "Kısayolları sıfırla",
+      "actions": {
+        "toggleEditing": {
+          "title": "Düzenleme modu",
+          "description": "Ana kılavuzda veya açık bir klasörde düzenlemeye girin veya bırakın."
+        },
+        "addBookmark": {
+          "title": "Yer imi oluştur",
+          "description": "Yer imi eklemek için formu açın."
+        },
+        "addFolder": {
+          "title": "Klasör oluştur",
+          "description": "Klasör oluşturmak için iletişim kutusunu açın."
+        },
+        "openWidgets": {
+          "title": "Widget'ları aç",
+          "description": "Kullanılabilir widget'ların listesini açın."
+        },
+        "openSettings": {
+          "title": "Ayarları aç",
+          "description": "New DeskTab ayarlar panelini açın."
+        }
+      }
+    },
+    "languages": {
+      "title": "Diller",
+      "text": "Arayüz dilini seçin:",
+      "system": "Tarayıcı",
+      "search": "Dili veya ülkeyi arayın",
+      "empty": "Dil bulunamadı"
+    },
+    "information": {
+      "title": "Bilgi",
+      "version": "Sürüm: {{VERSION}}",
+      "author": "Yazar:"
+    }
+  }
+}

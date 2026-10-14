@@ -1,0 +1,517 @@
+{
+  "title": "Kasutusjuhend",
+  "eyebrow": "SINU RUUM, SINU TEMPO",
+  "intro": "Tutvuge iga väikese funktsiooniga.",
+  "description": "Otsige üles, mida vajate või avastage midagi uut. Võtke aega.",
+  "settingsDescription": "Iga funktsioon lihtsate sammude ja väikeste nippidega, mida saate igal ajal proovida.",
+  "search": {
+    "label": "Millega saame teid aidata?",
+    "placeholder": "Näiteks: kustutatud järjehoidja taastamine",
+    "common": "Levinud küsimused",
+    "found": "Vastused teie otsingule · {{count}}",
+    "empty": "Selle otsingu jaoks abi ei leitud. Proovige \"klaviatuuri\", \"teisalda järjehoidjaid\" või \"varunda\".",
+    "resultsLabel": "Käsitsi küsimused ja vastused"
+  },
+  "open": "Tutvuge juhendiga",
+  "searchLabel": "Otsige juhendist",
+  "searchPlaceholder": "Proovige \"klaviatuuri\", \"taustapilti\" või \"varukoopiat\"",
+  "count": "Uurimiseks {{count}} sektsiooni",
+  "empty": "Vasteid pole. Proovige teist sõna või tühjendage otsing, et näha kogu registrit.",
+  "back": "← Käsitsi indeks",
+  "remember": "Hea meenutada",
+  "related": "Jätkake avastamist",
+  "footer": "Alati saadaval menüüs Seaded → Abi.",
+  "guideLinks": "Lisateavet leiate juhendist",
+  "groups": {
+    "start": "Alusta siit",
+    "organize": "Korraldage",
+    "personalize": "Tee see enda omaks",
+    "protect": "Hoolitse oma ruumi eest"
+  },
+  "demo": {
+    "browse": "Sirvige jaotisi",
+    "previous": "← Eelmine jaotis",
+    "next": "Järgmine jaotis →",
+    "title": "Vaadake seda tegevuses",
+    "example": "Demonstratsiooni näide",
+    "steps": "Demonstratsiooni sammud",
+    "step": "Samm {{step}}/{{count}}",
+    "play": "Mängi",
+    "pause": "Paus",
+    "replay": "Kordus",
+    "progress": "Demonstratsiooni edenemine",
+    "mode": "Käitumine",
+    "nextStep": "Järgmine samm",
+    "reducedMotion": "Vähendatud liikumine: uurige samme ilma animatsioonita.",
+    "labels": {
+      "settings": "Seaded",
+      "saved": "Muudatused salvestatud",
+      "page": "Lehekülg",
+      "selection": "Valik",
+      "selected": "valitud üksused",
+      "color": "Värv",
+      "styleName": "Minu lilla stiil",
+      "wallpaper": "Taustapildid",
+      "rotation": "Pöörlemine",
+      "format": "Vorming",
+      "seconds": "Sekundid",
+      "language": "Keel",
+      "system": "Süsteem",
+      "currentLanguage": "Eesti",
+      "restore": "Taasta",
+      "copy": "Varundamine",
+      "restoreCopy": "Enne taastamist vaadake üle",
+      "switchSync": "Kas lülituda valikule Sünkroonitud?",
+      "applyNow": "Kehtib kinnitamisel",
+      "status": "Olek",
+      "synchronized": "Sünkroonitud",
+      "retry": "Salvestamine on ootel · Proovi uuesti",
+      "keyboardQuery": "klaviatuur",
+      "deleteExample": "Järjehoidjad ja kaustad kustutatakse. Prügikast saab tühjaks."
+    },
+    "topics": {
+      "bookmarks": [
+        "Avage vasakpoolne menüü ja valige + → Järjehoidja.",
+        "Sisestage lehe nimi ja aadress.",
+        "Kinnitage: järjehoidja kuvatakse vabas lahtris."
+      ],
+      "quick-save": [
+        "Avage New DeskTab selle laienduse ikoonilt.",
+        "Vaadake üle soovitatud nimi, aadress ja sihtkoht.",
+        "Salvesta: järjehoidja on teie tööruumis, kui avate vahekaardi."
+      ],
+      "keyboard": [
+        "Esimese üksuse fokuseerimiseks vajutage tabeldusklahvi.",
+        "Nooleklahvid liigutavad fookust. Enter avab fokuseeritud üksuse.",
+        "Esc või muu Tab lõpetab navigeerimise."
+      ],
+      "shortcuts": [
+        "Avage Seaded → Klaviatuuri otseteed.",
+        "Klõpsake toimingu otseteel ja tippige oma kombinatsioon.",
+        "Uue otsetee rakendamiseks salvestage."
+      ],
+      "search": [
+        "Tööriistariba luup või / avab otsingu.",
+        "Tippige osa nimest või aadressist.",
+        "Avage tulemus. Esc või Sule naaseb teie tööruumi."
+      ],
+      "editing": [
+        "Menüüpliiats paljastab ruudustiku ja juhtnupud.",
+        "Gmaili pliiats avab selle nime- ja URL-i redaktori.",
+        "Salvestage muudatus ja klõpsake lõpetamiseks uuesti menüüpliiatsit."
+      ],
+      "movement": [
+        "Lubage redigeerimine ja hoidke paani all.",
+        "Kursor ja paan liiguvad koos vabasse lahtrisse.",
+        "Vabastamine: lõplik asukoht on salvestatud."
+      ],
+      "resizing": [
+        "Lubage redigeerimine ja leidke nurgakäepide.",
+        "Laiuse ja kõrguse muutmiseks lohistage diagonaalselt.",
+        "Vabastage 2 × 2 juures. Võrrelge valikuid Puudub ja Sujuv, kasutades valijat."
+      ],
+      "drag-modes": [
+        "Kasutage kolme lohistamisrežiimi võrdlemiseks valijat.",
+        "Lohistage hõivatud lahtri poole ja vaadake teisi paane.",
+        "Ükski ei kasuta vaba rakku; Ümberpaigutamine ja kaskaad korraldavad plaadid ümber."
+      ],
+      "folders": [
+        "Lehtede rühmitamiseks andke kaustale nimi.",
+        "Redigeerimise ajal lohistage sellele järjehoidja.",
+        "Järjehoidja leidmiseks selle ruudustikust avage kaust."
+      ],
+      "workspaces": [
+        "Tööriistariba + loob teie valitud nimega tööruumi.",
+        "Uuel tööruumil on oma ruudustik.",
+        "Alt + ↑ ja Alt + ↓ liiguvad teie tööruumides ringi."
+      ],
+      "selection": [
+        "Lubage redigeerimine ja valige paan lühikese klõpsuga.",
+        "Valige mõni muu: tööriistariba pakub rühmatoiminguid.",
+        "Kloonimine loob ühe toiminguga vabadesse rakkudesse koopiad."
+      ],
+      "history": [
+        "Paani teisaldamine: see muudatus siseneb ajalukku.",
+        "Võta tagasi (Võta tagasi) tagastab plaadi oma eelmisele positsioonile.",
+        "Uuesti taastab äsja tühistatud käigu."
+      ],
+      "appearance": [
+        "Paani pliiats avab selle redaktori.",
+        "Muutke värvi ja vaadake eelvaadet.",
+        "Salvestage, et seda välimust plaadile rakendada."
+      ],
+      "presets": [
+        "Avage raamatukogu menüüst Seaded → Järjehoidjad.",
+        "Nimetage ja salvestage stiil, et seda uuesti kasutada.",
+        "Laadige see vaikeseadena ja salvestage uute järjehoidjate jaoks."
+      ],
+      "wallpapers": [
+        "Taustapildi valimiseks avage Seaded → Teema.",
+        "Vaadake üle eelvaade ja teegi pööramise intervall.",
+        "Salvesta: valitud taustapilt kuvatakse teie tööruumi."
+      ],
+      "clock": [
+        "Valige vasakpoolses menüüs + → Vidinad → Kell.",
+        "Eelvaate abil konfigureerige vorming ja sekundid.",
+        "Lisage kell vabasse tööruumi lahtrisse."
+      ],
+      "interface": [
+        "Avage Üldine ja valige menüü keel.",
+        "Võrrelge heledat ja tumedat liidest.",
+        "Salvestage oma keele- ja välimuseelistused."
+      ],
+      "trash": [
+        "Kustutatud järjehoidja leidmiseks avage prügikast.",
+        "Valige see ja klõpsake nuppu Taasta: see naaseb ruudustikule.",
+        "Üldiselt valige, kui kaua kustutatud üksusi säilitatakse."
+      ],
+      "backup": [
+        "Varundusvalikud leiate menüüst Seaded → Üldine.",
+        "Eksport laadib andmete ja kohalike failidega ZIP-faili alla.",
+        "Import küsib enne andmete asendamist kinnitust."
+      ],
+      "sync": [
+        "Praeguse režiimi kontrollimiseks avage Seaded → Sünkroonimine.",
+        "Valige Sünkroonitud ja vaadake üle kinnitus.",
+        "Nõustu rakendab režiimi kohe, klõpsamata Salvesta."
+      ],
+      "compact": [
+        "Kui aken kitseneb, muutub ruudustik loendiks.",
+        "Järjehoidjad jäävad loendist juurdepääsetavaks.",
+        "Ruudustiku ja redigeerimise juurde naasmiseks laiendage akent."
+      ],
+      "data": [
+        "Näidis kasutab teist keelt, kerget liidest ja kohandatud paane.",
+        "Lähtestamine taastab vaikeseaded, säilitades samas järjehoidjad ja nende stiilid.",
+        "Kustuta eemaldab järjehoidjad ja kaustad, jättes alles vaid tühja prügikasti."
+      ],
+      "learning": [
+        "Igapäevane näpunäide kutsub teid mõnda funktsiooni avastama. Klõpsake nuppu Näita, kuidas.",
+        "Klaviatuuriga navigeerimise leidmiseks tippige otsingukasti \"klahv\".",
+        "Klõpsake tulemusel, et lugeda selle juhiseid."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "VÄIKE NIPP TÄNASEKS",
+    "dismiss": "Loobu tänane nõuanne",
+    "read": "Näita mulle, kuidas",
+    "pace": "Peatamiseks hõljutage kursorit.",
+    "enabled": "Igapäevased näpunäited",
+    "description": "Üks näpunäide, kui avate oma päeva esimese vahelehe."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Kuidas lisada lehekülg järjehoidjate hulka?",
+      "searchTerms": "lisa leht; luua järjehoidja; salvesta veebisait; uus lemmik",
+      "title": "Lisage järjehoidjaid",
+      "summary": "Teie lemmiklehed on igal uuel vahekaardil käepärast.",
+      "steps": [
+        "Menüü kuvamiseks liikuge vasakusse serva. Valige + → Järjehoidja.",
+        "Sisestage lehe nimi ja aadress. Enne lisamist saate selle välimust kohandada.",
+        "Kinnitage järjehoidja paigutamine praeguses tööruumis vabasse pessa. Väljaspool redigeerimisrežiimi klõpsake lehe avamiseks sellel."
+      ],
+      "note": "Olemasoleva järjehoidja muutmiseks lülitage redigeerimine sisse ja kasutage selle pliiatsit. Juhuslike muutmiste vältimiseks saate aadressi lukustada.",
+      "tip": "Järjehoidjate lisamise menüü asub vasakus servas. Liigutage kursor sinna ja valige + → Järjehoidja."
+    },
+    "quick-save": {
+      "question": "Kuidas külastatavat lehte salvestada?",
+      "searchTerms": "salvesta praegune leht; salvesta avatud vahekaart; laienduse ikoon; püüdmise URL",
+      "title": "Salvestage praegune leht",
+      "summary": "Lisage leht laienduse ikooni kaudu.",
+      "steps": [
+        "Lehte külastades avage brauseri laienduste menüüst New DeskTab.",
+        "Kontrollige pakutud nime ja aadressi ning valige saadaolev sihtkoht.",
+        "Salvestage järjehoidja ja avage uus vahekaart, et see oma ruumist leida."
+      ],
+      "note": "Kinnitage laienduse ikoon brauseri tööriistaribale, et see otsetee käeulatuses hoida.",
+      "tip": "URL-i pole vaja kopeerida: New DeskTab brauseriikoon võimaldab teil külastatava lehe salvestada."
+    },
+    "keyboard": {
+      "question": "Kuidas navigeerida ilma hiireta?",
+      "searchTerms": "ilma hiireta; kasutada klaviatuuri; noolega navigeerimine; vahelehe sisestamine",
+      "title": "Navigeerige klaviatuuriga",
+      "summary": "Tab, nooleklahvid ja sisestus oma ruumi uurimiseks.",
+      "steps": [
+        "Avalehel, ilma välja tippimata või dialoogi avamata, vajutage üksuste vahel navigeerimise alustamiseks tabeldusklahvi.",
+        "Kasutage nooleklahve, et jõuda igas suunas lähima üksuseni. Enter avab järjehoidja või kausta; redigeerimisrežiimis avab see oma redaktori.",
+        "Navigeerimisest lahkumiseks vajutage uuesti Tab või Esc. Dialoogiakendes liiguvad tabeldusklahvid ja tõstuklahv + tabeldusklahvid tavaliselt juhtelementide vahel."
+      ],
+      "note": "Redigeerimisrežiimis valib S fokuseeritud üksuse. Kustuta või Backspace eemaldab selle pärast kinnitamist. Vidinad kustutatakse jäädavalt.",
+      "tip": "Proovige oma ruumis Tab: nooled liiguvad üksuste vahel ja Enter avab need. Sellest režiimist lahkub teine ​​vahekaart."
+    },
+    "shortcuts": {
+      "question": "Kuidas muuta oma klaviatuuri otseteid?",
+      "searchTerms": "muuda otseteid; kohandada võtmeid; klahvikombinatsioonid; kiirklahv",
+      "title": "Tehke otseteed ise",
+      "summary": "Kontrollige ja muutke otseteid jaotises Seaded.",
+      "steps": [
+        "Avage Seaded → Otseteed, et näha oma sidumisi redigeerimiseks, järjehoidjate, kaustade ja vidinate lisamiseks ning avamisseadeteks.",
+        "Klõpsake toimingu klahvikombinatsiooni ja vajutage uut otseteed. Esc tühistab salvestamise; paremklõps jätab toimingu määramata.",
+        "Muudatuste rakendamiseks salvestage seaded. Lähtesta otseteed taastab algsed kombinatsioonid."
+      ],
+      "note": "Esialgu: E toimetab, B lisab järjehoidja, F kausta, W avab vidinad ja S seaded. Otseteed austavad tekstivälju ja dialooge.",
+      "tip": "Otseteed saate muuta menüüs Seaded. Oma enda salvestamiseks klõpsake kombinatsioonil; Esc tühistab ja paremklõps tühistab selle määramise."
+    },
+    "search": {
+      "question": "Kuidas leida järjehoidjat, mida ma ei näe?",
+      "searchTerms": "järjehoidja leidmine; leidke leht; puuduv järjehoidja; otsi URL-i",
+      "title": "Leidke järjehoidja",
+      "summary": "Otsige nime või aadressi järgi, sealhulgas kaustade sees.",
+      "steps": [
+        "Vajutage /, kui te ei kirjuta, või kasutage tööruumi ribal olevat suurendusklaasi.",
+        "Tippige osa nimest või aadressist. Otsing hõlmab järjehoidjaid teistes tööruumides ja kaustades.",
+        "Avage soovitud tulemus. Esc või Sule viib teid tagasi oma ruumi."
+      ],
+      "note": "Selle leidmiseks ei pea te meeles pidama, kuhu lehe salvestasite.",
+      "tip": "Klahv / avab otsingu. Samuti leiab see järjehoidjaid kaustadest ja muudest tööruumidest."
+    },
+    "editing": {
+      "question": "Kuidas redigeerimist sisse lülitada?",
+      "searchTerms": "redigeerimise lubamine; redigeeri töölauda; pliiatsi toimetaja; järjehoidja muutmine",
+      "title": "Redigeerimisrežiim",
+      "summary": "Korraldamiseks ja kohandamiseks lülitage pliiats sisse.",
+      "steps": [
+        "Klõpsake vasakpoolses menüüs pliiatsil või kasutage redigeerimise otseteed, et kuvada ruudustik ja üksuse juhtnupud.",
+        "Teisaldage, muutke suurust või valige üksused. Iga kaardi pliiats avab selle nime, aadressi ja välimuse redaktori.",
+        "Kui olete lõpetanud, klõpsake uuesti pliiatsil. Tööruumi muudatused salvestatakse automaatselt; toimetajatel on oma nupp Salvesta."
+      ],
+      "note": "Esc tühjendab esmalt valiku või klaviatuuril navigeerimise. Kui kumbki pole aktiivne, võib see redigeerimisrežiimist lahkuda.",
+      "tip": "Menüüpliiats hakkab toimetama: ilmuvad kaardi käepidemed ja juhtnupud. Lõpetamiseks klõpsake seda uuesti."
+    },
+    "movement": {
+      "question": "Kuidas järjehoidjat teisaldada?",
+      "searchTerms": "järjehoidja teisaldamine; lohista lemmik; asendi muutmine; võrgustikku korraldama",
+      "title": "Üksuste teisaldamine",
+      "summary": "Lohistage kaardid ruudustikule oma kohale.",
+      "steps": [
+        "Lülitage redigeerimisrežiim sisse ja hoidke kaarti, mida soovite teisaldada.",
+        "Lohistage see sihtkohta. Tulemus sõltub vabast ruumist ja lohistamisrežiimist, mis on valitud menüüs Seadistused → Järjehoidjad.",
+        "Vabastage selle asukoha salvestamiseks. Samuti saate klõpsuga valida ühe üksuse ja liigutada seda nooltega ühe lahtri võrra väljapoole vahekaardi navigeerimist."
+      ],
+      "note": "Blokeeritud sihtkohad näitavad visuaalset tagasisidet ja üksus naaseb kehtivasse asukohta. Saate muudatused tagasi võtta.",
+      "tip": "Redigeerimisrežiimis klõpsake ühe kaardi valimiseks ja kasutage selle lahtri kaupa liigutamiseks nooli. Kõigepealt lahkuge vahekaardi navigeerimisest."
+    },
+    "resizing": {
+      "question": "Kuidas plaadi suurust muuta?",
+      "searchTerms": "plaatide suuruse muutmine; järjehoidja suurendamine; vähendada suurust; suuruse muutmise käepidemed; klõpsake; Shift; laius kõrgus; 2x2",
+      "title": "Muutke suurust",
+      "summary": "Kasutage kaardi külgi ja nurki.",
+      "steps": [
+        "Lülitage redigeerimine sisse ja liikuge üksuse küljele või nurka, et kasutada selle suuruse muutmise käepidemeid.",
+        "Lohistage käepidet. Nurk muudab laiust ja kõrgust; külg muudab ainult ühte mõõdet. Ühe lahtri võrra suurendamiseks võite klõpsata ka käepidemel või ühe lahtri võrra kahandamiseks klahvikombinatsiooni Shift + klõps.",
+        "Valige jaotises Seaded → Järjehoidjad, et pärast 50% ületamist lahtrite vahel hüpata, või kaardi venitamiseks ja vabastamisel klõpsamiseks sujuv."
+      ],
+      "note": "Lõplik suurus järgib ruudustikku ja kehtivaid positsioone. Seadete eelvaates kuvatakse erinevus enne valimist.",
+      "tip": "Ühe lahtri võrra suurendamiseks klõpsake käepidemel või ühe lahtri võrra kahandamiseks Shift + klõpsake. Nurgad muudavad laiust ja kõrgust koos; küljed muudavad ainult ühte mõõdet."
+    },
+    "drag-modes": {
+      "question": "Miks ma ei saa hõivatud kambrisse kukkuda?",
+      "searchTerms": "hõivatud kamber; liikuda üle teise; blokeeritud langus; kaskaadi ümberpaigutamine; tõmbekokkupõrge",
+      "title": "Lohistusrežiimid",
+      "summary": "Valige, mis toimub hõivatud järjehoidja asukohas.",
+      "steps": [
+        "Avage Seaded → Järjehoidjad ja laiendage lohistamiskäitumist.",
+        "Ükski ei liigu vabadesse pesadesse. Ümberpaigutamine leiab järjehoidjate jaoks asukoha sihtkohas. Kaskaad paigutab järjehoidjad järjestikku ümber.",
+        "Vaadake iga valiku animatsiooni ja salvestage režiim, millega on mugav korraldada."
+      ],
+      "note": "Liikumine lükatakse tagasi, kui kehtivat kokkulepet pole. Läbipaistev taust ei muuda hõivatud lahtrit vabaks.",
+      "tip": "Kas soovite teisaldada järjehoidja hõivatud kambrisse? Vaadake jaotist Ümberpaigutamine ja kaskaad jaotises Seaded → Järjehoidjad ja vaadake nende eelvaateid."
+    },
+    "folders": {
+      "question": "Kuidas järjehoidjaid kaustadesse grupeerida?",
+      "searchTerms": "luua kaust; rühma järjehoidjad; korraldada lemmikud; eemalda kaustast; kaust ümber nimetada",
+      "title": "Korraldage kaustadega",
+      "summary": "Koguge ühte kausta kuni 18 järjehoidjat.",
+      "steps": [
+        "Valige vasakpoolsest menüüst + → Kaust ja andke sellele nimi.",
+        "Redigeerimisrežiimis lohistage järjehoidjad sellele, et need sisse panna. Avage kaust, et näha selle võrgustikku.",
+        "Kasutage kausta redigeerimisrežiimi selle järjehoidjate korraldamiseks. Selle ümbernimetamiseks klõpsake selle nimel ja välimuse kohandamiseks ikooni."
+      ],
+      "note": "Kausta kustutamine mõjutab ka selle järjehoidjaid. Enne jätkamist vaadake kinnitus üle; prügikast saab kustutatud üksusi taastada.",
+      "tip": "Kaustas on kuni 18 järjehoidjat. Lülitage redigeerimine sisse ja lohistage kaart selle lisamiseks kausta."
+    },
+    "workspaces": {
+      "question": "Kuidas isiklikku ja töölehte lahus hoida?",
+      "searchTerms": "isiklik töö; luua tööruum; vahetada tööruumi; lauaarvutid",
+      "title": "Eraldage oma tööruumid",
+      "summary": "Üks ruudustik töö jaoks ja teine kõige muu jaoks.",
+      "steps": [
+        "Tööruumi riba lülitub põhi- ja kohandatud tööruumide vahel. Selle + loob uue.",
+        "Valige enne üksuste lisamist tööala. Olemasolevate üksuste teisaldamiseks valige need ja valige tegevusribal sihtkoht.",
+        "Alt + ↑ ja Alt + ↓ liiguvad läbi tööruumide. Nupp − kustutab pärast kinnitamist praeguse kohandatud tööruumi."
+      ],
+      "note": "Tööruumi kustutamisel kustutatakse ka selle sisu. Põhi jääb kättesaadavaks ja seda ei saa kustutada.",
+      "tip": "Alt + ↑ ja Alt + ↓ vahetavad tööruume valijat avamata. Eraldage töö, hobid või projektid baari +-ga."
+    },
+    "selection": {
+      "question": "Kuidas muuta mitut üksust korraga?",
+      "searchTerms": "vali mitu; hulgivalik; liigutada mitut; klooni valik; dubleerivad järjehoidjad",
+      "title": "Valige ja tegutsege hulgi",
+      "summary": "Vähem korduvaid toiminguid mitme kaardi korraldamisel.",
+      "steps": [
+        "Lülitage redigeerimine sisse ja klõpsake iga kaardi valimiseks korraks. Valiku tühistamiseks klõpsake uuesti; Tab-navigeerimisel saate kasutada S.",
+        "Valikuriba võimaldab teil olenevalt üksuse tüübist kopeerida, rakendada vaikevälimust, liikuda teisele tööruumi või kustutada.",
+        "Kontrollige sihtkohta või kinnitust. Esc või valiku tühjendamise nupp tühistab teie valiku."
+      ],
+      "note": "Teisaldamiseks ja paljundamiseks on vaja vabu pesasid. Rakendus annab teada, kui mõni üksus ei sobi. Vidinad ei lähe prügikasti.",
+      "tip": "Redigeerimisrežiimis valige lühikeste klõpsudega mitu kaarti, et neid koos teisaldada, kopeerida või ümber kujundada. Esc tühjendab valiku."
+    },
+    "history": {
+      "question": "Kuidas oma viimast muudatust tagasi võtta?",
+      "searchTerms": "tühista muudatus; tee muudatus uuesti; tagasi minna; asendi taastamine",
+      "title": "Võta tagasi ja tee uuesti",
+      "summary": "Taasta positsioon või hiljutine muudatus.",
+      "steps": [
+        "Eelmisesse olekusse naasmiseks kasutage tööruumi ribal olevat tagasivõtmisnoolt.",
+        "Uuendamisnool taastab äsja tühistatud muudatuse. Võite kasutada ka klahve Ctrl/Cmd + Z ja Ctrl/Cmd + Shift + Z.",
+        "Redaktoris kasutage ootelolevate muudatuste jaoks selle pealkirja kõrval olevaid nooli; tekstiväljad säilitavad tavapärase klaviatuuri tagasivõtmise. Iga toiming näitab lühikest teadet ja kättesaamatud nooled on keelatud. Enne salvestamist kontrollige tulemust."
+      ],
+      "note": "Redaktori ajalugu algab iga kord, kui avate redaktori; muudatused jõuavad salvestamisel teie tööruumi. Tööruumi ajalugu on ajutine ega ole varukoopia. Uus seanss või mõne muu vahelehe värskendused võivad selle lähtestada.",
+      "tip": "Kui muudatus ei tundu õige, kasutage tagasivõtmise noolt või klahvikombinatsiooni Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z teeb selle uuesti."
+    },
+    "appearance": {
+      "question": "Kuidas muuta värvi, ikooni või teksti?",
+      "searchTerms": "muuta värvi; muuda ikooni; teksti muutmine; järjehoidja välimus; kausta värv; favicon",
+      "title": "Kohandage oma kaarte",
+      "summary": "Värvid, pildid, tekst ja ikoonid omal moel.",
+      "steps": [
+        "Lülitage redigeerimine sisse ja avage järjehoidja pliiats või kausta või prügikasti välimuse juhtelement.",
+        "Uurige redaktorit: taust, värv, pilt, tekst ja ikoon. Saadaolevad juhtelemendid sõltuvad üksuse tüübist; eelvaade näitab tulemust.",
+        "Säästke, kui olete õnnelik. Saate kasutada pilte URL-ist või kohalikust failist, kus redaktor seda võimalust pakub."
+      ],
+      "note": "Kohalikud pildid kuuluvad sellele brauserile. Sünkroonimisel lisage teistele seadmetele varu-URL. Import säilitab lisatud pildid ja selged viited ilma failita; Sünkroonimine ignoreerib faile, mis selles seadmes pole saadaval.",
+      "tip": "Järjehoidja pliiats avab visuaalse redaktori. Muutke värve, teksti, ikooni või pilti ja kontrollige eelvaadet."
+    },
+    "presets": {
+      "question": "Kuidas taaskasutada stiili, mis mulle meeldib?",
+      "searchTerms": "salvesta stiil; taaskasutamise välimus; vaikimisi stiilid; eelseadistatud raamatukogu; stiili rakendama",
+      "title": "Esinemiste taaskasutamine",
+      "summary": "Salvestage välimus ja rakendage see teistele järjehoidjatele.",
+      "steps": [
+        "Saadaolevast kogust välimuse valimiseks avage redaktori teek.",
+        "Salvestage kohandatud välimus eelseadistusena, et uuesti kasutada selle värve, teksti ja ikooni ilma järjehoidja nime või aadressi kopeerimata.",
+        "Seadistused → Järjehoidjad määrake uute järjehoidjate vaikeilme. Valikuriba saab seda ühilduvatele üksustele rakendada."
+      ],
+      "note": "Eelseade muudab välimust, mitte järjehoidja identiteeti, sihtkohta või asukohta.",
+      "tip": "Salvestage välimuse teeki meelepärane välimus. Kasutage seda teistel kaartidel ilma nende nimesid või aadresse muutmata."
+    },
+    "wallpapers": {
+      "question": "Kuidas kasutada pilti või videot taustana?",
+      "searchTerms": "muuta tausta; video taust; tapeedi pööramine; teema",
+      "title": "Taustapildid ja pöörlemine",
+      "summary": "Värv, pilt või video meeleolu loomiseks.",
+      "steps": [
+        "Avage Seaded → Teema ja valige vaiketaust, värv või meediumitaust.",
+        "Lisage pilte või videoid paneelil pakutavatest allikatest. Teek kogub mitu tausta pöörlemisintervalliga.",
+        "Kontrollige eelvaadet ja salvestage. Saate siduda kohaliku faili alternatiivse URL-iga teiste seadmete jaoks."
+      ],
+      "note": "Kohalikud failid jäävad sellesse brauserisse. Sünkroonimine ei kanna neid üle; täielik varukoopia võib need säilitada.",
+      "tip": "Teie taust võib muutuda automaatselt: lisage mitu menüüsse Seaded → Teema ja määrake pööramise intervall."
+    },
+    "clock": {
+      "question": "Kuidas kella lisada?",
+      "searchTerms": "lisa kella; näitamise aeg; sekundit; 24-tunnine formaat; kella vidin",
+      "title": "Lisage kell",
+      "summary": "Vidin, mis näitab teie seadme aega.",
+      "steps": [
+        "Valige vasakpoolses menüüs + → Vidinad ja valige Kell.",
+        "Valige 12- või 24-tunnine vorming ja kas kuvada sekundeid. Eelvaade aitab teil otsustada.",
+        "Lisage see vabasse pesasse. Redigeerimisrežiimis saate selle valikuid teisaldada, suurust muuta või uuesti avada."
+      ],
+      "note": "Kell järgib teie seadme aega. Vidina kustutamine on jäädav; see ei satu prügikasti.",
+      "tip": "Menüüs + → Vidinad saate lisada 12- või 24-tunnise kella koos valikuliste sekunditega ja muuta selle suurust vastavalt oma ruumile."
+    },
+    "interface": {
+      "question": "Kuidas muuta keelt või kasutada tumedat režiimi?",
+      "searchTerms": "muuta keelt; tume režiim; valgusrežiim; liidese välimus",
+      "title": "Keele ja liidese teema",
+      "summary": "Muutke menüüd, dialoogid ja juhtnupud mugavaks.",
+      "steps": [
+        "Valige menüüs Seadistused → Üldine keel või laske sellel oma süsteemi järgida.",
+        "Valige vastavalt oma eelistustele hele, tume või automaatne liides.",
+        "Salvestage seaded. Liidese teema töötab koos teemas valitud taustaga."
+      ],
+      "note": "Süsteemi keel ja automaatne välimus järgivad teie seadme eelistusi.",
+      "tip": "Valige hele või tume liides, säilitades samal ajal taustapildi. Selle valiku ja keele leiate menüüst Seaded → Üldine."
+    },
+    "trash": {
+      "question": "Kuidas kustutatud järjehoidjat taastada?",
+      "searchTerms": "kustutatud järjehoidja taastamine; taastada eemaldatud; prügikast; kogemata kustutatud; kausta taastamine",
+      "title": "Taastage prügikastist",
+      "summary": "Teine võimalus järjehoidjate ja kaustade jaoks.",
+      "steps": [
+        "Kustutatud järjehoidjate ja kaustade ülevaatamiseks avage oma ruumi prügikast.",
+        "Valige, mida soovite tagasi, ja kasutage taastamist. Samuti saate pärast kinnitamist üksused jäädavalt kustutada või prügikasti tühjendada.",
+        "Valige jaotises Seaded → Üldine, kas seda näidata ja kui kaua see üksusi säilitab: 1, 7, 14 või 28 päeva, või mitte kunagi neid automaatselt kustutada."
+      ],
+      "note": "Prügikast kuulub sellele seadmele. Aegunud või jäädavalt kustutatud üksusi ei saa sellest enam taastada.",
+      "tip": "Kas kustutasite järjehoidja kogemata? Avage prügikast ja taastage see. Reguleerige säilitusaega menüüs Seaded → Üldine."
+    },
+    "backup": {
+      "question": "Kuidas ma saan oma andmeid varundada või edastada?",
+      "searchTerms": "varukoopia; andmete eksport; impordi koopia; taastada varukoopia; teine ​​brauser; andmete ülekandmine",
+      "title": "Varundamine ja import",
+      "summary": "Hoidke oma ruumi koopiat ja võtke see endaga kaasa.",
+      "steps": [
+        "Menüüs Seadistused → Üldine eksportige ZIP-arhiivis sisalduvate andmete ja kohalike failide säilitamiseks täielik varukoopia.",
+        "Taastamiseks importige varukoopia ja vaadake enne andmete asendamist kinnitus üle. Toetatakse ka ühilduvaid JSON-i varukoopiaid.",
+        "Menüüs Seadistused → Järjehoidjad saate eksportida või importida ainult järjehoidjaid ja kaustu, kui te ei vaja täielikku varukoopiat."
+      ],
+      "note": "Järjehoidjate eksport ei ole seadete ja kohaliku meedia täielik varukoopia. Enne andmete taastamist või kustutamist salvestage varukoopia.",
+      "tip": "Täielik varukoopia menüüst Seaded → Üldine sisaldab kohalikke faile ZIP-vormingus. See on kasulik enne brauseri vahetamist või andmete taastamist."
+    },
+    "sync": {
+      "question": "Kuidas kasutada sama ruumi teises arvutis?",
+      "searchTerms": "teine arvuti; seadmete sünkroonimine; sünkroniseerimine; pilv; kohalik sünkroonimine; peatada sünkroonimine; sünkroonimise keelamine; kohalik režiim",
+      "title": "Sünkroonige seadmete vahel",
+      "summary": "Jagage oma ruumi brauseri sünkroonimise abil.",
+      "steps": [
+        "Logige sisse ja lubage laienduse sünkroonimine oma profiilis Google Chrome.",
+        "Valige menüüs Seaded → Sünkroonimine Sünkroonitud ja nõustuge kinnitusega. Lülitus jõustub kohe: olemasolevad sünkroonitud järjehoidjad ja sätted laaditakse või teie salvestatud kohalikud andmed sünkroonitakse, kui neid pole.",
+        "Kasutage sama profiili ka teises seadmes. Kontrollige sünkroonimise olekut ja paneelil saadaolevat ruumi."
+      ],
+      "note": "Kohalikud failid, prügikast ja igapäevased nõuanded kuuluvad iga seadme juurde. Sünkroonimisel on salvestuspiirangud; kasutage kohalike piltide ja videote jaoks alternatiivseid URL-e. Valides Kohalik, küsitakse ka kinnitust ja see jõustub kohe, säilitades sünkroonitud andmed.",
+      "tip": "Sünkroonimine jagab teie ruumi seadmete vahel, kuid kohalikele failidele on vaja alternatiivset URL-i. Vt Seaded → Sünkroonimine."
+    },
+    "compact": {
+      "question": "Miks ma näen ruudustiku asemel loendit?",
+      "searchTerms": "väike aken; loendivaade; võrk kadunud; peidetud paneel; mobiilne",
+      "title": "Kasutage väiksemat akent",
+      "summary": "Jätkake oma järjehoidjate kasutamist, kui ruumi on vähe.",
+      "steps": [
+        "Kui aken kitseneb, lülitub rakendus loendile, et teie üksused oleksid juurdepääsetavad.",
+        "Avage selles vaates järjehoidjaid, kaustu või otsige. Kasutusjuhend kohandub ka saadaoleva suurusega.",
+        "Laiendage akent, et tuua tagasi ruudustik ja redigeerimispaneelid. Peatatud redigeerimisdialoog säilitab selle mustandi."
+      ],
+      "note": "Kompaktne vaade aitab teil ruumi sirvida; ümberkorraldamine vajab piisavalt laia akent.",
+      "tip": "Kitsas aknas jäävad teie järjehoidjad loendina kättesaadavaks. Laiendage seda, kui soovite ruudustikku muuta või ümber korraldada."
+    },
+    "data": {
+      "question": "Kuidas ma saan oma andmeid kustutada või seadeid lähtestada?",
+      "searchTerms": "kustutada andmed; lähtestage seaded; eemaldage kõik; alusta otsast",
+      "title": "Salvestamine ja lähtestamine",
+      "summary": "Saate aru, mis salvestatakse ja mida iga toiming eemaldab.",
+      "steps": [
+        "Tööruumi toimingud salvestatakse automaatselt. Redigeerijates ja sätetes kinnitage nupuga Salvesta; Tühista jätab selle paneeli mustandi kõrvale.",
+        "Kui kuvatakse ootel salvestamise teade, klõpsake nuppu Proovi salvestada uuesti ja oodake enne vahekaardi sulgemist kinnitust.",
+        "Menüüs Seaded → Üldine saate seadeid lähtestada või kõik andmed kustutada. Lugege kinnitust ja eksportige varukoopia kõigest, mida soovite säilitada."
+      ],
+      "note": "Seadete lähtestamine säilitab teie järjehoidjad, nende suurused ja stiilid. Kõigi kohalike andmete kustutamine eemaldab üksused ja tühjendab prügikasti. Varukoopia eksportimine enne kustutamist: tagasivõtmine ei asenda varukoopiat.",
+      "tip": "Kui näete teadet salvestamata muudatuste kohta, kasutage enne vahekaardi sulgemist käsku Proovi salvestada uuesti. Kaitske oma ruumi täieliku varukoopiaga."
+    },
+    "learning": {
+      "question": "Kuidas juhendit uuesti avada või igapäevased nõuanded välja lülitada?",
+      "searchTerms": "näpunäidete keelamine; abi välja lülitamine; igapäevane hoiatus; ava juhend uuesti; kasutusjuhend",
+      "title": "Õppige omas tempos",
+      "summary": "Kiirjuhend, juhend ja väike igapäevane näpunäide.",
+      "steps": [
+        "Vaadake uuesti kiirjuhendit menüüst Seaded → Abi. Iga samm viitab juhendi vastavatele selgitustele.",
+        "Uurige registrit või otsige sõna. Jaotise seotud lingid viivad teid muude funktsioonide juurde, kui olete valmis.",
+        "Teie esimene uus vahekaart iga päev näitab juhuslikku näpunäidet. Loobu sellest või ava selle selgitus; saate näpunäiteid jaotises Abi keelata."
+      ],
+      "note": "Näpunäiteid külastavad jaotised kordamata, kuni kogu on valmis. Need kestavad 20 sekundit ja peatuvad nuppude hõljutamise või teravustamise ajal. Nad järgivad kohalikku päeva ja selle brauseri eelistusi.",
+      "tip": "See juhend on alati menüüs Seaded → Abi. Igapäevased näpunäited avavad jaotise ja saate need seal igal ajal keelata."
+    }
+  }
+}

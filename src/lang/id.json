@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Catatan rilis",
+    "settingsDescription": "Apa yang berubah dan cerita di balik setiap pembaruan.",
+    "open": "Baca catatan",
+    "history": "Riwayat versi",
+    "dismiss": "Tutup catatan rilis",
+    "continue": "Lanjutkan",
+    "back": "Kembali ke Informasi",
+    "highlights": "Apa yang dapat Anda lakukan hari ini",
+    "generic": {
+      "title": "New DeskTab telah diperbarui",
+      "description": "Anda memiliki versi baru. Anda dapat mengunjungi kembali catatan rilis sebelumnya di Informasi kapan pun Anda mau. Terima kasih telah berada di sini."
+    },
+    "v1_0_0": {
+      "title": "Desktop situs web Anda. Akhirnya.",
+      "thanks": "Terima kasih telah mencoba New DeskTab. Saya sangat bersemangat untuk akhirnya membagikan rilis publik pertama proyek ini kepada Anda.",
+      "origin": "Semuanya dimulai pada 26 September 2025. Saat menonton streaming Just Chatting di Twitch, saya melihat tab baru di browser streamer: ekstensi yang mengatur situs web dalam bentuk kotak berwarna, tanpa nama atau logo. Minimalisme itu membuat saya terpesona, dan saya berpikir: mengapa tidak membangun ekstensi saya sendiri? Saya ingin setiap tab baru menghadirkan kesan teratur, halaman-halaman saya mudah dijangkau, dan panel yang saya senang lihat.",
+      "desktop": "Lambat laun, gagasan itu berkembang menjadi desktop pribadi yang berisi situs web, bukan aplikasi. Jam ini merupakan langkah pertama dan masih dalam proses. Di masa mendatang, saya ingin menambahkan notepad dan widget lain yang menawarkan sesuatu yang bermanfaat, baik bagi saya maupun semua orang yang menggunakan New DeskTab.",
+      "closing": "Aplikasi ini dibuat untuk saya dan untuk Anda. Terima kasih telah mempercayai New DeskTab dan memberinya tempat di browser Anda. Saya harap Anda menikmati menciptakan ruangan Anda sama seperti saya menikmati membangunnya.",
+      "highlights": {
+        "workspace": "Atur halaman Anda dengan bookmark, folder, dan ruang kerja independen.",
+        "appearance": "Sesuaikan warna, ukuran setiap item, dan latar belakang desktop Anda.",
+        "search": "Temukan halaman Anda dengan pencarian dan gunakan pintasan keyboard untuk menavigasi dan membuat item.",
+        "backup": "Simpan cadangan dan pulihkan item yang terhapus dari keranjang sampah.",
+        "sync": "Pilih untuk menyimpan data di perangkat ini atau menyinkronkannya dengan Google Chrome.",
+        "help": "Temukan fitur-fiturnya dengan panduan selamat datang, manual, dan tip harian."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "MENIT PERTAMA ANDA",
+    "skip": "Lewati panduan",
+    "back": "Kembali",
+    "next": "Selanjutnya",
+    "finish": "Kembali ke pengaturan",
+    "explore": "Jelajahi ruang saya",
+    "addFirst": "Tambahkan bookmark pertama saya",
+    "progress": "Langkah {{current}} dari {{total}}",
+    "compactHint": "Perluas jendela saat Anda ingin menambahkan bookmark dan mengedit ruang Anda.",
+    "reopenTitle": "Panduan cepat",
+    "reopenDescription": "Temukan kembali hal-hal penting dalam satu menit.",
+    "reopen": "Lihat panduan",
+    "demo": {
+      "work": "Bekerja",
+      "media": "Media",
+      "trash": "Tempat sampah daur ulang",
+      "search": "Temukan bookmark Anda"
+    },
+    "steps": {
+      "start": {
+        "title": "Halaman Anda. Ruang Anda sendiri.",
+        "body": "Selamat datang di New DeskTab. Simpan halaman favorit Anda setiap kali Anda membuka tab. Untuk menambahkannya, pindah ke tepi kiri dan pilih + → [[bookmarks|Penanda buku]].",
+        "hint": "Anda juga dapat [[quick-save|simpan halaman yang Anda kunjungi]] dari ikon ekstensi di browser Anda."
+      },
+      "edit": {
+        "title": "Berikan setiap penanda pada tempatnya.",
+        "body": "Aktifkan pensil di menu sebelah kiri untuk mengedit. Tahan dan [[movement|menyeret]] item untuk memindahkannya; gunakan [[resizing|menangani]] untuk mengubah ukurannya.",
+        "hint": "Setiap pensil penanda membuka [[appearance|editor]]: nama, warna, ikon, dan gambar. Simpan [[presets|gaya]] untuk menggunakannya kembali."
+      },
+      "organize": {
+        "title": "Lebih sedikit kekacauan. Lebih banyak pesanan.",
+        "body": "Buat [[folders|folder]] dari + dan seret bookmark ke dalamnya dalam mode edit. Ini terbuka dalam kotak bersih dengan ruang hingga 18 penanda.",
+        "hint": "Gunakan tanda + di [[workspaces|bilah ruang kerja]] untuk memisahkan pekerjaan dan permainan. [[search|kaca pembesar]] juga mencari di dalam folder."
+      },
+      "style": {
+        "title": "Buatlah itu terasa seperti Anda.",
+        "body": "Di Pengaturan → [[wallpapers|Tema]], pilih warna, gambar, atau latar belakang video dan putar wallpaper favorit Anda. Di Pengaturan → [[sync|Sinkronisasi]], sinkronkan ruang Anda di seluruh perangkat menggunakan akun yang masuk ke profil Chrome Anda.",
+        "hint": "Tambahkan [[clock|jam]] dari + → Widget. Anda juga dapat menyesuaikan [[appearance|penampilan]] folder Anda."
+      },
+      "ready": {
+        "title": "Anda tahu hal-hal penting.",
+        "body": "Tekan [[search|/]] untuk menemukan bookmark. Gunakan panah [[history|batalkan dan ulangi]] untuk memulihkan perubahan; bookmark yang dihapus, buka [[trash|tempat sampah daur ulang]].",
+        "hint": "Perubahan disimpan secara otomatis. Di Pengaturan, ekspor [[backup|cadangan]] atau aktifkan Google Chrome [[sync|sinkronisasi]] opsional."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Perubahan terbaru Anda tidak dapat disimpan.",
+    "retry": "Coba simpan lagi",
+    "saved": "Perubahan yang tertunda disimpan."
+  },
+  "itemEditor": {
+    "chooseIcon": "Pilih ikon",
+    "siteLogo": "logo",
+    "noSymbol": "Tidak ada",
+    "folderIconHint": "Simbol tersebut menggantikan pratinjau bookmark di dalam folder.",
+    "icons": {
+      "mail": "Surat",
+      "calendar": "Kalender",
+      "notes": "Catatan",
+      "projects": "Proyek",
+      "design": "Desain",
+      "music": "Musik",
+      "tasks": "Tugas",
+      "ideas": "Ide",
+      "docs": "Dokumen",
+      "ui-start": "Kompas",
+      "ui-organize": "Tata Letak",
+      "ui-personalize": "Penggeser",
+      "ui-protect": "Perisai",
+      "ui-bookmarks": "Tambahkan penanda",
+      "ui-quick-save": "Peramban",
+      "ui-keyboard": "papan ketik",
+      "ui-shortcuts": "Petir",
+      "ui-search": "Cari",
+      "ui-editing": "Pensil",
+      "ui-movement": "Pindah",
+      "ui-resizing": "Ubah ukuran",
+      "ui-drag-modes": "Tarik",
+      "ui-folders": "Map",
+      "ui-workspaces": "jendela",
+      "ui-selection": "Seleksi",
+      "ui-history": "Sejarah",
+      "ui-appearance": "Palet",
+      "ui-presets": "Preset",
+      "ui-wallpapers": "Gambar",
+      "ui-clock": "Jam",
+      "ui-interface": "Bola dunia",
+      "ui-trash": "Sampah",
+      "ui-backup": "Arsip",
+      "ui-sync": "Sinkronisasi",
+      "ui-compact": "Daftar",
+      "ui-data": "Basis data",
+      "ui-learning": "Buku",
+      "ui-settings": "Pengaturan",
+      "ui-controls": "Kontrol",
+      "ui-cloud": "Awan",
+      "ui-bookmark": "Penanda buku",
+      "ui-info": "Informasi",
+      "ui-eye": "Mata",
+      "ui-check": "Selesai",
+      "ui-lock": "Kunci",
+      "ui-unlock": "Buka kunci",
+      "ui-copy": "Salin",
+      "ui-close": "Tutup",
+      "ui-undo": "Membatalkan",
+      "ui-redo": "Ulangi",
+      "ui-desktop": "Desktop",
+      "home": "Rumah",
+      "briefcase": "Bekerja",
+      "code": "Kode",
+      "game": "Permainan",
+      "cart": "Belanja",
+      "card": "Pembayaran",
+      "people": "Orang-orang",
+      "message": "Pesan",
+      "location": "Lokasi",
+      "phone": "Telepon",
+      "camera": "Kamera",
+      "headphones": "Headphone",
+      "link": "Tautan",
+      "tag": "Menandai",
+      "chart": "Statistik",
+      "coffee": "Kopi",
+      "sun": "Matahari",
+      "moon": "Bulan",
+      "circle": "Lingkaran",
+      "square": "Persegi",
+      "triangle": "Segitiga",
+      "diamond": "berlian",
+      "pentagon": "segi lima",
+      "hexagon": "segi enam",
+      "star": "Bintang",
+      "heart": "Hati",
+      "plus": "Ditambah lagi",
+      "minus": "dikurangi",
+      "video": "Video"
+    },
+    "searchIcons": "Ikon pencarian…",
+    "clearIconSearch": "Hapus pencarian",
+    "noIcons": "Tidak ada ikon yang ditemukan",
+    "suggestedIcons": "Disarankan",
+    "suggestedIcon": "Disarankan: {{name}}",
+    "logoKeywords": "logo situs web favicon merek situs",
+    "iconKeywords": {
+      "ui-trash": "sampah sampah hapus klasik",
+      "mail": "kotak masuk email email gmail Outlook",
+      "docs": "file dokumen kata drive pdf",
+      "notes": "catatan memo gagasan onenote",
+      "ui-protect": "privasi perlindungan keamanan",
+      "game": "konsol pengontrol permainan game",
+      "cart": "belanja toko toko beli",
+      "card": "keuangan bank kredit debit uang",
+      "people": "kelompok teman komunitas sosial",
+      "ui-learning": "membaca studi pendidikan perpustakaan",
+      "ui-clock": "jam waktu menonton",
+      "ui-interface": "bahasa dunia web internet",
+      "ui-data": "penyimpanan data sql",
+      "circle": "bentuk geometris angka",
+      "square": "bentuk geometris angka",
+      "triangle": "bentuk geometris angka",
+      "diamond": "bentuk geometris angka",
+      "pentagon": "bentuk geometris angka",
+      "hexagon": "bentuk geometris angka",
+      "star": "bentuk geometris angka",
+      "heart": "bentuk geometris angka"
+    },
+    "history": "Sunting riwayat",
+    "description": "Buatlah serasa betah di ruang kerja Anda.",
+    "looks": "Pilih tampilan",
+    "custom": "Adat",
+    "look": {
+      "original": "Asli",
+      "card": "Kartu",
+      "midnight": "Gelap",
+      "paper": "Ringan"
+    },
+    "reset": "Setel ulang tampilan",
+    "cardColor": "Warna kartu",
+    "folderFill": "Warna map",
+    "image": "Gambar latar belakang",
+    "lock": "Kunci atau buka kunci URL",
+    "copy": "Salin URL",
+    "clear": "Jelas",
+    "section": {
+      "general": "Yang penting",
+      "text": "Nama dan label",
+      "icon": "Ikon",
+      "card": "Kartu"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Nama yang Anda lihat dan halaman yang dibukanya.",
+        "text": "Pilih apakah akan menampilkan nama dan menyesuaikan warnanya.",
+        "icon": "Gunakan favicon besar di tengah, atau ikon kecil di samping nama kartu gambar."
+      },
+      "folder": {
+        "general": "Nama untuk menyatukan bookmark Anda.",
+        "text": "Tampilkan nama folder dan sesuaikan warnanya.",
+        "icon": "Sesuaikan ikon folder dan thumbnail penandanya."
+      },
+      "recycleBin": {
+        "general": "Pilih apakah keranjang sampah muncul di ruang kerja utama Anda.",
+        "text": "Tampilkan nama recycle bin dan sesuaikan warnanya.",
+        "icon": "Berikan warna Anda sendiri pada tempat sampah. Sembunyikan seluruh tempat sampah dari Umum."
+      }
+    },
+    "addImage": "Tambahkan gambar latar belakang",
+    "changeImage": "Edit gambar latar belakang"
+  },
+  "html": {
+    "title": "Tab baru"
+  },
+  "quickSave": {
+    "title": "Simpan penanda",
+    "name": "Nama",
+    "workspace": "Ruang kerja",
+    "folder": "Map",
+    "mainWorkspace": "Utama",
+    "noFolder": "Tidak ada map",
+    "save": "Simpan penanda",
+    "saveAnyway": "Simpan saja",
+    "savedButton": "Disimpan",
+    "alreadySaved": "Sudah disimpan",
+    "savedIn": "Di {{location}}",
+    "savedInMore": "Di {{location}} dan {{count}} lainnya",
+    "open": "Buka New DeskTab",
+    "unavailableTitle": "Tab ini tidak dapat disimpan",
+    "unavailable": "Buka halaman web (http atau https) untuk menyimpannya.",
+    "loadError": "Tidak dapat memuat bookmark Anda. Coba lagi.",
+    "saving": "Menyimpan…",
+    "saved": "Penanda disimpan.",
+    "duplicate": "URL ini sudah disimpan di tujuan tersebut.",
+    "noSpace": "Tidak ada ruang tersisa di tujuan itu. Pilih yang lain.",
+    "invalid": "Periksa nama dan tujuan yang dipilih.",
+    "saveError": "Tidak dapat menyimpan bookmark. Coba lagi."
+  },
+  "launcher": {
+    "bookmark": "Penanda buku",
+    "folder": "Map",
+    "widgets": "Widget",
+    "editMode": {
+      "enter": "Masuk ke mode edit",
+      "exit": "Keluar dari mode edit"
+    }
+  },
+  "widgets": {
+    "title": "Widget",
+    "description": "Pilih widget untuk ditambahkan ke ruang kerja ini.",
+    "empty": "Belum ada widget yang tersedia."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Perluas jendela untuk menggunakan fitur ini.",
+      "suspended": "Panel disembunyikan. Perluas jendela untuk melanjutkan."
+    },
+    "editMode": {
+      "enabled": "Mode edit diaktifkan",
+      "disabled": "Mode edit dinonaktifkan"
+    },
+    "selectionMode": {
+      "enabled": "Mode pemilihan diaktifkan",
+      "disabled": "Mode pemilihan dinonaktifkan"
+    },
+    "bookmark": {
+      "added": "Penanda ditambahkan",
+      "notFound": "Penanda tidak ditemukan",
+      "updated": "Penanda diperbarui",
+      "deleted": "Penanda dihapus"
+    },
+    "clock": {
+      "added": "Jam ditambahkan",
+      "updated": "Jam diperbarui",
+      "deleted": "Jam dihapus"
+    },
+    "folder": {
+      "created": "Folder dibuat",
+      "renamed": "Folder diganti namanya",
+      "updated": "Folder diperbarui",
+      "deleted": "Folder dan bookmarknya dihapus",
+      "bookmarkAdded": "Bookmark ditambahkan ke folder",
+      "folderFull": "Folder ini sudah memiliki 18 bookmark",
+      "bookmarkRemoved": "Bookmark dipindahkan kembali ke grid"
+    },
+    "recycleBin": {
+      "moved": "Dipindahkan ke tempat sampah",
+      "restored": "Barang dipulihkan",
+      "deletedPermanently": "Item dihapus secara permanen",
+      "updated": "Tempat sampah diperbarui"
+    },
+    "workspace": {
+      "created": "Ruang kerja dibuat",
+      "deleted": "Ruang kerja dihapus",
+      "switched": "Ruang Kerja: {{name}}"
+    },
+    "history": {
+      "undone": "Perubahan dibatalkan",
+      "redone": "Perubahan dilakukan kembali"
+    },
+    "bookmarks": {
+      "deletedAll": "Semua bookmark dihapus",
+      "deletedAllWithFolders": "Semua bookmark dan folder dihapus",
+      "deleteAllError": "Gagal menghapus semua bookmark",
+      "exported": "Bookmark diekspor",
+      "exportError": "Gagal mengekspor bookmark",
+      "imported": "Bookmark diimpor",
+      "importError": "Gagal mengimpor bookmark",
+      "presetApplied": "Gaya diterapkan pada pilihan",
+      "duplicatedSelected": "Item yang dipilih diduplikasi",
+      "deletedSelected": "Item yang dipilih dihapus",
+      "moved": "Item dipindahkan ke ruang kerja yang dipilih"
+    },
+    "settings": {
+      "saved": "Pengaturan disimpan",
+      "bookmarkDefaultSaved": "Tampilan bookmark default disimpan",
+      "bookmarkDefaultError": "Tidak dapat menyimpan tampilan bookmark default",
+      "copied": "Nilai disalin ke papan klip",
+      "resetBg": "Penyetelan ulang tema",
+      "deletedAllData": "Semua data NewDeskTab lokal dihapus",
+      "deleteAllDataError": "Tidak dapat menghapus semua data NewDeskTab lokal",
+      "invalidWallpaperUrl": "Masukkan URL gambar/video HTTP atau HTTPS yang valid.",
+      "invalidWallpaperFile": "Tidak dapat menambahkan file ini. Gunakan gambar yang didukung atau video MP4, WebM atau Ogg hingga 200 MB.",
+      "wallpaperLimit": "Anda dapat menambahkan hingga 25 wallpaper pribadi."
+    },
+    "localImage": {
+      "invalid": "Pilih gambar PNG, JPEG, WebP, GIF, atau AVIF.",
+      "tooLarge": "Gambar ini terlalu besar untuk disimpan di perangkat ini.",
+      "storageFull": "Ruang lokal tidak cukup untuk gambar ini.",
+      "processing": "Gambar ini tidak dapat diproses."
+    },
+    "sync": {
+      "enabled": "Sinkronisasi diaktifkan",
+      "localEnabled": "Mode lokal diaktifkan",
+      "remoteLoaded": "Data yang disinkronkan dimuat",
+      "updatedFromOtherDevice": "Perubahan yang disinkronkan diterima dari perangkat lain",
+      "deletedFromOtherDevice": "Data cloud telah dihapus dari perangkat lain. Perangkat ini sekarang menggunakan mode Lokal.",
+      "error": "Tidak dapat mengubah mode penyimpanan",
+      "versionBlocked": "Sinkronisasi dijeda karena data cloud memerlukan versi NewDeskTab yang lebih baru. Data lokal perangkat ini sedang ditampilkan.",
+      "quotaError": "Data melebihi penyimpanan sinkronisasi yang tersedia",
+      "deleted": "Data yang disinkronkan dihapus",
+      "deleteError": "Tidak dapat menghapus data yang disinkronkan"
+    },
+    "backup": {
+      "exported": "Cadangan diekspor",
+      "exportError": "Tidak dapat mengekspor cadangan",
+      "mediaUnavailable": "Beberapa gambar atau video lokal yang direferensikan tidak tersedia, sehingga cadangan tidak dibuat.",
+      "imported": "Cadangan dipulihkan",
+      "importError": "Tidak dapat memulihkan cadangan",
+      "mediaStorageFull": "Penyimpanan lokal tidak cukup untuk memulihkan gambar dan video cadangan."
+    }
+  },
+  "view": {
+    "list": "Tampilan daftar",
+    "search": "Cari bookmark dan folder",
+    "clearSearch": "Hapus pencarian",
+    "noResults": "Tidak ada hasil."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Hapus semua bookmark?",
+      "deleteFolders": "Hapus juga semua folder",
+      "confirmDeleteSelected": "Hapus {{count}} item yang dipilih?",
+      "confirmMoveOne": "Pindahkan item ini ke ruang kerja “{{workspace}}”?",
+      "confirmMoveSelected": "Pindahkan {{count}} item yang dipilih ke ruang kerja “{{workspace}}”?",
+      "duplicateNoSpace": "{{count}} item tidak dapat diduplikasi karena tidak cukup ruang.",
+      "moveNoSpace": "{{count}} item tidak dapat dipindahkan karena tidak cukup ruang.",
+      "no_space": "Tidak ada ruang tersedia untuk bookmark lainnya 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Buang penanda baru?"
+      },
+      "confirmDelete": "Hapus “{{name}}”?",
+      "confirmPermanentDelete": "Hapus “{{name}}” secara permanen? Hal ini tidak dapat dibatalkan.",
+      "cancel": "Hapus perubahan?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Hapus widget ini secara permanen? Hal ini tidak dapat dibatalkan.",
+      "confirmDeleteSelected": "Hapus {{count}} item yang dipilih? Widget yang dipilih ({{widgetCount}}) akan dihapus secara permanen dan tidak dapat dipulihkan."
+    },
+    "folder": {
+      "createCancel": "Buang folder baru?",
+      "cancel": "Hapus perubahan folder?"
+    },
+    "recycleBin": {
+      "folder": "Pindahkan “{{name}}” dan bookmark {{count}}-nya ke keranjang sampah?",
+      "empty": "Hapus semua yang ada di keranjang sampah secara permanen? Hal ini tidak dapat dibatalkan.",
+      "deleteSelected": "Hapus {{count}} item yang dipilih secara permanen? Hal ini tidak dapat dibatalkan.",
+      "noSpace": "{{count}} item tidak dapat dipulihkan karena ruang grid tidak mencukupi. Mereka tetap berada di tempat sampah.",
+      "cancel": "Buang perubahan di keranjang sampah?"
+    },
+    "settings": {
+      "cancel": "Hapus perubahan setelan?",
+      "reset": "Reset semua pengaturan? Bookmark tidak akan dihapus.",
+      "deleteAllData": "Hapus semua data NewDeskTab lokal dari perangkat ini? Bookmark, folder, widget, pengaturan, item keranjang sampah, gambar lokal, dan video lokal akan dihapus secara permanen. Data cloud tidak akan diubah. Jika Sinkronisasi aktif, perangkat ini akan beralih ke Lokal terlebih dahulu. Tindakan ini tidak dapat dibatalkan.",
+      "theme": {
+        "reset": "Reset pengaturan tema?"
+      },
+      "bookmark": {
+        "cancel": "Hapus perubahan pada tampilan bookmark default?"
+      },
+      "shortcuts": {
+        "reset": "Pulihkan pintasan keyboard default?"
+      },
+      "sync": {
+        "enable": "Beralih dari Lokal ke Tersinkron? Ini berlaku sekarang, tanpa mengklik Simpan. Jika data yang disinkronkan sudah ada, bookmark dan pengaturannya akan dimuat. Jika tidak, data lokal yang Anda simpan akan disinkronkan.",
+        "local": "Beralih dari Tersinkron ke Lokal? Ini berlaku sekarang, tanpa mengklik Simpan. Perangkat ini akan menyimpan salinan data saat ini dan berhenti menyinkronkan perubahan. Data yang disinkronkan akan tetap disimpan untuk perangkat lain.",
+        "delete": "Hapus semua data NewDeskTab yang disinkronkan? Perangkat ini dan perangkat lain yang menggunakan data cloud ini akan beralih ke mode Lokal saat mendeteksi penghapusan. Hal ini tidak dapat dibatalkan."
+      }
+    },
+    "backup": {
+      "import": "Pulihkan cadangan ini? Ini akan menggantikan bookmark dan pengaturan Anda saat ini."
+    }
+  },
+  "addModal": {
+    "title": "Tambahkan penanda baru",
+    "name": "Nama:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Opsi lanjutan",
+    "compactView": "▴ Tampilan kompak"
+  },
+  "clock": {
+    "name": "Jam",
+    "inDevelopment": "Dalam pengembangan: jam ini belum dalam versi finalnya. Kami sedang berupaya memperbaikinya.",
+    "createTitle": "Tambahkan jam",
+    "editTitle": "Pengaturan jam",
+    "description": "Tampilkan waktu lokal Anda di ruang kerja ini.",
+    "hourCycle": "Format waktu",
+    "hour24": "24 jam",
+    "hour12": "12 jam",
+    "showSeconds": "Tampilkan detik",
+    "delete": "Hapus",
+    "edit": "Sunting jam",
+    "actions": "Tindakan jam",
+    "openSettings": "Buka pengaturan jam",
+    "confirmDelete": "Hapus jam ini? Anda dapat membatalkan tindakan ini.",
+    "confirmPermanentDelete": "Hapus jam ini secara permanen? Hal ini tidak dapat dibatalkan.",
+    "cancel": "Hapus perubahan jam?",
+    "noSpace": "Ruang grid tidak cukup untuk jam ini."
+  },
+  "buttons": {
+    "save": "Simpan",
+    "apply": "Terapkan",
+    "add": "Tambahkan",
+    "accept": "Terima",
+    "cancel": "Batalkan",
+    "close": "Tutup"
+  },
+  "localImage": {
+    "upload": "Unggah dari perangkat ini",
+    "label": "Gambar lokal:",
+    "activeSource": "Gambar aktif:",
+    "sourceLocal": "Lokal",
+    "sourceUrl": "URL",
+    "remove": "Hapus gambar lokal",
+    "notice": "Gambar lokal tidak disinkronkan.",
+    "unnamed": "Gambar lokal"
+  },
+  "workspace": {
+    "ariaLabel": "Kontrol ruang kerja",
+    "current": "Ruang kerja",
+    "main": "Utama",
+    "search": "Cari bookmark",
+    "add": "Buat ruang kerja",
+    "delete": "Hapus ruang kerja",
+    "undo": "Membatalkan",
+    "redo": "Ulangi",
+    "shortcutHint": "Beralih ruang kerja dengan Alt atau Option plus Panah Atas atau Bawah",
+    "prompt": "Masukkan nama untuk ruang kerja baru",
+    "namePlaceholder": "Bekerja, bersantai…",
+    "confirmDelete": "Hapus “{{name}}”, {{folderCount}} folder dan {{bookmarkCount}} bookmarknya? Untuk menyimpannya, pindahkan ke Ruang Utama atau ruang kerja lain terlebih dahulu."
+  },
+  "search": {
+    "title": "Cari bookmark",
+    "inputLabel": "Cari berdasarkan nama atau URL",
+    "placeholder": "Nama atau URL",
+    "empty": "Tidak ada bookmark yang ditemukan.",
+    "noUrl": "Tidak ada URL",
+    "inFolder": "Map: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Tindakan item yang dipilih",
+    "selected": "{{count}} dipilih",
+    "move": "Pindah ke ruang kerja",
+    "applyPreset": "Terapkan gaya default",
+    "duplicate": "Seleksi duplikat",
+    "delete": "Hapus",
+    "clear": "Hapus pilihan"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Kontrol penanda",
+    "edit": "Sunting penanda",
+    "delete": "Hapus penanda",
+    "copySuffix": "salin"
+  },
+  "folder": {
+    "create": "Buat folder",
+    "createPrompt": "Beri nama folder baru",
+    "namePlaceholder": "Alat, inspirasi…",
+    "open": "Buka {{name}}, {{count}} bookmark tersimpan",
+    "count": "{{count}} disimpan",
+    "summary": "{{count}} dari {{capacity}} ruang yang digunakan",
+    "editMode": {
+      "enable": "Sunting",
+      "disable": "Selesai mengedit"
+    },
+    "gridLabel": "Penanda folder",
+    "dropHint": "Jatuhkan untuk menambahkan",
+    "noSpace": "Tidak ada sel grid gratis untuk folder baru.",
+    "removeNoSpace": "Ruang grid tidak cukup untuk menghapus penanda ini dari folder.",
+    "confirmDelete": "Pindahkan “{{name}}” dan bookmark {{count}}-nya ke keranjang sampah?",
+    "confirmPermanentDelete": "Hapus “{{name}}” dan {{count}} bookmarknya secara permanen? Hal ini tidak dapat dibatalkan.",
+    "actions": {
+      "ariaLabel": "Kontrol folder",
+      "customize": "Sesuaikan folder",
+      "rename": "Ganti nama folder",
+      "delete": "Hapus map",
+      "editBookmark": "Sunting {{name}}",
+      "removeBookmark": "Pindahkan {{name}} keluar dari folder",
+      "deleteBookmark": "Hapus {{name}}",
+      "acceptRename": "Simpan nama folder",
+      "cancelRename": "Batalkan penggantian nama folder"
+    },
+    "editor": {
+      "createTitle": "Tambahkan folder baru",
+      "title": "Sunting map",
+      "name": "Nama:",
+      "showPreviews": "Tampilkan pratinjau bookmark",
+      "showName": "Tampilkan nama folder",
+      "iconColor": "Warna simbol:",
+      "outerBackgroundColor": "Warna latar luar:",
+      "noOuterBackground": "Tidak ada latar belakang luar",
+      "resetOuterBackground": "Otomatis",
+      "noBackground": "Isi folder transparan",
+      "backgroundColor": "Warna map:",
+      "backgroundImage": "Gambar latar belakang (URL):",
+      "lockImage": "Kunci atau buka kunci URL gambar",
+      "copyImage": "Salin URL gambar",
+      "clearImage": "Hapus URL gambar",
+      "textColor": "Warna teks:",
+      "preview": "Pratinjau",
+      "previewName": "Map",
+      "sections": {
+        "general": "Umum",
+        "style": "Gaya",
+        "text": "Teks"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Tempat Sampah",
+    "open": "Buka tempat sampah",
+    "openCount": "Buka recycle bin, {{count}} item",
+    "dropHint": "Jatuhkan untuk menghapus",
+    "summary": "{{count}} item · Penghapusan otomatis: {{retention}}",
+    "empty": "Tempat sampahnya kosong.",
+    "selected": "{{count}} dipilih",
+    "select": "Pilih {{name}}",
+    "folderContents": "{{count}} penanda",
+    "deletedAt": "Menghapus {{date}}",
+    "expiresIn": "{{days}} hari tersisa",
+    "expiresInOne": "1 hari lagi",
+    "neverExpires": "Tidak pernah terhapus secara otomatis",
+    "restoreAll": "Pulihkan semuanya",
+    "deleteAll": "Hapus semua",
+    "restoreSelected": "Pulihkan yang dipilih",
+    "deleteSelected": "Hapus yang dipilih",
+    "editor": {
+      "title": "Sunting tempat sampah",
+      "animateIcon": "Menganimasikan tempat sampah",
+      "appearance": "Penampilan",
+      "backgroundColor": "Warna latar belakang:",
+      "backgroundImage": "Gambar latar belakang (URL):",
+      "lockImage": "Kunci atau buka kunci URL gambar",
+      "copyImage": "Salin URL gambar",
+      "clearImage": "Hapus URL gambar",
+      "noBackground": "Tidak ada latar belakang",
+      "iconColor": "Warna ikon:",
+      "textColor": "Warna teks:",
+      "elements": "Elemen yang terlihat",
+      "showName": "Tampilkan nama",
+      "visible": "Tampilkan recycle bin di jaringan utama",
+      "preview": "Pratinjau",
+      "actions": "Tindakan tempat sampah daur ulang",
+      "edit": "Sunting tempat sampah",
+      "sections": {
+        "general": "Umum",
+        "style": "Gaya",
+        "text": "Teks",
+        "icon": "Ikon"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Masukkan nama untuk menyimpan preset."
+    },
+    "name": {
+      "required": "Masukkan nama untuk bookmark tersebut."
+    },
+    "folderName": {
+      "required": "Masukkan nama untuk folder tersebut."
+    },
+    "url": {
+      "invalid": "URL-nya tidak valid.",
+      "unsupportedProtocol": "Jenis URL ini tidak diperbolehkan."
+    },
+    "backgroundImageUrl": {
+      "invalid": "URL gambar tidak valid.",
+      "unsupportedProtocol": "Jenis gambar ini tidak diperbolehkan."
+    }
+  },
+  "editModal": {
+    "title": "Sunting penanda",
+    "name": "Nama:",
+    "url": "URL:",
+    "backgroundImage": "Gambar latar belakang (URL):",
+    "backgroundFavicon": "Ikon besar dan terpusat",
+    "invertColorBg": "Balikkan warna",
+    "noBackground": "Tidak ada latar belakang",
+    "backgroundColor": "Warna penanda:",
+    "showText": "Tampilkan teks",
+    "textColor": "Warna teks:",
+    "showFavicon": "Tampilkan ikon",
+    "invertColorIcon": "Balikkan warna ikon",
+    "iconColor": "Warna ikon:",
+    "sections": {
+      "general": "Umum",
+      "style": "Gaya",
+      "text": "Teks",
+      "icon": "Ikon"
+    },
+    "preview": "Pratinjau",
+    "previewName": "Pratinjau"
+  },
+  "colorPicker": {
+    "title": "Pemilih warna",
+    "sample": "Pilih warna dari layar",
+    "close": "Tutup pemilih warna",
+    "saturationBrightness": "Saturasi dan kecerahan",
+    "hue": "Warna",
+    "quickColors": "Warna cepat",
+    "saturation": "Saturasi",
+    "brightness": "Kecerahan",
+    "hex": "Kode heksa",
+    "copy": "Salin kode hex",
+    "copied": "Kode hex disalin",
+    "copyFailed": "Tidak dapat menyalin kode hex"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Umum",
+      "sync": "Sinkronisasi",
+      "theme": "Tema",
+      "bookmark": "Bookmark",
+      "shortcuts": "Jalan pintas",
+      "language": "Bahasa",
+      "help": "Bantuan",
+      "information": "Informasi"
+    },
+    "general": {
+      "title": "Umum",
+      "subtitle": "Pengaturan",
+      "export": "Ekspor cadangan",
+      "import": "Pulihkan cadangan",
+      "resetSettings": "Atur ulang pengaturan",
+      "deleteAllData": "Hapus semua data lokal",
+      "recycleBin": {
+        "title": "Tempat sampah daur ulang",
+        "show": "Tampilkan recycle bin pada grid Utama",
+        "retentionLabel": "Hapus item secara otomatis:",
+        "retentionOptions": {
+          "oneDay": "1 hari",
+          "sevenDays": "7 hari",
+          "fourteenDays": "14 hari",
+          "twentyEightDays": "28 hari",
+          "never": "Tidak pernah"
+        }
+      },
+      "appearance": {
+        "title": "Penampilan",
+        "system": "Peramban",
+        "light": "Ringan",
+        "dark": "Gelap"
+      }
+    },
+    "sync": {
+      "title": "Sinkronisasi",
+      "description": "Pilih tempat untuk menyimpan pengaturan dan bookmark Anda.",
+      "ariaLabel": "Modus penyimpanan",
+      "local": {
+        "title": "Hanya perangkat ini",
+        "description": "Data hanya disimpan di profil browser lokal ini."
+      },
+      "synced": {
+        "title": "Disinkronkan",
+        "description": "Tersedia di profil Google Chrome yang terhubung ke akun yang sama.",
+        "tooltip": "Informasi sinkronisasi"
+      },
+      "compatibility": {
+        "newerVersion": "Sinkronisasi dikunci pada perangkat ini karena data cloud dibuat oleh versi NewDeskTab yang lebih baru. Data Anda yang disinkronkan aman dan belum diubah. Perbarui NewDeskTab untuk menyambung kembali."
+      },
+      "usage": {
+        "title": "Ketersediaan penyimpanan",
+        "showExact": "Tampilkan byte yang tepat",
+        "showHuman": "Tampilkan ukuran yang dapat dibaca",
+        "local": "Lokal",
+        "sync": "Disinkronkan",
+        "localSyncCopy": "Salinan Sinkronisasi Lokal",
+        "localAria": "Penggunaan penyimpanan lokal",
+        "syncAria": "Penggunaan penyimpanan yang disinkronkan",
+        "loading": "Menghitung…",
+        "summary": "{{used}} dari {{total}} · {{percent}}%",
+        "available": "{{free}} tersedia",
+        "system": "Sistem dan metadata",
+        "bookmarks": "Bookmark",
+        "folders": "Folder",
+        "trash": "Daur ulang data tempat sampah",
+        "localImages": "Gambar lokal",
+        "themeImages": "Tema",
+        "bookmarkImages": "Bookmark",
+        "folderImages": "Folder",
+        "trashImages": "Tempat sampah daur ulang",
+        "otherImages": "Lainnya",
+        "widgets": "Widget",
+        "widgetsHint": "Ukuran yang ditampilkan untuk Sinkronisasi adalah perkiraan dan tidak termasuk konten langsung yang diambil dari layanan eksternal.",
+        "error": "Penggunaan tidak tersedia"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome menyinkronkan New DeskTab melalui Akun Google Anda. New DeskTab tidak menjalankan server sinkronisasinya sendiri.",
+        "brave": "Tidak tersedia di Brave: dapat menyimpan data New DeskTab di chrome.storage.sync, tetapi saat ini tidak menyebarkannya antar perangkat.",
+        "unsupported": "Penyimpanan yang disinkronkan hanya tersedia di Google Chrome untuk saat ini. Browser lain tetap dinonaktifkan hingga dukungan lintas perangkat diverifikasi."
+      },
+      "existingNotice": "Menerima peralihan ke Tersinkron akan memuat semua data tersinkronisasi yang sudah ada.",
+      "deleteData": "Hapus data yang disinkronkan",
+      "metadata": {
+        "loading": "Memeriksa data yang disinkronkan…",
+        "updatedAt": "Pembaruan tersinkronisasi terakhir: {{date}}",
+        "unknown": "Data yang disinkronkan ada, namun waktu pembaruannya tidak tersedia.",
+        "empty": "Tidak ada data New DeskTab yang disinkronkan yang disimpan.",
+        "error": "Informasi data yang disinkronkan tidak dapat dimuat."
+      },
+      "status": {
+        "idle": "Datanya sudah siap.",
+        "saving": "Menyimpan perubahan…",
+        "saved": "Semua perubahan disimpan.",
+        "error": "Tidak dapat menyimpan perubahan terbaru."
+      }
+    },
+    "theme": {
+      "title": "Tema",
+      "subtitle": "Latar belakang halaman",
+      "backgroundImageMode": "Gambar/video",
+      "wallpapersTitle": "Wallpaper saya sendiri",
+      "ownWallpapersHint": "Wallpaper ini dan rotasinya hanya disimpan di perangkat ini.",
+      "mediaUrl": "URL kertas dinding",
+      "image": "Gambar",
+      "video": "Video",
+      "addUrl": "Tambahkan URL",
+      "addFiles": "Tambahkan file lokal",
+      "rotationInterval": "Rotasi wallpaper",
+      "noRotation": "Jangan berubah secara otomatis",
+      "interval5": "5 detik",
+      "interval15": "15 detik",
+      "interval30": "30 detik",
+      "interval60": "1 menit",
+      "interval300": "5 menit",
+      "interval600": "10 menit",
+      "interval1800": "30 menit",
+      "previous": "Sebelumnya",
+      "next": "Selanjutnya",
+      "moveUp": "Naik",
+      "moveDown": "Pindah ke bawah",
+      "remove": "Hapus",
+      "unavailableLocal": "File lokal tidak tersedia di perangkat ini",
+      "mediaColor": "Warnai di balik wallpaper ini",
+      "mediaPreview": "Pratinjau kertas dinding",
+      "activeSource": "Sumber aktif",
+      "backgroundSolid": "Warna solid",
+      "backgroundColor": "Warna:",
+      "editSolidColor": "Ubah warna latar belakang solid",
+      "changeSolidColor": "Ubah warna",
+      "backgroundImageColor": "Warna dibalik gambar/video",
+      "backgroundImage": "URL dibagikan antar perangkat",
+      "urlHidden": "URL disembunyikan",
+      "resetBackground": "Setel ulang tema"
+    },
+    "bookmark": {
+      "title": "Bookmark",
+      "subtitle": "Penanda bawaan",
+      "description": "Pilih tampilan yang digunakan saat membuat bookmark baru.",
+      "configure": "Konfigurasikan bookmark default",
+      "editorTitle": "Tampilan penanda default",
+      "previewName": "Penanda bawaan",
+      "export": "Ekspor bookmark",
+      "import": "Impor bookmark",
+      "deleteAll": "Hapus semua bookmark",
+      "preview": "Pratinjau",
+      "drag": {
+        "title": "Perilaku tarik",
+        "description": "Pilih bagaimana penanda diatur ulang saat Anda menduduki posisinya.",
+        "none": {
+          "title": "Tidak ada",
+          "description": "Hanya mengizinkan perpindahan ke sel bebas."
+        },
+        "cascade": {
+          "title": "Urutan",
+          "description": "Menggeser rantai hingga menemukan sel bebas.",
+          "experimental": "Eksperimental · Mungkin mengandung bug kecil."
+        },
+        "relocate": {
+          "title": "Relokasi",
+          "description": "Memindahkan bookmark yang menempati tujuan."
+        }
+      },
+      "resize": {
+        "title": "Ubah ukuran perilaku",
+        "description": "Pilih bagaimana item merespons saat menggerakkan pengendali pengubah ukuran.",
+        "smooth": {
+          "title": "Halus",
+          "description": "Regangkan item sambil menyeret, lalu pasang ke grid."
+        },
+        "none": {
+          "title": "Tidak ada",
+          "description": "Melompat per sel saat Anda melewati 50% sel tetangga."
+        }
+      },
+      "presets": {
+        "title": "Perpustakaan gaya",
+        "tab": "Perpustakaan",
+        "description": "Simpan gaya dan gunakan kembali saat menyiapkan bookmark default.",
+        "name": "Nama yang telah ditetapkan",
+        "saved": "Preset yang disimpan",
+        "save": "Simpan preset",
+        "apply": "Memuat",
+        "delete": "Hapus",
+        "empty": "Tidak ada preset yang disimpan"
+      }
+    },
+    "shortcuts": {
+      "title": "Pintasan keyboard",
+      "description": "Pilih tombol pintasan, lalu tekan kombinasi huruf atau tombol. Klik kanan untuk membatalkan penetapannya.",
+      "change": "Ubah pintasan {{action}}. Pintasan saat ini: {{shortcut}}.",
+      "press": "Tekan pintasan…",
+      "unassigned": "Belum ditetapkan",
+      "unassignedFlash": "Pintasan tidak ditetapkan.",
+      "modifierRequired": "Gunakan huruf tersendiri, atau kombinasi tombol dengan pengubah.",
+      "reserved": "Pintasan ini dicadangkan oleh browser atau sistem operasi. Pilih kombinasi lain.",
+      "conflict": "Kunci ini sudah ditetapkan ke tindakan lain.",
+      "updated": "Pintasan diperbarui.",
+      "cancelled": "Perubahan pintasan dibatalkan.",
+      "restored": "Pintasan default dipulihkan.",
+      "reset": "Setel ulang pintasan",
+      "actions": {
+        "toggleEditing": {
+          "title": "Modus penyuntingan",
+          "description": "Masuk atau keluar dari pengeditan di grid utama atau di folder terbuka."
+        },
+        "addBookmark": {
+          "title": "Buat penanda",
+          "description": "Buka formulir untuk menambahkan bookmark."
+        },
+        "addFolder": {
+          "title": "Buat folder",
+          "description": "Buka dialog untuk membuat folder."
+        },
+        "openWidgets": {
+          "title": "Buka widget",
+          "description": "Buka daftar widget yang tersedia."
+        },
+        "openSettings": {
+          "title": "Buka pengaturan",
+          "description": "Buka panel pengaturan New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Bahasa",
+      "text": "Pilih bahasa antarmuka:",
+      "system": "Peramban",
+      "search": "Cari bahasa atau negara",
+      "empty": "Tidak ada bahasa yang ditemukan"
+    },
+    "information": {
+      "title": "Informasi",
+      "version": "Versi: {{VERSION}}",
+      "author": "Penulis:"
+    }
+  }
+}

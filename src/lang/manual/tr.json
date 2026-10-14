@@ -1,0 +1,517 @@
+{
+  "title": "Kullanım kılavuzu",
+  "eyebrow": "SİZİN ALANINIZ, SİZİN HIZINIZ",
+  "intro": "Her küçük özelliği tanıyın.",
+  "description": "İhtiyacınız olanı bulun veya yeni bir şey keşfedin. Acele etmeyin.",
+  "settingsDescription": "İstediğiniz zaman deneyebileceğiniz basit adımlar ve küçük püf noktaları içeren her özellik.",
+  "search": {
+    "label": "Size ne konuda yardımcı olabiliriz?",
+    "placeholder": "Örneğin: silinmiş bir yer imini kurtarma",
+    "common": "Sık sorulan sorular",
+    "found": "Aramanıza ilişkin yanıtlar · {{count}}",
+    "empty": "Bu arama için yardım bulunamadı. \"Klavye\"yi, \"yer imlerini taşı\"yı veya \"yedekle\"yi deneyin.",
+    "resultsLabel": "Manuel sorular ve cevaplar"
+  },
+  "open": "Kılavuzu keşfedin",
+  "searchLabel": "Kılavuzu arayın",
+  "searchPlaceholder": "\"Klavye\", \"duvar kağıdı\" veya \"yedekleme\"yi deneyin",
+  "count": "Keşfedilecek {{count}} bölüm",
+  "empty": "Eşleşme yok. Dizinin tamamını görmek için başka bir kelime deneyin veya aramayı temizleyin.",
+  "back": "← Manuel dizin",
+  "remember": "Hatırlamak güzel",
+  "related": "Keşfetmeye devam edin",
+  "footer": "Her zaman Ayarlar → Yardım'da mevcuttur.",
+  "guideLinks": "Kılavuzda daha fazla bilgi edinin",
+  "groups": {
+    "start": "Buradan başlayın",
+    "organize": "Organize olun",
+    "personalize": "Senin olsun",
+    "protect": "Alanınıza iyi bakın"
+  },
+  "demo": {
+    "browse": "Bölümlere göz atın",
+    "previous": "← Önceki bölüm",
+    "next": "Sonraki bölüm →",
+    "title": "Çalışırken görün",
+    "example": "Gösteri örneği",
+    "steps": "Gösteri adımları",
+    "step": "Adım {{step}} / {{count}}",
+    "play": "Oyna",
+    "pause": "Duraklat",
+    "replay": "Tekrar oynat",
+    "progress": "Gösteri ilerlemesi",
+    "mode": "Davranış",
+    "nextStep": "Sonraki adım",
+    "reducedMotion": "Azaltılmış hareket: adımları animasyon olmadan keşfedin.",
+    "labels": {
+      "settings": "Ayarlar",
+      "saved": "Değişiklikler kaydedildi",
+      "page": "Sayfa",
+      "selection": "Seçim",
+      "selected": "seçilen öğeler",
+      "color": "Renk",
+      "styleName": "Benim mor tarzım",
+      "wallpaper": "Duvar Kağıtları",
+      "rotation": "Döndürme",
+      "format": "Biçim",
+      "seconds": "Saniye",
+      "language": "Dil",
+      "system": "Sistem",
+      "currentLanguage": "Türkçe",
+      "restore": "Geri yükle",
+      "copy": "Yedekleme",
+      "restoreCopy": "Geri yüklemeden önce inceleyin",
+      "switchSync": "Senkronize Edilmiş'e geçilsin mi?",
+      "applyNow": "Onaylandığında geçerlidir",
+      "status": "Durum",
+      "synchronized": "Senkronize edildi",
+      "retry": "Beklemede kaydet · Yeniden dene",
+      "keyboardQuery": "klavye",
+      "deleteExample": "Yer işaretleri ve klasörler silinecek. Geri dönüşüm kutusu boş olacaktır."
+    },
+    "topics": {
+      "bookmarks": [
+        "Soldaki menüyü açın ve + → Yer İmi'ni seçin.",
+        "Sayfa adını ve adresini girin.",
+        "Onayla: yer imi boş bir hücrede görünür."
+      ],
+      "quick-save": [
+        "Uzantı simgesinden New DeskTab'yu açın.",
+        "Önerilen adı, adresi ve hedefi inceleyin.",
+        "Kaydet: Bir sekmeyi açtığınızda yer imi çalışma alanınızda olacaktır."
+      ],
+      "keyboard": [
+        "İlk öğeye odaklanmak için Sekme tuşuna basın.",
+        "Ok tuşları odağı hareket ettirir. Enter odaklanılan öğeyi açar.",
+        "Esc veya başka bir Sekme gezinmeyi sonlandırır."
+      ],
+      "shortcuts": [
+        "Ayarlar → Klavye kısayollarını açın.",
+        "Bir eylemin kısayolunu tıklayın ve kombinasyonunuzu yazın.",
+        "Yeni kısayolu uygulamak için kaydedin."
+      ],
+      "search": [
+        "Araç çubuğu büyüteci veya /, aramayı açar.",
+        "Adın veya adresin bir kısmını yazın.",
+        "Sonucu açın. Esc veya Kapat çalışma alanınıza geri döner."
+      ],
+      "editing": [
+        "Menü kalemi ızgarayı ve kontrolleri ortaya çıkarır.",
+        "Gmail'in kalemi adını ve URL düzenleyicisini açar.",
+        "Değişikliği kaydedin ve bitirmek için menü kalemine tekrar tıklayın."
+      ],
+      "movement": [
+        "Düzenlemeyi etkinleştirin ve kutucuğu basılı tutun.",
+        "İmleç ve döşeme birlikte boş bir hücreye hareket eder.",
+        "Serbest bırakma: son konum kaydedilir."
+      ],
+      "resizing": [
+        "Düzenlemeyi etkinleştirin ve köşe tutamacını bulun.",
+        "Genişliği ve yüksekliği değiştirmek için çapraz olarak sürükleyin.",
+        "2 × 2'de bırakın. Seçiciyi kullanarak Hiçbiri'ni ve Düzelt'i Karşılaştırın."
+      ],
+      "drag-modes": [
+        "Üç sürükleme modunu karşılaştırmak için seçiciyi kullanın.",
+        "Dolu bir hücreye doğru sürükleyin ve diğer döşemeleri izleyin.",
+        "Hiçbiri ücretsiz bir hücre kullanmaz; Yer Değiştirme ve Sıra, döşemeleri yeniden düzenler."
+      ],
+      "folders": [
+        "Sayfalarınızı gruplandırmak için bir klasöre ad verin.",
+        "Düzenleme sırasında bir yer imini üzerine sürükleyin.",
+        "Yer işaretini ızgarasında bulmak için klasörü açın."
+      ],
+      "workspaces": [
+        "Araç çubuğu + seçtiğiniz adla bir çalışma alanı oluşturur.",
+        "Yeni çalışma alanının kendi ızgarası var.",
+        "Alt + ↑ ve Alt + ↓ çalışma alanlarınız arasında geçiş yapar."
+      ],
+      "selection": [
+        "Düzenlemeyi etkinleştirin ve kısa tıklamayla bir döşeme seçin.",
+        "Başka birini seçin: araç çubuğu grup eylemleri sunar.",
+        "Klon, tek bir eylemle boş hücrelerde kopyalar oluşturur."
+      ],
+      "history": [
+        "Bir döşemeyi hareket ettirin: bu değişiklik geçmişe girer.",
+        "Geri al, döşemeyi önceki konumuna döndürür.",
+        "Yinele, az önce geri aldığınız hareketi geri yükler."
+      ],
+      "appearance": [
+        "Parçanın kalemi düzenleyicisini açar.",
+        "Rengi değiştirin ve önizlemeyi izleyin.",
+        "Bu görünümü döşemeye uygulamak için kaydedin."
+      ],
+      "presets": [
+        "Kitaplığı Ayarlar → Yer İmleri'nden açın.",
+        "Yeniden kullanmak için stili adlandırın ve kaydedin.",
+        "Varsayılan olarak yükleyin ve yeni yer imleri için kaydedin."
+      ],
+      "wallpapers": [
+        "Bir duvar kağıdı seçmek için Ayarlar → Tema'yı açın.",
+        "Önizleme ve kitaplık döndürme aralığını gözden geçirin.",
+        "Kaydet: seçilen duvar kağıdı çalışma alanınızda görünür."
+      ],
+      "clock": [
+        "Soldaki menüden + → Widget'lar → Saat'i seçin.",
+        "Önizlemeyi kullanarak formatı ve saniyeleri yapılandırın.",
+        "Saati boş bir çalışma alanı hücresine ekleyin."
+      ],
+      "interface": [
+        "Genel'i açın ve menü dilini seçin.",
+        "Açık ve koyu arayüzü karşılaştırın.",
+        "Dil ve görünüm tercihlerinizi kaydedin."
+      ],
+      "trash": [
+        "Silinen bir yer imini bulmak için geri dönüşüm kutusunu açın.",
+        "Onu seçin ve Geri Yükle'ye tıklayın: kılavuza geri döner.",
+        "Genel olarak, silinen öğelerin ne kadar süre saklanacağını seçin."
+      ],
+      "backup": [
+        "Ayarlar → Genel bölümünde yedekleme seçeneklerini bulun.",
+        "Dışa aktarma, verileri ve yerel dosyaları içeren bir ZIP indirir.",
+        "İçe aktarma, verileri değiştirmeden önce onay ister."
+      ],
+      "sync": [
+        "Geçerli modu kontrol etmek için Ayarlar → Senkronizasyon'u açın.",
+        "Senkronize edildi'yi seçin ve onayı inceleyin.",
+        "Kabul et, Kaydet'e tıklamadan modu hemen uygular."
+      ],
+      "compact": [
+        "Pencere daraldıkça ızgara bir listeye dönüşür.",
+        "Yer imlerine listeden erişilebilir durumda kalır.",
+        "Izgaraya ve düzenlemeye dönmek için pencereyi genişletin."
+      ],
+      "data": [
+        "Örnekte başka bir dil, hafif bir arayüz ve özelleştirilmiş döşemeler kullanılıyor.",
+        "Sıfırla, yer işaretlerini ve stillerini korurken varsayılan ayarları geri yükler.",
+        "Sil, yer işaretlerini ve klasörleri kaldırır ve yalnızca boş geri dönüşüm kutusunu bırakır."
+      ],
+      "learning": [
+        "Günlük ipucu sizi bir özelliği keşfetmeye davet ediyor. Nasıl yapılacağını göster'e tıklayın.",
+        "Klavyeyle Gezin'i bulmak için arama kutusuna \"klavye\" yazın.",
+        "Talimatlarını okumak için sonuca tıklayın."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "BUGÜN İÇİN KÜÇÜK BİR İPUCU",
+    "dismiss": "Bugünkü ipucunu reddet",
+    "read": "Bana nasıl olduğunu göster",
+    "pace": "Duraklatmak için üzerine gelin.",
+    "enabled": "Günlük ipuçları",
+    "description": "Günün ilk sekmesini açtığınızda bir ipucu."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Yer imlerime bir sayfayı nasıl eklerim?",
+      "searchTerms": "sayfa ekle; yer imi oluştur; web sitesini kaydet; yeni favori",
+      "title": "Yer işaretleri ekle",
+      "summary": "Favori sayfalarınız her yeni sekmede elinizin altında.",
+      "steps": [
+        "Menüyü ortaya çıkarmak için sol kenara gidin. + → Yer İşareti'ni seçin.",
+        "Sayfa adını ve adresini girin. Eklemeden önce görünümünü ayarlayabilirsiniz.",
+        "Yer işaretini mevcut çalışma alanındaki boş bir yuvaya yerleştirmeyi onaylayın. Düzenleme modunun dışında sayfayı açmak için tıklayın."
+      ],
+      "note": "Mevcut bir yer işaretini değiştirmek için düzenlemeyi açın ve kalemini kullanın. Yanlışlıkla değişiklik yapılmasını önlemek için adresi kilitleyebilirsiniz.",
+      "tip": "Yer imleri ekleme menüsü sol kenardadır. İmlecinizi oraya taşıyın ve + → Yer İşareti'ni seçin."
+    },
+    "quick-save": {
+      "question": "Ziyaret ettiğim sayfayı nasıl kaydedebilirim?",
+      "searchTerms": "geçerli sayfayı kaydet; açık sekmeyi kaydet; uzantı simgesi; URL'yi yakala",
+      "title": "Geçerli sayfayı kaydet",
+      "summary": "Uzantı simgesinden bir sayfa ekleyin.",
+      "steps": [
+        "Bir sayfayı ziyaret ederken tarayıcının uzantılar menüsünden New DeskTab'yu açın.",
+        "Önerilen adı ve adresi kontrol edin ve uygun bir hedef seçin.",
+        "Yer işaretini kaydedin ve alanınızda bulmak için yeni bir sekme açın."
+      ],
+      "note": "Bu kısayolu elinizin altında tutmak için uzantı simgesini tarayıcınızın araç çubuğuna sabitleyin.",
+      "tip": "URL'yi kopyalamanıza gerek yok: New DeskTab'nun tarayıcı simgesi, ziyaret ettiğiniz sayfayı kaydetmenize olanak tanır."
+    },
+    "keyboard": {
+      "question": "Fare olmadan nasıl gezinirim?",
+      "searchTerms": "fare olmadan; klavyeyi kullanın; ok navigasyonu; sekme girişi",
+      "title": "Klavyeyle gezinme",
+      "summary": "Alanınızı keşfetmek için Sekme, ok tuşları ve Enter.",
+      "steps": [
+        "Ana sayfada, bir alana yazmadan veya bir iletişim kutusu açmadan, öğeler arasında gezinmeye başlamak için Sekme tuşuna basın.",
+        "Her yönde en yakın öğeye ulaşmak için ok tuşlarını kullanın. Enter, yer işaretini veya klasörü açar; düzenleme modunda editörünü açar.",
+        "Gezinmeden çıkmak için tekrar Sekme tuşuna veya Esc tuşuna basın. İletişim kutularının içinde Tab ve Shift + Tab, kontroller arasında normal şekilde hareket eder."
+      ],
+      "note": "Düzenleme modunda S, odaklanılan öğeyi seçer. Onaylandıktan sonra Sil veya Geri Al tuşu onu kaldırır. Widget'lar kalıcı olarak silinir.",
+      "tip": "Alanınızda Tab'ı deneyin: oklar öğeler arasında hareket eder ve Enter bunları açar. Başka bir Sekme bu moddan çıkar."
+    },
+    "shortcuts": {
+      "question": "Klavye kısayollarımı nasıl değiştiririm?",
+      "searchTerms": "kısayolları değiştirin; tuşları özelleştirin; tuş kombinasyonları; kısayol tuşu",
+      "title": "Kısayolları kendinize ait yapın",
+      "summary": "Ayarlar'da kısayollarınızı kontrol edin ve değiştirin.",
+      "steps": [
+        "Düzenleme, yer işaretleri, klasörler ve widget'lar ekleme ve ayarları açma bağlantılarınızı görmek için Ayarlar → Kısayollar'ı açın.",
+        "Bir eylemin tuş kombinasyonunu tıklayın ve yeni bir kısayola basın. Esc kaydı iptal eder; sağ tıklama eylemi atanmamış olarak bırakır.",
+        "Değişikliklerinizi uygulamak için ayarları kaydedin. Kısayolları sıfırla orijinal kombinasyonları geri yükler."
+      ],
+      "note": "Başlangıçta: E düzenler, B bir yer imi ekler, F bir klasör, W widget'ları açar ve S ayarları açar. Kısayollar metin alanlarına ve diyaloglara saygı gösterir.",
+      "tip": "Kısayolları Ayarlar'da değiştirebilirsiniz. Kendinizinkini kaydetmek için bir kombinasyona tıklayın; Esc iptal eder ve sağ tıklama atamayı kaldırır."
+    },
+    "search": {
+      "question": "Göremediğim bir yer işaretini nasıl bulurum?",
+      "searchTerms": "yer imini bul; sayfayı bulun; yer imi eksik; arama URL'si",
+      "title": "Yer imi bul",
+      "summary": "Klasörlerin içi de dahil olmak üzere ada veya adrese göre arama yapın.",
+      "steps": [
+        "Yazmadığınız zamanlarda / tuşuna basın veya çalışma alanı çubuğundaki büyüteci kullanın.",
+        "Adın veya adresin bir kısmını yazın. Arama, diğer çalışma alanlarındaki ve klasörlerin içindeki yer işaretlerini içerir.",
+        "İhtiyacınız olan sonucu açın. Esc veya Kapat sizi alanınıza geri götürür."
+      ],
+      "note": "Bir sayfayı bulmak için nereye kaydettiğinizi hatırlamanıza gerek yoktur.",
+      "tip": "/ tuşu aramayı açar. Ayrıca klasörlerin içindeki ve diğer çalışma alanlarındaki yer işaretlerini de bulur."
+    },
+    "editing": {
+      "question": "Düzenlemeyi nasıl etkinleştiririm?",
+      "searchTerms": "düzenlemeyi etkinleştirin; masaüstünü düzenle; kalem editörü; yer imini değiştir",
+      "title": "Düzenleme modu",
+      "summary": "Düzenlemek ve özelleştirmek için kalemi açın.",
+      "steps": [
+        "Izgarayı ve öğe kontrollerini ortaya çıkarmak için sol menüdeki kalemi tıklayın veya düzenleme kısayolunuzu kullanın.",
+        "Öğeleri taşıyın, yeniden boyutlandırın veya seçin. Her kartın kalemi adını, adresini ve görünüm düzenleyicisini açar.",
+        "İşiniz bittiğinde kaleme tekrar tıklayın. Çalışma alanı değişiklikleri otomatik olarak kaydedilir; editörlerin kendi Kaydet düğmesi vardır."
+      ],
+      "note": "Esc öncelikle seçimi veya klavyede gezinmeyi temizler. Her ikisi de aktif olmadığında düzenleme modundan çıkabilir.",
+      "tip": "Menü kalemi düzenlemeye başlar: kart tutamaçları ve kontroller görünür. Bitirmek için tekrar tıklayın."
+    },
+    "movement": {
+      "question": "Bir yer işaretini nasıl taşıyabilirim?",
+      "searchTerms": "yer imini taşı; favoriyi sürükleyin; pozisyonu değiştir; ızgarayı düzenle",
+      "title": "Öğeleri taşı",
+      "summary": "Kartları ızgaradaki yerlerine sürükleyin.",
+      "steps": [
+        "Düzenleme modunu açın ve taşımak istediğiniz kartı basılı tutun.",
+        "Hedefine sürükleyin. Sonuç, boş alana ve Ayarlar → Yer İmleri'nde seçilen sürükleme moduna bağlıdır.",
+        "Konumunu kaydetmek için bırakın. Ayrıca Sekme gezintisinin dışında, tek bir öğeyi tıklatarak seçip oklarla bir hücreye taşıyabilirsiniz."
+      ],
+      "note": "Engellenen hedefler görsel geri bildirim gösterir ve öğe geçerli bir konuma geri döner. Değişiklikleri geri alabilirsiniz.",
+      "tip": "Düzenleme modunda, bir kartı seçmek için tıklayın ve onu hücre hücre taşımak için okları kullanın. Önce Sekme gezintisinden çıkın."
+    },
+    "resizing": {
+      "question": "Bir döşemenin boyutunu nasıl değiştirebilirim?",
+      "searchTerms": "kutucuğu yeniden boyutlandırın; yer imini büyüt; boyutu küçültün; tutamaçları yeniden boyutlandırın; tıklamak; Vardiya; genişlik yüksekliği; 2x2",
+      "title": "Boyutu değiştir",
+      "summary": "Bir kartın kenarlarını ve köşelerini kullanın.",
+      "steps": [
+        "Düzenlemeyi açın ve yeniden boyutlandırma tutamaçlarını kullanmak için bir öğenin yanına veya köşesine gidin.",
+        "Tutamağı sürükleyin. Bir köşe genişliği ve yüksekliği değiştirir; bir taraf yalnızca bir boyutu değiştirir. Ayrıca bir hücre büyütmek için bir tutamacı tıklayabilir veya bir hücre küçültmek için Shift + tıklatabilirsiniz.",
+        "Ayarlar → Yer İmleri'nde, %50'yi geçtikten sonra hücreler arasında atlamak için Yok'u seçin veya kartı uzatıp serbest bırakıldığında pürüzsüzleştirmek için Düzelt'i seçin."
+      ],
+      "note": "Nihai boyut ızgaraya ve geçerli konumlara uygundur. Ayarlar önizlemeleri, siz seçim yapmadan önce farkı gösterir.",
+      "tip": "Bir hücre büyütmek için tutamacı tıklayın veya bir hücre küçültmek için Shift + tıklayın. Köşeler genişlik ve yüksekliği birlikte değiştirir; kenarlar yalnızca bir boyut değiştirir."
+    },
+    "drag-modes": {
+      "question": "Neden dolu bir hücreye uğrayamıyorum?",
+      "searchTerms": "işgal edilmiş hücre; diğerinin üzerine geç; bloke düşüş; kademenin yerini değiştirin; sürükleme çarpışması",
+      "title": "Sürükleme modları",
+      "summary": "Dolu bir yer imi konumunda ne olacağını seçin.",
+      "steps": [
+        "Ayarlar → Yer İmleri'ni açın ve sürükleme davranışını genişletin.",
+        "Hiçbiri boş slotlara taşınmıyor. Yer değiştirme, hedefteki yer imleri için bir konum bulur. Sıra, yer imlerini sırayla yeniden düzenler.",
+        "Her seçeneğin animasyonunu izleyin ve düzenlemesi rahat olan modu kaydedin."
+      ],
+      "note": "Geçerli bir düzenleme mevcut değilse, hamle reddedilir. Şeffaf bir arka plan, dolu bir hücreyi serbest bırakmaz.",
+      "tip": "Yer işaretini dolu bir hücreye taşımak mı istiyorsunuz? Ayarlar → Yer İşaretleri bölümünde Yer Değiştirme ve Basamaklama'ya bakın ve önizlemelerini izleyin."
+    },
+    "folders": {
+      "question": "Yer işaretlerini klasörler halinde nasıl gruplayabilirim?",
+      "searchTerms": "klasör oluştur; grup yer imleri; favorileri organize et; klasörden kaldır; klasörü yeniden adlandır",
+      "title": "Klasörlerle düzenleme",
+      "summary": "Tek bir klasörde 18'e kadar yer imini toplayın.",
+      "steps": [
+        "Soldaki menüden + → Klasör'ü seçin ve ona bir ad verin.",
+        "Düzenleme modunda, yer imlerini içine yerleştirmek için üzerine sürükleyin. Izgarasını görmek için klasörü açın.",
+        "Yer imlerini düzenlemek için klasörün düzenleme modunu kullanın. Yeniden adlandırmak için adına, görünümünü özelleştirmek için simgesine tıklayın."
+      ],
+      "note": "Bir klasörün silinmesi yer imlerini de etkiler. Devam etmeden önce onayı inceleyin; geri dönüşüm kutusu silinen öğeleri geri yükleyebilir.",
+      "tip": "Bir klasörde en fazla 18 yer imi bulunur. Düzenlemeyi açın ve eklemek için bir kartı klasöre sürükleyin."
+    },
+    "workspaces": {
+      "question": "Kişisel ve çalışma sayfalarını nasıl ayrı tutabilirim?",
+      "searchTerms": "kişisel çalışma; çalışma alanı oluşturun; çalışma alanını değiştir; masaüstü bilgisayarlar",
+      "title": "Çalışma alanlarınızı ayırın",
+      "summary": "İş için bir ızgara, diğer her şey için başka bir ızgara.",
+      "steps": [
+        "Çalışma alanı çubuğu Ana çalışma alanı ile özel çalışma alanlarınız arasında geçiş yapar. +'sı yeni bir tane yaratır.",
+        "Öğeleri eklemeden önce bir çalışma alanı seçin. Mevcut öğeleri aktarmak için bunları seçin ve işlem çubuğunda bir hedef seçin.",
+        "Alt + ↑ ve Alt + ↓ çalışma alanları arasında geçiş yapar. − düğmesi, onaylandıktan sonra mevcut özel çalışma alanını siler."
+      ],
+      "note": "Bir çalışma alanının silinmesi aynı zamanda içeriğinin de silinmesine neden olur. Ana konaklamalar mevcuttur ve silinemez.",
+      "tip": "Alt + ↑ ve Alt + ↓ seçiciyi açmadan çalışma alanlarını değiştirir. İşinizi, hobilerinizi veya projelerinizi çubuğun + işaretiyle ayırın."
+    },
+    "selection": {
+      "question": "Birden fazla öğeyi aynı anda nasıl değiştirebilirim?",
+      "searchTerms": "birden fazla seç; toplu seçim; birkaçını hareket ettirin; klon seçimi; yinelenen yer imleri",
+      "title": "Toplu olarak seçin ve işlem yapın",
+      "summary": "Birden fazla kartı düzenlerken daha az tekrarlanan eylem.",
+      "steps": [
+        "Düzenlemeyi açın ve seçmek için her kartı kısaca tıklayın. Seçimi kaldırmak için tekrar tıklayın; Sekme gezintisinde S'yi kullanabilirsiniz.",
+        "Seçim çubuğu, öğe türüne bağlı olarak kopyalamanıza, varsayılan görünümü uygulamanıza, başka bir çalışma alanına taşımanıza veya silmenize olanak tanır.",
+        "Hedefi veya onayı kontrol edin. Esc veya seçimi temizle düğmesi seçiminizi iptal eder."
+      ],
+      "note": "Taşımak ve kopyalamak için boş yuvalar gerekir. Uygulama, bazı öğelerin sığmayacağını size bildirir. Widget'lar geri dönüşüm kutusuna atılmaz.",
+      "tip": "Düzenleme modunda, kısa tıklamalarla birden fazla kartı seçerek bunları birlikte taşıyabilir, çoğaltabilir veya yeniden şekillendirebilirsiniz. Esc seçimi temizler."
+    },
+    "history": {
+      "question": "Son değişikliğimi nasıl geri alabilirim?",
+      "searchTerms": "değişikliği geri al; değişikliği yeniden yap; geri gitmek; konumu geri yükle",
+      "title": "Geri al ve yinele",
+      "summary": "Bir konumu veya yakın zamanda yapılan bir değişikliği kurtarın.",
+      "steps": [
+        "Önceki duruma dönmek için çalışma alanı çubuğundaki geri alma okunu kullanın.",
+        "Yinele oku, az önce geri aldığınız bir değişikliği kurtarır. Ayrıca Ctrl/Cmd + Z ve Ctrl/Cmd + Shift + Z tuşlarını da kullanabilirsiniz.",
+        "Bir düzenleyicinin içinde, bekleyen değişiklikler için başlığın yanındaki okları kullanın; metin alanları normal klavyelerini geri alır. Her eylem kısa bir mesaj gösterir ve kullanılamayan oklar devre dışı bırakılır. Kaydetmeden önce sonucu kontrol edin."
+      ],
+      "note": "Düzenleyici geçmişi, bir düzenleyiciyi her açtığınızda yeniden başlar; Kaydettiğinizde değişiklikler çalışma alanınıza ulaşır. Çalışma alanı geçmişi geçicidir ve bir yedek değildir. Yeni bir oturum veya başka bir sekmedeki güncellemeler onu sıfırlayabilir.",
+      "tip": "Bir değişiklik size doğru gelmiyorsa geri alma okunu veya Ctrl/Cmd + Z tuşlarını kullanın. Ctrl/Cmd + Shift + Z bunu yeniden yapar."
+    },
+    "appearance": {
+      "question": "Rengi, simgeyi veya metni nasıl değiştiririm?",
+      "searchTerms": "rengi değiştir; simgeyi değiştir; metni değiştir; yer imi görünümü; klasör rengi; site simgesi",
+      "title": "Kartlarınızı özelleştirin",
+      "summary": "Renkler, resimler, metinler ve simgeler istediğiniz gibi.",
+      "steps": [
+        "Düzenlemeyi açın ve bir yer işaretinin kalemini veya bir klasörün veya geri dönüşüm kutusunun görünüm kontrolünü açın.",
+        "Düzenleyiciyi keşfedin: arka plan, renk, resim, metin ve simge. Kullanılabilir kontroller öğe türüne bağlıdır; önizleme sonucu gösterir.",
+        "Mutlu olduğunuzda tasarruf edin. Düzenleyicinin bu seçeneği sunduğu bir URL'deki veya yerel bir dosyadaki görselleri kullanabilirsiniz."
+      ],
+      "note": "Yerel görseller bu tarayıcıya aittir. Senkronizasyon sırasında diğer cihazlar için bir yedek URL ekleyin. İçe aktarmalar, dahil edilen görselleri ve net referansları dosya olmadan tutar; Senkronizasyon, bu cihazda bulunmayan dosyaları yok sayar.",
+      "tip": "Bir yer iminin kalemi görsel düzenleyicisini açar. Renkleri, metni, simgeyi veya resmi değiştirin ve önizlemeyi kontrol edin."
+    },
+    "presets": {
+      "question": "Beğendiğim bir stili nasıl yeniden kullanırım?",
+      "searchTerms": "stili kaydet; görünümü yeniden kullanın; varsayılan stiller; önceden ayarlanmış kütüphane; stili uygula",
+      "title": "Görünümleri yeniden kullanma",
+      "summary": "Bir görünümü kaydedin ve diğer yer imlerine uygulayın.",
+      "steps": [
+        "Mevcut koleksiyondan bir görünüm seçmek için editörün Kitaplığını açın.",
+        "Yer iminin adını veya adresini kopyalamadan renklerini, metnini ve simgesini yeniden kullanmak için özel bir görünümü ön ayar olarak kaydedin.",
+        "Ayarlar → Yer İmleri'nde yeni yer imleri için varsayılan görünümü yapılandırın. Seçim çubuğu bunu uyumlu öğelere uygulayabilir."
+      ],
+      "note": "Bir ön ayar, yer iminin kimliğini, hedefini veya konumunu değil, görünümünü değiştirir.",
+      "tip": "Beğendiğiniz bir görünümü görünüm kitaplığına kaydedin. Adlarını veya adreslerini değiştirmeden diğer kartlarda yeniden kullanın."
+    },
+    "wallpapers": {
+      "question": "Bir görseli veya videoyu arka plan olarak nasıl kullanırım?",
+      "searchTerms": "arka planı değiştir; videonun arka planı; duvar kağıdı döndürme; tema",
+      "title": "Duvar kağıtları ve döndürme",
+      "summary": "Ruh halinizi ayarlamak için renk, resim veya video.",
+      "steps": [
+        "Ayarlar → Tema'yı açın ve varsayılan arka planı, rengi veya medya arka planını seçin.",
+        "Panelde sunulan kaynaklardan resim veya video ekleyin. Kitaplık, dönme aralığına sahip birden fazla arka planı toplar.",
+        "Önizlemeyi kontrol edin ve kaydedin. Yerel bir dosyayı diğer cihazlar için alternatif bir URL ile eşleştirebilirsiniz."
+      ],
+      "note": "Yerel dosyalar bu tarayıcıda kalır. Senkronizasyon bunları aktarmaz; tam bir yedekleme bunları koruyabilir.",
+      "tip": "Arka planınız otomatik olarak değişebilir: Ayarlar → Tema kitaplığına birkaç tane ekleyin ve bir döndürme aralığı ayarlayın."
+    },
+    "clock": {
+      "question": "Saati nasıl eklerim?",
+      "searchTerms": "saat ekle; gösteri zamanı; saniye; 24 saatlik format; saat widget'ı",
+      "title": "Saat ekle",
+      "summary": "Cihazınızın saatini gösteren bir widget.",
+      "steps": [
+        "Soldaki menüden + → Widget'lar'ı seçin ve Saat'i seçin.",
+        "12 veya 24 saatlik formatı ve saniyelerin gösterilip gösterilmeyeceğini seçin. Önizleme karar vermenize yardımcı olur.",
+        "Ücretsiz bir yuvaya ekleyin. Düzenleme modunda seçeneklerini taşıyabilir, yeniden boyutlandırabilir veya yeniden açabilirsiniz."
+      ],
+      "note": "Saat, cihazınızın saatini takip eder. Bir widget'ın silinmesi kalıcıdır; geri dönüşüm kutusuna girmez.",
+      "tip": "+ → Widget'larda isteğe bağlı saniyelerle birlikte 12 veya 24 saatlik bir saat ekleyebilir ve bunu alanınıza uyacak şekilde yeniden boyutlandırabilirsiniz."
+    },
+    "interface": {
+      "question": "Dili nasıl değiştiririm veya karanlık modu nasıl kullanırım?",
+      "searchTerms": "dili değiştir; karanlık mod; ışık modu; arayüz görünümü",
+      "title": "Dil ve arayüz teması",
+      "summary": "Menüleri, diyalogları ve kontrolleri rahat hale getirin.",
+      "steps": [
+        "Ayarlar → Genel'de bir dil seçin veya sisteminizi takip etmesine izin verin.",
+        "Tercihinize göre açık, koyu veya otomatik bir arayüz seçin.",
+        "Ayarları kaydedin. Arayüz teması, Tema'da seçtiğiniz arka planla birlikte çalışır."
+      ],
+      "note": "Sistem dili ve otomatik görünüm, cihaz tercihlerinizi takip eder.",
+      "tip": "Duvar kağıdınızı korurken açık veya koyu bir arayüz seçin. Bu seçeneği ve dili Ayarlar → Genel'de bulun."
+    },
+    "trash": {
+      "question": "Silinen bir yer işaretini nasıl kurtarırım?",
+      "searchTerms": "silinen yer imini kurtar; geri yükleme kaldırıldı; geri dönüşüm kutusu; yanlışlıkla silindi; klasörü kurtar",
+      "title": "Geri dönüşüm kutusundan geri yükleme",
+      "summary": "Yer imleri ve klasörler için ikinci bir şans.",
+      "steps": [
+        "Silinen yer işaretlerini ve klasörleri incelemek için alanınızın geri dönüşüm kutusunu açın.",
+        "Neyi geri almak istediğinizi seçin ve Geri Yükle'yi kullanın. Ayrıca onaylandıktan sonra öğeleri kalıcı olarak silebilir veya çöp kutusunu boşaltabilirsiniz.",
+        "Ayarlar → Genel bölümünde, öğelerin gösterilip gösterilmeyeceğini ve öğeleri ne kadar süreyle tutacağını seçin: 1, 7, 14 veya 28 gün veya bunları hiçbir zaman otomatik olarak silmeyin."
+      ],
+      "note": "Geri dönüşüm kutusu bu cihaza aittir. Süresi dolmuş veya kalıcı olarak silinmiş öğeler artık buradan geri yüklenemez.",
+      "tip": "Yanlışlıkla bir yer işaretini mi sildiniz? Geri dönüşüm kutusunu açın ve geri yükleyin. Saklama süresini Ayarlar → Genel bölümünde ayarlayın."
+    },
+    "backup": {
+      "question": "Verilerimi nasıl yedekleyebilirim veya aktarabilirim?",
+      "searchTerms": "yedek kopya; verileri dışa aktarın; kopyayı içe aktar; yedeklemeyi geri yükle; başka bir tarayıcı; veri aktarımı",
+      "title": "Yedeklemeler ve içe aktarmalar",
+      "summary": "Alanınızın bir kopyasını saklayın ve yanınızda götürün.",
+      "steps": [
+        "Ayarlar → Genel bölümünde, ZIP arşivinde bulunan verileri ve yerel dosyaları korumak için tam bir yedeği dışa aktarın.",
+        "Geri yüklemek için bir yedeği içe aktarın ve verileri değiştirmeden önce onayı inceleyin. Uyumlu JSON yedeklemeleri de desteklenmektedir.",
+        "Ayarlar → Yer İşaretleri'nde, tam bir yedeklemeye ihtiyacınız olmadığında yalnızca yer işaretlerini ve klasörleri dışa veya içe aktarabilirsiniz."
+      ],
+      "note": "Yer işaretinin dışa aktarımı, ayarların ve yerel medyanın tam bir yedeği değildir. Verileri geri yüklemeden veya silmeden önce bir yedek kaydedin.",
+      "tip": "Ayarlar → Genel'den tam yedekleme, ZIP'teki yerel dosyaları içerir. Tarayıcıları değiştirmeden veya verileri geri yüklemeden önce kullanışlıdır."
+    },
+    "sync": {
+      "question": "Aynı alanı başka bir bilgisayarda nasıl kullanırım?",
+      "searchTerms": "başka bir bilgisayar; cihazları senkronize edin; senkronizasyon; bulut; yerel senkronizasyon; senkronizasyonu durdurun; senkronizasyonu devre dışı bırak; yerel mod",
+      "title": "Cihazlar arasında senkronize edin",
+      "summary": "Tarayıcı senkronizasyonunu kullanarak alanınızı paylaşın.",
+      "steps": [
+        "Google Chrome profilinizde oturum açın ve uzantı senkronizasyonunu etkinleştirin.",
+        "Ayarlar → Senkronizasyon'da Senkronize edildi'yi seçin ve onayı kabul edin. Geçiş hemen etkili olur: mevcut senkronize yer imleri ve ayarlar yüklenir veya kayıtlı yerel verileriniz, mevcut değilse senkronize edilir.",
+        "Diğer cihazda aynı profili kullanın. Paneldeki senkronizasyon durumunu ve kullanılabilir alanı kontrol edin."
+      ],
+      "note": "Yerel dosyalar, geri dönüşüm kutusu ve günlük ipuçları her cihaza aittir. Senkronizasyonun depolama sınırları vardır; yerel resimler ve videolar için alternatif URL'ler kullanın. Yerel seçeneğinin seçilmesi aynı zamanda onay ister ve anında etkili olur, senkronize edilmiş veriler kayıtlı kalır.",
+      "tip": "Senkronizasyon, alanınızı cihazlar arasında paylaşır, ancak yerel dosyaların alternatif bir URL'ye ihtiyacı vardır. Bkz. Ayarlar → Senkronizasyon."
+    },
+    "compact": {
+      "question": "Neden kılavuz yerine bir liste görüyorum?",
+      "searchTerms": "küçük pencere; liste görünümü; ızgara kayboldu; gizli panel; mobil",
+      "title": "Daha küçük bir pencere kullanın",
+      "summary": "Yer sınırlı olduğunda yer işaretlerinize ulaşmaya devam edin.",
+      "steps": [
+        "Pencere daraldığında uygulama, öğelerinizin erişilebilir olmasını sağlamak için bir listeye geçer.",
+        "Bu görünümde yer işaretlerini, klasörleri açın veya arama yapın. Kılavuz ayrıca mevcut boyuta da uyarlanır.",
+        "Izgarayı ve düzenleme panellerini geri getirmek için pencereyi genişletin. Askıya alınan bir düzenleme iletişim kutusu taslağını korur."
+      ],
+      "note": "Kompakt görünüm, alanınıza göz atmanıza yardımcı olur; yeniden düzenleme yeterince geniş bir pencereye ihtiyaç duyar.",
+      "tip": "Dar bir pencerede yer işaretleriniz liste halinde kullanılabilir durumda kalır. Izgarayı düzenlemek veya yeniden düzenlemek istediğinizde genişletin."
+    },
+    "data": {
+      "question": "Verilerimi nasıl silerim veya ayarları nasıl sıfırlarım?",
+      "searchTerms": "verileri sil; ayarları sıfırla; her şeyi kaldırın; baştan başlamak",
+      "title": "Kaydetme ve sıfırlama",
+      "summary": "Nelerin kaydedildiğini ve her eylemin neleri kaldırdığını anlayın.",
+      "steps": [
+        "Çalışma alanı eylemleri otomatik olarak kaydedilir. Editörler ve Ayarlar'da Kaydet ile onaylayın; İptal o panelin taslağını iptal eder.",
+        "Bekleyen kaydetme bildirimi görünürse, Kaydetmeyi yeniden dene'ye tıklayın ve sekmeyi kapatmadan önce onay bekleyin.",
+        "Ayarlar → Genel'de ayarları sıfırlayabilir veya tüm verileri silebilirsiniz. Onayı okuyun ve saklamak istediğiniz her şeyin yedeğini dışa aktarın."
+      ],
+      "note": "Ayarların sıfırlanması yer işaretlerinizi, boyutlarını ve stillerini korur. Tüm yerel verilerin silinmesi, öğeleri kaldırır ve geri dönüşüm kutusunu boşaltır. Bir yedeği silmeden önce dışa aktarın: Geri alma, yedeğin yerini almaz.",
+      "tip": "Kaydedilmemiş değişiklikler bildirimi görürseniz sekmeyi kapatmadan önce Kaydetmeyi yeniden dene seçeneğini kullanın. Tam yedeklemeyle alanınızı koruyun."
+    },
+    "learning": {
+      "question": "Rehberi nasıl yeniden açabilirim veya günlük ipuçlarını nasıl kapatabilirim?",
+      "searchTerms": "ipuçlarını devre dışı bırakın; yardımı kapat; günlük uyarı; kılavuzu yeniden açın; kullanım kılavuzu",
+      "title": "Kendi hızınızda öğrenin",
+      "summary": "Hızlı bir kılavuz, bir kılavuz ve küçük bir günlük ipucu.",
+      "steps": [
+        "Hızlı kılavuzu Ayarlar → Yardım'dan tekrar ziyaret edin. Her adım, kılavuzdaki ilgili açıklamalara bağlanır.",
+        "Dizini keşfedin veya bir kelime arayın. Bir bölümün ilgili bağlantıları, hazır olduğunuzda sizi diğer özelliklere götürür.",
+        "Her gün ilk yeni sekmenizde rastgele bir ipucu gösterilir. Reddedin veya açıklamasını açın; Yardım'daki ipuçlarını devre dışı bırakabilirsiniz."
+      ],
+      "note": "İpuçları, koleksiyon tamamlanana kadar tekrar etmeden bölümleri ziyaret edin. 20 saniye sürer ve düğmelerin üzerinde gezinirken veya odaklanırken duraklarlar. Yerel günü ve bu tarayıcının tercihini takip ederler.",
+      "tip": "Bu kılavuz her zaman Ayarlar → Yardım bölümünde bulunur. Günlük ipuçları bir bölüm açar ve bunları istediğiniz zaman orada devre dışı bırakabilirsiniz."
+    }
+  }
+}

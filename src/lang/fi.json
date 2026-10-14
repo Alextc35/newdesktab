@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Julkaisutiedot",
+    "settingsDescription": "Mikä muuttui ja tarina jokaisen päivityksen takana.",
+    "open": "Lue muistiinpanoja",
+    "history": "Versiohistoria",
+    "dismiss": "Sulje julkaisutiedot",
+    "continue": "Jatka",
+    "back": "Takaisin tietoihin",
+    "highlights": "Mitä voit tehdä tänään",
+    "generic": {
+      "title": "New DeskTab on päivitetty",
+      "description": "Sinulla on uusi versio. Voit tarkastella aikaisempia julkaisutietoja kohdassa Tiedot milloin haluat. Kiitos, että olet täällä."
+    },
+    "v1_0_0": {
+      "title": "Web-sivustojen työpöytäsi. Viimeinkin.",
+      "thanks": "Kiitos, että yritit New DeskTab. Olen niin innoissani voidessani vihdoin jakaa kanssasi tämän projektin ensimmäisen julkisen julkaisun.",
+      "origin": "Kaikki alkoi 26. syyskuuta 2025. Katsellessani Just Chatting-streamia paikassa Twitch huomasin striimaajan selaimen uuden välilehden: laajennuksen, joka järjesti verkkosivustot värillisiksi neliöiksi ilman nimiä tai logoja. Se minimalismi kiehtoi minua, ja ajattelin: miksi en rakentaisi omaa laajennusta? Halusin, että jokainen uusi välilehti tuo järjestyksen tunteen, sivuni ovat käden ulottuvilla ja paneelin, jota katselen mielelläni.",
+      "desktop": "Vähitellen idea kasvoi henkilökohtaiseksi verkkosivustojen työpöydäksi sovellusten sijaan. Kello on ensimmäinen askel ja työ on edelleen kesken. Jatkossa haluaisin lisätä muistiinpanon ja muita widgetejä, jotka tarjoavat jotain hyödyllistä sekä minulle että kaikille New DeskTab-käyttäjille.",
+      "closing": "Tämä sovellus on tehty minulle ja sinulle. Kiitos, että luotat kohteeseen New DeskTab ja annoit sille paikan selaimessasi. Toivon, että nautit tilasi luomisesta yhtä paljon kuin minä olen nauttinut sen rakentamisesta.",
+      "highlights": {
+        "workspace": "Järjestä sivusi kirjanmerkeillä, kansioilla ja itsenäisillä työtiloilla.",
+        "appearance": "Mukauta värejä, kunkin kohteen kokoa ja työpöydän taustaa.",
+        "search": "Löydä sivusi haun avulla ja käytä pikanäppäimiä navigoidaksesi ja luodaksesi kohteita.",
+        "backup": "Tallenna varmuuskopiot ja palauta poistetut kohteet roskakorista.",
+        "sync": "Valitse, säilytetäänkö tiedot tällä laitteella vai synkronoidaanko ne Google Chrome:n kanssa.",
+        "help": "Tutustu ominaisuuksiin tervetulooppaan, ohjekirjan ja päivittäisten vinkkien avulla."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "ENSIMMÄINEN MINUTTISI",
+    "skip": "Ohita opas",
+    "back": "Takaisin",
+    "next": "Seuraavaksi",
+    "finish": "Takaisin asetuksiin",
+    "explore": "Tutki tilaani",
+    "addFirst": "Lisää ensimmäinen kirjanmerkkini",
+    "progress": "Vaihe {{current}}/{{total}}",
+    "compactHint": "Laajenna ikkunaa, kun haluat lisätä kirjanmerkkejä ja muokata tilaasi.",
+    "reopenTitle": "Pikaopas",
+    "reopenDescription": "Löydä olennaiset asiat uudelleen minuutissa.",
+    "reopen": "Katso opas",
+    "demo": {
+      "work": "Työ",
+      "media": "Media",
+      "trash": "Roskakori",
+      "search": "Etsi kirjanmerkkisi"
+    },
+    "steps": {
+      "start": {
+        "title": "Sinun sivusi. Oma tila.",
+        "body": "Tervetuloa New DeskTab. Pidä suosikkisivusi käsillä aina, kun avaat välilehden. Lisää yksi siirtymällä vasempaan reunaan ja valitsemalla + → [[bookmarks|Kirjanmerkki]].",
+        "hint": "Voit myös [[quick-save|tallenna vierailemasi sivu]] selaimesi laajennuskuvakkeesta."
+      },
+      "edit": {
+        "title": "Anna jokaiselle kirjanmerkille paikkansa.",
+        "body": "Muokkaa kytkemällä kynä päälle vasemmanpuoleisessa valikossa. Pidä kohdetta painettuna ja [[movement|vetää]] siirtääksesi sen; muuta sen kokoa sen [[resizing|kahvat]] avulla.",
+        "hint": "Jokaisen kirjanmerkin kynä avaa sen [[appearance|toimittaja]]: nimen, värit, kuvakkeen ja kuvan. Tallenna [[presets|tyylejä]] käyttääksesi niitä uudelleen."
+      },
+      "organize": {
+        "title": "Vähemmän sotkua. Lisää tilausta.",
+        "body": "Luo [[folders|kansio]] +-kohdasta ja vedä kirjanmerkit siihen muokkaustilassa. Se avautuu puhtaaseen ruudukkoon, jossa on tilaa jopa 18 kirjanmerkille.",
+        "hint": "Käytä +-merkkiä kohdassa [[workspaces|työtilan baari]] erottaaksesi työn ja leikin. [[search|suurennuslasi]] hakee myös kansioiden sisältä."
+      },
+      "style": {
+        "title": "Saa se tuntumaan sinulta.",
+        "body": "Valitse Asetukset → [[wallpapers|Teema]] väri-, kuva- tai videotausta ja kierrä suosikkitaustakuviasi. Kohdassa Asetukset → [[sync|Synkronointi]] synkronoi tilasi eri laitteiden välillä käyttämällä tiliä, joka on kirjautunut Chrome-profiiliisi.",
+        "hint": "Lisää [[clock|kello]] + → Widgeteistä. Voit myös muokata kansiosi [[appearance|ulkonäkö]]."
+      },
+      "ready": {
+        "title": "Tiedät perusasiat.",
+        "body": "Etsi kirjanmerkki painamalla [[search|/]]. Käytä [[history|kumoa ja tee uudelleen]]-nuolia muutosten palauttamiseen. poistetut kirjanmerkit menevät osoitteeseen [[trash|roskakori]].",
+        "hint": "Muutokset tallentuvat automaattisesti. Vie Asetuksissa [[backup|varmuuskopio]] tai ota valinnainen Google Chrome [[sync|synkronointi]] käyttöön."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Viimeisimpiä muutoksiasi ei voitu tallentaa.",
+    "retry": "Yritä tallentaa uudelleen",
+    "saved": "Odottavat muutokset tallennettu."
+  },
+  "itemEditor": {
+    "chooseIcon": "Valitse kuvake",
+    "siteLogo": "Logo",
+    "noSymbol": "Ei mitään",
+    "folderIconHint": "Symboli korvaa kansion sisällä olevat kirjanmerkkien esikatselut.",
+    "icons": {
+      "mail": "Mail",
+      "calendar": "Kalenteri",
+      "notes": "Huomautuksia",
+      "projects": "Projektit",
+      "design": "Suunnittelu",
+      "music": "Musiikki",
+      "tasks": "Tehtävät",
+      "ideas": "Ideoita",
+      "docs": "Asiakirjat",
+      "ui-start": "Kompassi",
+      "ui-organize": "Asettelu",
+      "ui-personalize": "Liukusäätimet",
+      "ui-protect": "Kilpi",
+      "ui-bookmarks": "Lisää kirjanmerkki",
+      "ui-quick-save": "Selain",
+      "ui-keyboard": "Näppäimistö",
+      "ui-shortcuts": "Salama",
+      "ui-search": "Etsi",
+      "ui-editing": "Lyijykynä",
+      "ui-movement": "Siirrä",
+      "ui-resizing": "Muuta kokoa",
+      "ui-drag-modes": "Vedä",
+      "ui-folders": "Kansio",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Valinta",
+      "ui-history": "Historia",
+      "ui-appearance": "Paletti",
+      "ui-presets": "Esiasetukset",
+      "ui-wallpapers": "Kuva",
+      "ui-clock": "Kello",
+      "ui-interface": "Maapallo",
+      "ui-trash": "Roskakori",
+      "ui-backup": "Arkisto",
+      "ui-sync": "Synkronoi",
+      "ui-compact": "Luettelo",
+      "ui-data": "Tietokanta",
+      "ui-learning": "Kirja",
+      "ui-settings": "Asetukset",
+      "ui-controls": "Säätimet",
+      "ui-cloud": "Pilvi",
+      "ui-bookmark": "Kirjanmerkki",
+      "ui-info": "Tietoja",
+      "ui-eye": "Silmä",
+      "ui-check": "Valmis",
+      "ui-lock": "Lukko",
+      "ui-unlock": "Avaa lukitus",
+      "ui-copy": "Kopioi",
+      "ui-close": "Sulje",
+      "ui-undo": "Kumoa",
+      "ui-redo": "Toista",
+      "ui-desktop": "Työpöytä",
+      "home": "Kotiin",
+      "briefcase": "Työ",
+      "code": "Koodi",
+      "game": "Pelit",
+      "cart": "Ostokset",
+      "card": "Maksut",
+      "people": "Ihmiset",
+      "message": "Viesti",
+      "location": "Sijainti",
+      "phone": "Puhelin",
+      "camera": "Kamera",
+      "headphones": "Kuulokkeet",
+      "link": "Linkki",
+      "tag": "Tag",
+      "chart": "Tilastot",
+      "coffee": "Kahvia",
+      "sun": "Sun",
+      "moon": "Kuu",
+      "circle": "Ympyrä",
+      "square": "Neliö",
+      "triangle": "Kolmio",
+      "diamond": "Timantti",
+      "pentagon": "Pentagon",
+      "hexagon": "Kuusikulmainen",
+      "star": "Tähti",
+      "heart": "Sydän",
+      "plus": "Plus",
+      "minus": "Miinus",
+      "video": "Video"
+    },
+    "searchIcons": "Hae kuvakkeita…",
+    "clearIconSearch": "Tyhjennä haku",
+    "noIcons": "Kuvakkeita ei löytynyt",
+    "suggestedIcons": "Ehdotettu",
+    "suggestedIcon": "Ehdotettu: {{name}}",
+    "logoKeywords": "logo favicon-sivuston sivustobrändi",
+    "iconKeywords": {
+      "ui-trash": "bin roskakorijätteet poista klassikko",
+      "mail": "sähköposti sähköposti gmail outlook -postilaatikko",
+      "docs": "asiakirjat tiedostot pdf-asema word",
+      "notes": "muistiinpanot muistio käsite onenote",
+      "ui-protect": "turvallisuussuoja yksityisyyttä",
+      "game": "pelien peliohjainkonsoli",
+      "cart": "ostos kauppa myymälä ostaa",
+      "card": "pankkirahoitus luotto pankkirahat",
+      "people": "sosiaalisen yhteisön ystäväryhmä",
+      "ui-learning": "kirjastokasvatustutkimuksen lukeminen",
+      "ui-clock": "aika tuntia katsella",
+      "ui-interface": "Internet-verkkomaailman kieli",
+      "ui-data": "data sql tallennustila",
+      "circle": "geometrisia muotoja",
+      "square": "geometrisia muotoja",
+      "triangle": "geometrisia muotoja",
+      "diamond": "geometrisia muotoja",
+      "pentagon": "geometrisia muotoja",
+      "hexagon": "geometrisia muotoja",
+      "star": "geometrisia muotoja",
+      "heart": "geometrisia muotoja"
+    },
+    "history": "Muokkaa historiaa",
+    "description": "Tee olosi kotoisaksi työtilassasi.",
+    "looks": "Valitse ulkoasu",
+    "custom": "Mukautettu",
+    "look": {
+      "original": "Alkuperäinen",
+      "card": "kortti",
+      "midnight": "Tumma",
+      "paper": "Kevyt"
+    },
+    "reset": "Palauta ulkoasu",
+    "cardColor": "Kortin väri",
+    "folderFill": "Kansion väri",
+    "image": "Taustakuva",
+    "lock": "Lukitse tai avaa URL-osoite",
+    "copy": "Kopioi URL-osoite",
+    "clear": "Selkeä",
+    "section": {
+      "general": "Perusasiat",
+      "text": "Nimi ja tarrat",
+      "icon": "Kuvake",
+      "card": "kortti"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Näkemäsi nimi ja sivu, jonka se avautuu.",
+        "text": "Valitse, näytetäänkö nimi ja säädä sen väri.",
+        "icon": "Käytä kuvakorttien nimen vieressä suurta, keskitettyä faviconia tai pientä kuvaketta."
+      },
+      "folder": {
+        "general": "Nimi, joka yhdistää kirjanmerkit.",
+        "text": "Näytä kansion nimi ja säädä sen väriä.",
+        "icon": "Mukauta kansion kuvaketta ja sen kirjanmerkkien pikkukuvia."
+      },
+      "recycleBin": {
+        "general": "Valitse, näkyykö roskakori päätyötilassasi.",
+        "text": "Näytä roskakorin nimi ja säädä sen väri.",
+        "icon": "Anna roskakorille oma värisi. Piilota koko roskakori kenraalilta."
+      }
+    },
+    "addImage": "Lisää taustakuva",
+    "changeImage": "Muokkaa taustakuvaa"
+  },
+  "html": {
+    "title": "Uusi välilehti"
+  },
+  "quickSave": {
+    "title": "Tallenna kirjanmerkki",
+    "name": "Nimi",
+    "workspace": "Työtila",
+    "folder": "Kansio",
+    "mainWorkspace": "Main",
+    "noFolder": "Ei kansiota",
+    "save": "Tallenna kirjanmerkki",
+    "saveAnyway": "Säästä joka tapauksessa",
+    "savedButton": "Tallennettu",
+    "alreadySaved": "on jo tallennettu",
+    "savedIn": "{{location}}",
+    "savedInMore": "{{location}} ja {{count}} muuta",
+    "open": "Avaa New DeskTab",
+    "unavailableTitle": "Tätä välilehteä ei voi tallentaa",
+    "unavailable": "Avaa web-sivu (http tai https) tallentaaksesi sen.",
+    "loadError": "Kirjanmerkkejäsi ei voitu ladata. Yritä uudelleen.",
+    "saving": "Tallennetaan…",
+    "saved": "Kirjanmerkki tallennettu.",
+    "duplicate": "Tämä URL-osoite on jo tallennettu kyseiseen kohteeseen.",
+    "noSpace": "Kohteessa ei ole enää tilaa. Valitse toinen.",
+    "invalid": "Tarkista nimi ja valittu kohde.",
+    "saveError": "Kirjanmerkkiä ei voitu tallentaa. Yritä uudelleen."
+  },
+  "launcher": {
+    "bookmark": "Kirjanmerkki",
+    "folder": "Kansio",
+    "widgets": "Widgetit",
+    "editMode": {
+      "enter": "Siirry muokkaustilaan",
+      "exit": "Poistu muokkaustilasta"
+    }
+  },
+  "widgets": {
+    "title": "Widgetit",
+    "description": "Valitse tähän työtilaan lisättävä widget.",
+    "empty": "Widgetejä ei ole vielä saatavilla."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Laajenna ikkunaa käyttääksesi tätä ominaisuutta.",
+      "suspended": "Paneeli piilotettu. Jatka laajentamalla ikkunaa."
+    },
+    "editMode": {
+      "enabled": "Muokkaustila käytössä",
+      "disabled": "Muokkaustila pois käytöstä"
+    },
+    "selectionMode": {
+      "enabled": "Valintatila käytössä",
+      "disabled": "Valintatila pois käytöstä"
+    },
+    "bookmark": {
+      "added": "Kirjanmerkki lisätty",
+      "notFound": "Kirjanmerkkiä ei löydy",
+      "updated": "Kirjanmerkki päivitetty",
+      "deleted": "Kirjanmerkki poistettu"
+    },
+    "clock": {
+      "added": "Kello lisätty",
+      "updated": "Kello päivitetty",
+      "deleted": "Kello poistettu"
+    },
+    "folder": {
+      "created": "Kansio luotu",
+      "renamed": "Kansio nimetty uudelleen",
+      "updated": "Kansio päivitetty",
+      "deleted": "Kansio ja sen kirjanmerkit poistettu",
+      "bookmarkAdded": "Kirjanmerkki lisätty kansioon",
+      "folderFull": "Tässä kansiossa on jo 18 kirjanmerkkiä",
+      "bookmarkRemoved": "Kirjanmerkki siirrettiin takaisin ruudukkoon"
+    },
+    "recycleBin": {
+      "moved": "Siirretty roskakoriin",
+      "restored": "Kohteet palautettu",
+      "deletedPermanently": "Kohteet poistettu pysyvästi",
+      "updated": "Roskakori päivitetty"
+    },
+    "workspace": {
+      "created": "Työtila luotu",
+      "deleted": "Työtila poistettu",
+      "switched": "Työtila: {{name}}"
+    },
+    "history": {
+      "undone": "Muutos kumottu",
+      "redone": "Muutos uusittu"
+    },
+    "bookmarks": {
+      "deletedAll": "Kaikki kirjanmerkit poistettu",
+      "deletedAllWithFolders": "Kaikki kirjanmerkit ja kansiot poistettu",
+      "deleteAllError": "Kaikkien kirjanmerkkien poistaminen epäonnistui",
+      "exported": "Kirjanmerkit viety",
+      "exportError": "Kirjanmerkkien vienti epäonnistui",
+      "imported": "Kirjanmerkit tuotu",
+      "importError": "Kirjanmerkkien tuonti epäonnistui",
+      "presetApplied": "Valinnassa käytetty tyyli",
+      "duplicatedSelected": "Valitut kohteet kopioitu",
+      "deletedSelected": "Valitut kohteet poistettu",
+      "moved": "Kohteet siirretty valittuun työtilaan"
+    },
+    "settings": {
+      "saved": "Asetukset tallennettu",
+      "bookmarkDefaultSaved": "Kirjanmerkin oletusulkoasu tallennettu",
+      "bookmarkDefaultError": "Kirjanmerkin oletusulkoasua ei voitu tallentaa",
+      "copied": "Arvo kopioitu leikepöydälle",
+      "resetBg": "Teeman nollaus",
+      "deletedAllData": "Kaikki paikalliset NewDeskTab-tiedot poistettu",
+      "deleteAllDataError": "Kaikkia paikallisia NewDeskTab tietoja ei voitu poistaa",
+      "invalidWallpaperUrl": "Anna kelvollinen HTTP- tai HTTPS-kuvan/videon URL-osoite.",
+      "invalidWallpaperFile": "Tätä tiedostoa ei voitu lisätä. Käytä tuettua kuvaa tai MP4-, WebM- tai Ogg-videota enintään 200 Mt.",
+      "wallpaperLimit": "Voit lisätä enintään 25 henkilökohtaista taustakuvaa."
+    },
+    "localImage": {
+      "invalid": "Valitse PNG-, JPEG-, WebP-, GIF- tai AVIF-kuva.",
+      "tooLarge": "Tämä kuva on liian suuri tallennettavaksi tälle laitteelle.",
+      "storageFull": "Paikallinen tila ei riitä tälle kuvalle.",
+      "processing": "Tätä kuvaa ei voitu käsitellä."
+    },
+    "sync": {
+      "enabled": "Synkronointi käytössä",
+      "localEnabled": "Paikallinen tila käytössä",
+      "remoteLoaded": "Synkronoidut tiedot ladattu",
+      "updatedFromOtherDevice": "Toisesta laitteesta saadut synkronoidut muutokset",
+      "deletedFromOtherDevice": "Pilvitiedot poistettiin toisesta laitteesta. Tämä laite käyttää nyt paikallista tilaa.",
+      "error": "Tallennustilaa ei voitu vaihtaa",
+      "versionBlocked": "Synkronointi keskeytettiin, koska pilvitiedot vaativat uudemman version NewDeskTab. Tämän laitteen paikalliset tiedot näytetään.",
+      "quotaError": "Data ylittää käytettävissä olevan synkronointitallennustilan",
+      "deleted": "Synkronoidut tiedot poistettu",
+      "deleteError": "Synkronoituja tietoja ei voitu poistaa"
+    },
+    "backup": {
+      "exported": "Varmuuskopio viety",
+      "exportError": "Varmuuskopiota ei voitu viedä",
+      "mediaUnavailable": "Jotkut viitatut paikalliset kuvat tai videot eivät ole saatavilla, joten varmuuskopiota ei luotu.",
+      "imported": "Varmuuskopio palautettu",
+      "importError": "Varmuuskopiota ei voitu palauttaa",
+      "mediaStorageFull": "Paikallista tallennustilaa ei ole tarpeeksi varmuuskopiokuvien ja -videoiden palauttamiseen."
+    }
+  },
+  "view": {
+    "list": "Luettelonäkymä",
+    "search": "Hae kirjanmerkkejä ja kansioita",
+    "clearSearch": "Tyhjennä haku",
+    "noResults": "Ei tuloksia."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Poistetaanko kaikki kirjanmerkit?",
+      "deleteFolders": "Poista myös kaikki kansiot",
+      "confirmDeleteSelected": "Poistetaanko {{count}} valittua kohdetta?",
+      "confirmMoveOne": "Siirretäänkö tämä kohde työtilaan \"{{workspace}}\"?",
+      "confirmMoveSelected": "Siirretäänkö {{count}} valittua kohdetta työtilaan \"{{workspace}}\"?",
+      "duplicateNoSpace": "{{count}} kohdetta ei voitu monistaa, koska tilaa ei ollut tarpeeksi.",
+      "moveNoSpace": "{{count}} kohdetta ei voitu siirtää, koska siellä ei ollut tarpeeksi tilaa.",
+      "no_space": "Lisää kirjanmerkkejä ei ole saatavilla 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Hylätäänkö uusi kirjanmerkki?"
+      },
+      "confirmDelete": "Poistetaanko \"{{name}}\"?",
+      "confirmPermanentDelete": "Poistetaanko \"{{name}}\" pysyvästi? Tätä ei voi kumota.",
+      "cancel": "Hylätäänkö muutokset?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Poistetaanko tämä widget pysyvästi? Tätä ei voi kumota.",
+      "confirmDeleteSelected": "Poistetaanko {{count}} valittua kohdetta? Valitut widgetit ({{widgetCount}}) poistetaan pysyvästi, eikä niitä voi palauttaa."
+    },
+    "folder": {
+      "createCancel": "Hylätäänkö uusi kansio?",
+      "cancel": "Hylätäänkö kansion muutokset?"
+    },
+    "recycleBin": {
+      "folder": "Siirretäänkö \"{{name}}\" ja sen {{count}}-kirjanmerkit roskakoriin?",
+      "empty": "Poistetaanko kaikki roskakorista pysyvästi? Tätä ei voi kumota.",
+      "deleteSelected": "Poistetaanko {{count}} valittua kohdetta pysyvästi? Tätä ei voi kumota.",
+      "noSpace": "{{count}} kohdetta ei voitu palauttaa, koska ruudukkotila ei riitä. Ne jäävät roskakoriin.",
+      "cancel": "Hylätäänkö roskakoriin tehdyt muutokset?"
+    },
+    "settings": {
+      "cancel": "Hylätäänkö asetusten muutokset?",
+      "reset": "Nollataanko kaikki asetukset? Kirjanmerkkejä ei poisteta.",
+      "deleteAllData": "Poistetaanko kaikki paikalliset NewDeskTab tiedot tältä laitteelta? Kirjanmerkit, kansiot, widgetit, asetukset, roskakorin kohteet, paikalliset kuvat ja paikalliset videot poistetaan pysyvästi. Pilvitietoja ei muuteta. Jos synkronointi on aktiivinen, tämä laite vaihtaa ensin paikalliseen. Tätä toimintoa ei voi kumota.",
+      "theme": {
+        "reset": "Nollataanko teemaasetukset?"
+      },
+      "bookmark": {
+        "cancel": "Hylätäänkö muutokset oletuskirjanmerkkien ulkoasuun?"
+      },
+      "shortcuts": {
+        "reset": "Palautetaanko oletuspikanäppäimet?"
+      },
+      "sync": {
+        "enable": "Vaihdetaanko paikallisesta synkronoituun? Tämä tulee voimaan nyt ilman Tallenna-painiketta. Jos synkronoituja tietoja on jo olemassa, sen kirjanmerkit ja asetukset ladataan. Muussa tapauksessa tallennetut paikalliset tiedot synkronoidaan.",
+        "local": "Vaihdetaanko synkronoidusta paikalliseen? Tämä tulee voimaan nyt ilman Tallenna-painiketta. Tämä laite säilyttää kopion nykyisistä tiedoista ja lopettaa muutosten synkronoinnin. Synkronoidut tiedot säilyvät tallennettuina muille laitteille.",
+        "delete": "Poistetaanko kaikki synkronoidut NewDeskTab tiedot? Tämä laite ja kaikki muut tätä pilvitietoja käyttävät laitteet siirtyvät paikallistilaan, kun ne havaitsevat poiston. Tätä ei voi kumota."
+      }
+    },
+    "backup": {
+      "import": "Palauta tämä varmuuskopio? Se korvaa nykyiset kirjanmerkkisi ja asetuksesi."
+    }
+  },
+  "addModal": {
+    "title": "Lisää uusi kirjanmerkki",
+    "name": "Nimi:",
+    "url": "URL-osoite:",
+    "advancedOptions": "⚙ Lisäasetukset",
+    "compactView": "▴ Kompakti näkymä"
+  },
+  "clock": {
+    "name": "Kello",
+    "inDevelopment": "Kehityksessä: kello ei ole vielä lopullisessa versiossaan. Pyrimme parantamaan sitä.",
+    "createTitle": "Lisää kello",
+    "editTitle": "Kellon asetukset",
+    "description": "Näytä paikallinen aikasi tässä työtilassa.",
+    "hourCycle": "Aikamuoto",
+    "hour24": "24 tuntia",
+    "hour12": "12 tuntia",
+    "showSeconds": "Näytä sekuntia",
+    "delete": "Poista",
+    "edit": "Muokkaa kelloa",
+    "actions": "Kellon toiminnot",
+    "openSettings": "Avaa kellon asetukset",
+    "confirmDelete": "Poistetaanko tämä kello? Voit kumota tämän toiminnon.",
+    "confirmPermanentDelete": "Poistetaanko tämä kello pysyvästi? Tätä ei voi kumota.",
+    "cancel": "Hylätäänkö kellon muutokset?",
+    "noSpace": "Tälle kellolle ei ole tarpeeksi ruudukkotilaa."
+  },
+  "buttons": {
+    "save": "Tallenna",
+    "apply": "Käytä",
+    "add": "Lisää",
+    "accept": "Hyväksy",
+    "cancel": "Peruuta",
+    "close": "Sulje"
+  },
+  "localImage": {
+    "upload": "Lataa tästä laitteesta",
+    "label": "Paikallinen kuva:",
+    "activeSource": "Aktiivinen kuva:",
+    "sourceLocal": "Paikallinen",
+    "sourceUrl": "URL-osoite",
+    "remove": "Poista paikallinen kuva",
+    "notice": "Paikallisia kuvia ei synkronoida.",
+    "unnamed": "Paikallinen kuva"
+  },
+  "workspace": {
+    "ariaLabel": "Työtilan säätimet",
+    "current": "Työtila",
+    "main": "Main",
+    "search": "Hae kirjanmerkkejä",
+    "add": "Luo työtila",
+    "delete": "Poista työtila",
+    "undo": "Kumoa",
+    "redo": "Toista",
+    "shortcutHint": "Vaihda työtilaa Alt- tai Optio- ja ylä- tai alanuolinäppäimillä",
+    "prompt": "Anna uudelle työtilalle nimi",
+    "namePlaceholder": "Työ, vapaa-aika…",
+    "confirmDelete": "Poistetaanko \"{{name}}\", sen {{folderCount}} kansiota ja {{bookmarkCount}} kirjanmerkkiä? Jos haluat säilyttää ne, siirrä ne ensin päätilaan tai toiseen työtilaan."
+  },
+  "search": {
+    "title": "Hae kirjanmerkkejä",
+    "inputLabel": "Hae nimellä tai URL-osoitteella",
+    "placeholder": "Nimi tai URL-osoite",
+    "empty": "Kirjanmerkkejä ei löytynyt.",
+    "noUrl": "Ei URL-osoitetta",
+    "inFolder": "Kansio: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Valitun kohteen toiminnot",
+    "selected": "{{count}} valittu",
+    "move": "Siirrä työtilaan",
+    "applyPreset": "Käytä oletustyyliä",
+    "duplicate": "Kopioi valinta",
+    "delete": "Poista",
+    "clear": "Tyhjennä valinta"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Kirjanmerkkisäätimet",
+    "edit": "Muokkaa kirjanmerkkiä",
+    "delete": "Poista kirjanmerkki",
+    "copySuffix": "kopioida"
+  },
+  "folder": {
+    "create": "Luo kansio",
+    "createPrompt": "Nimeä uusi kansio",
+    "namePlaceholder": "Työkaluja, inspiraatiota…",
+    "open": "Avaa {{name}}, {{count}} tallennettua kirjanmerkkiä",
+    "count": "{{count}} tallennettu",
+    "summary": "{{count}}/{{capacity}} paikasta käytetty",
+    "editMode": {
+      "enable": "Muokkaa",
+      "disable": "Viimeistele muokkaus"
+    },
+    "gridLabel": "Kansion kirjanmerkit",
+    "dropHint": "Lisää pudottamalla",
+    "noSpace": "Uudelle kansiolle ei ole vapaata ruudukkosolua.",
+    "removeNoSpace": "Ruudukkotila ei riitä tämän kirjanmerkin poistamiseen kansiosta.",
+    "confirmDelete": "Siirretäänkö \"{{name}}\" ja sen {{count}}-kirjanmerkit roskakoriin?",
+    "confirmPermanentDelete": "Poistetaanko \"{{name}}\" ja sen {{count}}-kirjanmerkit pysyvästi? Tätä ei voi kumota.",
+    "actions": {
+      "ariaLabel": "Kansion säätimet",
+      "customize": "Mukauta kansiota",
+      "rename": "Nimeä kansio uudelleen",
+      "delete": "Poista kansio",
+      "editBookmark": "Muokkaa {{name}}",
+      "removeBookmark": "Siirrä {{name}} pois kansiosta",
+      "deleteBookmark": "Poista {{name}}",
+      "acceptRename": "Tallenna kansion nimi",
+      "cancelRename": "Peruuta kansion uudelleennimeäminen"
+    },
+    "editor": {
+      "createTitle": "Lisää uusi kansio",
+      "title": "Muokkaa kansiota",
+      "name": "Nimi:",
+      "showPreviews": "Näytä kirjanmerkkien esikatselu",
+      "showName": "Näytä kansion nimi",
+      "iconColor": "Symbolin väri:",
+      "outerBackgroundColor": "Ulomman taustan väri:",
+      "noOuterBackground": "Ei ulkotaustaa",
+      "resetOuterBackground": "Automaattinen",
+      "noBackground": "Läpinäkyvä kansion täyttö",
+      "backgroundColor": "Kansion väri:",
+      "backgroundImage": "Taustakuva (URL):",
+      "lockImage": "Lukitse tai avaa kuvan URL-osoite",
+      "copyImage": "Kopioi kuvan URL-osoite",
+      "clearImage": "Tyhjennä kuvan URL-osoite",
+      "textColor": "Tekstin väri:",
+      "preview": "Esikatselu",
+      "previewName": "Kansio",
+      "sections": {
+        "general": "Kenraali",
+        "style": "Tyyli",
+        "text": "Teksti"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Roskakori",
+    "open": "Avaa roskakori",
+    "openCount": "Avoin roskakori, {{count}} tuotetta",
+    "dropHint": "Poista pudottamalla",
+    "summary": "{{count}} kohdetta · Automaattinen poisto: {{retention}}",
+    "empty": "Roskakori on tyhjä.",
+    "selected": "{{count}} valittu",
+    "select": "Valitse {{name}}",
+    "folderContents": "{{count}} kirjanmerkit",
+    "deletedAt": "Poistettu {{date}}",
+    "expiresIn": "{{days}} päivää jäljellä",
+    "expiresInOne": "1 päivä jäljellä",
+    "neverExpires": "Ei koskaan poistettu automaattisesti",
+    "restoreAll": "Palauta kaikki",
+    "deleteAll": "Poista kaikki",
+    "restoreSelected": "Palauta valittu",
+    "deleteSelected": "Poista valitut",
+    "editor": {
+      "title": "Muokkaa roskakoria",
+      "animateIcon": "Animoi roskakori",
+      "appearance": "Ulkonäkö",
+      "backgroundColor": "Taustaväri:",
+      "backgroundImage": "Taustakuva (URL):",
+      "lockImage": "Lukitse tai avaa kuvan URL-osoite",
+      "copyImage": "Kopioi kuvan URL-osoite",
+      "clearImage": "Tyhjennä kuvan URL-osoite",
+      "noBackground": "Ei taustaa",
+      "iconColor": "Ikonin väri:",
+      "textColor": "Tekstin väri:",
+      "elements": "Näkyviä elementtejä",
+      "showName": "Näytä nimi",
+      "visible": "Näytä roskakori pääverkossa",
+      "preview": "Esikatselu",
+      "actions": "Roskakorin toimet",
+      "edit": "Muokkaa roskakoria",
+      "sections": {
+        "general": "Kenraali",
+        "style": "Tyyli",
+        "text": "Teksti",
+        "icon": "Kuvake"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Anna nimi tallentaaksesi esiasetuksen."
+    },
+    "name": {
+      "required": "Anna kirjanmerkille nimi."
+    },
+    "folderName": {
+      "required": "Anna kansiolle nimi."
+    },
+    "url": {
+      "invalid": "URL-osoite ei kelpaa.",
+      "unsupportedProtocol": "Tämä URL-tyyppi ei ole sallittu."
+    },
+    "backgroundImageUrl": {
+      "invalid": "Kuvan URL-osoite ei kelpaa.",
+      "unsupportedProtocol": "Tämä kuvatyyppi ei ole sallittu."
+    }
+  },
+  "editModal": {
+    "title": "Muokkaa kirjanmerkkiä",
+    "name": "Nimi:",
+    "url": "URL-osoite:",
+    "backgroundImage": "Taustakuva (URL):",
+    "backgroundFavicon": "Suuri keskitetty kuvake",
+    "invertColorBg": "Käänteiset värit",
+    "noBackground": "Ei taustaa",
+    "backgroundColor": "Kirjanmerkin väri:",
+    "showText": "Näytä teksti",
+    "textColor": "Tekstin väri:",
+    "showFavicon": "Näytä kuvake",
+    "invertColorIcon": "Kääntää kuvakkeen värit",
+    "iconColor": "Ikonin väri:",
+    "sections": {
+      "general": "Kenraali",
+      "style": "Tyyli",
+      "text": "Teksti",
+      "icon": "Kuvake"
+    },
+    "preview": "Esikatselu",
+    "previewName": "Esikatselu"
+  },
+  "colorPicker": {
+    "title": "Värinvalitsin",
+    "sample": "Valitse väri näytöltä",
+    "close": "Sulje värivalitsin",
+    "saturationBrightness": "Kylläisyys ja kirkkaus",
+    "hue": "Sävy",
+    "quickColors": "Nopeat värit",
+    "saturation": "Kylläisyys",
+    "brightness": "Kirkkaus",
+    "hex": "Hex-koodi",
+    "copy": "Kopioi heksadesimaalikoodi",
+    "copied": "Hex-koodi kopioitu",
+    "copyFailed": "Hex-koodia ei voitu kopioida"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Kenraali",
+      "sync": "Synkronoi",
+      "theme": "Teema",
+      "bookmark": "Kirjanmerkit",
+      "shortcuts": "Pikanäppäimet",
+      "language": "Kielet",
+      "help": "Apua",
+      "information": "Tietoja"
+    },
+    "general": {
+      "title": "Kenraali",
+      "subtitle": "Asetukset",
+      "export": "Vie varmuuskopio",
+      "import": "Palauta varmuuskopio",
+      "resetSettings": "Palauta asetukset",
+      "deleteAllData": "Poista kaikki paikalliset tiedot",
+      "recycleBin": {
+        "title": "Roskakori",
+        "show": "Näytä roskakori pääverkossa",
+        "retentionLabel": "Poista kohteet automaattisesti:",
+        "retentionOptions": {
+          "oneDay": "1 päivä",
+          "sevenDays": "7 päivää",
+          "fourteenDays": "14 päivää",
+          "twentyEightDays": "28 päivää",
+          "never": "Ei koskaan"
+        }
+      },
+      "appearance": {
+        "title": "Ulkonäkö",
+        "system": "Selain",
+        "light": "Kevyt",
+        "dark": "Tumma"
+      }
+    },
+    "sync": {
+      "title": "Synkronoi",
+      "description": "Valitse asetusten ja kirjanmerkkien tallennuspaikka.",
+      "ariaLabel": "Tallennustila",
+      "local": {
+        "title": "Vain tämä laite",
+        "description": "Tiedot tallennetaan vain tähän paikalliseen selainprofiiliin."
+      },
+      "synced": {
+        "title": "Synkronoitu",
+        "description": "Saatavilla Google Chrome profiilissa, jotka on yhdistetty samaan tiliin.",
+        "tooltip": "Synkronointitiedot"
+      },
+      "compatibility": {
+        "newerVersion": "Synkronointi on lukittu tällä laitteella, koska pilvitiedot on luotu uudemmalla NewDeskTab-versiolla. Synkronoidut tietosi ovat turvassa, eikä niitä ole muokattu. Päivitä NewDeskTab yhdistääksesi uudelleen."
+      },
+      "usage": {
+        "title": "Varastoinnin saatavuus",
+        "showExact": "Näytä tarkat tavut",
+        "showHuman": "Näytä luettavat koot",
+        "local": "Paikallinen",
+        "sync": "Synkronoitu",
+        "localSyncCopy": "Paikallinen synkronointikopio",
+        "localAria": "Paikallisen tallennustilan käyttö",
+        "syncAria": "Synkronoitu tallennustilan käyttö",
+        "loading": "Lasketaan…",
+        "summary": "{{used}}/{{total}} · {{percent}} %",
+        "available": "{{free}} saatavilla",
+        "system": "Järjestelmä ja metatiedot",
+        "bookmarks": "Kirjanmerkit",
+        "folders": "Kansiot",
+        "trash": "Roskakorin tiedot",
+        "localImages": "Paikallisia kuvia",
+        "themeImages": "Teema",
+        "bookmarkImages": "Kirjanmerkit",
+        "folderImages": "Kansiot",
+        "trashImages": "Roskakori",
+        "otherImages": "muu",
+        "widgets": "Widgetit",
+        "widgetsHint": "Synkronoinnin koko on arvio, eikä se sisällä ulkoisista palveluista haettua live-sisältöä.",
+        "error": "Käyttö ei ole käytettävissä"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome synkronoi New DeskTab Google-tilisi kautta. New DeskTab ei käytä omaa synkronointipalvelintaan.",
+        "brave": "Ei saatavilla Bravessa: se voi tallentaa New DeskTab dataa chrome.storage.synciin, mutta ei tällä hetkellä siirrä niitä laitteiden välillä.",
+        "unsupported": "Synkronoitu tallennustila on tällä hetkellä saatavilla vain paikassa Google Chrome. Muut selaimet pysyvät poissa käytöstä, kunnes laitteiden välinen tuki on vahvistettu."
+      },
+      "existingNotice": "Synkronoituun siirtymisen hyväksyminen lataa kaikki jo olemassa olevat synkronoidut tiedot.",
+      "deleteData": "Poista synkronoidut tiedot",
+      "metadata": {
+        "loading": "Tarkistetaan synkronoituja tietoja…",
+        "updatedAt": "Viimeisin synkronoitu päivitys: {{date}}",
+        "unknown": "Synkronoituja tietoja on olemassa, mutta niiden päivitysaika ei ole saatavilla.",
+        "empty": "Synkronoituja New DeskTab-tietoja ei tallenneta.",
+        "error": "Synkronoituja datatietoja ei voitu ladata."
+      },
+      "status": {
+        "idle": "Data on valmis.",
+        "saving": "Tallennetaan muutoksia…",
+        "saved": "Kaikki muutokset tallennetaan.",
+        "error": "Uusimpia muutoksia ei voitu tallentaa."
+      }
+    },
+    "theme": {
+      "title": "Teema",
+      "subtitle": "sivun tausta",
+      "backgroundImageMode": "Kuva/video",
+      "wallpapersTitle": "Omat taustakuvani",
+      "ownWallpapersHint": "Nämä taustakuvat ja niiden kierto tallennetaan vain tälle laitteelle.",
+      "mediaUrl": "Taustakuvan URL-osoite",
+      "image": "Kuva",
+      "video": "Video",
+      "addUrl": "Lisää URL-osoite",
+      "addFiles": "Lisää paikallisia tiedostoja",
+      "rotationInterval": "Taustakuvan kierto",
+      "noRotation": "Älä vaihda automaattisesti",
+      "interval5": "5 sekuntia",
+      "interval15": "15 sekuntia",
+      "interval30": "30 sekuntia",
+      "interval60": "1 minuutti",
+      "interval300": "5 minuuttia",
+      "interval600": "10 minuuttia",
+      "interval1800": "30 minuuttia",
+      "previous": "Edellinen",
+      "next": "Seuraavaksi",
+      "moveUp": "Siirrä ylös",
+      "moveDown": "Siirry alas",
+      "remove": "Poista",
+      "unavailableLocal": "Paikallinen tiedosto ei ole saatavilla tällä laitteella",
+      "mediaColor": "Väri tämän tapetin takana",
+      "mediaPreview": "Esikatsele taustakuvaa",
+      "activeSource": "Aktiivinen lähde",
+      "backgroundSolid": "Yksivärinen",
+      "backgroundColor": "Väri:",
+      "editSolidColor": "Vaihda kiinteä taustaväri",
+      "changeSolidColor": "Vaihda väriä",
+      "backgroundImageColor": "Väri kuvan/videon takana",
+      "backgroundImage": "URL jaettu laitteiden välillä",
+      "urlHidden": "URL piilotettu",
+      "resetBackground": "Nollaa teema"
+    },
+    "bookmark": {
+      "title": "Kirjanmerkit",
+      "subtitle": "Oletuskirjanmerkki",
+      "description": "Valitse ulkoasu, jota käytetään luotaessa uusia kirjanmerkkejä.",
+      "configure": "Määritä oletuskirjanmerkki",
+      "editorTitle": "Kirjanmerkin oletusulkonäkö",
+      "previewName": "Oletuskirjanmerkki",
+      "export": "Vie kirjanmerkit",
+      "import": "Tuo kirjanmerkit",
+      "deleteAll": "Poista kaikki kirjanmerkit",
+      "preview": "Esikatselu",
+      "drag": {
+        "title": "Vetokäyttäytyminen",
+        "description": "Valitse, miten kirjanmerkit järjestyvät uudelleen, kun otat niiden aseman.",
+        "none": {
+          "title": "Ei mitään",
+          "description": "Sallii siirrot vain solujen vapauttamiseen."
+        },
+        "cascade": {
+          "title": "Järjestys",
+          "description": "Siirtää ketjua, kunnes se löytää vapaan solun.",
+          "experimental": "Kokeellinen · Saattaa sisältää pieniä virheitä."
+        },
+        "relocate": {
+          "title": "Muutto",
+          "description": "Siirtää määränpäässä olevat kirjanmerkit."
+        }
+      },
+      "resize": {
+        "title": "Muuta käyttäytymisen kokoa",
+        "description": "Valitse, miten kohteet reagoivat koonmuutoskahvaa liikuttaessa.",
+        "smooth": {
+          "title": "Tasainen",
+          "description": "Venyttää kohdetta vetäessäsi ja napsahtaa sitten ruudukkoon."
+        },
+        "none": {
+          "title": "Ei mitään",
+          "description": "Hyppää solulta, kun ylität 50 % naapurisolusta."
+        }
+      },
+      "presets": {
+        "title": "Tyylikirjasto",
+        "tab": "Kirjasto",
+        "description": "Tallenna tyylejä ja käytä niitä uudelleen määrittäessäsi oletuskirjanmerkkiä.",
+        "name": "Esiasetettu nimi",
+        "saved": "Tallennetut esiasetukset",
+        "save": "Tallenna esiasetus",
+        "apply": "Lataa",
+        "delete": "Poista",
+        "empty": "Ei tallennettuja esiasetuksia"
+      }
+    },
+    "shortcuts": {
+      "title": "Pikanäppäimet",
+      "description": "Valitse pikanäppäin ja paina sitten kirjainta tai näppäinyhdistelmää. Napsauta hiiren kakkospainikkeella poistaaksesi sen määrityksen.",
+      "change": "Muuta pikakuvaketta {{action}}. Nykyinen pikanäppäin: {{shortcut}}.",
+      "press": "Paina pikanäppäintä…",
+      "unassigned": "Ei määritetty",
+      "unassignedFlash": "Pikakuvaketta ei ole määritetty.",
+      "modifierRequired": "Käytä kirjainta yksinään tai näppäinyhdistelmää muokkaimella.",
+      "reserved": "Selain tai käyttöjärjestelmä on varannut tämän pikakuvakkeen. Valitse toinen yhdistelmä.",
+      "conflict": "Tämä avain on jo määritetty toiselle toiminnolle.",
+      "updated": "Pikakuvake päivitetty.",
+      "cancelled": "Pikakuvakkeen muutos peruutettu.",
+      "restored": "Oletuspikakuvakkeet palautettu.",
+      "reset": "Palauta pikakuvakkeet",
+      "actions": {
+        "toggleEditing": {
+          "title": "Muokkaustila",
+          "description": "Syötä tai jätä muokkaus pääruudukkoon tai avoimeen kansioon."
+        },
+        "addBookmark": {
+          "title": "Luo kirjanmerkki",
+          "description": "Avaa lomake kirjanmerkin lisäämistä varten."
+        },
+        "addFolder": {
+          "title": "Luo kansio",
+          "description": "Avaa valintaikkuna kansion luomista varten."
+        },
+        "openWidgets": {
+          "title": "Avaa widgetit",
+          "description": "Avaa käytettävissä olevien widgetien luettelo."
+        },
+        "openSettings": {
+          "title": "Avaa asetukset",
+          "description": "Avaa asetuspaneeli New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Kielet",
+      "text": "Valitse käyttöliittymän kieli:",
+      "system": "Selain",
+      "search": "Hae kieli tai maa",
+      "empty": "Kieliä ei löytynyt"
+    },
+    "information": {
+      "title": "Tietoja",
+      "version": "Versio: {{VERSION}}",
+      "author": "Tekijä:"
+    }
+  }
+}

@@ -1,0 +1,517 @@
+{
+  "title": "Manuale utente",
+  "eyebrow": "IL TUO SPAZIO, IL TUO RITMO",
+  "intro": "Scopri ogni piccola funzionalità.",
+  "description": "Trova ciò di cui hai bisogno o scopri qualcosa di nuovo. Prenditi il ​​​​tuo tempo.",
+  "settingsDescription": "Ogni funzionalità, con semplici passaggi e piccoli trucchi da provare quando vuoi.",
+  "search": {
+    "label": "In cosa possiamo aiutarti?",
+    "placeholder": "Ad esempio: recupera un segnalibro eliminato",
+    "common": "Domande comuni",
+    "found": "Risposte per la tua ricerca · {{count}}",
+    "empty": "Nessun aiuto trovato per quella ricerca. Prova \"tastiera\", \"sposta segnalibri\" o \"backup\".",
+    "resultsLabel": "Domande e risposte manuali"
+  },
+  "open": "Esplora il manuale",
+  "searchLabel": "Cerca nel manuale",
+  "searchPlaceholder": "Prova \"tastiera\", \"sfondo\" o \"backup\"",
+  "count": "{{count}} sezioni da esplorare",
+  "empty": "Nessuna corrispondenza. Prova un'altra parola o cancella la ricerca per vedere l'intero indice.",
+  "back": "← Indice manuale",
+  "remember": "Buono da ricordare",
+  "related": "Continua a scoprire",
+  "footer": "Sempre disponibile in Impostazioni → Aiuto.",
+  "guideLinks": "Scopri di più nel manuale",
+  "groups": {
+    "start": "Inizia qui",
+    "organize": "Organizzati",
+    "personalize": "Rendilo tuo",
+    "protect": "Prenditi cura del tuo spazio"
+  },
+  "demo": {
+    "browse": "Sfoglia le sezioni",
+    "previous": "← Sezione precedente",
+    "next": "Sezione successiva →",
+    "title": "Guardalo in azione",
+    "example": "Esempio dimostrativo",
+    "steps": "Passaggi dimostrativi",
+    "step": "Passo {{step}} di {{count}}",
+    "play": "Gioca",
+    "pause": "Pausa",
+    "replay": "Riproduci",
+    "progress": "Progresso della dimostrazione",
+    "mode": "Comportamento",
+    "nextStep": "Prossimo passo",
+    "reducedMotion": "Movimento ridotto: esplora i passaggi senza animazione.",
+    "labels": {
+      "settings": "Impostazioni",
+      "saved": "Modifiche salvate",
+      "page": "Pagina",
+      "selection": "Selezione",
+      "selected": "elementi selezionati",
+      "color": "Colore",
+      "styleName": "Il mio stile viola",
+      "wallpaper": "Sfondi",
+      "rotation": "Rotazione",
+      "format": "Formato",
+      "seconds": "Secondi",
+      "language": "Lingua",
+      "system": "Sistema",
+      "currentLanguage": "Italiano",
+      "restore": "Ripristina",
+      "copy": "Backup",
+      "restoreCopy": "Revisionare prima del ripristino",
+      "switchSync": "Passare a sincronizzato?",
+      "applyNow": "Si applica quando confermato",
+      "status": "Stato",
+      "synchronized": "Sincronizzato",
+      "retry": "Salva in sospeso · Riprova",
+      "keyboardQuery": "tastiera",
+      "deleteExample": "I segnalibri e le cartelle verranno eliminati. Il cestino sarà vuoto."
+    },
+    "topics": {
+      "bookmarks": [
+        "Apri il menu a sinistra e scegli + → Segnalibro.",
+        "Inserisci il nome e l'indirizzo della pagina.",
+        "Conferma: il segnalibro appare in una cella libera."
+      ],
+      "quick-save": [
+        "Apri New DeskTab dalla sua icona di estensione.",
+        "Controlla il nome, l'indirizzo e la destinazione suggeriti.",
+        "Salva: il segnalibro sarà nel tuo spazio di lavoro quando apri una scheda."
+      ],
+      "keyboard": [
+        "Premi Tab per mettere a fuoco il primo elemento.",
+        "I tasti freccia spostano lo stato attivo. Invio apre l'elemento focalizzato.",
+        "Esc o un'altra scheda termina la navigazione."
+      ],
+      "shortcuts": [
+        "Apri Impostazioni → Scorciatoie da tastiera.",
+        "Fai clic sul collegamento di un'azione e digita la combinazione.",
+        "Salva per applicare la nuova scorciatoia."
+      ],
+      "search": [
+        "La lente d'ingrandimento della barra degli strumenti o / apre la ricerca.",
+        "Digita parte del nome o dell'indirizzo.",
+        "Apri il risultato. Esc o Chiudi ritorna all'area di lavoro."
+      ],
+      "editing": [
+        "La matita del menu rivela la griglia e i controlli.",
+        "La matita di Gmail apre il suo nome e l'editor URL.",
+        "Salva la modifica e fai nuovamente clic sulla matita del menu per terminare."
+      ],
+      "movement": [
+        "Abilita la modifica e tieni premuto il riquadro.",
+        "Il cursore e il riquadro si spostano insieme su una cella libera.",
+        "Rilascio: la posizione finale viene salvata."
+      ],
+      "resizing": [
+        "Abilita la modifica e trova la maniglia d'angolo.",
+        "Trascina in diagonale per modificare larghezza e altezza.",
+        "Rilascia a 2 × 2. Confronta Nessuno e Liscio utilizzando il selettore."
+      ],
+      "drag-modes": [
+        "Utilizza il selettore per confrontare le tre modalità di trascinamento.",
+        "Trascina verso una cella occupata e osserva le altre tessere.",
+        "Nessuno utilizza una cella libera; Riposizionamento e Cascata riorganizzano le tessere."
+      ],
+      "folders": [
+        "Assegna un nome a una cartella per raggruppare le tue pagine.",
+        "Durante la modifica, trascina un segnalibro su di esso.",
+        "Apri la cartella per trovare il segnalibro nella sua griglia."
+      ],
+      "workspaces": [
+        "La barra degli strumenti + crea un'area di lavoro con il nome scelto.",
+        "Il nuovo spazio di lavoro ha una propria griglia.",
+        "Alt + ↑ e Alt + ↓ scorrono le aree di lavoro."
+      ],
+      "selection": [
+        "Abilita la modifica e seleziona un riquadro con un breve clic.",
+        "Selezionane un altro: la barra degli strumenti offre azioni di gruppo.",
+        "Clone crea copie nelle celle libere in un'unica azione."
+      ],
+      "history": [
+        "Sposta una tessera: quel cambiamento entra nella storia.",
+        "Annulla riporta il riquadro alla posizione precedente.",
+        "Ripeti ripristina la mossa appena annullata."
+      ],
+      "appearance": [
+        "La matita della tessera apre il suo editor.",
+        "Cambia il colore e guarda l'anteprima.",
+        "Salva per applicare quell'aspetto al riquadro."
+      ],
+      "presets": [
+        "Apri la libreria da Impostazioni → Segnalibri.",
+        "Assegna un nome e salva uno stile per riutilizzarlo.",
+        "Caricalo come predefinito e salva per nuovi segnalibri."
+      ],
+      "wallpapers": [
+        "Apri Impostazioni → Tema per scegliere uno sfondo.",
+        "Esaminare l'intervallo di rotazione dell'anteprima e della libreria.",
+        "Salva: lo sfondo scelto appare nel tuo spazio di lavoro."
+      ],
+      "clock": [
+        "Scegli + → Widget → Orologio nel menu a sinistra.",
+        "Configura il formato e i secondi utilizzando l'anteprima.",
+        "Aggiungi l'orologio a una cella dell'area di lavoro libera."
+      ],
+      "interface": [
+        "Apri Generale e scegli la lingua del menu.",
+        "Confronta l'interfaccia chiara e quella scura.",
+        "Salva le tue preferenze di lingua e aspetto."
+      ],
+      "trash": [
+        "Apri il cestino per trovare un segnalibro eliminato.",
+        "Selezionalo e clicca su Ripristina: ritorna alla griglia.",
+        "In Generale, scegli per quanto tempo conservare gli elementi eliminati."
+      ],
+      "backup": [
+        "Trova le opzioni di backup in Impostazioni → Generale.",
+        "L'esportazione scarica uno ZIP con dati e file locali.",
+        "L'importazione richiede conferma prima di sostituire i dati."
+      ],
+      "sync": [
+        "Apri Impostazioni → Sincronizzazione per verificare la modalità corrente.",
+        "Scegli Sincronizzato e rivedi la conferma.",
+        "Accetta applica la modalità immediatamente, senza fare clic su Salva."
+      ],
+      "compact": [
+        "Man mano che la finestra si restringe, la griglia diventa un elenco.",
+        "I segnalibri rimangono accessibili dall'elenco.",
+        "Allarga la finestra per tornare alla griglia e alla modifica."
+      ],
+      "data": [
+        "L'esempio utilizza un'altra lingua, un'interfaccia leggera e riquadri personalizzati.",
+        "Ripristina ripristina le impostazioni predefinite mantenendo i segnalibri e i relativi stili.",
+        "Elimina rimuove segnalibri e cartelle, lasciando solo il cestino vuoto."
+      ],
+      "learning": [
+        "Il suggerimento quotidiano ti invita a scoprire una funzionalità. Fare clic su Mostrami come.",
+        "Digita \"tastiera\" nella casella di ricerca per trovare Naviga con la tastiera.",
+        "Fare clic sul risultato per leggerne le istruzioni."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "UN PICCOLO CONSIGLIO PER OGGI",
+    "dismiss": "Ignora il suggerimento di oggi",
+    "read": "Mostrami come",
+    "pace": "Passa il mouse per mettere in pausa.",
+    "enabled": "Consigli quotidiani",
+    "description": "Un consiglio quando apri la prima scheda della giornata."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Come faccio ad aggiungere una pagina ai miei segnalibri?",
+      "searchTerms": "aggiungi pagina; creare segnalibro; salvare il sito web; nuovo preferito",
+      "title": "Aggiungi segnalibri",
+      "summary": "Le tue pagine preferite a portata di mano in ogni nuova scheda.",
+      "steps": [
+        "Spostati sul bordo sinistro per rivelare il menu. Scegli + → Segnalibro.",
+        "Inserisci il nome e l'indirizzo della pagina. Puoi modificarne l'aspetto prima di aggiungerlo.",
+        "Conferma per posizionare il segnalibro in uno slot libero nell'area di lavoro corrente. Fuori dalla modalità di modifica, fai clic per aprire la pagina."
+      ],
+      "note": "Per modificare un segnalibro esistente, attiva la modifica e utilizza la sua matita. Puoi bloccare l'indirizzo per evitare modifiche accidentali.",
+      "tip": "Il menu per aggiungere segnalibri si trova sul bordo sinistro. Sposta il cursore lì e scegli + → Segnalibro."
+    },
+    "quick-save": {
+      "question": "Come salvo la pagina che sto visitando?",
+      "searchTerms": "salva la pagina corrente; salva la scheda aperta; icona dell'estensione; acquisire l'URL",
+      "title": "Salva la pagina corrente",
+      "summary": "Aggiungi una pagina dall'icona dell'estensione.",
+      "steps": [
+        "Mentre visiti una pagina, apri New DeskTab dal menu delle estensioni del browser.",
+        "Controlla il nome e l'indirizzo proposti e scegli una destinazione disponibile.",
+        "Salva il segnalibro e apri una nuova scheda per trovarlo nel tuo spazio."
+      ],
+      "note": "Blocca l'icona dell'estensione sulla barra degli strumenti del browser per mantenere questo collegamento a portata di mano.",
+      "tip": "Non è necessario copiare l'URL: l'icona del browser di New DeskTab ti consente di salvare la pagina che stai visitando."
+    },
+    "keyboard": {
+      "question": "Come posso navigare senza mouse?",
+      "searchTerms": "senza mouse; utilizzare la tastiera; navigazione con frecce; scheda entra",
+      "title": "Navigare con la tastiera",
+      "summary": "Tab, tasti freccia e Invio per esplorare il tuo spazio.",
+      "steps": [
+        "Nella pagina principale, senza digitare in un campo o senza avere una finestra di dialogo aperta, premi Tab per iniziare a navigare tra gli elementi.",
+        "Utilizzare i tasti freccia per raggiungere l'oggetto più vicino in ciascuna direzione. Invio apre il segnalibro o la cartella; in modalità modifica, apre il suo editor.",
+        "Premi nuovamente Tab o Esc per abbandonare la navigazione. All'interno delle finestre di dialogo, Tab e Maiusc + Tab si spostano normalmente tra i controlli."
+      ],
+      "note": "In modalità modifica, S seleziona l'elemento focalizzato. Elimina o Backspace lo rimuove dopo la conferma. I widget vengono eliminati in modo permanente.",
+      "tip": "Prova Tab nel tuo spazio: le frecce si spostano tra gli elementi e Invio li apre. Un'altra scheda esce da questa modalità."
+    },
+    "shortcuts": {
+      "question": "Come posso modificare le scorciatoie da tastiera?",
+      "searchTerms": "modificare le scorciatoie; personalizzare le chiavi; combinazioni di tasti; tasto di scelta rapida",
+      "title": "Personalizza le scorciatoie",
+      "summary": "Controlla e modifica le scorciatoie in Impostazioni.",
+      "steps": [
+        "Apri Impostazioni → Scorciatoie per vedere le tue associazioni per la modifica, l'aggiunta di segnalibri, cartelle e widget e l'apertura delle impostazioni.",
+        "Fai clic sulla combinazione di tasti di un'azione e premi una nuova scorciatoia. Esc annulla la registrazione; il clic con il tasto destro lascia l'azione non assegnata.",
+        "Salva le impostazioni per applicare le modifiche. Ripristina scorciatoie ripristina le combinazioni originali."
+      ],
+      "note": "Inizialmente: E modifica, B aggiunge un segnalibro, F una cartella, W apre i widget e S apre le impostazioni. Le scorciatoie rispettano i campi di testo e le finestre di dialogo.",
+      "tip": "Puoi modificare le scorciatoie in Impostazioni. Fai clic su una combinazione per registrarne una tua; Esc annulla e il clic con il pulsante destro del mouse annulla l'assegnazione."
+    },
+    "search": {
+      "question": "Come faccio a trovare un segnalibro che non riesco a vedere?",
+      "searchTerms": "trova segnalibro; individuare la pagina; segnalibro mancante; URL di ricerca",
+      "title": "Trova un segnalibro",
+      "summary": "Cerca per nome o indirizzo, anche all'interno delle cartelle.",
+      "steps": [
+        "Premi / quando non stai digitando oppure utilizza la lente di ingrandimento sulla barra dell'area di lavoro.",
+        "Digita parte di un nome o indirizzo. La ricerca include segnalibri in altri spazi di lavoro e all'interno delle cartelle.",
+        "Apri il risultato che ti serve. Esc o Chiudi ti riporta al tuo spazio."
+      ],
+      "note": "Non è necessario ricordare dove hai salvato una pagina per trovarla.",
+      "tip": "Il tasto / apre la ricerca. Trova anche i segnalibri all'interno delle cartelle e in altri spazi di lavoro."
+    },
+    "editing": {
+      "question": "Come attivo la modifica?",
+      "searchTerms": "abilitare la modifica; modificare il desktop; redattore di matite; modificare il segnalibro",
+      "title": "Modalità modifica",
+      "summary": "Accendi la matita per organizzare e personalizzare.",
+      "steps": [
+        "Fai clic sulla matita nel menu a sinistra o utilizza la scorciatoia di modifica per visualizzare la griglia e i controlli degli elementi.",
+        "Sposta, ridimensiona o seleziona elementi. La matita di ogni carta apre il nome, l'indirizzo e l'editor dell'aspetto.",
+        "Fai di nuovo clic sulla matita quando hai finito. Le modifiche allo spazio di lavoro vengono salvate automaticamente; gli editor hanno il proprio pulsante Salva."
+      ],
+      "note": "Esc cancella prima la selezione o la navigazione tramite tastiera. Quando nessuno dei due è attivo, può uscire dalla modalità di modifica.",
+      "tip": "La matita del menu inizia a modificare: vengono visualizzate le maniglie e i controlli delle carte. Fare di nuovo clic per terminare."
+    },
+    "movement": {
+      "question": "Come si sposta un segnalibro?",
+      "searchTerms": "spostare il segnalibro; trascina preferito; cambiare posizione; organizzare la griglia",
+      "title": "Sposta gli elementi",
+      "summary": "Trascina le carte in posizione sulla griglia.",
+      "steps": [
+        "Attiva la modalità di modifica e tieni premuta la carta che desideri spostare.",
+        "Trascinalo alla sua destinazione. Il risultato dipende dallo spazio libero e dalla modalità di trascinamento scelta in Impostazioni → Segnalibri.",
+        "Rilascia per salvare la sua posizione. Puoi anche selezionare un singolo elemento con un clic e spostarlo di una cella con le frecce, all'esterno della navigazione tramite schede."
+      ],
+      "note": "Le destinazioni bloccate mostrano un feedback visivo e l'articolo ritorna in una posizione valida. Puoi annullare le modifiche.",
+      "tip": "In modalità modifica, fai clic per selezionare una carta e utilizza le frecce per spostarla cella per cella. Lascia prima la navigazione tramite schede."
+    },
+    "resizing": {
+      "question": "Come posso modificare la dimensione di una tessera?",
+      "searchTerms": "ridimensionare la tessera; ingrandire il segnalibro; ridurre le dimensioni; maniglie di ridimensionamento; clic; Spostare; larghezza altezza; 2x2",
+      "title": "Cambia la dimensione",
+      "summary": "Usa i lati e gli angoli di una carta.",
+      "steps": [
+        "Attiva la modifica e spostati sul lato o sull'angolo di un elemento per utilizzare le relative maniglie di ridimensionamento.",
+        "Trascina la maniglia. Un angolo cambia larghezza e altezza; un lato cambia solo una dimensione. Puoi anche fare clic su una maniglia per ingrandire di una cella o Maiusc + clic per ridurre di una cella.",
+        "In Impostazioni → Segnalibri, scegli Nessuno per saltare tra le celle dopo aver superato il 50%, oppure Liscia per allungare la carta e farla scattare al rilascio."
+      ],
+      "note": "La dimensione finale rispetta la griglia e le posizioni valide. Le anteprime delle impostazioni mostrano la differenza prima della scelta.",
+      "tip": "Fai clic su una maniglia per ingrandire di una cella o Maiusc + clic per ridurre di una cella. Gli angoli cambiano larghezza e altezza insieme; i lati cambiano solo una dimensione."
+    },
+    "drag-modes": {
+      "question": "Perché non posso scendere su una cella occupata?",
+      "searchTerms": "cella occupata; spostarsi su un altro; caduta bloccata; spostare la cascata; collisione trascinata",
+      "title": "Modalità di trascinamento",
+      "summary": "Scegli cosa succede in una posizione di segnalibro occupata.",
+      "steps": [
+        "Apri Impostazioni → Segnalibri ed espandi il comportamento di trascinamento.",
+        "Nessuno si sposta negli slot liberi. Il riposizionamento trova una posizione per i segnalibri a destinazione. Sequenza riorganizza i segnalibri in sequenza.",
+        "Guarda l'animazione di ciascuna opzione e salva la modalità con cui ti senti comodo da organizzare."
+      ],
+      "note": "Una mossa viene rifiutata se non esiste un accordo valido. Uno sfondo trasparente non libera una cella occupata.",
+      "tip": "Vuoi spostare un segnalibro in una cella occupata? Guarda Trasferimento e Sequenza in Impostazioni → Segnalibri e guarda le loro anteprime."
+    },
+    "folders": {
+      "question": "Come posso raggruppare i segnalibri in cartelle?",
+      "searchTerms": "creare cartella; segnalibri di gruppo; organizzare i preferiti; rimuovere dalla cartella; rinominare la cartella",
+      "title": "Organizza con cartelle",
+      "summary": "Raccogli fino a 18 segnalibri in una cartella.",
+      "steps": [
+        "Scegli + → Cartella nel menu a sinistra e dagli un nome.",
+        "In modalità modifica, trascina i segnalibri su di esso per inserirli. Apri la cartella per vederne la griglia.",
+        "Utilizza la modalità di modifica della cartella per organizzare i suoi segnalibri. Fare clic sul suo nome per rinominarlo e sulla sua icona per personalizzarne l'aspetto."
+      ],
+      "note": "L'eliminazione di una cartella influisce anche sui suoi segnalibri. Rivedere la conferma prima di continuare; il cestino può ripristinare gli elementi eliminati.",
+      "tip": "Una cartella può contenere fino a 18 segnalibri. Attiva la modifica e trascina una scheda nella cartella per aggiungerla."
+    },
+    "workspaces": {
+      "question": "Come faccio a tenere separate le pagine personali e di lavoro?",
+      "searchTerms": "lavoro personale; creare spazio di lavoro; cambiare area di lavoro; desktop",
+      "title": "Separa i tuoi spazi di lavoro",
+      "summary": "Una griglia per il lavoro e un'altra per tutto il resto.",
+      "steps": [
+        "La barra dell'area di lavoro alterna tra l'area principale e l'area di lavoro personalizzata. Il suo + ne crea uno nuovo.",
+        "Scegli un'area di lavoro prima di aggiungere elementi. Per trasferire elementi esistenti, selezionali e scegli una destinazione nella barra delle azioni.",
+        "Alt + ↑ e Alt + ↓ scorrono le aree di lavoro. Il pulsante − elimina l'area di lavoro personalizzata corrente dopo la conferma."
+      ],
+      "note": "L'eliminazione di un'area di lavoro ne elimina anche il contenuto. I soggiorni principali sono disponibili e non possono essere cancellati.",
+      "tip": "Alt + ↑ e Alt + ↓ cambiano area di lavoro senza aprire il selettore. Separa lavoro, hobby o progetti con la barra +."
+    },
+    "selection": {
+      "question": "Come posso modificare più elementi contemporaneamente?",
+      "searchTerms": "seleziona più; selezione in blocco; spostarne diversi; selezione dei cloni; segnalibri duplicati",
+      "title": "Seleziona e agisci in blocco",
+      "summary": "Meno azioni ripetute quando si organizzano più carte.",
+      "steps": [
+        "Attiva la modifica e fai clic brevemente su ciascuna carta per selezionarla. Fare nuovamente clic per deselezionare; nella navigazione tramite schede è possibile utilizzare S.",
+        "La barra di selezione consente di duplicare, applicare l'aspetto predefinito, spostarsi in un'altra area di lavoro o eliminare, a seconda del tipo di elemento.",
+        "Controlla la destinazione o conferma. Esc o il pulsante Cancella selezione annulla la selezione."
+      ],
+      "note": "Lo spostamento e la duplicazione richiedono slot liberi. L'app ti dice se alcuni articoli non si adattano. I widget non finiscono nel cestino.",
+      "tip": "In modalità modifica, seleziona diverse carte con brevi clic per spostarle, duplicarle o ridisegnarle insieme. Esc cancella la selezione."
+    },
+    "history": {
+      "question": "Come posso annullare la mia ultima modifica?",
+      "searchTerms": "annullare la modifica; ripetere la modifica; torna indietro; ripristinare la posizione",
+      "title": "Annulla e ripeti",
+      "summary": "Recuperare una posizione o una modifica recente.",
+      "steps": [
+        "Utilizzare la freccia Annulla sulla barra dell'area di lavoro per tornare allo stato precedente.",
+        "La freccia di ripristino ripristina una modifica appena annullata. Puoi anche usare Ctrl/Cmd + Z e Ctrl/Cmd + Maiusc + Z.",
+        "All'interno di un editor, usa le frecce accanto al titolo per le modifiche in sospeso; i campi di testo mantengono la normale annullamento da tastiera. Ad ogni azione viene mostrato un breve messaggio e le frecce non disponibili vengono disabilitate. Controlla il risultato prima di salvare."
+      ],
+      "note": "La cronologia dell'editor ricomincia da capo ogni volta che apri un editor; le modifiche raggiungono l'area di lavoro quando salvi. La cronologia dell'area di lavoro è temporanea e non è un backup. Una nuova sessione o aggiornamenti da un'altra scheda possono ripristinarlo.",
+      "tip": "Se una modifica non ti sembra corretta, usa la freccia di annullamento o Ctrl/Cmd + Z. Ctrl/Cmd + Maiusc + Z la ripristina."
+    },
+    "appearance": {
+      "question": "Come posso cambiare il colore, l'icona o il testo?",
+      "searchTerms": "cambiare colore; cambia icona; cambiare testo; aspetto dei segnalibri; colore della cartella; favicon",
+      "title": "Personalizza le tue carte",
+      "summary": "Colori, immagini, testo e icone a modo tuo.",
+      "steps": [
+        "Attiva la modifica e apri la matita di un segnalibro o il controllo dell'aspetto di una cartella o del cestino.",
+        "Esplora l'editor: sfondo, colore, immagine, testo e icona. I controlli disponibili dipendono dal tipo di elemento; l'anteprima mostra il risultato.",
+        "Risparmia quando sei felice. Puoi utilizzare immagini da un URL o un file locale in cui l'editor offre tale opzione."
+      ],
+      "note": "Le immagini locali appartengono a questo browser. Durante la sincronizzazione, aggiungi un URL di riserva per altri dispositivi. Le importazioni mantengono le immagini incluse e i riferimenti chiari senza file; La sincronizzazione ignora i file non disponibili su questo dispositivo.",
+      "tip": "La matita di un segnalibro apre il suo editor visivo. Cambia colori, testo, icona o immagine e controlla l'anteprima."
+    },
+    "presets": {
+      "question": "Come riutilizzo uno stile che mi piace?",
+      "searchTerms": "salva stile; riutilizzare l'aspetto; stili predefiniti; libreria preimpostata; applicare lo stile",
+      "title": "Riutilizzare le apparenze",
+      "summary": "Salva uno sguardo e applicalo ad altri segnalibri.",
+      "steps": [
+        "Apri la Libreria dell'editor per scegliere un look dalla raccolta disponibile.",
+        "Salva un aspetto personalizzato come preimpostazione per riutilizzarne i colori, il testo e l'icona senza copiare il nome o l'indirizzo del segnalibro.",
+        "In Impostazioni → Segnalibri configura l'aspetto predefinito per i nuovi segnalibri. La barra di selezione può applicarlo agli articoli compatibili."
+      ],
+      "note": "Una preimpostazione cambia l'aspetto, non l'identità, la destinazione o la posizione del segnalibro.",
+      "tip": "Salva l'aspetto che ti piace nella libreria degli aspetti. Riutilizzalo su altre carte senza cambiarne i nomi o gli indirizzi."
+    },
+    "wallpapers": {
+      "question": "Come faccio a utilizzare un'immagine o un video come sfondo?",
+      "searchTerms": "cambiare sfondo; sfondo video; rotazione della carta da parati; tema",
+      "title": "Sfondi e rotazione",
+      "summary": "Colore, immagine o video per creare l'atmosfera.",
+      "steps": [
+        "Apri Impostazioni → Tema e scegli lo sfondo predefinito, un colore o uno sfondo multimediale.",
+        "Aggiungi immagini o video dalle fonti offerte nel pannello. La libreria raccoglie più sfondi con un intervallo di rotazione.",
+        "Controlla l'anteprima e salva. Puoi associare un file locale a un URL alternativo per altri dispositivi."
+      ],
+      "note": "I file locali rimangono in questo browser. La sincronizzazione non li trasferisce; un backup completo può preservarli.",
+      "tip": "Il tuo sfondo può cambiare automaticamente: aggiungine diversi a Impostazioni → Libreria temi e imposta un intervallo di rotazione."
+    },
+    "clock": {
+      "question": "Come faccio ad aggiungere un orologio?",
+      "searchTerms": "aggiungi orologio; orario dello spettacolo; secondi; formato 24 ore; widget orologio",
+      "title": "Aggiungi un orologio",
+      "summary": "Un widget che mostra l'ora del tuo dispositivo.",
+      "steps": [
+        "Scegli + → Widget nel menu a sinistra e seleziona Orologio.",
+        "Scegli un formato 12 o 24 ore e se mostrare i secondi. L'anteprima ti aiuta a decidere.",
+        "Aggiungilo a uno slot libero. In modalità modifica puoi spostare, ridimensionare o riaprire le sue opzioni."
+      ],
+      "note": "L'orologio segue l'ora del tuo dispositivo. L'eliminazione di un widget è permanente; non entra nel cestino.",
+      "tip": "In + → Widget puoi aggiungere un orologio da 12 o 24 ore con secondi opzionali e ridimensionarlo per adattarlo al tuo spazio."
+    },
+    "interface": {
+      "question": "Come posso cambiare la lingua o utilizzare la modalità oscura?",
+      "searchTerms": "cambiare lingua; modalità oscura; modalità luce; aspetto dell'interfaccia",
+      "title": "Tema della lingua e dell'interfaccia",
+      "summary": "Rendi comodi menu, finestre di dialogo e controlli.",
+      "steps": [
+        "In Impostazioni → Generali scegli una lingua o lascia che segua il tuo sistema.",
+        "Scegli un'interfaccia chiara, scura o automatica in base alle tue preferenze.",
+        "Salva impostazioni. Il tema dell'interfaccia funziona insieme allo sfondo scelto in Tema."
+      ],
+      "note": "La lingua del sistema e l'aspetto automatico seguono le preferenze del tuo dispositivo.",
+      "tip": "Scegli un'interfaccia chiara o scura mantenendo lo sfondo. Trova questa opzione e la lingua in Impostazioni → Generale."
+    },
+    "trash": {
+      "question": "Come posso recuperare un segnalibro eliminato?",
+      "searchTerms": "recuperare il segnalibro cancellato; ripristino rimosso; cestino; cancellato accidentalmente; cartella di ripristino",
+      "title": "Ripristina dal cestino",
+      "summary": "Una seconda possibilità per segnalibri e cartelle.",
+      "steps": [
+        "Apri il cestino del tuo spazio per rivedere i segnalibri e le cartelle eliminati.",
+        "Seleziona ciò che desideri ripristinare e utilizza Ripristina. Puoi anche eliminare definitivamente gli elementi o svuotare il cestino dopo la conferma.",
+        "In Impostazioni → Generali scegli se mostrarlo e per quanto tempo conserva gli elementi: 1, 7, 14 o 28 giorni, oppure non eliminarli mai automaticamente."
+      ],
+      "note": "Il cestino appartiene a questo dispositivo. Gli elementi scaduti o eliminati definitivamente non possono più essere ripristinati da esso.",
+      "tip": "Hai eliminato un segnalibro per errore? Apri il cestino e ripristinalo. Regola il periodo di conservazione in Impostazioni → Generale."
+    },
+    "backup": {
+      "question": "Come posso eseguire il backup o trasferire i miei dati?",
+      "searchTerms": "copia di backup; esportare dati; importare copia; ripristinare il backup; un altro browser; trasferire i dati",
+      "title": "Backup e importazioni",
+      "summary": "Conserva una copia del tuo spazio e portala con te.",
+      "steps": [
+        "In Impostazioni → Generali esporta un backup completo per preservare i dati e i file locali inclusi nell'archivio ZIP.",
+        "Per ripristinare, importa un backup e rivedi la conferma prima di sostituire i dati. Sono supportati anche i backup JSON compatibili.",
+        "In Impostazioni → Segnalibri puoi esportare o importare solo segnalibri e cartelle quando non hai bisogno di un backup completo."
+      ],
+      "note": "L'esportazione dei segnalibri non è un backup completo delle impostazioni e dei supporti locali. Salva un backup prima di ripristinare o eliminare i dati.",
+      "tip": "Un backup completo da Impostazioni → Generale include i file locali in uno ZIP. È utile prima di cambiare browser o ripristinare i dati."
+    },
+    "sync": {
+      "question": "Come posso utilizzare lo stesso spazio su un altro computer?",
+      "searchTerms": "un altro computer; sincronizzare i dispositivi; sincronizzazione; nuvola; sincronizzazione locale; interrompere la sincronizzazione; disabilitare la sincronizzazione; modalità locale",
+      "title": "Sincronizza tra dispositivi",
+      "summary": "Condividi il tuo spazio utilizzando la sincronizzazione del browser.",
+      "steps": [
+        "Accedi e attiva la sincronizzazione delle estensioni nel tuo profilo Google Chrome.",
+        "In Impostazioni → Sincronizzazione scegli Sincronizzato e accetta la conferma. Il passaggio ha effetto immediato: i segnalibri e le impostazioni sincronizzati esistenti vengono caricati oppure i dati locali salvati vengono sincronizzati se non ne esistono.",
+        "Utilizza lo stesso profilo sull'altro dispositivo. Controlla lo stato della sincronizzazione e lo spazio disponibile nel pannello."
+      ],
+      "note": "I file locali, il cestino e i suggerimenti giornalieri appartengono a ciascun dispositivo. La sincronizzazione ha limiti di archiviazione; utilizzare URL alternativi per immagini e video locali. Anche la scelta Locale richiede conferma ed ha effetto immediato, mantenendo memorizzati i dati sincronizzati.",
+      "tip": "La sincronizzazione condivide il tuo spazio su più dispositivi, ma i file locali necessitano di un URL alternativo. Vedi Impostazioni → Sincronizzazione."
+    },
+    "compact": {
+      "question": "Perché vedo un elenco invece della griglia?",
+      "searchTerms": "piccola finestra; visualizzazione elenco; la griglia è scomparsa; pannello nascosto; mobile",
+      "title": "Utilizza una finestra più piccola",
+      "summary": "Continua a raggiungere i tuoi segnalibri quando lo spazio è limitato.",
+      "steps": [
+        "Quando la finestra si restringe, l'app passa a un elenco per mantenere accessibili i tuoi elementi.",
+        "Apri segnalibri, cartelle o esegui ricerche in questa vista. Il manuale si adatta anche alla taglia disponibile.",
+        "Allarga la finestra per riportare la griglia e i pannelli di modifica. Una finestra di dialogo di modifica sospesa conserva la sua bozza."
+      ],
+      "note": "La visualizzazione compatta ti aiuta a esplorare il tuo spazio; la riorganizzazione necessita di una finestra sufficientemente ampia.",
+      "tip": "In una finestra stretta i tuoi segnalibri rimangono disponibili come elenco. Allargalo quando desideri modificare o riorganizzare la griglia."
+    },
+    "data": {
+      "question": "Come posso eliminare i miei dati o ripristinare le impostazioni?",
+      "searchTerms": "cancellare i dati; ripristinare le impostazioni; rimuovere tutto; ricominciare da capo",
+      "title": "Salvataggio e ripristino",
+      "summary": "Comprendi cosa viene salvato e cosa rimuove ogni azione.",
+      "steps": [
+        "Le azioni dell'area di lavoro vengono salvate automaticamente. Negli editor e nelle Impostazioni confermare con Salva; Annulla elimina la bozza di quel pannello.",
+        "Se viene visualizzato un avviso di salvataggio in sospeso, fare clic su Riprova a salvare e attendere la conferma prima di chiudere la scheda.",
+        "In Impostazioni → Generale è possibile ripristinare le impostazioni o eliminare tutti i dati. Leggi la conferma ed esporta un backup di tutto ciò che desideri conservare."
+      ],
+      "note": "Il ripristino delle impostazioni mantiene i tuoi segnalibri, le loro dimensioni e i loro stili. L'eliminazione di tutti i dati locali rimuove gli elementi e svuota il cestino. Esporta un backup prima di eliminarlo: l'annullamento non sostituisce un backup.",
+      "tip": "Se viene visualizzato un avviso di modifiche non salvate, utilizzare Riprova a salvare prima di chiudere la scheda. Proteggi il tuo spazio con un backup completo."
+    },
+    "learning": {
+      "question": "Come faccio a riaprire la guida o a disattivare i suggerimenti giornalieri?",
+      "searchTerms": "disabilitare i suggerimenti; disattivare l'aiuto; avviso quotidiano; riaprire la guida; manuale utente",
+      "title": "Impara al tuo ritmo",
+      "summary": "Una guida rapida, un manuale e un piccolo consiglio quotidiano.",
+      "steps": [
+        "Rivisita la guida rapida da Impostazioni → Aiuto. Ogni passaggio è collegato alle spiegazioni corrispondenti nel manuale.",
+        "Esplora l'indice o cerca una parola. I collegamenti correlati a una sezione ti indirizzano ad altre funzionalità quando sei pronto.",
+        "La tua prima nuova scheda ogni giorno mostra un suggerimento casuale. Ignorarlo o aprirne la spiegazione; puoi disattivare i suggerimenti nella Guida."
+      ],
+      "note": "I suggerimenti visitano le sezioni senza ripetere fino al completamento della raccolta. Durano 20 secondi e si fermano mentre si passa il mouse o si concentrano i pulsanti. Seguono il giorno locale e le preferenze di questo browser.",
+      "tip": "Questo manuale è sempre in Impostazioni → Aiuto. I suggerimenti giornalieri aprono una sezione e puoi disattivarli lì quando vuoi."
+    }
+  }
+}

@@ -1,0 +1,517 @@
+{
+  "title": "Manuel d'utilisation",
+  "eyebrow": "VOTRE ESPACE, VOTRE RYTHME",
+  "intro": "Apprenez à connaître chaque petite fonctionnalité.",
+  "description": "Trouvez ce dont vous avez besoin ou découvrez quelque chose de nouveau. Prenez votre temps.",
+  "settingsDescription": "Chaque fonctionnalité, avec des étapes simples et de petites astuces à essayer quand vous le souhaitez.",
+  "search": {
+    "label": "En quoi pouvons-nous vous aider ?",
+    "placeholder": "Par exemple : récupérer un favori supprimé",
+    "common": "Questions courantes",
+    "found": "Réponses pour votre recherche · {{count}}",
+    "empty": "Aucune aide trouvée pour cette recherche. Essayez « clavier », « déplacer les favoris » ou « sauvegarde ».",
+    "resultsLabel": "Questions et réponses manuelles"
+  },
+  "open": "Explorez le manuel",
+  "searchLabel": "Rechercher le manuel",
+  "searchPlaceholder": "Essayez « clavier », « fond d'écran » ou « sauvegarde »",
+  "count": "{{count}} sections à explorer",
+  "empty": "Aucun match. Essayez un autre mot ou effacez la recherche pour voir l'intégralité de l'index.",
+  "back": "← Index manuel",
+  "remember": "Bon à retenir",
+  "related": "Continuez à découvrir",
+  "footer": "Toujours disponible dans Paramètres → Aide.",
+  "guideLinks": "En savoir plus dans le manuel",
+  "groups": {
+    "start": "Commencez ici",
+    "organize": "Organisez-vous",
+    "personalize": "Faites-le vôtre",
+    "protect": "Prenez soin de votre espace"
+  },
+  "demo": {
+    "browse": "Parcourir les rubriques",
+    "previous": "← Section précédente",
+    "next": "Rubrique suivante →",
+    "title": "Voyez-le en action",
+    "example": "Exemple de démonstration",
+    "steps": "Étapes de démonstration",
+    "step": "Étape {{step}} sur {{count}}",
+    "play": "Jouer",
+    "pause": "Pause",
+    "replay": "Rejouer",
+    "progress": "Progression de la démonstration",
+    "mode": "Comportement",
+    "nextStep": "Étape suivante",
+    "reducedMotion": "Mouvement réduit : explorez les étapes sans animation.",
+    "labels": {
+      "settings": "Paramètres",
+      "saved": "Modifications enregistrées",
+      "page": "Pages",
+      "selection": "Sélection",
+      "selected": "éléments sélectionnés",
+      "color": "Couleur",
+      "styleName": "Mon style violet",
+      "wallpaper": "Fonds d'écran",
+      "rotation": "Rotation",
+      "format": "Formater",
+      "seconds": "Secondes",
+      "language": "Langue",
+      "system": "Système",
+      "currentLanguage": "Français",
+      "restore": "Restaurer",
+      "copy": "Sauvegarde",
+      "restoreCopy": "Vérifier avant de restaurer",
+      "switchSync": "Passer en mode synchronisé ?",
+      "applyNow": "S'applique une fois confirmé",
+      "status": "Statut",
+      "synchronized": "Synchronisé",
+      "retry": "Enregistrer en attente · Réessayer",
+      "keyboardQuery": "clavier",
+      "deleteExample": "Les signets et les dossiers seront supprimés. La corbeille sera vide."
+    },
+    "topics": {
+      "bookmarks": [
+        "Ouvrez le menu de gauche et choisissez + → Favoris.",
+        "Entrez le nom et l'adresse de la page.",
+        "Validez : le marque-page apparaît dans une cellule libre."
+      ],
+      "quick-save": [
+        "Ouvrez New DeskTab à partir de son icône d'extension.",
+        "Vérifiez le nom, l'adresse et la destination suggérés.",
+        "Enregistrer : le favori sera dans votre espace de travail lorsque vous ouvrirez un onglet."
+      ],
+      "keyboard": [
+        "Appuyez sur Tab pour concentrer le premier élément.",
+        "Les touches fléchées déplacent le focus. Entrée ouvre l’élément ciblé.",
+        "Esc ou un autre onglet termine la navigation."
+      ],
+      "shortcuts": [
+        "Ouvrez Paramètres → Raccourcis clavier.",
+        "Cliquez sur le raccourci d'une action et saisissez votre combinaison.",
+        "Enregistrez pour appliquer le nouveau raccourci."
+      ],
+      "search": [
+        "La loupe de la barre d'outils ou / ouvre la recherche.",
+        "Tapez une partie du nom ou de l'adresse.",
+        "Ouvrez le résultat. Échap ou Fermer revient à votre espace de travail."
+      ],
+      "editing": [
+        "Le crayon de menu révèle la grille et les commandes.",
+        "Le crayon de Gmail ouvre son éditeur de nom et d'URL.",
+        "Enregistrez la modification et cliquez à nouveau sur le crayon de menu pour terminer."
+      ],
+      "movement": [
+        "Activez l’édition et maintenez la vignette.",
+        "Le curseur et la vignette se déplacent ensemble vers une cellule libre.",
+        "Release : la position finale est enregistrée."
+      ],
+      "resizing": [
+        "Activez l’édition et recherchez la poignée d’angle.",
+        "Faites glisser en diagonale pour modifier la largeur et la hauteur.",
+        "Relâchez à 2 × 2. Comparez Aucun et Lisse à l'aide du sélecteur."
+      ],
+      "drag-modes": [
+        "Utilisez le sélecteur pour comparer les trois modes de déplacement.",
+        "Faites glisser vers une cellule occupée et observez les autres tuiles.",
+        "Aucun n’utilise une cellule libre ; Déménagement et Séquence réorganisent les tuiles."
+      ],
+      "folders": [
+        "Nommez un dossier pour regrouper vos pages.",
+        "Pendant l'édition, faites glisser un signet dessus.",
+        "Ouvrez le dossier pour trouver le signet dans sa grille."
+      ],
+      "workspaces": [
+        "La barre d'outils + crée un espace de travail avec le nom que vous avez choisi.",
+        "Le nouvel espace de travail possède sa propre grille.",
+        "Alt + ↑ et Alt + ↓ parcourent vos espaces de travail."
+      ],
+      "selection": [
+        "Activez l'édition et sélectionnez une vignette avec un clic court.",
+        "Sélectionnez-en un autre : la barre d'outils propose des actions de groupe.",
+        "Cloner crée des copies dans des cellules libres en une seule action."
+      ],
+      "history": [
+        "Déplacer une tuile : cette modification entre dans l'historique.",
+        "Annuler ramène la vignette à sa position précédente.",
+        "Refaire restaure le mouvement que vous venez d'annuler."
+      ],
+      "appearance": [
+        "Le crayon de la tuile ouvre son éditeur.",
+        "Changez la couleur et regardez l'aperçu.",
+        "Enregistrez pour appliquer cette apparence à la vignette."
+      ],
+      "presets": [
+        "Ouvrez la bibliothèque depuis Paramètres → Favoris.",
+        "Nommez et enregistrez un style pour le réutiliser.",
+        "Chargez-le par défaut et enregistrez-le pour les nouveaux signets."
+      ],
+      "wallpapers": [
+        "Ouvrez Paramètres → Thème pour choisir un fond d'écran.",
+        "Vérifiez l’intervalle d’aperçu et de rotation de la bibliothèque.",
+        "Enregistrer : le fond d'écran choisi apparaît dans votre espace de travail."
+      ],
+      "clock": [
+        "Choisissez + → Widgets → Horloge dans le menu de gauche.",
+        "Configurez le format et les secondes à l'aide de l'aperçu.",
+        "Ajoutez l'horloge à une cellule d'espace de travail libre."
+      ],
+      "interface": [
+        "Ouvrez Général et choisissez la langue du menu.",
+        "Comparez l'interface claire et sombre.",
+        "Enregistrez vos préférences de langue et d’apparence."
+      ],
+      "trash": [
+        "Ouvrez la corbeille pour rechercher un signet supprimé.",
+        "Sélectionnez-le et cliquez sur Restaurer : il revient dans la grille.",
+        "En général, choisissez la durée pendant laquelle les éléments supprimés sont conservés."
+      ],
+      "backup": [
+        "Recherchez les options de sauvegarde dans Paramètres → Général.",
+        "L'exportation télécharge un ZIP avec des données et des fichiers locaux.",
+        "L'importation demande une confirmation avant de remplacer les données."
+      ],
+      "sync": [
+        "Ouvrez Paramètres → Synchronisation pour vérifier le mode actuel.",
+        "Choisissez Synchronisé et examinez la confirmation.",
+        "Accepter applique le mode immédiatement, sans cliquer sur Enregistrer."
+      ],
+      "compact": [
+        "Au fur et à mesure que la fenêtre se rétrécit, la grille devient une liste.",
+        "Les signets restent accessibles depuis la liste.",
+        "Agrandissez la fenêtre pour revenir à la grille et à l'édition."
+      ],
+      "data": [
+        "L'exemple utilise un autre langage, une interface légère et des tuiles personnalisées.",
+        "Réinitialiser restaure les paramètres par défaut tout en conservant les signets et leurs styles.",
+        "Supprimer supprime les signets et les dossiers, ne laissant que la corbeille vide."
+      ],
+      "learning": [
+        "L'astuce du jour vous propose de découvrir une fonctionnalité. Cliquez sur Montre-moi comment.",
+        "Tapez « clavier » dans la zone de recherche pour trouver Naviguer avec le clavier.",
+        "Cliquez sur le résultat pour lire ses instructions."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "UN PETIT CONSEIL POUR AUJOURD'HUI",
+    "dismiss": "Ignorer le conseil d'aujourd'hui",
+    "read": "Montre-moi comment",
+    "pace": "Passez la souris pour faire une pause.",
+    "enabled": "Conseils quotidiens",
+    "description": "Un conseil lorsque vous ouvrez votre premier onglet de la journée."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Comment ajouter une page à mes favoris ?",
+      "searchTerms": "ajouter une page ; créer un signet ; enregistrer le site Web ; nouveau favori",
+      "title": "Ajouter des favoris",
+      "summary": "Vos pages préférées à portée de main dans chaque nouvel onglet.",
+      "steps": [
+        "Déplacez-vous vers le bord gauche pour révéler le menu. Choisissez + → Favoris.",
+        "Entrez le nom et l'adresse de la page. Vous pouvez ajuster son apparence avant de l'ajouter.",
+        "Confirmez pour placer le marque-page dans un emplacement libre de l'espace de travail actuel. En dehors du mode édition, cliquez dessus pour ouvrir la page."
+      ],
+      "note": "Pour modifier un signet existant, activez l'édition et utilisez son crayon. Vous pouvez verrouiller l'adresse pour éviter les modifications accidentelles.",
+      "tip": "Le menu pour ajouter des signets se trouve sur le bord gauche. Déplacez votre curseur là-bas et choisissez + → Favoris."
+    },
+    "quick-save": {
+      "question": "Comment enregistrer la page que je visite ?",
+      "searchTerms": "enregistrer la page actuelle ; enregistrer l'onglet ouvert ; icône d'extension ; capturer l'URL",
+      "title": "Enregistrer la page actuelle",
+      "summary": "Ajoutez une page à partir de l'icône d'extension.",
+      "steps": [
+        "Lorsque vous visitez une page, ouvrez New DeskTab dans le menu des extensions du navigateur.",
+        "Vérifiez le nom et l'adresse proposés et choisissez une destination disponible.",
+        "Enregistrez le favori et ouvrez un nouvel onglet pour le retrouver dans votre espace."
+      ],
+      "note": "Épinglez l'icône d'extension à la barre d'outils de votre navigateur pour garder ce raccourci à portée de main.",
+      "tip": "Pas besoin de copier l'URL : l'icône du navigateur de New DeskTab vous permet d'enregistrer la page que vous visitez."
+    },
+    "keyboard": {
+      "question": "Comment naviguer sans souris ?",
+      "searchTerms": "sans souris ; utiliser le clavier ; navigation par flèches ; onglet entrer",
+      "title": "Naviguer avec le clavier",
+      "summary": "Tabulation, touches fléchées et Entrée pour explorer votre espace.",
+      "steps": [
+        "Sur la page principale, sans saisir de champ ni ouvrir de boîte de dialogue, appuyez sur Tab pour commencer à parcourir les éléments.",
+        "Utilisez les touches fléchées pour atteindre l'élément le plus proche dans chaque direction. Entrée ouvre le signet ou le dossier ; en mode édition, il ouvre son éditeur.",
+        "Appuyez à nouveau sur Tab ou sur Échap pour quitter la navigation. Dans les boîtes de dialogue, Tab et Shift + Tab se déplacent normalement entre les contrôles."
+      ],
+      "note": "En mode édition, S sélectionne l’élément ciblé. Supprimer ou Retour arrière le supprime après confirmation. Les widgets sont supprimés définitivement.",
+      "tip": "Essayez Tab dans votre espace : les flèches se déplacent entre les éléments et Entrée les ouvre. Un autre onglet quitte ce mode."
+    },
+    "shortcuts": {
+      "question": "Comment modifier mes raccourcis clavier ?",
+      "searchTerms": "modifier les raccourcis ; personnaliser les clés ; combinaisons de touches ; raccourci clavier",
+      "title": "Personnalisez vos raccourcis",
+      "summary": "Vérifiez et modifiez vos raccourcis dans Paramètres.",
+      "steps": [
+        "Ouvrez Paramètres → Raccourcis pour voir vos liaisons pour les modifier, ajouter des signets, des dossiers et des widgets et ouvrir les paramètres.",
+        "Cliquez sur la combinaison de touches d'une action et appuyez sur un nouveau raccourci. Esc annule l'enregistrement ; un clic droit laisse l'action non attribuée.",
+        "Enregistrez les paramètres pour appliquer vos modifications. Réinitialiser les raccourcis restaure les combinaisons d'origine."
+      ],
+      "note": "Initialement : E édite, B ajoute un signet, F un dossier, W ouvre les widgets et S ouvre les paramètres. Les raccourcis respectent les champs de texte et les boîtes de dialogue.",
+      "tip": "Vous pouvez modifier les raccourcis dans Paramètres. Cliquez sur une combinaison pour enregistrer la vôtre ; Esc l'annule et un clic droit le désattribue."
+    },
+    "search": {
+      "question": "Comment trouver un signet que je ne vois pas ?",
+      "searchTerms": "trouver un signet ; localiser la page ; signet manquant ; URL de recherche",
+      "title": "Trouver un signet",
+      "summary": "Recherchez par nom ou par adresse, y compris dans les dossiers.",
+      "steps": [
+        "Appuyez sur / lorsque vous ne tapez pas ou utilisez la loupe sur la barre de l'espace de travail.",
+        "Tapez une partie d’un nom ou d’une adresse. La recherche inclut des signets dans d’autres espaces de travail et dans des dossiers.",
+        "Ouvrez le résultat dont vous avez besoin. Esc ou Fermer vous ramène à votre espace."
+      ],
+      "note": "Vous n'avez pas besoin de vous rappeler où vous avez enregistré une page pour la retrouver.",
+      "tip": "La touche / ouvre la recherche. Il recherche également des signets dans les dossiers et dans d'autres espaces de travail."
+    },
+    "editing": {
+      "question": "Comment activer l'édition ?",
+      "searchTerms": "activer l'édition ; modifier le bureau ; éditeur de crayons; modifier le signet",
+      "title": "Mode édition",
+      "summary": "Allumez le crayon pour organiser et personnaliser.",
+      "steps": [
+        "Cliquez sur le crayon dans le menu de gauche ou utilisez votre raccourci d'édition pour révéler la grille et les contrôles des éléments.",
+        "Déplacez, redimensionnez ou sélectionnez des éléments. Le crayon de chaque carte ouvre son nom, son adresse et son éditeur d'apparence.",
+        "Cliquez à nouveau sur le crayon lorsque vous avez terminé. Les modifications apportées à l'espace de travail sont enregistrées automatiquement ; les éditeurs ont leur propre bouton Enregistrer."
+      ],
+      "note": "Echap efface d'abord la sélection ou la navigation au clavier. Lorsque ni l’un ni l’autre n’est actif, il peut quitter le mode édition.",
+      "tip": "Le crayon de menu commence l'édition : les poignées de carte et les contrôles apparaissent. Cliquez à nouveau dessus pour terminer."
+    },
+    "movement": {
+      "question": "Comment déplacer un favori ?",
+      "searchTerms": "déplacer le signet ; faites glisser le favori ; changer de position; organiser la grille",
+      "title": "Déplacer des éléments",
+      "summary": "Faites glisser les cartes en place sur la grille.",
+      "steps": [
+        "Activez le mode édition et maintenez la carte que vous souhaitez déplacer.",
+        "Faites-le glisser vers sa destination. Le résultat dépend de l'espace libre et du mode de déplacement choisi dans Paramètres → Favoris.",
+        "Relâchez pour sauvegarder sa position. Vous pouvez également sélectionner un seul élément en un clic et le déplacer d'une cellule avec des flèches, en dehors de la navigation par onglets."
+      ],
+      "note": "Les destinations bloquées affichent un retour visuel et l'élément revient à une position valide. Vous pouvez annuler les modifications.",
+      "tip": "En mode édition, cliquez pour sélectionner une carte et utilisez les flèches pour la déplacer cellule par cellule. Quittez d'abord la navigation par onglets."
+    },
+    "resizing": {
+      "question": "Comment changer la taille d'une tuile ?",
+      "searchTerms": "redimensionner la tuile ; agrandir le signet ; réduire la taille ; redimensionner les poignées ; cliquez ; Changement; largeur hauteur ; 2x2",
+      "title": "Changer la taille",
+      "summary": "Utilisez les côtés et les coins d'une carte.",
+      "steps": [
+        "Activez l'édition et déplacez-vous vers le côté ou le coin d'un élément pour utiliser ses poignées de redimensionnement.",
+        "Faites glisser la poignée. Un coin change de largeur et de hauteur ; un côté ne change qu’une seule dimension. Vous pouvez également cliquer sur une poignée pour agrandir d'une cellule, ou sur Maj + clic pour réduire d'une cellule.",
+        "Dans Paramètres → Signets, choisissez Aucun pour passer d'une cellule à l'autre après avoir franchi 50 %, ou Lisser pour étirer la carte et la relâcher."
+      ],
+      "note": "La taille finale respecte la grille et les positions valides. Les aperçus des paramètres montrent la différence avant que vous choisissiez.",
+      "tip": "Cliquez sur une poignée pour agrandir d'une cellule ou sur Maj + clic pour réduire d'une cellule. Les coins changent de largeur et de hauteur ensemble ; les côtés ne changent qu’une seule dimension."
+    },
+    "drag-modes": {
+      "question": "Pourquoi ne puis-je pas me rendre sur une cellule occupée ?",
+      "searchTerms": "cellule occupée; passer par-dessus un autre ; chute bloquée ; déplacer la cascade ; collision de traînée",
+      "title": "Modes glisser",
+      "summary": "Choisissez ce qui se passe à une position de signet occupée.",
+      "steps": [
+        "Ouvrez Paramètres → Favoris et développez le comportement de glissement.",
+        "Aucun ne se déplace vers les emplacements libres. La relocalisation trouve une position pour les signets à la destination. Séquence réorganise les signets dans l'ordre.",
+        "Regardez l'animation de chaque option et enregistrez le mode avec lequel vous vous sentez confortable à organiser."
+      ],
+      "note": "Un mouvement est rejeté s’il n’existe aucun arrangement valide. Un fond transparent ne libère pas une cellule occupée.",
+      "tip": "Vous souhaitez déplacer un signet dans une cellule occupée ? Regardez Déménagement et Séquence dans Paramètres → Signets et regardez leurs aperçus."
+    },
+    "folders": {
+      "question": "Comment regrouper les favoris dans des dossiers ?",
+      "searchTerms": "créer un dossier ; signets de groupe ; organiser les favoris ; supprimer du dossier ; renommer le dossier",
+      "title": "Organiser avec des dossiers",
+      "summary": "Rassemblez jusqu'à 18 signets dans un seul dossier.",
+      "steps": [
+        "Choisissez + → Dossier dans le menu de gauche et donnez-lui un nom.",
+        "En mode édition, faites glisser les signets dessus pour les insérer. Ouvrez le dossier pour voir sa grille.",
+        "Utilisez le mode d'édition du dossier pour organiser ses signets. Cliquez sur son nom pour le renommer et sur son icône pour personnaliser son apparence."
+      ],
+      "note": "La suppression d'un dossier affecte également ses favoris. Vérifiez la confirmation avant de continuer ; la corbeille peut restaurer les éléments supprimés.",
+      "tip": "Un dossier peut contenir jusqu'à 18 signets. Activez l'édition et faites glisser une carte sur le dossier pour l'ajouter."
+    },
+    "workspaces": {
+      "question": "Comment séparer les pages personnelles et professionnelles ?",
+      "searchTerms": "travail personnel; créer un espace de travail ; changer d'espace de travail ; ordinateurs de bureau",
+      "title": "Séparez vos espaces de travail",
+      "summary": "Une grille pour le travail et une autre pour tout le reste.",
+      "steps": [
+        "La barre d'espace de travail bascule entre l'espace de travail principal et vos espaces de travail personnalisés. Son + en crée un nouveau.",
+        "Choisissez un espace de travail avant d'ajouter des éléments. Pour transférer des éléments existants, sélectionnez-les et choisissez une destination dans la barre d'action.",
+        "Alt + ↑ et Alt + ↓ parcourent les espaces de travail. Le bouton − supprime l'espace de travail personnalisé actuel après confirmation."
+      ],
+      "note": "La suppression d'un espace de travail supprime également son contenu. Le principal reste disponible et ne peut pas être supprimé.",
+      "tip": "Alt + ↑ et Alt + ↓ changent d'espace de travail sans ouvrir le sélecteur. Séparez le travail, les loisirs ou les projets avec le + du bar."
+    },
+    "selection": {
+      "question": "Comment modifier plusieurs éléments à la fois ?",
+      "searchTerms": "sélectionnez-en plusieurs ; sélection groupée ; déplacez-en plusieurs ; sélection de clones ; signets en double",
+      "title": "Sélectionner et agir en masse",
+      "summary": "Moins d'actions répétées lors de l'organisation de plusieurs cartes.",
+      "steps": [
+        "Activez l'édition et cliquez brièvement sur chaque carte pour la sélectionner. Cliquez à nouveau pour désélectionner ; dans la navigation par onglets, vous pouvez utiliser S.",
+        "La barre de sélection vous permet de dupliquer, d'appliquer l'apparence par défaut, de passer à un autre espace de travail ou de supprimer, selon le type d'élément.",
+        "Vérifiez la destination ou la confirmation. Echap ou le bouton d'effacement de la sélection annule votre sélection."
+      ],
+      "note": "Le déplacement et la duplication nécessitent des emplacements libres. L'application vous indique si certains éléments ne rentrent pas. Les widgets ne vont pas dans la corbeille.",
+      "tip": "En mode édition, sélectionnez plusieurs cartes avec de courts clics pour les déplacer, les dupliquer ou les relooker ensemble. Echap efface la sélection."
+    },
+    "history": {
+      "question": "Comment annuler ma dernière modification ?",
+      "searchTerms": "annuler la modification ; refaire le changement ; reviens; restaurer la position",
+      "title": "Annuler et refaire",
+      "summary": "Récupérer une position ou un changement récent.",
+      "steps": [
+        "Utilisez la flèche d'annulation sur la barre de l'espace de travail pour revenir à l'état précédent.",
+        "La flèche Rétablir récupère une modification que vous venez d'annuler. Vous pouvez également utiliser Ctrl/Cmd + Z et Ctrl/Cmd + Shift + Z.",
+        "Dans un éditeur, utilisez les flèches à côté de son titre pour les modifications en attente ; les champs de texte conservent leur annulation normale au clavier. Chaque action affiche un bref message et les flèches indisponibles sont désactivées. Vérifiez le résultat avant de sauvegarder."
+      ],
+      "note": "L'historique de l'éditeur recommence à chaque fois que vous ouvrez un éditeur ; les modifications atteignent votre espace de travail lorsque vous enregistrez. L'historique de l'espace de travail est temporaire et ne constitue pas une sauvegarde. Une nouvelle session ou des mises à jour depuis un autre onglet peuvent le réinitialiser.",
+      "tip": "Si une modification ne vous semble pas correcte, utilisez la flèche d'annulation ou Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z le refait."
+    },
+    "appearance": {
+      "question": "Comment changer la couleur, l'icône ou le texte ?",
+      "searchTerms": "changer de couleur ; changer d'icône ; changer le texte ; apparence du signet ; couleur du dossier ; icône de favori",
+      "title": "Personnalisez vos cartes",
+      "summary": "Couleurs, images, textes et icônes à votre guise.",
+      "steps": [
+        "Activez l'édition et ouvrez le crayon d'un signet, ou le contrôle d'apparence d'un dossier ou de la corbeille.",
+        "Explorez l'éditeur : arrière-plan, couleur, image, texte et icône. Les contrôles disponibles dépendent du type d'élément ; l'aperçu montre le résultat.",
+        "Économisez quand vous êtes heureux. Vous pouvez utiliser des images provenant d'une URL ou d'un fichier local lorsque l'éditeur propose cette option."
+      ],
+      "note": "Les images locales appartiennent à ce navigateur. Lors de la synchronisation, ajoutez une URL de secours pour les autres appareils. Les importations conservent les images incluses et les références claires sans fichier ; La synchronisation ignore les fichiers indisponibles sur cet appareil.",
+      "tip": "Le crayon d'un marque-page ouvre son éditeur visuel. Modifiez les couleurs, le texte, l'icône ou l'image et vérifiez l'aperçu."
+    },
+    "presets": {
+      "question": "Comment réutiliser un style que j’aime ?",
+      "searchTerms": "enregistrer le style ; réutiliser l'apparence ; styles par défaut ; bibliothèque prédéfinie ; appliquer le style",
+      "title": "Réutiliser les apparences",
+      "summary": "Enregistrez un look et appliquez-le à d’autres signets.",
+      "steps": [
+        "Ouvrez la bibliothèque de l'éditeur pour choisir un look dans la collection disponible.",
+        "Enregistrez une apparence personnalisée en tant que préréglage pour réutiliser ses couleurs, son texte et son icône sans copier le nom ou l'adresse du signet.",
+        "Dans Paramètres → Signets, configurez l'apparence par défaut des nouveaux signets. La barre de sélection peut l'appliquer aux éléments compatibles."
+      ],
+      "note": "Un préréglage change d'apparence, mais pas d'identité, de destination ou de position du signet.",
+      "tip": "Enregistrez un look que vous aimez dans la bibliothèque d'apparences. Réutilisez-le sur d'autres cartes sans changer leurs noms ou adresses."
+    },
+    "wallpapers": {
+      "question": "Comment utiliser une image ou une vidéo comme arrière-plan ?",
+      "searchTerms": "changer d'arrière-plan ; arrière-plan vidéo ; rotation du papier peint ; thème",
+      "title": "Fonds d'écran et rotation",
+      "summary": "Couleur, image ou vidéo pour créer l'ambiance.",
+      "steps": [
+        "Ouvrez Paramètres → Thème et choisissez l'arrière-plan par défaut, une couleur ou un arrière-plan multimédia.",
+        "Ajoutez des images ou des vidéos à partir des sources proposées dans le panneau. La bibliothèque collecte plusieurs arrière-plans avec un intervalle de rotation.",
+        "Vérifiez l'aperçu et enregistrez. Vous pouvez associer un fichier local avec une URL alternative pour d'autres appareils."
+      ],
+      "note": "Les fichiers locaux restent dans ce navigateur. La synchronisation ne les transfère pas ; une sauvegarde complète peut les préserver.",
+      "tip": "Votre arrière-plan peut changer automatiquement : ajoutez-en plusieurs à la bibliothèque Paramètres → Thèmes et définissez un intervalle de rotation."
+    },
+    "clock": {
+      "question": "Comment ajouter une horloge ?",
+      "searchTerms": "ajouter une horloge ; afficher l'heure; secondes ; Format 24 heures ; widget horloge",
+      "title": "Ajouter une horloge",
+      "summary": "Un widget affichant l'heure de votre appareil.",
+      "steps": [
+        "Choisissez + → Widgets dans le menu de gauche et sélectionnez Horloge.",
+        "Choisissez un format 12 ou 24 heures et indiquez si vous souhaitez afficher les secondes. L'aperçu vous aide à décider.",
+        "Ajoutez-le à un emplacement libre. En mode édition, vous pouvez déplacer, redimensionner ou rouvrir ses options."
+      ],
+      "note": "L'horloge suit l'heure de votre appareil. La suppression d'un widget est définitive ; il n'entre pas dans la corbeille.",
+      "tip": "Dans + → Widgets, vous pouvez ajouter une horloge de 12 ou 24 heures avec des secondes en option et la redimensionner en fonction de votre espace."
+    },
+    "interface": {
+      "question": "Comment changer la langue ou utiliser le mode sombre ?",
+      "searchTerms": "changer de langue ; mode sombre ; mode lumière; apparence de l'interface",
+      "title": "Thème de langue et d'interface",
+      "summary": "Rendre les menus, les boîtes de dialogue et les commandes confortables.",
+      "steps": [
+        "Dans Paramètres → Général, choisissez une langue ou laissez-la suivre votre système.",
+        "Choisissez une interface claire, sombre ou automatique selon vos préférences.",
+        "Enregistrez les paramètres. Le thème de l'interface fonctionne avec l'arrière-plan que vous avez choisi dans Thème."
+      ],
+      "note": "La langue du système et l'apparence automatique suivent les préférences de votre appareil.",
+      "tip": "Choisissez une interface claire ou sombre tout en conservant votre fond d'écran. Recherchez cette option et cette langue dans Paramètres → Général."
+    },
+    "trash": {
+      "question": "Comment récupérer un favori supprimé ?",
+      "searchTerms": "récupérer le signet supprimé ; restauration supprimée ; corbeille; supprimé accidentellement ; récupérer le dossier",
+      "title": "Restaurer à partir de la corbeille",
+      "summary": "Une seconde chance pour les signets et les dossiers.",
+      "steps": [
+        "Ouvrez la corbeille de votre espace pour consulter les favoris et les dossiers supprimés.",
+        "Sélectionnez ce que vous souhaitez récupérer et utilisez Restaurer. Vous pouvez également supprimer définitivement des éléments ou vider la corbeille après confirmation.",
+        "Dans Paramètres → Général, choisissez si vous souhaitez l'afficher et combien de temps il conserve les éléments : 1, 7, 14 ou 28 jours, ou ne les supprimez jamais automatiquement."
+      ],
+      "note": "La corbeille appartient à cet appareil. Les éléments expirés ou définitivement supprimés ne peuvent plus être restaurés à partir de celui-ci.",
+      "tip": "Vous avez supprimé un favori par erreur ? Ouvrez la corbeille et restaurez-la. Ajustez la période de conservation dans Paramètres → Général."
+    },
+    "backup": {
+      "question": "Comment sauvegarder ou transférer mes données ?",
+      "searchTerms": "copie de sauvegarde ; exporter des données ; importer une copie ; restaurer la sauvegarde ; un autre navigateur ; transférer des données",
+      "title": "Sauvegardes et importations",
+      "summary": "Conservez une copie de votre espace et emportez-la avec vous.",
+      "steps": [
+        "Dans Paramètres → Général, exportez une sauvegarde complète pour préserver les données et les fichiers locaux inclus dans l'archive ZIP.",
+        "Pour restaurer, importez une sauvegarde et vérifiez la confirmation avant de remplacer les données. Les sauvegardes JSON compatibles sont également prises en charge.",
+        "Dans Paramètres → Signets, vous pouvez exporter ou importer uniquement des signets et des dossiers lorsque vous n'avez pas besoin d'une sauvegarde complète."
+      ],
+      "note": "Une exportation de favoris n'est pas une sauvegarde complète des paramètres et des médias locaux. Enregistrez une sauvegarde avant de restaurer ou de supprimer des données.",
+      "tip": "Une sauvegarde complète depuis Paramètres → Général inclut les fichiers locaux dans un ZIP. C'est utile avant de changer de navigateur ou de restaurer des données."
+    },
+    "sync": {
+      "question": "Comment utiliser le même espace sur un autre ordinateur ?",
+      "searchTerms": "un autre ordinateur ; synchroniser les appareils ; synchronisation; nuage; synchronisation locale ; arrêter la synchronisation ; désactiver la synchronisation ; mode local",
+      "title": "Synchronisez sur tous les appareils",
+      "summary": "Partagez votre espace grâce à la synchronisation du navigateur.",
+      "steps": [
+        "Connectez-vous et activez la synchronisation des extensions dans votre profil Google Chrome.",
+        "Dans Paramètres → Synchronisation, choisissez Synchronisé et acceptez la confirmation. Le changement prend effet immédiatement : les signets et paramètres synchronisés existants sont chargés, ou vos données locales enregistrées sont synchronisées s'il n'en existe pas.",
+        "Utilisez le même profil sur l'autre appareil. Vérifiez l'état de synchronisation et l'espace disponible dans le panneau."
+      ],
+      "note": "Les fichiers locaux, la corbeille et les astuces quotidiennes appartiennent à chaque appareil. La synchronisation a des limites de stockage ; utilisez des URL alternatives pour les images et vidéos locales. Choisir Locale demande également une confirmation et prend effet immédiatement, en conservant les données synchronisées stockées.",
+      "tip": "La synchronisation partage votre espace sur plusieurs appareils, mais les fichiers locaux nécessitent une URL alternative. Voir Paramètres → Synchronisation."
+    },
+    "compact": {
+      "question": "Pourquoi est-ce que je vois une liste au lieu de la grille ?",
+      "searchTerms": "petite fenêtre; vue en liste ; la grille a disparu ; panneau caché ; mobile",
+      "title": "Utilisez une fenêtre plus petite",
+      "summary": "Continuez à accéder à vos favoris lorsque l’espace est limité.",
+      "steps": [
+        "Lorsque la fenêtre se rétrécit, l'application passe à une liste pour garder vos éléments accessibles.",
+        "Ouvrez des signets, des dossiers ou effectuez une recherche dans cette vue. Le manuel s'adapte également à la taille disponible.",
+        "Élargissez la fenêtre pour ramener la grille et les panneaux d'édition. Une boîte de dialogue d'édition suspendue conserve son brouillon."
+      ],
+      "note": "La vue compacte vous aide à parcourir votre espace ; la réorganisation nécessite une fenêtre suffisamment large.",
+      "tip": "Dans une fenêtre étroite, vos favoris restent disponibles sous forme de liste. Élargissez-le lorsque vous souhaitez modifier ou réorganiser la grille."
+    },
+    "data": {
+      "question": "Comment supprimer mes données ou réinitialiser les paramètres ?",
+      "searchTerms": "supprimer des données ; réinitialiser les paramètres ; supprimez tout ; recommencer",
+      "title": "Sauvegarde et réinitialisation",
+      "summary": "Comprenez ce qui est enregistré et ce que chaque action supprime.",
+      "steps": [
+        "Les actions de l'espace de travail sont enregistrées automatiquement. Dans les éditeurs et Paramètres, confirmez avec Enregistrer ; Annuler supprime le brouillon de ce panneau.",
+        "Si un avis de sauvegarde en attente apparaît, cliquez sur Réessayer de sauvegarder et attendez la confirmation avant de fermer l'onglet.",
+        "Dans Paramètres → Général, vous pouvez réinitialiser les paramètres ou supprimer toutes les données. Lisez la confirmation et exportez une sauvegarde de tout ce que vous souhaitez conserver."
+      ],
+      "note": "La réinitialisation des paramètres conserve vos favoris, leurs tailles et leurs styles. La suppression de toutes les données locales supprime les éléments et vide la corbeille. Exporter une sauvegarde avant de la supprimer : Annuler ne remplace pas une sauvegarde.",
+      "tip": "Si vous voyez un avis de modifications non enregistrées, utilisez Réessayer d’enregistrer avant de fermer l’onglet. Protégez votre espace avec une sauvegarde complète."
+    },
+    "learning": {
+      "question": "Comment puis-je rouvrir le guide ou désactiver les conseils quotidiens ?",
+      "searchTerms": "désactiver les conseils ; désactiver l'aide ; alerte quotidienne ; rouvrir le guide ; manuel d'utilisation",
+      "title": "Apprenez à votre rythme",
+      "summary": "Un guide rapide, un manuel et un petit conseil quotidien.",
+      "steps": [
+        "Revisitez le guide rapide depuis Paramètres → Aide. Chaque étape renvoie aux explications correspondantes dans le manuel.",
+        "Explorez l'index ou recherchez un mot. Les liens associés à une section vous amènent à d'autres fonctionnalités lorsque vous êtes prêt.",
+        "Votre premier nouvel onglet chaque jour affiche un pourboire aléatoire. Ignorez-le ou ouvrez son explication ; vous pouvez désactiver les conseils dans l'aide."
+      ],
+      "note": "Conseils visitez les sections sans répéter jusqu'à ce que la collection soit complète. Ils durent 20 secondes et font une pause en survolant ou en focalisant leurs boutons. Ils suivent la journée locale et les préférences de ce navigateur.",
+      "tip": "Ce manuel se trouve toujours dans Paramètres → Aide. Les conseils quotidiens ouvrent une section et vous pouvez les désactiver à tout moment."
+    }
+  }
+}

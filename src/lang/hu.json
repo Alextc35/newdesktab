@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Kiadási megjegyzések",
+    "settingsDescription": "Mi változott, és az egyes frissítések mögött meghúzódó történet.",
+    "open": "Olvassa el a jegyzeteket",
+    "history": "Verzióelőzmények",
+    "dismiss": "Zárja be a kiadási megjegyzéseket",
+    "continue": "Folytatás",
+    "back": "Vissza az Információhoz",
+    "highlights": "Amit ma megtehetsz",
+    "generic": {
+      "title": "New DeskTab frissítve",
+      "description": "Megvan az új verzió. Bármikor újra megtekintheti a korábbi kiadási megjegyzéseket az Információk részben. Köszönöm, hogy itt vagy."
+    },
+    "v1_0_0": {
+      "title": "A webhelyek asztala. Végül.",
+      "thanks": "Köszönjük, hogy megpróbálta: New DeskTab. Nagyon izgatott vagyok, hogy végre megoszthatom veletek ennek a projektnek az első nyilvános kiadását.",
+      "origin": "Az egész 2025. szeptember 26-án kezdődött. Amikor egy Just Chatting streamet néztem itt: Twitch, észrevettem a streamer böngészőjének új lapját: egy olyan bővítményt, amely színes négyzetekbe rendezte a webhelyeket, nevek és logók nélkül. Ez a minimalizmus lenyűgözött, és arra gondoltam: miért ne építhetném meg a saját bővítményem? Azt szerettem volna, hogy minden új lap rendet hozzon, az oldalaim kéznél legyenek, és egy panel, amit szívesen nézek.",
+      "desktop": "Fokozatosan ez az ötlet a webhelyek személyes asztalává nőtte ki magát, nem pedig az alkalmazásokat. Az óra az első lépés, és még mindig folyamatban van. A jövőben szeretnék hozzáadni egy jegyzettömböt és egyéb widgeteket, amelyek hasznosat kínálnak nekem és mindenkinek, aki a New DeskTab felhasználót használja.",
+      "closing": "Ez az alkalmazás nekem és neked készült. Köszönjük, hogy megbízik New DeskTab szolgáltatásban, és helyet adott neki a böngészőjében. Remélem, te is annyira élvezed a tered létrehozását, mint én az építést.",
+      "highlights": {
+        "workspace": "Rendszerezze oldalait könyvjelzőkkel, mappákkal és független munkaterületekkel.",
+        "appearance": "Testreszabhatja a színeket, az egyes elemek méretét és az asztal hátterét.",
+        "search": "Keresse meg oldalait a kereséssel, és használja a billentyűparancsokat a navigációhoz és az elemek létrehozásához.",
+        "backup": "Mentse a biztonsági másolatokat, és állítsa vissza a törölt elemeket a lomtárból.",
+        "sync": "Válassza az adatok megtartását ezen az eszközön, vagy szinkronizálja a következővel: Google Chrome.",
+        "help": "Fedezze fel a funkciókat az üdvözlő útmutató, a kézikönyv és a napi tippek segítségével."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "AZ ELSŐ PERC",
+    "skip": "Útmutató kihagyása",
+    "back": "Vissza",
+    "next": "Következő",
+    "finish": "Vissza a beállításokhoz",
+    "explore": "Fedezze fel a teremet",
+    "addFirst": "Adja hozzá az első könyvjelzőmet",
+    "progress": "{{current}}/{{total}} lépés",
+    "compactHint": "Nyissa ki az ablakot, ha könyvjelzőket szeretne hozzáadni, és szerkeszteni szeretné a teret.",
+    "reopenTitle": "Gyors útmutató",
+    "reopenDescription": "Fedezze fel újra a lényeget egy perc alatt.",
+    "reopen": "Útmutató megtekintése",
+    "demo": {
+      "work": "Munka",
+      "media": "Média",
+      "trash": "Lomtár",
+      "search": "Keresse meg könyvjelzőit"
+    },
+    "steps": {
+      "start": {
+        "title": "Az Ön oldalai. A saját tered.",
+        "body": "Üdvözöljük itt: New DeskTab. Tartsa kéznél kedvenc oldalait, amikor megnyit egy lapot. Egy hozzáadásához lépjen a bal szélre, és válassza a + → [[bookmarks|Könyvjelző]] lehetőséget.",
+        "hint": "[[quick-save|mentse el a meglátogatott oldalt]] a bővítmény ikonjáról is megteheti a böngészőben."
+      },
+      "edit": {
+        "title": "Adjon helyet minden könyvjelzőnek.",
+        "body": "A szerkesztéshez kapcsolja be a ceruzát a bal oldali menüben. Tartsa lenyomva és [[movement|húzza]] egy elemet az áthelyezéséhez; a [[resizing|fogantyúk]] segítségével módosítsa a méretét.",
+        "hint": "Minden könyvjelző ceruzája megnyitja a [[appearance|szerkesztő]]: nevet, színeket, ikont és képet. Mentse el a következőt: [[presets|stílusok]], hogy újra felhasználhassa őket."
+      },
+      "organize": {
+        "title": "Kevesebb rendetlenség. Több rendelés.",
+        "body": "Hozzon létre egy [[folders|mappát]] elemet a + elemből, és húzza bele a könyvjelzőket szerkesztési módban. Tiszta rácsban nyílik, ahol akár 18 könyvjelző is elfér.",
+        "hint": "Használja a + jelet a [[workspaces|munkaterület bár]] mezőben a munka és a játék szétválasztásához. A [[search|nagyító]] mappákban is keres."
+      },
+      "style": {
+        "title": "Érezze úgy, mint te.",
+        "body": "A Beállítások → [[wallpapers|téma]] menüpontban válasszon színt, képet vagy videó hátteret, és forgassa el kedvenc háttérképeit. A Beállítások → [[sync|Szinkronizálás]] menüpontban szinkronizálja tárhelyét az eszközök között a Chrome-profiljába bejelentkezett fiókkal.",
+        "hint": "Adjon hozzá egy [[clock|óra]] elemet a + → Widgetekből. Személyre szabhatja a mappáit [[appearance|megjelenés]] is."
+      },
+      "ready": {
+        "title": "Tudod a lényeget.",
+        "body": "Nyomja meg a [[search|/]] gombot a könyvjelző megkereséséhez. A módosítások helyreállításához használja a [[history|visszavonás és újra]] nyilakat; a törölt könyvjelzők a következő helyre kerülnek: [[trash|lomtár]].",
+        "hint": "A változtatások automatikusan mentésre kerülnek. A Beállításokban exportáljon egy [[backup|biztonsági mentés]] értéket, vagy engedélyezze az opcionális Google Chrome [[sync|szinkronizálás]] értéket."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "A legutóbbi módosításokat nem sikerült elmenteni.",
+    "retry": "Próbáld újra a mentést",
+    "saved": "A függőben lévő módosítások elmentve."
+  },
+  "itemEditor": {
+    "chooseIcon": "Válasszon egy ikont",
+    "siteLogo": "Logó",
+    "noSymbol": "Egyik sem",
+    "folderIconHint": "A szimbólum helyettesíti a mappán belüli könyvjelző-előnézeteket.",
+    "icons": {
+      "mail": "Mail",
+      "calendar": "Naptár",
+      "notes": "Megjegyzések",
+      "projects": "Projektek",
+      "design": "Tervezés",
+      "music": "Zene",
+      "tasks": "Feladatok",
+      "ideas": "Ötletek",
+      "docs": "Dokumentumok",
+      "ui-start": "Iránytű",
+      "ui-organize": "Elrendezés",
+      "ui-personalize": "Csúszkák",
+      "ui-protect": "Pajzs",
+      "ui-bookmarks": "Könyvjelző hozzáadása",
+      "ui-quick-save": "Böngésző",
+      "ui-keyboard": "Billentyűzet",
+      "ui-shortcuts": "Villámlás",
+      "ui-search": "Keresés",
+      "ui-editing": "Ceruza",
+      "ui-movement": "Mozgás",
+      "ui-resizing": "Átméretezés",
+      "ui-drag-modes": "Húzza",
+      "ui-folders": "Mappa",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Kiválasztás",
+      "ui-history": "Történelem",
+      "ui-appearance": "Paletta",
+      "ui-presets": "Előbeállítások",
+      "ui-wallpapers": "Kép",
+      "ui-clock": "Óra",
+      "ui-interface": "Földgömb",
+      "ui-trash": "Kuka",
+      "ui-backup": "Archívum",
+      "ui-sync": "Szinkronizálás",
+      "ui-compact": "Lista",
+      "ui-data": "Adatbázis",
+      "ui-learning": "Könyv",
+      "ui-settings": "Beállítások elemre",
+      "ui-controls": "Vezérlők",
+      "ui-cloud": "Felhő",
+      "ui-bookmark": "Könyvjelző",
+      "ui-info": "Információ",
+      "ui-eye": "Szem",
+      "ui-check": "Befejezve",
+      "ui-lock": "Zár",
+      "ui-unlock": "Oldja fel",
+      "ui-copy": "Másolás",
+      "ui-close": "Bezárás",
+      "ui-undo": "Visszavonás",
+      "ui-redo": "Újra",
+      "ui-desktop": "Asztali",
+      "home": "Otthon",
+      "briefcase": "Munka",
+      "code": "kód",
+      "game": "Játékok",
+      "cart": "Vásárlás",
+      "card": "Kifizetések",
+      "people": "Emberek",
+      "message": "Üzenet",
+      "location": "Helyszín",
+      "phone": "Telefon",
+      "camera": "Fényképezőgép",
+      "headphones": "Fejhallgató",
+      "link": "Link",
+      "tag": "Címke",
+      "chart": "Statisztika",
+      "coffee": "Kávé",
+      "sun": "V",
+      "moon": "Hold",
+      "circle": "Kör",
+      "square": "Négyzet",
+      "triangle": "Háromszög",
+      "diamond": "Gyémánt",
+      "pentagon": "Pentagon",
+      "hexagon": "Hatszög",
+      "star": "Csillag",
+      "heart": "Szív",
+      "plus": "Plusz",
+      "minus": "Mínusz",
+      "video": "Videó"
+    },
+    "searchIcons": "Ikonok keresése…",
+    "clearIconSearch": "Keresés törlése",
+    "noIcons": "Nem található ikon",
+    "suggestedIcons": "Javasolt",
+    "suggestedIcon": "Javasolt: {{name}}",
+    "logoKeywords": "logó favicon weboldal webhely márka",
+    "iconKeywords": {
+      "ui-trash": "bin trash hulladék törlés klasszikus",
+      "mail": "mail email gmail outlook beérkező levelek",
+      "docs": "dokumentumok fájlok pdf meghajtó word",
+      "notes": "jegyzetek feljegyzés fogalma onenote",
+      "ui-protect": "biztonság védelme magánélet",
+      "game": "játék játékvezérlő konzol",
+      "cart": "bevásárló bolt bolt vásárlás",
+      "card": "banki finanszírozás hitel betéti pénz",
+      "people": "közösségi közösségi baráti csoport",
+      "ui-learning": "könyvtári oktatási tanulmány olvasása",
+      "ui-clock": "idő óra óra",
+      "ui-interface": "internetes web világnyelv",
+      "ui-data": "adat sql tárhely",
+      "circle": "geometriai formák figurák",
+      "square": "geometriai formák figurák",
+      "triangle": "geometriai formák figurák",
+      "diamond": "geometriai formák figurák",
+      "pentagon": "geometriai formák figurák",
+      "hexagon": "geometriai formák figurák",
+      "star": "geometriai formák figurák",
+      "heart": "geometriai formák figurák"
+    },
+    "history": "Előzmények szerkesztése",
+    "description": "Érezze otthon magát a munkahelyén.",
+    "looks": "Válassz egy megjelenést",
+    "custom": "Egyedi",
+    "look": {
+      "original": "Eredeti",
+      "card": "kártya",
+      "midnight": "Sötét",
+      "paper": "Fény"
+    },
+    "reset": "Megjelenés visszaállítása",
+    "cardColor": "Kártya színe",
+    "folderFill": "Mappa színe",
+    "image": "Háttér kép",
+    "lock": "URL zárolása vagy feloldása",
+    "copy": "URL másolása",
+    "clear": "Világos",
+    "section": {
+      "general": "A lényeg",
+      "text": "Név és címkék",
+      "icon": "Ikonra",
+      "card": "kártya"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "A megjelenő név és a megnyíló oldal.",
+        "text": "Válassza ki, hogy megjelenjen-e a név, és módosítsa a színét.",
+        "icon": "Használjon nagy, középen elhelyezett favicont vagy egy kis ikont a neve mellett a képkártyákhoz."
+      },
+      "folder": {
+        "general": "Egy név, amellyel összehozhatja a könyvjelzőit.",
+        "text": "Mutassa meg a mappa nevét, és állítsa be a színét.",
+        "icon": "Szabja testre a mappa ikonját és a könyvjelzői miniatűröket."
+      },
+      "recycleBin": {
+        "general": "Válassza ki, hogy a lomtár megjelenjen-e a fő munkaterületen.",
+        "text": "Mutassa meg a lomtár nevét, és állítsa be a színét.",
+        "icon": "Adja meg a szemeteskukának saját színét. Rejtsd el az egész kukát tábornok elől."
+      }
+    },
+    "addImage": "Adjon hozzá egy háttérképet",
+    "changeImage": "Háttérkép szerkesztése"
+  },
+  "html": {
+    "title": "Új lap"
+  },
+  "quickSave": {
+    "title": "Könyvjelző mentése",
+    "name": "Név",
+    "workspace": "Munkaterület",
+    "folder": "Mappa",
+    "mainWorkspace": "Fő",
+    "noFolder": "Nincs mappa",
+    "save": "Könyvjelző mentése",
+    "saveAnyway": "Mindenképpen mentse",
+    "savedButton": "Mentve",
+    "alreadySaved": "Már elmentve",
+    "savedIn": "Itt: {{location}}",
+    "savedInMore": "Itt: {{location}} és további {{count}}",
+    "open": "Megnyitás New DeskTab",
+    "unavailableTitle": "Ez a lap nem menthető",
+    "unavailable": "Nyisson meg egy weboldalt (http vagy https) a mentéséhez.",
+    "loadError": "Nem sikerült betölteni a könyvjelzőket. Próbáld újra.",
+    "saving": "Mentés…",
+    "saved": "Könyvjelző mentve.",
+    "duplicate": "Ez az URL már el van mentve az adott célhelyen.",
+    "noSpace": "Nincs szabad hely ezen a célon. Válassz másikat.",
+    "invalid": "Ellenőrizze a nevet és a kiválasztott célállomást.",
+    "saveError": "Nem sikerült menteni a könyvjelzőt. Próbáld újra."
+  },
+  "launcher": {
+    "bookmark": "Könyvjelző",
+    "folder": "Mappa",
+    "widgets": "Widgetek",
+    "editMode": {
+      "enter": "Lépjen be a szerkesztési módba",
+      "exit": "Lépjen ki a szerkesztési módból"
+    }
+  },
+  "widgets": {
+    "title": "Widgetek",
+    "description": "Válasszon ki egy widgetet, amelyet hozzá szeretne adni ehhez a munkaterülethez.",
+    "empty": "Még nem érhetők el widgetek."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "A funkció használatához nyissa ki az ablakot.",
+      "suspended": "Panel elrejtve. A folytatáshoz nyissa ki az ablakot."
+    },
+    "editMode": {
+      "enabled": "Szerkesztési mód engedélyezve",
+      "disabled": "Szerkesztési mód letiltva"
+    },
+    "selectionMode": {
+      "enabled": "Kiválasztási mód engedélyezve",
+      "disabled": "Kiválasztási mód letiltva"
+    },
+    "bookmark": {
+      "added": "Könyvjelző hozzáadva",
+      "notFound": "A könyvjelző nem található",
+      "updated": "Könyvjelző frissítve",
+      "deleted": "Könyvjelző törölve"
+    },
+    "clock": {
+      "added": "Óra hozzáadva",
+      "updated": "Az óra frissítve",
+      "deleted": "Óra törölve"
+    },
+    "folder": {
+      "created": "Mappa létrehozva",
+      "renamed": "Mappa átnevezve",
+      "updated": "Mappa frissítve",
+      "deleted": "A mappa és a könyvjelzői törölve",
+      "bookmarkAdded": "Könyvjelző hozzáadva a mappához",
+      "folderFull": "Ebben a mappában már 18 könyvjelző található",
+      "bookmarkRemoved": "A könyvjelző visszakerült a rácsba"
+    },
+    "recycleBin": {
+      "moved": "Áthelyezték a szemeteskukába",
+      "restored": "Az elemek visszaállítva",
+      "deletedPermanently": "Az elemek véglegesen törölve",
+      "updated": "Lomtár frissítve"
+    },
+    "workspace": {
+      "created": "Munkaterület létrehozva",
+      "deleted": "Munkaterület törölve",
+      "switched": "Munkaterület: {{name}}"
+    },
+    "history": {
+      "undone": "Változás visszavonva",
+      "redone": "Változás újra"
+    },
+    "bookmarks": {
+      "deletedAll": "Minden könyvjelző törölve",
+      "deletedAllWithFolders": "Minden könyvjelző és mappa törölve",
+      "deleteAllError": "Nem sikerült törölni az összes könyvjelzőt",
+      "exported": "Könyvjelzők exportálva",
+      "exportError": "Nem sikerült exportálni a könyvjelzőket",
+      "imported": "Könyvjelzők importálva",
+      "importError": "Nem sikerült importálni a könyvjelzőket",
+      "presetApplied": "A kiválasztáshoz alkalmazott stílus",
+      "duplicatedSelected": "A kiválasztott elemek duplikálva",
+      "deletedSelected": "A kiválasztott elemek törölve",
+      "moved": "Az elemek áthelyezve a kiválasztott munkaterületre"
+    },
+    "settings": {
+      "saved": "A beállítások mentve",
+      "bookmarkDefaultSaved": "A könyvjelző alapértelmezett megjelenése mentve",
+      "bookmarkDefaultError": "Nem sikerült menteni a könyvjelző alapértelmezett megjelenését",
+      "copied": "Az érték a vágólapra másolva",
+      "resetBg": "Téma visszaállítása",
+      "deletedAllData": "Minden helyi NewDeskTab adat törölve",
+      "deleteAllDataError": "Nem sikerült törölni az összes helyi NewDeskTab adatot",
+      "invalidWallpaperUrl": "Adjon meg egy érvényes HTTP vagy HTTPS kép/videó URL-t.",
+      "invalidWallpaperFile": "Nem sikerült hozzáadni ezt a fájlt. Használjon támogatott képet vagy MP4-, WebM- vagy Ogg-videót 200 MB-ig.",
+      "wallpaperLimit": "Legfeljebb 25 személyes háttérképet adhat hozzá."
+    },
+    "localImage": {
+      "invalid": "Válasszon egy PNG, JPEG, WebP, GIF vagy AVIF képet.",
+      "tooLarge": "Ez a kép túl nagy ahhoz, hogy ezen az eszközön tárolja.",
+      "storageFull": "Nincs elég helyi hely ehhez a képhez.",
+      "processing": "Ezt a képet nem sikerült feldolgozni."
+    },
+    "sync": {
+      "enabled": "Szinkronizálás engedélyezve",
+      "localEnabled": "Helyi mód engedélyezve",
+      "remoteLoaded": "A szinkronizált adatok betöltve",
+      "updatedFromOtherDevice": "Másik eszközről érkezett szinkronizált módosítások",
+      "deletedFromOtherDevice": "A felhőadatokat egy másik eszközről törölték. Ez az eszköz most Helyi módot használ.",
+      "error": "Nem sikerült megváltoztatni a tárolási módot",
+      "versionBlocked": "A szinkronizálás szünetel, mert a felhőadatokhoz újabb NewDeskTab verzióra van szükség. Az eszköz helyi adatai jelennek meg.",
+      "quotaError": "Az adatok száma meghaladja a rendelkezésre álló szinkronizálási tárhelyet",
+      "deleted": "A szinkronizált adatok törölve",
+      "deleteError": "Nem sikerült törölni a szinkronizált adatokat"
+    },
+    "backup": {
+      "exported": "Biztonsági másolat exportálva",
+      "exportError": "Nem sikerült exportálni a biztonsági másolatot",
+      "mediaUnavailable": "Néhány hivatkozott helyi kép vagy videó nem érhető el, ezért a biztonsági mentés nem jött létre.",
+      "imported": "A biztonsági mentés visszaállítva",
+      "importError": "Nem sikerült visszaállítani a biztonsági másolatot",
+      "mediaStorageFull": "Nincs elég helyi tárhely a biztonsági mentési képek és videók visszaállításához."
+    }
+  },
+  "view": {
+    "list": "Lista nézet",
+    "search": "Keresés a könyvjelzők és mappák között",
+    "clearSearch": "Keresés törlése",
+    "noResults": "Nincs eredmény."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Törli az összes könyvjelzőt?",
+      "deleteFolders": "Törölje az összes mappát is",
+      "confirmDeleteSelected": "Törli a {{count}} kijelölt elemet?",
+      "confirmMoveOne": "Áthelyezi ezt az elemet a „{{workspace}}” munkaterületre?",
+      "confirmMoveSelected": "Áthelyezi a {{count}} kijelölt elemet a „{{workspace}}” munkaterületre?",
+      "duplicateNoSpace": "{{count}} elem nem duplikálható, mert nincs elég hely.",
+      "moveNoSpace": "{{count}} elemet nem lehetett áthelyezni, mert nincs elég hely.",
+      "no_space": "Nincs szabad hely több könyvjelző számára 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Elveti az új könyvjelzőt?"
+      },
+      "confirmDelete": "Törli a következőt: „{{name}}”?",
+      "confirmPermanentDelete": "Véglegesen törli a következőt: „{{name}}”? Ezt nem lehet visszavonni.",
+      "cancel": "Elveti a változtatásokat?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Véglegesen törli ezt a modult? Ezt nem lehet visszavonni.",
+      "confirmDeleteSelected": "Törli a {{count}} kijelölt elemet? A kiválasztott widgetek ({{widgetCount}}) véglegesen törlődnek, és nem állíthatók vissza."
+    },
+    "folder": {
+      "createCancel": "Elveti az új mappát?",
+      "cancel": "Elveti a mappa módosításait?"
+    },
+    "recycleBin": {
+      "folder": "Áthelyezi a „{{name}}” elemet és a {{count}}-as könyvjelzőit a lomtárba?",
+      "empty": "Véglegesen töröl mindent a lomtárból? Ezt nem lehet visszavonni.",
+      "deleteSelected": "Véglegesen törli a {{count}} kijelölt elemet? Ezt nem lehet visszavonni.",
+      "noSpace": "{{count}} elemet nem lehetett visszaállítani, mert nincs elég rácsterület. A lomtárban maradnak.",
+      "cancel": "Elveti a lomtár módosításait?"
+    },
+    "settings": {
+      "cancel": "Elveti a beállítások módosításait?",
+      "reset": "Visszaállítja az összes beállítást? A könyvjelzők nem törlődnek.",
+      "deleteAllData": "Törli az összes helyi NewDeskTab adatot erről az eszközről? A könyvjelzők, mappák, widgetek, beállítások, lomtárelemek, helyi képek és helyi videók véglegesen törlődnek. A felhőadatok nem változnak. Ha a szinkronizálás aktív, ez az eszköz először Helyi módra vált. Ez a művelet nem vonható vissza.",
+      "theme": {
+        "reset": "Visszaállítja a téma beállításait?"
+      },
+      "bookmark": {
+        "cancel": "Elveti a könyvjelzők alapértelmezett megjelenésének módosításait?"
+      },
+      "shortcuts": {
+        "reset": "Visszaállítja az alapértelmezett billentyűparancsokat?"
+      },
+      "sync": {
+        "enable": "Vált a Helyi állapotról a Szinkronizáltra? Ez most lép életbe, a Mentés gombra kattintva. Ha már léteznek szinkronizált adatok, a könyvjelzők és a beállítások betöltődnek. Ellenkező esetben a mentett helyi adatok szinkronizálva lesznek.",
+        "local": "Szinkronizáltról Helyire vált? Ez most lép életbe, a Mentés gombra kattintva. Ez az eszköz megőrzi az aktuális adatok másolatát, és leállítja a módosítások szinkronizálását. A szinkronizált adatok tárolva maradnak más eszközökön.",
+        "delete": "Törli az összes szinkronizált NewDeskTab adatot? Ez az eszköz és minden más, ezeket a felhőadatokat használó eszköz Helyi módra vált, ha törlést észlel. Ezt nem lehet visszavonni."
+      }
+    },
+    "backup": {
+      "import": "Visszaállítja ezt a biztonsági másolatot? Leváltja a jelenlegi könyvjelzőit és beállításait."
+    }
+  },
+  "addModal": {
+    "title": "Új könyvjelző hozzáadása",
+    "name": "Név:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Speciális beállítások",
+    "compactView": "▴ Kompakt nézet"
+  },
+  "clock": {
+    "name": "Óra",
+    "inDevelopment": "Fejlesztés alatt: az óra még nincs a végleges verziójában. Dolgozunk a javításán.",
+    "createTitle": "Óra hozzáadása",
+    "editTitle": "Órabeállítások",
+    "description": "Jelenítse meg a helyi időt ezen a munkaterületen.",
+    "hourCycle": "Időformátum",
+    "hour24": "24 óra",
+    "hour12": "12 óra",
+    "showSeconds": "Másodpercek megjelenítése",
+    "delete": "Törölje",
+    "edit": "Szerkessze az órát",
+    "actions": "Óraműveletek",
+    "openSettings": "Nyissa meg az óra beállításait",
+    "confirmDelete": "Törli ezt az órát? Ezt a műveletet visszavonhatja.",
+    "confirmPermanentDelete": "Véglegesen törli ezt az órát? Ezt nem lehet visszavonni.",
+    "cancel": "Elveti az óra módosításait?",
+    "noSpace": "Nincs elég rácsterület ehhez az órához."
+  },
+  "buttons": {
+    "save": "Mentés",
+    "apply": "Alkalmazni",
+    "add": "Hozzáadás",
+    "accept": "Elfogadás",
+    "cancel": "Mégsem",
+    "close": "Bezárás"
+  },
+  "localImage": {
+    "upload": "Feltöltés erről az eszközről",
+    "label": "Helyi kép:",
+    "activeSource": "Aktív kép:",
+    "sourceLocal": "Helyi",
+    "sourceUrl": "URL",
+    "remove": "Helyi kép eltávolítása",
+    "notice": "A helyi képek nincsenek szinkronizálva.",
+    "unnamed": "Helyi kép"
+  },
+  "workspace": {
+    "ariaLabel": "Munkaterület-vezérlők",
+    "current": "Munkaterület",
+    "main": "Fő",
+    "search": "Keresés a könyvjelzők között",
+    "add": "Hozzon létre munkaterületet",
+    "delete": "Munkaterület törlése",
+    "undo": "Visszavonás",
+    "redo": "Újra",
+    "shortcutHint": "Váltson munkaterületet az Alt vagy az Option, valamint a fel vagy le nyílgombbal",
+    "prompt": "Adja meg az új munkaterület nevét",
+    "namePlaceholder": "Munka, szabadidő…",
+    "confirmDelete": "Törli a „{{name}}” {{folderCount}} mappát és a {{bookmarkCount}} könyvjelzőt? Ha meg szeretné tartani őket, először helyezze át őket a Főoldalra vagy egy másik munkaterületre."
+  },
+  "search": {
+    "title": "Keresés a könyvjelzők között",
+    "inputLabel": "Keresés név vagy URL alapján",
+    "placeholder": "Név vagy URL",
+    "empty": "Nem találhatók könyvjelzők.",
+    "noUrl": "Nincs URL",
+    "inFolder": "Mappa: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Kiválasztott tételműveletek",
+    "selected": "{{count}} kiválasztva",
+    "move": "Ugrás a munkaterületre",
+    "applyPreset": "Alapértelmezett stílus alkalmazása",
+    "duplicate": "Ismétlődő kijelölés",
+    "delete": "Törölje",
+    "clear": "Kiválasztás törlése"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Könyvjelző vezérlők",
+    "edit": "Könyvjelző szerkesztése",
+    "delete": "Könyvjelző törlése",
+    "copySuffix": "másolat"
+  },
+  "folder": {
+    "create": "Mappa létrehozása",
+    "createPrompt": "Nevezze el az új mappát",
+    "namePlaceholder": "Eszközök, inspiráció…",
+    "open": "{{name}}, {{count}} mentett könyvjelző megnyitása",
+    "count": "{{count}} mentve",
+    "summary": "{{capacity}} helyből {{count}} felhasználva",
+    "editMode": {
+      "enable": "Szerkesztés",
+      "disable": "Fejezze be a szerkesztést"
+    },
+    "gridLabel": "Mappa könyvjelzői",
+    "dropHint": "Húzza le a hozzáadáshoz",
+    "noSpace": "Nincs szabad rácscella egy új mappához.",
+    "removeNoSpace": "Nincs elég rácsterület a könyvjelző eltávolításához a mappából.",
+    "confirmDelete": "Áthelyezi a „{{name}}” elemet és a {{count}}-as könyvjelzőit a lomtárba?",
+    "confirmPermanentDelete": "Véglegesen törli a következőt: „{{name}}” és a hozzá tartozó {{count}}-as könyvjelzők? Ezt nem lehet visszavonni.",
+    "actions": {
+      "ariaLabel": "Mappavezérlők",
+      "customize": "Mappa testreszabása",
+      "rename": "Mappa átnevezése",
+      "delete": "Mappa törlése",
+      "editBookmark": "{{name}} szerkesztése",
+      "removeBookmark": "Helyezze ki a {{name}} elemet a mappából",
+      "deleteBookmark": "{{name}} törlése",
+      "acceptRename": "Mentse el a mappa nevét",
+      "cancelRename": "A mappa átnevezésének megszakítása"
+    },
+    "editor": {
+      "createTitle": "Új mappa hozzáadása",
+      "title": "Mappa szerkesztése",
+      "name": "Név:",
+      "showPreviews": "Könyvjelző előnézetek megjelenítése",
+      "showName": "Mappa nevének megjelenítése",
+      "iconColor": "Szimbólum színe:",
+      "outerBackgroundColor": "Külső háttér színe:",
+      "noOuterBackground": "Nincs külső háttér",
+      "resetOuterBackground": "Automatikus",
+      "noBackground": "Átlátszó mappakitöltés",
+      "backgroundColor": "Mappa színe:",
+      "backgroundImage": "Háttérkép (URL):",
+      "lockImage": "A kép URL-jének zárolása vagy feloldása",
+      "copyImage": "Másolja a kép URL-jét",
+      "clearImage": "Törölje a kép URL-jét",
+      "textColor": "Szöveg színe:",
+      "preview": "Előnézet",
+      "previewName": "Mappa",
+      "sections": {
+        "general": "tábornok",
+        "style": "Stílus",
+        "text": "Szöveg"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Lomtár",
+    "open": "Nyissa ki a szemeteskukát",
+    "openCount": "Nyitott lomtár, {{count}} tétel",
+    "dropHint": "Húzza le a törléshez",
+    "summary": "{{count}} elem · Automatikus törlés: {{retention}}",
+    "empty": "A lomtár üres.",
+    "selected": "{{count}} kiválasztva",
+    "select": "Válassza ki a következőt: {{name}}",
+    "folderContents": "{{count}} könyvjelzők",
+    "deletedAt": "Törölve {{date}}",
+    "expiresIn": "{{days}} nap van hátra",
+    "expiresInOne": "1 nap van hátra",
+    "neverExpires": "Soha nem törölték automatikusan",
+    "restoreAll": "Az összes visszaállítása",
+    "deleteAll": "Az összes törlése",
+    "restoreSelected": "Kijelölt visszaállítás",
+    "deleteSelected": "Kijelölt törlése",
+    "editor": {
+      "title": "Lomtár szerkesztése",
+      "animateIcon": "Animált lomtár",
+      "appearance": "Megjelenés",
+      "backgroundColor": "Háttér színe:",
+      "backgroundImage": "Háttérkép (URL):",
+      "lockImage": "A kép URL-jének zárolása vagy feloldása",
+      "copyImage": "Másolja a kép URL-jét",
+      "clearImage": "Törölje a kép URL-jét",
+      "noBackground": "Nincs háttér",
+      "iconColor": "Ikon színe:",
+      "textColor": "Szöveg színe:",
+      "elements": "Látható elemek",
+      "showName": "Név megjelenítése",
+      "visible": "Mutasd a lomtárat a fő rácson",
+      "preview": "Előnézet",
+      "actions": "Lomtár műveletek",
+      "edit": "Lomtár szerkesztése",
+      "sections": {
+        "general": "tábornok",
+        "style": "Stílus",
+        "text": "Szöveg",
+        "icon": "Ikonra"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Adjon meg egy nevet az előbeállítás mentéséhez."
+    },
+    "name": {
+      "required": "Adjon nevet a könyvjelzőnek."
+    },
+    "folderName": {
+      "required": "Adja meg a mappa nevét."
+    },
+    "url": {
+      "invalid": "Az URL érvénytelen.",
+      "unsupportedProtocol": "Ez az URL-típus nem engedélyezett."
+    },
+    "backgroundImageUrl": {
+      "invalid": "A kép URL-címe érvénytelen.",
+      "unsupportedProtocol": "Ez a képtípus nem engedélyezett."
+    }
+  },
+  "editModal": {
+    "title": "Könyvjelző szerkesztése",
+    "name": "Név:",
+    "url": "URL:",
+    "backgroundImage": "Háttérkép (URL):",
+    "backgroundFavicon": "Nagy, középre helyezett ikon",
+    "invertColorBg": "Invert színek",
+    "noBackground": "Nincs háttér",
+    "backgroundColor": "Könyvjelző színe:",
+    "showText": "Szöveg megjelenítése",
+    "textColor": "Szöveg színe:",
+    "showFavicon": "Ikon megjelenítése",
+    "invertColorIcon": "Az ikon színeinek megfordítása",
+    "iconColor": "Ikon színe:",
+    "sections": {
+      "general": "tábornok",
+      "style": "Stílus",
+      "text": "Szöveg",
+      "icon": "Ikonra"
+    },
+    "preview": "Előnézet",
+    "previewName": "Előnézet"
+  },
+  "colorPicker": {
+    "title": "Színválasztó",
+    "sample": "Válasszon egy színt a képernyőről",
+    "close": "Zárja be a színválasztót",
+    "saturationBrightness": "Telítettség és fényerő",
+    "hue": "Hue",
+    "quickColors": "Gyors színek",
+    "saturation": "Telítettség",
+    "brightness": "Fényerő",
+    "hex": "Hex kód",
+    "copy": "Másolja a hexadecimális kódot",
+    "copied": "Hexadecimális kód másolva",
+    "copyFailed": "Nem sikerült másolni a hexadecimális kódot"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "tábornok",
+      "sync": "Szinkronizálás",
+      "theme": "téma",
+      "bookmark": "Könyvjelzők",
+      "shortcuts": "Parancsikonok",
+      "language": "Nyelvek",
+      "help": "Segítség",
+      "information": "Információ"
+    },
+    "general": {
+      "title": "tábornok",
+      "subtitle": "Beállítások elemre",
+      "export": "Biztonsági másolat exportálása",
+      "import": "Biztonsági másolat visszaállítása",
+      "resetSettings": "Beállítások visszaállítása",
+      "deleteAllData": "Törölje az összes helyi adatot",
+      "recycleBin": {
+        "title": "Lomtár",
+        "show": "Mutasd meg a lomtárat a főhálózaton",
+        "retentionLabel": "Elemek automatikus törlése:",
+        "retentionOptions": {
+          "oneDay": "1 nap",
+          "sevenDays": "7 nap",
+          "fourteenDays": "14 nap",
+          "twentyEightDays": "28 nap",
+          "never": "Soha"
+        }
+      },
+      "appearance": {
+        "title": "Megjelenés",
+        "system": "Böngésző",
+        "light": "Fény",
+        "dark": "Sötét"
+      }
+    },
+    "sync": {
+      "title": "Szinkronizálás",
+      "description": "Válassza ki, hol tárolja beállításait és könyvjelzőit.",
+      "ariaLabel": "Tárolási mód",
+      "local": {
+        "title": "Csak ez a készülék",
+        "description": "Az adatok csak ebben a helyi böngészőprofilban tárolódnak."
+      },
+      "synced": {
+        "title": "Szinkronizálva",
+        "description": "Elérhető az ugyanahhoz a fiókhoz kapcsolódó Google Chrome profilban.",
+        "tooltip": "Szinkronizálási információk"
+      },
+      "compatibility": {
+        "newerVersion": "A szinkronizálás le van zárva ezen az eszközön, mert a felhőadatokat egy újabb NewDeskTab verzió hozta létre. A szinkronizált adatai biztonságban vannak, és nem módosultak. Frissítse a következőt: NewDeskTab az újracsatlakozáshoz."
+      },
+      "usage": {
+        "title": "Tárhely elérhetősége",
+        "showExact": "Pontos bájtok megjelenítése",
+        "showHuman": "Olvasható méretek megjelenítése",
+        "local": "Helyi",
+        "sync": "Szinkronizálva",
+        "localSyncCopy": "Helyi szinkronizálási másolat",
+        "localAria": "Helyi tárhely használat",
+        "syncAria": "Szinkronizált tárhelyhasználat",
+        "loading": "Számítás…",
+        "summary": "{{used}}/{{total}} · {{percent}}%",
+        "available": "{{free}} elérhető",
+        "system": "Rendszer és metaadatok",
+        "bookmarks": "Könyvjelzők",
+        "folders": "Mappák",
+        "trash": "Lomtár adatai",
+        "localImages": "Helyi képek",
+        "themeImages": "téma",
+        "bookmarkImages": "Könyvjelzők",
+        "folderImages": "Mappák",
+        "trashImages": "Lomtár",
+        "otherImages": "Egyéb",
+        "widgets": "Widgetek",
+        "widgetsHint": "A szinkronizáláshoz megjelenített méret becsült érték, és nem tartalmazza a külső szolgáltatásokból lekért élő tartalmat.",
+        "error": "A használat nem elérhető"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome szinkronizálja New DeskTab az Ön Google Fiókján keresztül. A New DeskTab nem futtat saját szinkronizálási szervert.",
+        "brave": "Nem érhető el a Brave-ben: New DeskTab adatokat képes tárolni a chrome.storage.sync fájlban, de jelenleg nem terjeszti azokat az eszközök között.",
+        "unsupported": "A szinkronizált tárhely egyelőre csak itt érhető el: Google Chrome. A többi böngésző le van tiltva mindaddig, amíg az eszközökön keresztüli támogatást nem ellenőrizzük."
+      },
+      "existingNotice": "A Szinkronizált állapotra váltás elfogadása betölti a már meglévő szinkronizált adatokat.",
+      "deleteData": "Szinkronizált adatok törlése",
+      "metadata": {
+        "loading": "Szinkronizált adatok ellenőrzése…",
+        "updatedAt": "Utolsó szinkronizált frissítés: {{date}}",
+        "unknown": "Léteznek szinkronizált adatok, de a frissítési idő nem érhető el.",
+        "empty": "Nincsenek szinkronizált New DeskTab adatok.",
+        "error": "A szinkronizált adatinformáció betöltése nem sikerült."
+      },
+      "status": {
+        "idle": "Az adatok készen állnak.",
+        "saving": "Módosítások mentése…",
+        "saved": "Minden változtatás mentésre kerül.",
+        "error": "Nem sikerült menteni a legújabb módosításokat."
+      }
+    },
+    "theme": {
+      "title": "téma",
+      "subtitle": "Oldal háttere",
+      "backgroundImageMode": "Kép/videó",
+      "wallpapersTitle": "Saját háttérképek",
+      "ownWallpapersHint": "Ezeket a háttérképeket és azok elforgatását csak ez az eszköz tárolja.",
+      "mediaUrl": "Háttérkép URL-je",
+      "image": "Kép",
+      "video": "Videó",
+      "addUrl": "URL hozzáadása",
+      "addFiles": "Helyi fájlok hozzáadása",
+      "rotationInterval": "Háttérkép forgatás",
+      "noRotation": "Ne változtassa meg automatikusan",
+      "interval5": "5 másodperc",
+      "interval15": "15 másodperc",
+      "interval30": "30 másodperc",
+      "interval60": "1 perc",
+      "interval300": "5 perc",
+      "interval600": "10 perc",
+      "interval1800": "30 perc",
+      "previous": "Előző",
+      "next": "Következő",
+      "moveUp": "Lépj felfelé",
+      "moveDown": "Mozgás lefelé",
+      "remove": "Távolítsa el",
+      "unavailableLocal": "A helyi fájl nem érhető el ezen az eszközön",
+      "mediaColor": "Szín a háttérkép mögött",
+      "mediaPreview": "Háttérkép előnézete",
+      "activeSource": "Aktív forrás",
+      "backgroundSolid": "Egyszínű",
+      "backgroundColor": "Szín:",
+      "editSolidColor": "Változtassa meg a szilárd háttérszínt",
+      "changeSolidColor": "Szín módosítása",
+      "backgroundImageColor": "Szín a kép/videó mögött",
+      "backgroundImage": "URL megosztott eszközök között",
+      "urlHidden": "URL rejtve",
+      "resetBackground": "Állítsa vissza a témát"
+    },
+    "bookmark": {
+      "title": "Könyvjelzők",
+      "subtitle": "Alapértelmezett könyvjelző",
+      "description": "Válassza ki az új könyvjelzők létrehozásakor használt megjelenést.",
+      "configure": "Az alapértelmezett könyvjelző beállítása",
+      "editorTitle": "A könyvjelzők alapértelmezett megjelenése",
+      "previewName": "Alapértelmezett könyvjelző",
+      "export": "Könyvjelzők exportálása",
+      "import": "Könyvjelzők importálása",
+      "deleteAll": "Törölje az összes könyvjelzőt",
+      "preview": "Előnézet",
+      "drag": {
+        "title": "Húzási viselkedés",
+        "description": "Válassza ki, hogyan szerveződjenek át a könyvjelzők, amikor elfoglalják a pozíciójukat.",
+        "none": {
+          "title": "Egyik sem",
+          "description": "Csak a cellák szabaddá tételéhez engedélyezi a mozgást."
+        },
+        "cascade": {
+          "title": "Sorozat",
+          "description": "Addig tolja a láncot, amíg szabad cellát nem talál.",
+          "experimental": "Kísérleti · Kisebb hibákat tartalmazhat."
+        },
+        "relocate": {
+          "title": "Áthelyezés",
+          "description": "Áthelyezi a célhelyet elfoglaló könyvjelzőket."
+        }
+      },
+      "resize": {
+        "title": "Viselkedés átméretezése",
+        "description": "Válassza ki, hogyan reagáljanak az elemek az átméretező fogantyú mozgatásakor.",
+        "smooth": {
+          "title": "Sima",
+          "description": "Húzás közben megnyújtja az elemet, majd a rácsra pattan."
+        },
+        "none": {
+          "title": "Egyik sem",
+          "description": "Celláról ugrik, ha átlépi a szomszédos cella 50%-át."
+        }
+      },
+      "presets": {
+        "title": "Stíluskönyvtár",
+        "tab": "Könyvtár",
+        "description": "Mentse el a stílusokat, és használja őket újra az alapértelmezett könyvjelző beállításakor.",
+        "name": "Előre beállított név",
+        "saved": "Mentett előre beállított értékek",
+        "save": "Előbeállítás mentése",
+        "apply": "Betöltés",
+        "delete": "Törölje",
+        "empty": "Nincsenek mentett előbeállítások"
+      }
+    },
+    "shortcuts": {
+      "title": "Billentyűparancsok",
+      "description": "Válasszon ki egy gyorsbillentyűt, majd nyomjon meg egy betűt vagy billentyűkombinációt. Kattintson a jobb gombbal a hozzárendelés megszüntetéséhez.",
+      "change": "Módosítsa a {{action}} parancsikont. Jelenlegi parancsikon: {{shortcut}}.",
+      "press": "Nyomja meg a parancsikont…",
+      "unassigned": "Nincs hozzárendelve",
+      "unassignedFlash": "Parancsikon nincs hozzárendelve.",
+      "modifierRequired": "Használjon önálló betűt vagy módosító billentyűkombinációt.",
+      "reserved": "Ezt a parancsikont a böngésző vagy az operációs rendszer tartja fenn. Válasszon másik kombinációt.",
+      "conflict": "Ez a kulcs már hozzá van rendelve egy másik művelethez.",
+      "updated": "Parancsikon frissítve.",
+      "cancelled": "A parancsikon módosítása megszakítva.",
+      "restored": "Az alapértelmezett parancsikonok visszaállítva.",
+      "reset": "Parancsikonok visszaállítása",
+      "actions": {
+        "toggleEditing": {
+          "title": "Szerkesztés mód",
+          "description": "Lépjen be vagy hagyja el a szerkesztést a fő rácson vagy egy nyitott mappában."
+        },
+        "addBookmark": {
+          "title": "Könyvjelző létrehozása",
+          "description": "Nyissa meg az űrlapot könyvjelző hozzáadásához."
+        },
+        "addFolder": {
+          "title": "Mappa létrehozása",
+          "description": "Nyissa meg a mappa létrehozására szolgáló párbeszédpanelt."
+        },
+        "openWidgets": {
+          "title": "Nyissa meg a widgeteket",
+          "description": "Nyissa meg az elérhető widgetek listáját."
+        },
+        "openSettings": {
+          "title": "Nyissa meg a beállításokat",
+          "description": "Nyissa meg a New DeskTab beállítások panelt."
+        }
+      }
+    },
+    "languages": {
+      "title": "Nyelvek",
+      "text": "Válassza ki a felület nyelvét:",
+      "system": "Böngésző",
+      "search": "Nyelv vagy ország keresése",
+      "empty": "Nem található nyelv"
+    },
+    "information": {
+      "title": "Információ",
+      "version": "Verzió: {{VERSION}}",
+      "author": "Szerző:"
+    }
+  }
+}

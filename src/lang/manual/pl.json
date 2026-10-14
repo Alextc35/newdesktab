@@ -1,0 +1,517 @@
+{
+  "title": "Instrukcja obsługi",
+  "eyebrow": "TWOJA PRZESTRZEŃ, TWOJE TEMPO",
+  "intro": "Poznaj każdą najdrobniejszą funkcję.",
+  "description": "Znajdź to, czego potrzebujesz lub odkryj coś nowego. Nie spiesz się.",
+  "settingsDescription": "Każda funkcja z prostymi krokami i małymi sztuczkami, które możesz wypróbować, kiedy tylko chcesz.",
+  "search": {
+    "label": "W czym możemy Ci pomóc?",
+    "placeholder": "Na przykład: odzyskaj usuniętą zakładkę",
+    "common": "Często zadawane pytania",
+    "found": "Odpowiedzi na Twoje wyszukiwanie · {{count}}",
+    "empty": "Nie znaleziono pomocy dla tego wyszukiwania. Wypróbuj „klawiatura”, „przenieś zakładki” lub „kopia zapasowa”.",
+    "resultsLabel": "Ręczne pytania i odpowiedzi"
+  },
+  "open": "Zapoznaj się z instrukcją",
+  "searchLabel": "Przeszukaj instrukcję",
+  "searchPlaceholder": "Wypróbuj „klawiatura”, „tapeta” lub „kopia zapasowa”",
+  "count": "{{count}} sekcji do odkrycia",
+  "empty": "Brak dopasowań. Spróbuj innego słowa lub wyczyść wyszukiwanie, aby zobaczyć cały indeks.",
+  "back": "← Indeks ręczny",
+  "remember": "Dobrze pamiętać",
+  "related": "Odkrywaj dalej",
+  "footer": "Zawsze dostępne w Ustawieniach → Pomoc.",
+  "guideLinks": "Więcej informacji znajdziesz w instrukcji",
+  "groups": {
+    "start": "Zacznij tutaj",
+    "organize": "Zorganizuj się",
+    "personalize": "Zrób to swoje",
+    "protect": "Zadbaj o swoją przestrzeń"
+  },
+  "demo": {
+    "browse": "Przeglądaj sekcje",
+    "previous": "← Poprzednia sekcja",
+    "next": "Następna sekcja →",
+    "title": "Zobacz to w akcji",
+    "example": "Przykład demonstracyjny",
+    "steps": "Kroki demonstracyjne",
+    "step": "Krok {{step}} z {{count}}",
+    "play": "Zagraj",
+    "pause": "Pauza",
+    "replay": "Odtwórz ponownie",
+    "progress": "Postęp demonstracyjny",
+    "mode": "Zachowanie",
+    "nextStep": "Następny krok",
+    "reducedMotion": "Ograniczony ruch: eksploruj kroki bez animacji.",
+    "labels": {
+      "settings": "Ustawienia",
+      "saved": "Zmiany zostały zapisane",
+      "page": "Strona",
+      "selection": "Wybór",
+      "selected": "wybrane elementy",
+      "color": "Kolor",
+      "styleName": "Mój fioletowy styl",
+      "wallpaper": "Tapety",
+      "rotation": "Obrót",
+      "format": "Sformatuj",
+      "seconds": "Sekundy",
+      "language": "Język",
+      "system": "Systemu",
+      "currentLanguage": "Polski",
+      "restore": "Przywróć",
+      "copy": "Kopia zapasowa",
+      "restoreCopy": "Sprawdź przed przywróceniem",
+      "switchSync": "Przełączyć na synchronizację?",
+      "applyNow": "Obowiązuje po potwierdzeniu",
+      "status": "Stan",
+      "synchronized": "Zsynchronizowane",
+      "retry": "Zapisz w oczekiwaniu · Spróbuj ponownie",
+      "keyboardQuery": "klawiatura",
+      "deleteExample": "Zakładki i foldery zostaną usunięte. Kosz będzie pusty."
+    },
+    "topics": {
+      "bookmarks": [
+        "Otwórz menu po lewej stronie i wybierz + → Zakładka.",
+        "Wpisz nazwę i adres strony.",
+        "Potwierdź: zakładka pojawi się w wolnej komórce."
+      ],
+      "quick-save": [
+        "Otwórz New DeskTab z ikony rozszerzenia.",
+        "Przejrzyj sugerowaną nazwę, adres i miejsce docelowe.",
+        "Zapisz: zakładka będzie w obszarze roboczym, gdy otworzysz kartę."
+      ],
+      "keyboard": [
+        "Naciśnij Tab, aby skupić się na pierwszym elemencie.",
+        "Klawisze strzałek przesuwają fokus. Enter otwiera wybrany element.",
+        "Esc lub inny Tab kończy nawigację."
+      ],
+      "shortcuts": [
+        "Otwórz Ustawienia → Skróty klawiaturowe.",
+        "Kliknij skrót akcji i wpisz kombinację.",
+        "Zapisz, aby zastosować nowy skrót."
+      ],
+      "search": [
+        "Lupa na pasku narzędzi lub / otwiera wyszukiwanie.",
+        "Wpisz część nazwy lub adresu.",
+        "Otwórz wynik. Esc lub Zamknij powoduje powrót do obszaru roboczego."
+      ],
+      "editing": [
+        "Ołówek menu odsłania siatkę i elementy sterujące.",
+        "Ołówek Gmaila otwiera edytor nazw i adresów URL.",
+        "Zapisz zmianę i ponownie kliknij ołówek menu, aby zakończyć."
+      ],
+      "movement": [
+        "Włącz edycję i przytrzymaj kafelek.",
+        "Kursor i kafelek przenoszą się razem do wolnej komórki.",
+        "Zwolnij: pozycja końcowa zostaje zapisana."
+      ],
+      "resizing": [
+        "Włącz edycję i znajdź uchwyt narożny.",
+        "Przeciągnij po przekątnej, aby zmienić szerokość i wysokość.",
+        "Zwolnij przy 2 × 2. Porównaj Brak i Gładki za pomocą wybieraka."
+      ],
+      "drag-modes": [
+        "Użyj selektora, aby porównać trzy tryby przeciągania.",
+        "Przeciągnij w stronę zajętej celi i obserwuj inne kafelki.",
+        "Żaden nie korzysta z wolnej komórki; Relokacja i Kaskada reorganizują kafelki."
+      ],
+      "folders": [
+        "Nazwij folder, w którym chcesz pogrupować strony.",
+        "Podczas edycji przeciągnij na niego zakładkę.",
+        "Otwórz folder, aby znaleźć zakładkę w jego siatce."
+      ],
+      "workspaces": [
+        "Pasek narzędzi + tworzy obszar roboczy o wybranej przez Ciebie nazwie.",
+        "Nowy obszar roboczy ma własną siatkę.",
+        "Alt + ↑ i Alt + ↓ przełączają się między obszarami roboczymi."
+      ],
+      "selection": [
+        "Włącz edycję i wybierz kafelek krótkim kliknięciem.",
+        "Wybierz inny: pasek narzędzi oferuje akcje grupowe.",
+        "Klon tworzy kopie w wolnych komórkach w jednej akcji."
+      ],
+      "history": [
+        "Przesuń kafelek: ta zmiana przejdzie do historii.",
+        "Cofnij przywraca kafelek do poprzedniej pozycji.",
+        "Wykonaj ponownie przywraca ruch, który właśnie cofnąłeś."
+      ],
+      "appearance": [
+        "Ołówek kafelka otwiera edytor.",
+        "Zmień kolor i obejrzyj podgląd.",
+        "Zapisz, aby zastosować ten wygląd do kafelka."
+      ],
+      "presets": [
+        "Otwórz bibliotekę, wybierając Ustawienia → Zakładki.",
+        "Nazwij i zapisz styl, aby go ponownie wykorzystać.",
+        "Załaduj go jako domyślny i zapisz dla nowych zakładek."
+      ],
+      "wallpapers": [
+        "Otwórz Ustawienia → Motyw, aby wybrać tapetę.",
+        "Przejrzyj podgląd i interwał rotacji bibliotek.",
+        "Zapisz: wybrana tapeta pojawi się w Twoim obszarze roboczym."
+      ],
+      "clock": [
+        "Z lewego menu wybierz + → Widżety → Zegar.",
+        "Skonfiguruj format i sekundy, korzystając z podglądu.",
+        "Dodaj zegar do wolnej komórki obszaru roboczego."
+      ],
+      "interface": [
+        "Otwórz Ogólne i wybierz język menu.",
+        "Porównaj jasny i ciemny interfejs.",
+        "Zapisz swoje preferencje dotyczące języka i wyglądu."
+      ],
+      "trash": [
+        "Otwórz kosz, aby znaleźć usuniętą zakładkę.",
+        "Wybierz go i kliknij Przywróć: powraca do siatki.",
+        "Ogólnie rzecz biorąc, wybierz, jak długo mają być przechowywane usunięte elementy."
+      ],
+      "backup": [
+        "Znajdź opcje tworzenia kopii zapasowych w Ustawieniach → Ogólne.",
+        "Eksportuj pobiera plik ZIP z danymi i plikami lokalnymi.",
+        "Import wymaga potwierdzenia przed zastąpieniem danych."
+      ],
+      "sync": [
+        "Otwórz Ustawienia → Synchronizacja, aby sprawdzić bieżący tryb.",
+        "Wybierz Zsynchronizowane i przejrzyj potwierdzenie.",
+        "Akceptuj powoduje natychmiastowe zastosowanie trybu, bez klikania Zapisz."
+      ],
+      "compact": [
+        "Gdy okno się zwęża, siatka staje się listą.",
+        "Zakładki pozostają dostępne z listy.",
+        "Poszerz okno, aby powrócić do siatki i edycji."
+      ],
+      "data": [
+        "W przykładzie zastosowano inny język, lekki interfejs i niestandardowe kafelki.",
+        "Resetuj przywraca ustawienia domyślne, zachowując zakładki i ich style.",
+        "Usuń usuwa zakładki i foldery, pozostawiając jedynie pusty kosz."
+      ],
+      "learning": [
+        "Codzienna wskazówka zaprasza Cię do odkrycia funkcji. Kliknij Pokaż, jak to zrobić.",
+        "Wpisz „klawiatura” w polu wyszukiwania, aby znaleźć opcję Nawiguj za pomocą klawiatury.",
+        "Kliknij wynik, aby przeczytać instrukcje."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "MAŁA WSKAZÓWKA NA DZIŚ",
+    "dismiss": "Odrzuć dzisiejszą wskazówkę",
+    "read": "Pokaż mi jak",
+    "pace": "Najedź, aby wstrzymać.",
+    "enabled": "Codzienne wskazówki",
+    "description": "Jedna wskazówka, gdy otworzysz pierwszą kartę danego dnia."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Jak dodać stronę do zakładek?",
+      "searchTerms": "dodaj stronę; utwórz zakładkę; zapisz stronę internetową; nowy ulubieniec",
+      "title": "Dodaj zakładki",
+      "summary": "Twoje ulubione strony pod ręką w każdej nowej karcie.",
+      "steps": [
+        "Przejdź do lewej krawędzi, aby wyświetlić menu. Wybierz + → Zakładka.",
+        "Wpisz nazwę i adres strony. Możesz dostosować jego wygląd przed dodaniem.",
+        "Potwierdź umieszczenie zakładki w wolnym miejscu w bieżącym obszarze roboczym. Poza trybem edycji kliknij go, aby otworzyć stronę."
+      ],
+      "note": "Aby zmienić istniejącą zakładkę, włącz edycję i użyj jej ołówka. Możesz zablokować adres, aby uniknąć przypadkowych zmian.",
+      "tip": "Menu dodawania zakładek znajduje się przy lewej krawędzi. Przesuń tam kursor i wybierz + → Zakładka."
+    },
+    "quick-save": {
+      "question": "Jak zapisać odwiedzaną stronę?",
+      "searchTerms": "zapisz bieżącą stronę; zapisz otwartą kartę; ikona rozszerzenia; przechwyć adres URL",
+      "title": "Zapisz bieżącą stronę",
+      "summary": "Dodaj stronę z ikony rozszerzenia.",
+      "steps": [
+        "Odwiedzając stronę, otwórz New DeskTab z menu rozszerzeń przeglądarki.",
+        "Sprawdź proponowaną nazwę i adres, a następnie wybierz dostępny cel podróży.",
+        "Zapisz zakładkę i otwórz nową kartę, aby znaleźć ją w swojej przestrzeni."
+      ],
+      "note": "Przypnij ikonę rozszerzenia do paska narzędzi przeglądarki, aby mieć ten skrót w zasięgu ręki.",
+      "tip": "Nie ma potrzeby kopiowania adresu URL: ikona przeglądarki New DeskTab pozwala zapisać odwiedzaną stronę."
+    },
+    "keyboard": {
+      "question": "Jak poruszać się bez myszy?",
+      "searchTerms": "bez myszy; użyj klawiatury; nawigacja strzałkowa; zakładka wejdź",
+      "title": "Nawiguj za pomocą klawiatury",
+      "summary": "Tab, klawisze strzałek i Enter, aby eksplorować swoją przestrzeń.",
+      "steps": [
+        "Na stronie głównej, bez wpisywania pola i otwierania okna dialogowego, naciśnij klawisz Tab, aby rozpocząć nawigację po elementach.",
+        "Użyj klawiszy strzałek, aby dotrzeć do najbliższego elementu w każdym kierunku. Enter otwiera zakładkę lub folder; w trybie edycji otwiera swój edytor.",
+        "Naciśnij ponownie Tab lub Esc, aby opuścić nawigację. Wewnątrz okien dialogowych Tab i Shift + Tab normalnie poruszają się pomiędzy kontrolkami."
+      ],
+      "note": "W trybie edycji S wybiera wybrany element. Usuń lub Backspace usuwa go po potwierdzeniu. Widżety są trwale usuwane.",
+      "tip": "Wypróbuj Tab w swojej przestrzeni: strzałki poruszają się między elementami, a Enter je otwiera. Kolejna karta opuszcza ten tryb."
+    },
+    "shortcuts": {
+      "question": "Jak zmienić skróty klawiaturowe?",
+      "searchTerms": "zmienić skróty; dostosuj klucze; kombinacje klawiszy; klawisz skrótu",
+      "title": "Twórz własne skróty",
+      "summary": "Sprawdź i zmień skróty w Ustawieniach.",
+      "steps": [
+        "Otwórz Ustawienia → Skróty, aby zobaczyć swoje powiązania do edycji, dodawania zakładek, folderów i widżetów oraz otwierania ustawień.",
+        "Kliknij kombinację klawiszy danej czynności i naciśnij nowy skrót. Esc anuluje nagrywanie; kliknięcie prawym przyciskiem myszy pozostawia akcję nieprzypisaną.",
+        "Zapisz ustawienia, aby zastosować zmiany. Resetuj skróty przywraca oryginalne kombinacje."
+      ],
+      "note": "Początkowo: E edytuje, B dodaje zakładkę, F folder, W otwiera widżety, a S otwiera ustawienia. Skróty uwzględniają pola tekstowe i okna dialogowe.",
+      "tip": "Skróty możesz zmienić w Ustawieniach. Kliknij kombinację, aby nagrać własną; Esc anuluje, a kliknięcie prawym przyciskiem myszy usuwa przypisanie."
+    },
+    "search": {
+      "question": "Jak znaleźć zakładkę, której nie widzę?",
+      "searchTerms": "znajdź zakładkę; zlokalizuj stronę; brakująca zakładka; wyszukaj adres URL",
+      "title": "Znajdź zakładkę",
+      "summary": "Szukaj według nazwy lub adresu, także w folderach.",
+      "steps": [
+        "Naciśnij / , gdy nie piszesz, lub użyj lupy na pasku obszaru roboczego.",
+        "Wpisz część nazwy lub adresu. Wyszukiwanie obejmuje zakładki w innych obszarach roboczych i wewnątrz folderów.",
+        "Otwórz potrzebny wynik. Esc lub Zamknij zabierze Cię z powrotem do swojego miejsca."
+      ],
+      "note": "Nie musisz pamiętać, gdzie zapisałeś stronę, aby ją znaleźć.",
+      "tip": "Klawisz / otwiera wyszukiwanie. Znajduje także zakładki w folderach i innych obszarach roboczych."
+    },
+    "editing": {
+      "question": "Jak włączyć edycję?",
+      "searchTerms": "włączyć edycję; edytuj pulpit; redaktor ołówka; zmodyfikuj zakładkę",
+      "title": "Tryb edycji",
+      "summary": "Włącz ołówek, aby uporządkować i dostosować.",
+      "steps": [
+        "Kliknij ołówek w menu po lewej stronie lub użyj skrótu do edycji, aby wyświetlić kontrolki siatki i elementów.",
+        "Przesuwaj, zmieniaj rozmiar lub zaznaczaj elementy. Ołówek każdej karty otwiera edytor jej nazwy, adresu i wyglądu.",
+        "Gdy skończysz, kliknij ołówek ponownie. Zmiany w obszarze roboczym są zapisywane automatycznie; redaktorzy mają własny przycisk Zapisz."
+      ],
+      "note": "Esc najpierw czyści zaznaczenie lub nawigację za pomocą klawiatury. Gdy żadne z nich nie jest aktywne, może opuścić tryb edycji.",
+      "tip": "Ołówek menu rozpocznie edycję: pojawią się uchwyty kart i elementy sterujące. Kliknij ponownie, aby zakończyć."
+    },
+    "movement": {
+      "question": "Jak przenieść zakładkę?",
+      "searchTerms": "przesuń zakładkę; przeciągnij ulubione; zmienić pozycję; ułóż siatkę",
+      "title": "Przesuń elementy",
+      "summary": "Przeciągnij karty na miejsce na siatce.",
+      "steps": [
+        "Włącz tryb edycji i przytrzymaj kartę, którą chcesz przenieść.",
+        "Przeciągnij go do miejsca docelowego. Wynik zależy od wolnego miejsca i trybu przeciągania wybranego w Ustawieniach → Zakładki.",
+        "Zwolnij, aby zapisać swoją pozycję. Możesz także wybrać pojedynczy element jednym kliknięciem i przenieść go o jedną komórkę za pomocą strzałek, poza nawigacją Tab."
+      ],
+      "note": "Zablokowane miejsca docelowe wyświetlają informację wizualną, a element powraca na prawidłową pozycję. Możesz cofnąć zmiany.",
+      "tip": "W trybie edycji kliknij, aby wybrać jedną kartę i użyj strzałek, aby przesuwać ją komórka po komórce. Najpierw opuść nawigację w zakładce."
+    },
+    "resizing": {
+      "question": "Jak zmienić rozmiar płytki?",
+      "searchTerms": "zmienić rozmiar kafelka; powiększ zakładkę; zmniejszyć rozmiar; uchwyty zmiany rozmiaru; trzask; Zmiana; szerokość wysokość; 2x2",
+      "title": "Zmień rozmiar",
+      "summary": "Wykorzystaj boki i rogi karty.",
+      "steps": [
+        "Włącz edycję i przejdź do boku lub rogu elementu, aby skorzystać z uchwytów zmiany rozmiaru.",
+        "Przeciągnij uchwyt. Narożnik zmienia szerokość i wysokość; bok zmienia tylko jeden wymiar. Możesz także kliknąć uchwyt, aby powiększyć o jedną komórkę, lub Shift i kliknięcie, aby zmniejszyć o jedną komórkę.",
+        "W Ustawieniach → Zakładki wybierz Brak, aby przeskakiwać między komórkami po przekroczeniu 50%, lub Gładko, aby rozciągnąć kartę i zatrzasnąć po zwolnieniu."
+      ],
+      "note": "Ostateczny rozmiar uwzględnia siatkę i prawidłowe pozycje. Podgląd ustawień pokazuje różnicę przed dokonaniem wyboru.",
+      "tip": "Kliknij uchwyt, aby powiększyć o jedną komórkę, lub Shift i kliknij, aby zmniejszyć o jedną komórkę. Narożniki zmieniają szerokość i wysokość razem; boki zmieniają tylko jeden wymiar."
+    },
+    "drag-modes": {
+      "question": "Dlaczego nie mogę wpaść do zajętej celi?",
+      "searchTerms": "zajęta komórka; przejść przez inny; zablokowany spadek; przenieść kaskadę; przeciągnij kolizję",
+      "title": "Tryby przeciągania",
+      "summary": "Wybierz, co stanie się na zajętej pozycji zakładki.",
+      "steps": [
+        "Otwórz Ustawienia → Zakładki i rozwiń zachowanie przeciągania.",
+        "Żaden nie przechodzi do wolnych miejsc. Relokacja wyszukuje miejsce na zakładki w miejscu docelowym. Kaskada zmienia kolejność zakładek.",
+        "Obejrzyj animację każdej opcji i zapisz tryb, w którym wygodniej jest organizować."
+      ],
+      "note": "Ruch zostaje odrzucony, jeśli nie istnieje żadne ważne porozumienie. Przezroczyste tło nie zwalnia zajętej celi.",
+      "tip": "Chcesz przenieść zakładkę do zajętej komórki? Spójrz na Relokację i Kaskadę w Ustawieniach → Zakładki i obejrzyj ich podglądy."
+    },
+    "folders": {
+      "question": "Jak pogrupować zakładki w foldery?",
+      "searchTerms": "utwórz folder; zakładki grupowe; organizuj ulubione; usuń z folderu; zmień nazwę folderu",
+      "title": "Porządkuj za pomocą folderów",
+      "summary": "Zbierz do 18 zakładek w jednym folderze.",
+      "steps": [
+        "Wybierz + → Folder z lewego menu i nadaj mu nazwę.",
+        "W trybie edycji przeciągnij na niego zakładki, aby umieścić je w środku. Otwórz folder, aby zobaczyć jego siatkę.",
+        "Użyj trybu edycji folderu, aby uporządkować jego zakładki. Kliknij jego nazwę, aby zmienić nazwę, oraz ikonę, aby dostosować jej wygląd."
+      ],
+      "note": "Usunięcie folderu wpływa również na jego zakładki. Przed kontynuowaniem przejrzyj potwierdzenie; kosz może przywrócić usunięte elementy.",
+      "tip": "W folderze mieści się do 18 zakładek. Włącz edycję i przeciągnij kartę do folderu, aby ją dodać."
+    },
+    "workspaces": {
+      "question": "Jak oddzielić strony osobiste od służbowych?",
+      "searchTerms": "praca osobista; utwórz przestrzeń roboczą; zmień obszar roboczy; komputery stacjonarne",
+      "title": "Oddziel obszary robocze",
+      "summary": "Jedna siatka do pracy, druga do wszystkiego innego.",
+      "steps": [
+        "Pasek obszaru roboczego przełącza między głównym i niestandardowym obszarem roboczym. Jego + tworzy nowy.",
+        "Wybierz obszar roboczy przed dodaniem elementów. Aby przenieść istniejące elementy, zaznacz je i wybierz miejsce docelowe na pasku akcji.",
+        "Alt + ↑ i Alt + ↓ umożliwiają przełączanie między obszarami roboczymi. Przycisk − po potwierdzeniu usuwa bieżący niestandardowy obszar roboczy."
+      ],
+      "note": "Usunięcie obszaru roboczego powoduje również usunięcie jego zawartości. Główne pobyty są dostępne i nie można ich usunąć.",
+      "tip": "Alt + ↑ i Alt + ↓ przełączają obszary robocze bez otwierania selektora. Oddziel pracę, hobby lub projekty za pomocą paska +."
+    },
+    "selection": {
+      "question": "Jak zmienić kilka elementów na raz?",
+      "searchTerms": "wybierz wiele; wybór zbiorczy; przesuń kilka; selekcja klonów; zduplikowane zakładki",
+      "title": "Wybierz i działaj zbiorczo",
+      "summary": "Mniej powtarzających się czynności przy organizowaniu kilku kart.",
+      "steps": [
+        "Włącz edycję i krótko kliknij każdą kartę, aby ją wybrać. Kliknij ponownie, aby odznaczyć; w nawigacji po kartach możesz używać S.",
+        "Pasek wyboru umożliwia powielanie, stosowanie wyglądu domyślnego, przenoszenie do innego obszaru roboczego lub usuwanie, w zależności od typu elementu.",
+        "Sprawdź miejsce docelowe lub potwierdzenie. Esc lub przycisk usuwania zaznaczenia anuluje wybór."
+      ],
+      "note": "Przenoszenie i powielanie wymaga wolnych miejsc. Aplikacja poinformuje Cię, jeśli niektóre elementy nie będą pasować. Widżety nie trafiają do kosza.",
+      "tip": "W trybie edycji wybierz kilka kart krótkimi kliknięciami, aby przenieść je, zduplikować lub zmienić ich styl. Esc czyści zaznaczenie."
+    },
+    "history": {
+      "question": "Jak cofnąć ostatnią zmianę?",
+      "searchTerms": "cofnąć zmianę; ponów zmianę; wracać; przywrócić pozycję",
+      "title": "Cofnij i powtórz",
+      "summary": "Odzyskaj pozycję lub ostatnią zmianę.",
+      "steps": [
+        "Użyj strzałki cofania na pasku obszaru roboczego, aby powrócić do poprzedniego stanu.",
+        "Strzałka ponownego wykonania przywraca cofniętą zmianę. Możesz także użyć Ctrl/Cmd + Z i Ctrl/Cmd + Shift + Z.",
+        "Wewnątrz edytora użyj strzałek obok jego tytułu, aby wyświetlić oczekujące zmiany; pola tekstowe zachowują normalną klawiaturę cofania. Każda akcja wyświetla krótki komunikat, a niedostępne strzałki są wyłączone. Sprawdź wynik przed zapisaniem."
+      ],
+      "note": "Historia edytora zaczyna się od nowa za każdym razem, gdy otwierasz edytor; zmiany dotrą do Twojego obszaru roboczego po zapisaniu. Historia obszaru roboczego jest tymczasowa i nie stanowi kopii zapasowej. Nowa sesja lub aktualizacje z innej karty mogą go zresetować.",
+      "tip": "Jeśli zmiana nie wydaje Ci się właściwa, użyj strzałki cofania lub Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z powoduje ponowne dokonanie zmiany."
+    },
+    "appearance": {
+      "question": "Jak zmienić kolor, ikonę lub tekst?",
+      "searchTerms": "zmienić kolor; zmień ikonę; zmienić tekst; wygląd zakładki; kolor folderu; favikona",
+      "title": "Dostosuj swoje karty",
+      "summary": "Kolory, obrazy, tekst i ikony na Twój sposób.",
+      "steps": [
+        "Włącz edycję i otwórz ołówek zakładki lub kontrolę wyglądu folderu lub kosza.",
+        "Poznaj edytor: tło, kolor, obraz, tekst i ikona. Dostępne elementy sterujące zależą od typu elementu; podgląd pokazuje wynik.",
+        "Oszczędzaj, kiedy jesteś szczęśliwy. Możesz użyć obrazów z adresu URL lub pliku lokalnego, jeśli edytor oferuje taką opcję."
+      ],
+      "note": "Lokalne obrazy należą do tej przeglądarki. Podczas synchronizacji dodaj zastępczy adres URL dla innych urządzeń. Importy zachowują dołączone obrazy i wyraźne odniesienia bez pliku; Synchronizacja ignoruje pliki niedostępne na tym urządzeniu.",
+      "tip": "Ołówek zakładki otwiera edytor wizualny. Zmień kolory, tekst, ikonę lub obraz i sprawdź podgląd."
+    },
+    "presets": {
+      "question": "Jak ponownie wykorzystać styl, który mi się podoba?",
+      "searchTerms": "zapisz styl; ponownie użyj wyglądu; style domyślne; biblioteka predefiniowana; zastosuj styl",
+      "title": "Wykorzystuj ponownie wyglądy",
+      "summary": "Zapisz wygląd i zastosuj go do innych zakładek.",
+      "steps": [
+        "Otwórz Bibliotekę redaktora, aby wybrać wygląd z dostępnej kolekcji.",
+        "Zapisz niestandardowy wygląd jako ustawienie wstępne, aby ponownie wykorzystać jego kolory, tekst i ikonę bez kopiowania nazwy lub adresu zakładki.",
+        "W Ustawieniach → Zakładki skonfiguruj domyślny wygląd nowych zakładek. Pasek wyboru może zastosować go do kompatybilnych elementów."
+      ],
+      "note": "Ustawienie wstępne zmienia wygląd, a nie tożsamość, miejsce docelowe lub położenie zakładki.",
+      "tip": "Zapisz wygląd, który Ci się podoba, w bibliotece wyglądów. Używaj go ponownie na innych kartach bez zmiany ich nazw i adresów."
+    },
+    "wallpapers": {
+      "question": "Jak użyć obrazu lub filmu jako tła?",
+      "searchTerms": "zmienić tło; tło wideo; obrót tapety; temat",
+      "title": "Tapety i rotacja",
+      "summary": "Kolor, obraz lub wideo, aby ustawić nastrój.",
+      "steps": [
+        "Otwórz Ustawienia → Motyw i wybierz domyślne tło, kolor lub tło multimedialne.",
+        "Dodaj obrazy lub filmy ze źródeł oferowanych w panelu. Biblioteka gromadzi wiele teł z interwałem rotacji.",
+        "Sprawdź podgląd i zapisz. Możesz sparować plik lokalny z alternatywnym adresem URL dla innych urządzeń."
+      ],
+      "note": "Pliki lokalne pozostają w tej przeglądarce. Synchronizacja ich nie przenosi; pełna kopia zapasowa może je zachować.",
+      "tip": "Twoje tło może zmieniać się automatycznie: dodaj kilka do Ustawienia → Biblioteka motywów i ustaw interwał rotacji."
+    },
+    "clock": {
+      "question": "Jak dodać zegar?",
+      "searchTerms": "dodaj zegar; czas pokazu; towary drugiej jakości; format 24-godzinny; widget zegara",
+      "title": "Dodaj zegar",
+      "summary": "Widget pokazujący czas Twojego urządzenia.",
+      "steps": [
+        "Wybierz + → Widżety z lewego menu i wybierz Zegar.",
+        "Wybierz format 12- lub 24-godzinny i czy wyświetlać sekundy. Podgląd pomoże Ci podjąć decyzję.",
+        "Dodaj go do wolnego slotu. W trybie edycji możesz przenosić, zmieniać rozmiar lub ponownie otwierać opcje."
+      ],
+      "note": "Zegar podąża za czasem Twojego urządzenia. Usunięcie widżetu jest trwałe; nie trafia do kosza.",
+      "tip": "W + → Widżety możesz dodać zegar 12- lub 24-godzinny z opcjonalnymi sekundami i dostosować jego rozmiar do swojego miejsca."
+    },
+    "interface": {
+      "question": "Jak zmienić język lub skorzystać z trybu ciemnego?",
+      "searchTerms": "zmienić język; tryb ciemny; tryb świetlny; wygląd interfejsu",
+      "title": "Temat języka i interfejsu",
+      "summary": "Spraw, aby menu, okna dialogowe i elementy sterujące były wygodne.",
+      "steps": [
+        "W Ustawieniach → Ogólne wybierz język lub pozwól, aby podążał za Twoim systemem.",
+        "Wybierz jasny, ciemny lub automatyczny interfejs zgodnie ze swoimi preferencjami.",
+        "Zapisz ustawienia. Motyw interfejsu współpracuje z tłem wybranym w Motywie."
+      ],
+      "note": "Język systemu i automatyczny wygląd dostosowują się do preferencji urządzenia.",
+      "tip": "Wybierz jasny lub ciemny interfejs, zachowując tapetę. Znajdź tę opcję i język w Ustawieniach → Ogólne."
+    },
+    "trash": {
+      "question": "Jak odzyskać usuniętą zakładkę?",
+      "searchTerms": "odzyskać usuniętą zakładkę; przywrócić usunięte; kosz; przypadkowo usunięte; odzyskać folder",
+      "title": "Przywróć z kosza",
+      "summary": "Druga szansa dla zakładek i folderów.",
+      "steps": [
+        "Otwórz kosz w swojej przestrzeni, aby przejrzeć usunięte zakładki i foldery.",
+        "Wybierz, co chcesz odzyskać i użyj opcji Przywróć. Możesz także trwale usunąć pozycje lub opróżnić kosz po potwierdzeniu.",
+        "W Ustawieniach → Ogólne wybierz, czy chcesz je wyświetlać i jak długo mają być przechowywane elementy: 1, 7, 14 lub 28 dni, czy też nigdy nie usuwaj ich automatycznie."
+      ],
+      "note": "Kosz należy do tego urządzenia. Nie można już z niego przywrócić wygasłych lub trwale usuniętych elementów.",
+      "tip": "Usunąłeś zakładkę przez pomyłkę? Otwórz kosz i przywróć go. Dostosuj okres przechowywania w Ustawieniach → Ogólne."
+    },
+    "backup": {
+      "question": "Jak wykonać kopię zapasową lub przenieść moje dane?",
+      "searchTerms": "kopia zapasowa; eksportuj dane; kopia importu; przywrócić kopię zapasową; inna przeglądarka; przesyłać dane",
+      "title": "Kopie zapasowe i importy",
+      "summary": "Zachowaj kopię swojej przestrzeni i zabierz ją ze sobą.",
+      "steps": [
+        "W Ustawieniach → Ogólne wyeksportuj pełną kopię zapasową, aby zachować dane i pliki lokalne zawarte w archiwum ZIP.",
+        "Aby przywrócić, zaimportuj kopię zapasową i przejrzyj potwierdzenie przed wymianą danych. Obsługiwane są także kompatybilne kopie zapasowe JSON.",
+        "W Ustawieniach → Zakładki możesz eksportować lub importować tylko zakładki i foldery, jeśli nie potrzebujesz pełnej kopii zapasowej."
+      ],
+      "note": "Eksport zakładek nie jest pełną kopią zapasową ustawień i multimediów lokalnych. Zapisz kopię zapasową przed przywróceniem lub usunięciem danych.",
+      "tip": "Pełna kopia zapasowa z poziomu Ustawienia → Ogólne zawiera pliki lokalne w formacie ZIP. Przydaje się przed zmianą przeglądarki lub przywróceniem danych."
+    },
+    "sync": {
+      "question": "Jak wykorzystać to samo miejsce na innym komputerze?",
+      "searchTerms": "inny komputer; synchronizować urządzenia; synchronizacja; chmura; synchronizacja lokalna; zatrzymaj synchronizację; wyłącz synchronizację; tryb lokalny",
+      "title": "Synchronizuj na różnych urządzeniach",
+      "summary": "Udostępnij swoją przestrzeń za pomocą synchronizacji przeglądarki.",
+      "steps": [
+        "Zaloguj się i włącz synchronizację rozszerzeń w swoim profilu Google Chrome.",
+        "W Ustawieniach → Synchronizacja wybierz Synchronizowane i zaakceptuj potwierdzenie. Zmiana zaczyna obowiązywać natychmiast: istniejące zsynchronizowane zakładki i ustawienia zostaną załadowane lub zapisane dane lokalne zostaną zsynchronizowane, jeśli ich nie ma.",
+        "Użyj tego samego profilu na drugim urządzeniu. Sprawdź status synchronizacji i dostępną przestrzeń w panelu."
+      ],
+      "note": "Pliki lokalne, kosz i codzienne napiwki należą do każdego urządzenia. Synchronizacja ma limity miejsca; używaj alternatywnych adresów URL dla lokalnych obrazów i filmów. Wybranie opcji Lokalny również wymaga potwierdzenia i skutkuje natychmiastowo, zachowując zsynchronizowane dane.",
+      "tip": "Synchronizacja udostępnia Twoją przestrzeń między urządzeniami, ale pliki lokalne wymagają alternatywnego adresu URL. Zobacz Ustawienia → Synchronizacja."
+    },
+    "compact": {
+      "question": "Dlaczego widzę listę zamiast siatki?",
+      "searchTerms": "małe okno; widok listy; siatka zniknęła; ukryty panel; mobilny",
+      "title": "Użyj mniejszego okna",
+      "summary": "Sięgaj do zakładek, gdy przestrzeń jest ograniczona.",
+      "steps": [
+        "Gdy okno się zwęża, aplikacja przełącza się na listę, aby zapewnić dostęp do elementów.",
+        "Otwórz zakładki, foldery lub wyszukaj w tym widoku. Instrukcja dostosowuje się również do dostępnego rozmiaru.",
+        "Poszerz okno, aby przywrócić siatkę i panele edycyjne. Zawieszone okno edycji zachowuje swoją wersję roboczą."
+      ],
+      "note": "Widok kompaktowy pomaga przeglądać przestrzeń; reorganizacja wymaga wystarczająco szerokiego okna.",
+      "tip": "W wąskim oknie Twoje zakładki pozostają dostępne w formie listy. Poszerz go, jeśli chcesz edytować lub zreorganizować siatkę."
+    },
+    "data": {
+      "question": "Jak usunąć swoje dane lub zresetować ustawienia?",
+      "searchTerms": "usunąć dane; zresetuj ustawienia; usuń wszystko; zacznij od nowa",
+      "title": "Zapisywanie i resetowanie",
+      "summary": "Zrozum, co jest zapisywane i co usuwa każde działanie.",
+      "steps": [
+        "Działania w obszarze roboczym są zapisywane automatycznie. W edytorach i Ustawieniach potwierdź za pomocą Zapisz; Anuluj odrzuca wersję roboczą tego panelu.",
+        "Jeśli pojawi się powiadomienie o oczekującym zapisie, kliknij Ponów próbę zapisu i poczekaj na potwierdzenie przed zamknięciem karty.",
+        "W Ustawienia → Ogólne możesz zresetować ustawienia lub usunąć wszystkie dane. Przeczytaj potwierdzenie i wyeksportuj kopię zapasową wszystkiego, co chcesz zachować."
+      ],
+      "note": "Zresetowanie ustawień powoduje zachowanie zakładek, ich rozmiarów i stylów. Usunięcie wszystkich danych lokalnych powoduje usunięcie elementów i opróżnienie kosza. Eksportuj kopię zapasową przed usunięciem: Cofnięcie nie zastępuje kopii zapasowej.",
+      "tip": "Jeśli zobaczysz powiadomienie o niezapisanych zmianach, użyj opcji Spróbuj zapisać ponownie przed zamknięciem karty. Chroń swoją przestrzeń dzięki pełnej kopii zapasowej."
+    },
+    "learning": {
+      "question": "Jak ponownie otworzyć przewodnik lub wyłączyć codzienne wskazówki?",
+      "searchTerms": "wyłącz wskazówki; wyłącz pomoc; codzienny alert; ponownie otwórz przewodnik; instrukcja obsługi",
+      "title": "Ucz się we własnym tempie",
+      "summary": "Krótki przewodnik, instrukcja i mała codzienna wskazówka.",
+      "steps": [
+        "Wróć do krótkiego przewodnika, wybierając Ustawienia → Pomoc. Każdy krok prowadzi do odpowiednich wyjaśnień w instrukcji.",
+        "Przejrzyj indeks lub wyszukaj słowo. Linki powiązane z sekcją przeniosą Cię do innych funkcji, gdy będziesz gotowy.",
+        "Twoja pierwsza nowa karta każdego dnia pokazuje losową wskazówkę. Odrzuć go lub otwórz wyjaśnienie; możesz wyłączyć wskazówki w Pomocy."
+      ],
+      "note": "Wskazówki odwiedzaj sekcje bez powtarzania, aż do zakończenia kolekcji. Trwają 20 sekund i zatrzymują się podczas najeżdżania kursorem lub skupiania przycisków. Są zgodne z lokalnym dniem i preferencjami tej przeglądarki.",
+      "tip": "Niniejsza instrukcja znajduje się zawsze w Ustawieniach → Pomoc. Codzienne wskazówki otwierają sekcję, w której możesz je wyłączyć, kiedy tylko chcesz."
+    }
+  }
+}

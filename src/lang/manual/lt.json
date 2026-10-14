@@ -1,0 +1,517 @@
+{
+  "title": "Vartotojo vadovas",
+  "eyebrow": "JŪSŲ ERDVĖ, JŪSŲ TEMPAS",
+  "intro": "Susipažinkite su kiekviena smulkmena.",
+  "description": "Raskite tai, ko jums reikia, arba atraskite ką nors naujo. Neskubėkite.",
+  "settingsDescription": "Kiekviena funkcija su paprastais veiksmais ir mažomis gudrybėmis, kurias galite išbandyti bet kada.",
+  "search": {
+    "label": "Kuo mes galime jums padėti?",
+    "placeholder": "Pavyzdžiui: atkurti ištrintą žymę",
+    "common": "Dažni klausimai",
+    "found": "Atsakymai į jūsų paiešką · {{count}}",
+    "empty": "Pagal šią paiešką nerasta. Pabandykite „klaviatūra“, „perkelti žymes“ arba „atsarginė kopija“.",
+    "resultsLabel": "Rankiniai klausimai ir atsakymai"
+  },
+  "open": "Naršykite vadovą",
+  "searchLabel": "Ieškokite vadove",
+  "searchPlaceholder": "Išbandykite „klaviatūrą“, „tapetą“ arba „atsarginę kopiją“",
+  "count": "{{count}} skyriai, kuriuos reikia ištirti",
+  "empty": "Jokių atitikmenų. Išbandykite kitą žodį arba išvalykite paiešką, kad pamatytumėte visą rodyklę.",
+  "back": "← Rankinis rodyklė",
+  "remember": "Gera prisiminti",
+  "related": "Atraskite toliau",
+  "footer": "Visada pasiekiama nustatymuose → Pagalba.",
+  "guideLinks": "Sužinokite daugiau vadove",
+  "groups": {
+    "start": "Pradėkite čia",
+    "organize": "Susitvarkyk",
+    "personalize": "Padarykite tai savo",
+    "protect": "Rūpinkitės savo erdve"
+  },
+  "demo": {
+    "browse": "Naršyti skyrius",
+    "previous": "← Ankstesnė dalis",
+    "next": "Kitas skyrius →",
+    "title": "Pamatykite tai veikiant",
+    "example": "Demonstravimo pavyzdys",
+    "steps": "Demonstraciniai žingsniai",
+    "step": "{{step}} veiksmas iš {{count}}",
+    "play": "Žaisti",
+    "pause": "Pauzė",
+    "replay": "Pakartoti",
+    "progress": "Demonstracijos eiga",
+    "mode": "Elgesys",
+    "nextStep": "Kitas žingsnis",
+    "reducedMotion": "Sumažintas judesys: tyrinėkite veiksmus be animacijos.",
+    "labels": {
+      "settings": "Nustatymai",
+      "saved": "Pakeitimai išsaugoti",
+      "page": "Puslapis",
+      "selection": "Atranka",
+      "selected": "pasirinkti elementai",
+      "color": "Spalva",
+      "styleName": "Mano violetinis stilius",
+      "wallpaper": "Užsklandos",
+      "rotation": "Rotacija",
+      "format": "Formatas",
+      "seconds": "sekundės",
+      "language": "Kalba",
+      "system": "Sistema",
+      "currentLanguage": "Lietuvių",
+      "restore": "Atkurti",
+      "copy": "Atsarginė kopija",
+      "restoreCopy": "Peržiūrėkite prieš atkurdami",
+      "switchSync": "Perjungti į sinchronizuotą?",
+      "applyNow": "Taikoma patvirtinus",
+      "status": "Būsena",
+      "synchronized": "Sinchronizuota",
+      "retry": "Laukiama išsaugojimo · Bandyti dar kartą",
+      "keyboardQuery": "klaviatūra",
+      "deleteExample": "Žymės ir aplankai bus ištrinti. Šiukšlių dėžė bus tuščia."
+    },
+    "topics": {
+      "bookmarks": [
+        "Atidarykite kairįjį meniu ir pasirinkite + → Žymė.",
+        "Įveskite puslapio pavadinimą ir adresą.",
+        "Patvirtinkite: žyma rodoma laisvoje langelyje."
+      ],
+      "quick-save": [
+        "Atidarykite New DeskTab naudodami plėtinio piktogramą.",
+        "Peržiūrėkite siūlomą pavadinimą, adresą ir kelionės tikslą.",
+        "Išsaugoti: kai atidarysite skirtuką, žymė bus jūsų darbo srityje."
+      ],
+      "keyboard": [
+        "Norėdami sufokusuoti pirmąjį elementą, paspauskite Tab.",
+        "Rodyklių klavišai perkelia židinį. Enter atidaro paryškintą elementą.",
+        "Esc arba kitas skirtukas baigia naršymą."
+      ],
+      "shortcuts": [
+        "Atidarykite Nustatymai → Spartieji klavišai.",
+        "Spustelėkite veiksmo spartųjį klavišą ir įveskite derinį.",
+        "Išsaugokite, kad pritaikytumėte naują spartųjį klavišą."
+      ],
+      "search": [
+        "Įrankių juostos didintuvas arba / atidaro paiešką.",
+        "Įveskite vardo arba adreso dalį.",
+        "Atidarykite rezultatą. Esc arba Uždaryti grįžta į jūsų darbo sritį."
+      ],
+      "editing": [
+        "Meniu pieštukas atskleidžia tinklelį ir valdiklius.",
+        "„Gmail“ pieštukas atidaro pavadinimo ir URL redaktorių.",
+        "Išsaugokite pakeitimą ir dar kartą spustelėkite meniu pieštuką, kad baigtumėte."
+      ],
+      "movement": [
+        "Įgalinkite redagavimą ir palaikykite plytelę.",
+        "Žymeklis ir plytelė kartu pereina į laisvą langelį.",
+        "Paleidimas: galutinė padėtis išsaugoma."
+      ],
+      "resizing": [
+        "Įgalinkite redagavimą ir raskite kampinę rankenėlę.",
+        "Vilkite įstrižai, kad pakeistumėte plotį ir aukštį.",
+        "Atleiskite 2 × 2. Palyginkite Nėra ir Sklandžiai naudodami parinkiklį."
+      ],
+      "drag-modes": [
+        "Naudokite parinkiklį, kad palygintumėte tris vilkimo režimus.",
+        "Vilkite link užimto langelio ir stebėkite kitas plyteles.",
+        "Nė vienas nenaudoja laisvos ląstelės; Perkėlimas ir kaskados pertvarko plyteles."
+      ],
+      "folders": [
+        "Pavadinkite aplanką puslapiams sugrupuoti.",
+        "Redaguodami vilkite žymę ant jos.",
+        "Atidarykite aplanką, kad rastumėte žymę jo tinklelyje."
+      ],
+      "workspaces": [
+        "Įrankių juosta + sukuria darbo sritį jūsų pasirinktu pavadinimu.",
+        "Naujoji darbo sritis turi savo tinklelį.",
+        "Alt + ↑ ir Alt + ↓ pereina per darbo sritis."
+      ],
+      "selection": [
+        "Įgalinkite redagavimą ir trumpu paspaudimu pasirinkite plytelę.",
+        "Pasirinkite kitą: įrankių juosta siūlo grupės veiksmus.",
+        "Klonas sukuria kopijas laisvose ląstelėse vienu veiksmu."
+      ],
+      "history": [
+        "Perkelti plytelę: šis pakeitimas patenka į istoriją.",
+        "Anuliuoti grąžina plytelę į ankstesnę padėtį.",
+        "Pakartotinai atkuria ką tik atšauktą judėjimą."
+      ],
+      "appearance": [
+        "Plytelės pieštukas atidaro redaktorių.",
+        "Pakeiskite spalvą ir žiūrėkite peržiūrą.",
+        "Išsaugokite, kad pritaikytumėte tokią išvaizdą plytelėms."
+      ],
+      "presets": [
+        "Atidarykite biblioteką iš Nustatymai → Žymės.",
+        "Pavadinkite ir išsaugokite stilių, kad galėtumėte pakartotinai jį naudoti.",
+        "Įkelkite jį kaip numatytąjį ir išsaugokite naujoms žymėms."
+      ],
+      "wallpapers": [
+        "Norėdami pasirinkti ekrano foną, atidarykite Nustatymai → Tema.",
+        "Peržiūrėkite peržiūrą ir bibliotekos pasukimo intervalą.",
+        "Išsaugoti: pasirinktas ekrano užsklanda bus rodomas jūsų darbo vietoje."
+      ],
+      "clock": [
+        "Kairiajame meniu pasirinkite + → Valdikliai → Laikrodis.",
+        "Sukonfigūruokite formatą ir sekundes naudodami peržiūrą.",
+        "Pridėkite laikrodį į laisvą darbo vietos langelį."
+      ],
+      "interface": [
+        "Atidarykite „Bendra“ ir pasirinkite meniu kalbą.",
+        "Palyginkite šviesią ir tamsią sąsają.",
+        "Išsaugokite kalbos ir išvaizdos nuostatas."
+      ],
+      "trash": [
+        "Atidarykite šiukšliadėžę, kad rastumėte ištrintą žymę.",
+        "Pasirinkite jį ir spustelėkite Atkurti: jis grįš į tinklelį.",
+        "Apskritai pasirinkite, kiek laiko bus saugomi ištrinti elementai."
+      ],
+      "backup": [
+        "Atsarginės kopijos parinktis raskite skiltyje „Nustatymai“ → „Bendra“.",
+        "Eksportuokite atsisiuntimus ZIP su duomenimis ir vietiniais failais.",
+        "Prieš pakeičiant duomenis, importuojant prašoma patvirtinimo."
+      ],
+      "sync": [
+        "Norėdami patikrinti esamą režimą, atidarykite Nustatymai → Sinchronizavimas.",
+        "Pasirinkite Sinchronizuota ir peržiūrėkite patvirtinimą.",
+        "Sutinku, režimas taikomas iš karto, nespustelėjus Išsaugoti."
+      ],
+      "compact": [
+        "Kai langas susiaurėja, tinklelis tampa sąrašu.",
+        "Žymės lieka pasiekiamos iš sąrašo.",
+        "Norėdami grįžti į tinklelį ir redaguoti, išplėskite langą."
+      ],
+      "data": [
+        "Pavyzdyje naudojama kita kalba, lengva sąsaja ir pritaikytos plytelės.",
+        "Nustatyti iš naujo atkuria numatytuosius nustatymus, išsaugant žymes ir jų stilius.",
+        "Ištrinti pašalina žymes ir aplankus, paliekant tik tuščią šiukšliadėžę."
+      ],
+      "learning": [
+        "Kasdieninis patarimas kviečia atrasti funkciją. Spustelėkite Rodyti kaip.",
+        "Paieškos laukelyje įveskite „klaviatūra“, kad rastumėte Naršyti klaviatūra.",
+        "Spustelėkite rezultatą, kad perskaitytumėte jo instrukcijas."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "MAŽAS PATARIMAS ŠIANDIEN",
+    "dismiss": "Atmeskite šios dienos patarimą",
+    "read": "Parodyk kaip",
+    "pace": "Užveskite pelės žymeklį, kad pristabdytumėte.",
+    "enabled": "Kasdieniai patarimai",
+    "description": "Vienas patarimas atidarius pirmąjį dienos skirtuką."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Kaip pridėti puslapį prie savo žymių?",
+      "searchTerms": "pridėti puslapį; sukurti žymę; išsaugoti svetainę; naujas mėgstamiausias",
+      "title": "Pridėti žymes",
+      "summary": "Mėgstamiausi puslapiai po ranka kiekviename naujame skirtuke.",
+      "steps": [
+        "Pereikite į kairįjį kraštą, kad atidarytumėte meniu. Pasirinkite + → Žymėti.",
+        "Įveskite puslapio pavadinimą ir adresą. Prieš pridėdami galite pakoreguoti jo išvaizdą.",
+        "Patvirtinkite, kad norite įdėti žymę į laisvą dabartinės darbo srities lizdą. Jei nėra redagavimo režimo, spustelėkite jį, kad atidarytumėte puslapį."
+      ],
+      "note": "Norėdami pakeisti esamą žymę, įjunkite redagavimą ir naudokite jos pieštuką. Galite užrakinti adresą, kad išvengtumėte atsitiktinių pakeitimų.",
+      "tip": "Žymių pridėjimo meniu yra kairiajame krašte. Perkelkite žymeklį ten ir pasirinkite + → Žymėti."
+    },
+    "quick-save": {
+      "question": "Kaip išsaugoti puslapį, kuriame lankau?",
+      "searchTerms": "išsaugoti esamą puslapį; išsaugoti atidarytą skirtuką; plėtinio piktograma; užfiksuoti URL",
+      "title": "Išsaugoti dabartinį puslapį",
+      "summary": "Pridėkite puslapį iš plėtinio piktogramos.",
+      "steps": [
+        "Lankydamiesi puslapyje atidarykite New DeskTab iš naršyklės plėtinių meniu.",
+        "Patikrinkite siūlomą pavadinimą ir adresą bei pasirinkite galimą kelionės tikslą.",
+        "Išsaugokite žymę ir atidarykite naują skirtuką, kad rastumėte ją savo erdvėje."
+      ],
+      "note": "Prisekite plėtinio piktogramą prie naršyklės įrankių juostos, kad šis spartusis klavišas būtų pasiekiamas.",
+      "tip": "Nereikia kopijuoti URL: New DeskTab naršyklės piktograma leidžia išsaugoti puslapį, kuriame lankotės."
+    },
+    "keyboard": {
+      "question": "Kaip naršyti be pelės?",
+      "searchTerms": "be pelės; naudoti klaviatūrą; rodyklių navigacija; Įveskite skirtuką",
+      "title": "Naršykite klaviatūra",
+      "summary": "Tab, rodyklių klavišai ir Enter, kad tyrinėtumėte savo erdvę.",
+      "steps": [
+        "Pagrindiniame puslapyje, neįvesdami lauko arba neatverdami dialogo lango, paspauskite Tab, kad pradėtumėte naršyti elementus.",
+        "Naudokite rodyklių klavišus, kad pasiektumėte artimiausią elementą kiekviena kryptimi. Enter atidaro žymę arba aplanką; redagavimo režimu jis atidaro savo redaktorių.",
+        "Dar kartą paspauskite Tab arba Esc, kad išeitumėte iš navigacijos. Dialogo lange Tab ir Shift + Tab įprastai juda tarp valdiklių."
+      ],
+      "note": "Redagavimo režimu S pasirenka paryškintą elementą. Ištrinti arba Backspace pašalina jį patvirtinus. Valdikliai ištrinami visam laikui.",
+      "tip": "Išbandykite Tab savo erdvėje: rodyklės juda tarp elementų, o Enter juos atidaro. Kitas skirtukas palieka šį režimą."
+    },
+    "shortcuts": {
+      "question": "Kaip pakeisti sparčiuosius klavišus?",
+      "searchTerms": "pakeisti sparčiuosius klavišus; pritaikyti raktus; klavišų kombinacijos; spartusis klavišas",
+      "title": "Padarykite savo sparčiuosius klavišus",
+      "summary": "Patikrinkite ir pakeiskite sparčiuosius klavišus nustatymuose.",
+      "steps": [
+        "Atidarykite Nustatymai → Spartieji klavišai, kad pamatytumėte redagavimo, žymių, aplankų ir valdiklių įtraukimo ir atidarymo nustatymus.",
+        "Spustelėkite veiksmo klavišų kombinaciją ir paspauskite naują spartųjį klavišą. Esc atšaukia įrašymą; dešiniuoju pelės mygtuku spustelėkite veiksmas nepriskirtas.",
+        "Išsaugokite nustatymus, kad pritaikytumėte pakeitimus. Atstatyti sparčiuosius klavišus atkuria originalius derinius."
+      ],
+      "note": "Iš pradžių: E redaguoja, B prideda žymę, F – aplanką, W atidaro valdiklius, o S – nustatymus. Spartieji klavišai atitinka teksto laukus ir dialogus.",
+      "tip": "Nustatymuose galite pakeisti sparčiuosius klavišus. Spustelėkite derinį, kad įrašytumėte savo; Esc atšaukia ir dešiniuoju pelės mygtuku spustelėjus panaikina priskyrimą."
+    },
+    "search": {
+      "question": "Kaip rasti žymę, kurios nematau?",
+      "searchTerms": "rasti žymę; rasti puslapį; trūksta žymės; paieškos URL",
+      "title": "Raskite žymę",
+      "summary": "Ieškokite pagal vardą arba adresą, įskaitant aplankus.",
+      "steps": [
+        "Paspauskite /, kai nerašote teksto, arba naudokite didinamąjį stiklą darbo srities juostoje.",
+        "Įveskite vardo arba adreso dalį. Paieška apima žymes kitose darbo srityse ir aplankuose.",
+        "Atidarykite norimą rezultatą. Esc arba Uždaryti grąžins jus į jūsų erdvę."
+      ],
+      "note": "Jums nereikia prisiminti, kur išsaugojote puslapį, kad jį rastumėte.",
+      "tip": "Klavišas / atidaro paiešką. Ji taip pat randa žymes aplankuose ir kitose darbo srityse."
+    },
+    "editing": {
+      "question": "Kaip įjungti redagavimą?",
+      "searchTerms": "įgalinti redagavimą; redaguoti darbalaukį; pieštukų redaktorius; keisti žymę",
+      "title": "Redagavimo režimas",
+      "summary": "Įjunkite pieštuką, kad galėtumėte tvarkyti ir tinkinti.",
+      "steps": [
+        "Spustelėkite pieštuką kairiajame meniu arba naudokite redagavimo spartųjį klavišą, kad atskleistumėte tinklelį ir elementų valdiklius.",
+        "Perkelkite, pakeiskite dydį arba pasirinkite elementus. Kiekvienos kortelės pieštukas atidaro jos pavadinimo, adreso ir išvaizdos redaktorių.",
+        "Baigę dar kartą spustelėkite pieštuką. Darbo srities pakeitimai išsaugomi automatiškai; redaktoriai turi savo mygtuką Išsaugoti."
+      ],
+      "note": "Esc pirmiausia išvalo pasirinkimą arba klaviatūros naršymą. Kai nė vienas neaktyvus, jis gali išeiti iš redagavimo režimo.",
+      "tip": "Meniu pieštukas pradeda redaguoti: atsiranda kortelių rankenos ir valdikliai. Spustelėkite dar kartą, kad baigtumėte."
+    },
+    "movement": {
+      "question": "Kaip perkelti žymę?",
+      "searchTerms": "perkelti žymę; vilkti mėgstamiausią; pakeisti padėtį; sutvarkyti tinklelį",
+      "title": "Perkelti elementus",
+      "summary": "Vilkite korteles į vietą tinklelyje.",
+      "steps": [
+        "Įjunkite redagavimo režimą ir laikykite kortelę, kurią norite perkelti.",
+        "Vilkite jį į paskirties vietą. Rezultatas priklauso nuo laisvos vietos ir vilkimo režimo, pasirinkto „Nustatymai“ → „Žymės“.",
+        "Atleiskite, kad išsaugotumėte savo poziciją. Taip pat galite spustelėję pasirinkti vieną elementą ir perkelti jį į vieną langelį rodyklėmis už skirtuko naršymo ribų."
+      ],
+      "note": "Užblokuotos paskirties vietos rodo vaizdinį grįžtamąjį ryšį ir elementas grįžta į galiojančią padėtį. Galite anuliuoti pakeitimus.",
+      "tip": "Redagavimo režimu spustelėkite, kad pasirinktumėte vieną kortelę, ir naudokite rodykles, kad perkeltumėte ją po langelį. Pirmiausia palikite skirtuko naršymą."
+    },
+    "resizing": {
+      "question": "Kaip pakeisti plytelės dydį?",
+      "searchTerms": "pakeisti plytelių dydį; padidinti žymę; sumažinti dydį; dydžio keitimo rankenos; spustelėkite; Shift; plotis aukštis; 2x2",
+      "title": "Pakeiskite dydį",
+      "summary": "Naudokite kortelės šonus ir kampus.",
+      "steps": [
+        "Įjunkite redagavimą ir pereikite į elemento šoną arba kampą, kad galėtumėte naudoti jo dydžio keitimo rankenėles.",
+        "Vilkite rankenėlę. Kampas keičia plotį ir aukštį; pusė keičia tik vieną matmenį. Taip pat galite spustelėti rankenėlę, kad padidintumėte vienu langeliu, arba Shift + spustelėkite, kad sumažintumėte vienu langeliu.",
+        "Skiltyje „Nustatymai“ → „Žymės“ pasirinkite „Nėra“, kad peršoktumėte tarp langelių peržengus 50%, arba „Sklandžiai“, kad ištemptumėte kortelę ir užfiksuotumėte ją atleidus."
+      ],
+      "note": "Galutinis dydis atitinka tinklelį ir galiojančias pozicijas. Nustatymų peržiūros rodo skirtumą prieš pasirenkant.",
+      "tip": "Spustelėkite rankenėlę, kad padidintumėte vienu langeliu, arba Shift + spustelėkite, kad sumažintumėte vienu langeliu. Kampai kartu keičia plotį ir aukštį; pusės keičia tik vieną matmenį."
+    },
+    "drag-modes": {
+      "question": "Kodėl negaliu užlipti ant užimtos kameros?",
+      "searchTerms": "užimta kamera; pereiti per kitą; užblokuotas lašas; perkelti kaskadą; vilkimo susidūrimas",
+      "title": "Vilkimo režimai",
+      "summary": "Pasirinkite, kas vyksta užimtoje žymės vietoje.",
+      "steps": [
+        "Atidarykite Nustatymai → Žymės ir išplėskite vilkimo veikimą.",
+        "Nė vienas neperkeliamas į laisvas vietas. Perkėlimas suranda žymių vietą paskirties vietoje. Seka pertvarko žymes iš eilės.",
+        "Žiūrėkite kiekvienos parinkties animaciją ir išsaugokite režimą, kurį patogu tvarkyti."
+      ],
+      "note": "Judėjimas atmetamas, jei nėra galiojančio susitarimo. Skaidrus fonas neužimto ​​langelio neišlaisvina.",
+      "tip": "Norite perkelti žymę į užimtą kamerą? Pažvelkite į Perkėlimas ir pakopinis režimas, esantis „Nustatymai“ → „Žymės“ ir žiūrėkite jų peržiūras."
+    },
+    "folders": {
+      "question": "Kaip sugrupuoti žymes į aplankus?",
+      "searchTerms": "sukurti aplanką; grupės žymės; organizuoti mėgstamiausius; pašalinti iš aplanko; pervardyti aplanką",
+      "title": "Tvarkyti su aplankais",
+      "summary": "Surinkite iki 18 žymių viename aplanke.",
+      "steps": [
+        "Kairiajame meniu pasirinkite + → Aplankas ir suteikite jam pavadinimą.",
+        "Redagavimo režimu vilkite žymes ant jos, kad įdėtumėte jas viduje. Atidarykite aplanką, kad pamatytumėte jo tinklelį.",
+        "Naudokite aplanko redagavimo režimą, kad sutvarkytumėte jo žymes. Spustelėkite jo pavadinimą, kad pervadintumėte jį, ir piktogramą, kad pritaikytumėte jo išvaizdą."
+      ],
+      "note": "Aplanko ištrynimas turi įtakos ir jo žymėms. Prieš tęsdami peržiūrėkite patvirtinimą; šiukšliadėžė gali atkurti ištrintus elementus.",
+      "tip": "Aplanke telpa iki 18 žymių. Įjunkite redagavimą ir vilkite kortelę į aplanką, kad ją pridėtumėte."
+    },
+    "workspaces": {
+      "question": "Kaip atskirti asmeninius ir darbo puslapius?",
+      "searchTerms": "asmeninis darbas; sukurti darbo vietą; perjungti darbo vietą; staliniai kompiuteriai",
+      "title": "Atskirkite savo darbo vietas",
+      "summary": "Vienas tinklelis darbui, kitas – viskam.",
+      "steps": [
+        "Darbo srities juosta perjungia pagrindinę ir pasirinktines darbo sritis. Jo + sukuria naują.",
+        "Prieš pridėdami elementus pasirinkite darbo sritį. Norėdami perkelti esamus elementus, pasirinkite juos ir veiksmų juostoje pasirinkite paskirties vietą.",
+        "Alt + ↑ ir Alt + ↓ pereina per darbo sritis. Po patvirtinimo mygtukas – ištrina dabartinę pasirinktinę darbo sritį."
+      ],
+      "note": "Ištrynus darbo sritį ištrinamas ir jos turinys. Pagrindinis išlieka prieinamas ir jo negalima ištrinti.",
+      "tip": "Alt + ↑ ir Alt + ↓ perjungia darbo sritis neatidarius parinkiklio. Atskiras darbas, pomėgiai ar projektai su baro +."
+    },
+    "selection": {
+      "question": "Kaip vienu metu pakeisti kelis elementus?",
+      "searchTerms": "pasirinkti kelis; masinis pasirinkimas; perkelti kelis; klonų pasirinkimas; pasikartojančios žymės",
+      "title": "Pasirinkite ir veikite masiškai",
+      "summary": "Mažiau pasikartojančių veiksmų organizuojant kelias korteles.",
+      "steps": [
+        "Įjunkite redagavimą ir trumpai spustelėkite kiekvieną kortelę, kad ją pasirinktumėte. Spustelėkite dar kartą, kad panaikintumėte pasirinkimą; Naršymo skirtukuose galite naudoti S.",
+        "Pasirinkimo juosta leidžia kopijuoti, taikyti numatytąją išvaizdą, perkelti į kitą darbo sritį arba ištrinti, atsižvelgiant į elemento tipą.",
+        "Patikrinkite kelionės tikslą arba patvirtinimą. Esc arba išvalymo mygtukas atšaukia pasirinkimą."
+      ],
+      "note": "Perkėlimui ir kopijavimui reikia laisvų lizdų. Programa praneš, jei kai kurie elementai netilps. Valdikliai nepatenka į šiukšliadėžę.",
+      "tip": "Redagavimo režimu trumpais spustelėjimais pasirinkite kelias korteles, kad galėtumėte jas perkelti, kopijuoti arba perdaryti. Esc išvalo pasirinkimą."
+    },
+    "history": {
+      "question": "Kaip atšaukti paskutinį pakeitimą?",
+      "searchTerms": "anuliuoti pakeitimą; perdaryti pakeitimą; grįžti atgal; atkurti padėtį",
+      "title": "Anuliuoti ir perdaryti",
+      "summary": "Atkurkite poziciją arba neseniai atliktą pakeitimą.",
+      "steps": [
+        "Norėdami grįžti į ankstesnę būseną, naudokite anuliavimo rodyklę darbo srities juostoje.",
+        "Perdarymo rodyklė atkuria ką tik anuliuotą pakeitimą. Taip pat galite naudoti Ctrl/Cmd + Z ir Ctrl/Cmd + Shift + Z.",
+        "Redagavimo priemonėje naudokite šalia pavadinimo esančias rodykles laukiantiems pakeitimams; teksto laukuose išlaikomas įprastas klaviatūros anuliavimas. Kiekvienas veiksmas rodo trumpą pranešimą, o nepasiekiamos rodyklės yra išjungtos. Prieš išsaugodami patikrinkite rezultatą."
+      ],
+      "note": "Redaktorių istorija pradedama iš naujo kiekvieną kartą, kai atidarote redaktorių; pakeitimai pasiekia jūsų darbo vietą, kai išsaugosite. Darbo srities istorija yra laikina ir nėra atsarginė kopija. Nauja sesija arba naujiniai iš kito skirtuko gali jį nustatyti iš naujo.",
+      "tip": "Jei pakeitimas atrodo netinkamas, naudokite anuliavimo rodyklę arba Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z tai pakartokite."
+    },
+    "appearance": {
+      "question": "Kaip pakeisti spalvą, piktogramą ar tekstą?",
+      "searchTerms": "pakeisti spalvą; pakeisti piktogramą; pakeisti tekstą; žymės išvaizda; aplanko spalva; favicon",
+      "title": "Tinkinkite savo korteles",
+      "summary": "Spalvos, vaizdai, tekstas ir piktogramos jums patinka.",
+      "steps": [
+        "Įjunkite redagavimą ir atidarykite žymės pieštuką arba aplanko ar šiukšliadėžės išvaizdos valdiklį.",
+        "Naršykite redaktorių: foną, spalvą, vaizdą, tekstą ir piktogramą. Galimi valdikliai priklauso nuo prekės tipo; peržiūra rodo rezultatą.",
+        "Išsaugokite, kai būsite laimingi. Galite naudoti vaizdus iš URL arba vietinio failo, kur redaktorius siūlo tokią parinktį."
+      ],
+      "note": "Vietiniai vaizdai priklauso šiai naršyklei. Sinchronizuodami pridėkite atsarginį URL kitiems įrenginiams. Importuojant išsaugomi įtraukti vaizdai ir aiškios nuorodos be failo; Sinchronizavimas nepaiso failų, kurių nėra šiame įrenginyje.",
+      "tip": "Žymės pieštukas atidaro vaizdinę redagavimo priemonę. Pakeiskite spalvas, tekstą, piktogramą ar vaizdą ir patikrinkite peržiūrą."
+    },
+    "presets": {
+      "question": "Kaip pakartotinai panaudoti man patinkantį stilių?",
+      "searchTerms": "išsaugoti stilių; pakartotinio naudojimo išvaizda; numatytieji stiliai; iš anksto nustatyta biblioteka; taikyti stilių",
+      "title": "Pakartotinai naudokite pasirodymus",
+      "summary": "Išsaugokite išvaizdą ir pritaikykite jį kitoms žymėms.",
+      "steps": [
+        "Atidarykite redaktoriaus biblioteką, kad pasirinktumėte išvaizdą iš turimos kolekcijos.",
+        "Išsaugokite tinkintą išvaizdą kaip išankstinį nustatymą, kad galėtumėte pakartotinai naudoti jos spalvas, tekstą ir piktogramą nekopijuodami žymės pavadinimo ar adreso.",
+        "Skiltyje Nustatymai → Žymės sukonfigūruokite numatytąją naujų žymių išvaizdą. Pasirinkimo juosta gali pritaikyti ją suderinamiems elementams."
+      ],
+      "note": "Išankstinis nustatymas pakeičia išvaizdą, o ne žymės tapatybę, paskirties vietą ar vietą.",
+      "tip": "Išsaugokite jums patinkančią išvaizdą išvaizdos bibliotekoje. Pakartotinai naudokite jį kitose kortelėse nekeisdami jų vardų ar adresų."
+    },
+    "wallpapers": {
+      "question": "Kaip naudoti vaizdą ar vaizdo įrašą kaip foną?",
+      "searchTerms": "pakeisti foną; vaizdo fonas; tapetų pasukimas; tema",
+      "title": "Tapetai ir sukimasis",
+      "summary": "Spalva, vaizdas ar vaizdo įrašas nuotaikai sukurti.",
+      "steps": [
+        "Atidarykite Nustatymai → Tema ir pasirinkite numatytąjį foną, spalvą arba medijos foną.",
+        "Pridėkite vaizdų ar vaizdo įrašų iš skydelyje siūlomų šaltinių. Biblioteka renka kelis fonus su sukimosi intervalu.",
+        "Patikrinkite peržiūrą ir išsaugokite. Vietinį failą galite susieti su alternatyviu kitų įrenginių URL."
+      ],
+      "note": "Vietiniai failai lieka šioje naršyklėje. Sinchronizavimas jų neperkelia; visa atsarginė kopija gali juos išsaugoti.",
+      "tip": "Jūsų fonas gali keistis automatiškai: pridėkite keletą prie „Nustatymai“ → „Temų“ bibliotekos ir nustatykite sukimosi intervalą."
+    },
+    "clock": {
+      "question": "Kaip pridėti laikrodį?",
+      "searchTerms": "pridėti laikrodį; pasirodymo laikas; sekundės; 24 valandų formatas; laikrodžio valdiklis",
+      "title": "Pridėkite laikrodį",
+      "summary": "Valdiklis, rodantis jūsų įrenginio laiką.",
+      "steps": [
+        "Kairiajame meniu pasirinkite + → Valdikliai ir pasirinkite Laikrodis.",
+        "Pasirinkite 12 ar 24 valandų formatą ir ar rodyti sekundes. Peržiūra padeda apsispręsti.",
+        "Pridėkite jį prie laisvo lizdo. Redagavimo režimu galite perkelti, pakeisti dydį arba iš naujo atidaryti jo parinktis."
+      ],
+      "note": "Laikrodis seka jūsų įrenginio laiką. Valdiklio ištrynimas yra visam laikui; jis nepatenka į šiukšliadėžę.",
+      "tip": "Skiltyje + → Valdikliai galite pridėti 12 arba 24 valandų laikrodį su pasirenkamomis sekundėmis ir pakeisti jo dydį, kad jis atitiktų jūsų erdvę."
+    },
+    "interface": {
+      "question": "Kaip pakeisti kalbą arba naudoti tamsųjį režimą?",
+      "searchTerms": "pakeisti kalbą; tamsus režimas; šviesos režimas; sąsajos išvaizda",
+      "title": "Kalba ir sąsajos tema",
+      "summary": "Padarykite patogius meniu, dialogų langus ir valdiklius.",
+      "steps": [
+        "Skiltyje „Nustatymai“ → „Bendra“ pasirinkite kalbą arba leiskite jai sekti jūsų sistemą.",
+        "Pasirinkite šviesią, tamsią arba automatinę sąsają pagal savo pageidavimus.",
+        "Išsaugokite nustatymus. Sąsajos tema veikia kartu su fonu, kurį pasirinkote temoje."
+      ],
+      "note": "Sistemos kalba ir automatinė išvaizda atitinka jūsų įrenginio nuostatas.",
+      "tip": "Pasirinkite šviesią arba tamsią sąsają išsaugodami ekrano foną. Raskite šią parinktį ir kalbą skiltyje „Nustatymai“ → „Bendra“."
+    },
+    "trash": {
+      "question": "Kaip atkurti ištrintą žymę?",
+      "searchTerms": "atkurti ištrintą žymę; atkurti pašalintas; šiukšlių dėžė; netyčia ištrintas; atkurti aplanką",
+      "title": "Atkurkite iš šiukšliadėžės",
+      "summary": "Antra galimybė žymėms ir aplankams.",
+      "steps": [
+        "Atidarykite savo vietos šiukšliadėžę, kad peržiūrėtumėte ištrintas žymes ir aplankus.",
+        "Pasirinkite, ką norite grąžinti, ir naudokite atkūrimo funkciją. Taip pat patvirtinus galite visam laikui ištrinti elementus arba ištuštinti šiukšliadėžę.",
+        "Skiltyje „Nustatymai“ → „Bendra“ pasirinkite, ar jį rodyti ir kiek laiko saugos elementus: 1, 7, 14 ar 28 dienas, arba niekada jų neištrinti automatiškai."
+      ],
+      "note": "Šiukšliadėžė priklauso šiam įrenginiui. Pasibaigusių arba visam laikui ištrintų elementų iš jo atkurti nebegalima.",
+      "tip": "Per klaidą ištrynėte žymę? Atidarykite šiukšliadėžę ir atkurkite ją. Sureguliuokite saugojimo laikotarpį skiltyje „Nustatymai“ → „Bendra“."
+    },
+    "backup": {
+      "question": "Kaip sukurti atsarginę duomenų kopiją arba perkelti duomenis?",
+      "searchTerms": "atsarginė kopija; eksportuoti duomenis; importo kopija; atkurti atsarginę kopiją; kita naršyklė; perkelti duomenis",
+      "title": "Atsarginės kopijos ir importavimas",
+      "summary": "Pasilikite savo erdvės kopiją ir pasiimkite ją su savimi.",
+      "steps": [
+        "Skiltyje „Nustatymai“ → „Bendra“ eksportuokite visą atsarginę kopiją, kad išsaugotumėte duomenis ir vietinius failus, įtrauktus į ZIP archyvą.",
+        "Norėdami atkurti, importuokite atsarginę kopiją ir peržiūrėkite patvirtinimą prieš pakeisdami duomenis. Taip pat palaikomos suderinamos JSON atsarginės kopijos.",
+        "Nustatymuose → Žymės galite eksportuoti arba importuoti tik žymes ir aplankus, kai nereikia visos atsarginės kopijos."
+      ],
+      "note": "Žymių eksportavimas nėra visa nustatymų ir vietinės medijos atsarginė kopija. Prieš atkurdami arba ištrindami duomenis išsaugokite atsarginę kopiją.",
+      "tip": "Visoje atsarginėje kopijoje iš Nustatymai → Bendra apima vietinius failus ZIP. Tai naudinga prieš perjungiant naršyklę arba atkuriant duomenis."
+    },
+    "sync": {
+      "question": "Kaip panaudoti tą pačią vietą kitame kompiuteryje?",
+      "searchTerms": "kitas kompiuteris; sinchronizuoti įrenginius; sinchronizavimas; debesis; vietinis sinchronizavimas; sustabdyti sinchronizavimą; išjungti sinchronizavimą; vietinis režimas",
+      "title": "Sinchronizuoti įrenginiuose",
+      "summary": "Bendrinkite savo erdvę naudodami naršyklės sinchronizavimą.",
+      "steps": [
+        "Prisijunkite ir įgalinkite plėtinių sinchronizavimą savo Google Chrome profilyje.",
+        "Skiltyje Nustatymai → Sinchronizavimas pasirinkite Sinchronizuoti ir priimkite patvirtinimą. Perjungimas įsigalioja iš karto: esamos sinchronizuotos žymės ir nustatymai įkeliami arba išsaugoti vietiniai duomenys sinchronizuojami, jei jų nėra.",
+        "Naudokite tą patį profilį kitame įrenginyje. Patikrinkite sinchronizavimo būseną ir laisvą vietą skydelyje."
+      ],
+      "note": "Vietiniai failai, šiukšliadėžė ir kasdieniai patarimai priklauso kiekvienam įrenginiui. Sinchronizavimas turi saugojimo apribojimus; vietiniams vaizdams ir vaizdo įrašams naudoti alternatyvius URL. Pasirinkus Vietinis, taip pat prašoma patvirtinimo ir jis įsigalioja nedelsiant, o sinchronizuoti duomenys išsaugomi.",
+      "tip": "Sinchronizuojant dalijamasi vieta visuose įrenginiuose, tačiau vietiniams failams reikia alternatyvaus URL. Žr. Nustatymai → Sinchronizavimas."
+    },
+    "compact": {
+      "question": "Kodėl matau sąrašą, o ne tinklelį?",
+      "searchTerms": "mažas langas; sąrašo vaizdas; tinklelis dingo; paslėptas skydelis; mobilusis",
+      "title": "Naudokite mažesnį langą",
+      "summary": "Pasiekite žymes, kai vietos ribotas.",
+      "steps": [
+        "Kai langas susiaurėja, programa persijungia į sąrašą, kad jūsų elementai būtų pasiekiami.",
+        "Atidarykite žymes, aplankus arba ieškokite šiame rodinyje. Instrukcija taip pat prisitaiko prie turimo dydžio.",
+        "Išplėskite langą, kad sugrąžintumėte tinklelį ir redagavimo skydelius. Sustabdytas redagavimo dialogo langas išsaugo juodraštį."
+      ],
+      "note": "Kompaktiškas vaizdas padeda naršyti erdvę; pertvarkyti reikia pakankamai plataus lango.",
+      "tip": "Siaurame lange jūsų žymės lieka prieinamos kaip sąrašas. Išplėskite jį, kai norite redaguoti arba pertvarkyti tinklelį."
+    },
+    "data": {
+      "question": "Kaip ištrinti duomenis arba iš naujo nustatyti nustatymus?",
+      "searchTerms": "ištrinti duomenis; iš naujo nustatyti nustatymus; pašalinti viską; pradėti iš naujo",
+      "title": "Išsaugojimas ir nustatymas iš naujo",
+      "summary": "Supraskite, kas yra išsaugota ir ką kiekvienas veiksmas pašalina.",
+      "steps": [
+        "Darbo srities veiksmai išsaugomi automatiškai. Redaktoriuose ir nustatymuose patvirtinkite mygtuku Išsaugoti; Atšaukti atmetamas to skydelio juodraštis.",
+        "Jei pasirodo pranešimas apie laukiantį išsaugojimą, spustelėkite Bandyti išsaugoti dar kartą ir prieš uždarydami skirtuką palaukite patvirtinimo.",
+        "Skiltyje „Nustatymai“ → „Bendra“ galite iš naujo nustatyti nustatymus arba ištrinti visus duomenis. Perskaitykite patvirtinimą ir eksportuokite visų dalykų, kuriuos norite pasilikti, atsarginę kopiją."
+      ],
+      "note": "Iš naujo nustačius nustatymus išsaugomos jūsų žymės, jų dydžiai ir stiliai. Ištrynus visus vietinius duomenis, pašalinami elementai ir ištuštinama šiukšliadėžė. Eksportuokite atsarginę kopiją prieš ištrindami: Atšaukimas nepakeičia atsarginės kopijos.",
+      "tip": "Jei matote pranešimą apie neišsaugotus pakeitimus, prieš uždarydami skirtuką naudokite Bandyti išsaugoti dar kartą. Apsaugokite savo erdvę naudodami visą atsarginę kopiją."
+    },
+    "learning": {
+      "question": "Kaip iš naujo atidaryti vadovą arba išjungti kasdienius patarimus?",
+      "searchTerms": "išjungti patarimus; išjungti pagalbą; kasdieninis įspėjimas; iš naujo atidaryti vadovą; vartotojo vadovas",
+      "title": "Mokykitės savo tempu",
+      "summary": "Greitas vadovas, vadovas ir nedidelis kasdienis patarimas.",
+      "steps": [
+        "Dar kartą peržiūrėkite trumpąjį vadovą iš Nustatymai → Pagalba. Kiekvienas veiksmas yra susijęs su atitinkamais paaiškinimais vadove.",
+        "Naršykite rodyklę arba ieškokite žodžio. Su skyriumi susijusios nuorodos nukreipia į kitas funkcijas, kai būsite pasiruošę.",
+        "Kiekvieną dieną pirmame naujame skirtuke rodomas atsitiktinis patarimas. Atsisakykite jo arba atidarykite jo paaiškinimą; galite išjungti patarimus Pagalba."
+      ],
+      "note": "Patarimai aplanko skyrius nekartodami, kol rinkinys bus baigtas. Jie trunka 20 sekundžių ir pristabdo, kai nuleidžia pelės žymeklį arba sufokusuoja mygtukus. Jie seka vietinę dieną ir šios naršyklės nuostatas.",
+      "tip": "Šis vadovas visada yra skiltyje Nustatymai → Žinynas. Kasdieniniai patarimai atidaro skiltį ir ten galite juos išjungti, kai tik norite."
+    }
+  }
+}

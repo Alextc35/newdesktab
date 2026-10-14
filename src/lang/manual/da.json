@@ -1,0 +1,517 @@
+{
+  "title": "Brugermanual",
+  "eyebrow": "DIT RUM, DIT PACE",
+  "intro": "Lær hver eneste lille funktion at kende.",
+  "description": "Find det, du har brug for, eller opdag noget nyt. Tag dig god tid.",
+  "settingsDescription": "Hver funktion, med enkle trin og små tricks til at prøve, når du vil.",
+  "search": {
+    "label": "Hvad kan vi hjælpe dig med?",
+    "placeholder": "For eksempel: Gendan et slettet bogmærke",
+    "common": "Almindelige spørgsmål",
+    "found": "Svar til din søgning · {{count}}",
+    "empty": "Der blev ikke fundet hjælp til den søgning. Prøv \"tastatur\", \"flyt bogmærker\" eller \"sikkerhedskopiering\".",
+    "resultsLabel": "Manuelle spørgsmål og svar"
+  },
+  "open": "Udforsk manualen",
+  "searchLabel": "Søg i manualen",
+  "searchPlaceholder": "Prøv \"tastatur\", \"tapet\" eller \"sikkerhedskopiering\"",
+  "count": "{{count}} sektioner at udforske",
+  "empty": "Ingen kampe. Prøv et andet ord, eller ryd søgningen for at se hele indekset.",
+  "back": "← Manuelt indeks",
+  "remember": "Godt at huske",
+  "related": "Fortsæt med at opdage",
+  "footer": "Altid tilgængelig i Indstillinger → Hjælp.",
+  "guideLinks": "Lær mere i manualen",
+  "groups": {
+    "start": "Start her",
+    "organize": "Bliv organiseret",
+    "personalize": "Gør det til dit",
+    "protect": "Pas på din plads"
+  },
+  "demo": {
+    "browse": "Gennemse sektioner",
+    "previous": "← Forrige afsnit",
+    "next": "Næste afsnit →",
+    "title": "Se det i aktion",
+    "example": "Eksempel på demonstration",
+    "steps": "Demonstrationstrin",
+    "step": "Trin {{step}} af {{count}}",
+    "play": "Spil",
+    "pause": "Pause",
+    "replay": "Genafspilning",
+    "progress": "Fremskridt i demonstrationen",
+    "mode": "Adfærd",
+    "nextStep": "Næste skridt",
+    "reducedMotion": "Reduceret bevægelse: Udforsk trinene uden animation.",
+    "labels": {
+      "settings": "Indstillinger",
+      "saved": "Ændringer gemt",
+      "page": "Side",
+      "selection": "Udvælgelse",
+      "selected": "valgte elementer",
+      "color": "Farve",
+      "styleName": "Min lilla stil",
+      "wallpaper": "Baggrunde",
+      "rotation": "Rotation",
+      "format": "Format",
+      "seconds": "Sekunder",
+      "language": "Sprog",
+      "system": "System",
+      "currentLanguage": "Dansk",
+      "restore": "Gendan",
+      "copy": "Backup",
+      "restoreCopy": "Gennemgå før gendannelse",
+      "switchSync": "Vil du skifte til Synkroniseret?",
+      "applyNow": "Gælder ved bekræftelse",
+      "status": "Status",
+      "synchronized": "Synkroniseret",
+      "retry": "Gem afventer · Prøv igen",
+      "keyboardQuery": "tastatur",
+      "deleteExample": "Bogmærker og mapper vil blive slettet. Papirkurven vil være tom."
+    },
+    "topics": {
+      "bookmarks": [
+        "Åbn menuen til venstre og vælg + → Bogmærke.",
+        "Indtast sidens navn og adresse.",
+        "Bekræft: Bogmærket vises i en ledig celle."
+      ],
+      "quick-save": [
+        "Åbn New DeskTab fra dets udvidelsesikon.",
+        "Gennemgå det foreslåede navn, adresse og destination.",
+        "Gem: Bogmærket vil være i dit arbejdsområde, når du åbner en fane."
+      ],
+      "keyboard": [
+        "Tryk på Tab for at fokusere på det første element.",
+        "Piletasterne flytter fokus. Enter åbner det fokuserede element.",
+        "Esc eller en anden fane afslutter navigationen."
+      ],
+      "shortcuts": [
+        "Åbn Indstillinger → Tastaturgenveje.",
+        "Klik på en handlings genvej, og skriv din kombination.",
+        "Gem for at anvende den nye genvej."
+      ],
+      "search": [
+        "Værktøjslinjeforstørrelsen eller / åbner søgning.",
+        "Indtast en del af navnet eller adressen.",
+        "Åbn resultatet. Esc eller Luk vender tilbage til dit arbejdsområde."
+      ],
+      "editing": [
+        "Menublyanten afslører gitteret og kontrollerne.",
+        "Gmails blyant åbner dens navn og URL-editor.",
+        "Gem ændringen, og klik på menublyanten igen for at afslutte."
+      ],
+      "movement": [
+        "Aktiver redigering, og hold flisen nede.",
+        "Markøren og flisen flyttes sammen til en fri celle.",
+        "Slip: den endelige position gemmes."
+      ],
+      "resizing": [
+        "Aktiver redigering og find hjørnehåndtaget.",
+        "Træk diagonalt for at ændre bredde og højde.",
+        "Slip ved 2 × 2. Sammenlign Ingen og Glat ved hjælp af vælgeren."
+      ],
+      "drag-modes": [
+        "Brug vælgeren til at sammenligne de tre træktilstande.",
+        "Træk mod en besat celle og se de andre fliser.",
+        "Ingen bruger en fri celle; Flytning og Sekvens omorganiserer fliserne."
+      ],
+      "folders": [
+        "Navngiv en mappe for at gruppere dine sider.",
+        "Træk et bogmærke til det, mens du redigerer.",
+        "Åbn mappen for at finde bogmærket i dets gitter."
+      ],
+      "workspaces": [
+        "Værktøjslinjen + opretter et arbejdsområde med dit valgte navn.",
+        "Det nye arbejdsområde har sit eget gitter.",
+        "Alt + ↑ og Alt + ↓ går gennem dine arbejdsområder."
+      ],
+      "selection": [
+        "Aktiver redigering og vælg en flise med et kort klik.",
+        "Vælg en anden: Værktøjslinjen tilbyder gruppehandlinger.",
+        "Clone opretter kopier i frie celler i én handling."
+      ],
+      "history": [
+        "Flyt en flise: den ændring kommer ind i historien.",
+        "Fortryd returnerer flisen til dens tidligere position.",
+        "Gentag gendanner det træk, du lige har fortrudt."
+      ],
+      "appearance": [
+        "Flisens blyant åbner sin editor.",
+        "Skift farve og se forhåndsvisningen.",
+        "Gem for at anvende dette udseende på flisen."
+      ],
+      "presets": [
+        "Åbn biblioteket fra Indstillinger → Bogmærker.",
+        "Navngiv og gem en typografi for at genbruge den.",
+        "Indlæs det som standard og gem til nye bogmærker."
+      ],
+      "wallpapers": [
+        "Åbn Indstillinger → Tema for at vælge et tapet.",
+        "Gennemgå forhåndsvisningen og biblioteksrotationsintervallet.",
+        "Gem: det valgte tapet vises i dit arbejdsområde."
+      ],
+      "clock": [
+        "Vælg + → Widgets → Ur i menuen til venstre.",
+        "Konfigurer formatet og sekunder ved hjælp af forhåndsvisningen.",
+        "Tilføj uret til en ledig celle i arbejdsområdet."
+      ],
+      "interface": [
+        "Åbn Generelt og vælg menusproget.",
+        "Sammenlign den lyse og mørke grænseflade.",
+        "Gem dine sprog- og udseendepræferencer."
+      ],
+      "trash": [
+        "Åbn papirkurven for at finde et slettet bogmærke.",
+        "Vælg det, og klik på Gendan: det vender tilbage til gitteret.",
+        "Generelt skal du vælge, hvor længe slettede elementer opbevares."
+      ],
+      "backup": [
+        "Find sikkerhedskopieringsmulighederne i Indstillinger → Generelt.",
+        "Eksport downloader en ZIP-fil med data og lokale filer.",
+        "Import beder om bekræftelse før udskiftning af data."
+      ],
+      "sync": [
+        "Åbn Indstillinger → Synkronisering for at kontrollere den aktuelle tilstand.",
+        "Vælg Synkroniseret, og gennemgå bekræftelsen.",
+        "Accepter anvender tilstanden med det samme uden at klikke på Gem."
+      ],
+      "compact": [
+        "Når vinduet indsnævres, bliver gitteret til en liste.",
+        "Bogmærker forbliver tilgængelige fra listen.",
+        "Udvid vinduet for at vende tilbage til gitteret og redigering."
+      ],
+      "data": [
+        "Eksemplet bruger et andet sprog, en let grænseflade og tilpassede fliser.",
+        "Nulstil gendanner standardindstillingerne, mens bogmærker og deres stilarter bevares.",
+        "Slet fjerner bogmærker og mapper og efterlader kun den tomme papirkurv."
+      ],
+      "learning": [
+        "Det daglige tip inviterer dig til at opdage en funktion. Klik på Vis mig hvordan.",
+        "Skriv \"tastatur\" i søgefeltet for at finde Naviger med tastaturet.",
+        "Klik på resultatet for at læse instruktionerne."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "ET LILLE TIP TIL I DAG",
+    "dismiss": "Afvis dagens tip",
+    "read": "Vis mig hvordan",
+    "pace": "Hold musen over for at holde pause.",
+    "enabled": "Daglige tips",
+    "description": "Et tip, når du åbner din første fane på dagen."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Hvordan føjer jeg en side til mine bogmærker?",
+      "searchTerms": "tilføje side; oprette bogmærke; gemme hjemmeside; ny favorit",
+      "title": "Tilføj bogmærker",
+      "summary": "Dine yndlingssider ved hånden på hver ny fane.",
+      "steps": [
+        "Flyt til venstre kant for at få vist menuen. Vælg + → Bogmærke.",
+        "Indtast sidens navn og adresse. Du kan justere dets udseende, før du tilføjer det.",
+        "Bekræft at placere bogmærket i en ledig plads i det aktuelle arbejdsområde. Uden for redigeringstilstand skal du klikke på den for at åbne siden."
+      ],
+      "note": "For at ændre et eksisterende bogmærke skal du aktivere redigering og bruge dets blyant. Du kan låse adressen for at undgå utilsigtede ændringer.",
+      "tip": "Menuen til tilføjelse af bogmærker er i venstre kant. Flyt markøren dertil, og vælg + → Bogmærke."
+    },
+    "quick-save": {
+      "question": "Hvordan gemmer jeg den side, jeg besøger?",
+      "searchTerms": "gem nuværende side; gem åben fane; udvidelsesikon; fange URL",
+      "title": "Gem den aktuelle side",
+      "summary": "Tilføj en side fra udvidelsesikonet.",
+      "steps": [
+        "Mens du besøger en side, skal du åbne New DeskTab fra browserens udvidelsesmenu.",
+        "Tjek det foreslåede navn og adresse, og vælg en tilgængelig destination.",
+        "Gem bogmærket, og åbn en ny fane for at finde det i dit rum."
+      ],
+      "note": "Fastgør udvidelsesikonet til din browsers værktøjslinje for at holde denne genvej inden for rækkevidde.",
+      "tip": "Ingen grund til at kopiere URL'en: New DeskTabs browserikon lader dig gemme den side, du besøger."
+    },
+    "keyboard": {
+      "question": "Hvordan navigerer jeg uden mus?",
+      "searchTerms": "uden mus; brug tastatur; pil navigation; fanen indtast",
+      "title": "Naviger med tastaturet",
+      "summary": "Tab, piletaster og Enter for at udforske dit rum.",
+      "steps": [
+        "På hovedsiden, uden at skrive i et felt eller have en dialog åben, skal du trykke på Tab for at begynde at navigere i emnerne.",
+        "Brug piletasterne til at nå det nærmeste element i hver retning. Enter åbner bogmærket eller mappen; i redigeringstilstand åbner den sin editor.",
+        "Tryk på Tab igen eller Esc for at forlade navigationen. Inde i dialoger flytter Tab og Shift + Tab normalt mellem kontrolelementerne."
+      ],
+      "note": "I redigeringstilstand vælger S det fokuserede element. Slet eller Backspace fjerner det efter bekræftelse. Widgets slettes permanent.",
+      "tip": "Prøv Tab i dit område: pile flytter mellem elementer, og Enter åbner dem. En anden fane forlader denne tilstand."
+    },
+    "shortcuts": {
+      "question": "Hvordan ændrer jeg mine tastaturgenveje?",
+      "searchTerms": "ændre genveje; tilpasse nøgler; tastekombinationer; genvejstast",
+      "title": "Lav genveje til dine egne",
+      "summary": "Tjek og skift dine genveje i Indstillinger.",
+      "steps": [
+        "Åbn Indstillinger → Genveje for at se dine bindinger til redigering, tilføjelse af bogmærker, mapper og widgets og åbning af indstillinger.",
+        "Klik på en handlings tastkombination, og tryk på en ny genvej. Esc annullerer optagelsen; højreklik forlader handlingen utildelt.",
+        "Gem indstillinger for at anvende dine ændringer. Nulstil genveje gendanner de originale kombinationer."
+      ],
+      "note": "Indledningsvis: E redigerer, B tilføjer et bogmærke, F en mappe, W åbner widgets og S åbner indstillinger. Genveje respekterer tekstfelter og dialoger.",
+      "tip": "Du kan ændre genveje i Indstillinger. Klik på en kombination for at optage din egen; Esc annullerer og højreklik fjerner tildelingen."
+    },
+    "search": {
+      "question": "Hvordan finder jeg et bogmærke, jeg ikke kan se?",
+      "searchTerms": "find bogmærke; find side; manglende bogmærke; søge URL",
+      "title": "Find et bogmærke",
+      "summary": "Søg efter navn eller adresse, herunder inde i mapper.",
+      "steps": [
+        "Tryk på /, når du ikke skriver, eller brug forstørrelsesglasset på arbejdsområdet.",
+        "Indtast en del af et navn eller en adresse. Søgning inkluderer bogmærker i andre arbejdsområder og inde i mapper.",
+        "Åbn det resultat, du har brug for. Esc eller Luk tager dig tilbage til dit space."
+      ],
+      "note": "Du behøver ikke at huske, hvor du har gemt en side for at finde den.",
+      "tip": "Tasten / åbner søgning. Den finder også bogmærker i mapper og i andre arbejdsområder."
+    },
+    "editing": {
+      "question": "Hvordan slår jeg redigering til?",
+      "searchTerms": "aktiver redigering; redigere skrivebordet; blyant editor; ændre bogmærke",
+      "title": "Redigeringstilstand",
+      "summary": "Tænd for blyanten for at organisere og tilpasse.",
+      "steps": [
+        "Klik på blyanten i menuen til venstre, eller brug din redigeringsgenvej til at afsløre gitteret og elementkontrollerne.",
+        "Flyt, tilpas eller vælg elementer. Hvert korts blyant åbner dets navn, adresse og udseende editor.",
+        "Klik på blyanten igen, når du er færdig. Ændringer i arbejdsområdet gemmes automatisk; redaktører har deres egen Gem knap."
+      ],
+      "note": "Esc rydder først markering eller tastaturnavigation. Når ingen af ​​dem er aktive, kan den forlade redigeringstilstand.",
+      "tip": "Menublyanten begynder at redigere: korthåndtag og kontrolknapper vises. Klik på den igen for at afslutte."
+    },
+    "movement": {
+      "question": "Hvordan flytter jeg et bogmærke?",
+      "searchTerms": "flytte bogmærke; træk favorit; skifte stilling; arrangere gitter",
+      "title": "Flyt elementer",
+      "summary": "Træk kortene på plads i gitteret.",
+      "steps": [
+        "Slå redigeringstilstand til, og hold det kort, du vil flytte.",
+        "Træk den til dens destination. Resultatet afhænger af ledig plads og træktilstanden valgt i Indstillinger → Bogmærker.",
+        "Slip for at gemme dens position. Du kan også vælge et enkelt element med et klik og flytte det en celle med pile uden for fane-navigation."
+      ],
+      "note": "Blokerede destinationer viser visuel feedback, og varen vender tilbage til en gyldig position. Du kan fortryde ændringer.",
+      "tip": "I redigeringstilstand skal du klikke for at vælge et kort og bruge pilene til at flytte det celle for celle. Forlad fane-navigation først."
+    },
+    "resizing": {
+      "question": "Hvordan ændrer jeg størrelsen på en flise?",
+      "searchTerms": "ændre størrelse på fliser; forstørre bogmærke; reducere størrelsen; ændre størrelse på håndtag; klik; Flytte; bredde højde; 2x2",
+      "title": "Skift størrelse",
+      "summary": "Brug siderne og hjørnerne af et kort.",
+      "steps": [
+        "Slå redigering til, og flyt til siden eller hjørnet af et element for at bruge dets størrelseshåndtag.",
+        "Træk i håndtaget. Et hjørne ændrer bredde og højde; en side ændrer kun én dimension. Du kan også klikke på et håndtag for at vokse med én celle, eller Shift + klik for at formindske med én celle.",
+        "I Indstillinger → Bogmærker skal du vælge Ingen for at springe mellem celler efter at have krydset 50 %, eller Udjævn for at strække kortet og snappe ved frigivelse."
+      ],
+      "note": "Den endelige størrelse respekterer gitteret og gyldige positioner. Forhåndsvisninger af indstillinger viser forskellen, før du vælger.",
+      "tip": "Klik på et håndtag for at vokse med en celle eller Shift + klik for at formindske med en celle. Hjørner ændrer bredde og højde sammen; sider ændrer kun én dimension."
+    },
+    "drag-modes": {
+      "question": "Hvorfor kan jeg ikke falde på en besat celle?",
+      "searchTerms": "optaget celle; flytte over en anden; blokeret fald; flytte kaskade; trækkollision",
+      "title": "Træk tilstande",
+      "summary": "Vælg, hvad der skal ske ved en besat bogmærkeposition.",
+      "steps": [
+        "Åbn Indstillinger → Bogmærker, og udvid trækadfærd.",
+        "Ingen flytter ind i gratis slots. Omplacering finder en position for bogmærker på destinationen. Sekvens omarrangerer bogmærker i rækkefølge.",
+        "Se hver indstillings animation, og gem den tilstand, der føles behagelig at organisere med."
+      ],
+      "note": "En flytning afvises, hvis der ikke findes en gyldig ordning. En gennemsigtig baggrund gør ikke en optaget celle fri.",
+      "tip": "Vil du flytte et bogmærke ind i en optaget celle? Se på Flytning and Sekvens i Indstillinger → Bogmærker, og se deres forhåndsvisninger."
+    },
+    "folders": {
+      "question": "Hvordan grupperer jeg bogmærker i mapper?",
+      "searchTerms": "oprette mappe; gruppebogmærker; organisere favoritter; fjern fra mappe; omdøbe mappe",
+      "title": "Organiser med mapper",
+      "summary": "Saml op til 18 bogmærker i én mappe.",
+      "steps": [
+        "Vælg + → Mappe i menuen til venstre, og giv den et navn.",
+        "I redigeringstilstand skal du trække bogmærker til den for at sætte dem ind. Åbn mappen for at se dens gitter.",
+        "Brug mappens redigeringstilstand til at arrangere dens bogmærker. Klik på dens navn for at omdøbe den og dens ikon for at tilpasse dens udseende."
+      ],
+      "note": "Sletning af en mappe påvirker også dens bogmærker. Gennemgå bekræftelsen, før du fortsætter; papirkurven kan gendanne slettede genstande.",
+      "tip": "En mappe kan indeholde op til 18 bogmærker. Slå redigering til, og træk et kort til mappen for at tilføje det."
+    },
+    "workspaces": {
+      "question": "Hvordan holder jeg personlige sider og arbejdssider adskilt?",
+      "searchTerms": "personligt arbejde; skabe arbejdsrum; skifte arbejdsområde; desktops",
+      "title": "Adskil dine arbejdsområder",
+      "summary": "Et gitter til arbejde og et andet til alt andet.",
+      "steps": [
+        "Arbejdsområdelinjen skifter mellem hoved- og dine brugerdefinerede arbejdsområder. Dens + opretter en ny.",
+        "Vælg et arbejdsområde, før du tilføjer elementer. For at overføre eksisterende elementer skal du vælge dem og vælge en destination i handlingslinjen.",
+        "Alt + ↑ og Alt + ↓ går gennem arbejdsområder. Knappen − sletter det aktuelle brugerdefinerede arbejdsområde efter bekræftelse."
+      ],
+      "note": "Sletning af et arbejdsområde sletter også dets indhold. Hovedforbliver tilgængelige og kan ikke slettes.",
+      "tip": "Alt + ↑ og Alt + ↓ skifter arbejdsrum uden at åbne vælgeren. Adskil arbejde, hobbyer eller projekter med barens +."
+    },
+    "selection": {
+      "question": "Hvordan ændrer jeg flere elementer på én gang?",
+      "searchTerms": "vælg flere; masseudvælgelse; flytte flere; klon selektion; dublerede bogmærker",
+      "title": "Vælg og handle i bulk",
+      "summary": "Færre gentagne handlinger, når du organiserer flere kort.",
+      "steps": [
+        "Slå redigering til, og klik kort på hvert kort for at vælge det. Klik igen for at fravælge; i fane-navigation kan du bruge S.",
+        "Markeringslinjen lader dig duplikere, anvende standardudseendet, flytte til et andet arbejdsområde eller slette, afhængigt af elementtypen.",
+        "Tjek destinationen eller bekræftelsen. Esc eller knappen Ryd udvælgelse annullerer dit valg."
+      ],
+      "note": "Flytning og duplikering kræver ledige pladser. Appen fortæller dig, hvis nogle varer ikke passer. Widgets kommer ikke i papirkurven.",
+      "tip": "I redigeringstilstand skal du vælge flere kort med korte klik for at flytte, duplikere eller restyle dem sammen. Esc rydder valget."
+    },
+    "history": {
+      "question": "Hvordan fortryder jeg min sidste ændring?",
+      "searchTerms": "fortryd ændring; ændre ændring igen; gå tilbage; genskabe position",
+      "title": "Fortryd og fortryd",
+      "summary": "Gendan en position eller en nylig ændring.",
+      "steps": [
+        "Brug fortryd-pilen på arbejdsområdelinjen for at vende tilbage til den forrige tilstand.",
+        "Gendan-pilen gendanner en ændring, du lige har fortrudt. Du kan også bruge Ctrl/Cmd + Z og Ctrl/Cmd + Shift + Z.",
+        "Inde i en editor skal du bruge pilene ved siden af dens titel til afventende ændringer; tekstfelter fortryder deres normale tastatur. Hver handling viser en kort besked, og utilgængelige pile er deaktiveret. Tjek resultatet før du gemmer."
+      ],
+      "note": "Redaktørhistorikken starter på en frisk, hver gang du åbner en editor; ændringer når dit arbejdsområde, når du gemmer. Arbejdsområdehistorik er midlertidig og er ikke en sikkerhedskopi. En ny session eller opdateringer fra en anden fane kan nulstille den.",
+      "tip": "Hvis en ændring ikke føles rigtig, skal du bruge fortryd-pilen eller Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z gentager den."
+    },
+    "appearance": {
+      "question": "Hvordan ændrer jeg farve, ikon eller tekst?",
+      "searchTerms": "skifte farve; skift ikon; ændre tekst; bogmærke udseende; mappe farve; favicon",
+      "title": "Tilpas dine kort",
+      "summary": "Farver, billeder, tekst og ikoner på din måde.",
+      "steps": [
+        "Slå redigering til, og åbn et bogmærkes blyant eller udseendekontrol for en mappe eller papirkurven.",
+        "Udforsk editoren: baggrund, farve, billede, tekst og ikon. Tilgængelige kontroller afhænger af varetypen; forhåndsvisningen viser resultatet.",
+        "Gem når du er glad. Du kan bruge billeder fra en URL eller en lokal fil, hvor editoren tilbyder denne mulighed."
+      ],
+      "note": "Lokale billeder tilhører denne browser. Når du synkroniserer, skal du tilføje en reserve-URL for andre enheder. Importer beholder inkluderede billeder og klare referencer uden en fil; Synkronisering ignorerer filer, der ikke er tilgængelige på denne enhed.",
+      "tip": "Et bogmærkes blyant åbner dens visuelle editor. Skift farver, tekst, ikon eller billede, og tjek forhåndsvisningen."
+    },
+    "presets": {
+      "question": "Hvordan genbruger jeg en stil, jeg kan lide?",
+      "searchTerms": "gem stil; genbrug udseende; standard stilarter; forudindstillet bibliotek; anvende stil",
+      "title": "Genbrug udseende",
+      "summary": "Gem et look og anvend det på andre bogmærker.",
+      "steps": [
+        "Åbn editorens bibliotek for at vælge et look fra den tilgængelige samling.",
+        "Gem et brugerdefineret udseende som en forudindstilling for at genbruge dets farver, tekst og ikon uden at kopiere bogmærkets navn eller adresse.",
+        "I Indstillinger → Bogmærker, konfigurer standardudseendet for nye bogmærker. Markeringslinjen kan anvende den på kompatible elementer."
+      ],
+      "note": "En forudindstilling ændrer udseende, ikke bogmærkets identitet, destination eller position.",
+      "tip": "Gem et look, du kan lide, i udseendebiblioteket. Genbrug det på andre kort uden at ændre deres navne eller adresser."
+    },
+    "wallpapers": {
+      "question": "Hvordan bruger jeg et billede eller en video som min baggrund?",
+      "searchTerms": "ændre baggrund; video baggrund; tapet rotation; tema",
+      "title": "Baggrunde og rotation",
+      "summary": "Farve, billede eller video for at sætte stemningen.",
+      "steps": [
+        "Åbn Indstillinger → Tema, og vælg standardbaggrunden, en farve eller en mediebaggrund.",
+        "Tilføj billeder eller videoer fra de kilder, der tilbydes i panelet. Biblioteket samler flere baggrunde med et rotationsinterval.",
+        "Tjek forhåndsvisningen og gem. Du kan parre en lokal fil med en alternativ URL for andre enheder."
+      ],
+      "note": "Lokale filer bliver i denne browser. Synkronisering overfører dem ikke; en fuld backup kan bevare dem.",
+      "tip": "Din baggrund kan ændres automatisk: tilføj flere til Indstillinger → Temabibliotek og indstil et rotationsinterval."
+    },
+    "clock": {
+      "question": "Hvordan tilføjer jeg et ur?",
+      "searchTerms": "tilføje ur; vise tid; sekunder; 24 timers format; ur widget",
+      "title": "Tilføj et ur",
+      "summary": "En widget, der viser din enheds tid.",
+      "steps": [
+        "Vælg + → Widgets i venstre menu, og vælg Ur.",
+        "Vælg et 12- eller 24-timers format, og om du vil vise sekunder. Forhåndsvisningen hjælper dig med at beslutte.",
+        "Tilføj det til en gratis slot. I redigeringstilstand kan du flytte, ændre størrelse eller genåbne dens muligheder."
+      ],
+      "note": "Uret følger din enheds tid. Sletning af en widget er permanent; det kommer ikke i papirkurven.",
+      "tip": "I + → Widgets kan du tilføje et 12- eller 24-timers ur med valgfri sekunder og ændre størrelsen på det, så det passer til dit rum."
+    },
+    "interface": {
+      "question": "Hvordan ændrer jeg sproget eller bruger mørk tilstand?",
+      "searchTerms": "ændre sprog; mørk tilstand; lys tilstand; interface udseende",
+      "title": "Sprog og interface tema",
+      "summary": "Gør menuer, dialoger og kontroller behagelige.",
+      "steps": [
+        "Vælg et sprog i Indstillinger → Generelt, eller lad det følge dit system.",
+        "Vælg en lys, mørk eller automatisk grænseflade efter dine præferencer.",
+        "Gem indstillinger. Interfacetemaet fungerer sammen med den baggrund, du valgte i Tema."
+      ],
+      "note": "Systemsprog og automatisk udseende følger dine enhedspræferencer.",
+      "tip": "Vælg en lys eller mørk grænseflade, mens du beholder dit tapet. Find denne mulighed og sprog i Indstillinger → Generelt."
+    },
+    "trash": {
+      "question": "Hvordan gendanner jeg et slettet bogmærke?",
+      "searchTerms": "gendan slettet bogmærke; gendanne fjernet; papirkurven; ved et uheld slettet; gendan mappe",
+      "title": "Gendan fra papirkurven",
+      "summary": "En ny chance for bogmærker og mapper.",
+      "steps": [
+        "Åbn dit spaces papirkurv for at gennemgå slettede bogmærker og mapper.",
+        "Vælg, hvad du vil have tilbage, og brug Gendan. Du kan også slette varer permanent eller tømme skraldespanden efter bekræftelse.",
+        "Vælg i Indstillinger → Generelt, om den skal vises, og hvor længe den opbevarer elementer: 1, 7, 14 eller 28 dage, eller slet dem aldrig automatisk."
+      ],
+      "note": "Papirkurven tilhører denne enhed. Udløbne eller permanent slettede elementer kan ikke længere gendannes fra den.",
+      "tip": "Slettet et bogmærke ved en fejl? Åbn papirkurven og gendan den. Juster opbevaringsperioden i Indstillinger → Generelt."
+    },
+    "backup": {
+      "question": "Hvordan sikkerhedskopierer eller overfører jeg mine data?",
+      "searchTerms": "sikkerhedskopi; eksportere data; import kopi; gendan backup; en anden browser; overføre data",
+      "title": "Sikkerhedskopier og importer",
+      "summary": "Behold en kopi af din plads og tag den med dig.",
+      "steps": [
+        "I Indstillinger → Generelt eksporterer du en komplet sikkerhedskopi for at bevare data og de lokale filer, der er inkluderet i ZIP-arkivet.",
+        "For at gendanne skal du importere en sikkerhedskopi og gennemgå bekræftelsen, før du udskifter data. Kompatible JSON-sikkerhedskopier understøttes også.",
+        "I Indstillinger → Bogmærker kan du kun eksportere eller importere bogmærker og mapper, når du ikke har brug for en fuld sikkerhedskopi."
+      ],
+      "note": "En bogmærkeeksport er ikke en komplet sikkerhedskopi af indstillinger og lokale medier. Gem en sikkerhedskopi, før du gendanner eller sletter data.",
+      "tip": "En fuld sikkerhedskopi fra Indstillinger → Generelt inkluderer lokale filer i en ZIP. Det er nyttigt, før du skifter browser eller gendanner data."
+    },
+    "sync": {
+      "question": "Hvordan bruger jeg den samme plads på en anden computer?",
+      "searchTerms": "en anden computer; synkronisere enheder; synkronisering; sky; lokal synkronisering; stop synkronisering; deaktiver synkronisering; lokal tilstand",
+      "title": "Synkroniser på tværs af enheder",
+      "summary": "Del din plads ved hjælp af browsersynkronisering.",
+      "steps": [
+        "Log ind og aktiver udvidelsessynkronisering i din Google Chrome profil.",
+        "I Indstillinger → Synkronisering skal du vælge Synkroniseret og acceptere bekræftelsen. Skiftet træder i kraft med det samme: eksisterende synkroniserede bogmærker og indstillinger indlæses, eller dine gemte lokale data synkroniseres, hvis ingen eksisterer.",
+        "Brug den samme profil på den anden enhed. Tjek synkroniseringsstatus og ledig plads i panelet."
+      ],
+      "note": "Lokale filer, papirkurven og daglige tips hører til hver enhed. Synkronisering har lagergrænser; bruge alternative URL'er til lokale billeder og videoer. Hvis du vælger Lokal, bliver det også bedt om bekræftelse og træder i kraft med det samme, og de synkroniserede data opbevares.",
+      "tip": "Synkronisering deler din plads på tværs af enheder, men lokale filer har brug for en alternativ URL. Se Indstillinger → Synkronisering."
+    },
+    "compact": {
+      "question": "Hvorfor ser jeg en liste i stedet for gitteret?",
+      "searchTerms": "lille vindue; listevisning; gitteret forsvandt; skjult panel; mobil",
+      "title": "Brug et mindre vindue",
+      "summary": "Bliv ved med at nå dine bogmærker, når der er begrænset plads.",
+      "steps": [
+        "Når vinduet indsnævres, skifter appen til en liste for at holde dine genstande tilgængelige.",
+        "Åbn bogmærker, mapper eller søg i denne visning. Manualen tilpasser sig også den tilgængelige størrelse.",
+        "Udvid vinduet for at bringe gitteret og redigeringspanelerne tilbage. En suspenderet redigeringsdialog bevarer sin kladde."
+      ],
+      "note": "Kompakt visning hjælper dig med at gennemse dit rum; omorganisering kræver et tilstrækkeligt bredt vindue.",
+      "tip": "I et smalt vindue forbliver dine bogmærker tilgængelige som en liste. Udvid den, når du vil redigere eller omorganisere gitteret."
+    },
+    "data": {
+      "question": "Hvordan sletter jeg mine data eller nulstiller indstillinger?",
+      "searchTerms": "slette data; nulstil indstillinger; fjern alt; starte forfra",
+      "title": "Gemmer og nulstiller",
+      "summary": "Forstå, hvad der er gemt, og hvad hver handling fjerner.",
+      "steps": [
+        "Arbejdsområdehandlinger gemmer automatisk. I editorer og indstillinger, bekræft med Gem; Annuller kasserer panelets kladde.",
+        "Hvis der vises en meddelelse om ventende lagring, skal du klikke på Prøv at gemme igen og vente på bekræftelse, før du lukker fanen.",
+        "I Indstillinger → Generelt kan du nulstille indstillinger eller slette alle data. Læs bekræftelsen og eksporter en sikkerhedskopi af alt, hvad du vil beholde."
+      ],
+      "note": "Nulstilling af indstillinger bevarer dine bogmærker, deres størrelser og deres stilarter. Sletning af alle lokale data fjerner emnerne og tømmer papirkurven. Eksporter en sikkerhedskopi før sletning: Fortryd erstatter ikke en sikkerhedskopi.",
+      "tip": "Hvis du ser en meddelelse om ikke-gemte ændringer, skal du bruge Prøv at gemme igen, før du lukker fanen. Beskyt din plads med en fuld backup."
+    },
+    "learning": {
+      "question": "Hvordan genåbner jeg guiden eller deaktiverer daglige tips?",
+      "searchTerms": "deaktiver tip; slå hjælp fra; daglig alarm; genåbn guide; brugermanual",
+      "title": "Lær i dit eget tempo",
+      "summary": "En hurtig guide, en manual og et lille dagligt tip.",
+      "steps": [
+        "Se genvejsguiden fra Indstillinger → Hjælp. Hvert trin linker til de tilsvarende forklaringer i manualen.",
+        "Udforsk indekset eller søg efter et ord. Et afsnits relaterede links fører dig til andre funktioner, når du er klar.",
+        "Din første nye fane hver dag viser et tilfældigt tip. Afvis det eller åben dets forklaring; du kan deaktivere tip i Hjælp."
+      ],
+      "note": "Tips besøg sektionerne uden at gentage, indtil samlingen er færdig. De varer 20 sekunder og holder pause, mens de svæver eller fokuserer på deres knapper. De følger den lokale dag og denne browsers præferencer.",
+      "tip": "Denne manual er altid i Indstillinger → Hjælp. Daglige tips åbner en sektion, og du kan deaktivere dem der, når du vil."
+    }
+  }
+}

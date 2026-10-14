@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Notas de lançamento",
+    "settingsDescription": "O que mudou e a história por trás de cada atualização.",
+    "open": "Ler notas",
+    "history": "Histórico de versões",
+    "dismiss": "Fechar notas de versão",
+    "continue": "Continuar",
+    "back": "Voltar para informações",
+    "highlights": "O que você pode fazer hoje",
+    "generic": {
+      "title": "New DeskTab foi atualizado",
+      "description": "Você tem a nova versão. Você pode revisitar as notas de versão anteriores em Informações sempre que desejar. Obrigado por estar aqui."
+    },
+    "v1_0_0": {
+      "title": "Sua área de trabalho de sites. Afinal.",
+      "thanks": "Obrigado por tentar New DeskTab. Estou muito animado para finalmente compartilhar o primeiro lançamento público deste projeto com você.",
+      "origin": "Tudo começou em 26 de setembro de 2025. Enquanto assistia a um stream de Just Chatting em Twitch, notei a nova aba do navegador do streamer: uma extensão que organizava os sites como quadrados coloridos, sem nomes ou logotipos. Esse minimalismo me fascinou e pensei: por que não construir minha própria extensão? Eu queria que cada nova aba trouxesse uma sensação de ordem, minhas páginas à mão e um painel que eu gostasse de ver.",
+      "desktop": "Gradualmente, essa ideia cresceu e se tornou uma área de trabalho pessoal de sites, em vez de aplicativos. O relógio é um primeiro passo e ainda é um trabalho em andamento. No futuro, gostaria de adicionar um bloco de notas e outros widgets que ofereçam algo útil, tanto para mim quanto para todos que usam New DeskTab.",
+      "closing": "Este aplicativo foi feito para mim e para você. Obrigado por confiar em New DeskTab e por dar-lhe um lugar em seu navegador. Espero que você goste de criar seu espaço tanto quanto eu gostei de construí-lo.",
+      "highlights": {
+        "workspace": "Organize suas páginas com marcadores, pastas e espaços de trabalho independentes.",
+        "appearance": "Personalize as cores, o tamanho de cada item e o plano de fundo da área de trabalho.",
+        "search": "Encontre suas páginas com pesquisa e use atalhos de teclado para navegar e criar itens.",
+        "backup": "Salve backups e recupere itens excluídos da lixeira.",
+        "sync": "Escolha manter os dados neste dispositivo ou sincronizá-los com Google Chrome.",
+        "help": "Conheça as funcionalidades com o guia de boas-vindas, manual e dicas diárias."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "SEU PRIMEIRO MINUTO",
+    "skip": "Pular guia",
+    "back": "Voltar",
+    "next": "Próximo",
+    "finish": "Voltar às configurações",
+    "explore": "Explorar meu espaço",
+    "addFirst": "Adicionar meu primeiro favorito",
+    "progress": "Etapa {{current}} de {{total}}",
+    "compactHint": "Amplie a janela quando quiser adicionar marcadores e editar seu espaço.",
+    "reopenTitle": "Guia rápido",
+    "reopenDescription": "Redescubra o essencial em um minuto.",
+    "reopen": "Ver guia",
+    "demo": {
+      "work": "Trabalho",
+      "media": "Mídia",
+      "trash": "Lixeira",
+      "search": "Encontre seus favoritos"
+    },
+    "steps": {
+      "start": {
+        "title": "Suas páginas. Seu próprio espaço.",
+        "body": "Bem-vindo ao New DeskTab. Mantenha suas páginas favoritas sempre à mão sempre que abrir uma guia. Para adicionar um, vá para a borda esquerda e escolha + → [[bookmarks|Marcador]].",
+        "hint": "Você também pode [[quick-save|salve a página que você está visitando]] no ícone da extensão em seu navegador."
+      },
+      "edit": {
+        "title": "Dê a cada marcador o seu lugar.",
+        "body": "Ative o lápis no menu esquerdo para editar. Segure e [[movement|arrastar]] um item para movê-lo; use seu [[resizing|alças]] para alterar seu tamanho.",
+        "hint": "O lápis de cada marcador abre seu [[appearance|editor]]: nome, cores, ícone e imagem. Salve [[presets|estilos]] para reutilizá-los."
+      },
+      "organize": {
+        "title": "Menos desordem. Mais ordem.",
+        "body": "Crie um [[folders|pasta]] de + e arraste os marcadores para ele no modo de edição. Ele abre em uma grade limpa com espaço para até 18 marcadores.",
+        "hint": "Use o + em [[workspaces|barra da área de trabalho]] para separar trabalho e diversão. O [[search|lupa]] também pesquisa dentro de pastas."
+      },
+      "style": {
+        "title": "Faça com que se sinta como você.",
+        "body": "Em Configurações → [[wallpapers|Tema]], escolha uma cor, imagem ou fundo de vídeo e gire seus papéis de parede favoritos. Em Configurações → [[sync|Sincronização]], sincronize seu espaço entre dispositivos usando a conta conectada ao seu perfil do Chrome.",
+        "hint": "Adicione um [[clock|relógio]] de + → Widgets. Você também pode personalizar o [[appearance|aparência]] de suas pastas."
+      },
+      "ready": {
+        "title": "Você conhece o essencial.",
+        "body": "Pressione [[search|/]] para encontrar um marcador. Use as setas [[history|desfazer e refazer]] para recuperar as alterações; marcadores excluídos vão para [[trash|lixeira]].",
+        "hint": "As alterações são salvas automaticamente. Em Configurações, exporte um [[backup|cópia de segurança]] ou habilite Google Chrome [[sync|sincronização]] opcional."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Não foi possível salvar suas alterações mais recentes.",
+    "retry": "Tentar salvar novamente",
+    "saved": "Alterações pendentes salvas."
+  },
+  "itemEditor": {
+    "chooseIcon": "Escolha um ícone",
+    "siteLogo": "Logotipo",
+    "noSymbol": "Nenhum",
+    "folderIconHint": "O símbolo substitui as visualizações dos marcadores dentro da pasta.",
+    "icons": {
+      "mail": "Correio",
+      "calendar": "Calendário",
+      "notes": "Notas",
+      "projects": "Projetos",
+      "design": "Projeto",
+      "music": "Música",
+      "tasks": "Tarefas",
+      "ideas": "Ideias",
+      "docs": "Documentos",
+      "ui-start": "Bússola",
+      "ui-organize": "Disposição",
+      "ui-personalize": "Controles deslizantes",
+      "ui-protect": "Escudo",
+      "ui-bookmarks": "Adicionar favorito",
+      "ui-quick-save": "Navegador",
+      "ui-keyboard": "Teclado",
+      "ui-shortcuts": "Relâmpago",
+      "ui-search": "Pesquisar",
+      "ui-editing": "Lápis",
+      "ui-movement": "Mover",
+      "ui-resizing": "Redimensionar",
+      "ui-drag-modes": "Arraste",
+      "ui-folders": "Pasta",
+      "ui-workspaces": "Janelas",
+      "ui-selection": "Seleção",
+      "ui-history": "História",
+      "ui-appearance": "Paleta",
+      "ui-presets": "Predefinições",
+      "ui-wallpapers": "Imagem",
+      "ui-clock": "Relógio",
+      "ui-interface": "Globo",
+      "ui-trash": "Lixo",
+      "ui-backup": "Arquivo",
+      "ui-sync": "Sincronizar",
+      "ui-compact": "Lista",
+      "ui-data": "Banco de dados",
+      "ui-learning": "Livro",
+      "ui-settings": "Configurações",
+      "ui-controls": "Controles",
+      "ui-cloud": "Nuvem",
+      "ui-bookmark": "Marcador",
+      "ui-info": "Informação",
+      "ui-eye": "Olho",
+      "ui-check": "Concluído",
+      "ui-lock": "Bloquear",
+      "ui-unlock": "Desbloquear",
+      "ui-copy": "Copiar",
+      "ui-close": "Fechar",
+      "ui-undo": "Desfazer",
+      "ui-redo": "Refazer",
+      "ui-desktop": "Área de trabalho",
+      "home": "Página inicial",
+      "briefcase": "Trabalho",
+      "code": "Código",
+      "game": "Jogos",
+      "cart": "Compras",
+      "card": "Pagamentos",
+      "people": "Pessoas",
+      "message": "Mensagem",
+      "location": "Localização",
+      "phone": "Telefone",
+      "camera": "Câmera",
+      "headphones": "Fones de ouvido",
+      "link": "Ligação",
+      "tag": "Etiqueta",
+      "chart": "Estatísticas",
+      "coffee": "Café",
+      "sun": "Sol",
+      "moon": "Lua",
+      "circle": "Círculo",
+      "square": "Quadrado",
+      "triangle": "Triângulo",
+      "diamond": "Diamante",
+      "pentagon": "Pentágono",
+      "hexagon": "Hexágono",
+      "star": "Estrela",
+      "heart": "Coração",
+      "plus": "Mais",
+      "minus": "Menos",
+      "video": "Vídeo"
+    },
+    "searchIcons": "Ícones de pesquisa…",
+    "clearIconSearch": "Limpar pesquisa",
+    "noIcons": "Nenhum ícone encontrado",
+    "suggestedIcons": "Sugerido",
+    "suggestedIcon": "Sugerido: {{name}}",
+    "logoKeywords": "logotipo favicon site marca",
+    "iconKeywords": {
+      "ui-trash": "bin lixo desperdício excluir clássico",
+      "mail": "correio e-mail Gmail Outlook caixa de entrada",
+      "docs": "documentos arquivos pdf unidade palavra",
+      "notes": "notas memorando noção onenote",
+      "ui-protect": "segurança proteção privacidade",
+      "game": "console de controle de jogos de jogos",
+      "cart": "compras loja comprar",
+      "card": "banco financiamento crédito débito dinheiro",
+      "people": "grupo de amigos da comunidade social",
+      "ui-learning": "lendo estudo de educação em biblioteca",
+      "ui-clock": "tempo horas assistir",
+      "ui-interface": "internet web mundo linguagem",
+      "ui-data": "armazenamento de dados SQL",
+      "circle": "figuras de formas geométricas",
+      "square": "figuras de formas geométricas",
+      "triangle": "figuras de formas geométricas",
+      "diamond": "figuras de formas geométricas",
+      "pentagon": "figuras de formas geométricas",
+      "hexagon": "figuras de formas geométricas",
+      "star": "figuras de formas geométricas",
+      "heart": "figuras de formas geométricas"
+    },
+    "history": "Editar histórico",
+    "description": "Faça com que se sinta em casa no seu espaço de trabalho.",
+    "looks": "Escolha um visual",
+    "custom": "Personalizado",
+    "look": {
+      "original": "Originais",
+      "card": "Cartão",
+      "midnight": "Escuro",
+      "paper": "Luz"
+    },
+    "reset": "Redefinir aparência",
+    "cardColor": "Cor do cartão",
+    "folderFill": "Cor da pasta",
+    "image": "Imagem de fundo",
+    "lock": "Bloquear ou desbloquear URL",
+    "copy": "Copiar URL",
+    "clear": "Limpar",
+    "section": {
+      "general": "O essencial",
+      "text": "Nome e rótulos",
+      "icon": "Ícone",
+      "card": "Cartão"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "O nome que você vê e a página que ele abre.",
+        "text": "Escolha se deseja mostrar o nome e ajustar sua cor.",
+        "icon": "Use um favicon grande e centralizado ou um ícone pequeno ao lado do nome para cartões de imagem."
+      },
+      "folder": {
+        "general": "Um nome para reunir seus favoritos.",
+        "text": "Mostre o nome da pasta e ajuste sua cor.",
+        "icon": "Personalize o ícone da pasta e as miniaturas dos favoritos."
+      },
+      "recycleBin": {
+        "general": "Escolha se a lixeira aparece na sua área de trabalho principal.",
+        "text": "Mostre o nome da lixeira e ajuste sua cor.",
+        "icon": "Dê à lixeira sua própria cor. Oculte toda a lixeira do Geral."
+      }
+    },
+    "addImage": "Adicione uma imagem de fundo",
+    "changeImage": "Editar imagem de fundo"
+  },
+  "html": {
+    "title": "Nova guia"
+  },
+  "quickSave": {
+    "title": "Salvar favorito",
+    "name": "Nome",
+    "workspace": "Espaço de trabalho",
+    "folder": "Pasta",
+    "mainWorkspace": "Principal",
+    "noFolder": "Nenhuma pasta",
+    "save": "Salvar favorito",
+    "saveAnyway": "Salve mesmo assim",
+    "savedButton": "Salvo",
+    "alreadySaved": "Já salvo",
+    "savedIn": "Em {{location}}",
+    "savedInMore": "Em {{location}} e mais {{count}}",
+    "open": "Abra New DeskTab",
+    "unavailableTitle": "Esta guia não pode ser salva",
+    "unavailable": "Abra uma página da web (http ou https) para salvá-la.",
+    "loadError": "Não foi possível carregar seus favoritos. Tente novamente.",
+    "saving": "Salvando…",
+    "saved": "Marcador salvo.",
+    "duplicate": "Este URL já está salvo nesse destino.",
+    "noSpace": "Não há mais espaço nesse destino. Escolha outro.",
+    "invalid": "Verifique o nome e o destino selecionado.",
+    "saveError": "Não foi possível salvar o marcador. Tente novamente."
+  },
+  "launcher": {
+    "bookmark": "Marcador",
+    "folder": "Pasta",
+    "widgets": "Widgets",
+    "editMode": {
+      "enter": "Entre no modo de edição",
+      "exit": "Sair do modo de edição"
+    }
+  },
+  "widgets": {
+    "title": "Widgets",
+    "description": "Escolha um widget para adicionar a este espaço de trabalho.",
+    "empty": "Nenhum widget está disponível ainda."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Amplie a janela para usar este recurso.",
+      "suspended": "Painel oculto. Amplie a janela para continuar."
+    },
+    "editMode": {
+      "enabled": "Modo de edição ativado",
+      "disabled": "Modo de edição desativado"
+    },
+    "selectionMode": {
+      "enabled": "Modo de seleção ativado",
+      "disabled": "Modo de seleção desativado"
+    },
+    "bookmark": {
+      "added": "Marcador adicionado",
+      "notFound": "Marcador não encontrado",
+      "updated": "Marcador atualizado",
+      "deleted": "Favorito excluído"
+    },
+    "clock": {
+      "added": "Relógio adicionado",
+      "updated": "Relógio atualizado",
+      "deleted": "Relógio excluído"
+    },
+    "folder": {
+      "created": "Pasta criada",
+      "renamed": "Pasta renomeada",
+      "updated": "Pasta atualizada",
+      "deleted": "Pasta e seus favoritos excluídos",
+      "bookmarkAdded": "Marcador adicionado à pasta",
+      "folderFull": "Esta pasta já possui 18 favoritos",
+      "bookmarkRemoved": "O favorito voltou para a grade"
+    },
+    "recycleBin": {
+      "moved": "Movido para a lixeira",
+      "restored": "Itens restaurados",
+      "deletedPermanently": "Itens excluídos permanentemente",
+      "updated": "Lixeira atualizada"
+    },
+    "workspace": {
+      "created": "Espaço de trabalho criado",
+      "deleted": "Espaço de trabalho excluído",
+      "switched": "Espaço de trabalho: {{name}}"
+    },
+    "history": {
+      "undone": "Alteração desfeita",
+      "redone": "Alteração refeita"
+    },
+    "bookmarks": {
+      "deletedAll": "Todos os favoritos excluídos",
+      "deletedAllWithFolders": "Todos os favoritos e pastas excluídos",
+      "deleteAllError": "Falha ao excluir todos os favoritos",
+      "exported": "Favoritos exportados",
+      "exportError": "Falha ao exportar favoritos",
+      "imported": "Favoritos importados",
+      "importError": "Falha ao importar favoritos",
+      "presetApplied": "Estilo aplicado à seleção",
+      "duplicatedSelected": "Itens selecionados duplicados",
+      "deletedSelected": "Itens selecionados excluídos",
+      "moved": "Itens movidos para o espaço de trabalho selecionado"
+    },
+    "settings": {
+      "saved": "Configurações salvas",
+      "bookmarkDefaultSaved": "Aparência padrão do marcador salva",
+      "bookmarkDefaultError": "Não foi possível salvar a aparência padrão do marcador",
+      "copied": "Valor copiado para a área de transferência",
+      "resetBg": "Redefinição de tema",
+      "deletedAllData": "Todos os dados locais NewDeskTab excluídos",
+      "deleteAllDataError": "Não foi possível excluir todos os dados NewDeskTab locais",
+      "invalidWallpaperUrl": "Insira um URL de imagem/vídeo HTTP ou HTTPS válido.",
+      "invalidWallpaperFile": "Não foi possível adicionar este arquivo. Use uma imagem compatível ou um vídeo MP4, WebM ou Ogg de até 200 MB.",
+      "wallpaperLimit": "Você pode adicionar até 25 papéis de parede pessoais."
+    },
+    "localImage": {
+      "invalid": "Escolha uma imagem PNG, JPEG, WebP, GIF ou AVIF.",
+      "tooLarge": "Esta imagem é muito grande para ser armazenada neste dispositivo.",
+      "storageFull": "Não há espaço local suficiente para esta imagem.",
+      "processing": "Esta imagem não pôde ser processada."
+    },
+    "sync": {
+      "enabled": "Sincronização ativada",
+      "localEnabled": "Modo local ativado",
+      "remoteLoaded": "Dados sincronizados carregados",
+      "updatedFromOtherDevice": "Alterações sincronizadas recebidas de outro dispositivo",
+      "deletedFromOtherDevice": "Os dados da nuvem foram excluídos de outro dispositivo. Este dispositivo agora está usando o modo Locais.",
+      "error": "Não foi possível alterar o modo de armazenamento",
+      "versionBlocked": "A sincronização foi pausada porque os dados da nuvem exigem uma versão NewDeskTab mais recente. Os dados locais deste dispositivo estão sendo mostrados.",
+      "quotaError": "Os dados excedem o armazenamento de sincronização disponível",
+      "deleted": "Dados sincronizados excluídos",
+      "deleteError": "Não foi possível excluir os dados sincronizados"
+    },
+    "backup": {
+      "exported": "Backup exportado",
+      "exportError": "Não foi possível exportar o backup",
+      "mediaUnavailable": "Algumas imagens ou vídeos locais referenciados não estão disponíveis, portanto o backup não foi criado.",
+      "imported": "Backup restaurado",
+      "importError": "Não foi possível restaurar o backup",
+      "mediaStorageFull": "Não há armazenamento local suficiente para restaurar as imagens e vídeos de backup."
+    }
+  },
+  "view": {
+    "list": "Visualização de lista",
+    "search": "Pesquise favoritos e pastas",
+    "clearSearch": "Limpar pesquisa",
+    "noResults": "Sem resultados."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Excluir todos os favoritos?",
+      "deleteFolders": "Exclua também todas as pastas",
+      "confirmDeleteSelected": "Excluir {{count}} itens selecionados?",
+      "confirmMoveOne": "Mover este item para a área de trabalho “{{workspace}}”?",
+      "confirmMoveSelected": "Mover {{count}} itens selecionados para a área de trabalho “{{workspace}}”?",
+      "duplicateNoSpace": "{{count}} itens não puderam ser duplicados porque não havia espaço suficiente.",
+      "moveNoSpace": "{{count}} itens não puderam ser movidos porque não havia espaço suficiente.",
+      "no_space": "Não há espaço disponível para mais marcadores 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Descartar novo favorito?"
+      },
+      "confirmDelete": "Excluir “{{name}}”?",
+      "confirmPermanentDelete": "Excluir permanentemente “{{name}}”? Isto não pode ser desfeito.",
+      "cancel": "Descartar alterações?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Excluir permanentemente este widget? Isto não pode ser desfeito.",
+      "confirmDeleteSelected": "Excluir {{count}} itens selecionados? Os widgets selecionados ({{widgetCount}}) serão excluídos permanentemente e não poderão ser restaurados."
+    },
+    "folder": {
+      "createCancel": "Descartar nova pasta?",
+      "cancel": "Descartar alterações de pasta?"
+    },
+    "recycleBin": {
+      "folder": "Mover “{{name}}” e seus marcadores {{count}} para a lixeira?",
+      "empty": "Excluir permanentemente tudo na lixeira? Isto não pode ser desfeito.",
+      "deleteSelected": "Excluir permanentemente {{count}} itens selecionados? Isto não pode ser desfeito.",
+      "noSpace": "{{count}} itens não puderam ser restaurados porque não há espaço suficiente na grade. Eles permanecem na lixeira.",
+      "cancel": "Descartar alterações na lixeira?"
+    },
+    "settings": {
+      "cancel": "Descartar alterações nas configurações?",
+      "reset": "Redefinir todas as configurações? Os favoritos não serão excluídos.",
+      "deleteAllData": "Excluir todos os dados NewDeskTab locais deste dispositivo? Marcadores, pastas, widgets, configurações, itens da lixeira, imagens locais e vídeos locais serão excluídos permanentemente. Os dados da nuvem não serão alterados. Se a sincronização estiver ativa, este dispositivo mudará primeiro para local. Esta ação não pode ser desfeita.",
+      "theme": {
+        "reset": "Redefinir as configurações do tema?"
+      },
+      "bookmark": {
+        "cancel": "Descartar as alterações na aparência padrão do marcador?"
+      },
+      "shortcuts": {
+        "reset": "Restaurar os atalhos de teclado padrão?"
+      },
+      "sync": {
+        "enable": "Mudar de local para sincronizado? Isso entra em vigor agora, sem clicar em Salvar. Se já existirem dados sincronizados, seus marcadores e configurações serão carregados. Caso contrário, os dados locais salvos serão sincronizados.",
+        "local": "Mudar de sincronizado para local? Isso entra em vigor agora, sem clicar em Salvar. Este dispositivo manterá uma cópia dos dados atuais e interromperá a sincronização das alterações. Os dados sincronizados permanecerão armazenados para outros dispositivos.",
+        "delete": "Excluir todos os dados NewDeskTab sincronizados? Este dispositivo e todos os outros dispositivos que usam esses dados na nuvem mudarão para o modo Locais quando detectarem a exclusão. Isto não pode ser desfeito."
+      }
+    },
+    "backup": {
+      "import": "Restaurar este backup? Ele substituirá seus favoritos e configurações atuais."
+    }
+  },
+  "addModal": {
+    "title": "Adicionar novo favorito",
+    "name": "Nome:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Opções avançadas",
+    "compactView": "▴ Visualização compacta"
+  },
+  "clock": {
+    "name": "Relógio",
+    "inDevelopment": "Em desenvolvimento: o relógio ainda não está em sua versão final. Estamos trabalhando para melhorá-lo.",
+    "createTitle": "Adicionar relógio",
+    "editTitle": "Configurações do relógio",
+    "description": "Mostre seu horário local neste espaço de trabalho.",
+    "hourCycle": "Formato de hora",
+    "hour24": "24 horas",
+    "hour12": "12 horas",
+    "showSeconds": "Mostrar segundos",
+    "delete": "Excluir",
+    "edit": "Editar relógio",
+    "actions": "Ações do relógio",
+    "openSettings": "Abra as configurações do relógio",
+    "confirmDelete": "Excluir este relógio? Você pode desfazer esta ação.",
+    "confirmPermanentDelete": "Excluir este relógio permanentemente? Isto não pode ser desfeito.",
+    "cancel": "Descartar alterações de relógio?",
+    "noSpace": "Não há espaço de grade suficiente para este relógio."
+  },
+  "buttons": {
+    "save": "Salvar",
+    "apply": "Aplicar",
+    "add": "Adicionar",
+    "accept": "Aceitar",
+    "cancel": "Cancelar",
+    "close": "Fechar"
+  },
+  "localImage": {
+    "upload": "Fazer upload deste dispositivo",
+    "label": "Imagem local:",
+    "activeSource": "Imagem ativa:",
+    "sourceLocal": "Locais",
+    "sourceUrl": "URL",
+    "remove": "Remover imagem local",
+    "notice": "As imagens locais não são sincronizadas.",
+    "unnamed": "Imagem local"
+  },
+  "workspace": {
+    "ariaLabel": "Controles do espaço de trabalho",
+    "current": "Espaço de trabalho",
+    "main": "Principal",
+    "search": "Pesquisar favoritos",
+    "add": "Criar espaço de trabalho",
+    "delete": "Excluir espaço de trabalho",
+    "undo": "Desfazer",
+    "redo": "Refazer",
+    "shortcutHint": "Alterne a área de trabalho com Alt ou Option mais seta para cima ou para baixo",
+    "prompt": "Insira um nome para o novo espaço de trabalho",
+    "namePlaceholder": "Trabalho, lazer…",
+    "confirmDelete": "Excluir “{{name}}”, suas {{folderCount}} pastas e {{bookmarkCount}} marcadores? Para mantê-los, mova-os primeiro para Principal ou para outro espaço de trabalho."
+  },
+  "search": {
+    "title": "Pesquisar favoritos",
+    "inputLabel": "Pesquise por nome ou URL",
+    "placeholder": "Nome ou URL",
+    "empty": "Nenhum marcador encontrado.",
+    "noUrl": "Sem URL",
+    "inFolder": "Pasta: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Ações de itens selecionados",
+    "selected": "{{count}} selecionado",
+    "move": "Mover para o espaço de trabalho",
+    "applyPreset": "Aplicar estilo padrão",
+    "duplicate": "Seleção duplicada",
+    "delete": "Excluir",
+    "clear": "Limpar seleção"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Controles de favoritos",
+    "edit": "Editar favorito",
+    "delete": "Excluir favorito",
+    "copySuffix": "copiar"
+  },
+  "folder": {
+    "create": "Criar pasta",
+    "createPrompt": "Nomeie a nova pasta",
+    "namePlaceholder": "Ferramentas, inspiração…",
+    "open": "Abra {{name}}, {{count}} favoritos salvos",
+    "count": "{{count}} salvo",
+    "summary": "{{count}} de {{capacity}} espaços usados",
+    "editMode": {
+      "enable": "Editar",
+      "disable": "Concluir a edição"
+    },
+    "gridLabel": "Marcadores de pasta",
+    "dropHint": "Solte para adicionar",
+    "noSpace": "Não há célula de grade livre para uma nova pasta.",
+    "removeNoSpace": "Não há espaço suficiente na grade para remover este marcador da pasta.",
+    "confirmDelete": "Mover “{{name}}” e seus marcadores {{count}} para a lixeira?",
+    "confirmPermanentDelete": "Excluir permanentemente “{{name}}” e seus {{count}} favoritos? Isto não pode ser desfeito.",
+    "actions": {
+      "ariaLabel": "Controles de pasta",
+      "customize": "Personalizar pasta",
+      "rename": "Renomear pasta",
+      "delete": "Excluir pasta",
+      "editBookmark": "Editar {{name}}",
+      "removeBookmark": "Mova {{name}} para fora da pasta",
+      "deleteBookmark": "Excluir {{name}}",
+      "acceptRename": "Salvar nome da pasta",
+      "cancelRename": "Cancelar renomeação de pasta"
+    },
+    "editor": {
+      "createTitle": "Adicionar nova pasta",
+      "title": "Editar pasta",
+      "name": "Nome:",
+      "showPreviews": "Mostrar visualizações de favoritos",
+      "showName": "Mostrar nome da pasta",
+      "iconColor": "Cor do símbolo:",
+      "outerBackgroundColor": "Cor de fundo externa:",
+      "noOuterBackground": "Sem fundo externo",
+      "resetOuterBackground": "Automático",
+      "noBackground": "Preenchimento de pasta transparente",
+      "backgroundColor": "Cor da pasta:",
+      "backgroundImage": "Imagem de fundo (URL):",
+      "lockImage": "Bloquear ou desbloquear URL da imagem",
+      "copyImage": "Copiar URL da imagem",
+      "clearImage": "Limpar URL da imagem",
+      "textColor": "Cor do texto:",
+      "preview": "Visualização",
+      "previewName": "Pasta",
+      "sections": {
+        "general": "Geral",
+        "style": "Estilo",
+        "text": "Texto"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Lixeira",
+    "open": "Abrir lixeira",
+    "openCount": "Lixeira aberta, {{count}} itens",
+    "dropHint": "Solte para excluir",
+    "summary": "{{count}} itens · Exclusão automática: {{retention}}",
+    "empty": "A lixeira está vazia.",
+    "selected": "{{count}} selecionado",
+    "select": "Selecione {{name}}",
+    "folderContents": "{{count}} marcadores",
+    "deletedAt": "Excluído {{date}}",
+    "expiresIn": "{{days}} dias restantes",
+    "expiresInOne": "Falta 1 dia",
+    "neverExpires": "Nunca excluído automaticamente",
+    "restoreAll": "Restaurar tudo",
+    "deleteAll": "Excluir tudo",
+    "restoreSelected": "Restaurar selecionado",
+    "deleteSelected": "Excluir selecionado",
+    "editor": {
+      "title": "Editar lixeira",
+      "animateIcon": "Animar lixeira",
+      "appearance": "Aparência",
+      "backgroundColor": "Cor de fundo:",
+      "backgroundImage": "Imagem de fundo (URL):",
+      "lockImage": "Bloquear ou desbloquear URL da imagem",
+      "copyImage": "Copiar URL da imagem",
+      "clearImage": "Limpar URL da imagem",
+      "noBackground": "Sem plano de fundo",
+      "iconColor": "Cor do ícone:",
+      "textColor": "Cor do texto:",
+      "elements": "Elementos visíveis",
+      "showName": "Mostrar nome",
+      "visible": "Mostrar lixeira na grade principal",
+      "preview": "Visualização",
+      "actions": "Ações da lixeira",
+      "edit": "Editar lixeira",
+      "sections": {
+        "general": "Geral",
+        "style": "Estilo",
+        "text": "Texto",
+        "icon": "Ícone"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Digite um nome para salvar a predefinição."
+    },
+    "name": {
+      "required": "Insira um nome para o marcador."
+    },
+    "folderName": {
+      "required": "Digite um nome para a pasta."
+    },
+    "url": {
+      "invalid": "O URL não é válido.",
+      "unsupportedProtocol": "Este tipo de URL não é permitido."
+    },
+    "backgroundImageUrl": {
+      "invalid": "O URL da imagem não é válido.",
+      "unsupportedProtocol": "Este tipo de imagem não é permitido."
+    }
+  },
+  "editModal": {
+    "title": "Editar favorito",
+    "name": "Nome:",
+    "url": "URL:",
+    "backgroundImage": "Imagem de fundo (URL):",
+    "backgroundFavicon": "Ícone grande e centralizado",
+    "invertColorBg": "Inverter cores",
+    "noBackground": "Sem plano de fundo",
+    "backgroundColor": "Cor do marcador:",
+    "showText": "Mostrar texto",
+    "textColor": "Cor do texto:",
+    "showFavicon": "Mostrar ícone",
+    "invertColorIcon": "Inverter cores dos ícones",
+    "iconColor": "Cor do ícone:",
+    "sections": {
+      "general": "Geral",
+      "style": "Estilo",
+      "text": "Texto",
+      "icon": "Ícone"
+    },
+    "preview": "Visualização",
+    "previewName": "Visualização"
+  },
+  "colorPicker": {
+    "title": "Seletor de cores",
+    "sample": "Escolha uma cor na tela",
+    "close": "Fechar seletor de cores",
+    "saturationBrightness": "Saturação e brilho",
+    "hue": "Matiz",
+    "quickColors": "Cores rápidas",
+    "saturation": "Saturação",
+    "brightness": "Brilho",
+    "hex": "Código hexadecimal",
+    "copy": "Copiar código hexadecimal",
+    "copied": "Código hexadecimal copiado",
+    "copyFailed": "Não foi possível copiar o código hexadecimal"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Geral",
+      "sync": "Sincronizar",
+      "theme": "Tema",
+      "bookmark": "Favoritos",
+      "shortcuts": "Atalhos",
+      "language": "Idiomas",
+      "help": "Ajuda",
+      "information": "Informação"
+    },
+    "general": {
+      "title": "Geral",
+      "subtitle": "Configurações",
+      "export": "Exportar backup",
+      "import": "Restaurar cópia de segurança",
+      "resetSettings": "Redefinir configurações",
+      "deleteAllData": "Exclua todos os dados locais",
+      "recycleBin": {
+        "title": "Lixeira",
+        "show": "Mostrar a lixeira na grade principal",
+        "retentionLabel": "Excluir itens automaticamente:",
+        "retentionOptions": {
+          "oneDay": "1 dia",
+          "sevenDays": "7 dias",
+          "fourteenDays": "14 dias",
+          "twentyEightDays": "28 dias",
+          "never": "Nunca"
+        }
+      },
+      "appearance": {
+        "title": "Aparência",
+        "system": "Navegador",
+        "light": "Luz",
+        "dark": "Escuro"
+      }
+    },
+    "sync": {
+      "title": "Sincronizar",
+      "description": "Escolha onde armazenar suas configurações e favoritos.",
+      "ariaLabel": "Modo de armazenamento",
+      "local": {
+        "title": "Este dispositivo apenas",
+        "description": "Os dados são armazenados apenas neste perfil de navegador local."
+      },
+      "synced": {
+        "title": "Sincronizado",
+        "description": "Disponível em perfis Google Chrome conectados à mesma conta.",
+        "tooltip": "Informações de sincronização"
+      },
+      "compatibility": {
+        "newerVersion": "A sincronização está bloqueada neste dispositivo porque os dados da nuvem foram criados por uma versão NewDeskTab mais recente. Seus dados sincronizados estão seguros e não foram modificados. Atualize NewDeskTab para reconectar."
+      },
+      "usage": {
+        "title": "Disponibilidade de armazenamento",
+        "showExact": "Mostrar bytes exatos",
+        "showHuman": "Mostrar tamanhos legíveis",
+        "local": "Locais",
+        "sync": "Sincronizado",
+        "localSyncCopy": "Cópia de sincronização local",
+        "localAria": "Uso de armazenamento local",
+        "syncAria": "Uso de armazenamento sincronizado",
+        "loading": "Calculando…",
+        "summary": "{{used}} de {{total}} · {{percent}}%",
+        "available": "{{free}} disponível",
+        "system": "Sistema e metadados",
+        "bookmarks": "Favoritos",
+        "folders": "Pastas",
+        "trash": "Dados da lixeira",
+        "localImages": "Imagens locais",
+        "themeImages": "Tema",
+        "bookmarkImages": "Favoritos",
+        "folderImages": "Pastas",
+        "trashImages": "Lixeira",
+        "otherImages": "Outro",
+        "widgets": "Widgets",
+        "widgetsHint": "O tamanho mostrado para Sincronização é uma estimativa e exclui conteúdo ao vivo obtido de serviços externos.",
+        "error": "Uso indisponível"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome sincroniza New DeskTab por meio de sua Conta do Google. New DeskTab não executa seu próprio servidor de sincronização.",
+        "brave": "Indisponível no Brave: ele pode armazenar dados New DeskTab em chrome.storage.sync, mas atualmente não os propaga entre dispositivos.",
+        "unsupported": "O armazenamento sincronizado só está disponível em Google Chrome por enquanto. Outros navegadores permanecem desativados até que o suporte entre dispositivos seja verificado."
+      },
+      "existingNotice": "Aceitar a mudança para Sincronizado carrega todos os dados sincronizados que já existem.",
+      "deleteData": "Excluir dados sincronizados",
+      "metadata": {
+        "loading": "Verificando dados sincronizados…",
+        "updatedAt": "Última atualização sincronizada: {{date}}",
+        "unknown": "Existem dados sincronizados, mas seu horário de atualização não está disponível.",
+        "empty": "Nenhum dado New DeskTab sincronizado é armazenado.",
+        "error": "Não foi possível carregar as informações de dados sincronizados."
+      },
+      "status": {
+        "idle": "Os dados estão prontos.",
+        "saving": "Salvando alterações…",
+        "saved": "Todas as alterações são salvas.",
+        "error": "Não foi possível salvar as alterações mais recentes."
+      }
+    },
+    "theme": {
+      "title": "Tema",
+      "subtitle": "Plano de fundo da página",
+      "backgroundImageMode": "Imagem/vídeo",
+      "wallpapersTitle": "Meus próprios papéis de parede",
+      "ownWallpapersHint": "Esses papéis de parede e sua rotação são armazenados apenas neste dispositivo.",
+      "mediaUrl": "URL do papel de parede",
+      "image": "Imagem",
+      "video": "Vídeo",
+      "addUrl": "Adicionar URL",
+      "addFiles": "Adicione arquivos locais",
+      "rotationInterval": "Rotação do papel de parede",
+      "noRotation": "Não mude automaticamente",
+      "interval5": "5 segundos",
+      "interval15": "15 segundos",
+      "interval30": "30 segundos",
+      "interval60": "1 minuto",
+      "interval300": "5 minutos",
+      "interval600": "10 minutos",
+      "interval1800": "30 minutos",
+      "previous": "Anterior",
+      "next": "Próximo",
+      "moveUp": "Subir",
+      "moveDown": "Mover para baixo",
+      "remove": "Remover",
+      "unavailableLocal": "Arquivo local indisponível neste dispositivo",
+      "mediaColor": "Cor por trás deste papel de parede",
+      "mediaPreview": "Visualizar papel de parede",
+      "activeSource": "Fonte ativa",
+      "backgroundSolid": "Cor sólida",
+      "backgroundColor": "Cor:",
+      "editSolidColor": "Alterar cor de fundo sólida",
+      "changeSolidColor": "Mudar cor",
+      "backgroundImageColor": "Cor por trás da imagem/vídeo",
+      "backgroundImage": "URL compartilhado entre dispositivos",
+      "urlHidden": "URL oculto",
+      "resetBackground": "Redefinir tema"
+    },
+    "bookmark": {
+      "title": "Favoritos",
+      "subtitle": "Marcador padrão",
+      "description": "Escolha a aparência usada ao criar novos marcadores.",
+      "configure": "Configurar favorito padrão",
+      "editorTitle": "Aparência padrão do marcador",
+      "previewName": "Marcador padrão",
+      "export": "Exportar favoritos",
+      "import": "Importar favoritos",
+      "deleteAll": "Excluir todos os favoritos",
+      "preview": "Visualização",
+      "drag": {
+        "title": "Comportamento de arrastar",
+        "description": "Escolha como os marcadores serão reorganizados quando você ocupar sua posição.",
+        "none": {
+          "title": "Nenhum",
+          "description": "Permite apenas movimentos para células livres."
+        },
+        "cascade": {
+          "title": "Sequência",
+          "description": "Muda a cadeia até encontrar uma célula livre.",
+          "experimental": "Experimental · Pode conter pequenos bugs."
+        },
+        "relocate": {
+          "title": "Mudança",
+          "description": "Realoca marcadores que ocupam o destino."
+        }
+      },
+      "resize": {
+        "title": "Comportamento de redimensionamento",
+        "description": "Escolha como os itens respondem ao mover uma alça de redimensionamento.",
+        "smooth": {
+          "title": "Suave",
+          "description": "Estica o item enquanto o arrasta e, em seguida, ajusta-o à grade."
+        },
+        "none": {
+          "title": "Nenhum",
+          "description": "Salta por célula quando você atravessa 50% da célula vizinha."
+        }
+      },
+      "presets": {
+        "title": "Biblioteca de estilos",
+        "tab": "Biblioteca",
+        "description": "Salve estilos e reutilize-os ao configurar o marcador padrão.",
+        "name": "Nome predefinido",
+        "saved": "Predefinições salvas",
+        "save": "Salvar predefinição",
+        "apply": "Carregar",
+        "delete": "Excluir",
+        "empty": "Nenhuma predefinição salva"
+      }
+    },
+    "shortcuts": {
+      "title": "Atalhos de teclado",
+      "description": "Selecione um botão de atalho e pressione uma letra ou combinação de teclas. Clique com o botão direito para cancelar a atribuição.",
+      "change": "Altere o atalho {{action}}. Atalho atual: {{shortcut}}.",
+      "press": "Pressione o atalho…",
+      "unassigned": "Não atribuído",
+      "unassignedFlash": "Atalho não atribuído.",
+      "modifierRequired": "Use uma letra sozinha ou uma combinação de teclas com um modificador.",
+      "reserved": "Este atalho é reservado pelo navegador ou sistema operacional. Escolha outra combinação.",
+      "conflict": "Esta chave já está atribuída a outra ação.",
+      "updated": "Atalho atualizado.",
+      "cancelled": "Alteração de atalho cancelada.",
+      "restored": "Atalhos padrão restaurados.",
+      "reset": "Redefinir atalhos",
+      "actions": {
+        "toggleEditing": {
+          "title": "Modo de edição",
+          "description": "Entre ou saia da edição na grade principal ou em uma pasta aberta."
+        },
+        "addBookmark": {
+          "title": "Criar favorito",
+          "description": "Abra o formulário para adicionar um marcador."
+        },
+        "addFolder": {
+          "title": "Criar pasta",
+          "description": "Abra a caixa de diálogo para criar uma pasta."
+        },
+        "openWidgets": {
+          "title": "Abrir widgets",
+          "description": "Abra a lista de widgets disponíveis."
+        },
+        "openSettings": {
+          "title": "Abrir configurações",
+          "description": "Abra o painel de configurações New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Idiomas",
+      "text": "Selecione o idioma da interface:",
+      "system": "Navegador",
+      "search": "Pesquisar idioma ou país",
+      "empty": "Nenhum idioma encontrado"
+    },
+    "information": {
+      "title": "Informação",
+      "version": "Versão: {{VERSION}}",
+      "author": "Autor:"
+    }
+  }
+}

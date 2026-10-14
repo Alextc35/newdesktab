@@ -1,4 +1,5 @@
-import { changeLanguage } from '../../platform/i18n/i18n.js';
+import { changeLanguage, subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
+import { LANGUAGE_CATALOG, getLanguageSearchTerms } from '../../domain/settings/languageCatalog.js';
 import { refreshCustomSelect } from '../../shared/ui/customSelect.js';
 import { getInitialSnapshot } from './settingsDraft.js';
 import {
@@ -29,6 +30,27 @@ export function initLanguageSection({
    * Language selector used to switch the current UI language.
    */
   const languageSelect = document.getElementById('language-select');
+  const browserOption = languageSelect.querySelector('[value="system"]');
+  const orderedLanguages = [...LANGUAGE_CATALOG].sort((a, b) => a.name.localeCompare(b.name, 'en'));
+  languageSelect.replaceChildren(browserOption, ...orderedLanguages.map(language => {
+    const option = new Option(language.name, language.code);
+    option.lang = language.code.replaceAll('_', '-');
+    option.dir = language.direction ?? 'ltr';
+    return option;
+  }));
+
+  function localizeSearch() {
+    const uiLanguage = document.documentElement.lang || 'en';
+    languageSelect.dataset.searchPlaceholder = t('settingsModal.languages.search');
+    languageSelect.dataset.searchEmpty = t('settingsModal.languages.empty');
+    for (const language of LANGUAGE_CATALOG) {
+      languageSelect.querySelector(`[value="${language.code}"]`).dataset.searchTerms =
+        getLanguageSearchTerms(language, uiLanguage);
+    }
+    refreshCustomSelect(languageSelect);
+  }
+  localizeSearch();
+  subscribeLanguageChange(localizeSearch);
 
   /* ==================================================
      Sync

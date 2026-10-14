@@ -1,0 +1,142 @@
+{
+  "zh_CN": {
+    "manual": {
+      "demo.topics.learning.1": "在搜索框中输入“键盘”，查找“使用键盘导航”。"
+    }
+  },
+  "zh_TW": {
+    "manual": {
+      "demo.topics.learning.1": "在搜尋框中輸入「鍵盤」，找到「使用鍵盤導航」。"
+    }
+  },
+  "ar": {
+    "phrases": {
+      "editor": "المحرر",
+      "Theme": "السمة"
+    },
+    "manual": {
+      "topics.wallpapers.searchTerms": "تغيير الخلفية; خلفية فيديو; تبديل الخلفيات; السمة"
+    }
+  },
+  "bg": {
+    "ui": {
+      "itemEditor.icons.ui-workspaces": "Прозорци",
+      "colorPicker.hue": "Нюанс"
+    }
+  },
+  "el": {
+    "ui": {
+      "itemEditor.icons.ui-workspaces": "Παράθυρα",
+      "launcher.widgets": "Γραφικά στοιχεία",
+      "widgets.title": "Γραφικά στοιχεία",
+      "settingsModal.sync.usage.widgets": "Γραφικά στοιχεία",
+      "settingsModal.bookmark.drag.relocate.title": "Μετατόπιση"
+    },
+    "manual": {
+      "topics.drag-modes.tip": "Θέλετε να μετακινήσετε έναν σελιδοδείκτη σε ένα κατειλημμένο κελί; Δείτε τις λειτουργίες Μετατόπιση και Ακολουθία στις Ρυθμίσεις → Σελιδοδείκτες και παρακολουθήστε τις προεπισκοπήσεις τους."
+    }
+  },
+  "cs": {
+    "ui": {
+      "itemEditor.addImage": "Přidat obrázek na pozadí",
+      "flash.selectionMode.enabled": "Režim výběru zapnut",
+      "flash.bookmark.updated": "Záložka aktualizována",
+      "flash.folder.created": "Složka vytvořena",
+      "flash.folder.updated": "Složka aktualizována",
+      "flash.recycleBin.moved": "Přesunuto do koše",
+      "flash.recycleBin.updated": "Koš aktualizován",
+      "flash.workspace.created": "Pracovní prostor vytvořen",
+      "flash.bookmarks.deletedAll": "Všechny záložky odstraněny",
+      "flash.bookmarks.deletedSelected": "Vybrané položky odstraněny",
+      "itemEditor.iconKeywords.cart": "nakupování obchod prodejna koupit",
+      "itemEditor.iconKeywords.ui-clock": "čas hodiny hodinky",
+      "itemEditor.iconKeywords.ui-data": "data sql úložiště"
+    }
+  },
+  "sk": {
+    "manual": {
+      "topics.wallpapers.tip": "Pozadie sa môže meniť automaticky: pridajte viacero pozadí do knižnice v Nastavenia → Téma a nastavte interval striedania.",
+      "topics.interface.steps.1": "Vyberte si svetlé, tmavé alebo automatické rozhranie podľa svojich preferencií.",
+      "topics.interface.note": "Jazyk systému a automatický vzhľad sa riadia nastaveniami vášho zariadenia.",
+      "topics.trash.steps.0": "Otvorte kôš vo svojom priestore a skontrolujte odstránené záložky a priečinky.",
+      "topics.trash.steps.2": "V Nastavenia → Všeobecné vyberte, či sa má kôš zobrazovať a ako dlho uchováva položky: 1, 7, 14 alebo 28 dní, prípadne ich nikdy neodstraňujte automaticky.",
+      "topics.sync.title": "Synchronizácia medzi zariadeniami"
+    }
+  },
+  "sr": {
+    "phrases": {
+      "Bookmark": "Обележивач",
+      "bookmark": "обележивач",
+      "Browser": "Прегледач"
+    },
+    "ui": {
+      "launcher.bookmark": "Обележивач",
+      "settingsModal.languages.system": "Прегледач"
+    }
+  },
+  "te": {
+    "ui": {
+      "settingsModal.sync.browserSupport.chrome": "Google Chrome — మీ Google ఖాతా ద్వారా మీ డేటాను సమకాలీకరిస్తుంది. పొడిగింపు దాని స్వంత సమకాలీకరణ సర్వర్‌ను అమలు చేయదు.",
+      "bulk.selected": "{{count}} అంశాలు ఎంపికయ్యాయి",
+      "recycleBin.selected": "{{count}} అంశాలు ఎంపికయ్యాయి"
+    },
+    "manual": {
+      "topics.quick-save.tip": "ప్రస్తుత పేజీని సేవ్ చేయడానికి మీ బ్రౌజర్‌లోని పొడిగింపు చిహ్నాన్ని ఉపయోగించండి. మీరు URLని కాపీ చేయవలసిన అవసరం లేదు."
+    }
+  },
+  "kn": {
+    "ui": {
+      "settingsModal.sync.browserSupport.chrome": "Google Chrome — ನಿಮ್ಮ Google ಖಾತೆಯ ಮೂಲಕ ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಸಿಂಕ್ರೊನೈಸ್ ಮಾಡುತ್ತದೆ. ವಿಸ್ತರಣೆಯು ತನ್ನದೇ ಆದ ಸಿಂಕ್ರೊನೈಸೇಶನ್ ಸರ್ವರ್ ಅನ್ನು ಚಲಾಯಿಸುವುದಿಲ್ಲ."
+    }
+  },
+  "ta": {
+    "ui": {
+      "settingsModal.sync.browserSupport.chrome": "Google Chrome — உங்கள் Google கணக்கு மூலம் உங்கள் தரவை ஒத்திசைக்கிறது. நீட்டிப்பு அதன் சொந்த ஒத்திசைவு சேவையகத்தை இயக்கவில்லை.",
+      "onboarding.steps.style.hint": "+ → விட்ஜெட்டுகள் வழியாக [[clock|கடிகாரம்]] ஒன்றைச் சேர்க்கவும். உங்கள் கோப்புறைகளின் [[appearance|தோற்றத்தையும்]] தனிப்பயனாக்கலாம்."
+    },
+    "manual": {
+      "topics.quick-save.tip": "தற்போதைய பக்கத்தைச் சேமிக்க உங்கள் உலாவியில் உள்ள நீட்டிப்பு ஐகானைப் பயன்படுத்தவும். நீங்கள் URL ஐ நகலெடுக்க தேவையில்லை."
+    }
+  },
+  "ml": {
+    "ui": {
+      "settingsModal.sync.browserSupport.chrome": "Google Chrome — നിങ്ങളുടെ Google അക്കൗണ്ട് വഴി നിങ്ങളുടെ ഡാറ്റ സമന്വയിപ്പിക്കുന്നു. വിപുലീകരണം സ്വന്തം സിൻക്രൊണൈസേഷൻ സെർവർ പ്രവർത്തിപ്പിക്കുന്നില്ല."
+    },
+    "manual": {
+      "topics.quick-save.tip": "നിലവിലെ പേജ് സംരക്ഷിക്കാൻ നിങ്ങളുടെ ബ്രൗസറിലെ വിപുലീകരണ ഐക്കൺ ഉപയോഗിക്കുക. നിങ്ങൾ URL പകർത്തേണ്ടതില്ല."
+    }
+  },
+  "am": {
+    "ui": {
+      "settingsModal.sync.browserSupport.chrome": "Google Chrome — ውሂብዎን በGoogle መለያዎ በኩል ያመሳስለዋል። ቅጥያው የራሱን የማመሳሰል አገልጋይ አይሰራም።"
+    },
+    "manual": {
+      "topics.quick-save.tip": "የአሁኑን ገጽ ለማስቀመጥ በአሳሽዎ ውስጥ ያለውን የኤክስቴንሽን አዶ ይጠቀሙ። ዩአርኤሉን መቅዳት አያስፈልግዎትም።",
+      "topics.shortcuts.searchTerms": "አቋራጮችን ቀይር; ቁልፎችን አብጅ; የቁልፍ ጥምሮች; የቁልፍ አቋራጭ"
+    }
+  },
+  "fa": {
+    "ui": {
+      "settingsModal.sync.usage.widgetsHint": "اندازهٔ نمایش‌داده‌شده برای همگام‌سازی تخمینی است و محتوای زندهٔ دریافت‌شده از سرویس‌های خارجی را شامل نمی‌شود."
+    }
+  },
+  "he": {
+    "ui": {
+      "settingsModal.bookmark.drag.relocate.title": "הזזה"
+    },
+    "manual": {
+      "topics.drag-modes.tip": "רוצה להעביר סימנייה לתא תפוס? בדוק את המצבים הזזה ורצף בהגדרות ← סימניות וצפה בתצוגות המקדימות שלהם."
+    }
+  },
+  "th": {
+    "ui": {
+      "onboarding.compactHint": "ขยายหน้าต่างเมื่อต้องการเพิ่มบุ๊กมาร์กและแก้ไขพื้นที่ทำงานของคุณ",
+      "itemEditor.hint.bookmark.icon": "ใช้ไอคอนเว็บไซต์ขนาดใหญ่ตรงกลาง หรือไอคอนขนาดเล็กข้างชื่อสำหรับการ์ดรูปภาพ"
+    },
+    "manual": {
+      "topics.quick-save.steps.2": "บันทึกบุ๊กมาร์กแล้วเปิดแท็บใหม่เพื่อค้นหาในพื้นที่ทำงานของคุณ",
+      "topics.keyboard.tip": "ลองกด Tab ในพื้นที่ทำงานของคุณ: ใช้ลูกศรเพื่อย้ายระหว่างรายการและกด Enter เพื่อเปิด กด Tab อีกครั้งเพื่อออกจากโหมดนี้",
+      "topics.appearance.searchTerms": "เปลี่ยนสี; เปลี่ยนไอคอน; เปลี่ยนข้อความ; รูปลักษณ์บุ๊กมาร์ก; สีโฟลเดอร์; ไอคอนเว็บไซต์"
+    }
+  }
+}

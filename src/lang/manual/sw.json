@@ -1,0 +1,517 @@
+{
+  "title": "Mwongozo wa mtumiaji",
+  "eyebrow": "NAFASI YAKO, KASI YAKO",
+  "intro": "Jua kila kipengele kidogo.",
+  "description": "Tafuta unachohitaji au gundua kitu kipya. Chukua wakati wako.",
+  "settingsDescription": "Kila kipengele, chenye hatua rahisi na hila ndogo za kujaribu wakati wowote upendao.",
+  "search": {
+    "label": "Je, tunaweza kukusaidia nini?",
+    "placeholder": "Kwa mfano: kurejesha alamisho iliyofutwa",
+    "common": "Maswali ya kawaida",
+    "found": "Majibu ya utafutaji wako · {{count}}",
+    "empty": "Hakuna usaidizi uliopatikana kwa utafutaji huo. Jaribu \"kibodi\", \"hamisha alamisho\" au \"chelezo\".",
+    "resultsLabel": "Maswali na majibu ya mwongozo"
+  },
+  "open": "Chunguza mwongozo",
+  "searchLabel": "Tafuta mwongozo",
+  "searchPlaceholder": "Jaribu \"kibodi\", \"ukuta\" au \"chelezo\"",
+  "count": "{{count}} sehemu za kuchunguza",
+  "empty": "Hakuna zinazolingana. Jaribu neno lingine au futa utafutaji ili kuona faharasa nzima.",
+  "back": "← Faharasa ya mwongozo",
+  "remember": "Nzuri kukumbuka",
+  "related": "Endelea kugundua",
+  "footer": "Inapatikana kila wakati katika Mipangilio → Usaidizi.",
+  "guideLinks": "Jifunze zaidi katika mwongozo",
+  "groups": {
+    "start": "Anzia hapa",
+    "organize": "Jipange",
+    "personalize": "Fanya iwe yako",
+    "protect": "Angalia nafasi yako"
+  },
+  "demo": {
+    "browse": "Vinjari sehemu",
+    "previous": "← Sehemu iliyotangulia",
+    "next": "Sehemu inayofuata →",
+    "title": "Ione kwa vitendo",
+    "example": "Mfano wa onyesho",
+    "steps": "Hatua za maonyesho",
+    "step": "Hatua ya {{step}} ya {{count}}",
+    "play": "Cheza",
+    "pause": "Sitisha",
+    "replay": "Cheza tena",
+    "progress": "Maendeleo ya maonyesho",
+    "mode": "Tabia",
+    "nextStep": "Hatua inayofuata",
+    "reducedMotion": "Mwendo uliopunguzwa: chunguza hatua bila uhuishaji.",
+    "labels": {
+      "settings": "Mipangilio",
+      "saved": "Mabadiliko yamehifadhiwa",
+      "page": "Ukurasa",
+      "selection": "Uteuzi",
+      "selected": "vitu vilivyochaguliwa",
+      "color": "Rangi",
+      "styleName": "Mtindo wangu wa zambarau",
+      "wallpaper": "Mandhari",
+      "rotation": "Mzunguko",
+      "format": "Umbizo",
+      "seconds": "Sekunde",
+      "language": "Lugha",
+      "system": "Mfumo",
+      "currentLanguage": "Kiswahili",
+      "restore": "Rejesha",
+      "copy": "Hifadhi nakala",
+      "restoreCopy": "Kagua kabla ya kurejesha",
+      "switchSync": "Je, ungependa kubadilisha hadi Imesawazishwa?",
+      "applyNow": "Inatumika inapothibitishwa",
+      "status": "Hali",
+      "synchronized": "Imesawazishwa",
+      "retry": "Hifadhi inasubiri · Jaribu tena",
+      "keyboardQuery": "kibodi",
+      "deleteExample": "Alamisho na folda zitafutwa. Pipa la kuchakata litakuwa tupu."
+    },
+    "topics": {
+      "bookmarks": [
+        "Fungua menyu ya kushoto na uchague + → Alamisho.",
+        "Ingiza jina la ukurasa na anwani.",
+        "Thibitisha: alamisho inaonekana kwenye seli isiyolipishwa."
+      ],
+      "quick-save": [
+        "Fungua New DeskTab kutoka aikoni yake ya kiendelezi.",
+        "Kagua jina lililopendekezwa, anwani na unakoenda.",
+        "Hifadhi: alamisho itakuwa kwenye nafasi yako ya kazi unapofungua kichupo."
+      ],
+      "keyboard": [
+        "Bonyeza Tab ili kulenga kipengee cha kwanza.",
+        "Vitufe vya vishale husogeza umakini. Ingiza hufungua kipengee kilicholengwa.",
+        "Esc au Kichupo kingine humaliza urambazaji."
+      ],
+      "shortcuts": [
+        "Fungua Mipangilio → Njia za mkato za kibodi.",
+        "Bofya njia ya mkato ya kitendo na uandike mchanganyiko wako.",
+        "Hifadhi ili kutumia njia ya mkato mpya."
+      ],
+      "search": [
+        "Kikuzaji cha upau wa vidhibiti au / hufungua utafutaji.",
+        "Andika sehemu ya jina au anwani.",
+        "Fungua matokeo. Esc au Funga inarudi kwenye nafasi yako ya kazi."
+      ],
+      "editing": [
+        "Penseli ya menyu inaonyesha gridi ya taifa na vidhibiti.",
+        "Penseli ya Gmail hufungua jina lake na kihariri cha URL.",
+        "Hifadhi mabadiliko na ubofye penseli ya menyu tena ili kumaliza."
+      ],
+      "movement": [
+        "Washa uhariri na ushikilie kigae.",
+        "Mshale na kigae husogea pamoja hadi kwenye seli isiyolipishwa.",
+        "Kutolewa: nafasi ya mwisho imehifadhiwa."
+      ],
+      "resizing": [
+        "Washa uhariri na utafute kipini cha kona.",
+        "Buruta kwa mshazari ili kubadilisha upana na urefu.",
+        "Kutolewa kwa 2 × 2. Linganisha Hakuna na Laini kwa kutumia kiteuzi."
+      ],
+      "drag-modes": [
+        "Tumia kiteuzi kulinganisha njia tatu za kuburuta.",
+        "Buruta kuelekea seli inayokaliwa na utazame vigae vingine.",
+        "Hakuna anayetumia seli huru; Uhamishaji na Mfuatano panga upya vigae."
+      ],
+      "folders": [
+        "Taja folda ili kupanga kurasa zako.",
+        "Wakati wa kuhariri, buruta alamisho ndani yake.",
+        "Fungua folda ili kupata alamisho kwenye gridi yake."
+      ],
+      "workspaces": [
+        "Upau wa vidhibiti + huunda nafasi ya kazi na jina lako ulilochagua.",
+        "Nafasi mpya ya kazi ina gridi yake mwenyewe.",
+        "Mzunguko wa Alt + ↑ na Alt + ↓ kupitia nafasi zako za kazi."
+      ],
+      "selection": [
+        "Washa uhariri na uchague kigae kwa kubofya kwa muda mfupi.",
+        "Chagua nyingine: upau wa vidhibiti hutoa vitendo vya kikundi.",
+        "Clone huunda nakala katika seli zisizolipishwa kwa kitendo kimoja."
+      ],
+      "history": [
+        "Sogeza kigae: mabadiliko hayo yanaingia kwenye historia.",
+        "Tendua hurejesha kigae kwenye nafasi yake ya awali.",
+        "Rudia hurejesha hatua ambayo umeibadilisha."
+      ],
+      "appearance": [
+        "Penseli ya tile inafungua mhariri wake.",
+        "Badilisha rangi na uangalie onyesho la kukagua.",
+        "Hifadhi ili kutumia mwonekano huo kwenye tile."
+      ],
+      "presets": [
+        "Fungua maktaba kutoka kwa Mipangilio → Alamisho.",
+        "Taja na uhifadhi mtindo ili kuutumia tena.",
+        "Ipakie kama chaguo-msingi na uhifadhi kwa alamisho mpya."
+      ],
+      "wallpapers": [
+        "Fungua Mipangilio → Mandhari ili kuchagua mandhari.",
+        "Kagua onyesho la kukagua na muda wa mzunguko wa maktaba.",
+        "Hifadhi: Ukuta uliochaguliwa unaonekana kwenye nafasi yako ya kazi."
+      ],
+      "clock": [
+        "Chagua + → Wijeti → Saa kwenye menyu ya kushoto.",
+        "Sanidi umbizo na sekunde kwa kutumia onyesho la kukagua.",
+        "Ongeza saa kwenye seli ya nafasi ya kazi isiyolipishwa."
+      ],
+      "interface": [
+        "Fungua Jumla na uchague lugha ya menyu.",
+        "Linganisha kiolesura cha mwanga na giza.",
+        "Hifadhi mapendeleo yako ya lugha na mwonekano."
+      ],
+      "trash": [
+        "Fungua pipa la kuchakata tena ili kupata alamisho iliyofutwa.",
+        "Chagua na ubofye Rejesha: inarudi kwenye gridi ya taifa.",
+        "Kwa ujumla, chagua muda gani vitu vilivyofutwa vinawekwa."
+      ],
+      "backup": [
+        "Pata chaguo za chelezo katika Mipangilio → Jumla.",
+        "Hamisha hupakua ZIP iliyo na data na faili za ndani.",
+        "Uingizaji huomba uthibitisho kabla ya kubadilisha data."
+      ],
+      "sync": [
+        "Fungua Mipangilio → Usawazishaji ili kuangalia hali ya sasa.",
+        "Chagua Imesawazishwa na ukague uthibitisho.",
+        "Kubali inatumika modi mara moja, bila kubofya Hifadhi."
+      ],
+      "compact": [
+        "Wakati dirisha linapungua, gridi ya taifa inakuwa orodha.",
+        "Alamisho bado zinapatikana kutoka kwenye orodha.",
+        "Panua dirisha ili kurudi kwenye gridi ya taifa na kuhariri."
+      ],
+      "data": [
+        "Mfano hutumia lugha nyingine, kiolesura chepesi na vigae vilivyoboreshwa.",
+        "Weka upya hurejesha mipangilio chaguomsingi huku ukihifadhi vialamisho na mitindo yao.",
+        "Futa huondoa alamisho na folda, na kuacha tu pipa tupu la kuchakata tena."
+      ],
+      "learning": [
+        "Kidokezo cha kila siku kinakualika kugundua kipengele. Bofya Nionyeshe jinsi gani.",
+        "Andika \"kitufe\" kwenye kisanduku cha kutafutia ili kupata Abiri ukitumia kibodi.",
+        "Bofya matokeo ili kusoma maagizo yake."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "DOKEZO KIDOGO KWA LEO",
+    "dismiss": "Ondoa kidokezo cha leo",
+    "read": "Nionyeshe jinsi gani",
+    "pace": "Elea ili kusitisha.",
+    "enabled": "Vidokezo vya kila siku",
+    "description": "Kidokezo kimoja unapofungua kichupo chako cha kwanza cha siku."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Je, ninawezaje kuongeza ukurasa kwenye vialamisho vyangu?",
+      "searchTerms": "ongeza ukurasa; tengeneza alama; kuokoa tovuti; mpya favorite",
+      "title": "Ongeza alamisho",
+      "summary": "Kurasa zako uzipendazo katika kila kichupo kipya.",
+      "steps": [
+        "Sogeza kwenye ukingo wa kushoto ili kuonyesha menyu. Chagua + → Alamisho.",
+        "Ingiza jina la ukurasa na anwani. Unaweza kurekebisha mwonekano wake kabla ya kuiongeza.",
+        "Thibitisha kuweka alamisho kwenye nafasi isiyolipishwa katika nafasi ya kazi ya sasa. Nje ya hali ya kuhariri, bofya ili kufungua ukurasa."
+      ],
+      "note": "Ili kubadilisha alamisho iliyopo, washa kuhariri na utumie penseli yake. Unaweza kufunga anwani ili kuepuka mabadiliko yasiyotarajiwa.",
+      "tip": "Menyu ya kuongeza alamisho iko kwenye ukingo wa kushoto. Sogeza mshale wako hapo na uchague + → Alamisho."
+    },
+    "quick-save": {
+      "question": "Je, ninahifadhije ukurasa ninaotembelea?",
+      "searchTerms": "kuokoa ukurasa wa sasa; kuokoa tab wazi; ikoni ya ugani; kamata URL",
+      "title": "Hifadhi ukurasa wa sasa",
+      "summary": "Ongeza ukurasa kutoka kwa ikoni ya kiendelezi.",
+      "steps": [
+        "Unapotembelea ukurasa, fungua New DeskTab kutoka kwa menyu ya viendelezi ya kivinjari.",
+        "Angalia jina na anwani inayopendekezwa, na uchague lengwa linalopatikana.",
+        "Hifadhi alamisho na ufungue kichupo kipya ili uipate kwenye nafasi yako."
+      ],
+      "note": "Bandika aikoni ya kiendelezi kwenye upau wa vidhibiti wa kivinjari chako ili kuweka njia hii ya mkato ifikiwe.",
+      "tip": "Hakuna haja ya kunakili URL: New DeskTab's aikoni ya kivinjari hukuwezesha kuhifadhi ukurasa unaotembelea."
+    },
+    "keyboard": {
+      "question": "Je, ninawezaje kusogeza bila panya?",
+      "searchTerms": "bila panya; tumia kibodi; urambazaji wa mshale; kichupo ingiza",
+      "title": "Nenda kwa kutumia kibodi",
+      "summary": "Kichupo, vitufe vya vishale na Enter ili kuchunguza nafasi yako.",
+      "steps": [
+        "Kwenye ukurasa mkuu, bila kuchapa kwenye sehemu au kufungua kidadisi, bonyeza Tab ili kuanza kuelekeza vipengee.",
+        "Tumia vitufe vya vishale kufikia kipengee kilicho karibu zaidi katika kila upande. Ingiza hufungua alamisho au folda; katika hali ya kuhariri, inafungua kihariri chake.",
+        "Bonyeza Tab tena au Esc ili kuondoka kwenye urambazaji. Ndani ya mazungumzo, Tab na Shift + Tab husogea kati ya vidhibiti kwa kawaida."
+      ],
+      "note": "Katika hali ya kuhariri, S huchagua kipengee kilicholengwa. Futa au Backspace itaiondoa baada ya uthibitisho. Wijeti hufutwa kabisa.",
+      "tip": "Jaribu Kichupo katika nafasi yako: mishale husogea kati ya vipengee na Enter inavifungua. Kichupo kingine huacha hali hii."
+    },
+    "shortcuts": {
+      "question": "Je, ninabadilishaje mikato ya kibodi yangu?",
+      "searchTerms": "badilisha njia za mkato; Customize funguo; mchanganyiko muhimu; hotkey",
+      "title": "Fanya njia za mkato iwe zako",
+      "summary": "Angalia na ubadilishe njia zako za mkato katika Mipangilio.",
+      "steps": [
+        "Fungua Mipangilio → Njia za mkato ili kuona vifungo vyako vya kuhariri, kuongeza alamisho, folda na wijeti, na mipangilio ya kufungua.",
+        "Bofya mchanganyiko wa vitufe vya kitendo na ubonyeze njia ya mkato mpya. Esc inaghairi kurekodi; kubofya kulia huacha kitendo bila kukabidhiwa.",
+        "Hifadhi mipangilio ili kutumia mabadiliko yako. Weka upya njia za mkato hurejesha michanganyiko ya awali."
+      ],
+      "note": "Hapo awali: E inahariri, B inaongeza alamisho, F a folda, W inafungua wijeti na S inafungua mipangilio. Njia za mkato zinaheshimu sehemu za maandishi na mazungumzo.",
+      "tip": "Unaweza kubadilisha njia za mkato katika Mipangilio. Bofya mchanganyiko ili kurekodi yako mwenyewe; Esc inaghairi na ubofye kulia kuiondoa."
+    },
+    "search": {
+      "question": "Je, ninapataje alamisho nisiyoweza kuona?",
+      "searchTerms": "pata alama; tafuta ukurasa; kukosa alama; tafuta URL",
+      "title": "Tafuta alamisho",
+      "summary": "Tafuta kwa jina au anwani, pamoja na folda za ndani.",
+      "steps": [
+        "Bonyeza / wakati huchapi, au tumia kioo cha kukuza kwenye upau wa nafasi ya kazi.",
+        "Andika sehemu ya jina au anwani. Utafutaji unajumuisha alamisho katika nafasi zingine za kazi na folda za ndani.",
+        "Fungua matokeo unayohitaji. Esc au Funga inakurudisha kwenye nafasi yako."
+      ],
+      "note": "Huhitaji kukumbuka mahali ulipohifadhi ukurasa ili kuupata.",
+      "tip": "Kitufe / kitufe hufungua utafutaji. Pia hupata alamisho ndani ya folda na katika nafasi zingine za kazi."
+    },
+    "editing": {
+      "question": "Je, nitawashaje kuhariri?",
+      "searchTerms": "wezesha uhariri; hariri eneo-kazi; mhariri wa penseli; rekebisha alamisho",
+      "title": "Hali ya kuhariri",
+      "summary": "Washa penseli ili kupanga na kubinafsisha.",
+      "steps": [
+        "Bofya penseli katika menyu ya kushoto, au tumia njia yako ya mkato ya kuhariri, ili kufichua gridi na vidhibiti vya bidhaa.",
+        "Sogeza, badilisha ukubwa au chagua vipengee. Kila penseli ya kadi hufungua jina lake, anwani na mhariri wa kuonekana.",
+        "Bofya penseli tena ukimaliza. Mabadiliko ya nafasi ya kazi huhifadhi kiotomatiki; wahariri wana kitufe chao cha Hifadhi."
+      ],
+      "note": "Esc kwanza hufuta uteuzi au urambazaji wa kibodi. Wakati hakuna haitumiki, inaweza kuondoka kwenye hali ya kuhariri.",
+      "tip": "Penseli ya menyu huanza kuhariri: vishikizo vya kadi na vidhibiti vinaonekana. Bofya tena ili kumaliza."
+    },
+    "movement": {
+      "question": "Je, ninawezaje kuhamisha alamisho?",
+      "searchTerms": "sogeza alamisho; Drag favorite; kubadilisha msimamo; kupanga gridi ya taifa",
+      "title": "Hamisha vitu",
+      "summary": "Buruta kadi mahali kwenye gridi ya taifa.",
+      "steps": [
+        "Washa hali ya kuhariri na ushikilie kadi unayotaka kuhamisha.",
+        "Iburute hadi inapoenda. Matokeo hutegemea nafasi ya bure na hali ya kukokota iliyochaguliwa katika Mipangilio → Alamisho.",
+        "Achilia ili kuhifadhi nafasi yake. Unaweza pia kuchagua kipengee kimoja kwa kubofya na kuisogeza kisanduku kimoja kwa mishale, nje ya uelekezaji wa Kichupo."
+      ],
+      "note": "Maeneo yaliyozuiwa yanaonyesha maoni yanayoonekana na kipengee kinarudi katika nafasi sahihi. Unaweza kutendua mabadiliko.",
+      "tip": "Katika hali ya kuhariri, bofya ili kuchagua kadi moja na utumie vishale kusogeza seli kwa seli. Acha urambazaji wa Kichupo kwanza."
+    },
+    "resizing": {
+      "question": "Ninabadilishaje saizi ya tile?",
+      "searchTerms": "resize tile; kupanua alamisho; kupunguza ukubwa; resize vipini; bonyeza; Shift; urefu wa upana; 2x2",
+      "title": "Badilisha ukubwa",
+      "summary": "Tumia pande na pembe za kadi.",
+      "steps": [
+        "Washa uhariri na usogee kwenye upande au kona ya kipengee ili utumie vishikizo vyake vya kubadilisha ukubwa.",
+        "Buruta mpini. Kona hubadilisha upana na urefu; upande hubadilisha mwelekeo mmoja tu. Unaweza pia kubofya mpini ili kukua kwa seli moja, au Shift + kubofya ili kupunguza kwa seli moja.",
+        "Katika Mipangilio → Alamisho, chagua Hakuna ili kuruka kati ya visanduku baada ya kuvuka 50%, au Laini ili kunyoosha kadi na kugonga wakati wa kutolewa."
+      ],
+      "note": "Saizi ya mwisho inaheshimu gridi na nafasi halali. Onyesho la kuchungulia la mipangilio huonyesha tofauti kabla ya kuchagua.",
+      "tip": "Bofya mpini ili kukua kwa seli moja au Shift + kubofya ili kupunguza kwa seli moja. Pembe hubadilisha upana na urefu pamoja; pande kubadilisha mwelekeo mmoja tu."
+    },
+    "drag-modes": {
+      "question": "Kwa nini siwezi kushuka kwenye seli iliyochukuliwa?",
+      "searchTerms": "seli iliyochukuliwa; songa juu ya mwingine; tone lililozuiwa; kuhamisha cascade; mgongano wa kuvuta",
+      "title": "Njia za kuvuta",
+      "summary": "Chagua kile kinachotokea katika nafasi ya alamisho iliyochukuliwa.",
+      "steps": [
+        "Fungua Mipangilio → Alamisho na upanue tabia ya kuburuta.",
+        "Hakuna inayoingia kwenye nafasi zisizolipishwa. Uhamishaji hupata nafasi ya vialamisho kwenye lengwa. Mfuatano hupanga upya vialamisho kwa mfuatano.",
+        "Tazama uhuishaji wa kila chaguo na uhifadhi hali ambayo unahisi vizuri kupanga nayo."
+      ],
+      "note": "Hatua imekataliwa ikiwa hakuna mpangilio halali. Mandharinyuma yenye uwazi haifanyi kisanduku kilichokaliwa kuwa huru.",
+      "tip": "Je, ungependa kuhamisha alamisho hadi kwenye seli inayokaliwa? Angalia Kuhamisha na Kuteleza katika Mipangilio → Alamisho na utazame muhtasari wao."
+    },
+    "folders": {
+      "question": "Ninawezaje kuweka alamisho kwenye folda?",
+      "searchTerms": "kuunda folda; alamisho za kikundi; panga vipendwa; ondoa kwenye folda; badilisha jina la folda",
+      "title": "Panga na folda",
+      "summary": "Kusanya hadi alamisho 18 kwenye folda moja.",
+      "steps": [
+        "Chagua + → Folda kwenye menyu ya kushoto na uipe jina.",
+        "Katika hali ya kuhariri, buruta alamisho ndani yake ili kuziweka ndani. Fungua folda ili kuona gridi yake.",
+        "Tumia hali ya kuhariri ya folda ili kupanga vialamisho vyake. Bofya jina lake ili uipe jina jipya na ikoni yake ili kubinafsisha mwonekano wake."
+      ],
+      "note": "Kufuta folda huathiri alamisho zake pia. Kagua uthibitisho kabla ya kuendelea; pipa la kuchakata linaweza kurejesha vitu vilivyofutwa.",
+      "tip": "Folda ina hadi alamisho 18. Washa kuhariri na uburute kadi kwenye folda ili kuiongeza."
+    },
+    "workspaces": {
+      "question": "Je, ninatengaje kurasa za kibinafsi na za kazi?",
+      "searchTerms": "kazi ya kibinafsi; tengeneza nafasi ya kazi; kubadili nafasi ya kazi; dawati",
+      "title": "Tenganisha nafasi zako za kazi",
+      "summary": "Gridi moja ya kazi na nyingine kwa kila kitu kingine.",
+      "steps": [
+        "Upau wa nafasi ya kazi hubadilisha kati ya Kuu na nafasi zako maalum za kazi. Yake + inaunda mpya.",
+        "Chagua nafasi ya kazi kabla ya kuongeza vipengee. Ili kuhamisha vipengee vilivyopo, vichague na uchague lengwa katika upau wa kitendo.",
+        "Alt + ↑ na Alt + ↓ mzunguko kupitia nafasi za kazi. Kitufe - hufuta nafasi ya sasa ya kazi maalum baada ya uthibitisho."
+      ],
+      "note": "Kufuta nafasi ya kazi pia hufuta yaliyomo. Makao makuu yanapatikana na hayawezi kufutwa.",
+      "tip": "Alt + ↑ na Alt + ↓ badilisha nafasi za kazi bila kufungua kiteuzi. Tenganisha kazi, vitu vya kufurahisha au miradi na bar ya +."
+    },
+    "selection": {
+      "question": "Ninabadilishaje vitu kadhaa mara moja?",
+      "searchTerms": "chagua nyingi; uteuzi wa wingi; hoja kadhaa; uteuzi wa clone; vialamisho rudufu",
+      "title": "Chagua na tenda kwa wingi",
+      "summary": "Vitendo vichache vinavyorudiwa wakati wa kupanga kadi kadhaa.",
+      "steps": [
+        "Washa uhariri na ubofye kwa ufupi kila kadi ili kuichagua. Bofya tena ili kuacha kuchagua; katika urambazaji wa Tab unaweza kutumia S.",
+        "Upau wa uteuzi hukuruhusu kurudia, kutumia mwonekano chaguo-msingi, nenda kwenye nafasi nyingine ya kazi au ufute, kulingana na aina ya kipengee.",
+        "Angalia unakoenda au uthibitisho. Esc au kitufe cha kuchagua-wazi hughairi uteuzi wako."
+      ],
+      "note": "Kusonga na kunakili kunahitaji nafasi za bure. Programu itakuambia ikiwa baadhi ya vipengee havitatoshea. Wijeti haziingii kwenye pipa la kuchakata tena.",
+      "tip": "Katika hali ya kuhariri, chagua kadi kadhaa zilizo na mibofyo mifupi ili kuzisogeza, kuziiga au kuziweka upya pamoja. Esc inafuta uteuzi."
+    },
+    "history": {
+      "question": "Je, nitatenguaje mabadiliko yangu ya mwisho?",
+      "searchTerms": "ondoa mabadiliko; fanya upya mabadiliko; kurudi nyuma; kurejesha nafasi",
+      "title": "Tendua na ufanye upya",
+      "summary": "Rejesha nafasi au mabadiliko ya hivi majuzi.",
+      "steps": [
+        "Tumia kishale cha kutendua kwenye upau wa nafasi ya kazi ili kurudi katika hali ya awali.",
+        "Kishale cha kufanya upya hurejesha mabadiliko ambayo umeyatengua. Unaweza pia kutumia Ctrl/Cmd + Z na Ctrl/Cmd + Shift + Z.",
+        "Ndani ya kihariri, tumia vishale kando ya kichwa chake kwa mabadiliko yanayosubiri; sehemu za maandishi huweka kibodi yao ya kawaida kutendua. Kila kitendo kinaonyesha ujumbe mfupi na mishale isiyopatikana imezimwa. Angalia matokeo kabla ya kuhifadhi."
+      ],
+      "note": "Historia ya mhariri huanza upya kila wakati unapofungua kihariri; mabadiliko hufikia nafasi yako ya kazi unapohifadhi. Historia ya nafasi ya kazi ni ya muda na si nakala rudufu. Kipindi kipya au masasisho kutoka kwa kichupo kingine yanaweza kukirejesha upya.",
+      "tip": "Ikiwa mabadiliko hayajisikii sawa, tumia kishale cha kutendua au Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z ifanye upya."
+    },
+    "appearance": {
+      "question": "Ninabadilishaje rangi, ikoni au maandishi?",
+      "searchTerms": "kubadilisha rangi; badilisha ikoni; badilisha maandishi; kuonekana kwa alama; rangi ya folda; favicon",
+      "title": "Geuza kadi zako kukufaa",
+      "summary": "Rangi, picha, maandishi na ikoni kwa njia yako.",
+      "steps": [
+        "Washa uhariri na ufungue penseli ya alamisho, au kidhibiti cha kuonekana cha folda au pipa la kuchakata tena.",
+        "Chunguza kihariri: usuli, rangi, picha, maandishi na ikoni. Vidhibiti vinavyopatikana hutegemea aina ya kipengee; muhtasari unaonyesha matokeo.",
+        "Okoa unapokuwa na furaha. Unaweza kutumia picha kutoka kwa URL au faili ya karibu ambapo kihariri hutoa chaguo hilo."
+      ],
+      "note": "Picha za ndani ni za kivinjari hiki. Wakati wa kusawazisha, ongeza URL mbadala kwa vifaa vingine. Uagizaji huweka picha zilizojumuishwa na marejeleo wazi bila faili; Usawazishaji hupuuza faili ambazo hazipatikani kwenye kifaa hiki.",
+      "tip": "Penseli ya alamisho inafungua kihariri chake cha kuona. Badilisha rangi, maandishi, ikoni au picha na uangalie onyesho la kukagua."
+    },
+    "presets": {
+      "question": "Je, nitatumiaje tena mtindo ninaoupenda?",
+      "searchTerms": "kuokoa mtindo; tumia tena kuonekana; mitindo chaguo-msingi; maktaba iliyowekwa tayari; tumia mtindo",
+      "title": "Tumia tena mionekano",
+      "summary": "Hifadhi mwonekano na uitumie kwenye vialamisho vingine.",
+      "steps": [
+        "Fungua Maktaba ya kihariri ili kuchagua mwonekano kutoka kwa mkusanyiko unaopatikana.",
+        "Hifadhi mwonekano maalum kama uwekaji mapema ili kutumia tena rangi, maandishi na ikoni yake bila kunakili jina au anwani ya alamisho.",
+        "Katika Mipangilio → Alamisho sanidi mwonekano chaguo-msingi wa alamisho mpya. Upau wa uteuzi unaweza kuitumia kwa vipengee vinavyooana."
+      ],
+      "note": "Uwekaji mapema hubadilisha mwonekano, si utambulisho wa alamisho, lengwa au nafasi.",
+      "tip": "Hifadhi mwonekano unaopenda kwenye maktaba ya mwonekano. Itumie tena kwenye kadi zingine bila kubadilisha majina au anwani zao."
+    },
+    "wallpapers": {
+      "question": "Je, ninatumiaje picha au video kama usuli wangu?",
+      "searchTerms": "badilisha mandharinyuma; mandharinyuma ya video; mzunguko wa Ukuta; mandhari",
+      "title": "Wallpapers na mzunguko",
+      "summary": "Rangi, picha au video ili kuweka hali.",
+      "steps": [
+        "Fungua Mipangilio → Mandhari na uchague usuli chaguo-msingi, rangi au usuli wa midia.",
+        "Ongeza picha au video kutoka kwa vyanzo vinavyotolewa kwenye paneli. Maktaba hukusanya asili nyingi na muda wa mzunguko.",
+        "Angalia onyesho la kukagua na uhifadhi. Unaweza kuoanisha faili ya ndani na URL mbadala ya vifaa vingine."
+      ],
+      "note": "Faili za ndani hukaa kwenye kivinjari hiki. Usawazishaji hauwahamishi; chelezo kamili inaweza kuzihifadhi.",
+      "tip": "Mandhari yako yanaweza kubadilika kiotomatiki: ongeza kadhaa kwenye Mipangilio → maktaba ya Mandhari na uweke muda wa mzunguko."
+    },
+    "clock": {
+      "question": "Je, ninawezaje kuongeza saa?",
+      "searchTerms": "ongeza saa; wakati wa maonyesho; sekunde; muundo wa saa 24; wijeti ya saa",
+      "title": "Ongeza saa",
+      "summary": "Wijeti inayoonyesha wakati wa kifaa chako.",
+      "steps": [
+        "Chagua + → Wijeti kwenye menyu ya kushoto na uchague Saa.",
+        "Chagua umbizo la saa 12 au 24 na iwapo utaonyesha sekunde. Onyesho la kukagua hukusaidia kuamua.",
+        "Iongeze kwenye nafasi ya bure. Katika hali ya kuhariri unaweza kuhamisha, kubadilisha ukubwa au kufungua upya chaguo zake."
+      ],
+      "note": "Saa inafuata wakati wa kifaa chako. Kufuta wijeti ni ya kudumu; haiingii kwenye pipa la kuchakata tena.",
+      "tip": "Katika + → Wijeti unaweza kuongeza saa ya saa 12 au 24 yenye sekunde za hiari na uibadilishe ukubwa ili iendane na nafasi yako."
+    },
+    "interface": {
+      "question": "Ninawezaje kubadilisha lugha au kutumia hali ya giza?",
+      "searchTerms": "badilisha lugha; hali ya giza; hali ya mwanga; muonekano wa interface",
+      "title": "Mandhari ya lugha na kiolesura",
+      "summary": "Fanya menyu, vidadisi na vidhibiti vya urahisi.",
+      "steps": [
+        "Katika Mipangilio → Jumla chagua lugha au uiruhusu ifuate mfumo wako.",
+        "Chagua kiolesura chepesi, cheusi au kiotomatiki kulingana na upendavyo.",
+        "Hifadhi mipangilio. Mandhari ya kiolesura hufanya kazi pamoja na usuli uliochagua katika Mandhari."
+      ],
+      "note": "Lugha ya mfumo na mwonekano wa kiotomatiki hufuata mapendeleo ya kifaa chako.",
+      "tip": "Chagua kiolesura chepesi au cheusi huku ukihifadhi mandhari yako. Pata chaguo hili na lugha katika Mipangilio → Jumla."
+    },
+    "trash": {
+      "question": "Je, ninapataje alamisho iliyofutwa?",
+      "searchTerms": "kurejesha alamisho iliyofutwa; kurejesha kuondolewa; recycle bin; kufutwa kwa bahati mbaya; kurejesha folda",
+      "title": "Rejesha kutoka kwa pipa la kuchakata tena",
+      "summary": "Nafasi ya pili ya alamisho na folda.",
+      "steps": [
+        "Fungua hifadhi ya kuchakata tena ya space yako ili ukague alamisho na folda zilizofutwa.",
+        "Chagua unachotaka kurejesha na utumie Rejesha. Unaweza pia kufuta vipengee kabisa au kumwaga pipa baada ya uthibitisho.",
+        "Katika Mipangilio → Jumla chagua ikiwa utaionyesha na muda gani itahifadhi vipengee: 1, 7, 14 au 28 siku, au usifute kamwe kiotomatiki."
+      ],
+      "note": "Pipa la kuchakata ni la kifaa hiki. Vipengee vilivyokwisha muda wake au vilivyofutwa kabisa haviwezi kurejeshwa kutoka kwayo.",
+      "tip": "Je, ungependa kufuta alamisho kimakosa? Fungua pipa la kuchakata tena na uirejeshe. Rekebisha muda wa kubaki katika Mipangilio → Jumla."
+    },
+    "backup": {
+      "question": "Je, ninawezaje kuhifadhi nakala au kuhamisha data yangu?",
+      "searchTerms": "nakala ya chelezo; data ya kuuza nje; kuagiza nakala; kurejesha nakala; kivinjari kingine; kuhamisha data",
+      "title": "Chelezo na uagizaji",
+      "summary": "Weka nakala ya nafasi yako na uende nayo.",
+      "steps": [
+        "Katika Mipangilio → Kwa ujumla, tuma nakala kamili ili kuhifadhi data na faili za ndani zilizojumuishwa kwenye kumbukumbu ya ZIP.",
+        "Ili kurejesha, leta nakala rudufu na ukague uthibitisho kabla ya kubadilisha data. Hifadhi rudufu zinazooana za JSON pia zinatumika.",
+        "Katika Mipangilio → Alamisho unaweza kuhamisha au kuagiza tu vialamisho na folda wakati hauitaji nakala kamili."
+      ],
+      "note": "Uhamishaji wa alamisho sio nakala kamili ya mipangilio na media ya ndani. Hifadhi nakala kabla ya kurejesha au kufuta data.",
+      "tip": "Hifadhi rudufu kamili kutoka kwa Mipangilio → Jumla inajumuisha faili za ndani katika ZIP. Ni muhimu kabla ya kubadili vivinjari au kurejesha data."
+    },
+    "sync": {
+      "question": "Je, ninawezaje kutumia nafasi sawa kwenye kompyuta nyingine?",
+      "searchTerms": "kompyuta nyingine; kusawazisha vifaa; maingiliano; wingu; usawazishaji wa ndani; kuacha maingiliano; Zima usawazishaji; hali ya ndani",
+      "title": "Sawazisha kwenye vifaa vyote",
+      "summary": "Shiriki nafasi yako kwa kutumia ulandanishi wa kivinjari.",
+      "steps": [
+        "Ingia na uwashe upatanishi wa kiendelezi katika wasifu wako wa Google Chrome.",
+        "Katika Mipangilio → Usawazishaji chagua Imesawazishwa na ukubali uthibitisho. Swichi inaanza kutumika mara moja: vialamisho na mipangilio iliyopo iliyosawazishwa imepakiwa, au data yako ya ndani iliyohifadhiwa inasawazishwa ikiwa hakuna.",
+        "Tumia wasifu sawa kwenye kifaa kingine. Angalia hali ya maingiliano na nafasi inayopatikana kwenye paneli."
+      ],
+      "note": "Faili za ndani, pipa la kuchakata na vidokezo vya kila siku ni vya kila kifaa. Usawazishaji una vikomo vya kuhifadhi; tumia URL mbadala kwa picha na video za karibu nawe. Kuchagua Karibu Nawe pia huuliza uthibitisho na huanza kutumika mara moja, kuhifadhi data iliyosawazishwa iliyohifadhiwa.",
+      "tip": "Usawazishaji hushiriki nafasi yako kwenye vifaa vyote, lakini faili za ndani zinahitaji URL mbadala. Tazama Mipangilio → Usawazishaji."
+    },
+    "compact": {
+      "question": "Kwa nini naona orodha badala ya gridi ya taifa?",
+      "searchTerms": "dirisha ndogo; mtazamo wa orodha; gridi ya taifa ilipotea; jopo la siri; simu",
+      "title": "Tumia dirisha ndogo",
+      "summary": "Endelea kufikia alamisho zako wakati nafasi ni chache.",
+      "steps": [
+        "Wakati dirisha linapungua, programu hubadilisha hadi orodha ili kuweka vipengee vyako kupatikana.",
+        "Fungua alamisho, folda au utafute katika mwonekano huu. Mwongozo pia unabadilika kulingana na saizi inayopatikana.",
+        "Panua dirisha ili kurudisha gridi na paneli za kuhariri. Kidirisha cha uhariri kilichosimamishwa huhifadhi rasimu yake."
+      ],
+      "note": "Mwonekano thabiti hukusaidia kuvinjari nafasi yako; kupanga upya kunahitaji dirisha pana la kutosha.",
+      "tip": "Katika dirisha finyu alamisho zako hubaki zinapatikana kama orodha. Ipanue unapotaka kuhariri au kupanga upya gridi ya taifa."
+    },
+    "data": {
+      "question": "Je, ninafutaje data yangu au kuweka upya mipangilio?",
+      "searchTerms": "kufuta data; kuweka upya mipangilio; ondoa kila kitu; anza upya",
+      "title": "Kuhifadhi na kuweka upya",
+      "summary": "Kuelewa ni nini kimehifadhiwa na kila hatua huondoa nini.",
+      "steps": [
+        "Vitendo vya nafasi ya kazi huhifadhi kiotomatiki. Katika vihariri na Mipangilio, thibitisha kwa Hifadhi; Ghairi hutupa rasimu ya kidirisha hicho.",
+        "Iwapo notisi inayosubiri kuhifadhiwa inaonekana, bofya Jaribu tena kuhifadhi na usubiri uthibitisho kabla ya kufunga kichupo.",
+        "Katika Mipangilio → Jumla unaweza kuweka upya mipangilio au kufuta data yote. Soma uthibitishaji na uhamishe nakala rudufu ya chochote unachotaka kuhifadhi."
+      ],
+      "note": "Kuweka upya mipangilio huweka alamisho zako, saizi zao na mitindo yao. Kufuta data zote za ndani huondoa vipengee na kumwaga pipa la kuchakata tena. Hamisha nakala rudufu kabla ya kufuta: Tendua haichukui nafasi ya hifadhi rudufu.",
+      "tip": "Ukiona arifa ya mabadiliko ambayo hayajahifadhiwa, tumia Jaribu tena kuhifadhi kabla ya kufunga kichupo. Linda nafasi yako kwa chelezo kamili."
+    },
+    "learning": {
+      "question": "Je, ninawezaje kufungua tena mwongozo au kuzima vidokezo vya kila siku?",
+      "searchTerms": "kuzima vidokezo; kuzima msaada; tahadhari ya kila siku; fungua tena mwongozo; mwongozo wa mtumiaji",
+      "title": "Jifunze kwa kasi yako mwenyewe",
+      "summary": "Mwongozo wa haraka, mwongozo na kidokezo kidogo cha kila siku.",
+      "steps": [
+        "Tembelea tena mwongozo wa haraka kutoka kwa Mipangilio → Usaidizi. Kila hatua inaunganishwa na maelezo yanayolingana katika mwongozo.",
+        "Chunguza faharasa au utafute neno. Viungo vinavyohusiana vya sehemu vinakupeleka kwenye vipengele vingine ukiwa tayari.",
+        "Kichupo chako kipya cha kwanza kila siku kinaonyesha kidokezo bila mpangilio. Kuiondoa au kufungua maelezo yake; unaweza kuzima vidokezo katika Usaidizi."
+      ],
+      "note": "Vidokezo tembelea sehemu bila kurudia hadi mkusanyiko ukamilike. Hudumu kwa sekunde 20 na kusitisha huku wakielea au kulenga vitufe vyao. Wanafuata siku ya ndani na mapendeleo ya kivinjari hiki.",
+      "tip": "Mwongozo huu daima uko kwenye Mipangilio → Usaidizi. Vidokezo vya kila siku hufungua sehemu, na unaweza kuzima hapo wakati wowote unapopenda."
+    }
+  }
+}

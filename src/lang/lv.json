@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Izlaiduma piezīmes",
+    "settingsDescription": "Kas mainījās un katra atjauninājuma stāsts.",
+    "open": "Lasīt piezīmes",
+    "history": "Versiju vēsture",
+    "dismiss": "Aizvērt piezīmes par laidienu",
+    "continue": "Turpināt",
+    "back": "Atpakaļ uz informāciju",
+    "highlights": "Ko jūs varat darīt šodien",
+    "generic": {
+      "title": "New DeskTab ir atjaunināts",
+      "description": "Jums ir jaunā versija. Kad vien vēlaties, varat pārskatīt iepriekšējās piezīmes par laidienu sadaļā Informācija. Paldies, ka esat šeit."
+    },
+    "v1_0_0": {
+      "title": "Jūsu vietņu darbvirsma. Beidzot.",
+      "thanks": "Paldies, ka izmēģinājāt New DeskTab. Esmu ļoti priecīgs, ka beidzot ar jums varēšu dalīties ar šī projekta pirmo publisko izlaidumu.",
+      "origin": "Viss sākās 2025. gada 26. septembrī. Skatoties straumi Just Chatting vietnē Twitch, es pamanīju straumētāja pārlūkprogrammas jauno cilni: paplašinājumu, kas vietnes kārtoja krāsainos kvadrātos bez nosaukumiem vai logotipiem. Šis minimālisms mani apbūra, un es domāju: kāpēc gan neuzbūvēt savu piebūvi? Es vēlējos, lai katra jaunā cilne radītu kārtības sajūtu, manas lapas ir viegli pieejamas un paneli, kuru man patīk skatīties.",
+      "desktop": "Pamazām šī ideja pārauga personīgā vietņu, nevis lietojumprogrammu darbvirsmā. Pulkstenis ir pirmais solis, un tas joprojām notiek. Nākotnē es vēlētos pievienot piezīmju grāmatiņu un citus logrīkus, kas piedāvā kaut ko noderīgu gan man, gan ikvienam, kas izmanto vietni New DeskTab.",
+      "closing": "Šī lietotne ir radīta man un jums. Paldies, ka uzticējāties pakalpojumam New DeskTab un piešķirat tam vietu savā pārlūkprogrammā. Es ceru, ka jums patiks izveidot savu telpu tikpat ļoti, cik man patika tās celtniecība.",
+      "highlights": {
+        "workspace": "Sakārtojiet savas lapas, izmantojot grāmatzīmes, mapes un neatkarīgas darbvietas.",
+        "appearance": "Pielāgojiet krāsas, katra vienuma izmēru un darbvirsmas fonu.",
+        "search": "Atrodiet savas lapas, izmantojot meklēšanu, un izmantojiet īsinājumtaustiņus, lai pārvietotos un izveidotu vienumus.",
+        "backup": "Saglabājiet dublējumus un atkopjiet izdzēstos vienumus no atkritnes.",
+        "sync": "Izvēlieties saglabāt datus šajā ierīcē vai sinhronizēt tos ar Google Chrome.",
+        "help": "Atklājiet funkcijas, izmantojot sveiciena rokasgrāmatu, rokasgrāmatu un ikdienas padomus."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "JŪSU PIRMĀ MINŪTE",
+    "skip": "Izlaist ceļvedi",
+    "back": "Atpakaļ",
+    "next": "Tālāk",
+    "finish": "Atgriezties uz iestatījumiem",
+    "explore": "Izpētiet manu telpu",
+    "addFirst": "Pievienot manu pirmo grāmatzīmi",
+    "progress": "{{current}}. darbība no {{total}}",
+    "compactHint": "Paplašiniet logu, kad vēlaties pievienot grāmatzīmes un rediģēt savu vietu.",
+    "reopenTitle": "Īss ceļvedis",
+    "reopenDescription": "Pēc minūtes no jauna atklājiet svarīgāko.",
+    "reopen": "Skatīt ceļvedi",
+    "demo": {
+      "work": "Darbs",
+      "media": "Plašsaziņas līdzekļi",
+      "trash": "Atkritne",
+      "search": "Atrodiet savas grāmatzīmes"
+    },
+    "steps": {
+      "start": {
+        "title": "Jūsu lapas. Sava telpa.",
+        "body": "Laipni lūdzam New DeskTab. Atverot cilni, turiet savas iecienītākās lapas pie rokas. Lai to pievienotu, pārvietojieties uz kreiso malu un izvēlieties + → [[bookmarks|Grāmatzīme]].",
+        "hint": "Varat arī [[quick-save|saglabājiet lapu, kuru apmeklējat]], izmantojot paplašinājuma ikonu savā pārlūkprogrammā."
+      },
+      "edit": {
+        "title": "Piešķiriet katrai grāmatzīmei savu vietu.",
+        "body": "Lai rediģētu, kreisajā izvēlnē ieslēdziet zīmuli. Turiet un [[movement|velciet]] nospiediet vienumu, lai to pārvietotu; izmantojiet tā [[resizing|rokturi]], lai mainītu tā izmēru.",
+        "hint": "Katras grāmatzīmes zīmulis atver savu [[appearance|redaktors]]: nosaukumu, krāsas, ikonu un attēlu. Saglabājiet [[presets|stilus]], lai tos izmantotu atkārtoti."
+      },
+      "organize": {
+        "title": "Mazāk nekārtības. Vairāk pasūtījuma.",
+        "body": "Izveidojiet [[folders|mapi]] no + un velciet tajā grāmatzīmes rediģēšanas režīmā. Tas atveras tīrā režģī, kurā ir vieta līdz 18 grāmatzīmēm.",
+        "hint": "Izmantojiet +, kas atrodas [[workspaces|darbvietas josla]], lai atdalītu darbu un spēli. [[search|palielināmais stikls]] meklē arī mapēs."
+      },
+      "style": {
+        "title": "Lieciet justies kā jūs.",
+        "body": "Sadaļā Iestatījumi → [[wallpapers|Tēma]] izvēlieties krāsu, attēla vai video fonu un pagrieziet iecienītākās fona tapetes. Sadaļā Iestatījumi → [[sync|Sinhronizācija]] sinhronizējiet savu vietu dažādās ierīcēs, izmantojot kontu, kurā esat pierakstījies savā Chrome profilā.",
+        "hint": "Pievienojiet [[clock|pulkstenis]] no + → Logrīki. Varat arī pielāgot savas mapes [[appearance|izskats]]."
+      },
+      "ready": {
+        "title": "Jūs zināt būtisko.",
+        "body": "Nospiediet [[search|/]], lai atrastu grāmatzīmi. Izmantojiet [[history|atsaukt un pārtaisīt]] bultiņas, lai atgūtu izmaiņas; dzēstās grāmatzīmes pāriet uz [[trash|atkritni]].",
+        "hint": "Izmaiņas tiek saglabātas automātiski. Sadaļā Iestatījumi eksportējiet [[backup|dublējums]] vai iespējojiet izvēles Google Chrome [[sync|sinhronizācija]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Jūsu jaunākās izmaiņas nevarēja saglabāt.",
+    "retry": "Mēģiniet vēlreiz saglabāt",
+    "saved": "Neapstiprinātās izmaiņas ir saglabātas."
+  },
+  "itemEditor": {
+    "chooseIcon": "Izvēlieties ikonu",
+    "siteLogo": "Logotips",
+    "noSymbol": "Nav",
+    "folderIconHint": "Simbols aizvieto grāmatzīmju priekšskatījumus mapē.",
+    "icons": {
+      "mail": "Pasts",
+      "calendar": "Kalendārs",
+      "notes": "Piezīmes",
+      "projects": "Projekti",
+      "design": "Dizains",
+      "music": "Mūzika",
+      "tasks": "Uzdevumi",
+      "ideas": "Idejas",
+      "docs": "Dokumenti",
+      "ui-start": "Kompass",
+      "ui-organize": "Izkārtojums",
+      "ui-personalize": "Slīdņi",
+      "ui-protect": "Vairogs",
+      "ui-bookmarks": "Pievienot grāmatzīmi",
+      "ui-quick-save": "Pārlūkprogramma",
+      "ui-keyboard": "Tastatūra",
+      "ui-shortcuts": "Zibens",
+      "ui-search": "Meklēt",
+      "ui-editing": "Zīmulis",
+      "ui-movement": "Pārvietot",
+      "ui-resizing": "Galvenāīt izmērus",
+      "ui-drag-modes": "Velciet",
+      "ui-folders": "Mape",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Atlase",
+      "ui-history": "Vēsture",
+      "ui-appearance": "Palete",
+      "ui-presets": "Sākotnējie iestatījumi",
+      "ui-wallpapers": "Attēls",
+      "ui-clock": "Pulkstenis",
+      "ui-interface": "Globuss",
+      "ui-trash": "Miskaste",
+      "ui-backup": "Arhīvs",
+      "ui-sync": "Sinhronizēt",
+      "ui-compact": "Saraksts",
+      "ui-data": "Datu bāze",
+      "ui-learning": "Grāmata",
+      "ui-settings": "Iestatījumi",
+      "ui-controls": "Vadības ierīces",
+      "ui-cloud": "Mākonis",
+      "ui-bookmark": "Grāmatzīme",
+      "ui-info": "Informācija",
+      "ui-eye": "Acs",
+      "ui-check": "Pabeigts",
+      "ui-lock": "Slēdzene",
+      "ui-unlock": "Atbloķēt",
+      "ui-copy": "Kopēt",
+      "ui-close": "Aizvērt",
+      "ui-undo": "Atsaukt",
+      "ui-redo": "Atkārtoti",
+      "ui-desktop": "Darbvirsma",
+      "home": "Sākums",
+      "briefcase": "Darbs",
+      "code": "Kods",
+      "game": "Spēles",
+      "cart": "Iepirkšanās",
+      "card": "Maksājumi",
+      "people": "Cilvēki",
+      "message": "Ziņojums",
+      "location": "Atrašanās vieta",
+      "phone": "Tālrunis",
+      "camera": "Kamera",
+      "headphones": "Austiņas",
+      "link": "Saite",
+      "tag": "Tag",
+      "chart": "Statistika",
+      "coffee": "Kafija",
+      "sun": "Sv",
+      "moon": "Mēness",
+      "circle": "Aplis",
+      "square": "Kvadrāts",
+      "triangle": "Trīsstūris",
+      "diamond": "Dimants",
+      "pentagon": "Pentagons",
+      "hexagon": "Sešstūris",
+      "star": "Zvaigzne",
+      "heart": "Sirds",
+      "plus": "Plus",
+      "minus": "Mīnuss",
+      "video": "Video"
+    },
+    "searchIcons": "Meklēt ikonas…",
+    "clearIconSearch": "Notīrīt meklēšanu",
+    "noIcons": "Nav atrasta neviena ikona",
+    "suggestedIcons": "Ieteikts",
+    "suggestedIcon": "Ieteiktais: {{name}}",
+    "logoKeywords": "logotips favicon vietnes vietnes zīmols",
+    "iconKeywords": {
+      "ui-trash": "bin trash waste dzēst klasiku",
+      "mail": "pasts e-pasts gmail outlook iesūtne",
+      "docs": "dokumentu faili pdf disks word",
+      "notes": "piezīmes piezīmes jēdziens onenote",
+      "ui-protect": "drošības aizsardzība privātums",
+      "game": "spēļu spēļu kontrollera konsole",
+      "cart": "iepirkšanās veikals veikals pirkt",
+      "card": "bankas finanses kredīts debeta nauda",
+      "people": "sociālās kopienas draugu grupa",
+      "ui-learning": "lasīt bibliotēku izglītības pētījumu",
+      "ui-clock": "laiks stundas skatīties",
+      "ui-interface": "interneta tīmekļa pasaules valoda",
+      "ui-data": "datu sql krātuve",
+      "circle": "ģeometriskas figūras",
+      "square": "ģeometriskas figūras",
+      "triangle": "ģeometriskas figūras",
+      "diamond": "ģeometriskas figūras",
+      "pentagon": "ģeometriskas figūras",
+      "hexagon": "ģeometriskas figūras",
+      "star": "ģeometriskas figūras",
+      "heart": "ģeometriskas figūras"
+    },
+    "history": "Rediģēt vēsturi",
+    "description": "Ļaujiet tai justies kā mājās savā darba vietā.",
+    "looks": "Izvēlieties izskatu",
+    "custom": "Pielāgots",
+    "look": {
+      "original": "Oriģināls",
+      "card": "Kart",
+      "midnight": "Tumšs",
+      "paper": "Gaisma"
+    },
+    "reset": "Atiestatīt izskatu",
+    "cardColor": "Kartes krāsa",
+    "folderFill": "Mapes krāsa",
+    "image": "Fona attēls",
+    "lock": "Bloķēt vai atbloķēt URL",
+    "copy": "Kopēt URL",
+    "clear": "Skaidrs",
+    "section": {
+      "general": "Būtiskākās lietas",
+      "text": "Nosaukums un etiķetes",
+      "icon": "Ikona",
+      "card": "Kart"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Redzamais nosaukums un lapa, kas tiek atvērta.",
+        "text": "Izvēlieties, vai rādīt nosaukumu un pielāgot tā krāsu.",
+        "icon": "Izmantojiet lielu, centrētu favicon vai mazu ikonu blakus attēla kartīšu nosaukumam."
+      },
+      "folder": {
+        "general": "Nosaukums grāmatzīmju apvienošanai.",
+        "text": "Parādiet mapes nosaukumu un pielāgojiet tās krāsu.",
+        "icon": "Pielāgojiet mapes ikonu un tās grāmatzīmju sīktēlus."
+      },
+      "recycleBin": {
+        "general": "Izvēlieties, vai atkritne tiek rādīta jūsu galvenajā darbvietā.",
+        "text": "Parādiet atkritnes nosaukumu un pielāgojiet tās krāsu.",
+        "icon": "Piešķiriet atkritnei savu krāsu. Slēpt visu atkritumu tvertni no ģenerāļa."
+      }
+    },
+    "addImage": "Pievienojiet fona attēlu",
+    "changeImage": "Rediģēt fona attēlu"
+  },
+  "html": {
+    "title": "Jauna cilne"
+  },
+  "quickSave": {
+    "title": "Saglabāt grāmatzīmi",
+    "name": "Vārds",
+    "workspace": "Darbvieta",
+    "folder": "Mape",
+    "mainWorkspace": "Galvenā",
+    "noFolder": "Nav mapes",
+    "save": "Saglabāt grāmatzīmi",
+    "saveAnyway": "Ietaupiet jebkurā gadījumā",
+    "savedButton": "Saglabāts",
+    "alreadySaved": "Jau saglabāts",
+    "savedIn": "Vietnē {{location}}",
+    "savedInMore": "Vietnē {{location}} un vēl {{count}}",
+    "open": "Atvērt New DeskTab",
+    "unavailableTitle": "Šo cilni nevar saglabāt",
+    "unavailable": "Atveriet tīmekļa lapu (http vai https), lai to saglabātu.",
+    "loadError": "Nevarēja ielādēt jūsu grāmatzīmes. Mēģiniet vēlreiz.",
+    "saving": "Notiek saglabāšana…",
+    "saved": "Grāmatzīme saglabāta.",
+    "duplicate": "Šis URL jau ir saglabāts šajā galamērķī.",
+    "noSpace": "Šajā galamērķī vairs nav vietas. Izvēlieties citu.",
+    "invalid": "Pārbaudiet nosaukumu un izvēlēto galamērķi.",
+    "saveError": "Nevarēja saglabāt grāmatzīmi. Mēģiniet vēlreiz."
+  },
+  "launcher": {
+    "bookmark": "Grāmatzīme",
+    "folder": "Mape",
+    "widgets": "Logrīki",
+    "editMode": {
+      "enter": "Ieejiet rediģēšanas režīmā",
+      "exit": "Iziet no rediģēšanas režīma"
+    }
+  },
+  "widgets": {
+    "title": "Logrīki",
+    "description": "Izvēlieties logrīku, ko pievienot šai darbvietai.",
+    "empty": "Vēl nav pieejams neviens logrīks."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Paplašiniet logu, lai izmantotu šo funkciju.",
+      "suspended": "Panelis paslēpts. Paplašiniet logu, lai turpinātu."
+    },
+    "editMode": {
+      "enabled": "Rediģēšanas režīms iespējots",
+      "disabled": "Rediģēšanas režīms ir atspējots"
+    },
+    "selectionMode": {
+      "enabled": "Atlases režīms iespējots",
+      "disabled": "Izvēles režīms ir atspējots"
+    },
+    "bookmark": {
+      "added": "Pievienota grāmatzīme",
+      "notFound": "Grāmatzīme nav atrasta",
+      "updated": "Grāmatzīme ir atjaunināta",
+      "deleted": "Grāmatzīme izdzēsta"
+    },
+    "clock": {
+      "added": "Pulkstenis pievienots",
+      "updated": "Pulkstenis atjaunināts",
+      "deleted": "Pulkstenis izdzēsts"
+    },
+    "folder": {
+      "created": "Mape izveidota",
+      "renamed": "Mape pārdēvēta",
+      "updated": "Mape atjaunināta",
+      "deleted": "Mape un tās grāmatzīmes ir izdzēstas",
+      "bookmarkAdded": "Grāmatzīme pievienota mapei",
+      "folderFull": "Šajā mapē jau ir 18 grāmatzīmes",
+      "bookmarkRemoved": "Grāmatzīme pārvietota atpakaļ uz režģi"
+    },
+    "recycleBin": {
+      "moved": "Pārvietots uz atkritni",
+      "restored": "Preces atjaunotas",
+      "deletedPermanently": "Vienumi ir neatgriezeniski izdzēsti",
+      "updated": "Atkritne ir atjaunināta"
+    },
+    "workspace": {
+      "created": "Izveidota darbvieta",
+      "deleted": "Darbvieta ir izdzēsta",
+      "switched": "Darbvieta: {{name}}"
+    },
+    "history": {
+      "undone": "Izmaiņas ir atsauktas",
+      "redone": "Izmaiņas pārtaisītas"
+    },
+    "bookmarks": {
+      "deletedAll": "Visas grāmatzīmes ir izdzēstas",
+      "deletedAllWithFolders": "Visas grāmatzīmes un mapes ir izdzēstas",
+      "deleteAllError": "Neizdevās izdzēst visas grāmatzīmes",
+      "exported": "Grāmatzīmes eksportētas",
+      "exportError": "Neizdevās eksportēt grāmatzīmes",
+      "imported": "Grāmatzīmes importētas",
+      "importError": "Neizdevās importēt grāmatzīmes",
+      "presetApplied": "Atlasē izmantotais stils",
+      "duplicatedSelected": "Atlasītie vienumi ir dublēti",
+      "deletedSelected": "Atlasītie vienumi izdzēsti",
+      "moved": "Vienumi ir pārvietoti uz atlasīto darbvietu"
+    },
+    "settings": {
+      "saved": "Iestatījumi saglabāti",
+      "bookmarkDefaultSaved": "Noklusējuma grāmatzīmes izskats ir saglabāts",
+      "bookmarkDefaultError": "Nevarēja saglabāt noklusējuma grāmatzīmes izskatu",
+      "copied": "Vērtība ir kopēta starpliktuvē",
+      "resetBg": "Motīva atiestatīšana",
+      "deletedAllData": "Visi vietējie NewDeskTab dati ir izdzēsti",
+      "deleteAllDataError": "Nevarēja izdzēst visus lokālos NewDeskTab datus",
+      "invalidWallpaperUrl": "Ievadiet derīgu HTTP vai HTTPS attēla/video URL.",
+      "invalidWallpaperFile": "Nevarēja pievienot šo failu. Izmantojiet atbalstītu attēlu vai MP4, WebM vai Ogg video līdz 200 MB.",
+      "wallpaperLimit": "Varat pievienot līdz 25 personiskām fona tapetēm."
+    },
+    "localImage": {
+      "invalid": "Izvēlieties PNG, JPEG, WebP, GIF vai AVIF attēlu.",
+      "tooLarge": "Šis attēls ir pārāk liels, lai to saglabātu šajā ierīcē.",
+      "storageFull": "Šim attēlam nepietiek vietējās vietas.",
+      "processing": "Šo attēlu nevarēja apstrādāt."
+    },
+    "sync": {
+      "enabled": "Sinhronizācija ir iespējota",
+      "localEnabled": "Vietējais režīms ir iespējots",
+      "remoteLoaded": "Sinhronizētie dati ir ielādēti",
+      "updatedFromOtherDevice": "Sinhronizētās izmaiņas, kas saņemtas no citas ierīces",
+      "deletedFromOtherDevice": "Mākoņa dati tika izdzēsti no citas ierīces. Šī ierīce tagad izmanto vietējo režīmu.",
+      "error": "Nevarēja mainīt krātuves režīmu",
+      "versionBlocked": "Sinhronizācija tika apturēta, jo mākoņdatiem ir nepieciešama jaunāka NewDeskTab versija. Tiek rādīti šīs ierīces vietējie dati.",
+      "quotaError": "Datu apjoms pārsniedz pieejamo sinhronizācijas krātuvi",
+      "deleted": "Sinhronizētie dati ir izdzēsti",
+      "deleteError": "Nevarēja izdzēst sinhronizētos datus"
+    },
+    "backup": {
+      "exported": "Dublējums eksportēts",
+      "exportError": "Nevarēja eksportēt dublējumu",
+      "mediaUnavailable": "Daži atsauces vietējie attēli vai videoklipi nav pieejami, tāpēc dublējums netika izveidots.",
+      "imported": "Dublējums ir atjaunots",
+      "importError": "Nevarēja atjaunot dublējumu",
+      "mediaStorageFull": "Vietējās krātuves nepietiek, lai atjaunotu dublējuma attēlus un videoklipus."
+    }
+  },
+  "view": {
+    "list": "Saraksta skats",
+    "search": "Meklējiet grāmatzīmes un mapes",
+    "clearSearch": "Notīrīt meklēšanu",
+    "noResults": "Nav rezultātu."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Vai dzēst visas grāmatzīmes?",
+      "deleteFolders": "Izdzēsiet arī visas mapes",
+      "confirmDeleteSelected": "Vai dzēst {{count}} atlasītos vienumus?",
+      "confirmMoveOne": "Vai pārvietot šo vienumu uz darbvietu “{{workspace}}”?",
+      "confirmMoveSelected": "Vai pārvietot {{count}} atlasītos vienumus uz darbvietu “{{workspace}}”?",
+      "duplicateNoSpace": "{{count}} vienumus nevarēja dublēt, jo nebija pietiekami daudz vietas.",
+      "moveNoSpace": "{{count}} vienumus nevarēja pārvietot, jo nebija pietiekami daudz vietas.",
+      "no_space": "Nav vietas vairākām grāmatzīmēm 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Vai atmest jauno grāmatzīmi?"
+      },
+      "confirmDelete": "Vai dzēst “{{name}}”?",
+      "confirmPermanentDelete": "Vai neatgriezeniski dzēst “{{name}}”? Šo darbību nevar atsaukt.",
+      "cancel": "Vai atmest izmaiņas?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Vai neatgriezeniski dzēst šo logrīku? Šo darbību nevar atsaukt.",
+      "confirmDeleteSelected": "Vai dzēst {{count}} atlasītos vienumus? Atlasītie logrīki ({{widgetCount}}) tiks neatgriezeniski dzēsti, un tos nevarēs atjaunot."
+    },
+    "folder": {
+      "createCancel": "Vai atmest jauno mapi?",
+      "cancel": "Vai atmest mapes izmaiņas?"
+    },
+    "recycleBin": {
+      "folder": "Vai pārvietot “{{name}}” un tā {{count}} grāmatzīmes uz atkritni?",
+      "empty": "Vai neatgriezeniski izdzēst visu atkritnē? Šo darbību nevar atsaukt.",
+      "deleteSelected": "Vai neatgriezeniski dzēst {{count}} atlasītos vienumus? Šo darbību nevar atsaukt.",
+      "noSpace": "{{count}} vienumus nevarēja atjaunot, jo nav pietiekami daudz vietas režģī. Tie paliek atkritumu tvertnē.",
+      "cancel": "Vai atmest atkritnes izmaiņas?"
+    },
+    "settings": {
+      "cancel": "Vai atmest iestatījumu izmaiņas?",
+      "reset": "Vai atiestatīt visus iestatījumus? Grāmatzīmes netiks dzēstas.",
+      "deleteAllData": "Vai dzēst visus vietējos NewDeskTab datus no šīs ierīces? Grāmatzīmes, mapes, logrīki, iestatījumi, atkritnes vienumi, vietējie attēli un vietējie videoklipi tiks neatgriezeniski dzēsti. Mākoņa dati netiks mainīti. Ja sinhronizācija ir aktīva, šī ierīce vispirms pārslēgsies uz lokālo. Šo darbību nevar atsaukt.",
+      "theme": {
+        "reset": "Vai atiestatīt motīva iestatījumus?"
+      },
+      "bookmark": {
+        "cancel": "Vai atmest izmaiņas noklusējuma grāmatzīmju izskatā?"
+      },
+      "shortcuts": {
+        "reset": "Vai atjaunot noklusējuma īsinājumtaustiņus?"
+      },
+      "sync": {
+        "enable": "Vai pāriet no lokālā uz sinhronizēto? Tas stājas spēkā tagad, nenoklikšķinot uz Saglabāt. Ja sinhronizētie dati jau pastāv, tiks ielādētas to grāmatzīmes un iestatījumi. Pretējā gadījumā jūsu saglabātie lokālie dati tiks sinhronizēti.",
+        "local": "Vai pārslēgt no sinhronizācijas uz lokālo? Tas stājas spēkā tagad, nenoklikšķinot uz Saglabāt. Šī ierīce saglabās pašreizējo datu kopiju un pārtrauks izmaiņu sinhronizāciju. Sinhronizētie dati tiks saglabāti citām ierīcēm.",
+        "delete": "Vai dzēst visus sinhronizētos NewDeskTab datus? Šī ierīce un visas pārējās ierīces, kas izmanto šos mākoņdatus, pārslēgsies uz vietējo režīmu, kad tiks konstatēta dzēšana. Šo darbību nevar atsaukt."
+      }
+    },
+    "backup": {
+      "import": "Vai atjaunot šo dublējumu? Tas aizstās jūsu pašreizējās grāmatzīmes un iestatījumus."
+    }
+  },
+  "addModal": {
+    "title": "Pievienot jaunu grāmatzīmi",
+    "name": "Vārds:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Papildu opcijas",
+    "compactView": "▴ Kompakts skats"
+  },
+  "clock": {
+    "name": "Pulkstenis",
+    "inDevelopment": "Izstrādē: pulkstenis vēl nav galīgajā versijā. Mēs strādājam pie tā uzlabošanas.",
+    "createTitle": "Pievienojiet pulksteni",
+    "editTitle": "Pulksteņa iestatījumi",
+    "description": "Parādiet savu vietējo laiku šajā darbvietā.",
+    "hourCycle": "Laika formāts",
+    "hour24": "24 stundas",
+    "hour12": "12 stundas",
+    "showSeconds": "Rādīt sekundes",
+    "delete": "Dzēst",
+    "edit": "Rediģēt pulksteni",
+    "actions": "Pulksteņa darbības",
+    "openSettings": "Atveriet pulksteņa iestatījumus",
+    "confirmDelete": "Vai dzēst šo pulksteni? Varat atsaukt šo darbību.",
+    "confirmPermanentDelete": "Vai neatgriezeniski dzēst šo pulksteni? Šo darbību nevar atsaukt.",
+    "cancel": "Vai atmest pulksteņa izmaiņas?",
+    "noSpace": "Šim pulkstenim nepietiek vietas režģī."
+  },
+  "buttons": {
+    "save": "Saglabāt",
+    "apply": "Pieteikties",
+    "add": "Pievienot",
+    "accept": "Pieņemt",
+    "cancel": "Atcelt",
+    "close": "Aizvērt"
+  },
+  "localImage": {
+    "upload": "Augšupielādēt no šīs ierīces",
+    "label": "Vietējais attēls:",
+    "activeSource": "Aktīvs attēls:",
+    "sourceLocal": "Vietējais",
+    "sourceUrl": "URL",
+    "remove": "Noņemiet vietējo attēlu",
+    "notice": "Vietējie attēli netiek sinhronizēti.",
+    "unnamed": "Vietējais attēls"
+  },
+  "workspace": {
+    "ariaLabel": "Darbvietas vadīklas",
+    "current": "Darbvieta",
+    "main": "Galvenā",
+    "search": "Meklēt grāmatzīmes",
+    "add": "Izveidojiet darbvietu",
+    "delete": "Dzēst darbvietu",
+    "undo": "Atsaukt",
+    "redo": "Atkārtoti",
+    "shortcutHint": "Pārslēdziet darbvietu, izmantojot taustiņu Alt vai Option un augšupvērsto vai lejupvērsto bultiņu",
+    "prompt": "Ievadiet jaunās darbvietas nosaukumu",
+    "namePlaceholder": "Darbs, atpūta…",
+    "confirmDelete": "Vai dzēst “{{name}}”, tā {{folderCount}} mapes un {{bookmarkCount}} grāmatzīmes? Lai tos saglabātu, vispirms pārvietojiet tos uz galveno vai citu darbvietu."
+  },
+  "search": {
+    "title": "Meklēt grāmatzīmes",
+    "inputLabel": "Meklējiet pēc nosaukuma vai URL",
+    "placeholder": "Vārds vai URL",
+    "empty": "Netika atrasta neviena grāmatzīme.",
+    "noUrl": "Nav URL",
+    "inFolder": "Mape: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Atlasītās preces darbības",
+    "selected": "Atlasīts {{count}}",
+    "move": "Pārvietojieties uz darbvietu",
+    "applyPreset": "Lietot noklusējuma stilu",
+    "duplicate": "Dublēta atlase",
+    "delete": "Dzēst",
+    "clear": "Notīrīt atlasi"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Grāmatzīmju vadīklas",
+    "edit": "Rediģēt grāmatzīmi",
+    "delete": "Dzēst grāmatzīmi",
+    "copySuffix": "kopiju"
+  },
+  "folder": {
+    "create": "Izveidot mapi",
+    "createPrompt": "Nosauciet jauno mapi",
+    "namePlaceholder": "Instrumenti, iedvesma…",
+    "open": "Atvērt {{name}}, {{count}} saglabātās grāmatzīmes",
+    "count": "{{count}} saglabāts",
+    "summary": "Izmantotas {{count}} no {{capacity}} vietām",
+    "editMode": {
+      "enable": "Rediģēt",
+      "disable": "Pabeidziet rediģēšanu"
+    },
+    "gridLabel": "Mapju grāmatzīmes",
+    "dropHint": "Nometiet, lai pievienotu",
+    "noSpace": "Jaunai mapei nav nevienas brīvas režģa šūnas.",
+    "removeNoSpace": "Režģī nepietiek vietas, lai noņemtu šo grāmatzīmi no mapes.",
+    "confirmDelete": "Vai pārvietot “{{name}}” un tā {{count}} grāmatzīmes uz atkritni?",
+    "confirmPermanentDelete": "Vai neatgriezeniski dzēst “{{name}}” un tā {{count}}. grāmatzīmes? Šo darbību nevar atsaukt.",
+    "actions": {
+      "ariaLabel": "Mapju vadīklas",
+      "customize": "Pielāgot mapi",
+      "rename": "Pārdēvēt mapi",
+      "delete": "Dzēst mapi",
+      "editBookmark": "Rediģēt {{name}}",
+      "removeBookmark": "Izņemiet {{name}} no mapes",
+      "deleteBookmark": "Dzēst {{name}}",
+      "acceptRename": "Saglabāt mapes nosaukumu",
+      "cancelRename": "Atcelt mapes pārdēvēšanu"
+    },
+    "editor": {
+      "createTitle": "Pievienot jaunu mapi",
+      "title": "Rediģēt mapi",
+      "name": "Vārds:",
+      "showPreviews": "Rādīt grāmatzīmju priekšskatījumus",
+      "showName": "Rādīt mapes nosaukumu",
+      "iconColor": "Simbola krāsa:",
+      "outerBackgroundColor": "Ārējā fona krāsa:",
+      "noOuterBackground": "Nav ārējā fona",
+      "resetOuterBackground": "Automātiski",
+      "noBackground": "Caurspīdīgs mapes aizpildījums",
+      "backgroundColor": "Mapes krāsa:",
+      "backgroundImage": "Fona attēls (URL):",
+      "lockImage": "Bloķējiet vai atbloķējiet attēla URL",
+      "copyImage": "Kopēt attēla URL",
+      "clearImage": "Notīrīt attēla URL",
+      "textColor": "Teksta krāsa:",
+      "preview": "Priekšskatījums",
+      "previewName": "Mape",
+      "sections": {
+        "general": "Ģenerālis",
+        "style": "Stils",
+        "text": "Teksts"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Atkritne",
+    "open": "Atveriet atkritni",
+    "openCount": "Atvērta atkritne, {{count}} preces",
+    "dropHint": "Nometiet, lai dzēstu",
+    "summary": "{{count}} vienumi · Automātiska dzēšana: {{retention}}",
+    "empty": "Atkritnes tvertne ir tukša.",
+    "selected": "Atlasīts {{count}}",
+    "select": "Atlasiet {{name}}",
+    "folderContents": "{{count}} grāmatzīmes",
+    "deletedAt": "Izdzēsts {{date}}",
+    "expiresIn": "Atlikušas {{days}} dienas",
+    "expiresInOne": "Atlikusi 1 diena",
+    "neverExpires": "Nekad nav dzēsts automātiski",
+    "restoreAll": "Atjaunot visu",
+    "deleteAll": "Dzēst visu",
+    "restoreSelected": "Atjaunot atlasīto",
+    "deleteSelected": "Dzēst atlasīto",
+    "editor": {
+      "title": "Rediģēt atkritni",
+      "animateIcon": "Animēt atkritni",
+      "appearance": "Izskats",
+      "backgroundColor": "Fona krāsa:",
+      "backgroundImage": "Fona attēls (URL):",
+      "lockImage": "Bloķējiet vai atbloķējiet attēla URL",
+      "copyImage": "Kopēt attēla URL",
+      "clearImage": "Notīrīt attēla URL",
+      "noBackground": "Nav fona",
+      "iconColor": "Ikonas krāsa:",
+      "textColor": "Teksta krāsa:",
+      "elements": "Redzamie elementi",
+      "showName": "Parādīt vārdu",
+      "visible": "Rādīt atkritni galvenajā tīklā",
+      "preview": "Priekšskatījums",
+      "actions": "Darbības ar atkritni",
+      "edit": "Rediģēt atkritni",
+      "sections": {
+        "general": "Ģenerālis",
+        "style": "Stils",
+        "text": "Teksts",
+        "icon": "Ikona"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Ievadiet nosaukumu, lai saglabātu sākotnējo iestatījumu."
+    },
+    "name": {
+      "required": "Ievadiet grāmatzīmes nosaukumu."
+    },
+    "folderName": {
+      "required": "Ievadiet mapes nosaukumu."
+    },
+    "url": {
+      "invalid": "URL nav derīgs.",
+      "unsupportedProtocol": "Šis URL veids nav atļauts."
+    },
+    "backgroundImageUrl": {
+      "invalid": "Attēla URL nav derīgs.",
+      "unsupportedProtocol": "Šis attēla veids nav atļauts."
+    }
+  },
+  "editModal": {
+    "title": "Rediģēt grāmatzīmi",
+    "name": "Vārds:",
+    "url": "URL:",
+    "backgroundImage": "Fona attēls (URL):",
+    "backgroundFavicon": "Liela, centrēta ikona",
+    "invertColorBg": "Invertēt krāsas",
+    "noBackground": "Nav fona",
+    "backgroundColor": "Grāmatzīmes krāsa:",
+    "showText": "Rādīt tekstu",
+    "textColor": "Teksta krāsa:",
+    "showFavicon": "Rādīt ikonu",
+    "invertColorIcon": "Apgriezt ikonu krāsas",
+    "iconColor": "Ikonas krāsa:",
+    "sections": {
+      "general": "Ģenerālis",
+      "style": "Stils",
+      "text": "Teksts",
+      "icon": "Ikona"
+    },
+    "preview": "Priekšskatījums",
+    "previewName": "Priekšskatījums"
+  },
+  "colorPicker": {
+    "title": "Krāsu atlasītājs",
+    "sample": "Izvēlieties krāsu no ekrāna",
+    "close": "Aizvērt krāsu atlasītāju",
+    "saturationBrightness": "Piesātinājums un spilgtums",
+    "hue": "Nokrāsa",
+    "quickColors": "Ātras krāsas",
+    "saturation": "Piesātinājums",
+    "brightness": "Spilgtums",
+    "hex": "Hex kods",
+    "copy": "Kopējiet hex kodu",
+    "copied": "Hex kods ir nokopēts",
+    "copyFailed": "Nevarēja nokopēt heksadecimālo kodu"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Ģenerālis",
+      "sync": "Sinhronizēt",
+      "theme": "Tēma",
+      "bookmark": "Grāmatzīmes",
+      "shortcuts": "Īsceļi",
+      "language": "Valodas",
+      "help": "Palīdzība",
+      "information": "Informācija"
+    },
+    "general": {
+      "title": "Ģenerālis",
+      "subtitle": "Iestatījumi",
+      "export": "Eksportēt dublējumu",
+      "import": "Atjaunot dublējumu",
+      "resetSettings": "Atiestatīt iestatījumus",
+      "deleteAllData": "Dzēst visus vietējos datus",
+      "recycleBin": {
+        "title": "Atkritne",
+        "show": "Parādiet atkritni galvenajā tīklā",
+        "retentionLabel": "Automātiski dzēst vienumus:",
+        "retentionOptions": {
+          "oneDay": "1 diena",
+          "sevenDays": "7 dienas",
+          "fourteenDays": "14 dienas",
+          "twentyEightDays": "28 dienas",
+          "never": "Nekad"
+        }
+      },
+      "appearance": {
+        "title": "Izskats",
+        "system": "Pārlūkprogramma",
+        "light": "Gaisma",
+        "dark": "Tumšs"
+      }
+    },
+    "sync": {
+      "title": "Sinhronizēt",
+      "description": "Izvēlieties, kur saglabāt iestatījumus un grāmatzīmes.",
+      "ariaLabel": "Uzglabāšanas režīms",
+      "local": {
+        "title": "Tikai šī ierīce",
+        "description": "Dati tiek glabāti tikai šajā vietējā pārlūkprogrammas profilā."
+      },
+      "synced": {
+        "title": "Sinhronizēts",
+        "description": "Pieejams Google Chrome profilos, kas saistīti ar to pašu kontu.",
+        "tooltip": "Sinhronizācijas informācija"
+      },
+      "compatibility": {
+        "newerVersion": "Sinhronizācija šajā ierīcē ir bloķēta, jo mākoņdati tika izveidoti, izmantojot jaunāku NewDeskTab versiju. Jūsu sinhronizētie dati ir drošībā un nav mainīti. Lai atkārtoti izveidotu savienojumu, atjauniniet NewDeskTab."
+      },
+      "usage": {
+        "title": "Krātuves pieejamība",
+        "showExact": "Rādīt precīzus baitus",
+        "showHuman": "Rādīt lasāmus izmērus",
+        "local": "Vietējais",
+        "sync": "Sinhronizēts",
+        "localSyncCopy": "Vietējās sinhronizācijas kopija",
+        "localAria": "Vietējās krātuves lietojums",
+        "syncAria": "Sinhronizēts krātuves lietojums",
+        "loading": "Notiek aprēķināšana…",
+        "summary": "{{used}} no {{total}} · {{percent}}%",
+        "available": "{{free}} pieejams",
+        "system": "Sistēma un metadati",
+        "bookmarks": "Grāmatzīmes",
+        "folders": "Mapes",
+        "trash": "Atkritnes dati",
+        "localImages": "Vietējie attēli",
+        "themeImages": "Tēma",
+        "bookmarkImages": "Grāmatzīmes",
+        "folderImages": "Mapes",
+        "trashImages": "Atkritne",
+        "otherImages": "Cits",
+        "widgets": "Logrīki",
+        "widgetsHint": "Sinhronizācijai parādītais lielums ir aptuvens, un tajā nav iekļauts tiešraides saturs, kas iegūts no ārējiem pakalpojumiem.",
+        "error": "Lietošana nav pieejama"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome sinhronizē New DeskTab, izmantojot jūsu Google kontu. New DeskTab nedarbina savu sinhronizācijas serveri.",
+        "brave": "Nav pieejams pārlūkprogrammā Brave: tas var saglabāt New DeskTab datus mapē chrome.storage.sync, taču pašlaik tie netiek izplatīti starp ierīcēm.",
+        "unsupported": "Sinhronizētā krātuve pašlaik ir pieejama tikai šeit: Google Chrome. Citas pārlūkprogrammas paliek atspējotas, līdz tiek pārbaudīts vairāku ierīču atbalsts."
+      },
+      "existingNotice": "Apstiprinot pāreju uz Sinhronizēti, tiek ielādēti visi jau esošie sinhronizētie dati.",
+      "deleteData": "Dzēst sinhronizētos datus",
+      "metadata": {
+        "loading": "Notiek sinhronizēto datu pārbaude…",
+        "updatedAt": "Pēdējais sinhronizētais atjauninājums: {{date}}",
+        "unknown": "Sinhronizēti dati pastāv, taču to atjaunināšanas laiks nav pieejams.",
+        "empty": "Nav saglabāti sinhronizēti New DeskTab dati.",
+        "error": "Nevarēja ielādēt sinhronizēto datu informāciju."
+      },
+      "status": {
+        "idle": "Dati ir gatavi.",
+        "saving": "Notiek izmaiņu saglabāšana…",
+        "saved": "Visas izmaiņas tiek saglabātas.",
+        "error": "Nevarēja saglabāt jaunākās izmaiņas."
+      }
+    },
+    "theme": {
+      "title": "Tēma",
+      "subtitle": "Lapas fons",
+      "backgroundImageMode": "Attēls/video",
+      "wallpapersTitle": "Manas tapetes",
+      "ownWallpapersHint": "Šīs tapetes un to rotācija tiek saglabāta tikai šajā ierīcē.",
+      "mediaUrl": "Tapetes URL",
+      "image": "Attēls",
+      "video": "Video",
+      "addUrl": "Pievienojiet URL",
+      "addFiles": "Pievienojiet vietējos failus",
+      "rotationInterval": "Tapetes rotācija",
+      "noRotation": "Nemainiet automātiski",
+      "interval5": "5 sekundes",
+      "interval15": "15 sekundes",
+      "interval30": "30 sekundes",
+      "interval60": "1 minūte",
+      "interval300": "5 minūtes",
+      "interval600": "10 minūtes",
+      "interval1800": "30 minūtes",
+      "previous": "Iepriekšējais",
+      "next": "Tālāk",
+      "moveUp": "Pārvietojieties uz augšu",
+      "moveDown": "Pārvietojieties uz leju",
+      "remove": "Noņemt",
+      "unavailableLocal": "Vietējais fails šajā ierīcē nav pieejams",
+      "mediaColor": "Krāsa aiz šīs tapetes",
+      "mediaPreview": "Priekšskatiet fona tapeti",
+      "activeSource": "Aktīvs avots",
+      "backgroundSolid": "Vienkrāsains",
+      "backgroundColor": "Krāsa:",
+      "editSolidColor": "Mainiet vienkrāsainu fona krāsu",
+      "changeSolidColor": "Galvenāīt krāsu",
+      "backgroundImageColor": "Krāsa aiz attēla/video",
+      "backgroundImage": "URL ir kopīgots starp ierīcēm",
+      "urlHidden": "URL paslēpts",
+      "resetBackground": "Atiestatīt motīvu"
+    },
+    "bookmark": {
+      "title": "Grāmatzīmes",
+      "subtitle": "Noklusējuma grāmatzīme",
+      "description": "Izvēlieties izskatu, kas tiek izmantots, veidojot jaunas grāmatzīmes.",
+      "configure": "Konfigurējiet noklusējuma grāmatzīmi",
+      "editorTitle": "Noklusējuma grāmatzīmju izskats",
+      "previewName": "Noklusējuma grāmatzīme",
+      "export": "Eksportēt grāmatzīmes",
+      "import": "Importēt grāmatzīmes",
+      "deleteAll": "Dzēst visas grāmatzīmes",
+      "preview": "Priekšskatījums",
+      "drag": {
+        "title": "Vilkšanas uzvedība",
+        "description": "Izvēlieties, kā grāmatzīmes tiek reorganizētas, kad ieņemat to pozīciju.",
+        "none": {
+          "title": "Nav",
+          "description": "Atļauj pārvietoties tikai uz brīvām šūnām."
+        },
+        "cascade": {
+          "title": "Secība",
+          "description": "Pārbīda ķēdi, līdz atrod brīvu šūnu.",
+          "experimental": "Eksperimentāls · Var saturēt nelielas kļūdas."
+        },
+        "relocate": {
+          "title": "Pārcelšanās",
+          "description": "Pārvieto grāmatzīmes, kas aizņem galamērķi."
+        }
+      },
+      "resize": {
+        "title": "Mainiet uzvedību",
+        "description": "Izvēlieties, kā vienumi reaģēs, pārvietojot izmēru maiņas turi.",
+        "smooth": {
+          "title": "Gluds",
+          "description": "Velkot izstiepj vienumu, pēc tam pieķeras pie režģa."
+        },
+        "none": {
+          "title": "Nav",
+          "description": "Pārlec pa šūnu, kad šķērsojat 50% no blakus esošās šūnas."
+        }
+      },
+      "presets": {
+        "title": "Stila bibliotēka",
+        "tab": "Bibliotēka",
+        "description": "Saglabājiet stilus un atkārtoti izmantojiet tos, iestatot noklusējuma grāmatzīmi.",
+        "name": "Iepriekš iestatīts nosaukums",
+        "saved": "Saglabātie sākotnējie iestatījumi",
+        "save": "Saglabāt sākotnējo iestatījumu",
+        "apply": "Ielādēt",
+        "delete": "Dzēst",
+        "empty": "Nav saglabātu sākotnējo iestatījumu"
+      }
+    },
+    "shortcuts": {
+      "title": "Tastatūras īsinājumtaustiņi",
+      "description": "Atlasiet īsinājumtaustiņu pogu, pēc tam nospiediet burtu vai taustiņu kombināciju. Ar peles labo pogu noklikšķiniet, lai to atceltu.",
+      "change": "Mainiet saīsni {{action}}. Pašreizējais saīsne: {{shortcut}}.",
+      "press": "Nospiediet saīsni…",
+      "unassigned": "Nav piešķirts",
+      "unassignedFlash": "Saīsne nav piešķirta.",
+      "modifierRequired": "Izmantojiet burtu atsevišķi vai taustiņu kombināciju ar modifikatoru.",
+      "reserved": "Šo saīsni rezervē pārlūkprogramma vai operētājsistēma. Izvēlieties citu kombināciju.",
+      "conflict": "Šī atslēga jau ir piešķirta citai darbībai.",
+      "updated": "Saīsne ir atjaunināta.",
+      "cancelled": "Īsinājumtaustiņu maiņa ir atcelta.",
+      "restored": "Atjaunoti noklusējuma saīsnes.",
+      "reset": "Atiestatīt īsinājumtaustiņus",
+      "actions": {
+        "toggleEditing": {
+          "title": "Rediģēšanas režīms",
+          "description": "Ievadiet vai atstājiet rediģēšanu galvenajā režģī vai atvērtā mapē."
+        },
+        "addBookmark": {
+          "title": "Izveidot grāmatzīmi",
+          "description": "Atveriet veidlapu grāmatzīmes pievienošanai."
+        },
+        "addFolder": {
+          "title": "Izveidot mapi",
+          "description": "Atveriet mapes izveides dialoglodziņu."
+        },
+        "openWidgets": {
+          "title": "Atvērt logrīkus",
+          "description": "Atveriet pieejamo logrīku sarakstu."
+        },
+        "openSettings": {
+          "title": "Atveriet iestatījumus",
+          "description": "Atveriet iestatījumu paneli New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Valodas",
+      "text": "Izvēlieties interfeisa valodu:",
+      "system": "Pārlūkprogramma",
+      "search": "Meklējiet valodu vai valsti",
+      "empty": "Nav atrasta neviena valoda"
+    },
+    "information": {
+      "title": "Informācija",
+      "version": "Versija: {{VERSION}}",
+      "author": "Autors:"
+    }
+  }
+}

@@ -1,0 +1,517 @@
+{
+  "title": "Manual pengguna",
+  "eyebrow": "RUANG ANDA, LANGKAH ANDA",
+  "intro": "Kenali setiap ciri kecil.",
+  "description": "Cari apa yang anda perlukan atau temui sesuatu yang baharu. Ambil masa anda.",
+  "settingsDescription": "Setiap ciri, dengan langkah mudah dan helah kecil untuk dicuba bila-bila masa yang anda suka.",
+  "search": {
+    "label": "Apa yang boleh kami bantu anda?",
+    "placeholder": "Contohnya: pulihkan penanda halaman yang dipadamkan",
+    "common": "Soalan biasa",
+    "found": "Jawapan untuk carian anda · {{count}}",
+    "empty": "Tiada bantuan ditemui untuk carian itu. Cuba \"papan kekunci\", \"gerakkan penanda halaman\" atau \"sandaran\".",
+    "resultsLabel": "Soalan dan jawapan manual"
+  },
+  "open": "Terokai manual",
+  "searchLabel": "Cari manual",
+  "searchPlaceholder": "Cuba \"papan kekunci\", \"kertas dinding\" atau \"sandaran\"",
+  "count": "{{count}} bahagian untuk diterokai",
+  "empty": "Tiada padanan. Cuba perkataan lain atau kosongkan carian untuk melihat keseluruhan indeks.",
+  "back": "← Indeks manual",
+  "remember": "Sedap untuk diingati",
+  "related": "Teruskan mencari",
+  "footer": "Sentiasa tersedia dalam Tetapan → Bantuan.",
+  "guideLinks": "Ketahui lebih lanjut dalam manual",
+  "groups": {
+    "start": "Mulakan di sini",
+    "organize": "Beratur",
+    "personalize": "Jadikan ia milik anda",
+    "protect": "Jaga ruang anda"
+  },
+  "demo": {
+    "browse": "Semak imbas bahagian",
+    "previous": "← Bahagian sebelumnya",
+    "next": "Bahagian seterusnya →",
+    "title": "Lihat ia dalam tindakan",
+    "example": "Contoh demonstrasi",
+    "steps": "Langkah tunjuk cara",
+    "step": "Langkah {{step}} daripada {{count}}",
+    "play": "Utama",
+    "pause": "jeda",
+    "replay": "Utama semula",
+    "progress": "Kemajuan demonstrasi",
+    "mode": "Tingkah laku",
+    "nextStep": "Langkah seterusnya",
+    "reducedMotion": "Gerakan yang dikurangkan: terokai langkah tanpa animasi.",
+    "labels": {
+      "settings": "tetapan",
+      "saved": "Perubahan disimpan",
+      "page": "Halaman",
+      "selection": "Pemilihan",
+      "selected": "item yang dipilih",
+      "color": "warna",
+      "styleName": "Gaya ungu saya",
+      "wallpaper": "Kertas dinding",
+      "rotation": "Putaran",
+      "format": "Format",
+      "seconds": "Detik",
+      "language": "Bahasa",
+      "system": "Sistem",
+      "currentLanguage": "Bahasa Melayu",
+      "restore": "Pulihkan",
+      "copy": "Sandaran",
+      "restoreCopy": "Semak semula sebelum dipulihkan",
+      "switchSync": "Tukar kepada Disegerakkan?",
+      "applyNow": "Berlaku apabila disahkan",
+      "status": "Status",
+      "synchronized": "disegerakkan",
+      "retry": "Simpan belum selesai · Cuba semula",
+      "keyboardQuery": "papan kekunci",
+      "deleteExample": "Penanda halaman dan folder akan dipadamkan. Tong kitar semula akan kosong."
+    },
+    "topics": {
+      "bookmarks": [
+        "Buka menu kiri dan pilih + → Penanda halaman.",
+        "Masukkan nama dan alamat halaman.",
+        "Sahkan: penanda halaman muncul dalam sel percuma."
+      ],
+      "quick-save": [
+        "Buka New DeskTab daripada ikon sambungannya.",
+        "Semak nama, alamat dan destinasi yang dicadangkan.",
+        "Simpan: penanda halaman akan berada di ruang kerja anda apabila anda membuka tab."
+      ],
+      "keyboard": [
+        "Tekan Tab untuk memfokuskan item pertama.",
+        "Kekunci anak panah mengalihkan fokus. Enter membuka item yang difokuskan.",
+        "Esc atau Tab lain menamatkan navigasi."
+      ],
+      "shortcuts": [
+        "Buka Tetapan → Pintasan papan kekunci.",
+        "Klik pintasan tindakan dan taip gabungan anda.",
+        "Simpan untuk menggunakan pintasan baharu."
+      ],
+      "search": [
+        "Pembesar bar alat atau / membuka carian.",
+        "Taipkan sebahagian daripada nama atau alamat.",
+        "Buka keputusan. Esc atau tutup kembali ke ruang kerja anda."
+      ],
+      "editing": [
+        "Pensel menu mendedahkan grid dan kawalan.",
+        "Pensel Gmail membuka nama dan editor URLnya.",
+        "Simpan perubahan dan klik pensel menu sekali lagi untuk menyelesaikannya."
+      ],
+      "movement": [
+        "Dayakan pengeditan dan tahan jubin.",
+        "Kursor dan jubin bergerak bersama ke sel bebas.",
+        "Pelepasan: kedudukan akhir disimpan."
+      ],
+      "resizing": [
+        "Dayakan pengeditan dan cari pemegang sudut.",
+        "Seret menyerong untuk menukar lebar dan ketinggian.",
+        "Lepaskan pada 2 × 2. Bandingkan Tiada dan Lancar menggunakan pemilih."
+      ],
+      "drag-modes": [
+        "Gunakan pemilih untuk membandingkan tiga mod seret.",
+        "Seret ke arah sel yang diduduki dan tonton jubin yang lain.",
+        "Tiada yang menggunakan sel bebas; Penempatan semula dan Urutan menyusun semula jubin."
+      ],
+      "folders": [
+        "Namakan folder untuk mengumpulkan halaman anda.",
+        "Semasa mengedit, seret penanda halaman ke atasnya.",
+        "Buka folder untuk mencari penanda halaman dalam gridnya."
+      ],
+      "workspaces": [
+        "Bar alat + mencipta ruang kerja dengan nama pilihan anda.",
+        "Ruang kerja baharu mempunyai grid sendiri.",
+        "Alt + ↑ dan Alt + ↓ kitaran melalui ruang kerja anda."
+      ],
+      "selection": [
+        "Dayakan pengeditan dan pilih jubin dengan klik singkat.",
+        "Pilih yang lain: bar alat menawarkan tindakan kumpulan.",
+        "Klon mencipta salinan dalam sel bebas dalam satu tindakan."
+      ],
+      "history": [
+        "Alihkan jubin: perubahan itu memasuki sejarah.",
+        "Buat asal mengembalikan jubin ke kedudukan sebelumnya.",
+        "Buat semula memulihkan langkah yang baru anda batalkan."
+      ],
+      "appearance": [
+        "Pensel jubin membuka editornya.",
+        "Tukar warna dan tonton pratonton.",
+        "Simpan untuk menggunakan penampilan itu pada jubin."
+      ],
+      "presets": [
+        "Buka pustaka daripada Tetapan → Penanda Halaman.",
+        "Namakan dan simpan gaya untuk menggunakannya semula.",
+        "Muatkannya sebagai lalai dan simpan untuk penanda halaman baharu."
+      ],
+      "wallpapers": [
+        "Buka Tetapan → Tema untuk memilih kertas dinding.",
+        "Semak pratonton dan selang giliran pustaka.",
+        "Simpan: kertas dinding yang dipilih muncul di ruang kerja anda."
+      ],
+      "clock": [
+        "Pilih + → Widget → Jam dalam menu kiri.",
+        "Konfigurasikan format dan saat menggunakan pratonton.",
+        "Tambahkan jam pada sel ruang kerja percuma."
+      ],
+      "interface": [
+        "Buka Umum dan pilih bahasa menu.",
+        "Bandingkan antara muka terang dan gelap.",
+        "Simpan pilihan bahasa dan penampilan anda."
+      ],
+      "trash": [
+        "Buka tong kitar semula untuk mencari penanda halaman yang dipadamkan.",
+        "Pilihnya dan klik Pulihkan: ia kembali ke grid.",
+        "Secara Umum, pilih berapa lama item yang dipadam disimpan."
+      ],
+      "backup": [
+        "Cari pilihan sandaran dalam Tetapan → Umum.",
+        "Eksport memuat turun ZIP dengan data dan fail setempat.",
+        "Import meminta pengesahan sebelum menggantikan data."
+      ],
+      "sync": [
+        "Buka Tetapan → Penyegerakan untuk menyemak mod semasa.",
+        "Pilih Disegerakkan dan semak pengesahan.",
+        "Terima menggunakan mod serta-merta, tanpa mengklik Simpan."
+      ],
+      "compact": [
+        "Apabila tetingkap mengecil, grid menjadi senarai.",
+        "Penanda halaman kekal boleh diakses daripada senarai.",
+        "Luaskan tetingkap untuk kembali ke grid dan penyuntingan."
+      ],
+      "data": [
+        "Contoh menggunakan bahasa lain, antara muka yang ringan dan jubin tersuai.",
+        "Set semula memulihkan tetapan lalai sambil mengekalkan penanda halaman dan gayanya.",
+        "Padam mengalih keluar penanda halaman dan folder, hanya meninggalkan tong kitar semula kosong."
+      ],
+      "learning": [
+        "Petua harian menjemput anda untuk menemui ciri. Klik Tunjukkan saya caranya.",
+        "Taip \"papan kekunci\" dalam kotak carian untuk mencari Navigasi dengan papan kekunci.",
+        "Klik hasil untuk membaca arahannya."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "SEDIKIT TIP UNTUK HARI INI",
+    "dismiss": "Tolak petua hari ini",
+    "read": "Tunjukkan saya bagaimana",
+    "pace": "Tuding untuk menjeda.",
+    "enabled": "Petua harian",
+    "description": "Satu petua apabila anda membuka tab pertama anda pada hari itu."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Bagaimanakah cara menambahkan halaman pada penanda halaman saya?",
+      "searchTerms": "tambah halaman; buat penanda buku; simpan laman web; kegemaran baru",
+      "title": "Tambah penanda halaman",
+      "summary": "Halaman kegemaran anda ada dalam setiap tab baharu.",
+      "steps": [
+        "Bergerak ke tepi kiri untuk mendedahkan menu. Pilih + → Penanda halaman.",
+        "Masukkan nama dan alamat halaman. Anda boleh melaraskan penampilannya sebelum menambahkannya.",
+        "Sahkan untuk meletakkan penanda halaman dalam slot percuma dalam ruang kerja semasa. Di luar mod edit, klik padanya untuk membuka halaman."
+      ],
+      "note": "Untuk menukar penanda halaman sedia ada, hidupkan pengeditan dan gunakan penselnya. Anda boleh mengunci alamat untuk mengelakkan perubahan yang tidak disengajakan.",
+      "tip": "Menu untuk menambah penanda halaman berada di tepi kiri. Gerakkan kursor anda ke sana dan pilih + → Penanda halaman."
+    },
+    "quick-save": {
+      "question": "Bagaimanakah cara saya menyimpan halaman yang saya lawati?",
+      "searchTerms": "simpan halaman semasa; simpan tab terbuka; ikon sambungan; tangkap URL",
+      "title": "Simpan halaman semasa",
+      "summary": "Tambahkan halaman daripada ikon sambungan.",
+      "steps": [
+        "Semasa melawat halaman, buka New DeskTab daripada menu sambungan penyemak imbas.",
+        "Semak nama dan alamat yang dicadangkan, dan pilih destinasi yang tersedia.",
+        "Simpan penanda halaman dan buka tab baharu untuk mencarinya di ruang anda."
+      ],
+      "note": "Sematkan ikon sambungan pada bar alat penyemak imbas anda untuk memastikan pintasan ini berada dalam jangkauan.",
+      "tip": "Tidak perlu menyalin URL: ikon penyemak imbas New DeskTab membolehkan anda menyimpan halaman yang anda lawati."
+    },
+    "keyboard": {
+      "question": "Bagaimanakah saya menavigasi tanpa tetikus?",
+      "searchTerms": "tanpa tetikus; gunakan papan kekunci; navigasi anak panah; tab masuk",
+      "title": "Navigasi dengan papan kekunci",
+      "summary": "Tab, kekunci anak panah dan Enter untuk meneroka ruang anda.",
+      "steps": [
+        "Pada halaman utama, tanpa menaip dalam medan atau membuka dialog, tekan Tab untuk mula menavigasi item.",
+        "Gunakan kekunci anak panah untuk mencapai item terdekat dalam setiap arah. Enter membuka penanda halaman atau folder; dalam mod edit, ia membuka editornya.",
+        "Tekan Tab sekali lagi atau Esc untuk meninggalkan navigasi. Di dalam dialog, Tab dan Shift + Tab bergerak antara kawalan seperti biasa."
+      ],
+      "note": "Dalam mod edit, S memilih item yang difokuskan. Padam atau Backspace mengalih keluarnya selepas pengesahan. Widget dipadamkan secara kekal.",
+      "tip": "Cuba Tab dalam ruang anda: anak panah bergerak antara item dan Enter membukanya. Tab lain meninggalkan mod ini."
+    },
+    "shortcuts": {
+      "question": "Bagaimanakah cara menukar pintasan papan kekunci saya?",
+      "searchTerms": "tukar pintasan; menyesuaikan kunci; kombinasi kunci; hotkey",
+      "title": "Buat pintasan anda sendiri",
+      "summary": "Semak dan tukar pintasan anda dalam Tetapan.",
+      "steps": [
+        "Buka Tetapan → Pintasan untuk melihat pengikatan anda untuk mengedit, menambah penanda halaman, folder dan widget serta membuka tetapan.",
+        "Klik gabungan kekunci tindakan dan tekan pintasan baharu. Esc membatalkan rakaman; klik kanan meninggalkan tindakan tidak ditetapkan.",
+        "Simpan tetapan untuk menggunakan perubahan anda. Tetapan semula pintasan memulihkan gabungan asal."
+      ],
+      "note": "Pada mulanya: E mengedit, B menambah penanda halaman, F folder, W membuka widget dan S membuka tetapan. Pintasan menghormati medan teks dan dialog.",
+      "tip": "Anda boleh menukar pintasan dalam Tetapan. Klik gabungan untuk merakam sendiri; Esc membatalkan dan klik kanan membatalkannya."
+    },
+    "search": {
+      "question": "Bagaimanakah saya mencari penanda halaman yang saya tidak dapat lihat?",
+      "searchTerms": "cari penanda buku; mencari halaman; penanda buku hilang; URL carian",
+      "title": "Cari penanda buku",
+      "summary": "Cari mengikut nama atau alamat, termasuk dalam folder.",
+      "steps": [
+        "Tekan / apabila anda tidak menaip, atau gunakan kaca pembesar pada bar ruang kerja.",
+        "Taipkan sebahagian nama atau alamat. Carian termasuk penanda halaman dalam ruang kerja lain dan dalam folder.",
+        "Buka hasil yang anda perlukan. Esc atau tutup membawa anda kembali ke ruang anda."
+      ],
+      "note": "Anda tidak perlu mengingati tempat anda menyimpan halaman untuk mencarinya.",
+      "tip": "Kekunci / membuka carian. Ia juga menemui penanda halaman di dalam folder dan di ruang kerja lain."
+    },
+    "editing": {
+      "question": "Bagaimanakah cara menghidupkan pengeditan?",
+      "searchTerms": "membolehkan penyuntingan; edit desktop; editor pensel; ubah suai penanda buku",
+      "title": "Mod edit",
+      "summary": "Hidupkan pensel untuk menyusun dan menyesuaikan.",
+      "steps": [
+        "Klik pensel dalam menu kiri, atau gunakan pintasan pengeditan anda, untuk mendedahkan grid dan kawalan item.",
+        "Alihkan, ubah saiz atau pilih item. Setiap pensel kad membuka nama, alamat dan editor penampilannya.",
+        "Klik pensel sekali lagi apabila anda selesai. Perubahan ruang kerja disimpan secara automatik; editor mempunyai butang Simpan mereka sendiri."
+      ],
+      "note": "Esc terlebih dahulu mengosongkan pilihan atau navigasi papan kekunci. Apabila kedua-duanya tidak aktif, ia boleh meninggalkan mod edit.",
+      "tip": "Pensel menu mula mengedit: pemegang kad dan kawalan muncul. Klik sekali lagi untuk menyelesaikannya."
+    },
+    "movement": {
+      "question": "Bagaimanakah saya mengalihkan penanda halaman?",
+      "searchTerms": "gerakkan penanda buku; seret kegemaran; menukar kedudukan; susun grid",
+      "title": "Alihkan item",
+      "summary": "Seret kad ke tempatnya pada grid.",
+      "steps": [
+        "Hidupkan mod edit dan tahan kad yang anda mahu alihkan.",
+        "Seret ke destinasinya. Hasilnya bergantung pada ruang kosong dan mod seret yang dipilih dalam Tetapan → Penanda Halaman.",
+        "Lepaskan untuk menyimpan kedudukannya. Anda juga boleh memilih satu item dengan satu klik dan mengalihkannya satu sel dengan anak panah, di luar navigasi Tab."
+      ],
+      "note": "Destinasi yang disekat menunjukkan maklum balas visual dan item kembali ke kedudukan yang sah. Anda boleh membuat asal perubahan.",
+      "tip": "Dalam mod edit, klik untuk memilih satu kad dan gunakan anak panah untuk mengalihkannya ke sel demi sel. Tinggalkan navigasi Tab dahulu."
+    },
+    "resizing": {
+      "question": "Bagaimanakah cara menukar saiz jubin?",
+      "searchTerms": "ubah saiz jubin; besarkan penanda buku; mengurangkan saiz; ubah saiz pemegang; klik; Anjakan; ketinggian lebar; 2x2",
+      "title": "Tukar saiz",
+      "summary": "Gunakan sisi dan sudut kad.",
+      "steps": [
+        "Hidupkan pengeditan dan alihkan ke sisi atau sudut item untuk menggunakan pemegang ubah saiznya.",
+        "Seret pemegang. Sudut menukar lebar dan ketinggian; sisi berubah hanya satu dimensi. Anda juga boleh mengklik pemegang untuk berkembang dengan satu sel, atau Shift + klik untuk mengecil dengan satu sel.",
+        "Dalam Tetapan → Penanda Halaman, pilih Tiada untuk melompat antara sel selepas melintasi 50%, atau Lancar untuk meregangkan kad dan snap pada keluaran."
+      ],
+      "note": "Saiz akhir menghormati grid dan kedudukan yang sah. Pratonton tetapan menunjukkan perbezaan sebelum anda memilih.",
+      "tip": "Klik pemegang untuk membesar dengan satu sel atau Shift + klik untuk mengecil dengan satu sel. Sudut menukar lebar dan ketinggian bersama-sama; sisi berubah hanya satu dimensi."
+    },
+    "drag-modes": {
+      "question": "Mengapa saya tidak boleh jatuh pada sel yang diduduki?",
+      "searchTerms": "sel yang diduduki; bergerak ke atas yang lain; penurunan terhalang; pindahkan lata; perlanggaran seret",
+      "title": "Mod seret",
+      "summary": "Pilih perkara yang berlaku pada kedudukan penanda halaman yang diduduki.",
+      "steps": [
+        "Buka Tetapan → Penanda halaman dan kembangkan tingkah laku seret.",
+        "Tiada yang berpindah ke slot percuma. Penempatan semula mencari kedudukan untuk penanda halaman di destinasi. Lata menyusun semula penanda halaman mengikut turutan.",
+        "Tonton setiap animasi pilihan dan simpan mod yang terasa selesa untuk diatur."
+      ],
+      "note": "Pergerakan ditolak jika tiada pengaturan yang sah wujud. Latar belakang lutsinar tidak menjadikan sel yang diduduki bebas.",
+      "tip": "Ingin mengalihkan penanda halaman ke dalam sel yang diduduki? Lihat Penempatan Semula dan Lata dalam Tetapan → Penanda halaman dan tonton pratontonnya."
+    },
+    "folders": {
+      "question": "Bagaimanakah cara saya mengumpulkan penanda halaman ke dalam folder?",
+      "searchTerms": "buat folder; penanda buku kumpulan; mengatur kegemaran; keluarkan daripada folder; menamakan semula folder",
+      "title": "Susun dengan folder",
+      "summary": "Kumpulkan sehingga 18 penanda halaman dalam satu folder.",
+      "steps": [
+        "Pilih + → Folder dalam menu kiri dan beri nama.",
+        "Dalam mod edit, seret penanda halaman ke atasnya untuk meletakkannya di dalam. Buka folder untuk melihat gridnya.",
+        "Gunakan mod edit folder untuk mengatur penanda halamannya. Klik namanya untuk menamakan semula dan ikonnya untuk menyesuaikan penampilannya."
+      ],
+      "note": "Memadamkan folder juga mempengaruhi penanda halamannya. Semak pengesahan sebelum meneruskan; tong kitar semula boleh memulihkan item yang dipadam.",
+      "tip": "Satu folder memuatkan sehingga 18 penanda halaman. Hidupkan pengeditan dan seret kad ke folder untuk menambahkannya."
+    },
+    "workspaces": {
+      "question": "Bagaimanakah cara saya memisahkan halaman peribadi dan halaman kerja?",
+      "searchTerms": "kerja peribadi; mencipta ruang kerja; tukar ruang kerja; desktop",
+      "title": "Asingkan ruang kerja anda",
+      "summary": "Satu grid untuk kerja dan satu lagi untuk semua yang lain.",
+      "steps": [
+        "Bar ruang kerja bertukar antara ruang kerja Utama dan tersuai anda. Its + mencipta yang baharu.",
+        "Pilih ruang kerja sebelum menambah item. Untuk memindahkan item sedia ada, pilih item tersebut dan pilih destinasi dalam bar tindakan.",
+        "Alt + ↑ dan Alt + ↓ kitaran melalui ruang kerja. Butang − memadamkan ruang kerja tersuai semasa selepas pengesahan."
+      ],
+      "note": "Memadamkan ruang kerja turut memadamkan kandungannya. Kediaman utama tersedia dan tidak boleh dipadamkan.",
+      "tip": "Alt + ↑ dan Alt + ↓ menukar ruang kerja tanpa membuka pemilih. Asingkan kerja, hobi atau projek dengan bar +."
+    },
+    "selection": {
+      "question": "Bagaimanakah cara menukar beberapa item sekaligus?",
+      "searchTerms": "pilih berbilang; pemilihan pukal; bergerak beberapa; pemilihan klon; penanda buku pendua",
+      "title": "Pilih dan bertindak secara pukal",
+      "summary": "Kurang tindakan berulang apabila mengatur beberapa kad.",
+      "steps": [
+        "Hidupkan pengeditan dan klik sebentar setiap kad untuk memilihnya. Klik sekali lagi untuk nyahpilih; dalam navigasi Tab anda boleh menggunakan S.",
+        "Bar pemilihan membolehkan anda menduplikasi, menggunakan penampilan lalai, beralih ke ruang kerja lain atau memadam, bergantung pada jenis item.",
+        "Semak destinasi atau pengesahan. Esc atau butang pilihan jelas membatalkan pilihan anda."
+      ],
+      "note": "Bergerak dan menduplikasi memerlukan slot percuma. Apl memberitahu anda jika sesetengah item tidak sesuai. Widget tidak masuk ke dalam tong kitar semula.",
+      "tip": "Dalam mod edit, pilih beberapa kad dengan klik pendek untuk mengalih, menduplikasi atau menggayakan semula kad itu bersama-sama. Esc mengosongkan pemilihan."
+    },
+    "history": {
+      "question": "Bagaimanakah saya boleh membuat asal perubahan terakhir saya?",
+      "searchTerms": "batal perubahan; buat semula perubahan; balik; memulihkan kedudukan",
+      "title": "Buat asal dan buat semula",
+      "summary": "Pulihkan kedudukan atau perubahan terkini.",
+      "steps": [
+        "Gunakan anak panah buat asal pada bar ruang kerja untuk kembali ke keadaan sebelumnya.",
+        "Anak panah buat semula memulihkan perubahan yang baru anda batalkan. Anda juga boleh menggunakan Ctrl/Cmd + Z dan Ctrl/Cmd + Shift + Z.",
+        "Di dalam editor, gunakan anak panah di sebelah tajuknya untuk perubahan yang belum selesai; medan teks mengekalkan papan kekunci biasa mereka dibuat asal. Setiap tindakan menunjukkan mesej ringkas dan anak panah yang tidak tersedia dilumpuhkan. Semak keputusan sebelum menyimpan."
+      ],
+      "note": "Sejarah editor bermula baharu setiap kali anda membuka editor; perubahan mencapai ruang kerja anda apabila anda menyimpan. Sejarah ruang kerja adalah sementara dan bukan sandaran. Sesi baharu atau kemas kini daripada tab lain boleh menetapkannya semula.",
+      "tip": "Jika perubahan dirasakan tidak sesuai, gunakan anak panah buat asal atau Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z melakukannya semula."
+    },
+    "appearance": {
+      "question": "Bagaimanakah cara menukar warna, ikon atau teks?",
+      "searchTerms": "menukar warna; tukar ikon; menukar teks; penampilan penanda buku; warna folder; favicon",
+      "title": "Sesuaikan kad anda",
+      "summary": "Warna, imej, teks dan ikon mengikut cara anda.",
+      "steps": [
+        "Hidupkan pengeditan dan buka pensel penanda halaman, atau kawalan penampilan untuk folder atau tong kitar semula.",
+        "Terokai editor: latar belakang, warna, imej, teks dan ikon. Kawalan yang tersedia bergantung pada jenis item; pratonton menunjukkan hasilnya.",
+        "Simpan apabila anda gembira. Anda boleh menggunakan imej daripada URL atau fail setempat di mana editor menawarkan pilihan itu."
+      ],
+      "note": "Imej tempatan adalah milik penyemak imbas ini. Apabila menyegerak, tambahkan URL sandaran untuk peranti lain. Import menyimpan imej yang disertakan dan rujukan yang jelas tanpa fail; Penyegerakan mengabaikan fail yang tidak tersedia pada peranti ini.",
+      "tip": "Pensel penanda halaman membuka editor visualnya. Tukar warna, teks, ikon atau imej dan semak pratonton."
+    },
+    "presets": {
+      "question": "Bagaimanakah cara saya menggunakan semula gaya yang saya suka?",
+      "searchTerms": "menjimatkan gaya; penggunaan semula penampilan; gaya lalai; perpustakaan pratetap; menerapkan gaya",
+      "title": "Guna semula penampilan",
+      "summary": "Simpan pandangan dan gunakannya pada penanda halaman lain.",
+      "steps": [
+        "Buka Pustaka editor untuk memilih rupa daripada koleksi yang tersedia.",
+        "Simpan penampilan tersuai sebagai pratetap untuk menggunakan semula warna, teks dan ikonnya tanpa menyalin nama atau alamat penanda halaman.",
+        "Dalam Tetapan → Penanda halaman konfigurasikan penampilan lalai untuk penanda halaman baharu. Bar pilihan boleh menggunakannya pada item yang serasi."
+      ],
+      "note": "Pratetap mengubah penampilan, bukan identiti, destinasi atau kedudukan penanda halaman.",
+      "tip": "Simpan rupa yang anda suka dalam perpustakaan penampilan. Gunakan semula pada kad lain tanpa menukar nama atau alamat mereka."
+    },
+    "wallpapers": {
+      "question": "Bagaimanakah cara saya menggunakan imej atau video sebagai latar belakang saya?",
+      "searchTerms": "menukar latar belakang; latar belakang video; putaran kertas dinding; tema",
+      "title": "Kertas dinding dan putaran",
+      "summary": "Warna, imej atau video untuk menetapkan mood.",
+      "steps": [
+        "Buka Tetapan → Tema dan pilih latar belakang lalai, warna atau latar belakang media.",
+        "Tambahkan imej atau video daripada sumber yang ditawarkan dalam panel. Perpustakaan mengumpul berbilang latar belakang dengan selang putaran.",
+        "Semak pratonton dan simpan. Anda boleh memasangkan fail setempat dengan URL alternatif untuk peranti lain."
+      ],
+      "note": "Fail tempatan kekal dalam penyemak imbas ini. Penyegerakan tidak memindahkannya; sandaran penuh boleh mengekalkannya.",
+      "tip": "Latar belakang anda boleh berubah secara automatik: tambah beberapa pada Tetapan → Pustaka tema dan tetapkan selang putaran."
+    },
+    "clock": {
+      "question": "Bagaimanakah saya menambah jam?",
+      "searchTerms": "tambah jam; masa persembahan; saat; format 24 jam; widget jam",
+      "title": "Tambah jam",
+      "summary": "Widget yang menunjukkan masa peranti anda.",
+      "steps": [
+        "Pilih + → Widget dalam menu kiri dan pilih Jam.",
+        "Pilih format 12 atau 24 jam dan sama ada mahu menunjukkan saat. Pratonton membantu anda membuat keputusan.",
+        "Tambahkannya pada slot percuma. Dalam mod edit anda boleh mengalih, mengubah saiz atau membuka semula pilihannya."
+      ],
+      "note": "Jam mengikut masa peranti anda. Memadamkan widget adalah kekal; ia tidak memasuki tong kitar semula.",
+      "tip": "Dalam + → Widget anda boleh menambah jam 12 atau 24 jam dengan saat pilihan dan mengubah saiznya agar sesuai dengan ruang anda."
+    },
+    "interface": {
+      "question": "Bagaimanakah cara menukar bahasa atau menggunakan mod gelap?",
+      "searchTerms": "tukar bahasa; mod gelap; mod cahaya; penampilan antara muka",
+      "title": "Bahasa dan tema antara muka",
+      "summary": "Jadikan menu, dialog dan kawalan selesa.",
+      "steps": [
+        "Dalam Tetapan → Umum pilih bahasa atau biarkan ia mengikuti sistem anda.",
+        "Pilih antara muka terang, gelap atau automatik mengikut keutamaan anda.",
+        "Simpan tetapan. Tema antara muka berfungsi bersama latar belakang yang anda pilih dalam Tema."
+      ],
+      "note": "Bahasa sistem dan penampilan automatik mengikut pilihan peranti anda.",
+      "tip": "Pilih antara muka terang atau gelap sambil mengekalkan kertas dinding anda. Cari pilihan dan bahasa ini dalam Tetapan → Umum."
+    },
+    "trash": {
+      "question": "Bagaimanakah saya memulihkan penanda halaman yang dipadamkan?",
+      "searchTerms": "memulihkan penanda halaman yang dipadamkan; memulihkan dikeluarkan; tong kitar semula; terpadam secara tidak sengaja; memulihkan folder",
+      "title": "Pulihkan dari tong kitar semula",
+      "summary": "Peluang kedua untuk penanda halaman dan folder.",
+      "steps": [
+        "Buka tong kitar semula ruang anda untuk menyemak penanda halaman dan folder yang dipadamkan.",
+        "Pilih perkara yang anda mahu kembali dan gunakan Pulihkan. Anda juga boleh memadam item secara kekal atau mengosongkan tong selepas pengesahan.",
+        "Dalam Tetapan → Umum pilih sama ada untuk menunjukkannya dan berapa lama ia menyimpan item: 1, 7, 14 atau 28 hari, atau jangan sekali-kali memadamkannya secara automatik."
+      ],
+      "note": "Tong kitar semula adalah milik peranti ini. Item yang telah tamat tempoh atau dipadamkan secara kekal tidak boleh dipulihkan lagi daripadanya.",
+      "tip": "Tersilap memadam penanda halaman? Buka tong kitar semula dan pulihkannya. Laraskan tempoh pengekalan dalam Tetapan → Umum."
+    },
+    "backup": {
+      "question": "Bagaimanakah cara saya membuat sandaran atau memindahkan data saya?",
+      "searchTerms": "salinan sandaran; data eksport; salinan import; memulihkan sandaran; pelayar lain; memindahkan data",
+      "title": "Sandaran dan import",
+      "summary": "Simpan salinan ruang anda dan bawa bersama anda.",
+      "steps": [
+        "Dalam Tetapan → Eksport umum sandaran penuh untuk mengekalkan data dan fail tempatan yang disertakan dalam arkib ZIP.",
+        "Untuk memulihkan, import sandaran dan semak pengesahan sebelum menggantikan data. Sandaran JSON yang serasi juga disokong.",
+        "Dalam Tetapan → Penanda halaman anda boleh mengeksport atau mengimport hanya penanda halaman dan folder apabila anda tidak memerlukan sandaran penuh."
+      ],
+      "note": "Eksport penanda halaman bukanlah sandaran penuh tetapan dan media tempatan. Simpan sandaran sebelum memulihkan atau memadam data.",
+      "tip": "Sandaran penuh daripada Tetapan → Umum termasuk fail tempatan dalam ZIP. Ia berguna sebelum menukar penyemak imbas atau memulihkan data."
+    },
+    "sync": {
+      "question": "Bagaimanakah saya menggunakan ruang yang sama pada komputer lain?",
+      "searchTerms": "komputer lain; menyegerakkan peranti; penyegerakan; awan; penyegerakan setempat; hentikan penyegerakan; lumpuhkan penyegerakan; mod tempatan",
+      "title": "Segerakkan merentas peranti",
+      "summary": "Kongsi ruang anda menggunakan penyegerakan penyemak imbas.",
+      "steps": [
+        "Log masuk dan dayakan penyegerakan sambungan dalam profil Google Chrome anda.",
+        "Dalam Tetapan → Penyegerakan pilih Disegerakkan dan terima pengesahan. Suis berkuat kuasa serta-merta: penanda halaman dan tetapan disegerakkan sedia ada dimuatkan, atau data setempat anda yang disimpan disegerakkan jika tiada.",
+        "Gunakan profil yang sama pada peranti lain. Semak status penyegerakan dan ruang yang tersedia dalam panel."
+      ],
+      "note": "Fail tempatan, tong kitar semula dan petua harian adalah milik setiap peranti. Penyegerakan mempunyai had storan; gunakan URL alternatif untuk imej dan video tempatan. Memilih Setempat juga meminta pengesahan dan berkuat kuasa serta-merta, memastikan data yang disegerakkan disimpan.",
+      "tip": "Penyegerakan berkongsi ruang anda merentas peranti, tetapi fail setempat memerlukan URL alternatif. Lihat Tetapan → Penyegerakan."
+    },
+    "compact": {
+      "question": "Mengapa saya melihat senarai dan bukannya grid?",
+      "searchTerms": "tingkap kecil; paparan senarai; grid hilang; panel tersembunyi; mudah alih",
+      "title": "Gunakan tingkap yang lebih kecil",
+      "summary": "Terus capai penanda halaman anda apabila ruang terhad.",
+      "steps": [
+        "Apabila tetingkap mengecil, apl bertukar kepada senarai untuk memastikan item anda boleh diakses.",
+        "Buka penanda halaman, folder atau cari dalam paparan ini. Manual juga menyesuaikan dengan saiz yang ada.",
+        "Luaskan tetingkap untuk mengembalikan grid dan panel pengeditan. Dialog pengeditan yang digantung mengekalkan drafnya."
+      ],
+      "note": "Paparan padat membantu anda menyemak imbas ruang anda; penyusunan semula memerlukan tingkap yang cukup luas.",
+      "tip": "Dalam tetingkap sempit penanda halaman anda kekal tersedia sebagai senarai. Luaskannya apabila anda ingin mengedit atau menyusun semula grid."
+    },
+    "data": {
+      "question": "Bagaimanakah cara saya memadamkan data saya atau menetapkan semula tetapan?",
+      "searchTerms": "memadam data; tetapkan semula tetapan; keluarkan segala-galanya; mula semula",
+      "title": "Menyimpan dan menetapkan semula",
+      "summary": "Fahami perkara yang disimpan dan perkara yang dialih keluar oleh setiap tindakan.",
+      "steps": [
+        "Tindakan ruang kerja disimpan secara automatik. Dalam editor dan Tetapan, sahkan dengan Simpan; Batal membuang draf panel itu.",
+        "Jika notis simpan belum selesai muncul, klik Cuba Simpan semula dan tunggu pengesahan sebelum menutup tab.",
+        "Dalam Tetapan → Umum anda boleh menetapkan semula tetapan atau memadam semua data. Baca pengesahan dan eksport sandaran apa sahaja yang anda mahu simpan."
+      ],
+      "note": "Menetapkan semula tetapan mengekalkan penanda halaman anda, saiz dan gayanya. Memadam semua data setempat akan mengalih keluar item dan mengosongkan tong kitar semula. Eksport sandaran sebelum memadam: Buat asal tidak menggantikan sandaran.",
+      "tip": "Jika anda melihat notis perubahan yang belum disimpan, gunakan Cuba Simpan semula sebelum menutup tab. Lindungi ruang anda dengan sandaran penuh."
+    },
+    "learning": {
+      "question": "Bagaimanakah cara saya membuka semula panduan atau mematikan petua harian?",
+      "searchTerms": "petua lumpuhkan; matikan bantuan; amaran harian; buka semula panduan; manual pengguna",
+      "title": "Belajar mengikut kadar anda sendiri",
+      "summary": "Panduan ringkas, manual dan sedikit petua harian.",
+      "steps": [
+        "Lawati semula panduan ringkas daripada Tetapan → Bantuan. Setiap langkah dipautkan kepada penjelasan yang sepadan dalam manual.",
+        "Terokai indeks atau cari perkataan. Pautan berkaitan bahagian membawa anda ke ciri lain apabila anda sudah bersedia.",
+        "Tab baharu pertama anda setiap hari menunjukkan petua rawak. Tolak atau buka penjelasannya; anda boleh melumpuhkan petua dalam Bantuan."
+      ],
+      "note": "Petua melawati bahagian tanpa mengulangi sehingga koleksi selesai. Mereka bertahan selama 20 saat dan berhenti seketika semasa melayang atau memfokuskan butang mereka. Mereka mengikuti hari tempatan dan keutamaan pelayar ini.",
+      "tip": "Manual ini sentiasa dalam Tetapan → Bantuan. Petua harian membuka bahagian dan anda boleh melumpuhkannya di sana bila-bila masa yang anda suka."
+    }
+  }
+}

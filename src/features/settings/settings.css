@@ -261,8 +261,8 @@
 }
 
 .settings-language-row .custom-select {
-  width: min(194px, 100%);
-  flex: 0 1 194px;
+  width: min(224px, 100%);
+  flex: 0 1 224px;
 }
 
 .settings-language .settings-section-description {

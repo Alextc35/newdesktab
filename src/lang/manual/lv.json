@@ -1,0 +1,517 @@
+{
+  "title": "Lietotāja rokasgrāmata",
+  "eyebrow": "TAVA TELPA, JŪSU TEMS",
+  "intro": "Iepazīstiet katru mazo funkciju.",
+  "description": "Atrodiet to, kas jums nepieciešams, vai atklājiet kaut ko jaunu. Nesteidzieties.",
+  "settingsDescription": "Katra funkcija ar vienkāršām darbībām un maziem trikiem, ko izmēģināt, kad vien vēlaties.",
+  "search": {
+    "label": "Ar ko mēs varam jums palīdzēt?",
+    "placeholder": "Piemēram: atgūt izdzēsto grāmatzīmi",
+    "common": "Bieži jautājumi",
+    "found": "Atbildes jūsu meklēšanas vaicājumam · {{count}}",
+    "empty": "Šai meklēšanai palīdzība netika atrasta. Mēģiniet “tastatūra”, “pārvietot grāmatzīmes” vai “dublēt”.",
+    "resultsLabel": "Manuāli jautājumi un atbildes"
+  },
+  "open": "Izpētiet rokasgrāmatu",
+  "searchLabel": "Meklējiet rokasgrāmatā",
+  "searchPlaceholder": "Izmēģiniet “tastatūru”, “tapetu” vai “dublējumu”",
+  "count": "{{count}} sadaļas, ko izpētīt",
+  "empty": "Nav nevienas spēles. Izmēģiniet citu vārdu vai notīriet meklēšanu, lai redzētu visu rādītāju.",
+  "back": "← Manuālais rādītājs",
+  "remember": "Labi atcerēties",
+  "related": "Turpiniet atklāt",
+  "footer": "Vienmēr pieejams sadaļā Iestatījumi → Palīdzība.",
+  "guideLinks": "Uzziniet vairāk rokasgrāmatā",
+  "groups": {
+    "start": "Sāciet šeit",
+    "organize": "Sakārtojies",
+    "personalize": "Padariet to par savu",
+    "protect": "Rūpējieties par savu telpu"
+  },
+  "demo": {
+    "browse": "Pārlūkot sadaļas",
+    "previous": "← Iepriekšējā sadaļa",
+    "next": "Nākamā sadaļa →",
+    "title": "Skatiet to darbībā",
+    "example": "Demonstrācijas piemērs",
+    "steps": "Demonstrācijas soļi",
+    "step": "{{step}}. darbība no {{count}}",
+    "play": "Spēlēt",
+    "pause": "Pauze",
+    "replay": "Atskaņot vēlreiz",
+    "progress": "Demonstrācijas gaita",
+    "mode": "Uzvedība",
+    "nextStep": "Nākamais solis",
+    "reducedMotion": "Samazināta kustība: izpētiet darbības bez animācijas.",
+    "labels": {
+      "settings": "Iestatījumi",
+      "saved": "Izmaiņas saglabātas",
+      "page": "Lapa",
+      "selection": "Atlase",
+      "selected": "atlasītie vienumi",
+      "color": "Krāsa",
+      "styleName": "Mans violetais stils",
+      "wallpaper": "Tapetes",
+      "rotation": "Rotācija",
+      "format": "Formāts",
+      "seconds": "Sekundes",
+      "language": "Valoda",
+      "system": "Sistēma",
+      "currentLanguage": "Latviešu",
+      "restore": "Atjaunot",
+      "copy": "Dublējums",
+      "restoreCopy": "Pārskatiet pirms atjaunošanas",
+      "switchSync": "Vai pārslēgties uz sinhronizētu?",
+      "applyNow": "Attiecas pēc apstiprināšanas",
+      "status": "Statuss",
+      "synchronized": "Sinhronizēts",
+      "retry": "Saglabāt gaida · Mēģināt vēlreiz",
+      "keyboardQuery": "tastatūra",
+      "deleteExample": "Grāmatzīmes un mapes tiks dzēstas. Atkritnes tvertne būs tukša."
+    },
+    "topics": {
+      "bookmarks": [
+        "Atveriet kreiso izvēlni un izvēlieties + → Grāmatzīme.",
+        "Ievadiet lapas nosaukumu un adresi.",
+        "Apstiprināt: grāmatzīme parādās brīvā šūnā."
+      ],
+      "quick-save": [
+        "Atveriet vietni New DeskTab, izmantojot paplašinājuma ikonu.",
+        "Pārskatiet ieteikto nosaukumu, adresi un galamērķi.",
+        "Saglabāt: grāmatzīme būs jūsu darbvietā, atverot cilni."
+      ],
+      "keyboard": [
+        "Nospiediet Tab, lai fokusētu pirmo vienumu.",
+        "Bultu taustiņi pārvieto fokusu. Enter atver fokusēto vienumu.",
+        "Esc vai cita cilne beidz navigāciju."
+      ],
+      "shortcuts": [
+        "Atveriet Iestatījumi → Tastatūras īsceļi.",
+        "Noklikšķiniet uz darbības saīsnes un ierakstiet savu kombināciju.",
+        "Saglabājiet, lai lietotu jauno saīsni."
+      ],
+      "search": [
+        "Rīkjoslas palielinātājs vai / atver meklēšanu.",
+        "Ierakstiet vārda vai adreses daļu.",
+        "Atveriet rezultātu. Esc vai Aizvērt atgriežas darbvietā."
+      ],
+      "editing": [
+        "Izvēlnes zīmulis atklāj režģi un vadīklas.",
+        "Gmail zīmulis atver tā nosaukuma un URL redaktoru.",
+        "Saglabājiet izmaiņas un vēlreiz noklikšķiniet uz izvēlnes zīmuļa, lai pabeigtu."
+      ],
+      "movement": [
+        "Iespējojiet rediģēšanu un turiet elementu.",
+        "Kursors un flīze pārvietojas kopā uz brīvu šūnu.",
+        "Atbrīvot: galīgā pozīcija ir saglabāta."
+      ],
+      "resizing": [
+        "Iespējojiet rediģēšanu un atrodiet stūra rokturi.",
+        "Velciet pa diagonāli, lai mainītu platumu un augstumu.",
+        "Atlaidiet 2 × 2. Izmantojot selektoru, salīdziniet Nav un Gluds."
+      ],
+      "drag-modes": [
+        "Izmantojiet atlasītāju, lai salīdzinātu trīs vilkšanas režīmus.",
+        "Velciet uz aizņemtu šūnu un skatieties pārējās flīzes.",
+        "Neviens neizmanto brīvu šūnu; Pārvietošana un kaskāde reorganizē flīzes."
+      ],
+      "folders": [
+        "Piešķiriet nosaukumu mapei, lai grupētu lapas.",
+        "Rediģējot, velciet uz tās grāmatzīmi.",
+        "Atveriet mapi, lai tās režģī atrastu grāmatzīmi."
+      ],
+      "workspaces": [
+        "Rīkjosla + izveido darbvietu ar jūsu izvēlēto nosaukumu.",
+        "Jaunajai darbvietai ir savs režģis.",
+        "Alt + ↑ un Alt + ↓ pārvietojas pa darbvietām."
+      ],
+      "selection": [
+        "Iespējojiet rediģēšanu un atlasiet elementu ar īsu klikšķi.",
+        "Izvēlieties citu: rīkjosla piedāvā grupas darbības.",
+        "Klons izveido kopijas brīvās šūnās ar vienu darbību."
+      ],
+      "history": [
+        "Pārvietot elementu: šīs izmaiņas tiek iekļautas vēsturē.",
+        "Atsaukt atgriež elementu iepriekšējā pozīcijā.",
+        "Atkārtoti tiek atjaunota tikko atsauktā kustība."
+      ],
+      "appearance": [
+        "Flīžu zīmulis atver tās redaktoru.",
+        "Mainiet krāsu un skatieties priekšskatījumu.",
+        "Saglabājiet, lai izmantotu šo izskatu flīzei."
+      ],
+      "presets": [
+        "Atveriet bibliotēku no Iestatījumi → Grāmatzīmes.",
+        "Nosauciet stilu un saglabājiet to, lai to izmantotu atkārtoti.",
+        "Ielādējiet to kā noklusējumu un saglabājiet jaunām grāmatzīmēm."
+      ],
+      "wallpapers": [
+        "Atveriet Iestatījumi → Motīvs, lai izvēlētos fona attēlu.",
+        "Pārskatiet priekšskatījumu un bibliotēkas rotācijas intervālu.",
+        "Saglabāt: izvēlētā fona tapete tiek parādīta jūsu darbvietā."
+      ],
+      "clock": [
+        "Kreisajā izvēlnē izvēlieties + → Logrīki → Pulkstenis.",
+        "Konfigurējiet formātu un sekundes, izmantojot priekšskatījumu.",
+        "Pievienojiet pulksteni brīvai darbvietas šūnai."
+      ],
+      "interface": [
+        "Atveriet Vispārīgi un izvēlieties izvēlnes valodu.",
+        "Salīdziniet gaišo un tumšo saskarni.",
+        "Saglabājiet savas valodas un izskata preferences."
+      ],
+      "trash": [
+        "Atveriet atkritni, lai atrastu izdzēstu grāmatzīmi.",
+        "Atlasiet to un noklikšķiniet uz Atjaunot: tas atgriežas režģī.",
+        "Vispārīgi izvēlieties, cik ilgi izdzēstie vienumi tiek glabāti."
+      ],
+      "backup": [
+        "Atrodiet dublēšanas opcijas sadaļā Iestatījumi → Vispārīgi.",
+        "Eksportēt lejupielādes ZIP ar datiem un vietējiem failiem.",
+        "Importēšana prasa apstiprinājumu pirms datu aizstāšanas."
+      ],
+      "sync": [
+        "Atveriet Iestatījumi → Sinhronizācija, lai pārbaudītu pašreizējo režīmu.",
+        "Izvēlieties Sinhronizēts un pārskatiet apstiprinājumu.",
+        "Pieņemt, režīms tiek piemērots nekavējoties, nenoklikšķinot uz Saglabāt."
+      ],
+      "compact": [
+        "Logam sašaurinoties, režģis kļūst par sarakstu.",
+        "Grāmatzīmes joprojām ir pieejamas no saraksta.",
+        "Paplašiniet logu, lai atgrieztos režģī un rediģēšanā."
+      ],
+      "data": [
+        "Piemērā tiek izmantota cita valoda, viegls interfeiss un pielāgotas flīzes.",
+        "Atiestatīšana atjauno noklusējuma iestatījumus, vienlaikus saglabājot grāmatzīmes un to stilus.",
+        "Dzēst tiek noņemtas grāmatzīmes un mapes, atstājot tikai tukšu atkritni."
+      ],
+      "learning": [
+        "Ikdienas padoms aicina jūs atklāt kādu funkciju. Noklikšķiniet uz Parādīt man, kā.",
+        "Meklēšanas lodziņā ierakstiet “tastatūra”, lai atrastu Navigēt ar tastatūru.",
+        "Noklikšķiniet uz rezultāta, lai izlasītu tā norādījumus."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "MAZS PADOMS ŠODIENAI",
+    "dismiss": "Noraidīt šodienas padomu",
+    "read": "Parādi man kā",
+    "pace": "Virziet kursoru, lai apturētu.",
+    "enabled": "Ikdienas padomi",
+    "description": "Viens padoms, atverot savu pirmo dienas cilni."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Kā pievienot lapu savām grāmatzīmēm?",
+      "searchTerms": "pievienot lapu; izveidot grāmatzīmi; saglabāt vietni; jauns favorīts",
+      "title": "Pievienojiet grāmatzīmes",
+      "summary": "Jūsu iecienītākās lapas ir pieejamas katrā jaunā cilnē.",
+      "steps": [
+        "Pārejiet uz kreiso malu, lai atvērtu izvēlni. Izvēlieties + → Grāmatzīme.",
+        "Ievadiet lapas nosaukumu un adresi. Pirms pievienošanas varat pielāgot tā izskatu.",
+        "Apstipriniet, lai grāmatzīmi ievietotu brīvā slotā pašreizējā darbvietā. Ārpus rediģēšanas režīma noklikšķiniet uz tā, lai atvērtu lapu."
+      ],
+      "note": "Lai mainītu esošu grāmatzīmi, ieslēdziet rediģēšanu un izmantojiet tās zīmuli. Varat bloķēt adresi, lai izvairītos no nejaušām izmaiņām.",
+      "tip": "Grāmatzīmju pievienošanas izvēlne atrodas kreisajā malā. Pārvietojiet kursoru uz turieni un izvēlieties + → Grāmatzīme."
+    },
+    "quick-save": {
+      "question": "Kā saglabāt lapu, kuru apmeklēju?",
+      "searchTerms": "saglabāt pašreizējo lapu; saglabāt atvērto cilni; paplašinājuma ikona; uztveršanas URL",
+      "title": "Saglabājiet pašreizējo lapu",
+      "summary": "Pievienojiet lapu no paplašinājuma ikonas.",
+      "steps": [
+        "Apmeklējot lapu, pārlūkprogrammas paplašinājumu izvēlnē atveriet New DeskTab.",
+        "Pārbaudiet piedāvāto nosaukumu un adresi un izvēlieties pieejamo galamērķi.",
+        "Saglabājiet grāmatzīmi un atveriet jaunu cilni, lai to atrastu savā vietā."
+      ],
+      "note": "Piespraudiet paplašinājuma ikonu pārlūkprogrammas rīkjoslai, lai šī saīsne būtu sasniedzama.",
+      "tip": "Nav nepieciešams kopēt URL: New DeskTab pārlūkprogrammas ikona ļauj saglabāt apmeklēto lapu."
+    },
+    "keyboard": {
+      "question": "Kā pārvietoties bez peles?",
+      "searchTerms": "bez peles; izmantot tastatūru; bultiņu navigācija; cilnes ievadiet",
+      "title": "Pārvietojieties, izmantojot tastatūru",
+      "summary": "Tab, bulttaustiņi un Enter, lai izpētītu savu vietu.",
+      "steps": [
+        "Galvenajā lapā, neierakstot laukā vai neatverot dialoglodziņu, nospiediet tabulēšanas taustiņu, lai sāktu pārvietoties pa vienumiem.",
+        "Izmantojiet bulttaustiņus, lai sasniegtu tuvāko vienumu katrā virzienā. Enter atver grāmatzīmi vai mapi; rediģēšanas režīmā tas atver savu redaktoru.",
+        "Vēlreiz nospiediet Tab vai Esc, lai izietu no navigācijas. Dialoglodziņos Tab un Shift + Tab parasti pārvietojas starp vadīklām."
+      ],
+      "note": "Rediģēšanas režīmā S atlasa fokusēto vienumu. Dzēst vai Backspace noņem to pēc apstiprināšanas. Logrīki tiek neatgriezeniski izdzēsti.",
+      "tip": "Izmēģiniet Tab savā telpā: bultiņas pārvietojas starp vienumiem, un Enter tos atver. Cita cilne atstāj šo režīmu."
+    },
+    "shortcuts": {
+      "question": "Kā mainīt īsinājumtaustiņus?",
+      "searchTerms": "mainīt īsceļus; pielāgot atslēgas; taustiņu kombinācijas; karstais taustiņš",
+      "title": "Izveidojiet savus īsinājumtaustiņus",
+      "summary": "Pārbaudiet un mainiet saīsnes sadaļā Iestatījumi.",
+      "steps": [
+        "Atveriet Iestatījumi → Īsceļi, lai redzētu rediģēšanas, grāmatzīmju, mapju un logrīku pievienošanas un atvēršanas iestatījumus.",
+        "Noklikšķiniet uz darbības taustiņu kombinācijas un nospiediet jaunu saīsni. Esc atceļ ierakstīšanu; ar peles labo pogu noklikšķinot, darbība netiek piešķirta.",
+        "Saglabājiet iestatījumus, lai lietotu izmaiņas. Atiestatīt saīsnes atjauno sākotnējās kombinācijas."
+      ],
+      "note": "Sākotnēji: E rediģē, B pievieno grāmatzīmi, F mapi, W atver logrīkus un S atver iestatījumus. Īsceļi ievēro teksta laukus un dialoglodziņus.",
+      "tip": "Iestatījumos varat mainīt saīsnes. Noklikšķiniet uz kombinācijas, lai ierakstītu savu; Esc atceļ un ar peles labo pogu noklikšķiniet uz tā piešķiršanas."
+    },
+    "search": {
+      "question": "Kā atrast grāmatzīmi, kuru neredzu?",
+      "searchTerms": "atrast grāmatzīmi; atrast lapu; trūkst grāmatzīmes; meklēšanas URL",
+      "title": "Atrodiet grāmatzīmi",
+      "summary": "Meklējiet pēc vārda vai adreses, tostarp mapēs.",
+      "steps": [
+        "Nospiediet /, kad nerakstāt, vai izmantojiet palielināmo stiklu darbvietas joslā.",
+        "Ierakstiet vārda vai adreses daļu. Meklēšana ietver grāmatzīmes citās darbvietās un mapēs.",
+        "Atveriet vajadzīgo rezultātu. Esc vai Aizvērt novirza jūs atpakaļ uz jūsu vietu."
+      ],
+      "note": "Lai to atrastu, jums nav jāatceras, kur saglabājāt lapu.",
+      "tip": "Taustiņš / atver meklēšanu. Tā arī atrod grāmatzīmes mapēs un citās darbvietās."
+    },
+    "editing": {
+      "question": "Kā ieslēgt rediģēšanu?",
+      "searchTerms": "iespējot rediģēšanu; rediģēt darbvirsmu; zīmuļu redaktors; mainīt grāmatzīmi",
+      "title": "Rediģēšanas režīms",
+      "summary": "Ieslēdziet zīmuli, lai sakārtotu un pielāgotu.",
+      "steps": [
+        "Kreisajā izvēlnē noklikšķiniet uz zīmuļa vai izmantojiet rediģēšanas saīsni, lai atklātu režģi un vienumu vadīklas.",
+        "Pārvietojiet, mainiet izmērus vai atlasiet vienumus. Katras kartītes zīmulis atver tās nosaukuma, adreses un izskata redaktoru.",
+        "Kad esat pabeidzis, vēlreiz noklikšķiniet uz zīmuļa. Darbvietas izmaiņas tiek saglabātas automātiski; redaktoriem ir sava poga Saglabāt."
+      ],
+      "note": "Esc vispirms notīra atlasi vai tastatūras navigāciju. Ja neviens no tiem nav aktīvs, tas var iziet no rediģēšanas režīma.",
+      "tip": "Izvēlnes zīmulis sāk rediģēt: parādās karšu rokturi un vadīklas. Noklikšķiniet uz tā vēlreiz, lai pabeigtu."
+    },
+    "movement": {
+      "question": "Kā pārvietot grāmatzīmi?",
+      "searchTerms": "pārvietot grāmatzīmi; velciet iecienītāko; mainīt pozīciju; sakārtot režģi",
+      "title": "Pārvietot vienumus",
+      "summary": "Velciet kartītes vietā uz režģa.",
+      "steps": [
+        "Ieslēdziet rediģēšanas režīmu un turiet kartīti, kuru vēlaties pārvietot.",
+        "Velciet to uz galamērķi. Rezultāts ir atkarīgs no brīvās vietas un vilkšanas režīma, kas izvēlēts sadaļā Iestatījumi → Grāmatzīmes.",
+        "Atlaidiet, lai saglabātu tā pozīciju. Varat arī atlasīt vienu vienumu ar klikšķi un pārvietot to vienu šūnu ar bultiņām ārpus cilnes navigācijas."
+      ],
+      "note": "Bloķētie galamērķi parāda vizuālu atgriezenisko saiti, un prece atgriežas derīgā pozīcijā. Varat atsaukt izmaiņas.",
+      "tip": "Rediģēšanas režīmā noklikšķiniet, lai atlasītu vienu kartīti, un izmantojiet bultiņas, lai pārvietotu to pa šūnai. Vispirms atstājiet cilnes navigāciju."
+    },
+    "resizing": {
+      "question": "Kā mainīt flīzes izmēru?",
+      "searchTerms": "mainīt flīzes izmērus; palielināt grāmatzīmi; samazināt izmēru; izmēra maiņas rokturi; noklikšķiniet; Shift; platums augstums; 2x2",
+      "title": "Mainiet izmēru",
+      "summary": "Izmantojiet kartes malas un stūrus.",
+      "steps": [
+        "Ieslēdziet rediģēšanu un pārejiet uz vienuma malu vai stūri, lai izmantotu tā izmēru maiņas turi.",
+        "Velciet rokturi. Stūris maina platumu un augstumu; puse maina tikai vienu dimensiju. Varat arī noklikšķināt uz roktura, lai palielinātu par vienu šūnu, vai Shift + klikšķi, lai samazinātu par vienu šūnu.",
+        "Sadaļā Iestatījumi → Grāmatzīmes izvēlieties Nav, lai pārietu starp šūnām pēc 50% šķērsošanas, vai Gluda, lai izstieptu kartīti un nofiksētu, atlaižot."
+      ],
+      "note": "Galīgais izmērs atbilst režģim un derīgajām pozīcijām. Iestatījumu priekšskatījumi parāda atšķirību pirms izvēles.",
+      "tip": "Noklikšķiniet uz roktura, lai palielinātu par vienu šūnu, vai Shift + noklikšķiniet, lai samazinātu par vienu šūnu. Stūri maina platumu un augstumu kopā; malas maina tikai vienu dimensiju."
+    },
+    "drag-modes": {
+      "question": "Kāpēc es nevaru uzkāpt uz aizņemtu kameru?",
+      "searchTerms": "aizņemta kamera; pārvietoties pāri citam; bloķēts kritums; pārvietot kaskādi; vilkšanas sadursme",
+      "title": "Vilkšanas režīmi",
+      "summary": "Izvēlieties, kas notiek aizņemtā grāmatzīmes pozīcijā.",
+      "steps": [
+        "Atveriet Iestatījumi → Grāmatzīmes un izvērsiet vilkšanas darbību.",
+        "Neviens netiek pārvietots uz brīvajām vietām. Pārvietošana atrod vietu grāmatzīmēm galamērķī. Kaskāde pārkārto grāmatzīmes pēc kārtas.",
+        "Skatieties katras opcijas animāciju un saglabājiet režīmu, ar kuru ir ērti organizēt."
+      ],
+      "note": "Pārcelšanās tiek noraidīta, ja nepastāv derīga vienošanās. Caurspīdīgs fons neaizņemtu šūnu neatbrīvo.",
+      "tip": "Vai vēlaties pārvietot grāmatzīmi uz aizņemtu kameru? Skatiet sadaļu Pārvietošana un kaskāde sadaļā Iestatījumi → Grāmatzīmes un skatieties to priekšskatījumus."
+    },
+    "folders": {
+      "question": "Kā grupēt grāmatzīmes mapēs?",
+      "searchTerms": "izveidot mapi; grupu grāmatzīmes; organizēt izlasi; noņemt no mapes; pārdēvēt mapi",
+      "title": "Kārtojiet ar mapēm",
+      "summary": "Apkopojiet līdz 18 grāmatzīmēm vienā mapē.",
+      "steps": [
+        "Kreisajā izvēlnē izvēlieties + → Mape un piešķiriet tai nosaukumu.",
+        "Rediģēšanas režīmā velciet uz tā grāmatzīmes, lai tās ievietotu. Atveriet mapi, lai redzētu tās režģi.",
+        "Izmantojiet mapes rediģēšanas režīmu, lai sakārtotu tās grāmatzīmes. Noklikšķiniet uz tā nosaukuma, lai to pārdēvētu, un uz ikonas, lai pielāgotu tā izskatu."
+      ],
+      "note": "Mapes dzēšana ietekmē arī tās grāmatzīmes. Pirms turpināt, pārskatiet apstiprinājumu; atkritne var atjaunot izdzēstos vienumus.",
+      "tip": "Mapē ir līdz 18 grāmatzīmēm. Ieslēdziet rediģēšanu un velciet karti uz mapi, lai to pievienotu."
+    },
+    "workspaces": {
+      "question": "Kā nodalīt personīgās un darba lapas?",
+      "searchTerms": "personīgais darbs; izveidot darba vietu; pārslēgt darba vietu; galddatori",
+      "title": "Atdaliet savas darba vietas",
+      "summary": "Viens režģis darbam un otrs visam pārējam.",
+      "steps": [
+        "Darbvietas josla pārslēdzas starp galveno un jūsu pielāgotajām darbvietām. Tā + izveido jaunu.",
+        "Pirms vienumu pievienošanas izvēlieties darbvietu. Lai pārsūtītu esošos vienumus, atlasiet tos un darbību joslā izvēlieties galamērķi.",
+        "Alt + ↑ un Alt + ↓ pārvietojas pa darbvietām. Poga − pēc apstiprināšanas dzēš pašreizējo pielāgoto darbvietu."
+      ],
+      "note": "Dzēšot darbvietu, tiek dzēsts arī tās saturs. Galvenā paliek pieejama, un to nevar izdzēst.",
+      "tip": "Alt + ↑ un Alt + ↓ pārslēdz darbvietas, neatverot atlasītāju. Atsevišķs darbs, hobiji vai projekti ar bāra +."
+    },
+    "selection": {
+      "question": "Kā nomainīt vairākus vienumus vienlaikus?",
+      "searchTerms": "atlasīt vairākus; lielapjoma atlase; pārvietot vairākus; klonu atlase; dublēt grāmatzīmes",
+      "title": "Izvēlieties un rīkojieties lielapjomā",
+      "summary": "Mazāk atkārtotu darbību, organizējot vairākas kartes.",
+      "steps": [
+        "Ieslēdziet rediģēšanu un īsi noklikšķiniet uz katras kartītes, lai to atlasītu. Noklikšķiniet vēlreiz, lai atceltu atlasi; Cilnes navigācijā varat izmantot S.",
+        "Atlases josla ļauj dublēt, lietot noklusējuma izskatu, pārvietoties uz citu darbvietu vai dzēst atkarībā no vienuma veida.",
+        "Pārbaudiet galamērķi vai apstiprinājumu. Esc vai atlases dzēšanas poga atceļ jūsu atlasi."
+      ],
+      "note": "Pārvietošanai un kopēšanai ir nepieciešamas brīvas vietas. Lietojumprogramma informē, ja daži vienumi nederēs. Logrīki nenonāk atkritnē.",
+      "tip": "Rediģēšanas režīmā atlasiet vairākas kartītes ar īsiem klikšķiem, lai tās pārvietotu, kopētu vai pārveidotu kopā. Esc notīra atlasi."
+    },
+    "history": {
+      "question": "Kā atsaukt pēdējās izmaiņas?",
+      "searchTerms": "atsaukt izmaiņas; pārtaisīt izmaiņas; doties atpakaļ; atjaunot pozīciju",
+      "title": "Atsaukt un atkārtot",
+      "summary": "Atgūt pozīciju vai nesen veiktās izmaiņas.",
+      "steps": [
+        "Izmantojiet atsaukšanas bultiņu darbvietas joslā, lai atgrieztos iepriekšējā stāvoklī.",
+        "Atkārtošanas bultiņa atjauno tikko atsauktās izmaiņas. Varat arī izmantot Ctrl/Cmd + Z un Ctrl/Cmd + Shift + Z.",
+        "Redaktorā izmantojiet bultiņas blakus tā nosaukumam, lai redzētu neapstiprinātās izmaiņas; teksta lauki saglabā parasto tastatūras atsaukšanu. Katra darbība parāda īsu ziņojumu, un nepieejamās bultiņas ir atspējotas. Pirms saglabāšanas pārbaudiet rezultātu."
+      ],
+      "note": "Redaktora vēsture tiek sākta no jauna ikreiz, kad atverat redaktoru; izmaiņas sasniedz jūsu darbvietu, kad tās saglabājat. Darbvietas vēsture ir īslaicīga un nav dublējums. Jauna sesija vai atjauninājumi no citas cilnes var to atiestatīt.",
+      "tip": "Ja izmaiņas nešķiet pareizas, izmantojiet atsaukšanas bultiņu vai Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z to atkārto."
+    },
+    "appearance": {
+      "question": "Kā mainīt krāsu, ikonu vai tekstu?",
+      "searchTerms": "mainīt krāsu; mainīt ikonu; mainīt tekstu; grāmatzīmju izskats; mapes krāsa; favicon",
+      "title": "Pielāgojiet savas kartes",
+      "summary": "Krāsas, attēli, teksts un ikonas jūsu veidā.",
+      "steps": [
+        "Ieslēdziet rediģēšanu un atveriet grāmatzīmes zīmuli vai mapes vai atkritnes izskata vadīklu.",
+        "Izpētiet redaktoru: fonu, krāsu, attēlu, tekstu un ikonu. Pieejamās vadīklas ir atkarīgas no preces veida; priekšskatījums parāda rezultātu.",
+        "Ietaupiet, kad esat laimīgs. Varat izmantot attēlus no URL vai lokālā faila, kur redaktors piedāvā šo iespēju."
+      ],
+      "note": "Vietējie attēli pieder šai pārlūkprogrammai. Sinhronizējot, pievienojiet rezerves URL citām ierīcēm. Importējot tiek saglabāti iekļautie attēli un skaidras atsauces bez faila; Sinhronizācija ignorē failus, kas nav pieejami šajā ierīcē.",
+      "tip": "Grāmatzīmes zīmulis atver vizuālo redaktoru. Mainiet krāsas, tekstu, ikonu vai attēlu un pārbaudiet priekšskatījumu."
+    },
+    "presets": {
+      "question": "Kā atkārtoti izmantot stilu, kas man patīk?",
+      "searchTerms": "saglabāt stilu; atkārtotas izmantošanas izskats; noklusējuma stili; iepriekš iestatīta bibliotēka; piemērot stilu",
+      "title": "Atkārtoti izmantojiet izskatu",
+      "summary": "Saglabājiet izskatu un lietojiet to citām grāmatzīmēm.",
+      "steps": [
+        "Atveriet redaktora bibliotēku, lai izvēlētos izskatu no pieejamās kolekcijas.",
+        "Saglabājiet pielāgotu izskatu kā sākotnējo iestatījumu, lai atkārtoti izmantotu tā krāsas, tekstu un ikonu, nekopējot grāmatzīmes nosaukumu vai adresi.",
+        "Sadaļā Iestatījumi → Grāmatzīmes konfigurējiet jauno grāmatzīmju noklusējuma izskatu. Atlases joslā to var lietot saderīgiem vienumiem."
+      ],
+      "note": "Sākotnējais iestatījums maina izskatu, nevis grāmatzīmes identitāti, galamērķi vai pozīciju.",
+      "tip": "Saglabājiet izskatu bibliotēkā, kas jums patīk. Izmantojiet to citās kartēs, nemainot to nosaukumus vai adreses."
+    },
+    "wallpapers": {
+      "question": "Kā izmantot attēlu vai video kā fonu?",
+      "searchTerms": "mainīt fonu; video fons; tapetes rotācija; tēma",
+      "title": "Tapetes un rotācija",
+      "summary": "Krāsa, attēls vai video, lai iestatītu noskaņojumu.",
+      "steps": [
+        "Atveriet Iestatījumi → Motīvs un izvēlieties noklusējuma fonu, krāsu vai multivides fonu.",
+        "Pievienojiet attēlus vai videoklipus no panelī piedāvātajiem avotiem. Bibliotēka apkopo vairākus fonus ar rotācijas intervālu.",
+        "Pārbaudiet priekšskatījumu un saglabājiet. Varat savienot pārī vietējo failu ar alternatīvu URL citām ierīcēm."
+      ],
+      "note": "Vietējie faili paliek šajā pārlūkprogrammā. Sinhronizācija tos nepārsūta; pilna dublēšana var tos saglabāt.",
+      "tip": "Jūsu fons var mainīties automātiski: pievienojiet vairākus iestatījumus → Motīvu bibliotēkai un iestatiet rotācijas intervālu."
+    },
+    "clock": {
+      "question": "Kā pievienot pulksteni?",
+      "searchTerms": "pievienot pulksteni; izrādes laiks; sekundes; 24 stundu formāts; pulksteņa logrīks",
+      "title": "Pievienojiet pulksteni",
+      "summary": "Logrīks, kas parāda jūsu ierīces laiku.",
+      "steps": [
+        "Kreisajā izvēlnē izvēlieties + → Logrīki un atlasiet Pulkstenis.",
+        "Izvēlieties 12 vai 24 stundu formātu un to, vai rādīt sekundes. Priekšskatījums palīdz jums izlemt.",
+        "Pievienojiet to brīvam slotam. Rediģēšanas režīmā varat pārvietot, mainīt izmērus vai atkārtoti atvērt tās opcijas."
+      ],
+      "note": "Pulkstenis seko jūsu ierīces laikam. Logrīka dzēšana ir neatgriezeniska; tas neietilpst atkritnē.",
+      "tip": "Sadaļā + → Logrīki varat pievienot 12 vai 24 stundu pulksteni ar papildu sekundēm un mainīt tā lielumu, lai tas atbilstu jūsu telpai."
+    },
+    "interface": {
+      "question": "Kā mainīt valodu vai izmantot tumšo režīmu?",
+      "searchTerms": "mainīt valodu; tumšais režīms; gaismas režīms; interfeisa izskats",
+      "title": "Valodas un interfeisa tēma",
+      "summary": "Padariet izvēlnes, dialogus un vadīklas ērtus.",
+      "steps": [
+        "Sadaļā Iestatījumi → Vispārīgi izvēlieties valodu vai ļaujiet tai sekot jūsu sistēmai.",
+        "Izvēlieties gaišu, tumšu vai automātisku saskarni atbilstoši savām vēlmēm.",
+        "Saglabājiet iestatījumus. Interfeisa motīvs darbojas līdzās fonam, kuru izvēlējāties motīvā."
+      ],
+      "note": "Sistēmas valoda un automātiskais izskats atbilst jūsu ierīces vēlmēm.",
+      "tip": "Izvēlieties gaišu vai tumšu saskarni, vienlaikus saglabājot fonu. Atrodiet šo opciju un valodu sadaļā Iestatījumi → Vispārīgi."
+    },
+    "trash": {
+      "question": "Kā atgūt izdzēstu grāmatzīmi?",
+      "searchTerms": "atgūt izdzēsto grāmatzīmi; atjaunot noņemts; atkritumu tvertne; nejauši izdzēsts; atkopt mapi",
+      "title": "Atjaunojiet no atkritnes",
+      "summary": "Otrā iespēja grāmatzīmēm un mapēm.",
+      "steps": [
+        "Atveriet savas vietas atkritni, lai pārskatītu izdzēstās grāmatzīmes un mapes.",
+        "Atlasiet, ko vēlaties atgūt, un izmantojiet Atjaunot. Varat arī neatgriezeniski izdzēst vienumus vai iztukšot tvertni pēc apstiprināšanas.",
+        "Sadaļā Iestatījumi → Vispārīgi izvēlieties, vai to rādīt un cik ilgi tas glabā vienumus: 1, 7, 14 vai 28 dienas, vai arī nekad tos automātiski neizdzēst."
+      ],
+      "note": "Atkritne pieder šai ierīcei. Vienumus, kuriem beidzies derīguma termiņš, vai neatgriezeniski dzēstus vienumus no tā vairs nevar atjaunot.",
+      "tip": "Vai kļūdas dēļ izdzēsāt grāmatzīmi? Atveriet atkritni un atjaunojiet to. Pielāgojiet saglabāšanas periodu sadaļā Iestatījumi → Vispārīgi."
+    },
+    "backup": {
+      "question": "Kā dublēt vai pārsūtīt savus datus?",
+      "searchTerms": "rezerves kopija; eksportēt datus; importa kopiju; atjaunot dublējumu; cita pārlūkprogramma; pārsūtīt datus",
+      "title": "Dublējumkopijas un importēšana",
+      "summary": "Saglabājiet savas vietas kopiju un ņemiet to līdzi.",
+      "steps": [
+        "Sadaļā Iestatījumi → Vispārīgi eksportējiet pilnu dublējumu, lai saglabātu datus un ZIP arhīvā iekļautos vietējos failus.",
+        "Lai atjaunotu, importējiet dublējumu un pirms datu aizstāšanas pārskatiet apstiprinājumu. Tiek atbalstīti arī saderīgi JSON dublējumkopijas.",
+        "Sadaļā Iestatījumi → Grāmatzīmes varat eksportēt vai importēt tikai grāmatzīmes un mapes, kad nav nepieciešama pilnīga dublēšana."
+      ],
+      "note": "Grāmatzīmju eksportēšana nav pilnīga iestatījumu un vietējā multivides dublējums. Pirms datu atjaunošanas vai dzēšanas saglabājiet dublējumu.",
+      "tip": "Pilna dublēšana no Iestatījumi → Vispārīgi ietver vietējos failus ZIP. Tas ir noderīgi pirms pārlūkprogrammu maiņas vai datu atjaunošanas."
+    },
+    "sync": {
+      "question": "Kā izmantot to pašu vietu citā datorā?",
+      "searchTerms": "cits dators; sinhronizēt ierīces; sinhronizācija; mākonis; vietējā sinhronizācija; pārtraukt sinhronizāciju; atspējot sinhronizāciju; vietējais režīms",
+      "title": "Sinhronizējiet dažādās ierīcēs",
+      "summary": "Kopīgojiet savu vietu, izmantojot pārlūkprogrammas sinhronizāciju.",
+      "steps": [
+        "Pierakstieties un iespējojiet paplašinājumu sinhronizāciju savā Google Chrome profilā.",
+        "Sadaļā Iestatījumi → Sinhronizācija izvēlieties Sinhronizēts un apstipriniet apstiprinājumu. Slēdzis stājas spēkā nekavējoties: tiek ielādētas esošās sinhronizētās grāmatzīmes un iestatījumi vai tiek sinhronizēti jūsu saglabātie lokālie dati, ja tādu nav.",
+        "Izmantojiet to pašu profilu otrā ierīcē. Pārbaudiet sinhronizācijas statusu un pieejamo vietu panelī."
+      ],
+      "note": "Vietējie faili, atkritne un ikdienas padomi pieder katrai ierīcei. Sinhronizācijai ir uzglabāšanas ierobežojumi; izmantojiet alternatīvus vietrāžus URL vietējiem attēliem un videoklipiem. Izvēloties lokālo, tiek prasīts arī apstiprinājums un tas stājas spēkā nekavējoties, saglabājot sinhronizētos datus.",
+      "tip": "Sinhronizācija koplieto jūsu vietu dažādās ierīcēs, taču vietējiem failiem ir nepieciešams alternatīvs URL. Skatiet Iestatījumi → Sinhronizācija."
+    },
+    "compact": {
+      "question": "Kāpēc režģa vietā tiek rādīts saraksts?",
+      "searchTerms": "mazs logs; saraksta skats; režģis pazuda; slēptais panelis; mobilais",
+      "title": "Izmantojiet mazāku logu",
+      "summary": "Turpiniet sasniegt savas grāmatzīmes, kad vieta ir ierobežota.",
+      "steps": [
+        "Kad logs sašaurinās, lietotne pārslēdzas uz sarakstu, lai jūsu vienumi būtu pieejami.",
+        "Atveriet grāmatzīmes, mapes vai meklējiet šajā skatā. Rokasgrāmata arī pielāgojas pieejamajam izmēram.",
+        "Paplašiniet logu, lai atjaunotu režģi un rediģēšanas paneļus. Apturētais rediģēšanas dialoglodziņš saglabā melnrakstu."
+      ],
+      "note": "Kompaktais skats palīdz pārlūkot vietu; reorganizācijai nepieciešams pietiekami plašs logs.",
+      "tip": "Šaurā logā jūsu grāmatzīmes paliek pieejamas kā saraksts. Paplašiniet to, ja vēlaties rediģēt vai reorganizēt režģi."
+    },
+    "data": {
+      "question": "Kā dzēst savus datus vai atiestatīt iestatījumus?",
+      "searchTerms": "dzēst datus; atiestatīt iestatījumus; noņemiet visu; sākt no jauna",
+      "title": "Saglabāšana un atiestatīšana",
+      "summary": "Izprotiet, kas tiek saglabāts un ko katra darbība noņem.",
+      "steps": [
+        "Darbvietas darbības tiek saglabātas automātiski. Redaktoros un iestatījumos apstipriniet ar Saglabāt; Atcelt, tiek atmests šī paneļa melnraksts.",
+        "Ja tiek parādīts paziņojums par gaidošo saglabāšanu, noklikšķiniet uz Mēģināt vēlreiz saglabāt un pirms cilnes aizvēršanas gaidiet apstiprinājumu.",
+        "Sadaļā Iestatījumi → Vispārīgi varat atiestatīt iestatījumus vai dzēst visus datus. Izlasiet apstiprinājumu un eksportējiet visu, ko vēlaties paturēt, dublējumu."
+      ],
+      "note": "Iestatījumu atiestatīšana saglabā jūsu grāmatzīmes, to izmērus un stilus. Dzēšot visus vietējos datus, tiek noņemti vienumi un iztukšota atkritne. Eksportēt dublējumu pirms dzēšanas: atsaukšana neaizstāj dublējumu.",
+      "tip": "Ja redzat paziņojumu par nesaglabātām izmaiņām, pirms cilnes aizvēršanas izmantojiet Mēģiniet saglabāt vēlreiz. Aizsargājiet savu vietu ar pilnu dublējumu."
+    },
+    "learning": {
+      "question": "Kā atkārtoti atvērt ceļvedi vai izslēgt ikdienas padomus?",
+      "searchTerms": "atspējot padomus; izslēgt palīdzību; ikdienas brīdinājums; atkārtoti atvērt rokasgrāmatu; lietotāja rokasgrāmata",
+      "title": "Mācieties savā tempā",
+      "summary": "Īsa rokasgrāmata, rokasgrāmata un neliels ikdienas padoms.",
+      "steps": [
+        "Atkārtoti skatiet īso ceļvedi sadaļā Iestatījumi → Palīdzība. Katrs solis ir saistīts ar atbilstošajiem paskaidrojumiem rokasgrāmatā.",
+        "Izpētiet rādītāju vai meklējiet vārdu. Ar sadaļu saistītās saites novirzīs jūs uz citām funkcijām, kad esat gatavs.",
+        "Jūsu pirmajā jaunajā cilnē katru dienu tiek rādīts nejaušs padoms. Noraidīt to vai atvērt tā skaidrojumu; varat atspējot padomus sadaļā Palīdzība."
+      ],
+      "note": "Padomi apmeklē sadaļas, neatkārtojot, līdz kolekcija ir pabeigta. Tie darbojas 20 sekundes un apstājas, virzot kursoru vai fokusējot pogas. Viņi ievēro vietējo dienu un šīs pārlūkprogrammas preferences.",
+      "tip": "Šī rokasgrāmata vienmēr atrodas sadaļā Iestatījumi → Palīdzība. Ikdienas padomi atver sadaļu, un jūs varat tos atspējot, kad vien vēlaties."
+    }
+  }
+}

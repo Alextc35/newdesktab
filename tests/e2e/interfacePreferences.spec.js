@@ -206,7 +206,7 @@ test('system follows device colors, explicit modes persist, and cancel restores 
   await expect(recycleBinGlyph).toHaveCSS('stroke', black);
 });
 
-for (const [locale, language] of [['es-ES', 'es'], ['es-MX', 'es-419'], ['pt-BR', 'pt-BR'], ['fr-FR', 'en']]) {
+for (const [locale, language] of [['es-ES', 'es'], ['es-MX', 'es-419'], ['pt-BR', 'pt-BR'], ['fr-FR', 'fr'], ['zh-HK', 'zh-TW'], ['ar-SA', 'ar']]) {
   test(`automatic language uses ${locale} with a supported fallback`, async ({ browser }) => {
     const context = await browser.newContext({ locale });
     const page = await context.newPage();

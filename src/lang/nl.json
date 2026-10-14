@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Release-opmerkingen",
+    "settingsDescription": "Wat er is veranderd en het verhaal achter elke update.",
+    "open": "Lees notities",
+    "history": "Versiegeschiedenis",
+    "dismiss": "Sluit de release-opmerkingen",
+    "continue": "Ga door",
+    "back": "Terug naar Informatie",
+    "highlights": "Wat je vandaag kunt doen",
+    "generic": {
+      "title": "New DeskTab is bijgewerkt",
+      "description": "Je hebt de nieuwe versie. U kunt eerdere releaseopmerkingen op elk gewenst moment opnieuw bekijken in Informatie. Bedankt dat je hier bent."
+    },
+    "v1_0_0": {
+      "title": "Uw bureaublad met websites. Eindelijk.",
+      "thanks": "Bedankt dat je New DeskTab hebt geprobeerd. Ik ben zo opgewonden om eindelijk de eerste publieke release van dit project met jullie te delen.",
+      "origin": "Het begon allemaal op 26 september 2025. Terwijl ik naar een Just Chatting stream op Twitch keek, zag ik het nieuwe tabblad van de streamer in de browser: een extensie die websites rangschikte als gekleurde vierkanten, zonder namen of logo's. Dat minimalisme fascineerde mij en ik dacht: waarom bouw ik niet mijn eigen uitbouw? Ik wilde dat elk nieuw tabblad een gevoel van orde zou brengen, mijn pagina's binnen handbereik en een paneel waar ik graag naar keek.",
+      "desktop": "Geleidelijk groeide dat idee uit tot een persoonlijke desktop met websites in plaats van applicaties. De klok is een eerste stap en is nog steeds een werk in uitvoering. In de toekomst zou ik graag een notitieblok en andere widgets willen toevoegen die iets nuttigs te bieden hebben, zowel voor mij als voor iedereen die New DeskTab gebruikt.",
+      "closing": "Deze app is gemaakt voor mij en voor jou. Bedankt dat u New DeskTab vertrouwt en een plaats in uw browser geeft. Ik hoop dat je net zoveel plezier beleeft aan het creëren van je ruimte als ik heb genoten aan het bouwen ervan.",
+      "highlights": {
+        "workspace": "Organiseer uw pagina's met bladwijzers, mappen en onafhankelijke werkruimten.",
+        "appearance": "Pas de kleuren, de grootte van elk item en uw bureaubladachtergrond aan.",
+        "search": "Vind uw pagina's met zoeken en gebruik sneltoetsen om te navigeren en items te maken.",
+        "backup": "Bewaar back-ups en herstel verwijderde items uit de prullenbak.",
+        "sync": "Kies ervoor om gegevens op dit apparaat te bewaren of te synchroniseren met Google Chrome.",
+        "help": "Ontdek de functionaliteiten met de welkomstgids, handleiding en dagelijkse tips."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "JE EERSTE MINUUT",
+    "skip": "Gids overslaan",
+    "back": "Terug",
+    "next": "Volgende",
+    "finish": "Terug naar instellingen",
+    "explore": "Verken mijn ruimte",
+    "addFirst": "Voeg mijn eerste bladwijzer toe",
+    "progress": "Stap {{current}} van {{total}}",
+    "compactHint": "Vergroot het venster als u bladwijzers wilt toevoegen en uw ruimte wilt bewerken.",
+    "reopenTitle": "Korte handleiding",
+    "reopenDescription": "Herontdek de essentie in een minuut.",
+    "reopen": "Bekijk gids",
+    "demo": {
+      "work": "Werk",
+      "media": "Media",
+      "trash": "Prullenbak",
+      "search": "Vind uw bladwijzers"
+    },
+    "steps": {
+      "start": {
+        "title": "Jouw pagina's. Je eigen ruimte.",
+        "body": "Welkom bij New DeskTab. Houd uw favoriete pagina's bij de hand wanneer u een tabblad opent. Om er een toe te voegen, ga naar de linkerrand en kies + → [[bookmarks|Bladwijzer]].",
+        "hint": "U kunt ook [[quick-save|sla de pagina op die u bezoekt]] gebruiken via het extensiepictogram in uw browser."
+      },
+      "edit": {
+        "title": "Geef elke bladwijzer zijn plaats.",
+        "body": "Zet het potlood in het linkermenu aan om te bewerken. Houd een item vast en [[movement|slepen]] om het te verplaatsen; gebruik de [[resizing|handvatten]] om de grootte te wijzigen.",
+        "hint": "Het potlood van elke bladwijzer opent zijn [[appearance|redacteur]]: naam, kleuren, pictogram en afbeelding. Sla [[presets|stijlen]] op om ze opnieuw te gebruiken."
+      },
+      "organize": {
+        "title": "Minder rommel. Meer orde.",
+        "body": "Maak een [[folders|map]] van + en sleep er bladwijzers naartoe in de bewerkingsmodus. Het opent in een overzichtelijk raster met ruimte voor maximaal 18 bladwijzers.",
+        "hint": "Gebruik de + in [[workspaces|werkruimtebalk]] om werk en ontspanning te scheiden. De [[search|vergrootglas]] zoekt ook in mappen."
+      },
+      "style": {
+        "title": "Laat het voelen zoals jij.",
+        "body": "Kies in Instellingen → [[wallpapers|Thema]] een kleur, afbeelding of video-achtergrond en draai uw favoriete achtergronden. Synchroniseer in Instellingen → [[sync|Synchronisatie]] uw ruimte op verschillende apparaten met behulp van het account dat is ingelogd op uw Chrome-profiel.",
+        "hint": "Voeg een [[clock|klok]] toe uit + → Widgets. U kunt de [[appearance|uiterlijk]] van uw mappen ook aanpassen."
+      },
+      "ready": {
+        "title": "Je kent de essentie.",
+        "body": "Druk op [[search|/]] om een bladwijzer te zoeken. Gebruik de pijlen [[history|ongedaan maken en opnieuw uitvoeren]] om wijzigingen te herstellen; verwijderde bladwijzers gaan naar de [[trash|prullenbak]].",
+        "hint": "Wijzigingen worden automatisch opgeslagen. Exporteer in Instellingen een [[backup|back-up]] of schakel optioneel Google Chrome [[sync|synchronisatie]] in."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Uw laatste wijzigingen kunnen niet worden opgeslagen.",
+    "retry": "Probeer opnieuw op te slaan",
+    "saved": "Wijzigingen in behandeling opgeslagen."
+  },
+  "itemEditor": {
+    "chooseIcon": "Kies een pictogram",
+    "siteLogo": "Logo",
+    "noSymbol": "Geen",
+    "folderIconHint": "Het symbool vervangt de bladwijzervoorbeelden in de map.",
+    "icons": {
+      "mail": "Post",
+      "calendar": "Kalender",
+      "notes": "Opmerkingen",
+      "projects": "Projecten",
+      "design": "Ontwerp",
+      "music": "Muziek",
+      "tasks": "Taken",
+      "ideas": "Ideeën",
+      "docs": "Documenten",
+      "ui-start": "Kompas",
+      "ui-organize": "Indeling",
+      "ui-personalize": "Schuifregelaars",
+      "ui-protect": "Schild",
+      "ui-bookmarks": "Bladwijzer toevoegen",
+      "ui-quick-save": "Browser",
+      "ui-keyboard": "Toetsenbord",
+      "ui-shortcuts": "Bliksem",
+      "ui-search": "Zoeken",
+      "ui-editing": "Potlood",
+      "ui-movement": "Verplaatsen",
+      "ui-resizing": "Formaat wijzigen",
+      "ui-drag-modes": "Sleep",
+      "ui-folders": "Map",
+      "ui-workspaces": "Ramen",
+      "ui-selection": "Selectie",
+      "ui-history": "Geschiedenis",
+      "ui-appearance": "Palet",
+      "ui-presets": "Voorinstellingen",
+      "ui-wallpapers": "Afbeelding",
+      "ui-clock": "Klok",
+      "ui-interface": "Wereldbol",
+      "ui-trash": "Prullenbak",
+      "ui-backup": "Archief",
+      "ui-sync": "Synchroniseren",
+      "ui-compact": "Lijst",
+      "ui-data": "Database",
+      "ui-learning": "Boek",
+      "ui-settings": "Instellingen",
+      "ui-controls": "Controles",
+      "ui-cloud": "Wolk",
+      "ui-bookmark": "Bladwijzer",
+      "ui-info": "Informatie",
+      "ui-eye": "Oog",
+      "ui-check": "Voltooid",
+      "ui-lock": "Vergrendelen",
+      "ui-unlock": "Ontgrendelen",
+      "ui-copy": "Kopieer",
+      "ui-close": "Sluiten",
+      "ui-undo": "Ongedaan maken",
+      "ui-redo": "Opnieuw uitvoeren",
+      "ui-desktop": "Bureaublad",
+      "home": "Thuis",
+      "briefcase": "Werk",
+      "code": "Codeer",
+      "game": "Spellen",
+      "cart": "Winkelen",
+      "card": "Betalingen",
+      "people": "Mensen",
+      "message": "Bericht",
+      "location": "Locatie",
+      "phone": "Telefoon",
+      "camera": "Camera",
+      "headphones": "Koptelefoon",
+      "link": "Koppeling",
+      "tag": "Label",
+      "chart": "Statistieken",
+      "coffee": "Koffie",
+      "sun": "Zon",
+      "moon": "Maan",
+      "circle": "Cirkel",
+      "square": "Vierkant",
+      "triangle": "Driehoek",
+      "diamond": "Diamant",
+      "pentagon": "Pentagon",
+      "hexagon": "Zeshoek",
+      "star": "Ster",
+      "heart": "Hart",
+      "plus": "Plus",
+      "minus": "Min",
+      "video": "Video"
+    },
+    "searchIcons": "Zoekpictogrammen…",
+    "clearIconSearch": "Duidelijke zoekopdracht",
+    "noIcons": "Geen iconen gevonden",
+    "suggestedIcons": "Voorgesteld",
+    "suggestedIcon": "Voorgesteld: {{name}}",
+    "logoKeywords": "logo favicon website merk",
+    "iconKeywords": {
+      "ui-trash": "bak prullenbak afval verwijder klassiek",
+      "mail": "mail e-mail gmail Outlook inbox",
+      "docs": "documenten bestanden pdf-drive word",
+      "notes": "notities memo begrip onenote",
+      "ui-protect": "beveiliging bescherming privacy",
+      "game": "gameconsole voor gamecontrollers",
+      "cart": "winkelen winkel winkel kopen",
+      "card": "bankfinanciering krediet debet geld",
+      "people": "sociale gemeenschap vriendengroep",
+      "ui-learning": "leesbibliotheek onderwijsstudie",
+      "ui-clock": "tijd uur kijken",
+      "ui-interface": "internet webwereldtaal",
+      "ui-data": "gegevens sql-opslag",
+      "circle": "geometrische vormen figuren",
+      "square": "geometrische vormen figuren",
+      "triangle": "geometrische vormen figuren",
+      "diamond": "geometrische vormen figuren",
+      "pentagon": "geometrische vormen figuren",
+      "hexagon": "geometrische vormen figuren",
+      "star": "geometrische vormen figuren",
+      "heart": "geometrische vormen figuren"
+    },
+    "history": "Geschiedenis bewerken",
+    "description": "Zorg ervoor dat hij zich thuis voelt in uw werkruimte.",
+    "looks": "Kies een uiterlijk",
+    "custom": "Aangepast",
+    "look": {
+      "original": "Origineel",
+      "card": "Kaart",
+      "midnight": "Donker",
+      "paper": "Licht"
+    },
+    "reset": "Uiterlijk resetten",
+    "cardColor": "Kaartkleur",
+    "folderFill": "Kleur map",
+    "image": "Achtergrondafbeelding",
+    "lock": "URL vergrendelen of ontgrendelen",
+    "copy": "Kopieer URL",
+    "clear": "Duidelijk",
+    "section": {
+      "general": "De essentie",
+      "text": "Naam en etiketten",
+      "icon": "Icoon",
+      "card": "Kaart"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "De naam die u ziet en de pagina die wordt geopend.",
+        "text": "Kies of u de naam wilt weergeven en pas de kleur ervan aan.",
+        "icon": "Gebruik een groot, gecentreerd favicon of een klein pictogram naast de naam voor afbeeldingskaarten."
+      },
+      "folder": {
+        "general": "Een naam om uw bladwijzers bij elkaar te brengen.",
+        "text": "Toon de mapnaam en pas de kleur ervan aan.",
+        "icon": "Pas het mappictogram en de bladwijzerminiaturen aan."
+      },
+      "recycleBin": {
+        "general": "Kies of de prullenbak in uw hoofdwerkruimte verschijnt.",
+        "text": "Toon de naam van de prullenbak en pas de kleur ervan aan.",
+        "icon": "Geef de prullenbak je eigen kleur. Verberg de hele prullenbak voor Algemeen."
+      }
+    },
+    "addImage": "Voeg een achtergrondafbeelding toe",
+    "changeImage": "Achtergrondafbeelding bewerken"
+  },
+  "html": {
+    "title": "Nieuw tabblad"
+  },
+  "quickSave": {
+    "title": "Bladwijzer opslaan",
+    "name": "Naam",
+    "workspace": "Werkruimte",
+    "folder": "Map",
+    "mainWorkspace": "Belangrijkste",
+    "noFolder": "Geen map",
+    "save": "Bladwijzer opslaan",
+    "saveAnyway": "Toch sparen",
+    "savedButton": "Opgeslagen",
+    "alreadySaved": "Al opgeslagen",
+    "savedIn": "In {{location}}",
+    "savedInMore": "In {{location}} en nog {{count}} andere",
+    "open": "Open New DeskTab",
+    "unavailableTitle": "Dit tabblad kan niet worden opgeslagen",
+    "unavailable": "Open een webpagina (http of https) om deze op te slaan.",
+    "loadError": "Kan uw bladwijzers niet laden. Probeer het opnieuw.",
+    "saving": "Opslaan…",
+    "saved": "Bladwijzer opgeslagen.",
+    "duplicate": "Deze URL is al opgeslagen op die bestemming.",
+    "noSpace": "Er is geen ruimte meer op die bestemming. Kies een andere.",
+    "invalid": "Controleer de naam en de geselecteerde bestemming.",
+    "saveError": "Kan de bladwijzer niet opslaan. Probeer het opnieuw."
+  },
+  "launcher": {
+    "bookmark": "Bladwijzer",
+    "folder": "Map",
+    "widgets": "Widgets",
+    "editMode": {
+      "enter": "Ga naar de bewerkingsmodus",
+      "exit": "Verlaat de bewerkingsmodus"
+    }
+  },
+  "widgets": {
+    "title": "Widgets",
+    "description": "Kies een widget om aan deze werkruimte toe te voegen.",
+    "empty": "Er zijn nog geen widgets beschikbaar."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Vergroot het venster om deze functie te gebruiken.",
+      "suspended": "Paneel verborgen. Vergroot het venster om door te gaan."
+    },
+    "editMode": {
+      "enabled": "Bewerkingsmodus ingeschakeld",
+      "disabled": "Bewerkingsmodus uitgeschakeld"
+    },
+    "selectionMode": {
+      "enabled": "Selectiemodus ingeschakeld",
+      "disabled": "Selectiemodus uitgeschakeld"
+    },
+    "bookmark": {
+      "added": "Bladwijzer toegevoegd",
+      "notFound": "Bladwijzer niet gevonden",
+      "updated": "Bladwijzer bijgewerkt",
+      "deleted": "Bladwijzer verwijderd"
+    },
+    "clock": {
+      "added": "Klok toegevoegd",
+      "updated": "Klok bijgewerkt",
+      "deleted": "Klok verwijderd"
+    },
+    "folder": {
+      "created": "Map gemaakt",
+      "renamed": "Map hernoemd",
+      "updated": "Map bijgewerkt",
+      "deleted": "Map en de bijbehorende bladwijzers zijn verwijderd",
+      "bookmarkAdded": "Bladwijzer toegevoegd aan map",
+      "folderFull": "Deze map heeft al 18 bladwijzers",
+      "bookmarkRemoved": "Bladwijzer terug verplaatst naar het raster"
+    },
+    "recycleBin": {
+      "moved": "Verplaatst naar de prullenbak",
+      "restored": "Artikelen hersteld",
+      "deletedPermanently": "Artikelen definitief verwijderd",
+      "updated": "Prullenbak bijgewerkt"
+    },
+    "workspace": {
+      "created": "Werkruimte gecreëerd",
+      "deleted": "Werkruimte verwijderd",
+      "switched": "Werkruimte: {{name}}"
+    },
+    "history": {
+      "undone": "Wijziging ongedaan gemaakt",
+      "redone": "Wijziging opnieuw gedaan"
+    },
+    "bookmarks": {
+      "deletedAll": "Alle bladwijzers verwijderd",
+      "deletedAllWithFolders": "Alle bladwijzers en mappen verwijderd",
+      "deleteAllError": "Het is niet gelukt om alle bladwijzers te verwijderen",
+      "exported": "Bladwijzers geëxporteerd",
+      "exportError": "Kan bladwijzers niet exporteren",
+      "imported": "Bladwijzers geïmporteerd",
+      "importError": "Kan bladwijzers niet importeren",
+      "presetApplied": "Stijl toegepast op de selectie",
+      "duplicatedSelected": "Geselecteerde items gedupliceerd",
+      "deletedSelected": "Geselecteerde items verwijderd",
+      "moved": "Items verplaatst naar de geselecteerde werkruimte"
+    },
+    "settings": {
+      "saved": "Instellingen opgeslagen",
+      "bookmarkDefaultSaved": "Standaard bladwijzerweergave opgeslagen",
+      "bookmarkDefaultError": "Kan de standaardweergave van de bladwijzer niet opslaan",
+      "copied": "Waarde gekopieerd naar klembord",
+      "resetBg": "Thema opnieuw instellen",
+      "deletedAllData": "Alle lokale NewDeskTab gegevens verwijderd",
+      "deleteAllDataError": "Kon niet alle lokale NewDeskTab gegevens verwijderen",
+      "invalidWallpaperUrl": "Voer een geldige HTTP- of HTTPS-afbeelding/video-URL in.",
+      "invalidWallpaperFile": "Kan dit bestand niet toevoegen. Gebruik een ondersteunde afbeelding of een MP4-, WebM- of Ogg-video van maximaal 200 MB.",
+      "wallpaperLimit": "U kunt maximaal 25 persoonlijke achtergronden toevoegen."
+    },
+    "localImage": {
+      "invalid": "Kies een PNG-, JPEG-, WebP-, GIF- of AVIF-afbeelding.",
+      "tooLarge": "Deze afbeelding is te groot om op dit apparaat op te slaan.",
+      "storageFull": "Er is niet genoeg lokale ruimte voor deze afbeelding.",
+      "processing": "Deze afbeelding kan niet worden verwerkt."
+    },
+    "sync": {
+      "enabled": "Synchronisatie ingeschakeld",
+      "localEnabled": "Lokale modus ingeschakeld",
+      "remoteLoaded": "Gesynchroniseerde gegevens geladen",
+      "updatedFromOtherDevice": "Gesynchroniseerde wijzigingen ontvangen van een ander apparaat",
+      "deletedFromOtherDevice": "Cloudgegevens zijn van een ander apparaat verwijderd. Dit apparaat gebruikt nu de lokale modus.",
+      "error": "Kan de opslagmodus niet wijzigen",
+      "versionBlocked": "De synchronisatie is onderbroken omdat voor de cloudgegevens een nieuwere NewDeskTab versie vereist is. De lokale gegevens van dit apparaat worden weergegeven.",
+      "quotaError": "De gegevens overschrijden de beschikbare synchronisatieopslag",
+      "deleted": "Gesynchroniseerde gegevens verwijderd",
+      "deleteError": "Kan gesynchroniseerde gegevens niet verwijderen"
+    },
+    "backup": {
+      "exported": "Back-up geëxporteerd",
+      "exportError": "Kan de back-up niet exporteren",
+      "mediaUnavailable": "Sommige lokale afbeeldingen of video's waarnaar wordt verwezen, zijn niet beschikbaar, dus de back-up is niet gemaakt.",
+      "imported": "Back-up hersteld",
+      "importError": "Kan de back-up niet herstellen",
+      "mediaStorageFull": "Er is niet voldoende lokale opslag om de back-upafbeeldingen en -video's te herstellen."
+    }
+  },
+  "view": {
+    "list": "Lijstweergave",
+    "search": "Zoek bladwijzers en mappen",
+    "clearSearch": "Duidelijke zoekopdracht",
+    "noResults": "Geen resultaten."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Alle bladwijzers verwijderen?",
+      "deleteFolders": "Verwijder ook alle mappen",
+      "confirmDeleteSelected": "{{count}} geselecteerde items verwijderen?",
+      "confirmMoveOne": "Dit item verplaatsen naar werkruimte “{{workspace}}”?",
+      "confirmMoveSelected": "{{count}} geselecteerde items verplaatsen naar werkruimte “{{workspace}}”?",
+      "duplicateNoSpace": "{{count}} items konden niet worden gedupliceerd omdat er niet genoeg ruimte was.",
+      "moveNoSpace": "{{count}} items konden niet worden verplaatst omdat er niet genoeg ruimte was.",
+      "no_space": "Geen ruimte beschikbaar voor meer bladwijzers 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Nieuwe bladwijzer verwijderen?"
+      },
+      "confirmDelete": "“{{name}}” verwijderen?",
+      "confirmPermanentDelete": "“{{name}}” definitief verwijderen? Dit kan niet ongedaan worden gemaakt.",
+      "cancel": "Wijzigingen weggooien?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Deze widget definitief verwijderen? Dit kan niet ongedaan worden gemaakt.",
+      "confirmDeleteSelected": "{{count}} geselecteerde items verwijderen? Geselecteerde widgets ({{widgetCount}}) worden permanent verwijderd en kunnen niet worden hersteld."
+    },
+    "folder": {
+      "createCancel": "Nieuwe map verwijderen?",
+      "cancel": "Mapwijzigingen negeren?"
+    },
+    "recycleBin": {
+      "folder": "“{{name}}” en de {{count}} bladwijzers ervan naar de prullenbak verplaatsen?",
+      "empty": "Alles in de prullenbak definitief verwijderen? Dit kan niet ongedaan worden gemaakt.",
+      "deleteSelected": "{{count}} geselecteerde items definitief verwijderen? Dit kan niet ongedaan worden gemaakt.",
+      "noSpace": "{{count}} items kunnen niet worden hersteld omdat er onvoldoende rasterruimte is. Ze blijven in de prullenbak.",
+      "cancel": "Wijzigingen in de prullenbak weggooien?"
+    },
+    "settings": {
+      "cancel": "Wijzigingen in instellingen negeren?",
+      "reset": "Alle instellingen resetten? Bladwijzers worden niet verwijderd.",
+      "deleteAllData": "Alle lokale NewDeskTab gegevens van dit apparaat verwijderen? Bladwijzers, mappen, widgets, instellingen, prullenbakitems, lokale afbeeldingen en lokale video's worden permanent verwijderd. Cloudgegevens worden niet gewijzigd. Als Synchroniseren actief is, schakelt dit apparaat eerst over naar Lokaal. Deze actie kan niet ongedaan worden gemaakt.",
+      "theme": {
+        "reset": "Thema-instellingen resetten?"
+      },
+      "bookmark": {
+        "cancel": "Wijzigingen in de standaardweergave van bladwijzers negeren?"
+      },
+      "shortcuts": {
+        "reset": "De standaardsneltoetsen herstellen?"
+      },
+      "sync": {
+        "enable": "Overschakelen van lokaal naar gesynchroniseerd? Dit wordt nu van kracht, zonder op Opslaan te klikken. Als er al gesynchroniseerde gegevens bestaan, worden de bladwijzers en instellingen ervan geladen. Anders worden uw opgeslagen lokale gegevens gesynchroniseerd.",
+        "local": "Overschakelen van gesynchroniseerd naar lokaal? Dit wordt nu van kracht, zonder op Opslaan te klikken. Dit apparaat bewaart een kopie van de huidige gegevens en stopt met het synchroniseren van wijzigingen. Gesynchroniseerde gegevens blijven opgeslagen voor andere apparaten.",
+        "delete": "Alle gesynchroniseerde NewDeskTab gegevens verwijderen? Dit apparaat en elk ander apparaat dat deze cloudgegevens gebruikt, schakelt over naar de lokale modus wanneer ze de verwijdering detecteren. Dit kan niet ongedaan worden gemaakt."
+      }
+    },
+    "backup": {
+      "import": "Deze back-up herstellen? Het vervangt uw huidige bladwijzers en instellingen."
+    }
+  },
+  "addModal": {
+    "title": "Nieuwe bladwijzer toevoegen",
+    "name": "Naam:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Geavanceerde opties",
+    "compactView": "▴ Compacte weergave"
+  },
+  "clock": {
+    "name": "Klok",
+    "inDevelopment": "In ontwikkeling: de klok is nog niet in zijn definitieve versie. We werken eraan om het te verbeteren.",
+    "createTitle": "Klok toevoegen",
+    "editTitle": "Klokinstellingen",
+    "description": "Toon uw lokale tijd op deze werkruimte.",
+    "hourCycle": "Tijdformaat",
+    "hour24": "24 uur",
+    "hour12": "12 uur",
+    "showSeconds": "Seconden weergeven",
+    "delete": "Verwijderen",
+    "edit": "Klok bewerken",
+    "actions": "Klokacties",
+    "openSettings": "Klokinstellingen openen",
+    "confirmDelete": "Deze klok verwijderen? U kunt deze actie ongedaan maken.",
+    "confirmPermanentDelete": "Deze klok definitief verwijderen? Dit kan niet ongedaan worden gemaakt.",
+    "cancel": "Klokwijzigingen negeren?",
+    "noSpace": "Er is niet genoeg rasterruimte voor deze klok."
+  },
+  "buttons": {
+    "save": "Opslaan",
+    "apply": "Toepassen",
+    "add": "Toevoegen",
+    "accept": "Accepteer",
+    "cancel": "Annuleer",
+    "close": "Sluiten"
+  },
+  "localImage": {
+    "upload": "Uploaden vanaf dit apparaat",
+    "label": "Lokaal beeld:",
+    "activeSource": "Actieve afbeelding:",
+    "sourceLocal": "Lokaal",
+    "sourceUrl": "URL",
+    "remove": "Lokale afbeelding verwijderen",
+    "notice": "Lokale afbeeldingen worden niet gesynchroniseerd.",
+    "unnamed": "Lokaal imago"
+  },
+  "workspace": {
+    "ariaLabel": "Bedieningselementen voor de werkruimte",
+    "current": "Werkruimte",
+    "main": "Belangrijkste",
+    "search": "Zoek bladwijzers",
+    "add": "Creëer werkruimte",
+    "delete": "Werkruimte verwijderen",
+    "undo": "Ongedaan maken",
+    "redo": "Opnieuw uitvoeren",
+    "shortcutHint": "Wissel van werkruimte met Alt of Option plus pijl-omhoog of pijl-omlaag",
+    "prompt": "Voer een naam in voor de nieuwe werkruimte",
+    "namePlaceholder": "Werk, vrije tijd…",
+    "confirmDelete": "Verwijder “{{name}}”, de {{folderCount}} mappen en {{bookmarkCount}} bladwijzers? Om ze te behouden, verplaatst u ze eerst naar de hoofdwerkruimte of naar een andere werkruimte."
+  },
+  "search": {
+    "title": "Zoek bladwijzers",
+    "inputLabel": "Zoek op naam of URL",
+    "placeholder": "Naam of URL",
+    "empty": "Geen bladwijzers gevonden.",
+    "noUrl": "Geen URL",
+    "inFolder": "Map: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Geselecteerde itemacties",
+    "selected": "{{count}} geselecteerd",
+    "move": "Verplaats naar werkruimte",
+    "applyPreset": "Standaardstijl toepassen",
+    "duplicate": "Dubbele selectie",
+    "delete": "Verwijderen",
+    "clear": "Duidelijke selectie"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Maak bladwijzers van bedieningselementen",
+    "edit": "Bladwijzer bewerken",
+    "delete": "Bladwijzer verwijderen",
+    "copySuffix": "kopiëren"
+  },
+  "folder": {
+    "create": "Map maken",
+    "createPrompt": "Geef de nieuwe map een naam",
+    "namePlaceholder": "Hulpmiddelen, inspiratie…",
+    "open": "Open {{name}}, {{count}} opgeslagen bladwijzers",
+    "count": "{{count}} opgeslagen",
+    "summary": "{{count}} van {{capacity}} gebruikte plaatsen",
+    "editMode": {
+      "enable": "Bewerken",
+      "disable": "Voltooi het bewerken"
+    },
+    "gridLabel": "Mapbladwijzers",
+    "dropHint": "Laat vallen om toe te voegen",
+    "noSpace": "Er is geen vrije rastercel voor een nieuwe map.",
+    "removeNoSpace": "Er is onvoldoende rasterruimte om deze bladwijzer uit de map te verwijderen.",
+    "confirmDelete": "“{{name}}” en de {{count}} bladwijzers ervan naar de prullenbak verplaatsen?",
+    "confirmPermanentDelete": "“{{name}}” en de {{count}} bladwijzers ervan permanent verwijderen? Dit kan niet ongedaan worden gemaakt.",
+    "actions": {
+      "ariaLabel": "Mapbediening",
+      "customize": "Map aanpassen",
+      "rename": "Hernoem map",
+      "delete": "Map verwijderen",
+      "editBookmark": "Bewerk {{name}}",
+      "removeBookmark": "Verplaats {{name}} uit de map",
+      "deleteBookmark": "Verwijder {{name}}",
+      "acceptRename": "Mapnaam opslaan",
+      "cancelRename": "Annuleer het hernoemen van de map"
+    },
+    "editor": {
+      "createTitle": "Nieuwe map toevoegen",
+      "title": "Map bewerken",
+      "name": "Naam:",
+      "showPreviews": "Toon bladwijzervoorbeelden",
+      "showName": "Mapnaam weergeven",
+      "iconColor": "Kleur symbool:",
+      "outerBackgroundColor": "Achtergrondkleur buitenkant:",
+      "noOuterBackground": "Geen uiterlijke achtergrond",
+      "resetOuterBackground": "Automatisch",
+      "noBackground": "Transparante mapvulling",
+      "backgroundColor": "Kleur map:",
+      "backgroundImage": "Achtergrondafbeelding (URL):",
+      "lockImage": "Afbeeldings-URL vergrendelen of ontgrendelen",
+      "copyImage": "Kopieer afbeeldings-URL",
+      "clearImage": "Afbeeldings-URL wissen",
+      "textColor": "Tekstkleur:",
+      "preview": "Voorbeeld",
+      "previewName": "Map",
+      "sections": {
+        "general": "Algemeen",
+        "style": "Stijl",
+        "text": "Tekst"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Prullenbak",
+    "open": "Prullenbak openen",
+    "openCount": "Open prullenbak, {{count}} stuks",
+    "dropHint": "Neerzetten om te verwijderen",
+    "summary": "{{count}} items · Automatisch verwijderen: {{retention}}",
+    "empty": "De prullenbak is leeg.",
+    "selected": "{{count}} geselecteerd",
+    "select": "Selecteer {{name}}",
+    "folderContents": "{{count}} bladwijzers",
+    "deletedAt": "{{date}} verwijderd",
+    "expiresIn": "Nog {{days}} dagen",
+    "expiresInOne": "Nog 1 dag",
+    "neverExpires": "Nooit automatisch verwijderd",
+    "restoreAll": "Alles herstellen",
+    "deleteAll": "Alles verwijderen",
+    "restoreSelected": "Herstellen geselecteerd",
+    "deleteSelected": "Geselecteerde verwijderen",
+    "editor": {
+      "title": "Prullenbak bewerken",
+      "animateIcon": "Animeer de prullenbak",
+      "appearance": "Uiterlijk",
+      "backgroundColor": "Achtergrondkleur:",
+      "backgroundImage": "Achtergrondafbeelding (URL):",
+      "lockImage": "Afbeeldings-URL vergrendelen of ontgrendelen",
+      "copyImage": "Kopieer afbeeldings-URL",
+      "clearImage": "Afbeeldings-URL wissen",
+      "noBackground": "Geen achtergrond",
+      "iconColor": "Pictogramkleur:",
+      "textColor": "Tekstkleur:",
+      "elements": "Zichtbare elementen",
+      "showName": "Naam weergeven",
+      "visible": "Toon de prullenbak op het hoofdraster",
+      "preview": "Voorbeeld",
+      "actions": "Prullenbak acties",
+      "edit": "Prullenbak bewerken",
+      "sections": {
+        "general": "Algemeen",
+        "style": "Stijl",
+        "text": "Tekst",
+        "icon": "Icoon"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Voer een naam in om de voorinstelling op te slaan."
+    },
+    "name": {
+      "required": "Voer een naam in voor de bladwijzer."
+    },
+    "folderName": {
+      "required": "Voer een naam in voor de map."
+    },
+    "url": {
+      "invalid": "De URL is niet geldig.",
+      "unsupportedProtocol": "Dit URL-type is niet toegestaan."
+    },
+    "backgroundImageUrl": {
+      "invalid": "De afbeeldings-URL is niet geldig.",
+      "unsupportedProtocol": "Dit afbeeldingstype is niet toegestaan."
+    }
+  },
+  "editModal": {
+    "title": "Bladwijzer bewerken",
+    "name": "Naam:",
+    "url": "URL:",
+    "backgroundImage": "Achtergrondafbeelding (URL):",
+    "backgroundFavicon": "Groot, gecentreerd pictogram",
+    "invertColorBg": "Kleuren omkeren",
+    "noBackground": "Geen achtergrond",
+    "backgroundColor": "Kleur bladwijzer:",
+    "showText": "Toon tekst",
+    "textColor": "Tekstkleur:",
+    "showFavicon": "Pictogram weergeven",
+    "invertColorIcon": "Pictogramkleuren omkeren",
+    "iconColor": "Pictogramkleur:",
+    "sections": {
+      "general": "Algemeen",
+      "style": "Stijl",
+      "text": "Tekst",
+      "icon": "Icoon"
+    },
+    "preview": "Voorbeeld",
+    "previewName": "Voorbeeld"
+  },
+  "colorPicker": {
+    "title": "Kleurkiezer",
+    "sample": "Kies een kleur op het scherm",
+    "close": "Sluit de kleurkiezer",
+    "saturationBrightness": "Verzadiging en helderheid",
+    "hue": "Tint",
+    "quickColors": "Snelle kleuren",
+    "saturation": "Verzadiging",
+    "brightness": "Helderheid",
+    "hex": "Hex-code",
+    "copy": "Kopieer de hexadecimale code",
+    "copied": "Hex-code gekopieerd",
+    "copyFailed": "Kan de hexadecimale code niet kopiëren"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Algemeen",
+      "sync": "Synchroniseren",
+      "theme": "Thema",
+      "bookmark": "Bladwijzers",
+      "shortcuts": "Snelkoppelingen",
+      "language": "Talen",
+      "help": "Hulp",
+      "information": "Informatie"
+    },
+    "general": {
+      "title": "Algemeen",
+      "subtitle": "Instellingen",
+      "export": "Back-up exporteren",
+      "import": "Back-up herstellen",
+      "resetSettings": "Instellingen resetten",
+      "deleteAllData": "Verwijder alle lokale gegevens",
+      "recycleBin": {
+        "title": "Prullenbak",
+        "show": "Toon de prullenbak op het hoofdraster",
+        "retentionLabel": "Artikelen automatisch verwijderen:",
+        "retentionOptions": {
+          "oneDay": "1 dag",
+          "sevenDays": "7 dagen",
+          "fourteenDays": "14 dagen",
+          "twentyEightDays": "28 dagen",
+          "never": "Nooit"
+        }
+      },
+      "appearance": {
+        "title": "Uiterlijk",
+        "system": "Browser",
+        "light": "Licht",
+        "dark": "Donker"
+      }
+    },
+    "sync": {
+      "title": "Synchroniseren",
+      "description": "Kies waar u uw instellingen en bladwijzers wilt opslaan.",
+      "ariaLabel": "Opslagmodus",
+      "local": {
+        "title": "Alleen dit apparaat",
+        "description": "Gegevens worden alleen in dit lokale browserprofiel opgeslagen."
+      },
+      "synced": {
+        "title": "Gesynchroniseerd",
+        "description": "Beschikbaar in Google Chrome profielen die aan hetzelfde account zijn gekoppeld.",
+        "tooltip": "Synchronisatie-informatie"
+      },
+      "compatibility": {
+        "newerVersion": "De synchronisatie is op dit apparaat vergrendeld omdat de cloudgegevens zijn gemaakt door een nieuwere NewDeskTab-versie. Uw gesynchroniseerde gegevens zijn veilig en zijn niet gewijzigd. Update NewDeskTab om opnieuw verbinding te maken."
+      },
+      "usage": {
+        "title": "Beschikbaarheid van opslag",
+        "showExact": "Toon exacte bytes",
+        "showHuman": "Toon leesbare maten",
+        "local": "Lokaal",
+        "sync": "Gesynchroniseerd",
+        "localSyncCopy": "Lokale synchronisatiekopie",
+        "localAria": "Lokaal opslaggebruik",
+        "syncAria": "Gesynchroniseerd opslaggebruik",
+        "loading": "Berekenen…",
+        "summary": "{{used}} van {{total}} · {{percent}}%",
+        "available": "{{free}} beschikbaar",
+        "system": "Systeem en metadata",
+        "bookmarks": "Bladwijzers",
+        "folders": "Mappen",
+        "trash": "Prullenbakgegevens",
+        "localImages": "Lokale afbeeldingen",
+        "themeImages": "Thema",
+        "bookmarkImages": "Bladwijzers",
+        "folderImages": "Mappen",
+        "trashImages": "Prullenbak",
+        "otherImages": "Anders",
+        "widgets": "Widgets",
+        "widgetsHint": "De weergegeven grootte voor Synchroniseren is een schatting en sluit live inhoud uit die is opgehaald van externe services.",
+        "error": "Gebruik niet beschikbaar"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome synchroniseert New DeskTab via uw Google-account. New DeskTab heeft geen eigen synchronisatieserver.",
+        "brave": "Niet beschikbaar in Brave: het kan New DeskTab gegevens opslaan in chrome.storage.sync, maar verspreidt deze momenteel niet tussen apparaten.",
+        "unsupported": "Gesynchroniseerde opslag is voorlopig alleen beschikbaar in Google Chrome. Andere browsers blijven uitgeschakeld totdat ondersteuning voor meerdere apparaten is geverifieerd."
+      },
+      "existingNotice": "Als u de overstap naar Gesynchroniseerd accepteert, worden alle gesynchroniseerde gegevens geladen die al bestaan.",
+      "deleteData": "Gesynchroniseerde gegevens verwijderen",
+      "metadata": {
+        "loading": "Gesynchroniseerde gegevens controleren...",
+        "updatedAt": "Laatste gesynchroniseerde update: {{date}}",
+        "unknown": "Er bestaan gesynchroniseerde gegevens, maar de updatetijd ervan is niet beschikbaar.",
+        "empty": "Er worden geen gesynchroniseerde New DeskTab gegevens opgeslagen.",
+        "error": "Gesynchroniseerde gegevensinformatie kon niet worden geladen."
+      },
+      "status": {
+        "idle": "Gegevens zijn klaar.",
+        "saving": "Wijzigingen opslaan…",
+        "saved": "Alle wijzigingen worden opgeslagen.",
+        "error": "Kan de laatste wijzigingen niet opslaan."
+      }
+    },
+    "theme": {
+      "title": "Thema",
+      "subtitle": "Pagina-achtergrond",
+      "backgroundImageMode": "Afbeelding/video",
+      "wallpapersTitle": "Mijn eigen achtergronden",
+      "ownWallpapersHint": "Deze achtergronden en hun rotatie worden alleen op dit apparaat opgeslagen.",
+      "mediaUrl": "Achtergrond-URL",
+      "image": "Afbeelding",
+      "video": "Video",
+      "addUrl": "URL toevoegen",
+      "addFiles": "Voeg lokale bestanden toe",
+      "rotationInterval": "Rotatie van behang",
+      "noRotation": "Verander niet automatisch",
+      "interval5": "5 seconden",
+      "interval15": "15 seconden",
+      "interval30": "30 seconden",
+      "interval60": "1 minuut",
+      "interval300": "5 minuten",
+      "interval600": "10 minuten",
+      "interval1800": "30 minuten",
+      "previous": "Vorige",
+      "next": "Volgende",
+      "moveUp": "Ga omhoog",
+      "moveDown": "Ga naar beneden",
+      "remove": "Verwijderen",
+      "unavailableLocal": "Lokaal bestand niet beschikbaar op dit apparaat",
+      "mediaColor": "Kleur achter dit behang",
+      "mediaPreview": "Voorbeeld van achtergrond",
+      "activeSource": "Actieve bron",
+      "backgroundSolid": "Effen kleur",
+      "backgroundColor": "Kleur:",
+      "editSolidColor": "Verander de effen achtergrondkleur",
+      "changeSolidColor": "Verander kleur",
+      "backgroundImageColor": "Kleur achter de afbeelding/video",
+      "backgroundImage": "URL gedeeld tussen apparaten",
+      "urlHidden": "URL verborgen",
+      "resetBackground": "Thema opnieuw instellen"
+    },
+    "bookmark": {
+      "title": "Bladwijzers",
+      "subtitle": "Standaard bladwijzer",
+      "description": "Kies het uiterlijk dat wordt gebruikt bij het maken van nieuwe bladwijzers.",
+      "configure": "Configureer de standaardbladwijzer",
+      "editorTitle": "Standaard bladwijzerweergave",
+      "previewName": "Standaard bladwijzer",
+      "export": "Bladwijzers exporteren",
+      "import": "Bladwijzers importeren",
+      "deleteAll": "Verwijder alle bladwijzers",
+      "preview": "Voorbeeld",
+      "drag": {
+        "title": "Sleepgedrag",
+        "description": "Kies hoe bladwijzers zich reorganiseren wanneer u hun positie inneemt.",
+        "none": {
+          "title": "Geen",
+          "description": "Staat alleen verplaatsingen naar vrije cellen toe."
+        },
+        "cascade": {
+          "title": "Volgorde",
+          "description": "Verschuift de ketting totdat deze een vrije cel vindt.",
+          "experimental": "Experimenteel · Kan kleine bugs bevatten."
+        },
+        "relocate": {
+          "title": "Verhuizing",
+          "description": "Verplaatst bladwijzers die de bestemming bezetten."
+        }
+      },
+      "resize": {
+        "title": "Gedrag van formaat wijzigen",
+        "description": "Kies hoe items reageren terwijl u een formaatgreep verplaatst.",
+        "smooth": {
+          "title": "Glad",
+          "description": "Rekt het item uit tijdens het slepen en springt vervolgens naar het raster."
+        },
+        "none": {
+          "title": "Geen",
+          "description": "Springt per cel wanneer u 50% van de aangrenzende cel passeert."
+        }
+      },
+      "presets": {
+        "title": "Stijl bibliotheek",
+        "tab": "Bibliotheek",
+        "description": "Sla stijlen op en hergebruik ze bij het instellen van de standaardbladwijzer.",
+        "name": "Vooraf ingestelde naam",
+        "saved": "Opgeslagen voorinstellingen",
+        "save": "Voorinstelling opslaan",
+        "apply": "Laden",
+        "delete": "Verwijderen",
+        "empty": "Geen opgeslagen voorinstellingen"
+      }
+    },
+    "shortcuts": {
+      "title": "Sneltoetsen",
+      "description": "Selecteer een sneltoets en druk vervolgens op een letter of toetscombinatie. Klik met de rechtermuisknop om de toewijzing ongedaan te maken.",
+      "change": "Wijzig de snelkoppeling {{action}}. Huidige snelkoppeling: {{shortcut}}.",
+      "press": "Druk op snelkoppeling…",
+      "unassigned": "Niet toegewezen",
+      "unassignedFlash": "Snelkoppeling niet toegewezen.",
+      "modifierRequired": "Gebruik een afzonderlijke letter of een toetsencombinatie met een modificator.",
+      "reserved": "Deze snelkoppeling is gereserveerd door de browser of het besturingssysteem. Kies een andere combinatie.",
+      "conflict": "Deze sleutel is al toegewezen aan een andere actie.",
+      "updated": "Snelkoppeling bijgewerkt.",
+      "cancelled": "Wijziging van snelkoppeling geannuleerd.",
+      "restored": "Standaardsnelkoppelingen hersteld.",
+      "reset": "Snelkoppelingen opnieuw instellen",
+      "actions": {
+        "toggleEditing": {
+          "title": "Bewerkingsmodus",
+          "description": "Voer de bewerking in of uit in het hoofdraster of in een geopende map."
+        },
+        "addBookmark": {
+          "title": "Bladwijzer maken",
+          "description": "Open het formulier voor het toevoegen van een bladwijzer."
+        },
+        "addFolder": {
+          "title": "Map maken",
+          "description": "Open het dialoogvenster voor het maken van een map."
+        },
+        "openWidgets": {
+          "title": "Widgets openen",
+          "description": "Open de lijst met beschikbare widgets."
+        },
+        "openSettings": {
+          "title": "Instellingen openen",
+          "description": "Open het instellingenpaneel New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Talen",
+      "text": "Selecteer de interfacetaal:",
+      "system": "Browser",
+      "search": "Zoek taal of land",
+      "empty": "Geen talen gevonden"
+    },
+    "information": {
+      "title": "Informatie",
+      "version": "Versie: {{VERSION}}",
+      "author": "Auteur:"
+    }
+  }
+}

@@ -1,0 +1,517 @@
+{
+  "title": "Käyttöohje",
+  "eyebrow": "SINUN TILASSI, SINUN TAHTISI",
+  "intro": "Opi tuntemaan jokainen pieni ominaisuus.",
+  "description": "Löydä tarvitsemasi tai löydä jotain uutta. Ota aikaa.",
+  "settingsDescription": "Jokainen ominaisuus yksinkertaisilla vaiheilla ja pienillä temppuilla, joita voit kokeilla milloin haluat.",
+  "search": {
+    "label": "Missä voimme auttaa sinua?",
+    "placeholder": "Esimerkiksi: palauta poistettu kirjanmerkki",
+    "common": "Yleisiä kysymyksiä",
+    "found": "Vastaukset hakuusi · {{count}}",
+    "empty": "Hakuun ei löytynyt apua. Kokeile \"näppäimistö\", \"siirrä kirjanmerkkejä\" tai \"varmuuskopio\".",
+    "resultsLabel": "Manuaaliset kysymykset ja vastaukset"
+  },
+  "open": "Tutustu käsikirjaan",
+  "searchLabel": "Etsi käsikirjasta",
+  "searchPlaceholder": "Kokeile \"näppäimistö\", \"taustakuva\" tai \"varmuuskopio\"",
+  "count": "{{count}} tutkittavaa osaa",
+  "empty": "Ei osumia. Kokeile toista sanaa tai tyhjennä haku nähdäksesi koko hakemiston.",
+  "back": "← Manuaalinen hakemisto",
+  "remember": "Hyvä muistaa",
+  "related": "Jatka etsimistä",
+  "footer": "Aina käytettävissä kohdassa Asetukset → Ohje.",
+  "guideLinks": "Lue lisää käsikirjasta",
+  "groups": {
+    "start": "Aloita tästä",
+    "organize": "Järjestä",
+    "personalize": "Tee siitä omasi",
+    "protect": "Pidä huolta tilastasi"
+  },
+  "demo": {
+    "browse": "Selaa osioita",
+    "previous": "← Edellinen jakso",
+    "next": "Seuraava osio →",
+    "title": "Katso se toiminnassa",
+    "example": "Demonstraatioesimerkki",
+    "steps": "Esittelyvaiheet",
+    "step": "Vaihe {{step}}/{{count}}",
+    "play": "Pelaa",
+    "pause": "Tauko",
+    "replay": "Toista",
+    "progress": "Demonstroinnin edistyminen",
+    "mode": "Käyttäytyminen",
+    "nextStep": "Seuraava askel",
+    "reducedMotion": "Vähentynyt liike: tutki vaiheita ilman animaatiota.",
+    "labels": {
+      "settings": "Asetukset",
+      "saved": "Muutokset tallennettu",
+      "page": "Sivu",
+      "selection": "Valinta",
+      "selected": "valittuja kohteita",
+      "color": "Väri",
+      "styleName": "Oma violetti tyylini",
+      "wallpaper": "Taustakuvat",
+      "rotation": "Kierto",
+      "format": "Muoto",
+      "seconds": "Sekuntia",
+      "language": "Kieli",
+      "system": "Järjestelmä",
+      "currentLanguage": "Suomi",
+      "restore": "Palauta",
+      "copy": "Varmuuskopio",
+      "restoreCopy": "Tarkista ennen palauttamista",
+      "switchSync": "Siirrytäänkö synkronoituun?",
+      "applyNow": "Voimassa, kun se on vahvistettu",
+      "status": "Tila",
+      "synchronized": "Synkronoitu",
+      "retry": "Tallennus odottaa · Yritä uudelleen",
+      "keyboardQuery": "näppäimistö",
+      "deleteExample": "Kirjanmerkit ja kansiot poistetaan. Roskakori tulee olemaan tyhjä."
+    },
+    "topics": {
+      "bookmarks": [
+        "Avaa vasen valikko ja valitse + → Kirjanmerkki.",
+        "Syötä sivun nimi ja osoite.",
+        "Vahvista: kirjanmerkki näkyy vapaassa solussa."
+      ],
+      "quick-save": [
+        "Avaa New DeskTab sen laajennuskuvakkeesta.",
+        "Tarkista ehdotettu nimi, osoite ja määränpää.",
+        "Tallenna: kirjanmerkki on työtilassasi, kun avaat välilehden."
+      ],
+      "keyboard": [
+        "Paina sarkainta korostaaksesi ensimmäistä kohdetta.",
+        "Nuolinäppäimet siirtävät tarkennusta. Enter avaa kohdistetun kohteen.",
+        "Esc tai muu Tab lopettaa navigoinnin."
+      ],
+      "shortcuts": [
+        "Avaa Asetukset → Pikanäppäimet.",
+        "Napsauta toiminnon pikakuvaketta ja kirjoita yhdistelmäsi.",
+        "Tallenna ottaaksesi uuden pikakuvakkeen käyttöön."
+      ],
+      "search": [
+        "Työkalupalkin suurennuslasi tai / avaa haun.",
+        "Kirjoita osa nimestä tai osoitteesta.",
+        "Avaa tulos. Esc tai Sulje palaa työtilaan."
+      ],
+      "editing": [
+        "Valikkokynä paljastaa ruudukon ja säätimet.",
+        "Gmailin kynä avaa sen nimen ja URL-editorin.",
+        "Tallenna muutos ja napsauta valikkokynää uudelleen lopettaaksesi."
+      ],
+      "movement": [
+        "Ota muokkaus käyttöön ja pidä ruutua painettuna.",
+        "Kohdistin ja ruutu liikkuvat yhdessä vapaaseen soluun.",
+        "Vapautus: lopullinen sijainti on tallennettu."
+      ],
+      "resizing": [
+        "Ota muokkaus käyttöön ja etsi kulmakahva.",
+        "Muuta leveyttä ja korkeutta vetämällä vinosti.",
+        "Vapauta 2 × 2. Vertaa Ei mitään ja Tasainen käyttämällä valitsinta."
+      ],
+      "drag-modes": [
+        "Käytä valitsinta kolmen vetotilan vertaamiseen.",
+        "Vedä kohti varattua solua ja katso muita laattoja.",
+        "Mikään ei käytä vapaata solua; Siirtäminen ja kaskadi järjestävät laatat uudelleen."
+      ],
+      "folders": [
+        "Nimeä kansio sivujesi ryhmittelyä varten.",
+        "Vedä kirjanmerkki muokkauksen aikana siihen.",
+        "Avaa kansio löytääksesi kirjanmerkin sen ruudukosta."
+      ],
+      "workspaces": [
+        "Työkalupalkki + luo työtilan valitsemallasi nimellä.",
+        "Uudessa työtilassa on oma ruudukko.",
+        "Alt + ↑ ja Alt + ↓ selaa työtilojasi."
+      ],
+      "selection": [
+        "Ota muokkaus käyttöön ja valitse laatta lyhyellä napsautuksella.",
+        "Valitse toinen: työkalurivi tarjoaa ryhmätoimintoja.",
+        "Klooni luo kopioita vapaisiin soluihin yhdellä toiminnolla."
+      ],
+      "history": [
+        "Siirrä ruutua: tämä muutos tulee historiaan.",
+        "Kumoa palauttaa ruudun edelliseen paikkaansa.",
+        "Toista palauttaa juuri peruutetun liikkeen."
+      ],
+      "appearance": [
+        "Laatan kynä avaa editorin.",
+        "Vaihda väriä ja katso esikatselu.",
+        "Tallenna käyttääksesi tätä ulkoasua laattaan."
+      ],
+      "presets": [
+        "Avaa kirjasto kohdasta Asetukset → Kirjanmerkit.",
+        "Nimeä ja tallenna tyyli käyttääksesi sitä uudelleen.",
+        "Lataa se oletuksena ja tallenna uusia kirjanmerkkejä varten."
+      ],
+      "wallpapers": [
+        "Valitse taustakuva avaamalla Asetukset → Teema.",
+        "Tarkista esikatselu ja kirjaston kiertoväli.",
+        "Tallenna: valittu taustakuva näkyy työtilassasi."
+      ],
+      "clock": [
+        "Valitse vasemmasta valikosta + → Widgetit → Kello.",
+        "Määritä muoto ja sekunnit esikatselun avulla.",
+        "Lisää kello vapaaseen työtilan soluun."
+      ],
+      "interface": [
+        "Avaa Yleiset ja valitse valikon kieli.",
+        "Vertaa vaaleaa ja tummaa käyttöliittymää.",
+        "Tallenna kieli- ja ulkonäköasetuksesi."
+      ],
+      "trash": [
+        "Avaa roskakori löytääksesi poistetun kirjanmerkin.",
+        "Valitse se ja napsauta Palauta: se palaa ruudukkoon.",
+        "Valitse Yleisesti, kuinka kauan poistettuja kohteita säilytetään."
+      ],
+      "backup": [
+        "Etsi varmuuskopiointivaihtoehdot kohdasta Asetukset → Yleiset.",
+        "Vie lataukset ZIP-tiedostolla datalla ja paikallisilla tiedostoilla.",
+        "Tuonti pyytää vahvistusta ennen tietojen vaihtamista."
+      ],
+      "sync": [
+        "Tarkista nykyinen tila avaamalla Asetukset → Synkronointi.",
+        "Valitse Synkronoitu ja tarkista vahvistus.",
+        "Hyväksy ottaa tilan käyttöön välittömästi ilman Tallenna-painiketta."
+      ],
+      "compact": [
+        "Kun ikkuna kapenee, ruudukosta tulee luettelo.",
+        "Kirjanmerkit ovat edelleen käytettävissä luettelosta.",
+        "Laajenna ikkuna palataksesi ruudukkoon ja muokkaamiseen."
+      ],
+      "data": [
+        "Esimerkki käyttää toista kieltä, kevyttä käyttöliittymää ja mukautettuja laattoja.",
+        "Reset palauttaa oletusasetukset säilyttäen samalla kirjanmerkit ja niiden tyylit.",
+        "Poista poistaa kirjanmerkit ja kansiot jättäen vain tyhjän roskakorin."
+      ],
+      "learning": [
+        "Päivittäinen vinkki kutsuu sinut tutustumaan ominaisuuteen. Napsauta Näytä miten.",
+        "Kirjoita hakukenttään \"näppäimistö\" löytääksesi Navigoi näppäimistöllä.",
+        "Napsauta tulosta lukeaksesi sen ohjeet."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "PIENI VINKKI TÄNÄÄN",
+    "dismiss": "Hylkää tämän päivän vinkki",
+    "read": "Näytä minulle miten",
+    "pace": "Keskeytä viemällä hiiri.",
+    "enabled": "Päivittäiset vinkit",
+    "description": "Yksi vinkki, kun avaat päivän ensimmäisen välilehden."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Kuinka lisään sivun kirjanmerkkeihini?",
+      "searchTerms": "lisää sivu; luo kirjanmerkki; tallenna verkkosivusto; uusi suosikki",
+      "title": "Lisää kirjanmerkkejä",
+      "summary": "Suosikkisivusi käsillä jokaisella uudella välilehdellä.",
+      "steps": [
+        "Avaa valikko siirtymällä vasempaan reunaan. Valitse + → Kirjanmerkki.",
+        "Syötä sivun nimi ja osoite. Voit säätää sen ulkonäköä ennen sen lisäämistä.",
+        "Vahvista asettaaksesi kirjanmerkin vapaaseen paikkaan nykyisessä työtilassa. Muokkaustilan ulkopuolella avaa sivu napsauttamalla sitä."
+      ],
+      "note": "Jos haluat muuttaa olemassa olevaa kirjanmerkkiä, ota muokkaus käyttöön ja käytä sen kynää. Voit lukita osoitteen vahingossa tapahtuvien muutosten välttämiseksi.",
+      "tip": "Kirjanmerkkien lisäysvalikko on vasemmassa reunassa. Siirrä kohdistin sinne ja valitse + → Kirjanmerkki."
+    },
+    "quick-save": {
+      "question": "Kuinka voin tallentaa vierailemani sivun?",
+      "searchTerms": "tallenna nykyinen sivu; tallenna avoin välilehti; laajennuskuvake; kaapata URL-osoite",
+      "title": "Tallenna nykyinen sivu",
+      "summary": "Lisää sivu laajennuskuvakkeesta.",
+      "steps": [
+        "Kun vierailet sivulla, avaa New DeskTab selaimen laajennusvalikosta.",
+        "Tarkista ehdotettu nimi ja osoite ja valitse käytettävissä oleva kohde.",
+        "Tallenna kirjanmerkki ja avaa uusi välilehti löytääksesi sen tilastasi."
+      ],
+      "note": "Kiinnitä laajennuskuvake selaimen työkalupalkkiin, jotta tämä pikakuvake pysyy ulottuvillasi.",
+      "tip": "URL-osoitetta ei tarvitse kopioida: New DeskTab-selainkuvakkeen avulla voit tallentaa vierailemasi sivun."
+    },
+    "keyboard": {
+      "question": "Miten navigoin ilman hiirtä?",
+      "searchTerms": "ilman hiirtä; käytä näppäimistöä; nuoli navigointi; välilehti Enter",
+      "title": "Navigoi näppäimistöllä",
+      "summary": "Tab, nuolinäppäimet ja Enter tutkiaksesi tilaasi.",
+      "steps": [
+        "Aloita kohteiden selaaminen pääsivulla kirjoittamatta kenttää tai avaamatta valintaikkunaa painamalla sarkainta.",
+        "Käytä nuolinäppäimiä päästäksesi lähimpään kohteeseen kumpaankin suuntaan. Enter avaa kirjanmerkin tai kansion; muokkaustilassa se avaa editorinsa.",
+        "Paina Tab uudelleen tai Esc poistuaksesi navigoinnista. Valintaikkunoissa Sarkain ja Vaihto + Sarkain liikkuvat säätimien välillä normaalisti."
+      ],
+      "note": "Muokkaustilassa S valitsee kohdistetun kohteen. Poista tai askelpalautin poistaa sen vahvistuksen jälkeen. Widgetit poistetaan pysyvästi.",
+      "tip": "Kokeile välilehteä tilassasi: nuolet liikkuvat kohteiden välillä ja Enter avaa ne. Toinen välilehti poistuu tästä tilasta."
+    },
+    "shortcuts": {
+      "question": "Kuinka vaihdan pikanäppäimiäni?",
+      "searchTerms": "muuta pikakuvakkeita; muokata avaimia; näppäinyhdistelmät; pikanäppäin",
+      "title": "Tee omat pikakuvakkeet",
+      "summary": "Tarkista ja muuta pikakuvakkeet asetuksista.",
+      "steps": [
+        "Avaa Asetukset → Pikakuvakkeet nähdäksesi sidokset muokkausta, kirjanmerkkien, kansioiden ja widgetien lisäämistä ja avausasetuksia varten.",
+        "Napsauta toiminnon näppäinyhdistelmää ja paina uutta pikanäppäintä. Esc peruuttaa tallennuksen; hiiren kakkospainikkeella jää toiminto määrittämättä.",
+        "Tallenna asetukset ottaaksesi muutokset käyttöön. Nollaa pikakuvakkeet palauttaa alkuperäiset yhdistelmät."
+      ],
+      "note": "Aluksi: E muokkaa, B lisää kirjanmerkin, F kansion, W avaa widgetit ja S avaa asetukset. Pikanäppäimet kunnioittavat tekstikenttiä ja valintaikkunoita.",
+      "tip": "Voit muuttaa pikanäppäimiä asetuksista. Napsauta yhdistelmää tallentaaksesi omasi; Esc peruuttaa ja napsauta hiiren kakkospainiketta poistaa sen määrityksen."
+    },
+    "search": {
+      "question": "Kuinka löydän kirjanmerkin, jota en näe?",
+      "searchTerms": "etsi kirjanmerkki; paikanna sivu; kirjanmerkki puuttuu; haun URL-osoite",
+      "title": "Etsi kirjanmerkki",
+      "summary": "Hae nimellä tai osoitteella, myös kansioiden sisällä.",
+      "steps": [
+        "Paina /, kun et kirjoita, tai käytä työtilapalkin suurennuslasia.",
+        "Kirjoita osa nimestä tai osoitteesta. Haku sisältää kirjanmerkit muissa työtiloissa ja kansioiden sisällä.",
+        "Avaa tarvitsemasi tulos. Esc tai Sulje vie sinut takaisin tilaan."
+      ],
+      "note": "Sinun ei tarvitse muistaa, mihin olet tallentanut sivun löytääksesi sen.",
+      "tip": "/ -näppäin avaa haun. Se löytää myös kirjanmerkkejä kansioista ja muista työtiloista."
+    },
+    "editing": {
+      "question": "Kuinka otan muokkauksen käyttöön?",
+      "searchTerms": "salli muokkaus; muokkaa työpöytää; kynäeditori; muokata kirjanmerkkiä",
+      "title": "Muokkaustila",
+      "summary": "Järjestä ja mukauta kytkemällä kynä päälle.",
+      "steps": [
+        "Napsauta kynää vasemmassa valikossa tai käytä muokkauspikakuvaketta, jolloin ruudukko ja kohteen säätimet tulevat näkyviin.",
+        "Siirrä, muuta kokoa tai valitse kohteita. Jokaisen kortin kynä avaa sen nimen, osoitteen ja ulkoasun editorin.",
+        "Napsauta kynää uudelleen, kun olet valmis. Työtilan muutokset tallennetaan automaattisesti; editoreilla on oma Tallenna-painike."
+      ],
+      "note": "Esc tyhjentää ensin valinnan tai näppäimistön navigoinnin. Kun kumpikaan ei ole aktiivinen, se voi poistua muokkaustilasta.",
+      "tip": "Valikkokynä alkaa muokata: korttikahvat ja säätimet tulevat näkyviin. Napsauta sitä uudelleen lopettaaksesi."
+    },
+    "movement": {
+      "question": "Kuinka siirrän kirjanmerkin?",
+      "searchTerms": "siirtää kirjanmerkkiä; vedä suosikki; muuttaa asentoa; järjestää ruudukko",
+      "title": "Siirrä kohteita",
+      "summary": "Vedä kortit paikoilleen ruudukossa.",
+      "steps": [
+        "Ota muokkaustila käyttöön ja pidä siirrettävää korttia painettuna.",
+        "Vedä se määränpäähänsä. Tulos riippuu vapaasta tilasta ja vedätystilasta, joka on valittu kohdassa Asetukset → Kirjanmerkit.",
+        "Vapauta tallentaaksesi aseman. Voit myös valita yksittäisen kohteen napsautuksella ja siirtää sen yhden solun nuolilla Välilehti-navigoinnin ulkopuolelle."
+      ],
+      "note": "Estetyt kohteet näyttävät visuaalista palautetta ja tuote palaa oikeaan paikkaan. Voit kumota muutokset.",
+      "tip": "Napsauta muokkaustilassa valitaksesi yhden kortin ja siirrä sitä nuolilla solu kerrallaan. Poistu ensin välilehdestä."
+    },
+    "resizing": {
+      "question": "Kuinka muutan laatan kokoa?",
+      "searchTerms": "kokoa laatta; suurenna kirjanmerkki; pienentää kokoa; muuttaa kokoa kahvat; napsauta; Siirtää; leveys korkeus; 2x2",
+      "title": "Muuta kokoa",
+      "summary": "Käytä kortin reunoja ja kulmia.",
+      "steps": [
+        "Ota muokkaus käyttöön ja siirry kohteen sivulle tai kulmaan käyttääksesi sen koonmuutoskahvoja.",
+        "Vedä kahvaa. Kulma muuttaa leveyttä ja korkeutta; sivu muuttaa vain yhden ulottuvuuden. Voit myös napsauttaa kahvaa kasvattaaksesi yhden solun tai vaihto + napsauttamalla kutistaaksesi yhden solun.",
+        "Valitse Asetukset → Kirjanmerkit, jos haluat siirtyä solujen välillä yli 50 %:n ylityksen jälkeen, tai Sileä, jos haluat venyttää korttia ja napsauttaa vapautettaessa."
+      ],
+      "note": "Lopullinen koko noudattaa ruudukkoa ja voimassa olevia paikkoja. Asetusten esikatselut näyttävät eron ennen valintaa.",
+      "tip": "Napsauta kahvaa kasvaaksesi yhdellä solulla tai Shift + napsauta kutistuaksesi yhdellä solulla. Kulmat muuttavat leveyttä ja korkeutta yhdessä; sivut muuttavat vain yhden ulottuvuuden."
+    },
+    "drag-modes": {
+      "question": "Miksi en voi pudota varattuun selliin?",
+      "searchTerms": "miehitetty solu; siirtyä toisen yli; tukkeutunut pudotus; siirtää kaskadi; vedä törmäys",
+      "title": "Vedä tilat",
+      "summary": "Valitse, mitä tapahtuu varatulle kirjanmerkkipaikalle.",
+      "steps": [
+        "Avaa Asetukset → Kirjanmerkit ja laajenna vetotoiminto.",
+        "Yksikään ei siirry vapaisiin paikkoihin. Muutto löytää kirjanmerkkien sijainnin määränpäästä. Järjestys järjestää kirjanmerkit uudelleen järjestyksessä.",
+        "Katso kunkin vaihtoehdon animaatio ja tallenna tila, jonka kanssa järjestäminen tuntuu mukavalta."
+      ],
+      "note": "Siirto hylätään, jos voimassa olevaa järjestelyä ei ole. Läpinäkyvä tausta ei tee varatusta solusta vapaata.",
+      "tip": "Haluatko siirtää kirjanmerkin varattuun soluun? Katso Muutto and Järjestys kohdassa Asetukset → Kirjanmerkit ja katso niiden esikatselu."
+    },
+    "folders": {
+      "question": "Kuinka ryhmittelen kirjanmerkit kansioihin?",
+      "searchTerms": "luo kansio; ryhmän kirjanmerkit; järjestää suosikkeja; poista kansiosta; nimeä kansio uudelleen",
+      "title": "Järjestä kansioiden avulla",
+      "summary": "Kerää jopa 18 kirjanmerkkiä yhteen kansioon.",
+      "steps": [
+        "Valitse vasemmasta valikosta + → Kansio ja anna sille nimi.",
+        "Muokkaustilassa vedä siihen kirjanmerkkejä, jotta ne siirretään sisään. Avaa kansio nähdäksesi sen ruudukon.",
+        "Käytä kansion muokkaustilaa sen kirjanmerkkien järjestämiseen. Napsauta sen nimeä nimetäksesi sen uudelleen ja sen kuvaketta muokataksesi sen ulkoasua."
+      ],
+      "note": "Kansion poistaminen vaikuttaa myös sen kirjanmerkkeihin. Tarkista vahvistus ennen kuin jatkat; roskakori voi palauttaa poistetut kohteet.",
+      "tip": "Kansiossa on enintään 18 kirjanmerkkiä. Ota muokkaus käyttöön ja lisää se vetämällä kortti kansioon."
+    },
+    "workspaces": {
+      "question": "Kuinka pidän henkilökohtaiset ja työsivut erillään?",
+      "searchTerms": "henkilökohtainen työ; luoda työtilaa; vaihtaa työtilaa; pöytäkoneet",
+      "title": "Erota työtilat",
+      "summary": "Yksi ruudukko työhön ja toinen kaikelle muulle.",
+      "steps": [
+        "Työtilapalkki vaihtaa Main- ja mukautettujen työtilojesi välillä. Sen + luo uuden.",
+        "Valitse työtila ennen kohteiden lisäämistä. Jos haluat siirtää olemassa olevia kohteita, valitse ne ja valitse kohde toimintopalkista.",
+        "Alt + ↑ ja Alt + ↓ selaavat työtiloja. −-painike poistaa nykyisen mukautetun työtilan vahvistuksen jälkeen."
+      ],
+      "note": "Työtilan poistaminen poistaa myös sen sisällön. Pääosa pysyy saatavilla, eikä sitä voi poistaa.",
+      "tip": "Alt + ↑ ja Alt + ↓ vaihtavat työtiloja avaamatta valitsinta. Erota työt, harrastukset tai projektit baarin +:lla."
+    },
+    "selection": {
+      "question": "Kuinka voin muuttaa useita kohteita kerralla?",
+      "searchTerms": "valitse useita; joukkovalinta; siirtää useita; kloonin valinta; päällekkäisiä kirjanmerkkejä",
+      "title": "Valitse ja toimi kerralla",
+      "summary": "Harvemmin toistuvia toimintoja järjestettäessä useita kortteja.",
+      "steps": [
+        "Ota muokkaus käyttöön ja napsauta kutakin korttia lyhyesti valitaksesi sen. Napsauta uudelleen poistaaksesi valinnan; Tab-navigaatiossa voit käyttää S.",
+        "Valintapalkin avulla voit kopioida, käyttää oletusulkoasua, siirtyä toiseen työtilaan tai poistaa kohteen tyypistä riippuen.",
+        "Tarkista määränpää tai vahvistus. Esc tai valinnan tyhjennyspainike peruuttaa valintasi."
+      ],
+      "note": "Siirtäminen ja monistaminen tarvitsevat vapaita paikkoja. Sovellus kertoo, jos jotkin kohteet eivät sovi. Widgetit eivät mene roskakoriin.",
+      "tip": "Valitse muokkaustilassa useita kortteja lyhyillä napsautuksella siirtääksesi, kopioidaksesi tai muokataksesi niitä yhdessä. Esc tyhjentää valinnan."
+    },
+    "history": {
+      "question": "Kuinka peruutan viimeisimmän muutokseni?",
+      "searchTerms": "kumoa muutos; tee muutos uudelleen; mene takaisin; palauta asento",
+      "title": "Kumoa ja tee uudelleen",
+      "summary": "Palauta asema tai äskettäinen muutos.",
+      "steps": [
+        "Käytä työtilapalkin kumoa-nuolta palataksesi edelliseen tilaan.",
+        "Toistonuoli palauttaa juuri kumoamasi muutoksen. Voit myös käyttää näppäinyhdistelmää Ctrl/Cmd + Z ja Ctrl/Cmd + Vaihto + Z.",
+        "Käytä editorissa otsikon vieressä olevia nuolia odottaviin muutoksiin. tekstikentät säilyttävät normaalin näppäimistönsä kumoamisen. Jokainen toiminto näyttää lyhyen viestin, ja nuolet, jotka eivät ole käytettävissä, ovat poissa käytöstä. Tarkista tulos ennen tallentamista."
+      ],
+      "note": "Muokkaushistoria alkaa alusta aina, kun avaat editorin; muutokset saapuvat työtilaan, kun tallennat. Työtilan historia on väliaikainen, eikä se ole varmuuskopio. Uusi istunto tai päivitykset toisesta välilehdestä voivat nollata sen.",
+      "tip": "Jos muutos ei tunnu oikealta, käytä kumoa-nuolta tai Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z tekee sen uudelleen."
+    },
+    "appearance": {
+      "question": "Kuinka vaihdan väriä, kuvaketta tai tekstiä?",
+      "searchTerms": "muuttaa väriä; vaihda kuvake; muuttaa tekstiä; kirjanmerkin ulkonäkö; kansion väri; favicon",
+      "title": "Mukauta korttejasi",
+      "summary": "Värit, kuvat, teksti ja kuvakkeet haluamallasi tavalla.",
+      "steps": [
+        "Ota muokkaus käyttöön ja avaa kirjanmerkin kynä tai kansion tai roskakorin ulkoasu.",
+        "Tutustu editoriin: tausta, väri, kuva, teksti ja kuvake. Käytettävissä olevat säätimet riippuvat tuotetyypistä; esikatselu näyttää tuloksen.",
+        "Säästä, kun olet onnellinen. Voit käyttää kuvia URL-osoitteesta tai paikallisesta tiedostosta, jossa editori tarjoaa tämän vaihtoehdon."
+      ],
+      "note": "Paikalliset kuvat kuuluvat tälle selaimelle. Kun synkronoit, lisää vara-URL muille laitteille. Tuonti säilyttää mukana olevat kuvat ja selkeät viittaukset ilman tiedostoa; Synkronointi ohittaa tiedostot, jotka eivät ole käytettävissä tällä laitteella.",
+      "tip": "Kirjanmerkin kynä avaa visuaalisen editorin. Muuta värejä, tekstiä, kuvaketta tai kuvaa ja tarkista esikatselu."
+    },
+    "presets": {
+      "question": "Kuinka voin käyttää uudelleen tyyliä, josta pidän?",
+      "searchTerms": "tallenna tyyli; uudelleenkäyttö ulkonäkö; oletustyylit; esiasetettu kirjasto; soveltaa tyyliä",
+      "title": "Käytä esiintymisiä uudelleen",
+      "summary": "Tallenna ulkoasu ja käytä sitä muihin kirjanmerkkeihin.",
+      "steps": [
+        "Avaa editorin kirjasto ja valitse ulkoasu käytettävissä olevasta kokoelmasta.",
+        "Tallenna mukautettu ulkoasu esiasetukseksi, jotta voit käyttää sen värejä, tekstiä ja kuvaketta uudelleen kopioimatta kirjanmerkin nimeä tai osoitetta.",
+        "Määritä uusien kirjanmerkkien oletusulkoasu kohdassa Asetukset → Kirjanmerkit. Valintapalkki voi käyttää sitä yhteensopiviin tuotteisiin."
+      ],
+      "note": "Esiasetus muuttaa ulkonäköä, ei kirjanmerkin identiteettiä, kohdetta tai sijaintia.",
+      "tip": "Tallenna haluamasi ulkoasu ulkoasukirjastoon. Käytä sitä uudelleen muissa korteissa muuttamatta niiden nimiä tai osoitteita."
+    },
+    "wallpapers": {
+      "question": "Kuinka käytän kuvaa tai videota taustana?",
+      "searchTerms": "vaihtaa taustaa; videon tausta; tapetti kierto; teema",
+      "title": "Taustakuvat ja kierto",
+      "summary": "Väri, kuva tai video tunnelman luomiseksi.",
+      "steps": [
+        "Avaa Asetukset → Teema ja valitse oletustausta, väri tai median tausta.",
+        "Lisää kuvia tai videoita paneelissa tarjotuista lähteistä. Kirjasto kerää useita taustoja kiertovälillä.",
+        "Tarkista esikatselu ja tallenna. Voit yhdistää paikallisen tiedoston vaihtoehtoisen URL-osoitteen kanssa muille laitteille."
+      ],
+      "note": "Paikalliset tiedostot pysyvät tässä selaimessa. Synkronointi ei siirrä niitä; täydellinen varmuuskopio voi säilyttää ne.",
+      "tip": "Taustasi voi muuttua automaattisesti: lisää useita Asetukset → Teemakirjastoon ja aseta kiertoväli."
+    },
+    "clock": {
+      "question": "Kuinka lisään kellon?",
+      "searchTerms": "lisää kello; esitysaika; sekuntia; 24 tunnin muoto; kello-widget",
+      "title": "Lisää kello",
+      "summary": "Widget, joka näyttää laitteesi ajan.",
+      "steps": [
+        "Valitse + → Widgetit vasemmasta valikosta ja valitse Kello.",
+        "Valitse 12 tai 24 tunnin muoto ja sekuntien näyttö. Esikatselu auttaa sinua päättämään.",
+        "Lisää se vapaaseen paikkaan. Muokkaustilassa voit siirtää, muuttaa sen kokoa tai avata sen vaihtoehtoja uudelleen."
+      ],
+      "note": "Kello seuraa laitteesi aikaa. Widgetin poistaminen on pysyvää; se ei mene roskakoriin.",
+      "tip": "Kohdassa + → Widgetit voit lisätä 12 tai 24 tunnin kellon valinnaisilla sekunneilla ja muuttaa sen kokoa tilaan sopivaksi."
+    },
+    "interface": {
+      "question": "Kuinka vaihdan kieltä tai käytän pimeää tilaa?",
+      "searchTerms": "vaihtaa kieltä; tumma tila; valotilassa; käyttöliittymän ulkonäkö",
+      "title": "Kieli ja käyttöliittymäteema",
+      "summary": "Tee valikoista, valintaikkunoista ja säätimistä mukavia.",
+      "steps": [
+        "Valitse Asetukset → Yleiset kieli tai anna sen seurata järjestelmääsi.",
+        "Valitse vaalea, tumma tai automaattinen käyttöliittymä mieltymystesi mukaan.",
+        "Tallenna asetukset. Käyttöliittymäteema toimii teemassa valitsemasi taustan rinnalla."
+      ],
+      "note": "Järjestelmän kieli ja automaattinen ulkoasu noudattavat laiteasetuksiasi.",
+      "tip": "Valitse vaalea tai tumma käyttöliittymä ja säilytä taustakuvasi. Löydät tämän vaihtoehdon ja kielen kohdasta Asetukset → Yleiset."
+    },
+    "trash": {
+      "question": "Kuinka voin palauttaa poistetun kirjanmerkin?",
+      "searchTerms": "palauttaa poistetut kirjanmerkit; palautus poistettu; roskakori; vahingossa poistettu; palautuskansio",
+      "title": "Palauta roskakorista",
+      "summary": "Toinen mahdollisuus kirjanmerkeille ja kansioille.",
+      "steps": [
+        "Avaa tilasi roskakori tarkistaaksesi poistetut kirjanmerkit ja kansiot.",
+        "Valitse, mitä haluat palauttaa, ja käytä Palauta. Voit myös poistaa kohteita pysyvästi tai tyhjentää roskakorin vahvistuksen jälkeen.",
+        "Valitse kohdassa Asetukset → Yleiset, näytetäänkö se ja kuinka kauan se säilyttää kohteita: 1, 7, 14 tai 28 päivää, vai älä koskaan poista niitä automaattisesti."
+      ],
+      "note": "Roskakori kuuluu tälle laitteelle. Vanhentuneita tai pysyvästi poistettuja kohteita ei voi enää palauttaa siitä.",
+      "tip": "Poistitko kirjanmerkin vahingossa? Avaa roskakori ja palauta se. Säädä säilytysaikaa kohdassa Asetukset → Yleiset."
+    },
+    "backup": {
+      "question": "Miten varmuuskopioin tai siirrän tietoni?",
+      "searchTerms": "varmuuskopio; viedä tiedot; tuonti kopio; palauttaa varmuuskopion; toinen selain; siirtää tietoja",
+      "title": "Varmuuskopiot ja tuonti",
+      "summary": "Pidä kopio tilastasi ja ota se mukaasi.",
+      "steps": [
+        "Vie täydellinen varmuuskopio kohdassa Asetukset → Yleiset ZIP-arkiston sisältämien tietojen ja paikallisten tiedostojen säilyttämiseksi.",
+        "Palauttaaksesi tuo varmuuskopion ja tarkista vahvistus ennen tietojen vaihtamista. Myös yhteensopivia JSON-varmuuskopioita tuetaan.",
+        "Kohdassa Asetukset → Kirjanmerkit voit viedä tai tuoda vain kirjanmerkkejä ja kansioita, kun et tarvitse täyttä varmuuskopiota."
+      ],
+      "note": "Kirjanmerkkien vienti ei ole asetusten ja paikallisen median täydellinen varmuuskopio. Tallenna varmuuskopio ennen tietojen palauttamista tai poistamista.",
+      "tip": "Täysi varmuuskopio kohdasta Asetukset → Yleiset sisältävät paikalliset tiedostot ZIP-muodossa. Se on hyödyllinen ennen selaimen vaihtamista tai tietojen palauttamista."
+    },
+    "sync": {
+      "question": "Kuinka käytän samaa tilaa toisessa tietokoneessa?",
+      "searchTerms": "toinen tietokone; synkronoida laitteet; synkronointi; pilvi; paikallinen synkronointi; lopeta synkronointi; poista synkronointi käytöstä; paikallinen tila",
+      "title": "Synkronoi laitteiden välillä",
+      "summary": "Jaa tilasi selaimen synkronoinnin avulla.",
+      "steps": [
+        "Kirjaudu sisään ja ota laajennussynkronointi käyttöön profiilissasi Google Chrome.",
+        "Valitse Asetukset → Synkronointi kohdassa Synkronoitu ja hyväksy vahvistus. Vaihto astuu voimaan välittömästi: olemassa olevat synkronoidut kirjanmerkit ja asetukset ladataan tai tallennetut paikalliset tiedot synkronoidaan, jos niitä ei ole.",
+        "Käytä samaa profiilia toisessa laitteessa. Tarkista synkronoinnin tila ja käytettävissä oleva tila paneelissa."
+      ],
+      "note": "Paikalliset tiedostot, roskakori ja päivittäiset vinkit kuuluvat jokaiselle laitteelle. Synkronoinnissa on tallennusrajoituksia; Käytä vaihtoehtoisia URL-osoitteita paikallisille kuville ja videoille. Paikallinen-vaihtoehdon valitseminen pyytää myös vahvistusta ja astuu voimaan välittömästi pitäen synkronoidut tiedot tallennettuina.",
+      "tip": "Synkronointi jakaa tilasi laitteiden kesken, mutta paikalliset tiedostot tarvitsevat vaihtoehtoisen URL-osoitteen. Katso Asetukset → Synkronointi."
+    },
+    "compact": {
+      "question": "Miksi näen luettelon ruudukon sijaan?",
+      "searchTerms": "pieni ikkuna; luettelonäkymä; verkko katosi; piilotettu paneeli; mobiili",
+      "title": "Käytä pienempää ikkunaa",
+      "summary": "Käytä kirjanmerkkejäsi, kun tilaa on rajoitetusti.",
+      "steps": [
+        "Kun ikkuna kapenee, sovellus vaihtaa luetteloon, jotta kohteesi ovat käytettävissä.",
+        "Avaa kirjanmerkkejä, kansioita tai hae tässä näkymässä. Ohje mukautuu myös saatavilla olevaan kokoon.",
+        "Laajenna ikkunaa palauttaaksesi ruudukon ja muokkauspaneelit. Keskeytetty muokkausikkuna säilyttää luonnoksensa."
+      ],
+      "note": "Kompakti näkymä auttaa sinua selaamaan tilaasi; uudelleenjärjestely vaatii riittävän leveän ikkunan.",
+      "tip": "Kapeassa ikkunassa kirjanmerkkisi ovat käytettävissä luettelona. Laajenna sitä, kun haluat muokata tai järjestää ruudukkoa uudelleen."
+    },
+    "data": {
+      "question": "Kuinka poistan tietoni tai nollaan asetukset?",
+      "searchTerms": "poistaa tiedot; nollaa asetukset; poista kaikki; aloita alusta",
+      "title": "Tallentaminen ja nollaus",
+      "summary": "Ymmärrä, mitä tallennetaan ja mitä kukin toiminto poistaa.",
+      "steps": [
+        "Työtilan toiminnot tallentuvat automaattisesti. Vahvista editoreissa ja asetuksissa Tallenna; Peruuta hylkää kyseisen paneelin luonnoksen.",
+        "Jos näkyviin tulee odottavaa tallennusta koskeva ilmoitus, napsauta Yritä tallennusta uudelleen ja odota vahvistusta ennen välilehden sulkemista.",
+        "Kohdassa Asetukset → Yleiset voit nollata asetukset tai poistaa kaikki tiedot. Lue vahvistus ja vie varmuuskopio kaikesta, jonka haluat säilyttää."
+      ],
+      "note": "Asetusten nollaaminen säilyttää kirjanmerkkisi, niiden koot ja tyylit. Kaikkien paikallisten tietojen poistaminen poistaa kohteet ja tyhjentää roskakorin. Vie varmuuskopio ennen poistamista: Kumoa ei korvaa varmuuskopiota.",
+      "tip": "Jos näet ilmoituksen tallentamattomista muutoksista, käytä Yritä tallennusta uudelleen ennen välilehden sulkemista. Suojaa tilaasi täydellä varmuuskopiolla."
+    },
+    "learning": {
+      "question": "Kuinka avaan oppaan uudelleen tai poistan päivittäiset vinkit käytöstä?",
+      "searchTerms": "poista vihjeet käytöstä; sammuta apu; päivittäinen hälytys; avaa opas uudelleen; käyttöopas",
+      "title": "Opi omaan tahtiisi",
+      "summary": "Pikaopas, käsikirja ja pieni päivittäinen vinkki.",
+      "steps": [
+        "Siirry pikaoppaaseen uudelleen kohdasta Asetukset → Ohje. Jokaisessa vaiheessa on linkki vastaaviin selityksiin oppaassa.",
+        "Tutustu hakemistoon tai hae sanaa. Osaan liittyvät linkit vievät sinut muihin ominaisuuksiin, kun olet valmis.",
+        "Ensimmäinen uusi välilehti joka päivä näyttää satunnaisen vinkin. Hylkää se tai avaa sen selitys; voit poistaa vihjeet käytöstä Ohjeessa."
+      ],
+      "note": "Vinkit vierailevat osioissa toistamatta, kunnes kokoelma on valmis. Ne kestävät 20 sekuntia ja pysähtyvät pitäessään painikkeita tai tarkentaessaan niitä. He seuraavat paikallista päivää ja tämän selaimen mieltymyksiä.",
+      "tip": "Tämä ohje on aina kohdassa Asetukset → Ohje. Päivittäiset vinkit avaavat osion, ja voit poistaa ne käytöstä siellä milloin haluat."
+    }
+  }
+}

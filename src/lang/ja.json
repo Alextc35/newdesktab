@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "リリースノート",
+    "settingsDescription": "変更点と各アップデートの背後にあるストーリー。",
+    "open": "メモを読む",
+    "history": "バージョン履歴",
+    "dismiss": "リリースノートを閉じる",
+    "continue": "続ける",
+    "back": "情報に戻る",
+    "highlights": "今日できること",
+    "generic": {
+      "title": "New DeskTab が更新されました",
+      "description": "新しいバージョンがあります。いつでも、「情報」で以前のリリース ノートにアクセスできます。ここに来てくれてありがとう。"
+    },
+    "v1_0_0": {
+      "title": "Web サイトのデスクトップ。やっと。",
+      "thanks": "New DeskTab をお試しいただきありがとうございます。ついにこのプロジェクトの初公開リリースを皆さんと共有できることをとてもうれしく思っています。",
+      "origin": "すべては 2025 年 9 月 26 日に始まりました。Twitch で Just Chatting ストリームを視聴しているときに、ストリーマーのブラウザーの新しいタブに気づきました。これは、Web サイトを名前やロゴのない色付きの四角形として配置する拡張機能です。そのミニマリズムに私は魅了され、独自の拡張機能を構築してはどうだろうかと考えました。私は、すべての新しいタブが秩序をもたらし、ページが手元にあり、見て楽しいパネルになるようにしたいと考えていました。",
+      "desktop": "徐々に、そのアイデアはアプリケーションではなく Web サイトの個人用デスクトップへと成長していきました。時計は最初のステップであり、まだ開発中です。将来的には、私と New DeskTab を使用するすべての人に役立つ何かを提供するメモ帳やその他のウィジェットを追加したいと考えています。",
+      "closing": "このアプリは私とあなたのために作られました。 New DeskTab を信頼して、ブラウザに配置していただきありがとうございます。私が空間づくりを楽しんだのと同じように、あなたも自分の空間づくりを楽しんでいただければ幸いです。",
+      "highlights": {
+        "workspace": "ブックマーク、フォルダー、独立したワークスペースを使用してページを整理します。",
+        "appearance": "色、各項目のサイズ、デスクトップの背景をカスタマイズします。",
+        "search": "検索でページを見つけ、キーボード ショートカットを使用して移動し、項目を作成します。",
+        "backup": "バックアップを保存し、削除されたアイテムをごみ箱から復元します。",
+        "sync": "このデバイスにデータを保存するか、Google Chrome と同期するかを選択します。",
+        "help": "ウェルカムガイド、マニュアル、日常のヒントで機能を発見してください。"
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "最初の 1 分",
+    "skip": "ガイドをスキップする",
+    "back": "戻る",
+    "next": "次へ",
+    "finish": "設定に戻る",
+    "explore": "私の空間を探索してください",
+    "addFirst": "最初のブックマークを追加する",
+    "progress": "ステップ {{current}}/{{total}}",
+    "compactHint": "ブックマークを追加したり、スペースを編集したりする場合は、ウィンドウを広げます。",
+    "reopenTitle": "クイックガイド",
+    "reopenDescription": "すぐに重要なことを再発見してください。",
+    "reopen": "ガイドを見る",
+    "demo": {
+      "work": "仕事",
+      "media": "メディア",
+      "trash": "ごみ箱",
+      "search": "ブックマークを見つける"
+    },
+    "steps": {
+      "start": {
+        "title": "あなたのページ。あなただけの空間。",
+        "body": "New DeskTab へようこそ。タブを開くときはいつでも、お気に入りのページを手元に置いておけます。追加するには、左端に移動して + → [[bookmarks|ブックマーク]] を選択します。",
+        "hint": "ブラウザの拡張機能アイコンから [[quick-save|アクセスしているページを保存します]] することもできます。"
+      },
+      "edit": {
+        "title": "すべてのブックマークにその場所を与えます。",
+        "body": "編集するには、左側のメニューで鉛筆をオンにします。アイテムを移動するには、アイテムを長押しして [[movement|ドラッグ]] します。サイズを変更するには、[[resizing|ハンドル]] を使用します。",
+        "hint": "各ブックマークの鉛筆を開くと、名前、色、アイコン、画像の [[appearance|編集者]] が開きます。 [[presets|スタイル]] を保存して再利用します。"
+      },
+      "organize": {
+        "title": "混乱が少なくなります。さらに注文。",
+        "body": "+ から [[folders|フォルダ]] を作成し、そこにブックマークを編集モードでドラッグします。クリーンなグリッドで開き、最大 18 個のブックマークを保存できるスペースがあります。",
+        "hint": "[[workspaces|ワークスペースバー]] の + を使用して、仕事と遊びを分けます。 [[search|虫眼鏡]] はフォルダー内も検索します。"
+      },
+      "style": {
+        "title": "あなたらしく感じさせてください。",
+        "body": "[設定] → [[wallpapers|テーマ]] で、色、画像、またはビデオの背景を選択し、お気に入りの壁紙を回転させます。 [設定] → [[sync|同期]] で、Chrome プロフィールにログインしているアカウントを使用して、デバイス間でスペースを同期します。",
+        "hint": "+ → ウィジェットから [[clock|時計]] を追加します。フォルダーの [[appearance|外観]] もカスタマイズできます。"
+      },
+      "ready": {
+        "title": "あなたは本質的なことを知っています。",
+        "body": "[[search|/]] を押してブックマークを見つけます。 [[history|元に戻すとやり直す]] 矢印を使用して、変更を復元します。削除されたブックマークは [[trash|ゴミ箱]] に移動します。",
+        "hint": "変更は自動的に保存されます。 [設定] で、[[backup|バックアップ]] をエクスポートするか、オプションの Google Chrome [[sync|同期]] を有効にします。"
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "最新の変更を保存できませんでした。",
+    "retry": "保存を再試行",
+    "saved": "保留中の変更が保存されました。"
+  },
+  "itemEditor": {
+    "chooseIcon": "アイコンを選択してください",
+    "siteLogo": "ロゴ",
+    "noSymbol": "なし",
+    "folderIconHint": "このシンボルは、フォルダー内のブックマークのプレビューを置き換えます。",
+    "icons": {
+      "mail": "メール",
+      "calendar": "カレンダー",
+      "notes": "注意事項",
+      "projects": "プロジェクト",
+      "design": "デザイン",
+      "music": "音楽",
+      "tasks": "タスク",
+      "ideas": "アイデア",
+      "docs": "書類",
+      "ui-start": "コンパス",
+      "ui-organize": "レイアウト",
+      "ui-personalize": "スライダー",
+      "ui-protect": "シールド",
+      "ui-bookmarks": "ブックマークを追加する",
+      "ui-quick-save": "ブラウザ",
+      "ui-keyboard": "キーボード",
+      "ui-shortcuts": "稲妻",
+      "ui-search": "検索",
+      "ui-editing": "鉛筆",
+      "ui-movement": "移動",
+      "ui-resizing": "サイズ変更",
+      "ui-drag-modes": "ドラッグ",
+      "ui-folders": "フォルダー",
+      "ui-workspaces": "窓",
+      "ui-selection": "選択",
+      "ui-history": "歴史",
+      "ui-appearance": "パレット",
+      "ui-presets": "プリセット",
+      "ui-wallpapers": "画像",
+      "ui-clock": "時計",
+      "ui-interface": "地球儀",
+      "ui-trash": "ゴミ箱",
+      "ui-backup": "アーカイブ",
+      "ui-sync": "同期",
+      "ui-compact": "リスト",
+      "ui-data": "データベース",
+      "ui-learning": "本",
+      "ui-settings": "設定",
+      "ui-controls": "コントロール",
+      "ui-cloud": "クラウド",
+      "ui-bookmark": "ブックマーク",
+      "ui-info": "情報",
+      "ui-eye": "目",
+      "ui-check": "完了しました",
+      "ui-lock": "ロック",
+      "ui-unlock": "ロックを解除する",
+      "ui-copy": "コピー",
+      "ui-close": "閉じる",
+      "ui-undo": "元に戻す",
+      "ui-redo": "やり直し",
+      "ui-desktop": "デスクトップ",
+      "home": "ホーム",
+      "briefcase": "仕事",
+      "code": "コード",
+      "game": "ゲーム",
+      "cart": "ショッピング",
+      "card": "支払い",
+      "people": "人々",
+      "message": "メッセージ",
+      "location": "場所",
+      "phone": "電話",
+      "camera": "カメラ",
+      "headphones": "ヘッドフォン",
+      "link": "リンク",
+      "tag": "タグ",
+      "chart": "統計",
+      "coffee": "コーヒー",
+      "sun": "太陽",
+      "moon": "月",
+      "circle": "サークル",
+      "square": "正方形",
+      "triangle": "トライアングル",
+      "diamond": "ダイヤモンド",
+      "pentagon": "ペンタゴン",
+      "hexagon": "ヘキサゴン",
+      "star": "スター",
+      "heart": "ハート",
+      "plus": "プラス",
+      "minus": "マイナス",
+      "video": "ビデオ"
+    },
+    "searchIcons": "検索アイコン…",
+    "clearIconSearch": "検索をクリア",
+    "noIcons": "アイコンが見つかりません",
+    "suggestedIcons": "提案された",
+    "suggestedIcon": "推奨: {{name}}",
+    "logoKeywords": "ロゴ ファビコン Web サイト サイト ブランド",
+    "iconKeywords": {
+      "ui-trash": "ゴミ箱 ゴミ箱 削除 クラシック",
+      "mail": "メール 電子メール Gmail Outlook 受信トレイ",
+      "docs": "ドキュメント ファイル PDF ドライブ Word",
+      "notes": "メモ メモの概念 onenote",
+      "ui-protect": "セキュリティ保護プライバシー",
+      "game": "ゲームゲームコントローラーコンソール",
+      "cart": "ショッピング ショップ ストア 買う",
+      "card": "銀行金融クレジットデビットマネー",
+      "people": "ソーシャルコミュニティの友人グループ",
+      "ui-learning": "読書 図書館 教育 研究",
+      "ui-clock": "時間 時計",
+      "ui-interface": "インターネット ウェブ世界の言語",
+      "ui-data": "データSQLストレージ",
+      "circle": "幾何学的図形",
+      "square": "幾何学的図形",
+      "triangle": "幾何学的図形",
+      "diamond": "幾何学的図形",
+      "pentagon": "幾何学的図形",
+      "hexagon": "幾何学的図形",
+      "star": "幾何学的図形",
+      "heart": "幾何学的図形"
+    },
+    "history": "編集履歴",
+    "description": "ワークスペースをまるで自宅にいるかのように感じさせましょう。",
+    "looks": "外観を選択してください",
+    "custom": "カスタム",
+    "look": {
+      "original": "オリジナル",
+      "card": "カード",
+      "midnight": "暗い",
+      "paper": "ライト"
+    },
+    "reset": "外観をリセットする",
+    "cardColor": "カードの色",
+    "folderFill": "フォルダーの色",
+    "image": "背景画像",
+    "lock": "URLをロックまたはロック解除する",
+    "copy": "URLをコピー",
+    "clear": "クリア",
+    "section": {
+      "general": "必需品",
+      "text": "名前とラベル",
+      "icon": "アイコン",
+      "card": "カード"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "表示される名前と開かれるページ。",
+        "text": "名前を表示するかどうかを選択し、名前の色を調整します。",
+        "icon": "画像カードの場合は、中央に配置された大きなファビコン、または名前の横にある小さなアイコンを使用します。"
+      },
+      "folder": {
+        "general": "ブックマークをまとめる名前。",
+        "text": "フォルダー名を表示し、その色を調整します。",
+        "icon": "フォルダー アイコンとそのブックマークのサムネイルをカスタマイズします。"
+      },
+      "recycleBin": {
+        "general": "ごみ箱をメイン ワークスペースに表示するかどうかを選択します。",
+        "text": "ごみ箱名を表示し、その色を調整します。",
+        "icon": "ゴミ箱に独自の色を付けます。ビン全体を一般から隠します。"
+      }
+    },
+    "addImage": "背景画像を追加する",
+    "changeImage": "背景画像を編集する"
+  },
+  "html": {
+    "title": "新しいタブ"
+  },
+  "quickSave": {
+    "title": "ブックマークの保存",
+    "name": "名前",
+    "workspace": "ワークスペース",
+    "folder": "フォルダー",
+    "mainWorkspace": "メイン",
+    "noFolder": "フォルダがありません",
+    "save": "ブックマークの保存",
+    "saveAnyway": "とにかく保存する",
+    "savedButton": "保存されました",
+    "alreadySaved": "すでに保存されています",
+    "savedIn": "{{location}} 内",
+    "savedInMore": "{{location}} および {{count}} その他",
+    "open": "New DeskTab を開く",
+    "unavailableTitle": "このタブは保存できません",
+    "unavailable": "Web ページ (http または https) を開いて保存します。",
+    "loadError": "ブックマークを読み込めませんでした。もう一度やり直してください。",
+    "saving": "保存中…",
+    "saved": "ブックマークが保存されました。",
+    "duplicate": "この URL はすでにその宛先に保存されています。",
+    "noSpace": "その宛先には空きがありません。別のものを選択してください。",
+    "invalid": "名前と選択した宛先を確認してください。",
+    "saveError": "ブックマークを保存できませんでした。もう一度やり直してください。"
+  },
+  "launcher": {
+    "bookmark": "ブックマーク",
+    "folder": "フォルダー",
+    "widgets": "ウィジェット",
+    "editMode": {
+      "enter": "編集モードに入る",
+      "exit": "編集モードを終了する"
+    }
+  },
+  "widgets": {
+    "title": "ウィジェット",
+    "description": "このワークスペースに追加するウィジェットを選択します。",
+    "empty": "まだ利用できるウィジェットはありません。"
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "この機能を使用するには、ウィンドウを広げてください。",
+      "suspended": "パネルが隠れています。続行するにはウィンドウを広げてください。"
+    },
+    "editMode": {
+      "enabled": "編集モードが有効になっています",
+      "disabled": "編集モードが無効になっています"
+    },
+    "selectionMode": {
+      "enabled": "選択モードが有効になりました",
+      "disabled": "選択モードが無効になっています"
+    },
+    "bookmark": {
+      "added": "ブックマークが追加されました",
+      "notFound": "ブックマークが見つかりません",
+      "updated": "ブックマークが更新されました",
+      "deleted": "ブックマークが削除されました"
+    },
+    "clock": {
+      "added": "時計を追加しました",
+      "updated": "時計が更新されました",
+      "deleted": "時計が削除されました"
+    },
+    "folder": {
+      "created": "フォルダが作成されました",
+      "renamed": "フォルダーの名前が変更されました",
+      "updated": "フォルダーが更新されました",
+      "deleted": "フォルダとそのブックマークが削除されました",
+      "bookmarkAdded": "ブックマークがフォルダーに追加されました",
+      "folderFull": "このフォルダにはすでに 18 個のブックマークがあります",
+      "bookmarkRemoved": "ブックマークがグリッドに戻りました"
+    },
+    "recycleBin": {
+      "moved": "ゴミ箱に移動しました",
+      "restored": "アイテムが復元されました",
+      "deletedPermanently": "アイテムが完全に削除されました",
+      "updated": "ごみ箱が更新されました"
+    },
+    "workspace": {
+      "created": "ワークスペースが作成されました",
+      "deleted": "ワークスペースが削除されました",
+      "switched": "ワークスペース: {{name}}"
+    },
+    "history": {
+      "undone": "変更を元に戻す",
+      "redone": "変更をやり直しました"
+    },
+    "bookmarks": {
+      "deletedAll": "すべてのブックマークが削除されました",
+      "deletedAllWithFolders": "すべてのブックマークとフォルダーが削除されました",
+      "deleteAllError": "すべてのブックマークを削除できませんでした",
+      "exported": "エクスポートされたブックマーク",
+      "exportError": "ブックマークのエクスポートに失敗しました",
+      "imported": "インポートされたブックマーク",
+      "importError": "ブックマークのインポートに失敗しました",
+      "presetApplied": "選択範囲に適用されるスタイル",
+      "duplicatedSelected": "選択したアイテムが複製されました",
+      "deletedSelected": "選択したアイテムが削除されました",
+      "moved": "選択したワークスペースにアイテムが移動されました"
+    },
+    "settings": {
+      "saved": "設定が保存されました",
+      "bookmarkDefaultSaved": "デフォルトのブックマークの外観が保存されました",
+      "bookmarkDefaultError": "デフォルトのブックマークの外観を保存できませんでした",
+      "copied": "クリップボードにコピーされた値",
+      "resetBg": "テーマのリセット",
+      "deletedAllData": "すべてのローカル NewDeskTab データが削除されました",
+      "deleteAllDataError": "すべてのローカル NewDeskTab データを削除できませんでした",
+      "invalidWallpaperUrl": "有効な HTTP または HTTPS の画像/ビデオ URL を入力します。",
+      "invalidWallpaperFile": "このファイルを追加できませんでした。サポートされている画像、または最大 200 MB の MP4、WebM、または Ogg ビデオを使用します。",
+      "wallpaperLimit": "最大 25 個の個人用壁紙を追加できます。"
+    },
+    "localImage": {
+      "invalid": "PNG、JPEG、WebP、GIF、または AVIF 画像を選択します。",
+      "tooLarge": "この画像は大きすぎるため、このデバイスに保存できません。",
+      "storageFull": "このイメージには十分なローカル領域がありません。",
+      "processing": "この画像は処理できませんでした。"
+    },
+    "sync": {
+      "enabled": "同期が有効です",
+      "localEnabled": "ローカルモードが有効になっています",
+      "remoteLoaded": "同期されたデータがロードされました",
+      "updatedFromOtherDevice": "別のデバイスから受信した同期された変更",
+      "deletedFromOtherDevice": "他の端末からクラウドデータが削除されました。このデバイスは現在ローカル モードを使用しています。",
+      "error": "ストレージモードを変更できませんでした",
+      "versionBlocked": "クラウド データには新しい NewDeskTab バージョンが必要なため、同期は一時停止されました。このデバイスのローカル データが表示されています。",
+      "quotaError": "データが利用可能な同期ストレージを超えています",
+      "deleted": "同期データが削除されました",
+      "deleteError": "同期データを削除できませんでした"
+    },
+    "backup": {
+      "exported": "バックアップがエクスポートされました",
+      "exportError": "バックアップをエクスポートできませんでした",
+      "mediaUnavailable": "参照されているローカル画像またはビデオの一部が利用できないため、バックアップは作成されませんでした。",
+      "imported": "バックアップが復元されました",
+      "importError": "バックアップを復元できませんでした",
+      "mediaStorageFull": "バックアップ画像とビデオを復元するのに十分なローカル ストレージがありません。"
+    }
+  },
+  "view": {
+    "list": "リストビュー",
+    "search": "ブックマークとフォルダーを検索する",
+    "clearSearch": "検索をクリア",
+    "noResults": "結果はありません。"
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "すべてのブックマークを削除しますか?",
+      "deleteFolders": "フォルダーもすべて削除します",
+      "confirmDeleteSelected": "選択した {{count}} 個のアイテムを削除しますか?",
+      "confirmMoveOne": "このアイテムをワークスペース「{{workspace}}」に移動しますか?",
+      "confirmMoveSelected": "選択した {{count}} 個のアイテムをワークスペース「{{workspace}}」に移動しますか?",
+      "duplicateNoSpace": "十分なスペースがないため、{{count}} 個のアイテムを複製できませんでした。",
+      "moveNoSpace": "十分なスペースがないため、{{count}} 個のアイテムを移動できませんでした。",
+      "no_space": "これ以上ブックマークを追加できるスペースがありません 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "新しいブックマークを破棄しますか?"
+      },
+      "confirmDelete": "「{{name}}」を削除しますか?",
+      "confirmPermanentDelete": "「{{name}}」を完全に削除しますか?これを元に戻すことはできません。",
+      "cancel": "変更を破棄しますか?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "このウィジェットを完全に削除しますか?これを元に戻すことはできません。",
+      "confirmDeleteSelected": "選択した {{count}} 個のアイテムを削除しますか?選択したウィジェット ({{widgetCount}}) は完全に削除され、復元できません。"
+    },
+    "folder": {
+      "createCancel": "新しいフォルダを破棄しますか?",
+      "cancel": "フォルダーの変更を破棄しますか?"
+    },
+    "recycleBin": {
+      "folder": "「{{name}}」とその {{count}} ブックマークをごみ箱に移動しますか?",
+      "empty": "ごみ箱内のすべてを完全に削除しますか?これを元に戻すことはできません。",
+      "deleteSelected": "選択した {{count}} 個のアイテムを完全に削除しますか?これを元に戻すことはできません。",
+      "noSpace": "十分なグリッド領域がないため、{{count}} 個のアイテムを復元できませんでした。それらはごみ箱に残ります。",
+      "cancel": "ごみ箱の変更を破棄しますか?"
+    },
+    "settings": {
+      "cancel": "設定の変更を破棄しますか?",
+      "reset": "すべての設定をリセットしますか?ブックマークは削除されません。",
+      "deleteAllData": "このデバイスからすべてのローカル NewDeskTab データを削除しますか?ブックマーク、フォルダー、ウィジェット、設定、ごみ箱項目、ローカル画像、ローカルビデオは完全に削除されます。クラウドデータは変更されません。同期がアクティブな場合、このデバイスは最初にローカルに切り替わります。この操作は元に戻すことができません。",
+      "theme": {
+        "reset": "テーマ設定をリセットしますか?"
+      },
+      "bookmark": {
+        "cancel": "デフォルトのブックマークの外観への変更を破棄しますか?"
+      },
+      "shortcuts": {
+        "reset": "デフォルトのキーボードショートカットを復元しますか?"
+      },
+      "sync": {
+        "enable": "ローカルから同期に切り替えますか?これは、「保存」をクリックしなくても有効になります。同期されたデータがすでに存在する場合は、そのブックマークと設定が読み込まれます。そうしないと、保存されたローカル データが同期されます。",
+        "local": "同期からローカルに切り替えますか?これは、「保存」をクリックしなくても有効になります。このデバイスは現在のデータのコピーを保持し、変更の同期を停止します。同期されたデータは他のデバイス用に保存されたままになります。",
+        "delete": "同期された NewDeskTab データをすべて削除しますか?このデバイスとこのクラウド データを使用している他のすべてのデバイスは、削除を検出するとローカル モードに切り替わります。これを元に戻すことはできません。"
+      }
+    },
+    "backup": {
+      "import": "このバックアップを復元しますか?現在のブックマークと設定が置き換えられます。"
+    }
+  },
+  "addModal": {
+    "title": "新しいブックマークを追加",
+    "name": "名前:",
+    "url": "URL:",
+    "advancedOptions": "⚙ 詳細オプション",
+    "compactView": "▴ コンパクトビュー"
+  },
+  "clock": {
+    "name": "時計",
+    "inDevelopment": "開発中: 時計はまだ最終バージョンではありません。改善に取り組んでいます。",
+    "createTitle": "時計を追加する",
+    "editTitle": "時計設定",
+    "description": "このワークスペースに現地時間を表示します。",
+    "hourCycle": "時刻形式",
+    "hour24": "24時間",
+    "hour12": "12時間",
+    "showSeconds": "秒を表示",
+    "delete": "削除",
+    "edit": "時計の編集",
+    "actions": "時計の動作",
+    "openSettings": "時計設定を開く",
+    "confirmDelete": "この時計を削除しますか?この操作は元に戻すことができます。",
+    "confirmPermanentDelete": "この時計を完全に削除しますか?これを元に戻すことはできません。",
+    "cancel": "クロックの変更を破棄しますか?",
+    "noSpace": "このクロックには十分なグリッド スペースがありません。"
+  },
+  "buttons": {
+    "save": "保存",
+    "apply": "申し込む",
+    "add": "追加",
+    "accept": "受け入れる",
+    "cancel": "キャンセル",
+    "close": "閉じる"
+  },
+  "localImage": {
+    "upload": "このデバイスからアップロードする",
+    "label": "ローカル画像:",
+    "activeSource": "アクティブなイメージ:",
+    "sourceLocal": "ローカル",
+    "sourceUrl": "URL",
+    "remove": "ローカルイメージを削除する",
+    "notice": "ローカル画像は同期されません。",
+    "unnamed": "ローカル画像"
+  },
+  "workspace": {
+    "ariaLabel": "ワークスペースコントロール",
+    "current": "ワークスペース",
+    "main": "メイン",
+    "search": "ブックマークの検索",
+    "add": "ワークスペースの作成",
+    "delete": "ワークスペースの削除",
+    "undo": "元に戻す",
+    "redo": "やり直し",
+    "shortcutHint": "Alt または Option と上矢印または下矢印でワークスペースを切り替えます",
+    "prompt": "新しいワークスペースの名前を入力します",
+    "namePlaceholder": "仕事もレジャーも…",
+    "confirmDelete": "「{{name}}」とその {{folderCount}} 個のフォルダーと {{bookmarkCount}} 個のブックマークを削除しますか?それらを保持するには、まずメインまたは別のワークスペースに移動します。"
+  },
+  "search": {
+    "title": "ブックマークの検索",
+    "inputLabel": "名前またはURLで検索",
+    "placeholder": "名前またはURL",
+    "empty": "ブックマークが見つかりませんでした。",
+    "noUrl": "URLがありません",
+    "inFolder": "フォルダー: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "選択した項目のアクション",
+    "selected": "{{count}} が選択されました",
+    "move": "ワークスペースに移動",
+    "applyPreset": "デフォルトのスタイルを適用する",
+    "duplicate": "選択範囲の重複",
+    "delete": "削除",
+    "clear": "選択をクリア"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "ブックマークコントロール",
+    "edit": "ブックマークを編集する",
+    "delete": "ブックマークを削除する",
+    "copySuffix": "コピー"
+  },
+  "folder": {
+    "create": "フォルダーの作成",
+    "createPrompt": "新しいフォルダーに名前を付けます",
+    "namePlaceholder": "ツール、インスピレーション…",
+    "open": "{{name}} を開く、{{count}} 個の保存されたブックマーク",
+    "count": "{{count}} 件が保存されました",
+    "summary": "{{capacity}} 個のスペースのうち {{count}} 個が使用されています",
+    "editMode": {
+      "enable": "編集",
+      "disable": "編集を終了する"
+    },
+    "gridLabel": "フォルダーのブックマーク",
+    "dropHint": "ドロップして追加",
+    "noSpace": "新しいフォルダー用の空きグリッド セルはありません。",
+    "removeNoSpace": "このブックマークをフォルダーから削除するのに十分なグリッド領域がありません。",
+    "confirmDelete": "「{{name}}」とその {{count}} ブックマークをごみ箱に移動しますか?",
+    "confirmPermanentDelete": "「{{name}}」とその {{count}} 件のブックマークを完全に削除しますか?これを元に戻すことはできません。",
+    "actions": {
+      "ariaLabel": "フォルダーコントロール",
+      "customize": "フォルダーのカスタマイズ",
+      "rename": "フォルダーの名前を変更する",
+      "delete": "フォルダの削除",
+      "editBookmark": "{{name}} を編集",
+      "removeBookmark": "{{name}} をフォルダーから移動します",
+      "deleteBookmark": "{{name}} を削除",
+      "acceptRename": "保存フォルダー名",
+      "cancelRename": "フォルダー名の変更をキャンセルする"
+    },
+    "editor": {
+      "createTitle": "新しいフォルダーを追加する",
+      "title": "フォルダを編集する",
+      "name": "名前:",
+      "showPreviews": "ブックマークのプレビューを表示する",
+      "showName": "フォルダ名を表示",
+      "iconColor": "シンボルの色:",
+      "outerBackgroundColor": "外側の背景色:",
+      "noOuterBackground": "外側の背景なし",
+      "resetOuterBackground": "自動",
+      "noBackground": "透明フォルダーの塗りつぶし",
+      "backgroundColor": "フォルダーの色:",
+      "backgroundImage": "背景画像（URL）：",
+      "lockImage": "画像 URL をロックまたはロック解除する",
+      "copyImage": "画像のURLをコピー",
+      "clearImage": "クリア画像URL",
+      "textColor": "文字の色:",
+      "preview": "プレビュー",
+      "previewName": "フォルダー",
+      "sections": {
+        "general": "一般",
+        "style": "スタイル",
+        "text": "テキスト"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "ごみ箱",
+    "open": "ごみ箱を開く",
+    "openCount": "ごみ箱を開く、{{count}} 個のアイテム",
+    "dropHint": "ドロップして削除",
+    "summary": "{{count}} 件 · 自動削除: {{retention}}",
+    "empty": "ごみ箱が空です。",
+    "selected": "{{count}} が選択されました",
+    "select": "{{name}} を選択します",
+    "folderContents": "{{count}} ブックマーク",
+    "deletedAt": "{{date}} を削除しました",
+    "expiresIn": "残り{{days}}日",
+    "expiresInOne": "残り1日",
+    "neverExpires": "自動的に削除されることはありません",
+    "restoreAll": "すべて復元する",
+    "deleteAll": "すべて削除",
+    "restoreSelected": "選択したものを復元する",
+    "deleteSelected": "選択したものを削除",
+    "editor": {
+      "title": "ごみ箱を編集する",
+      "animateIcon": "アニメイトのゴミ箱",
+      "appearance": "外観",
+      "backgroundColor": "背景色:",
+      "backgroundImage": "背景画像（URL）：",
+      "lockImage": "画像 URL をロックまたはロック解除する",
+      "copyImage": "画像のURLをコピー",
+      "clearImage": "クリア画像URL",
+      "noBackground": "背景なし",
+      "iconColor": "アイコンの色:",
+      "textColor": "文字の色:",
+      "elements": "目に見える要素",
+      "showName": "番組名",
+      "visible": "メイングリッドにごみ箱を表示する",
+      "preview": "プレビュー",
+      "actions": "ごみ箱のアクション",
+      "edit": "ごみ箱を編集する",
+      "sections": {
+        "general": "一般",
+        "style": "スタイル",
+        "text": "テキスト",
+        "icon": "アイコン"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "名前を入力してプリセットを保存します。"
+    },
+    "name": {
+      "required": "ブックマークの名前を入力します。"
+    },
+    "folderName": {
+      "required": "フォルダーの名前を入力します。"
+    },
+    "url": {
+      "invalid": "URL が無効です。",
+      "unsupportedProtocol": "この URL タイプは許可されていません。"
+    },
+    "backgroundImageUrl": {
+      "invalid": "画像の URL が無効です。",
+      "unsupportedProtocol": "この画像タイプは許可されていません。"
+    }
+  },
+  "editModal": {
+    "title": "ブックマークを編集する",
+    "name": "名前:",
+    "url": "URL:",
+    "backgroundImage": "背景画像（URL）：",
+    "backgroundFavicon": "中央に配置された大きなアイコン",
+    "invertColorBg": "色を反転する",
+    "noBackground": "背景なし",
+    "backgroundColor": "ブックマークの色:",
+    "showText": "テキストを表示",
+    "textColor": "文字の色:",
+    "showFavicon": "アイコンを表示",
+    "invertColorIcon": "アイコンの色を反転する",
+    "iconColor": "アイコンの色:",
+    "sections": {
+      "general": "一般",
+      "style": "スタイル",
+      "text": "テキスト",
+      "icon": "アイコン"
+    },
+    "preview": "プレビュー",
+    "previewName": "プレビュー"
+  },
+  "colorPicker": {
+    "title": "カラーピッカー",
+    "sample": "画面から色を選択します",
+    "close": "カラーピッカーを閉じる",
+    "saturationBrightness": "彩度と明るさ",
+    "hue": "色相",
+    "quickColors": "クイックカラー",
+    "saturation": "彩度",
+    "brightness": "明るさ",
+    "hex": "16進コード",
+    "copy": "16進コードをコピーする",
+    "copied": "16進コードがコピーされました",
+    "copyFailed": "16進コードをコピーできませんでした"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "一般",
+      "sync": "同期",
+      "theme": "テーマ",
+      "bookmark": "ブックマーク",
+      "shortcuts": "ショートカット",
+      "language": "言語",
+      "help": "ヘルプ",
+      "information": "情報"
+    },
+    "general": {
+      "title": "一般",
+      "subtitle": "設定",
+      "export": "バックアップのエクスポート",
+      "import": "バックアップを復元する",
+      "resetSettings": "設定をリセットする",
+      "deleteAllData": "ローカルデータをすべて削除する",
+      "recycleBin": {
+        "title": "ごみ箱",
+        "show": "メイングリッドにゴミ箱を表示する",
+        "retentionLabel": "項目を自動的に削除します。",
+        "retentionOptions": {
+          "oneDay": "1日",
+          "sevenDays": "7日間",
+          "fourteenDays": "14日",
+          "twentyEightDays": "28日",
+          "never": "決してしない"
+        }
+      },
+      "appearance": {
+        "title": "外観",
+        "system": "ブラウザ",
+        "light": "ライト",
+        "dark": "暗い"
+      }
+    },
+    "sync": {
+      "title": "同期",
+      "description": "設定とブックマークを保存する場所を選択します。",
+      "ariaLabel": "ストレージモード",
+      "local": {
+        "title": "この端末のみ",
+        "description": "データは、このローカル ブラウザ プロファイルにのみ保存されます。"
+      },
+      "synced": {
+        "title": "同期済み",
+        "description": "同じアカウントに接続されている Google Chrome プロファイルで利用できます。",
+        "tooltip": "同期情報"
+      },
+      "compatibility": {
+        "newerVersion": "クラウド データが新しい NewDeskTab バージョンで作成されたため、このデバイスでは同期がロックされています。同期されたデータは安全で、変更されていません。 NewDeskTab を更新して再接続します。"
+      },
+      "usage": {
+        "title": "ストレージの可用性",
+        "showExact": "正確なバイトを表示",
+        "showHuman": "読み取り可能なサイズを表示する",
+        "local": "ローカル",
+        "sync": "同期済み",
+        "localSyncCopy": "ローカル同期コピー",
+        "localAria": "ローカルストレージの使用量",
+        "syncAria": "同期されたストレージの使用量",
+        "loading": "計算中…",
+        "summary": "{{used}}/{{total}} · {{percent}}%",
+        "available": "{{free}} 利用可能",
+        "system": "システムとメタデータ",
+        "bookmarks": "ブックマーク",
+        "folders": "フォルダー",
+        "trash": "ごみ箱データ",
+        "localImages": "ローカル画像",
+        "themeImages": "テーマ",
+        "bookmarkImages": "ブックマーク",
+        "folderImages": "フォルダー",
+        "trashImages": "ごみ箱",
+        "otherImages": "その他",
+        "widgets": "ウィジェット",
+        "widgetsHint": "同期に表示されるサイズは推定値であり、外部サービスから取得したライブ コンテンツは含まれません。",
+        "error": "使用不可"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome は、Google アカウントを通じて New DeskTab を同期します。 New DeskTab は独自の同期サーバーを実行しません。",
+        "brave": "Brave では利用できません: New DeskTab データを chrome.storage.sync に保存できますが、現時点ではデバイス間でそれを伝達しません。",
+        "unsupported": "同期ストレージは、現時点では Google Chrome でのみ利用可能です。クロスデバイスのサポートが確認されるまで、他のブラウザは無効のままになります。"
+      },
+      "existingNotice": "同期への切り替えを受け入れると、既存の同期データがすべてロードされます。",
+      "deleteData": "同期データを削除する",
+      "metadata": {
+        "loading": "同期データを確認しています…",
+        "updatedAt": "最終同期更新: {{date}}",
+        "unknown": "同期されたデータは存在しますが、その更新時刻は取得できません。",
+        "empty": "同期された New DeskTab データは保存されません。",
+        "error": "同期データ情報を読み込めませんでした。"
+      },
+      "status": {
+        "idle": "データの準備ができました。",
+        "saving": "変更を保存中…",
+        "saved": "すべての変更が保存されます。",
+        "error": "最新の変更を保存できませんでした。"
+      }
+    },
+    "theme": {
+      "title": "テーマ",
+      "subtitle": "ページの背景",
+      "backgroundImageMode": "画像・動画",
+      "wallpapersTitle": "私自身の壁紙",
+      "ownWallpapersHint": "これらの壁紙とその回転は、このデバイスにのみ保存されます。",
+      "mediaUrl": "壁紙URL",
+      "image": "画像",
+      "video": "ビデオ",
+      "addUrl": "URLを追加",
+      "addFiles": "ローカルファイルを追加する",
+      "rotationInterval": "壁紙のローテーション",
+      "noRotation": "自動的に変更しない",
+      "interval5": "5秒",
+      "interval15": "15秒",
+      "interval30": "30秒",
+      "interval60": "1分",
+      "interval300": "5分",
+      "interval600": "10分",
+      "interval1800": "30分",
+      "previous": "前へ",
+      "next": "次へ",
+      "moveUp": "上に移動",
+      "moveDown": "下に移動",
+      "remove": "削除する",
+      "unavailableLocal": "このデバイスではローカル ファイルを使用できません",
+      "mediaColor": "この壁紙の後ろの色",
+      "mediaPreview": "壁紙のプレビュー",
+      "activeSource": "アクティブソース",
+      "backgroundSolid": "ソリッドカラー",
+      "backgroundColor": "色:",
+      "editSolidColor": "単色の背景色を変更する",
+      "changeSolidColor": "色を変更する",
+      "backgroundImageColor": "画像/ビデオの背後にある色",
+      "backgroundImage": "デバイス間で共有される URL",
+      "urlHidden": "URLは非表示です",
+      "resetBackground": "テーマをリセットする"
+    },
+    "bookmark": {
+      "title": "ブックマーク",
+      "subtitle": "デフォルトのブックマーク",
+      "description": "新しいブックマークを作成するときに使用する外観を選択します。",
+      "configure": "デフォルトのブックマークを構成する",
+      "editorTitle": "デフォルトのブックマークの外観",
+      "previewName": "デフォルトのブックマーク",
+      "export": "ブックマークをエクスポートする",
+      "import": "ブックマークをインポートする",
+      "deleteAll": "すべてのブックマークを削除する",
+      "preview": "プレビュー",
+      "drag": {
+        "title": "ドラッグ動作",
+        "description": "ブックマークの位置を占めたときにブックマークを再編成する方法を選択します。",
+        "none": {
+          "title": "なし",
+          "description": "フリーセルへの移動のみを許可します。"
+        },
+        "cascade": {
+          "title": "シーケンス",
+          "description": "空きセルが見つかるまでチェーンをシフトします。",
+          "experimental": "実験的 · 軽微なバグが含まれる可能性があります。"
+        },
+        "relocate": {
+          "title": "移転",
+          "description": "宛先を占有しているブックマークを再配置します。"
+        }
+      },
+      "resize": {
+        "title": "サイズ変更の動作",
+        "description": "サイズ変更ハンドルを移動するときに項目がどのように反応するかを選択します。",
+        "smooth": {
+          "title": "スムーズ",
+          "description": "ドラッグ中に項目を引き伸ばしてから、グリッドにスナップします。"
+        },
+        "none": {
+          "title": "なし",
+          "description": "隣接するセルの 50% を横切ると、セルごとにジャンプします。"
+        }
+      },
+      "presets": {
+        "title": "スタイルライブラリ",
+        "tab": "図書館",
+        "description": "スタイルを保存し、デフォルトのブックマークを設定するときに再利用します。",
+        "name": "プリセット名",
+        "saved": "保存されたプリセット",
+        "save": "プリセットの保存",
+        "apply": "ロード",
+        "delete": "削除",
+        "empty": "保存されたプリセットはありません"
+      }
+    },
+    "shortcuts": {
+      "title": "キーボードショートカット",
+      "description": "ショートカット ボタンを選択し、文字またはキーの組み合わせを押します。右クリックして割り当てを解除します。",
+      "change": "{{action}} ショートカットを変更します。現在のショートカット: {{shortcut}}。",
+      "press": "ショートカットを押して…",
+      "unassigned": "未割り当て",
+      "unassignedFlash": "ショートカットは未割り当てです。",
+      "modifierRequired": "文字を単独で使用するか、キーと修飾子を組み合わせて使用します。",
+      "reserved": "このショートカットはブラウザまたはオペレーティング システムによって予約されています。別の組み合わせを選択してください。",
+      "conflict": "このキーはすでに別のアクションに割り当てられています。",
+      "updated": "ショートカットが更新されました。",
+      "cancelled": "ショートカットの変更がキャンセルされました。",
+      "restored": "デフォルトのショートカットが復元されました。",
+      "reset": "ショートカットをリセットする",
+      "actions": {
+        "toggleEditing": {
+          "title": "編集モード",
+          "description": "メイン グリッドまたは開いているフォルダーで編集を開始または終了します。"
+        },
+        "addBookmark": {
+          "title": "ブックマークを作成する",
+          "description": "ブックマークを追加するためのフォームを開きます。"
+        },
+        "addFolder": {
+          "title": "フォルダーの作成",
+          "description": "フォルダーを作成するためのダイアログを開きます。"
+        },
+        "openWidgets": {
+          "title": "ウィジェットを開く",
+          "description": "使用可能なウィジェットのリストを開きます。"
+        },
+        "openSettings": {
+          "title": "設定を開く",
+          "description": "New DeskTab 設定パネルを開きます。"
+        }
+      }
+    },
+    "languages": {
+      "title": "言語",
+      "text": "インターフェース言語を選択します。",
+      "system": "ブラウザ",
+      "search": "言語または国を検索する",
+      "empty": "言語が見つかりません"
+    },
+    "information": {
+      "title": "情報",
+      "version": "バージョン: {{VERSION}}",
+      "author": "著者:"
+    }
+  }
+}

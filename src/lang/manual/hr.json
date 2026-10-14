@@ -1,0 +1,517 @@
+{
+  "title": "Upute za upotrebu",
+  "eyebrow": "VAŠ PROSTOR, VAŠ TEMPO",
+  "intro": "Upoznajte svaku sitnicu.",
+  "description": "Pronađite ono što vam treba ili otkrijte nešto novo. Uzmite si vremena.",
+  "settingsDescription": "Svaka značajka, s jednostavnim koracima i malim trikovima koje možete isprobati kad god želite.",
+  "search": {
+    "label": "Što vam možemo pomoći?",
+    "placeholder": "Na primjer: vratite izbrisanu oznaku",
+    "common": "Uobičajena pitanja",
+    "found": "Odgovori za vašu pretragu · {{count}}",
+    "empty": "Nije pronađena pomoć za tu pretragu. Pokušajte s \"tipkovnicom\", \"premjesti knjižne oznake\" ili \"sigurnosnom kopijom\".",
+    "resultsLabel": "Ručna pitanja i odgovori"
+  },
+  "open": "Istražite priručnik",
+  "searchLabel": "Pretražite priručnik",
+  "searchPlaceholder": "Pokušajte s \"tipkovnicom\", \"pozadinom\" ili \"sigurnosnom kopijom\"",
+  "count": "{{count}} odjeljaka za istraživanje",
+  "empty": "Nema podudaranja. Pokušajte s drugom riječju ili izbrišite pretraživanje da biste vidjeli cijeli indeks.",
+  "back": "← Ručno kazalo",
+  "remember": "Dobro je zapamtiti",
+  "related": "Nastavi otkrivati",
+  "footer": "Uvijek dostupno u Postavkama → Pomoć.",
+  "guideLinks": "Saznajte više u priručniku",
+  "groups": {
+    "start": "Počnite ovdje",
+    "organize": "Organizirajte se",
+    "personalize": "Učinite ga svojim",
+    "protect": "Pazite na svoj prostor"
+  },
+  "demo": {
+    "browse": "Pregledajte odjeljke",
+    "previous": "← Prethodni odjeljak",
+    "next": "Sljedeći odjeljak →",
+    "title": "Pogledajte ga na djelu",
+    "example": "Primjer demonstracije",
+    "steps": "Pokazni koraci",
+    "step": "Korak {{step}} od {{count}}",
+    "play": "igrati",
+    "pause": "Pauza",
+    "replay": "Replay",
+    "progress": "Napredak demonstracije",
+    "mode": "Ponašanje",
+    "nextStep": "Sljedeći korak",
+    "reducedMotion": "Smanjeno kretanje: istražite korake bez animacije.",
+    "labels": {
+      "settings": "postavke",
+      "saved": "Promjene spremljene",
+      "page": "Stranica",
+      "selection": "Odabir",
+      "selected": "odabranih stavki",
+      "color": "Boja",
+      "styleName": "Moj ljubičasti stil",
+      "wallpaper": "Pozadine",
+      "rotation": "Rotacija",
+      "format": "Format",
+      "seconds": "sekundi",
+      "language": "Jezik",
+      "system": "sustav",
+      "currentLanguage": "Hrvatski",
+      "restore": "Vratiti",
+      "copy": "Sigurnosna kopija",
+      "restoreCopy": "Pregledajte prije vraćanja",
+      "switchSync": "Prebaciti se na sinkronizirano?",
+      "applyNow": "Primjenjuje se nakon potvrde",
+      "status": "Status",
+      "synchronized": "Sinkronizirano",
+      "retry": "Spremi na čekanju · Pokušaj ponovo",
+      "keyboardQuery": "tipkovnica",
+      "deleteExample": "Oznake i mape bit će izbrisane. Koš za smeće bit će prazan."
+    },
+    "topics": {
+      "bookmarks": [
+        "Otvorite lijevi izbornik i odaberite + → Knjižna oznaka.",
+        "Unesite naziv i adresu stranice.",
+        "Potvrdi: oznaka se pojavljuje u slobodnoj ćeliji."
+      ],
+      "quick-save": [
+        "Otvorite New DeskTab iz njegove ikone proširenja.",
+        "Pregledajte predloženi naziv, adresu i odredište.",
+        "Spremi: oznaka će biti u vašem radnom prostoru kada otvorite karticu."
+      ],
+      "keyboard": [
+        "Pritisnite Tab za fokusiranje prve stavke.",
+        "Tipke sa strelicama pomiču fokus. Enter otvara fokusiranu stavku.",
+        "Esc ili druga kartica završava navigaciju."
+      ],
+      "shortcuts": [
+        "Otvorite Postavke → Tipkovnički prečaci.",
+        "Pritisnite prečac radnje i upišite svoju kombinaciju.",
+        "Spremite da biste primijenili novi prečac."
+      ],
+      "search": [
+        "Povećalo alatne trake ili / otvara pretraživanje.",
+        "Upišite dio imena ili adrese.",
+        "Otvorite rezultat. Esc ili Zatvori vraća se u vaš radni prostor."
+      ],
+      "editing": [
+        "Olovka izbornika otkriva rešetku i kontrole.",
+        "Gmailova olovka otvara uređivač imena i URL-ova.",
+        "Spremite promjenu i ponovno kliknite olovku izbornika da biste završili."
+      ],
+      "movement": [
+        "Omogućite uređivanje i držite pločicu.",
+        "Kursor i pločica pomiču se zajedno u slobodnu ćeliju.",
+        "Otpuštanje: konačna pozicija je spremljena."
+      ],
+      "resizing": [
+        "Omogućite uređivanje i pronađite kutnu ručicu.",
+        "Povucite dijagonalno za promjenu širine i visine.",
+        "Otpustite na 2 × 2. Usporedite Ništa i Glatko pomoću birača."
+      ],
+      "drag-modes": [
+        "Pomoću birača usporedite tri načina povlačenja.",
+        "Povucite prema zauzetoj ćeliji i promatrajte druge pločice.",
+        "Nitko ne koristi slobodnu ćeliju; Premještanje i kaskada reorganiziraju pločice."
+      ],
+      "folders": [
+        "Imenujte mapu da biste grupirali svoje stranice.",
+        "Dok uređujete, povucite oznaku na nju.",
+        "Otvorite mapu kako biste pronašli oznaku u njezinoj mreži."
+      ],
+      "workspaces": [
+        "Alatna traka + stvara radni prostor s vašim odabranim nazivom.",
+        "Novi radni prostor ima vlastitu mrežu.",
+        "Alt + ↑ i Alt + ↓ kruže kroz vaše radne prostore."
+      ],
+      "selection": [
+        "Omogućite uređivanje i odaberite pločicu kratkim klikom.",
+        "Odaberite drugu: alatna traka nudi grupne radnje.",
+        "Klon stvara kopije u slobodnim ćelijama u jednoj akciji."
+      ],
+      "history": [
+        "Pomaknite pločicu: ta promjena ulazi u povijest.",
+        "Poništi vraća pločicu na prethodni položaj.",
+        "Ponovi vraća potez koji ste upravo poništili."
+      ],
+      "appearance": [
+        "Olovka pločice otvara uređivač.",
+        "Promijenite boju i pogledajte pregled.",
+        "Spremite da biste taj izgled primijenili na pločicu."
+      ],
+      "presets": [
+        "Otvorite biblioteku iz Postavke → Oznake.",
+        "Imenujte i spremite stil da biste ga ponovno upotrijebili.",
+        "Učitajte ga kao zadani i spremite za nove oznake."
+      ],
+      "wallpapers": [
+        "Otvorite Postavke → Tema za odabir pozadine.",
+        "Pregledajte interval rotacije pregleda i knjižnice.",
+        "Spremi: odabrana pozadina pojavljuje se u vašem radnom prostoru."
+      ],
+      "clock": [
+        "Odaberite + → Widgeti → Sat u lijevom izborniku.",
+        "Konfigurirajte format i sekunde pomoću pregleda.",
+        "Dodajte sat u slobodnu ćeliju radnog prostora."
+      ],
+      "interface": [
+        "Otvorite Općenito i odaberite jezik izbornika.",
+        "Usporedite svijetlo i tamno sučelje.",
+        "Spremite svoj jezik i postavke izgleda."
+      ],
+      "trash": [
+        "Otvorite koš za smeće kako biste pronašli izbrisanu oznaku.",
+        "Odaberite ga i kliknite Vrati: vraća se na mrežu.",
+        "Općenito, odaberite koliko se dugo čuvaju izbrisane stavke."
+      ],
+      "backup": [
+        "Pronađite opcije sigurnosne kopije u Postavke → Općenito.",
+        "Export preuzima ZIP s podacima i lokalnim datotekama.",
+        "Import traži potvrdu prije zamjene podataka."
+      ],
+      "sync": [
+        "Otvorite Postavke → Sinkronizacija za provjeru trenutnog načina rada.",
+        "Odaberite Sinkronizirano i pregledajte potvrdu.",
+        "Prihvati odmah primjenjuje način rada, bez klika Spremi."
+      ],
+      "compact": [
+        "Kako se prozor sužava, mreža postaje popis.",
+        "Knjižne oznake ostaju dostupne s popisa.",
+        "Proširite prozor za povratak na rešetku i uređivanje."
+      ],
+      "data": [
+        "Primjer koristi drugi jezik, lagano sučelje i prilagođene pločice.",
+        "Reset vraća zadane postavke uz zadržavanje oznaka i njihovih stilova.",
+        "Izbriši uklanja oznake i mape, ostavljajući samo prazan koš za smeće."
+      ],
+      "learning": [
+        "Dnevni savjet vas poziva da otkrijete značajku. Kliknite Pokaži mi kako.",
+        "Upišite \"tipkovnica\" u okvir za pretraživanje da biste pronašli Navigacija s tipkovnicom.",
+        "Pritisnite rezultat da biste pročitali njegove upute."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "MALI SAVJET ZA DANAS",
+    "dismiss": "Odbacite današnji savjet",
+    "read": "Pokaži mi kako",
+    "pace": "Zadržite pokazivač za pauzu.",
+    "enabled": "Dnevni savjeti",
+    "description": "Jedan savjet kada otvorite svoju prvu karticu u danu."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Kako mogu dodati stranicu u svoje oznake?",
+      "searchTerms": "dodati stranicu; stvoriti oznaku; spremi web stranicu; novi favorit",
+      "title": "Dodaj oznake",
+      "summary": "Vaše omiljene stranice pri ruci u svakoj novoj kartici.",
+      "steps": [
+        "Pomaknite se na lijevi rub da biste otkrili izbornik. Odaberite + → Knjižna oznaka.",
+        "Unesite naziv i adresu stranice. Možete prilagoditi njegov izgled prije dodavanja.",
+        "Potvrdite postavljanje knjižne oznake u slobodni utor u trenutnom radnom prostoru. Izvan načina uređivanja, kliknite ga da biste otvorili stranicu."
+      ],
+      "note": "Da biste promijenili postojeću oznaku, uključite uređivanje i upotrijebite njezinu olovku. Možete zaključati adresu kako biste izbjegli slučajne promjene.",
+      "tip": "Izbornik za dodavanje oznaka nalazi se na lijevom rubu. Pomaknite pokazivač tamo i odaberite + → Knjižna oznaka."
+    },
+    "quick-save": {
+      "question": "Kako mogu spremiti stranicu koju posjećujem?",
+      "searchTerms": "spremiti trenutnu stranicu; spremi otvorenu karticu; ikona proširenja; snimanje URL-a",
+      "title": "Spremite trenutnu stranicu",
+      "summary": "Dodajte stranicu iz ikone proširenja.",
+      "steps": [
+        "Dok posjećujete stranicu, otvorite New DeskTab iz izbornika proširenja preglednika.",
+        "Provjerite predloženi naziv i adresu te odaberite dostupno odredište.",
+        "Spremite oznaku i otvorite novu karticu kako biste je pronašli u svom prostoru."
+      ],
+      "note": "Prikvačite ikonu proširenja na alatnu traku preglednika kako bi ovaj prečac bio nadohvat ruke.",
+      "tip": "Nema potrebe za kopiranjem URL-a: ikona preglednika New DeskTab omogućuje spremanje stranice koju posjećujete."
+    },
+    "keyboard": {
+      "question": "Kako se kretati bez miša?",
+      "searchTerms": "bez miša; koristiti tipkovnicu; navigacija strelicama; unesite karticu",
+      "title": "Krećite se pomoću tipkovnice",
+      "summary": "Tab, tipke sa strelicama i Enter za istraživanje vašeg prostora.",
+      "steps": [
+        "Na glavnoj stranici, bez upisivanja u polje ili otvaranja dijaloškog okvira, pritisnite Tab za početak navigacije stavkama.",
+        "Koristite tipke sa strelicama da dosegnete najbližu stavku u svakom smjeru. Enter otvara oznaku ili mapu; u modu za uređivanje, otvara svoj uređivač.",
+        "Ponovno pritisnite Tab ili Esc da napustite navigaciju. Unutar dijaloških okvira tipke Tab i Shift + Tab normalno se kreću između kontrola."
+      ],
+      "note": "U načinu uređivanja, S odabire stavku u fokusu. Izbriši ili Backspace uklanjaju ga nakon potvrde. Widgeti se trajno brišu.",
+      "tip": "Isprobajte Tab u svom prostoru: strelice se kreću između stavki, a Enter ih otvara. Druga kartica napušta ovaj način rada."
+    },
+    "shortcuts": {
+      "question": "Kako mogu promijeniti tipkovničke prečace?",
+      "searchTerms": "promjena prečaca; prilagoditi tipke; kombinacije tipki; prečac",
+      "title": "Napravite vlastite prečace",
+      "summary": "Provjerite i promijenite svoje prečace u Postavkama.",
+      "steps": [
+        "Otvorite Postavke → Prečaci kako biste vidjeli svoje veze za uređivanje, dodavanje oznaka, mapa i widgeta te otvaranje postavki.",
+        "Pritisnite kombinaciju tipki radnje i pritisnite novi prečac. Esc prekida snimanje; desni klik ostavlja radnju nedodijeljenom.",
+        "Spremite postavke da biste primijenili svoje promjene. Poništi prečace vraća izvorne kombinacije."
+      ],
+      "note": "U početku: E uređuje, B dodaje oznaku, F mapu, W otvara widgete i S otvara postavke. Prečaci poštuju tekstualna polja i dijaloške okvire.",
+      "tip": "Možete promijeniti prečace u Postavkama. Pritisnite kombinaciju za snimanje vlastite; Esc poništava, a desni klik poništava dodjelu."
+    },
+    "search": {
+      "question": "Kako mogu pronaći oznaku koju ne vidim?",
+      "searchTerms": "pronaći knjižnu oznaku; locirati stranicu; nedostaje oznaka; URL pretraživanja",
+      "title": "Pronađite knjižnu oznaku",
+      "summary": "Pretražujte po imenu ili adresi, uključujući unutarnje mape.",
+      "steps": [
+        "Pritisnite / kada ne tipkate ili upotrijebite povećalo na traci radnog prostora.",
+        "Upišite dio imena ili adrese. Pretraživanje uključuje oznake u drugim radnim prostorima i unutar mapa.",
+        "Otvorite rezultat koji vam je potreban. Esc ili Zatvori vas vraćaju u vaš prostor."
+      ],
+      "note": "Ne morate se sjećati gdje ste spremili stranicu da biste je pronašli.",
+      "tip": "Tipka / otvara pretragu. Također pronalazi oznake unutar mapa i u drugim radnim prostorima."
+    },
+    "editing": {
+      "question": "Kako mogu uključiti uređivanje?",
+      "searchTerms": "omogućiti uređivanje; uredi radnu površinu; uređivač olovkom; izmijeniti oznaku",
+      "title": "Način uređivanja",
+      "summary": "Uključite olovku za organiziranje i prilagodbu.",
+      "steps": [
+        "Pritisnite olovku u lijevom izborniku ili upotrijebite prečac za uređivanje da biste otkrili rešetku i kontrole stavki.",
+        "Premjestite, promijenite veličinu ili odaberite stavke. Olovka svake kartice otvara uređivač imena, adrese i izgleda.",
+        "Ponovno kliknite olovku kada završite. Promjene radnog prostora spremaju se automatski; urednici imaju vlastiti gumb Spremi."
+      ],
+      "note": "Esc prvo briše odabir ili navigaciju tipkovnicom. Kada nijedna nije aktivna, može napustiti način uređivanja.",
+      "tip": "Olovka izbornika počinje uređivati: pojavljuju se ručice kartice i kontrole. Kliknite ponovo za završetak."
+    },
+    "movement": {
+      "question": "Kako mogu premjestiti oznaku?",
+      "searchTerms": "premjestiti knjižnu oznaku; drag favorit; promijeniti položaj; uredi rešetku",
+      "title": "Premještanje stavki",
+      "summary": "Povucite kartice na mjesto na rešetki.",
+      "steps": [
+        "Uključite način uređivanja i držite karticu koju želite premjestiti.",
+        "Povucite ga do odredišta. Rezultat ovisi o slobodnom prostoru i načinu povlačenja odabranom u Postavke → Oznake.",
+        "Otpustite za spremanje položaja. Također možete odabrati jednu stavku klikom i pomaknuti je za jednu ćeliju pomoću strelica, izvan navigacije karticama."
+      ],
+      "note": "Blokirana odredišta prikazuju vizualnu povratnu informaciju i stavka se vraća na valjanu poziciju. Možete poništiti promjene.",
+      "tip": "U načinu za uređivanje kliknite da biste odabrali jednu karticu i koristite strelice da je pomičete ćeliju po ćeliju. Prvo napustite navigaciju karticama."
+    },
+    "resizing": {
+      "question": "Kako mogu promijeniti veličinu pločice?",
+      "searchTerms": "promjena veličine pločice; uvećati knjižnu oznaku; smanjiti veličinu; ručke za promjenu veličine; klik; Shift; širina visina; 2x2",
+      "title": "Promijenite veličinu",
+      "summary": "Koristite strane i kutove kartice.",
+      "steps": [
+        "Uključite uređivanje i pomaknite se na stranu ili u kut stavke da biste koristili ručke za promjenu veličine.",
+        "Povucite ručicu. Kut mijenja širinu i visinu; strana mijenja samo jednu dimenziju. Također možete kliknuti ručicu za povećanje za jednu ćeliju ili Shift + klik za smanjenje za jednu ćeliju.",
+        "U Postavke → Knjižne oznake odaberite Ništa za preskakanje između ćelija nakon prijelaza 50%, ili Glatko za rastezanje kartice i škljocanje pri otpuštanju."
+      ],
+      "note": "Konačna veličina poštuje mrežu i važeće pozicije. Pregledi postavki pokazuju razliku prije nego što odaberete.",
+      "tip": "Pritisnite ručicu za povećanje za jednu ćeliju ili Shift + kliknite za smanjenje za jednu ćeliju. Kutovi zajedno mijenjaju širinu i visinu; strane mijenjaju samo jednu dimenziju."
+    },
+    "drag-modes": {
+      "question": "Zašto ne mogu ući u zauzetu ćeliju?",
+      "searchTerms": "zauzeta ćelija; premjestiti preko drugog; blokirani pad; premjestiti kaskadu; drag collision",
+      "title": "Načini povlačenja",
+      "summary": "Odaberite što će se dogoditi na zauzetoj poziciji oznake.",
+      "steps": [
+        "Otvorite Postavke → Oznake i proširite ponašanje povlačenja.",
+        "Nitko ne prelazi u slobodna mjesta. Premještanje pronalazi mjesto za oznake na odredištu. Slijed preuređuje redoslijed oznaka.",
+        "Pogledajte animaciju svake opcije i spremite način rada koji vam je ugodan za organiziranje."
+      ],
+      "note": "Potez se odbija ako ne postoji važeći dogovor. Prozirna pozadina ne oslobađa zauzetu ćeliju.",
+      "tip": "Želite premjestiti oznaku u zauzetu ćeliju? Pogledajte preseljenje i Slijed u postavke → Knjižne oznake i pogledajte njihove preglede."
+    },
+    "folders": {
+      "question": "Kako mogu grupirati oznake u mape?",
+      "searchTerms": "stvoriti mapu; grupne knjižne oznake; organizirati favorite; ukloniti iz mape; preimenuj mapu",
+      "title": "Organizirajte pomoću mapa",
+      "summary": "Skupite do 18 oznaka u jednoj mapi.",
+      "steps": [
+        "Odaberite + → Mapa u lijevom izborniku i dodijelite joj naziv.",
+        "U načinu za uređivanje, povucite oznake na nju da biste ih stavili unutra. Otvorite mapu da vidite njezinu mrežu.",
+        "Upotrijebite način uređivanja mape da rasporedite njezine oznake. Pritisnite njegovo ime da biste ga preimenovali i njegovu ikonu da biste prilagodili njegov izgled."
+      ],
+      "note": "Brisanje mape također utječe na njezine oznake. Pregledajte potvrdu prije nastavka; koš za smeće može vratiti izbrisane stavke.",
+      "tip": "Mapa sadrži do 18 oznaka. Uključite uređivanje i povucite karticu u mapu da biste je dodali."
+    },
+    "workspaces": {
+      "question": "Kako mogu odvojiti osobne i poslovne stranice?",
+      "searchTerms": "osobni rad; stvoriti radni prostor; prebaciti radni prostor; stolna računala",
+      "title": "Odvojite svoje radne prostore",
+      "summary": "Jedna rešetka za posao, a druga za sve ostalo.",
+      "steps": [
+        "Traka radnog prostora prebacuje se između glavnog i prilagođenog radnog prostora. Njegov + stvara novi.",
+        "Odaberite radni prostor prije dodavanja stavki. Za prijenos postojećih stavki, odaberite ih i odaberite odredište na akcijskoj traci.",
+        "Alt + ↑ i Alt + ↓ kruže radnim prostorima. Gumb − briše trenutni prilagođeni radni prostor nakon potvrde."
+      ],
+      "note": "Brisanje radnog prostora također briše njegov sadržaj. Glavni ostaje dostupan i ne može se izbrisati.",
+      "tip": "Alt + ↑ i Alt + ↓ mijenjaju radne prostore bez otvaranja birača. Odvojite posao, hobije ili projekte sa +."
+    },
+    "selection": {
+      "question": "Kako mogu promijeniti nekoliko stavki odjednom?",
+      "searchTerms": "odabrati više; skupni odabir; premjestiti nekoliko; selekcija klonova; dvostruke oznake",
+      "title": "Odaberite i djelujte skupno",
+      "summary": "Manje ponovljenih radnji pri organiziranju nekoliko kartica.",
+      "steps": [
+        "Uključite uređivanje i kratko kliknite svaku karticu kako biste je odabrali. Kliknite ponovo za poništavanje odabira; u navigaciji karticama možete koristiti S.",
+        "Izborna traka omogućuje dupliciranje, primjenu zadanog izgleda, premještanje u drugi radni prostor ili brisanje, ovisno o vrsti stavke.",
+        "Provjerite odredište ili potvrdu. Esc ili tipka za brisanje odabira poništava vaš odabir."
+      ],
+      "note": "Za premještanje i umnožavanje potrebni su slobodni utori. Aplikacija vam govori ako neki predmeti ne odgovaraju. Widgeti ne idu u koš za smeće.",
+      "tip": "U načinu za uređivanje odaberite nekoliko kartica kratkim klikovima kako biste ih zajedno premjestili, duplicirali ili promijenili stil. Esc briše odabir."
+    },
+    "history": {
+      "question": "Kako mogu poništiti svoju zadnju promjenu?",
+      "searchTerms": "poništiti promjenu; ponoviti promjenu; vratiti se; vratiti položaj",
+      "title": "Poništi i ponovi",
+      "summary": "Vratite položaj ili nedavnu promjenu.",
+      "steps": [
+        "Koristite strelicu za poništavanje na traci radnog prostora za povratak u prethodno stanje.",
+        "Strelica za ponavljanje vraća promjenu koju ste upravo poništili. Također možete koristiti Ctrl/Cmd + Z i Ctrl/Cmd + Shift + Z.",
+        "Unutar uređivača koristite strelice pored naslova za promjene na čekanju; tekstualna polja zadržavaju normalnu tipkovnicu. Svaka radnja prikazuje kratku poruku, a nedostupne strelice su onemogućene. Provjerite rezultat prije spremanja."
+      ],
+      "note": "Povijest uređivača počinje iznova svaki put kada otvorite uređivač; promjene stižu do vašeg radnog prostora kada spremite. Povijest radnog prostora je privremena i nije sigurnosna kopija. Nova sesija ili ažuriranja s druge kartice mogu ga poništiti.",
+      "tip": "Ako vam se promjena ne čini dobro, upotrijebite strelicu za poništavanje ili Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z je ponavlja."
+    },
+    "appearance": {
+      "question": "Kako mogu promijeniti boju, ikonu ili tekst?",
+      "searchTerms": "promijeniti boju; promjena ikone; promijeniti tekst; izgled oznake; boja mape; favicon",
+      "title": "Prilagodite svoje kartice",
+      "summary": "Boje, slike, tekst i ikone na vaš način.",
+      "steps": [
+        "Uključite uređivanje i otvorite olovku knjižne oznake ili kontrolu izgleda za mapu ili koš za smeće.",
+        "Istražite uređivač: pozadina, boja, slika, tekst i ikona. Dostupne kontrole ovise o vrsti stavke; pregled prikazuje rezultat.",
+        "Štedite kada ste sretni. Možete koristiti slike s URL-a ili lokalne datoteke gdje uređivač nudi tu opciju."
+      ],
+      "note": "Lokalne slike pripadaju ovom pregledniku. Prilikom sinkronizacije dodajte zamjenski URL za druge uređaje. Uvozi zadržavaju uključene slike i jasne reference bez datoteke; Sinkronizacija zanemaruje datoteke koje nisu dostupne na ovom uređaju.",
+      "tip": "Olovka knjižne oznake otvara njezin vizualni uređivač. Promijenite boje, tekst, ikonu ili sliku i provjerite pregled."
+    },
+    "presets": {
+      "question": "Kako ponovno upotrijebiti stil koji mi se sviđa?",
+      "searchTerms": "sačuvati stil; izgled za ponovnu upotrebu; zadani stilovi; knjižnica unaprijed postavljenih postavki; primijeniti stil",
+      "title": "Ponovno upotrijebite izglede",
+      "summary": "Spremite izgled i primijenite ga na druge oznake.",
+      "steps": [
+        "Otvorite biblioteku urednika da odaberete izgled iz dostupne zbirke.",
+        "Spremite prilagođeni izgled kao unaprijed zadani za ponovno korištenje njegovih boja, teksta i ikone bez kopiranja naziva ili adrese knjižne oznake.",
+        "U Postavke → Oznake konfigurirajte zadani izgled za nove oznake. Traka odabira može ga primijeniti na kompatibilne stavke."
+      ],
+      "note": "Unaprijed postavka mijenja izgled, a ne identitet oznake, odredište ili položaj.",
+      "tip": "Spremite izgled koji vam se sviđa u knjižnici izgleda. Ponovno ga upotrijebite na drugim karticama bez mijenjanja njihovih imena ili adresa."
+    },
+    "wallpapers": {
+      "question": "Kako mogu koristiti sliku ili video kao pozadinu?",
+      "searchTerms": "promijeniti pozadinu; video pozadina; rotacija pozadine; tema",
+      "title": "Pozadine i rotacija",
+      "summary": "Boja, slika ili video za ugođaj.",
+      "steps": [
+        "Otvorite Postavke → Tema i odaberite zadanu pozadinu, boju ili medijsku pozadinu.",
+        "Dodajte slike ili videozapise iz izvora ponuđenih na ploči. Knjižnica prikuplja više pozadina s intervalom rotacije.",
+        "Provjerite pregled i spremite. Možete upariti lokalnu datoteku s alternativnim URL-om za druge uređaje."
+      ],
+      "note": "Lokalne datoteke ostaju u ovom pregledniku. Sinkronizacija ih ne prenosi; puna sigurnosna kopija ih može sačuvati.",
+      "tip": "Vaša se pozadina može promijeniti automatski: dodajte nekoliko u Postavke → Biblioteku tema i postavite interval rotacije."
+    },
+    "clock": {
+      "question": "Kako mogu dodati sat?",
+      "searchTerms": "dodati sat; pokazati vrijeme; sekundi; 24-satni format; widget za sat",
+      "title": "Dodajte sat",
+      "summary": "Widget koji prikazuje vrijeme vašeg uređaja.",
+      "steps": [
+        "Odaberite + → Widgeti u lijevom izborniku i odaberite Sat.",
+        "Odaberite 12- ili 24-satni format i želite li prikazati sekunde. Pregled vam pomaže da odlučite.",
+        "Dodajte ga u slobodni utor. U načinu uređivanja možete premjestiti, promijeniti veličinu ili ponovno otvoriti njegove opcije."
+      ],
+      "note": "Sat prati vrijeme vašeg uređaja. Brisanje widgeta je trajno; ne ide u koš za smeće.",
+      "tip": "U + → Widgeti možete dodati 12- ili 24-satni sat s izbornim sekundama i promijeniti mu veličinu kako bi odgovarao vašem prostoru."
+    },
+    "interface": {
+      "question": "Kako mogu promijeniti jezik ili koristiti tamni način rada?",
+      "searchTerms": "promijeniti jezik; tamni način rada; svjetlosni način rada; izgled sučelja",
+      "title": "Jezik i tema sučelja",
+      "summary": "Učinite izbornike, dijaloge i kontrole ugodnima.",
+      "steps": [
+        "U Postavke → Općenito odaberite jezik ili pustite da prati vaš sustav.",
+        "Odaberite svijetlo, tamno ili automatsko sučelje prema vašim željama.",
+        "Spremi postavke. Tema sučelja radi uz pozadinu koju odaberete u Temi."
+      ],
+      "note": "Jezik sustava i automatski izgled slijede vaše postavke uređaja.",
+      "tip": "Odaberite svijetlo ili tamno sučelje uz zadržavanje pozadine. Pronađite ovu opciju i jezik u Postavke → Općenito."
+    },
+    "trash": {
+      "question": "Kako mogu vratiti izbrisanu oznaku?",
+      "searchTerms": "oporaviti izbrisanu oznaku; vratiti uklonjeno; koš za smeće; slučajno izbrisano; obnoviti mapu",
+      "title": "Vrati iz koša za smeće",
+      "summary": "Druga prilika za oznake i mape.",
+      "steps": [
+        "Otvorite koš za smeće svog prostora da biste pregledali izbrisane oznake i mape.",
+        "Odaberite ono što želite natrag i upotrijebite Vrati. Također možete trajno izbrisati stavke ili isprazniti spremnik nakon potvrde.",
+        "U Postavke → Općenito odaberite želite li ga prikazati i koliko dugo čuva stavke: 1, 7, 14 ili 28 dana ili ih nikada ne briši automatski."
+      ],
+      "note": "Koš za smeće pripada ovom uređaju. Istekli ili trajno izbrisani predmeti više se ne mogu iz njega vratiti.",
+      "tip": "Greškom ste izbrisali oznaku? Otvorite koš za smeće i vratite ga. Prilagodite razdoblje zadržavanja u Postavke → Općenito."
+    },
+    "backup": {
+      "question": "Kako mogu napraviti sigurnosnu kopiju ili prenijeti svoje podatke?",
+      "searchTerms": "sigurnosna kopija; izvoz podataka; uvozna kopija; vratiti sigurnosnu kopiju; drugi preglednik; prijenos podataka",
+      "title": "Sigurnosne kopije i uvozi",
+      "summary": "Sačuvajte kopiju svog prostora i ponesite je sa sobom.",
+      "steps": [
+        "U Postavke → Općenito izvezite punu sigurnosnu kopiju kako biste sačuvali podatke i lokalne datoteke uključene u ZIP arhivu.",
+        "Za vraćanje uvezite sigurnosnu kopiju i pregledajte potvrdu prije zamjene podataka. Podržane su i kompatibilne JSON sigurnosne kopije.",
+        "U Postavke → Oznake možete izvesti ili uvesti samo oznake i mape kada vam nije potrebna potpuna sigurnosna kopija."
+      ],
+      "note": "Izvoz knjižne oznake nije puna sigurnosna kopija postavki i lokalnih medija. Spremite sigurnosnu kopiju prije vraćanja ili brisanja podataka.",
+      "tip": "Puna sigurnosna kopija iz Postavke → Općenito uključuje lokalne datoteke u ZIP-u. Korisno je prije promjene preglednika ili vraćanja podataka."
+    },
+    "sync": {
+      "question": "Kako mogu koristiti isti prostor na drugom računalu?",
+      "searchTerms": "drugo računalo; sinkronizirati uređaje; sinkronizacija; oblak; lokalna sinkronizacija; zaustaviti sinkronizaciju; onemogući sinkronizaciju; lokalni način rada",
+      "title": "Sinkronizirajte sve uređaje",
+      "summary": "Podijelite svoj prostor pomoću sinkronizacije preglednika.",
+      "steps": [
+        "Prijavite se i omogućite sinkronizaciju proširenja u svom Google Chrome profilu.",
+        "U Postavke → Sinkronizacija odaberite Sinkronizirano i prihvatite potvrdu. Promjena stupa na snagu odmah: učitavaju se postojeće sinkronizirane oznake i postavke ili se sinkroniziraju vaši spremljeni lokalni podaci ako ne postoje.",
+        "Koristite isti profil na drugom uređaju. Provjerite status sinkronizacije i raspoloživi prostor na ploči."
+      ],
+      "note": "Lokalne datoteke, koš za smeće i dnevni savjeti pripadaju svakom uređaju. Sinkronizacija ima ograničenja pohrane; koristite alternativne URL-ove za lokalne slike i videozapise. Odabir Lokalno također traži potvrdu i odmah stupa na snagu, zadržavajući pohranjene sinkronizirane podatke.",
+      "tip": "Sinkronizacija dijeli vaš prostor na više uređaja, ali lokalne datoteke trebaju alternativni URL. Pogledajte Postavke → Sinkronizacija."
+    },
+    "compact": {
+      "question": "Zašto vidim popis umjesto mreže?",
+      "searchTerms": "mali prozor; prikaz popisa; rešetka je nestala; skrivena ploča; mobilni",
+      "title": "Koristite manji prozor",
+      "summary": "Nastavite posezati za svojim oznakama kada je prostor ograničen.",
+      "steps": [
+        "Kada se prozor suzi, aplikacija se prebacuje na popis kako bi vaše stavke bile dostupne.",
+        "Otvorite oznake, mape ili pretražujte u ovom prikazu. Priručnik se također prilagođava raspoloživoj veličini.",
+        "Proširite prozor kako biste vratili rešetku i ploče za uređivanje. Obustavljeni dijaloški okvir za uređivanje zadržava svoju skicu."
+      ],
+      "note": "Kompaktni prikaz pomaže vam u pretraživanju prostora; reorganizacija treba dovoljno širok prozor.",
+      "tip": "U uskom prozoru vaše oznake ostaju dostupne kao popis. Proširite ga kada želite urediti ili reorganizirati rešetku."
+    },
+    "data": {
+      "question": "Kako mogu izbrisati svoje podatke ili resetirati postavke?",
+      "searchTerms": "izbrisati podatke; resetirati postavke; ukloniti sve; početi ispočetka",
+      "title": "Spremanje i resetiranje",
+      "summary": "Saznajte što se sprema i što svaka radnja uklanja.",
+      "steps": [
+        "Radnje radnog prostora spremaju se automatski. U uređivačima i postavkama potvrdite sa Spremi; Odustani odbacuje skicu te ploče.",
+        "Ako se pojavi obavijest o spremanju na čekanju, kliknite Pokušaj ponovno spremiti i pričekajte potvrdu prije zatvaranja kartice.",
+        "U Postavke → Općenito možete resetirati postavke ili izbrisati sve podatke. Pročitajte potvrdu i izvezite sigurnosnu kopiju svega što želite zadržati."
+      ],
+      "note": "Poništavanjem postavki zadržavaju se vaše oznake, njihove veličine i stilovi. Brisanjem svih lokalnih podataka uklanjaju se stavke i prazni se koš za smeće. Izvezite sigurnosnu kopiju prije brisanja: Poništi ne zamjenjuje sigurnosnu kopiju.",
+      "tip": "Ako vidite obavijest o nespremljenim promjenama, upotrijebite Pokušaj ponovno spremiti prije zatvaranja kartice. Zaštitite svoj prostor potpunom sigurnosnom kopijom."
+    },
+    "learning": {
+      "question": "Kako mogu ponovno otvoriti vodič ili isključiti dnevne savjete?",
+      "searchTerms": "onemogućiti savjete; isključi pomoć; dnevna uzbuna; ponovno otvoriti vodič; korisnički priručnik",
+      "title": "Učite vlastitim tempom",
+      "summary": "Kratki vodič, priručnik i mali dnevni savjet.",
+      "steps": [
+        "Ponovno pogledajte kratki vodič iz Postavke → Pomoć. Svaki korak vodi do odgovarajućih objašnjenja u priručniku.",
+        "Istražite indeks ili potražite riječ. Povezane veze odjeljka vode vas do drugih značajki kada budete spremni.",
+        "Vaša prva nova kartica svaki dan prikazuje nasumični savjet. Odbacite ga ili otvorite njegovo objašnjenje; možete onemogućiti savjete u pomoći."
+      ],
+      "note": "Savjeti posjećuju odjeljke bez ponavljanja dok se zbirka ne završi. Traju 20 sekundi i zastaju dok lebde ili fokusiraju gumbe. Oni slijede lokalni dan i postavke ovog preglednika.",
+      "tip": "Ovaj priručnik je uvijek u Postavkama → Pomoć. Dnevni savjeti otvaraju odjeljak i tamo ih možete onemogućiti kad god želite."
+    }
+  }
+}

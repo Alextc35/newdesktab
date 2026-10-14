@@ -1,0 +1,517 @@
+{
+  "title": "Manual de utilizare",
+  "eyebrow": "SPAȚIUL TĂU, RITMUL TĂU",
+  "intro": "Cunoașteți fiecare mică caracteristică.",
+  "description": "Găsiți ceea ce aveți nevoie sau descoperiți ceva nou. Nu vă grăbiţi.",
+  "settingsDescription": "Fiecare caracteristică, cu pași simpli și mici trucuri de încercat oricând doriți.",
+  "search": {
+    "label": "Cu ce te putem ajuta?",
+    "placeholder": "De exemplu: recuperați un marcaj șters",
+    "common": "Întrebări comune",
+    "found": "Răspunsuri pentru căutarea ta · {{count}}",
+    "empty": "Nu a fost găsit niciun ajutor pentru căutarea respectivă. Încercați „tastatura”, „mutați marcajele” sau „backup”.",
+    "resultsLabel": "Întrebări și răspunsuri manuale"
+  },
+  "open": "Explorați manualul",
+  "searchLabel": "Căutați manualul",
+  "searchPlaceholder": "Încercați „tastatura”, „tapet” sau „backup”",
+  "count": "{{count}} secțiuni de explorat",
+  "empty": "Fără meciuri. Încercați un alt cuvânt sau ștergeți căutarea pentru a vedea întregul index.",
+  "back": "← Index manual",
+  "remember": "Bine de reținut",
+  "related": "Continuă să descoperi",
+  "footer": "Întotdeauna disponibil în Setări → Ajutor.",
+  "guideLinks": "Aflați mai multe în manual",
+  "groups": {
+    "start": "Începeți de aici",
+    "organize": "Organizează-te",
+    "personalize": "Fă-l al tău",
+    "protect": "Ai grijă de spațiul tău"
+  },
+  "demo": {
+    "browse": "Răsfoiți secțiuni",
+    "previous": "← Secțiunea anterioară",
+    "next": "Următoarea secțiune →",
+    "title": "Vedeți-l în acțiune",
+    "example": "Exemplu demonstrativ",
+    "steps": "Etape demonstrative",
+    "step": "Pasul {{step}} din {{count}}",
+    "play": "Joacă",
+    "pause": "Pauză",
+    "replay": "Reluare",
+    "progress": "Progresul demonstrației",
+    "mode": "Comportament",
+    "nextStep": "Următorul pas",
+    "reducedMotion": "Mișcare redusă: explorați pașii fără animație.",
+    "labels": {
+      "settings": "Setări",
+      "saved": "Modificările au fost salvate",
+      "page": "Pagina",
+      "selection": "Selectie",
+      "selected": "articolele selectate",
+      "color": "Culoare",
+      "styleName": "Stilul meu violet",
+      "wallpaper": "Imagini de fundal",
+      "rotation": "Rotire",
+      "format": "Format",
+      "seconds": "secunde",
+      "language": "Limba",
+      "system": "Sistem",
+      "currentLanguage": "Română",
+      "restore": "Restaurați",
+      "copy": "Backup",
+      "restoreCopy": "Examinați înainte de restaurare",
+      "switchSync": "Comutați la Sincronizat?",
+      "applyNow": "Se aplică atunci când este confirmat",
+      "status": "Stare",
+      "synchronized": "Sincronizat",
+      "retry": "Salvare în așteptare · Reîncercați",
+      "keyboardQuery": "tastatura",
+      "deleteExample": "Marcajele și folderele vor fi șterse. Coșul de reciclare va fi gol."
+    },
+    "topics": {
+      "bookmarks": [
+        "Deschideți meniul din stânga și alegeți + → Marcaj.",
+        "Introduceți numele paginii și adresa.",
+        "Confirmați: marcajul apare într-o celulă liberă."
+      ],
+      "quick-save": [
+        "Deschideți New DeskTab din pictograma extensiei sale.",
+        "Examinați numele, adresa și destinația sugerate.",
+        "Salvare: marcajul va fi în spațiul de lucru când deschideți o filă."
+      ],
+      "keyboard": [
+        "Apăsați Tab pentru a focaliza primul element.",
+        "Tastele săgeți mută focalizarea. Enter deschide elementul focalizat.",
+        "Esc sau altă filă încheie navigarea."
+      ],
+      "shortcuts": [
+        "Deschide Setări → Comenzi rapide de la tastatură.",
+        "Faceți clic pe comanda rapidă a unei acțiuni și introduceți combinația dvs.",
+        "Salvați pentru a aplica noua comandă rapidă."
+      ],
+      "search": [
+        "Lupa barei de instrumente sau / deschide căutarea.",
+        "Introduceți o parte a numelui sau a adresei.",
+        "Deschide rezultatul. Esc sau Închide revine la spațiul de lucru."
+      ],
+      "editing": [
+        "Creionul de meniu dezvăluie grila și controalele.",
+        "Creionul Gmail își deschide numele și editorul de adrese URL.",
+        "Salvați modificarea și faceți clic din nou pe creionul de meniu pentru a finaliza."
+      ],
+      "movement": [
+        "Activați editarea și țineți apăsată tigla.",
+        "Cursorul și țigla se mută împreună într-o celulă liberă.",
+        "Eliberare: poziția finală este salvată."
+      ],
+      "resizing": [
+        "Activați editarea și găsiți mânerul de colț.",
+        "Trageți în diagonală pentru a modifica lățimea și înălțimea.",
+        "Eliberați la 2 × 2. Comparați Niciunul și Netedă folosind selectorul."
+      ],
+      "drag-modes": [
+        "Utilizați selectorul pentru a compara cele trei moduri de glisare.",
+        "Trageți spre o celulă ocupată și urmăriți celelalte plăci.",
+        "Niciunul nu folosește o celulă liberă; Relocarea și Cascada reorganizează plăcile."
+      ],
+      "folders": [
+        "Denumiți un folder pentru a vă grupa paginile.",
+        "În timp ce editați, trageți un marcaj pe el.",
+        "Deschideți folderul pentru a găsi marcajul în grila acestuia."
+      ],
+      "workspaces": [
+        "Bara de instrumente + creează un spațiu de lucru cu numele ales.",
+        "Noul spațiu de lucru are propria grilă.",
+        "Alt + ↑ și Alt + ↓ parcurg spațiile de lucru."
+      ],
+      "selection": [
+        "Activați editarea și selectați o dală cu un clic scurt.",
+        "Selectați altul: bara de instrumente oferă acțiuni de grup.",
+        "Clonează creează copii în celule libere într-o singură acțiune."
+      ],
+      "history": [
+        "Mutați o țiglă: acea modificare intră în istorie.",
+        "Anulare readuce țigla la poziția anterioară.",
+        "Refacere restabilește mișcarea pe care tocmai ați anulat-o."
+      ],
+      "appearance": [
+        "Creionul plăcii își deschide editorul.",
+        "Schimbați culoarea și urmăriți previzualizarea.",
+        "Salvați pentru a aplica acel aspect plăcii."
+      ],
+      "presets": [
+        "Deschideți biblioteca din Setări → Marcaje.",
+        "Denumiți și salvați un stil pentru al reutiliza.",
+        "Încărcați-l ca implicit și salvați pentru noi marcaje."
+      ],
+      "wallpapers": [
+        "Deschide Setări → Tema pentru a alege un tapet.",
+        "Examinați previzualizarea și intervalul de rotație a bibliotecii.",
+        "Salvare: imaginea de fundal aleasă apare în spațiul dvs. de lucru."
+      ],
+      "clock": [
+        "Alegeți + → Widgeturi → Ceas din meniul din stânga.",
+        "Configurați formatul și secundele folosind previzualizarea.",
+        "Adăugați ceasul într-o celulă liberă din spațiul de lucru."
+      ],
+      "interface": [
+        "Deschideți general și alegeți limba meniului.",
+        "Comparați interfața luminoasă și întunecată.",
+        "Salvați preferințele de limbă și aspect."
+      ],
+      "trash": [
+        "Deschideți coșul de reciclare pentru a găsi un marcaj șters.",
+        "Selectați-l și faceți clic pe Restaurare: se întoarce la grilă.",
+        "În general, alegeți cât timp sunt păstrate elementele șterse."
+      ],
+      "backup": [
+        "Găsiți opțiunile de rezervă în Setări → general.",
+        "Export descarcă un ZIP cu date și fișiere locale.",
+        "Importul solicită confirmarea înainte de a înlocui datele."
+      ],
+      "sync": [
+        "Deschideți Setări → Sincronizare pentru a verifica modul curent.",
+        "Alegeți Sincronizat și examinați confirmarea.",
+        "Acceptați aplică modul imediat, fără a face clic pe Salvare."
+      ],
+      "compact": [
+        "Pe măsură ce fereastra se îngustează, grila devine o listă.",
+        "Marcajele rămân accesibile din listă.",
+        "Lărgiți fereastra pentru a reveni la grilă și editați."
+      ],
+      "data": [
+        "Exemplul folosește un alt limbaj, o interfață ușoară și plăci personalizate.",
+        "Resetarea restabilește setările implicite păstrând marcajele și stilurile acestora.",
+        "Ștergerea elimină marcajele și folderele, lăsând doar coșul de reciclare gol."
+      ],
+      "learning": [
+        "Sfatul zilnic vă invită să descoperiți o caracteristică. Faceți clic pe Arată-mi cum.",
+        "Tastați „tastatura” în caseta de căutare pentru a găsi Navigare cu tastatura.",
+        "Faceți clic pe rezultat pentru a citi instrucțiunile acestuia."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "UN MIC SFAT PENTRU AZI",
+    "dismiss": "Respinge sfatul de astăzi",
+    "read": "Arată-mi cum",
+    "pace": "Plasați cursorul pentru a întrerupe.",
+    "enabled": "Sfaturi zilnice",
+    "description": "Un sfat când deschideți prima filă a zilei."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Cum adaug o pagină la marcajele mele?",
+      "searchTerms": "adauga pagina; creați marcaj; salvează site-ul web; nou favorit",
+      "title": "Adăugați marcaje",
+      "summary": "Paginile tale preferate la îndemână în fiecare filă nouă.",
+      "steps": [
+        "Deplasați-vă la marginea din stânga pentru a dezvălui meniul. Alegeți + → Marcaj.",
+        "Introduceți numele paginii și adresa. Îi puteți ajusta aspectul înainte de a-l adăuga.",
+        "Confirmați pentru a plasa marcajul într-un slot liber din spațiul de lucru curent. În afara modului de editare, faceți clic pe el pentru a deschide pagina."
+      ],
+      "note": "Pentru a schimba un marcaj existent, activați editarea și folosiți creionul acestuia. Puteți bloca adresa pentru a evita modificări accidentale.",
+      "tip": "Meniul pentru adăugarea marcajelor este pe marginea din stânga. Mutați cursorul acolo și alegeți + → Marcaj."
+    },
+    "quick-save": {
+      "question": "Cum salvez pagina pe care o vizitez?",
+      "searchTerms": "salvează pagina curentă; salvați fila deschisă; pictograma extensiei; captura URL",
+      "title": "Salvați pagina curentă",
+      "summary": "Adăugați o pagină din pictograma extensiei.",
+      "steps": [
+        "În timp ce vizitați o pagină, deschideți New DeskTab din meniul de extensii al browserului.",
+        "Verificați numele și adresa propuse și alegeți o destinație disponibilă.",
+        "Salvați marcajul și deschideți o filă nouă pentru a-l găsi în spațiul dvs."
+      ],
+      "note": "Fixați pictograma extensiei pe bara de instrumente a browserului pentru a păstra această comandă rapidă la îndemână.",
+      "tip": "Nu este nevoie să copiați adresa URL: pictograma browserului New DeskTab vă permite să salvați pagina pe care o vizitați."
+    },
+    "keyboard": {
+      "question": "Cum navighez fără mouse?",
+      "searchTerms": "fără șoarece; utilizați tastatura; navigare cu săgeți; fila enter",
+      "title": "Navigați cu tastatura",
+      "summary": "Tab, tastele săgeți și Enter pentru a vă explora spațiul.",
+      "steps": [
+        "Pe pagina principală, fără să tastați un câmp sau să aveți un dialog deschis, apăsați Tab pentru a începe navigarea în articole.",
+        "Utilizați tastele săgeți pentru a ajunge la cel mai apropiat element în fiecare direcție. Enter deschide marcajul sau folderul; în modul de editare, își deschide editorul.",
+        "Apăsați din nou Tab sau Esc pentru a părăsi navigarea. În interiorul casetelor de dialog, Tab și Shift + Tab se deplasează între comenzi în mod normal."
+      ],
+      "note": "În modul de editare, S selectează elementul focalizat. Ștergeți sau Backspace îl elimină după confirmare. Widgeturile sunt șterse definitiv.",
+      "tip": "Încercați Tab în spațiul dvs.: săgețile se deplasează între elemente și Enter le deschide. O altă filă părăsește acest mod."
+    },
+    "shortcuts": {
+      "question": "Cum îmi schimb comenzile rapide de la tastatură?",
+      "searchTerms": "schimba comenzile rapide; personalizați cheile; combinații de taste; tastă rapidă",
+      "title": "Faceți propriile comenzi rapide",
+      "summary": "Verificați și modificați comenzile rapide în Setări.",
+      "steps": [
+        "Deschideți Setări → Comenzi rapide pentru a vedea legăturile dvs. pentru editare, adăugarea de marcaje, foldere și widget-uri și deschiderea setărilor.",
+        "Faceți clic pe combinația de taste a unei acțiuni și apăsați pe o nouă comandă rapidă. Esc anulează înregistrarea; clic dreapta lasă acțiunea nealocată.",
+        "Salvați setările pentru a aplica modificările. Resetarea comenzilor rapide restabilește combinațiile originale."
+      ],
+      "note": "Inițial: E editează, B adaugă un marcaj, F un folder, W deschide widget-uri și S deschide setări. Comenzile rapide respectă câmpurile de text și casetele de dialog.",
+      "tip": "Puteți modifica comenzile rapide din Setări. Faceți clic pe o combinație pentru a vă înregistra propria; Esc se anulează și clic dreapta îl anulează."
+    },
+    "search": {
+      "question": "Cum găsesc un marcaj pe care nu-l văd?",
+      "searchTerms": "găsiți marcaj; localiza pagina; marcaj lipsă; URL de căutare",
+      "title": "Găsiți un marcaj",
+      "summary": "Căutați după nume sau adresă, inclusiv în interiorul dosarelor.",
+      "steps": [
+        "Apăsați / când nu scrieți sau utilizați lupa de pe bara de spațiu de lucru.",
+        "Introduceți o parte dintr-un nume sau o adresă. Căutarea include marcaje în alte spații de lucru și în dosare.",
+        "Deschideți rezultatul de care aveți nevoie. Esc sau Închide vă duce înapoi în spațiul dvs."
+      ],
+      "note": "Nu trebuie să vă amintiți unde ați salvat o pagină pentru a o găsi.",
+      "tip": "Tasta / deschide căutarea. De asemenea, găsește marcaje în foldere și în alte spații de lucru."
+    },
+    "editing": {
+      "question": "Cum activez editarea?",
+      "searchTerms": "activați editarea; editați desktop; editor de creion; modifica marcajul",
+      "title": "Modul de editare",
+      "summary": "Porniți creionul pentru a organiza și personaliza.",
+      "steps": [
+        "Faceți clic pe creionul din meniul din stânga sau utilizați comanda rapidă de editare pentru a dezvălui grila și comenzile elementului.",
+        "Mutați, redimensionați sau selectați elemente. Creionul fiecărei cărți își deschide numele, adresa și editorul de aspect.",
+        "Faceți clic din nou pe creion când ați terminat. Modificările spațiului de lucru se salvează automat; editorii au propriul buton Salvare."
+      ],
+      "note": "Esc șterge mai întâi selecția sau navigarea de la tastatură. Când niciunul nu este activ, poate părăsi modul de editare.",
+      "tip": "Creionul de meniu începe editarea: apar mânerele și comenzile cardului. Faceți clic din nou pentru a finaliza."
+    },
+    "movement": {
+      "question": "Cum mut un marcaj?",
+      "searchTerms": "mutați marcajul; drag favorite; schimba pozitia; aranjați grila",
+      "title": "Mutați articole",
+      "summary": "Trageți cărțile la locul lor pe grilă.",
+      "steps": [
+        "Activați modul de editare și țineți apăsat cardul pe care doriți să îl mutați.",
+        "Trageți-l la destinație. Rezultatul depinde de spațiul liber și de modul de glisare ales în Setări → Marcaje.",
+        "Eliberați pentru a-i salva poziția. De asemenea, puteți selecta un singur element cu un clic și îl puteți muta într-o celulă cu săgeți, în afara navigației din filă."
+      ],
+      "note": "Destinațiile blocate arată feedback vizual, iar articolul revine la o poziție validă. Puteți anula modificările.",
+      "tip": "În modul de editare, faceți clic pentru a selecta un card și utilizați săgețile pentru al muta celulă cu celulă. Părăsiți mai întâi navigarea în filă."
+    },
+    "resizing": {
+      "question": "Cum schimb dimensiunea unei plăci?",
+      "searchTerms": "redimensiona faianta; mărește marcaj; reduce dimensiunea; mânere de redimensionare; clic; Schimbare; latime inaltime; 2x2",
+      "title": "Schimbați dimensiunea",
+      "summary": "Utilizați laturile și colțurile unui card.",
+      "steps": [
+        "Activați editarea și mutați-vă în partea laterală sau în colțul unui articol pentru a utiliza mânerele de redimensionare ale acestuia.",
+        "Trageți mânerul. Un colț își schimbă lățimea și înălțimea; o latură schimbă doar o dimensiune. De asemenea, puteți face clic pe un mâner pentru a crește cu o celulă sau Shift + clic pentru a micșora cu o celulă.",
+        "În Setări → Marcaje, alegeți Niciunul pentru a sări între celule după ce ați trecut 50%, sau Netezire pentru a întinde cardul și a face clic la eliberare."
+      ],
+      "note": "Mărimea finală respectă grila și pozițiile valabile. Previzualizările setărilor arată diferența înainte de a alege.",
+      "tip": "Faceți clic pe un mâner pentru a crește cu o celulă sau Shift + clic pentru a micșora cu o celulă. Colțurile își schimbă lățimea și înălțimea împreună; laturile schimba doar o dimensiune."
+    },
+    "drag-modes": {
+      "question": "De ce nu pot să cad pe o celulă ocupată?",
+      "searchTerms": "celulă ocupată; trece peste altul; picătură blocată; relocați cascada; coliziune de tragere",
+      "title": "Moduri de glisare",
+      "summary": "Alegeți ce se întâmplă la o poziție de marcaj ocupată.",
+      "steps": [
+        "Deschideți Setări → Marcaje și extindeți comportamentul de glisare.",
+        "Niciunul nu se mută în sloturi libere. Relocarea găsește o poziție pentru marcaje la destinație. Secvență rearanjează marcajele în secvență.",
+        "Urmăriți animația fiecărei opțiuni și salvați modul cu care vă simțiți confortabil de organizat."
+      ],
+      "note": "O mutare este respinsă dacă nu există un aranjament valid. Un fundal transparent nu eliberează o celulă ocupată.",
+      "tip": "Doriți să mutați un marcaj într-o celulă ocupată? Uitați-vă la Relocare și Secvență în Setări → Marcaje și urmăriți previzualizările acestora."
+    },
+    "folders": {
+      "question": "Cum grupez marcajele în dosare?",
+      "searchTerms": "crearea unui folder; marcaje de grup; organizați favoritele; eliminați din folder; redenumiți folderul",
+      "title": "Organizați cu dosare",
+      "summary": "Adunați până la 18 marcaje într-un singur dosar.",
+      "steps": [
+        "Alegeți + → Folder din meniul din stânga și dați-i un nume.",
+        "În modul de editare, trageți marcajele pe el pentru a le pune înăuntru. Deschideți folderul pentru a-i vedea grila.",
+        "Utilizați modul de editare al folderului pentru a-i aranja marcajele. Faceți clic pe numele acestuia pentru a-l redenumi și pe pictograma pentru a-i personaliza aspectul."
+      ],
+      "note": "Ștergerea unui folder afectează și marcajele acestuia. Examinați confirmarea înainte de a continua; coșul de reciclare poate restaura elementele șterse.",
+      "tip": "Un folder conține până la 18 marcaje. Activați editarea și trageți un card în dosar pentru a-l adăuga."
+    },
+    "workspaces": {
+      "question": "Cum păstrez paginile personale și cele de lucru separate?",
+      "searchTerms": "munca personala; creați spațiu de lucru; comutați spațiul de lucru; desktop-uri",
+      "title": "Separați-vă spațiile de lucru",
+      "summary": "O grilă pentru muncă și alta pentru orice altceva.",
+      "steps": [
+        "Bara de spațiu de lucru comută între spațiile de lucru principale și personalizate. + al său creează unul nou.",
+        "Alegeți un spațiu de lucru înainte de a adăuga elemente. Pentru a transfera articole existente, selectați-le și alegeți o destinație în bara de acțiuni.",
+        "Alt + ↑ și Alt + ↓ parcurg spațiile de lucru. Butonul - șterge spațiul de lucru personalizat curent după confirmare."
+      ],
+      "note": "Ștergerea unui spațiu de lucru șterge și conținutul acestuia. Sejururile principale disponibile și nu pot fi șterse.",
+      "tip": "Alt + ↑ și Alt + ↓ schimbă spațiul de lucru fără a deschide selectorul. Separați munca, hobby-urile sau proiectele cu barul +."
+    },
+    "selection": {
+      "question": "Cum schimb mai multe articole deodată?",
+      "searchTerms": "selectați multiplu; selecție în vrac; muta mai multe; selecția clonelor; marcaje duplicat",
+      "title": "Selectați și acționați în vrac",
+      "summary": "Mai puține acțiuni repetate atunci când organizați mai multe cărți.",
+      "steps": [
+        "Activați editarea și faceți clic scurt pe fiecare card pentru a-l selecta. Faceți clic din nou pentru a deselecta; în Navigarea Tab puteți folosi S.",
+        "Bara de selecție vă permite să duplicați, să aplicați aspectul implicit, să vă mutați în alt spațiu de lucru sau să ștergeți, în funcție de tipul articolului.",
+        "Verificați destinația sau confirmarea. Esc sau butonul de ștergere selecție anulează selecția."
+      ],
+      "note": "Mutarea și duplicarea necesită sloturi gratuite. Aplicația vă spune dacă unele articole nu se potrivesc. Widgeturile nu intră în coșul de reciclare.",
+      "tip": "În modul de editare, selectați mai multe cărți cu clicuri scurte pentru a le muta, duplica sau rearanja împreună. Esc șterge selecția."
+    },
+    "history": {
+      "question": "Cum anulez ultima mea modificare?",
+      "searchTerms": "anulați modificarea; reface modificarea; întoarce-te; restabiliți poziția",
+      "title": "Anulați și refaceți",
+      "summary": "Recuperați o poziție sau o schimbare recentă.",
+      "steps": [
+        "Utilizați săgeata de anulare de pe bara de spațiu de lucru pentru a reveni la starea anterioară.",
+        "Săgeata de refacere recuperează o modificare pe care tocmai ați anulat-o. De asemenea, puteți utiliza Ctrl/Cmd + Z și Ctrl/Cmd + Shift + Z.",
+        "În interiorul unui editor, utilizați săgețile de lângă titlul acestuia pentru modificările în așteptare; câmpurile de text își păstrează tastatura normală anulată. Fiecare acțiune arată un mesaj scurt și săgețile indisponibile sunt dezactivate. Verificați rezultatul înainte de a salva."
+      ],
+      "note": "Istoricul editorului începe proaspăt de fiecare dată când deschideți un editor; modificările ajung în spațiul dvs. de lucru atunci când salvați. Istoricul spațiului de lucru este temporar și nu este o copie de rezervă. O sesiune nouă sau actualizările din altă filă o pot reseta.",
+      "tip": "Dacă o modificare nu pare corectă, utilizați săgeata de anulare sau Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z o reface."
+    },
+    "appearance": {
+      "question": "Cum schimb culoarea, pictograma sau textul?",
+      "searchTerms": "schimba culoarea; schimba pictograma; schimba textul; aspectul marcajului; culoarea folderului; favicon",
+      "title": "Personalizați-vă cardurile",
+      "summary": "Culori, imagini, text și pictograme după cum doriți.",
+      "steps": [
+        "Activați editarea și deschideți creionul unui marcaj sau controlul aspectului pentru un folder sau coșul de reciclare.",
+        "Explorați editorul: fundal, culoare, imagine, text și pictogramă. Controalele disponibile depind de tipul articolului; previzualizarea arată rezultatul.",
+        "Salvează când ești fericit. Puteți utiliza imagini dintr-o adresă URL sau un fișier local unde editorul oferă această opțiune."
+      ],
+      "note": "Imaginile locale aparțin acestui browser. La sincronizare, adăugați o adresă URL de rezervă pentru alte dispozitive. Importurile păstrează imaginile incluse și referințele clare fără un fișier; Sincronizarea ignoră fișierele indisponibile pe acest dispozitiv.",
+      "tip": "Creionul unui marcaj își deschide editorul vizual. Schimbați culorile, textul, pictograma sau imaginea și verificați previzualizarea."
+    },
+    "presets": {
+      "question": "Cum pot reutiliza un stil care îmi place?",
+      "searchTerms": "salvați stilul; aspect de reutilizare; stiluri implicite; biblioteca presetată; aplica stilul",
+      "title": "Reutilizați aparențe",
+      "summary": "Salvați o privire și aplicați-o altor marcaje.",
+      "steps": [
+        "Deschideți Biblioteca editorului pentru a alege un aspect din colecția disponibilă.",
+        "Salvați un aspect personalizat ca presetare pentru a-i reutiliza culorile, textul și pictograma fără a copia numele sau adresa marcajului.",
+        "În Setări → Marcaje configurați aspectul implicit pentru marcajele noi. Bara de selecție o poate aplica articolelor compatibile."
+      ],
+      "note": "O presetare schimbă aspectul, nu identitatea, destinația sau poziția marcajului.",
+      "tip": "Salvați un aspect care vă place în biblioteca de aspect. Reutilizați-l pe alte carduri fără a le schimba numele sau adresele."
+    },
+    "wallpapers": {
+      "question": "Cum folosesc o imagine sau un videoclip ca fundal?",
+      "searchTerms": "schimba fundalul; fundal video; rotația tapetului; temă",
+      "title": "Imagini de fundal și rotație",
+      "summary": "Culoare, imagine sau video pentru a crea starea de spirit.",
+      "steps": [
+        "Deschideți Setări → Tema și alegeți fundalul implicit, o culoare sau un fundal media.",
+        "Adăugați imagini sau videoclipuri din sursele oferite în panou. Biblioteca colectează mai multe fundaluri cu un interval de rotație.",
+        "Verificați previzualizarea și salvați. Puteți asocia un fișier local cu o adresă URL alternativă pentru alte dispozitive."
+      ],
+      "note": "Fișierele locale rămân în acest browser. Sincronizarea nu le transferă; o copie de rezervă completă le poate păstra.",
+      "tip": "Fundalul dvs. se poate schimba automat: adăugați mai multe în Biblioteca de teme → Setări și setați un interval de rotație."
+    },
+    "clock": {
+      "question": "Cum adaug un ceas?",
+      "searchTerms": "adăugați ceasul; arată timpul; secunde; format 24 de ore; widget de ceas",
+      "title": "Adăugați un ceas",
+      "summary": "Un widget care arată ora dispozitivului dvs.",
+      "steps": [
+        "Alegeți + → Widgeturi din meniul din stânga și selectați Ceas.",
+        "Alegeți un format de 12 sau 24 de ore și dacă doriți să afișați secundele. Previzualizarea vă ajută să decideți.",
+        "Adăugați-l într-un slot gratuit. În modul de editare, puteți muta, redimensiona sau redeschide opțiunile acestuia."
+      ],
+      "note": "Ceasul urmărește ora dispozitivului dvs. Ștergerea unui widget este permanentă; nu intră în coșul de reciclare.",
+      "tip": "În + → Widgeturi puteți adăuga un ceas de 12 sau 24 de ore cu secunde opționale și îl puteți redimensiona pentru a se potrivi spațiului dvs."
+    },
+    "interface": {
+      "question": "Cum schimb limba sau cum folosesc modul întunecat?",
+      "searchTerms": "schimba limba; modul întunecat; modul de lumină; aspectul interfeței",
+      "title": "Limba și tema interfeței",
+      "summary": "Faceți meniurile, dialogurile și comenzile confortabile.",
+      "steps": [
+        "În Setări → general, alegeți o limbă sau lăsați-o să urmeze sistemul dvs.",
+        "Alegeți o interfață deschisă, întunecată sau automată, în funcție de preferințele dvs.",
+        "Salvați setările. Tema interfeței funcționează alături de fundalul pe care l-ați ales în Tema."
+      ],
+      "note": "Limba sistemului și aspectul automat urmăresc preferințele dispozitivului dvs.",
+      "tip": "Alegeți o interfață deschisă sau întunecată, păstrând în același timp imaginea de fundal. Găsiți această opțiune și limba în Setări → general."
+    },
+    "trash": {
+      "question": "Cum recuperez un marcaj șters?",
+      "searchTerms": "recuperați marcajul șters; restaurare eliminată; coș de reciclare; șters accidental; recupera folderul",
+      "title": "Restaurați din coșul de reciclare",
+      "summary": "O a doua șansă pentru marcaje și foldere.",
+      "steps": [
+        "Deschideți coșul de reciclare al spațiului dvs. pentru a examina marcajele și folderele șterse.",
+        "Selectați ceea ce doriți înapoi și utilizați Restaurare. De asemenea, puteți șterge definitiv articole sau puteți goli coșul după confirmare.",
+        "În Setări → general, alegeți dacă să îl afișați și cât timp păstrează elementele: 1, 7, 14 sau 28 de zile sau nu le ștergeți niciodată automat."
+      ],
+      "note": "Coșul de reciclare aparține acestui dispozitiv. Elementele expirate sau șterse definitiv nu mai pot fi restaurate din acesta.",
+      "tip": "Ați șters un marcaj din greșeală? Deschideți coșul de reciclare și restaurați-l. Ajustați perioada de păstrare în Setări → general."
+    },
+    "backup": {
+      "question": "Cum fac copii de rezervă sau transfer datele mele?",
+      "searchTerms": "copie de rezervă; exportul de date; copie de import; restaurare backup; alt browser; transfera date",
+      "title": "Backup-uri și importuri",
+      "summary": "Păstrează o copie a spațiului tău și ia-o cu tine.",
+      "steps": [
+        "În Setări → general, exportați o copie de rezervă completă pentru a păstra datele și fișierele locale incluse în arhiva ZIP.",
+        "Pentru a restabili, importați o copie de rezervă și examinați confirmarea înainte de a înlocui datele. Copilurile de rezervă JSON compatibile sunt, de asemenea, acceptate.",
+        "În Setări → Marcaje puteți exporta sau importa doar marcaje și foldere atunci când nu aveți nevoie de o copie de rezervă completă."
+      ],
+      "note": "Un export de marcaje nu este o copie de rezervă completă a setărilor și media locală. Salvați o copie de rezervă înainte de a restaura sau șterge datele.",
+      "tip": "O copie de rezervă completă din Setări → general include fișiere locale într-un fișier ZIP. Este util înainte de a schimba browserul sau de a restabili datele."
+    },
+    "sync": {
+      "question": "Cum folosesc același spațiu pe alt computer?",
+      "searchTerms": "alt computer; sincronizarea dispozitivelor; sincronizare; nor; sincronizare locală; opriți sincronizarea; dezactivați sincronizarea; modul local",
+      "title": "Sincronizați între dispozitive",
+      "summary": "Partajați spațiul dvs. utilizând sincronizarea browserului.",
+      "steps": [
+        "Conectați-vă și activați sincronizarea extensiilor în profilul dvs. Google Chrome.",
+        "În Setări → Sincronizare, alegeți Sincronizat și acceptați confirmarea. Comutarea are efect imediat: marcajele și setările sincronizate existente sunt încărcate sau datele dvs. locale salvate sunt sincronizate dacă nu există.",
+        "Utilizați același profil pe celălalt dispozitiv. Verificați starea sincronizării și spațiul disponibil în panou."
+      ],
+      "note": "Fișierele locale, coșul de reciclare și sfaturile zilnice aparțin fiecărui dispozitiv. Sincronizarea are limite de stocare; utilizați adrese URL alternative pentru imagini și videoclipuri locale. Alegerea locală cere și confirmare și intră în vigoare imediat, păstrând datele sincronizate stocate.",
+      "tip": "Sincronizarea vă împarte spațiul pe dispozitive, dar fișierele locale au nevoie de o adresă URL alternativă. Consultați Setări → Sincronizare."
+    },
+    "compact": {
+      "question": "De ce văd o listă în loc de grilă?",
+      "searchTerms": "fereastra mica; vizualizare listă; grila a dispărut; panou ascuns; mobil",
+      "title": "Utilizați o fereastră mai mică",
+      "summary": "Continuați să ajungeți la marcajele dvs. când spațiul este limitat.",
+      "steps": [
+        "Când fereastra se îngustează, aplicația trece la o listă pentru a vă păstra articolele accesibile.",
+        "Deschideți marcaje, foldere sau căutați în această vizualizare. Manualul se adaptează și la dimensiunea disponibilă.",
+        "Lărgiți fereastra pentru a readuce grila și panourile de editare. Un dialog de editare suspendat își păstrează schița."
+      ],
+      "note": "Vizualizarea compactă vă ajută să vă răsfoiți spațiul; reorganizarea necesită o fereastră suficient de largă.",
+      "tip": "Într-o fereastră îngustă, marcajele dvs. rămân disponibile ca o listă. Lărgiți-l când doriți să editați sau să reorganizați grila."
+    },
+    "data": {
+      "question": "Cum îmi șterg datele sau reset setările?",
+      "searchTerms": "stergerea datelor; resetarea setărilor; îndepărtați totul; ia de la capăt",
+      "title": "Salvare și resetare",
+      "summary": "Înțelegeți ce este salvat și ce elimină fiecare acțiune.",
+      "steps": [
+        "Acțiunile din spațiul de lucru se salvează automat. În editori și Setări, confirmați cu Salvare; Anulare elimină schița acelui panou.",
+        "Dacă apare o notificare de salvare în așteptare, faceți clic pe Reîncercați salvarea și așteptați confirmarea înainte de a închide fila.",
+        "În Setări → general puteți reseta setările sau ștergeți toate datele. Citiți confirmarea și exportați o copie de rezervă a tot ceea ce doriți să păstrați."
+      ],
+      "note": "Resetarea setărilor vă păstrează marcajele, dimensiunile și stilurile lor. Ștergerea tuturor datelor locale elimină articolele și golește coșul de reciclare. Exportați o copie de rezervă înainte de ștergere: Anulare nu înlocuiește o copie de rezervă.",
+      "tip": "Dacă vedeți o notificare de modificări nesalvate, utilizați Reîncercați salvarea înainte de a închide fila. Protejați-vă spațiul cu o copie de rezervă completă."
+    },
+    "learning": {
+      "question": "Cum redeschid ghidul sau dezactiv sfaturile zilnice?",
+      "searchTerms": "dezactivați sfaturile; opriți ajutorul; alertă zilnică; redeschide ghidul; manual de utilizare",
+      "title": "Învață în ritmul tău",
+      "summary": "Un ghid rapid, un manual și un mic sfat zilnic.",
+      "steps": [
+        "Revizuiți ghidul rapid din Setări → Ajutor. Fiecare pas face legătura cu explicațiile corespunzătoare din manual.",
+        "Explorați indexul sau căutați un cuvânt. Linkurile asociate unei secțiuni vă conduc către alte funcții când sunteți gata.",
+        "Prima filă nouă în fiecare zi arată un sfat aleatoriu. Închideți-l sau deschideți explicația; puteți dezactiva sfaturile din Ajutor."
+      ],
+      "note": "Sfaturile vizitați secțiunile fără a le repeta până când colecția este completă. Acestea durează 20 de secunde și fac pauză în timp ce trec cu mouse-ul sau își concentrează butoanele. Acestea urmează ziua locală și preferința acestui browser.",
+      "tip": "Acest manual este întotdeauna în Setări → Ajutor. Sfaturile zilnice deschid o secțiune și le puteți dezactiva acolo oricând doriți."
+    }
+  }
+}

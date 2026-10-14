@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "發行說明",
+    "settingsDescription": "發生了什麼變化以及每次更新背後的故事。",
+    "open": "閱讀筆記",
+    "history": "版本歷史",
+    "dismiss": "關閉發行說明",
+    "continue": "繼續",
+    "back": "回傳訊息",
+    "highlights": "今天你可以做什麼",
+    "generic": {
+      "title": "New DeskTab 已更新",
+      "description": "你有新版本。您可以隨時在資訊中重新存取早期的發行說明。感謝您來到這裡。"
+    },
+    "v1_0_0": {
+      "title": "您的網站桌面。終於。",
+      "thanks": "感謝您嘗試 New DeskTab。我很高興終於能與大家分享這個專案的第一個公開版本。",
+      "origin": "這一切都始於 2025 年 9 月 26 日。在觀看 Twitch 上的 Just Chatting 直播時，我注意到直播者的瀏覽器新選項卡：一個將網站排列為彩色方塊的擴展程序，沒有名稱或徽標。這種極簡主義讓我著迷，我想：為什麼不建構自己的擴充呢？我希望每個新選項卡都能帶來一種秩序感，我的頁面觸手可及，以及我喜歡看的面板。",
+      "desktop": "漸漸地，這個想法發展成為網站的個人桌面，而不是應用程式。時鐘只是第一步，目前仍在進行中。將來，我想添加一個記事本和其他小部件，為我和使用 New DeskTab 的每個人提供有用的東西。",
+      "closing": "這個應用程式是為我和你製作的。感謝您信任 New DeskTab 並在瀏覽器中給它一個位置。我希望您喜歡創造您的空間，就像我喜歡建造它一樣。",
+      "highlights": {
+        "workspace": "使用書籤、資料夾和獨立工作區組織您的頁面。",
+        "appearance": "自訂顏色、每個項目的大小和桌面背景。",
+        "search": "透過搜尋尋找頁面，並使用鍵盤快捷鍵導航和建立項目。",
+        "backup": "儲存備份並從回收站還原已刪除的項目。",
+        "sync": "選擇在此裝置上保留資料或將其與 Google Chrome 同步。",
+        "help": "透過歡迎指南、手冊和每日提示來探索這些功能。"
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "你的第一分鐘",
+    "skip": "跳過指南",
+    "back": "返回",
+    "next": "下一步",
+    "finish": "返回設定",
+    "explore": "探索我的空間",
+    "addFirst": "加入我的第一個書籤",
+    "progress": "第 {{current}} 步（共 {{total}} 步）",
+    "compactHint": "當您想要新增書籤和編輯空間時，請加寬視窗。",
+    "reopenTitle": "快速指南",
+    "reopenDescription": "一分鐘內重新發現重點。",
+    "reopen": "查看指南",
+    "demo": {
+      "work": "工作",
+      "media": "媒體",
+      "trash": "回收站",
+      "search": "找到您的書籤"
+    },
+    "steps": {
+      "start": {
+        "title": "你的頁面。你自己的空間。",
+        "body": "歡迎來到New DeskTab。每當您打開選項卡時，請將您最喜歡的頁面放在手邊。若要新增一個，請移至左側邊緣並選擇 + → [[bookmarks|書籤]]。",
+        "hint": "您也可以透過瀏覽器中的擴充功能圖示 [[quick-save|儲存您正在造訪的頁面]] 。"
+      },
+      "edit": {
+        "title": "給每個書籤一個合適的位置。",
+        "body": "開啟左側選單中的鉛筆進行編輯。按住並 [[movement|拖曳]] 一個項目來移動它；使用 [[resizing|把手]] 來更改其大小。",
+        "hint": "每個書籤的鉛筆都會打開其 [[appearance|編輯]]：名稱、顏色、圖示和圖像。儲存 [[presets|風格]] 以重複使用它們。"
+      },
+      "organize": {
+        "title": "減少混亂。更多訂單。",
+        "body": "從 + 建立一個 [[folders|資料夾]] 並在編輯模式下將書籤拖曳到其中。它以乾淨的網格形式打開，最多可容納 18 個書籤。",
+        "hint": "使用 [[workspaces|工作區欄]] 中的 + 來分隔工作和娛樂。 [[search|放大鏡]] 也會在資料夾內搜尋。"
+      },
+      "style": {
+        "title": "讓它感覺像你。",
+        "body": "在設定 → [[wallpapers|主題]] 中，選擇顏色、影像或影片背景並旋轉您喜愛的桌布。在「設定」 → [[sync|同步]] 中，使用登入 Chrome 個人資料的帳號在裝置之間同步您的空間。",
+        "hint": "從 + → 小工具新增 [[clock|時鐘]]。您也可以自訂資料夾的 [[appearance|外觀]] 。"
+      },
+      "ready": {
+        "title": "你知道要點。",
+        "body": "按 [[search|/]] 尋找書籤。使用 [[history|撤銷和重做]] 箭頭恢復變更；刪除的書籤前往 [[trash|回收站]]。",
+        "hint": "更改自動儲存。在「設定」中，匯出 [[backup|備份]] 或啟用可選的 Google Chrome [[sync|同步]]。"
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "無法儲存您的最新變更。",
+    "retry": "重試保存",
+    "saved": "已儲存待處理的變更。"
+  },
+  "itemEditor": {
+    "chooseIcon": "選擇一個圖標",
+    "siteLogo": "標誌",
+    "noSymbol": "無",
+    "folderIconHint": "此符號會取代資料夾內的書籤預覽。",
+    "icons": {
+      "mail": "郵件",
+      "calendar": "日曆",
+      "notes": "註解",
+      "projects": "專案",
+      "design": "設計",
+      "music": "音樂",
+      "tasks": "任務",
+      "ideas": "想法",
+      "docs": "文件",
+      "ui-start": "指南針",
+      "ui-organize": "佈局",
+      "ui-personalize": "滑桿",
+      "ui-protect": "盾牌",
+      "ui-bookmarks": "新增書籤",
+      "ui-quick-save": "瀏覽器",
+      "ui-keyboard": "鍵盤",
+      "ui-shortcuts": "閃電",
+      "ui-search": "搜尋",
+      "ui-editing": "鉛筆",
+      "ui-movement": "移動",
+      "ui-resizing": "調整大小",
+      "ui-drag-modes": "拖曳",
+      "ui-folders": "資料夾",
+      "ui-workspaces": "窗戶",
+      "ui-selection": "選擇",
+      "ui-history": "歷史",
+      "ui-appearance": "調色盤",
+      "ui-presets": "預設",
+      "ui-wallpapers": "圖片",
+      "ui-clock": "時鐘",
+      "ui-interface": "地球儀",
+      "ui-trash": "垃圾",
+      "ui-backup": "存檔",
+      "ui-sync": "同步",
+      "ui-compact": "清單",
+      "ui-data": "資料庫",
+      "ui-learning": "預訂",
+      "ui-settings": "設定",
+      "ui-controls": "控制",
+      "ui-cloud": "雲",
+      "ui-bookmark": "書籤",
+      "ui-info": "資訊",
+      "ui-eye": "眼睛",
+      "ui-check": "已完成",
+      "ui-lock": "鎖",
+      "ui-unlock": "解鎖",
+      "ui-copy": "複製",
+      "ui-close": "關閉",
+      "ui-undo": "撤銷",
+      "ui-redo": "重做",
+      "ui-desktop": "桌面",
+      "home": "首頁",
+      "briefcase": "工作",
+      "code": "程式碼",
+      "game": "遊戲",
+      "cart": "購物",
+      "card": "付款方式",
+      "people": "人",
+      "message": "留言",
+      "location": "地點",
+      "phone": "電話",
+      "camera": "相機",
+      "headphones": "耳機",
+      "link": "連結",
+      "tag": "標籤",
+      "chart": "統計數據",
+      "coffee": "咖啡",
+      "sun": "太陽",
+      "moon": "月亮",
+      "circle": "圓",
+      "square": "廣場",
+      "triangle": "三角形",
+      "diamond": "鑽石",
+      "pentagon": "五角大廈",
+      "hexagon": "六邊形",
+      "star": "明星",
+      "heart": "心",
+      "plus": "加號",
+      "minus": "減號",
+      "video": "影片"
+    },
+    "searchIcons": "搜尋圖示...",
+    "clearIconSearch": "清除搜尋",
+    "noIcons": "沒有找到圖標",
+    "suggestedIcons": "建議",
+    "suggestedIcon": "建議：{{name}}",
+    "logoKeywords": "標誌 favicon 網站 網站品牌",
+    "iconKeywords": {
+      "ui-trash": "bin 垃圾 廢棄物 刪除 經典",
+      "mail": "郵件 電子郵件 Gmail Outlook 收件匣",
+      "docs": "文檔文件 pdf 磁碟機 word",
+      "notes": "筆記 備忘錄 概念 onenote",
+      "ui-protect": "安全保護隱私",
+      "game": "遊戲 遊戲控制器 控制台",
+      "cart": "購物店商店購買",
+      "card": "銀行金融 信貸 借方 資金",
+      "people": "社交社區朋友群組",
+      "ui-learning": "圖書館閱讀教育研究",
+      "ui-clock": "時間 小時 手錶",
+      "ui-interface": "網路網路世界語言",
+      "ui-data": "資料sql存儲",
+      "circle": "幾何形狀 圖形",
+      "square": "幾何形狀 圖形",
+      "triangle": "幾何形狀 圖形",
+      "diamond": "幾何形狀 圖形",
+      "pentagon": "幾何形狀 圖形",
+      "hexagon": "幾何形狀 圖形",
+      "star": "幾何形狀 圖形",
+      "heart": "幾何形狀 圖形"
+    },
+    "history": "編輯歷史記錄",
+    "description": "讓您的工作空間有賓至如歸的感覺。",
+    "looks": "選擇外觀",
+    "custom": "客製化",
+    "look": {
+      "original": "原創",
+      "card": "卡",
+      "midnight": "黑暗",
+      "paper": "光"
+    },
+    "reset": "重置外觀",
+    "cardColor": "卡牌顏色",
+    "folderFill": "資料夾顏色",
+    "image": "背景圖片",
+    "lock": "鎖定或解鎖 URL",
+    "copy": "複製網址",
+    "clear": "清除",
+    "section": {
+      "general": "重點",
+      "text": "名稱和標籤",
+      "icon": "圖示",
+      "card": "卡"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "您看到的名稱及其開啟的頁面。",
+        "text": "選擇是否顯示名稱並調整其顏色。",
+        "icon": "使用居中的大图标或图像卡名称旁边的小图标。"
+      },
+      "folder": {
+        "general": "將您的書籤組合在一起的名稱。",
+        "text": "顯示資料夾名稱並調整其顏色。",
+        "icon": "自訂資料夾圖示及其書籤縮圖。"
+      },
+      "recycleBin": {
+        "general": "选择回收站是否出现在您的主工作区中。",
+        "text": "顯示回收站名稱並調整其顏色。",
+        "icon": "給回收站賦予自己的顏色。把整个垃圾箱藏起来，不让将军发现。"
+      }
+    },
+    "addImage": "新增背景圖片",
+    "changeImage": "編輯背景圖片"
+  },
+  "html": {
+    "title": "新標籤頁"
+  },
+  "quickSave": {
+    "title": "儲存書籤",
+    "name": "名稱",
+    "workspace": "工作空間",
+    "folder": "資料夾",
+    "mainWorkspace": "主要",
+    "noFolder": "無資料夾",
+    "save": "儲存書籤",
+    "saveAnyway": "無論如何都要保存",
+    "savedButton": "已儲存",
+    "alreadySaved": "已儲存",
+    "savedIn": "在 {{location}} 中",
+    "savedInMore": "在 {{location}} 和 {{count}} 更多",
+    "open": "開啟 New DeskTab",
+    "unavailableTitle": "該標籤無法儲存",
+    "unavailable": "開啟網頁（http 或 https）進行儲存。",
+    "loadError": "無法加載您的書籤。再試一次。",
+    "saving": "正在儲存...",
+    "saved": "書籤已儲存。",
+    "duplicate": "該 URL 已儲存在該目標中。",
+    "noSpace": "此目的地已無剩餘空間。選擇另一個。",
+    "invalid": "檢查名稱和所選目的地。",
+    "saveError": "無法儲存書籤。再試一次。"
+  },
+  "launcher": {
+    "bookmark": "書籤",
+    "folder": "資料夾",
+    "widgets": "小部件",
+    "editMode": {
+      "enter": "進入編輯模式",
+      "exit": "退出編輯模式"
+    }
+  },
+  "widgets": {
+    "title": "小部件",
+    "description": "選擇要新增至此工作區的小工具。",
+    "empty": "尚無可用的小部件。"
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "擴大使用此功能的視窗。",
+      "suspended": "面板隱藏。擴大窗口繼續。"
+    },
+    "editMode": {
+      "enabled": "編輯模式已啟用",
+      "disabled": "編輯模式已停用"
+    },
+    "selectionMode": {
+      "enabled": "選擇模式已啟用",
+      "disabled": "選擇模式已停用"
+    },
+    "bookmark": {
+      "added": "已加書籤",
+      "notFound": "找不到書籤",
+      "updated": "書籤已更新",
+      "deleted": "書籤已刪除"
+    },
+    "clock": {
+      "added": "新增時鐘",
+      "updated": "時鐘已更新",
+      "deleted": "時鐘已刪除"
+    },
+    "folder": {
+      "created": "資料夾已建立",
+      "renamed": "資料夾已重新命名",
+      "updated": "資料夾已更新",
+      "deleted": "資料夾及其書籤已刪除",
+      "bookmarkAdded": "書籤已新增至資料夾",
+      "folderFull": "該資料夾已有 18 個書籤",
+      "bookmarkRemoved": "書籤移回網格"
+    },
+    "recycleBin": {
+      "moved": "已移至回收站",
+      "restored": "恢復的物品",
+      "deletedPermanently": "永久刪除的項目",
+      "updated": "回收站已更新"
+    },
+    "workspace": {
+      "created": "工作區已建立",
+      "deleted": "工作區已刪除",
+      "switched": "工作空間：{{name}}"
+    },
+    "history": {
+      "undone": "更改已撤銷",
+      "redone": "更改重做"
+    },
+    "bookmarks": {
+      "deletedAll": "所有書籤已刪除",
+      "deletedAllWithFolders": "所有書籤和資料夾均已刪除",
+      "deleteAllError": "無法刪除所有書籤",
+      "exported": "書籤已匯出",
+      "exportError": "匯出書籤失敗",
+      "imported": "書籤已匯入",
+      "importError": "匯入書籤失敗",
+      "presetApplied": "套用於所選內容的樣式",
+      "duplicatedSelected": "所選項目重複",
+      "deletedSelected": "所選項目已刪除",
+      "moved": "項目移至選定的工作區"
+    },
+    "settings": {
+      "saved": "設定已儲存",
+      "bookmarkDefaultSaved": "已儲存預設書籤外觀",
+      "bookmarkDefaultError": "無法儲存預設書籤外觀",
+      "copied": "值已複製到剪貼簿",
+      "resetBg": "主題重置",
+      "deletedAllData": "所有本地 NewDeskTab 数据已删除",
+      "deleteAllDataError": "无法删除所有本地 NewDeskTab 数据",
+      "invalidWallpaperUrl": "输入有效的 HTTP 或 HTTPS 图像/视频 URL。",
+      "invalidWallpaperFile": "無法新增此文件。使用支援的影像或最大 200 MB 的 MP4、WebM 或 Ogg 影片。",
+      "wallpaperLimit": "您最多可以添加 25 張個人桌布。"
+    },
+    "localImage": {
+      "invalid": "選擇 PNG、JPEG、WebP、GIF 或 AVIF 影像。",
+      "tooLarge": "該影像太大，無法儲存在此裝置上。",
+      "storageFull": "該影像沒有足夠的本地空間。",
+      "processing": "無法處理該影像。"
+    },
+    "sync": {
+      "enabled": "同步已啟用",
+      "localEnabled": "本地模式已啟用",
+      "remoteLoaded": "已載入同步數據",
+      "updatedFromOtherDevice": "從另一台裝置收到的同步更改",
+      "deletedFromOtherDevice": "雲端資料已從另一台裝置刪除。該設備現在使用本地模式。",
+      "error": "無法變更儲存模式",
+      "versionBlocked": "同步已暫停，因為雲端資料需要較新的 NewDeskTab 版本。正在顯示該裝置的本機資料。",
+      "quotaError": "資料超出可用同步儲存空間",
+      "deleted": "同步資料已刪除",
+      "deleteError": "無法刪除同步數據"
+    },
+    "backup": {
+      "exported": "備份匯出",
+      "exportError": "無法匯出備份",
+      "mediaUnavailable": "某些引用的本機映像或影片不可用，因此未建立備份。",
+      "imported": "備份已恢復",
+      "importError": "無法恢復備份",
+      "mediaStorageFull": "本地儲存空間不足，無法恢復備份影像和影片。"
+    }
+  },
+  "view": {
+    "list": "清單視圖",
+    "search": "搜尋書籤和資料夾",
+    "clearSearch": "清除搜尋",
+    "noResults": "沒有結果。"
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "刪除所有書籤？",
+      "deleteFolders": "同時刪除所有資料夾",
+      "confirmDeleteSelected": "刪除 {{count}} 個選定項目？",
+      "confirmMoveOne": "將此項目移至工作區「{{workspace}}」？",
+      "confirmMoveSelected": "將 {{count}} 個選定項目移至工作區「{{workspace}}」？",
+      "duplicateNoSpace": "由於空間不足，無法複製 {{count}} 個項目。",
+      "moveNoSpace": "由於空間不足，無法移動 {{count}} 個項目。",
+      "no_space": "沒有空間可容納更多書籤 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "放棄新書籤？"
+      },
+      "confirmDelete": "刪除“{{name}}”？",
+      "confirmPermanentDelete": "永久刪除“{{name}}”？此操作無法撤銷。",
+      "cancel": "放棄更改？"
+    },
+    "widget": {
+      "confirmPermanentDelete": "永久刪除這個小工具嗎？此操作無法撤銷。",
+      "confirmDeleteSelected": "刪除 {{count}} 個選定項目？選定的小組件 ({{widgetCount}}) 將永久刪除且無法恢復。"
+    },
+    "folder": {
+      "createCancel": "放棄新資料夾？",
+      "cancel": "放棄資料夾更改？"
+    },
+    "recycleBin": {
+      "folder": "將「{{name}}」及其{{count}}個書籤移至回收站？",
+      "empty": "永久刪除回收站中的所有內容？此操作無法撤銷。",
+      "deleteSelected": "永久刪除 {{count}} 個選定項目？此操作無法撤銷。",
+      "noSpace": "由於網格空間不足，無法恢復 {{count}} 個項目。它們仍留在回收站中。",
+      "cancel": "放棄回收站更改？"
+    },
+    "settings": {
+      "cancel": "放棄設定更改？",
+      "reset": "重置所有設定？書籤不會被刪除。",
+      "deleteAllData": "從此裝置中刪除所有本機 NewDeskTab 資料嗎？書籤、資料夾、小工具、設定、回收站項目、本地圖像和本地影片將永久刪除。雲端資料不會改變。如果同步處於活動狀態，該裝置將首先切換到本機。此操作無法撤銷。",
+      "theme": {
+        "reset": "重置主題設定？"
+      },
+      "bookmark": {
+        "cancel": "放棄對預設書籤外觀的更改？"
+      },
+      "shortcuts": {
+        "reset": "恢復預設鍵盤快捷鍵？"
+      },
+      "sync": {
+        "enable": "從本地切換到同步？此操作立即生效，無需按一下「儲存」。如果同步資料已存在，則將載入其書籤和設定。否則，您儲存的本機資料將被同步。",
+        "local": "從同步切換到本地？此操作立即生效，無需按一下「儲存」。該設備將保留目前資料的副本並停止同步變更。同步資料將繼續為其他裝置儲存。",
+        "delete": "刪除所有同步的 NewDeskTab 資料？此裝置和使用此雲端資料的所有其他裝置在偵測到刪除時將切換到本機模式。此操作無法撤銷。"
+      }
+    },
+    "backup": {
+      "import": "恢復這個備份嗎？它將替換您當前的書籤和設定。"
+    }
+  },
+  "addModal": {
+    "title": "新增書籤",
+    "name": "姓名：",
+    "url": "網址：",
+    "advancedOptions": "⚙ 進階選項",
+    "compactView": "▴ 緊湊的視圖"
+  },
+  "clock": {
+    "name": "時鐘",
+    "inDevelopment": "正在開發中：時鐘尚未達到最終版本。我們正在努力改進它。",
+    "createTitle": "新增時鐘",
+    "editTitle": "時鐘設定",
+    "description": "在此工作區上顯示您的當地時間。",
+    "hourCycle": "時間格式",
+    "hour24": "24小時",
+    "hour12": "12小時",
+    "showSeconds": "顯示秒數",
+    "delete": "刪除",
+    "edit": "編輯時鐘",
+    "actions": "時鐘動作",
+    "openSettings": "開啟時鐘設定",
+    "confirmDelete": "刪除這個時鐘？您可以撤銷此操作。",
+    "confirmPermanentDelete": "永久刪除這個時鐘？此操作無法撤銷。",
+    "cancel": "放棄時鐘更改？",
+    "noSpace": "此時鐘沒有足夠的網格空間。"
+  },
+  "buttons": {
+    "save": "儲存",
+    "apply": "申請",
+    "add": "添加",
+    "accept": "接受",
+    "cancel": "取消",
+    "close": "關閉"
+  },
+  "localImage": {
+    "upload": "從該設備上傳",
+    "label": "本地圖片：",
+    "activeSource": "活動圖像：",
+    "sourceLocal": "本地",
+    "sourceUrl": "網址",
+    "remove": "刪除本機圖片",
+    "notice": "本機圖片未同步。",
+    "unnamed": "本地圖片"
+  },
+  "workspace": {
+    "ariaLabel": "工作區控件",
+    "current": "工作空間",
+    "main": "主要",
+    "search": "搜尋書籤",
+    "add": "建立工作區",
+    "delete": "刪除工作區",
+    "undo": "撤銷",
+    "redo": "重做",
+    "shortcutHint": "使用 Alt 或 Option 加向上或向下箭頭切換工作區",
+    "prompt": "輸入新工作區的名稱",
+    "namePlaceholder": "工作、休閒…",
+    "confirmDelete": "刪除「{{name}}」及其{{folderCount}}個資料夾和{{bookmarkCount}}個書籤？若要保留它們，請先將它們移至主工作區或其他工作區。"
+  },
+  "search": {
+    "title": "搜尋書籤",
+    "inputLabel": "按名稱或 URL 搜尋",
+    "placeholder": "名稱或網址",
+    "empty": "沒有找到書籤。",
+    "noUrl": "無網址",
+    "inFolder": "資料夾：{{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "所選項目的操作",
+    "selected": "已選擇 {{count}}",
+    "move": "移至工作區",
+    "applyPreset": "套用預設樣式",
+    "duplicate": "重複選擇",
+    "delete": "刪除",
+    "clear": "清除選擇"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "書籤控件",
+    "edit": "編輯書籤",
+    "delete": "刪除書籤",
+    "copySuffix": "複製"
+  },
+  "folder": {
+    "create": "建立資料夾",
+    "createPrompt": "命名新資料夾",
+    "namePlaceholder": "工具、靈感…",
+    "open": "開啟{{name}}，儲存了{{count}}個書籤",
+    "count": "{{count}} 已保存",
+    "summary": "已使用 {{count}} 個空間（共 {{capacity}} 個）",
+    "editMode": {
+      "enable": "編輯",
+      "disable": "完成編輯"
+    },
+    "gridLabel": "資料夾書籤",
+    "dropHint": "拖放添加",
+    "noSpace": "新資料夾沒有可用的網格單元。",
+    "removeNoSpace": "網格空間不足，無法從資料夾中刪除此書籤。",
+    "confirmDelete": "將「{{name}}」及其{{count}}個書籤移至回收站？",
+    "confirmPermanentDelete": "永久刪除「{{name}}」及其{{count}}個書籤？此操作無法撤銷。",
+    "actions": {
+      "ariaLabel": "資料夾控件",
+      "customize": "自訂資料夾",
+      "rename": "重新命名資料夾",
+      "delete": "刪除資料夾",
+      "editBookmark": "編輯 {{name}}",
+      "removeBookmark": "將 {{name}} 移出資料夾",
+      "deleteBookmark": "刪除 {{name}}",
+      "acceptRename": "儲存資料夾名稱",
+      "cancelRename": "取消資料夾重新命名"
+    },
+    "editor": {
+      "createTitle": "新增資料夾",
+      "title": "編輯資料夾",
+      "name": "姓名：",
+      "showPreviews": "顯示書籤預覽",
+      "showName": "顯示資料夾名稱",
+      "iconColor": "符號顏色：",
+      "outerBackgroundColor": "外部背景顏色：",
+      "noOuterBackground": "無外部背景",
+      "resetOuterBackground": "自動",
+      "noBackground": "透明資料夾填充",
+      "backgroundColor": "資料夾顏色：",
+      "backgroundImage": "背景圖片（網址）：",
+      "lockImage": "鎖定或解鎖圖像 URL",
+      "copyImage": "複製圖片網址",
+      "clearImage": "清除圖片網址",
+      "textColor": "文字顏色：",
+      "preview": "預覽",
+      "previewName": "資料夾",
+      "sections": {
+        "general": "一般",
+        "style": "風格",
+        "text": "文字"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "回收站",
+    "open": "打開回收站",
+    "openCount": "打開回收站，{{count}} 項",
+    "dropHint": "拖放即可刪除",
+    "summary": "{{count}} 條 · 自動刪除：{{retention}}",
+    "empty": "回收站是空的。",
+    "selected": "已選擇 {{count}}",
+    "select": "選擇 {{name}}",
+    "folderContents": "{{count}} 書籤",
+    "deletedAt": "已刪除 {{date}}",
+    "expiresIn": "還剩 {{days}} 天",
+    "expiresInOne": "還剩 1 天",
+    "neverExpires": "從未自動刪除",
+    "restoreAll": "全部恢復",
+    "deleteAll": "全部刪除",
+    "restoreSelected": "恢復選擇",
+    "deleteSelected": "刪除所選內容",
+    "editor": {
+      "title": "編輯回收站",
+      "animateIcon": "動畫回收站",
+      "appearance": "外觀",
+      "backgroundColor": "背景顏色：",
+      "backgroundImage": "背景圖片（網址）：",
+      "lockImage": "鎖定或解鎖圖像 URL",
+      "copyImage": "複製圖片網址",
+      "clearImage": "清除圖片網址",
+      "noBackground": "無背景",
+      "iconColor": "圖示顏色：",
+      "textColor": "文字顏色：",
+      "elements": "可見元素",
+      "showName": "顯示名稱",
+      "visible": "在主網格上顯示回收站",
+      "preview": "預覽",
+      "actions": "回收站操作",
+      "edit": "編輯回收站",
+      "sections": {
+        "general": "一般",
+        "style": "風格",
+        "text": "文字",
+        "icon": "圖示"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "輸入名稱以儲存預設。"
+    },
+    "name": {
+      "required": "輸入書籤的名稱。"
+    },
+    "folderName": {
+      "required": "輸入資料夾的名稱。"
+    },
+    "url": {
+      "invalid": "該網址無效。",
+      "unsupportedProtocol": "不允許此 URL 類型。"
+    },
+    "backgroundImageUrl": {
+      "invalid": "圖片 URL 無效。",
+      "unsupportedProtocol": "不允許使用此圖像類型。"
+    }
+  },
+  "editModal": {
+    "title": "編輯書籤",
+    "name": "姓名：",
+    "url": "網址：",
+    "backgroundImage": "背景圖片（網址）：",
+    "backgroundFavicon": "居中的大圖標",
+    "invertColorBg": "反轉顏色",
+    "noBackground": "無背景",
+    "backgroundColor": "書籤顏色：",
+    "showText": "顯示文字",
+    "textColor": "文字顏色：",
+    "showFavicon": "顯示圖示",
+    "invertColorIcon": "反轉圖示顏色",
+    "iconColor": "圖示顏色：",
+    "sections": {
+      "general": "一般",
+      "style": "風格",
+      "text": "文字",
+      "icon": "圖示"
+    },
+    "preview": "預覽",
+    "previewName": "預覽"
+  },
+  "colorPicker": {
+    "title": "顏色選擇器",
+    "sample": "從螢幕上選擇一種顏色",
+    "close": "關閉顏色選擇器",
+    "saturationBrightness": "飽和度和亮度",
+    "hue": "色調",
+    "quickColors": "快速上色",
+    "saturation": "飽和度",
+    "brightness": "亮度",
+    "hex": "十六進位代碼",
+    "copy": "複製十六進位代碼",
+    "copied": "已複製十六進位代碼",
+    "copyFailed": "無法複製十六進位代碼"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "一般",
+      "sync": "同步",
+      "theme": "主題",
+      "bookmark": "書籤",
+      "shortcuts": "快速方式",
+      "language": "語言",
+      "help": "幫助",
+      "information": "資訊"
+    },
+    "general": {
+      "title": "一般",
+      "subtitle": "設定",
+      "export": "匯出備份",
+      "import": "恢復備份",
+      "resetSettings": "重置設定",
+      "deleteAllData": "刪除所有本地數據",
+      "recycleBin": {
+        "title": "回收站",
+        "show": "在主網格上顯示回收站",
+        "retentionLabel": "自動刪除項目：",
+        "retentionOptions": {
+          "oneDay": "1天",
+          "sevenDays": "7天",
+          "fourteenDays": "14天",
+          "twentyEightDays": "28天",
+          "never": "從來沒有"
+        }
+      },
+      "appearance": {
+        "title": "外觀",
+        "system": "瀏覽器",
+        "light": "光",
+        "dark": "黑暗"
+      }
+    },
+    "sync": {
+      "title": "同步",
+      "description": "選擇儲存設定和書籤的位置。",
+      "ariaLabel": "儲存方式",
+      "local": {
+        "title": "僅此設備",
+        "description": "資料僅儲存在此本機瀏覽器設定檔中。"
+      },
+      "synced": {
+        "title": "已同步",
+        "description": "在連接到相同帳戶的 Google Chrome 設定檔中可用。",
+        "tooltip": "同步訊息"
+      },
+      "compatibility": {
+        "newerVersion": "同步在此裝置上被鎖定，因為雲端資料是由較新的 NewDeskTab 版本建立的。您的同步資料是安全的並且未修改。更新 NewDeskTab 以重新連線。"
+      },
+      "usage": {
+        "title": "儲存可用性",
+        "showExact": "顯示確切的位元組數",
+        "showHuman": "顯示可讀尺寸",
+        "local": "本地",
+        "sync": "已同步",
+        "localSyncCopy": "本地同步副本",
+        "localAria": "本地儲存使用情況",
+        "syncAria": "同步儲存使用情況",
+        "loading": "正在計算...",
+        "summary": "{{used}} / {{total}} · {{percent}}%",
+        "available": "{{free}} 可用",
+        "system": "系統和元數據",
+        "bookmarks": "書籤",
+        "folders": "資料夾",
+        "trash": "回收站數據",
+        "localImages": "本地圖片",
+        "themeImages": "主題",
+        "bookmarkImages": "書籤",
+        "folderImages": "資料夾",
+        "trashImages": "回收站",
+        "otherImages": "其他",
+        "widgets": "小部件",
+        "widgetsHint": "顯示的同步大小是估計值，不包括從外部服務取得的即時內容。",
+        "error": "無法使用"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome 透過您的 Google 帳戶同步 New DeskTab。 New DeskTab 不運作自己的同步伺服器。",
+        "brave": "在 Brave 中不可用：它可以在 chrome.storage.sync 中儲存 New DeskTab 數據，但目前不會在裝置之間傳播它。",
+        "unsupported": "同步儲存目前僅在 Google Chrome 中可用。在驗證跨裝置支援之前，其他瀏覽器將保持停用狀態。"
+      },
+      "existingNotice": "接受切換到「已同步」會載入任何已存在的同步資料。",
+      "deleteData": "刪除同步數據",
+      "metadata": {
+        "loading": "檢查同步資料...",
+        "updatedAt": "上次同步更新：{{date}}",
+        "unknown": "同步資料存在，但更新時間不詳。",
+        "empty": "不儲存同步的 New DeskTab 資料。",
+        "error": "無法載入同步資料資訊。"
+      },
+      "status": {
+        "idle": "數據已準備好。",
+        "saving": "正在儲存變更...",
+        "saved": "所有變更均已儲存。",
+        "error": "無法儲存最新變更。"
+      }
+    },
+    "theme": {
+      "title": "主題",
+      "subtitle": "頁面背景",
+      "backgroundImageMode": "圖片/影片",
+      "wallpapersTitle": "我自己的壁紙",
+      "ownWallpapersHint": "這些壁紙及其旋轉僅存放在此裝置上。",
+      "mediaUrl": "壁紙網址",
+      "image": "圖片",
+      "video": "影片",
+      "addUrl": "新增網址",
+      "addFiles": "新增本地文件",
+      "rotationInterval": "壁紙旋轉",
+      "noRotation": "不自動更改",
+      "interval5": "5秒",
+      "interval15": "15秒",
+      "interval30": "30秒",
+      "interval60": "1分鐘",
+      "interval300": "5分鐘",
+      "interval600": "10分鐘",
+      "interval1800": "30分鐘",
+      "previous": "上一頁",
+      "next": "下一步",
+      "moveUp": "向上移動",
+      "moveDown": "下移",
+      "remove": "刪除",
+      "unavailableLocal": "本機檔案在此裝置上不可用",
+      "mediaColor": "這張壁紙背後的顏色",
+      "mediaPreview": "預覽壁紙",
+      "activeSource": "主動源",
+      "backgroundSolid": "純色",
+      "backgroundColor": "顏色:",
+      "editSolidColor": "更改純色背景顏色",
+      "changeSolidColor": "改變顏色",
+      "backgroundImageColor": "圖像/影片背後的顏色",
+      "backgroundImage": "裝置之間共用的 URL",
+      "urlHidden": "網址隱藏",
+      "resetBackground": "重置主題"
+    },
+    "bookmark": {
+      "title": "書籤",
+      "subtitle": "預設書籤",
+      "description": "選擇建立新書籤時使用的外觀。",
+      "configure": "配置預設書籤",
+      "editorTitle": "預設書籤外觀",
+      "previewName": "預設書籤",
+      "export": "匯出書籤",
+      "import": "導入書籤",
+      "deleteAll": "刪除所有書籤",
+      "preview": "預覽",
+      "drag": {
+        "title": "拖曳行為",
+        "description": "選擇當您佔據書籤位置時書籤如何重新組織。",
+        "none": {
+          "title": "無",
+          "description": "只允許移動到空閒單元格。"
+        },
+        "cascade": {
+          "title": "序列",
+          "description": "移動鏈條直到找到空閒單元。",
+          "experimental": "實驗性 · 可能包含小錯誤。"
+        },
+        "relocate": {
+          "title": "搬遷",
+          "description": "重新定位佔據目的地的書籤。"
+        }
+      },
+      "resize": {
+        "title": "調整行為大小",
+        "description": "選擇移動調整大小手把時項目的反應方式。",
+        "smooth": {
+          "title": "光滑",
+          "description": "拖曳時拉伸項目，然後捕捉到網格。"
+        },
+        "none": {
+          "title": "無",
+          "description": "當您穿過 50% 的相鄰單元格時，請按單元格跳躍。"
+        }
+      },
+      "presets": {
+        "title": "風格庫",
+        "tab": "圖書館",
+        "description": "儲存樣式並在設定預設書籤時重複使用它們。",
+        "name": "預設名稱",
+        "saved": "儲存的預設",
+        "save": "儲存預設",
+        "apply": "負載",
+        "delete": "刪除",
+        "empty": "沒有儲存的預設"
+      }
+    },
+    "shortcuts": {
+      "title": "鍵盤快速鍵",
+      "description": "選擇快速按鈕，然後按字母或組合鍵。右鍵單擊可取消分配。",
+      "change": "變更 {{action}} 捷徑。目前捷徑：{{shortcut}}。",
+      "press": "按快捷鍵...",
+      "unassigned": "未分配",
+      "unassignedFlash": "快捷方式未指派。",
+      "modifierRequired": "單獨使用一個字母，或使用帶有修飾符的組合鍵。",
+      "reserved": "此捷徑由瀏覽器或作業系統保留。選擇其他組合。",
+      "conflict": "該鍵已指派給另一個操作。",
+      "updated": "快捷方式已更新。",
+      "cancelled": "快捷方式更改已取消。",
+      "restored": "恢復預設快捷方式。",
+      "reset": "重置快速鍵",
+      "actions": {
+        "toggleEditing": {
+          "title": "編輯模式",
+          "description": "在主網格或開啟的資料夾中輸入或離開編輯。"
+        },
+        "addBookmark": {
+          "title": "建立書籤",
+          "description": "開啟用於新增書籤的表單。"
+        },
+        "addFolder": {
+          "title": "建立資料夾",
+          "description": "開啟用於建立資料夾的對話框。"
+        },
+        "openWidgets": {
+          "title": "打開小部件",
+          "description": "開啟可用小部件的清單。"
+        },
+        "openSettings": {
+          "title": "開啟設定",
+          "description": "開啟 New DeskTab 設定面板。"
+        }
+      }
+    },
+    "languages": {
+      "title": "語言",
+      "text": "選擇介面語言：",
+      "system": "瀏覽器",
+      "search": "搜尋語言或國家",
+      "empty": "未找到語言"
+    },
+    "information": {
+      "title": "資訊",
+      "version": "版本：{{VERSION}}",
+      "author": "作者："
+    }
+  }
+}

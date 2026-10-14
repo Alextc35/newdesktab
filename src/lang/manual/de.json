@@ -1,0 +1,517 @@
+{
+  "title": "Benutzerhandbuch",
+  "eyebrow": "IHR RAUM, IHR TEMPO",
+  "intro": "Lernen Sie jedes kleine Feature kennen.",
+  "description": "Finden Sie, was Sie brauchen, oder entdecken Sie etwas Neues. Nehmen Sie sich Zeit.",
+  "settingsDescription": "Jede Funktion mit einfachen Schritten und kleinen Tricks, die Sie jederzeit ausprobieren können.",
+  "search": {
+    "label": "Wobei können wir Ihnen helfen?",
+    "placeholder": "Beispiel: Stellen Sie ein gelöschtes Lesezeichen wieder her",
+    "common": "Häufige Fragen",
+    "found": "Antworten zu Ihrer Suche · {{count}}",
+    "empty": "Für diese Suche wurde keine Hilfe gefunden. Versuchen Sie es mit „Tastatur“, „Lesezeichen verschieben“ oder „Sichern“.",
+    "resultsLabel": "Manuelle Fragen und Antworten"
+  },
+  "open": "Entdecken Sie das Handbuch",
+  "searchLabel": "Durchsuchen Sie das Handbuch",
+  "searchPlaceholder": "Versuchen Sie es mit „Tastatur“, „Hintergrund“ oder „Backup“.",
+  "count": "{{count}} Abschnitte zum Erkunden",
+  "empty": "Keine Übereinstimmungen. Versuchen Sie es mit einem anderen Wort oder löschen Sie die Suche, um den gesamten Index anzuzeigen.",
+  "back": "← Manueller Index",
+  "remember": "Gut, sich daran zu erinnern",
+  "related": "Entdecken Sie weiter",
+  "footer": "Immer verfügbar unter Einstellungen → Hilfe.",
+  "guideLinks": "Erfahren Sie mehr im Handbuch",
+  "groups": {
+    "start": "Beginnen Sie hier",
+    "organize": "Organisieren Sie sich",
+    "personalize": "Machen Sie es zu Ihrem",
+    "protect": "Kümmern Sie sich um Ihren Raum"
+  },
+  "demo": {
+    "browse": "Abschnitte durchsuchen",
+    "previous": "← Vorheriger Abschnitt",
+    "next": "Nächster Abschnitt →",
+    "title": "Sehen Sie es in Aktion",
+    "example": "Demonstrationsbeispiel",
+    "steps": "Demonstrationsschritte",
+    "step": "Schritt {{step}} von {{count}}",
+    "play": "Spielen",
+    "pause": "Pause",
+    "replay": "Wiederholung",
+    "progress": "Demonstrationsfortschritt",
+    "mode": "Verhalten",
+    "nextStep": "Nächster Schritt",
+    "reducedMotion": "Reduzierte Bewegung: Erkunden Sie die Schritte ohne Animation.",
+    "labels": {
+      "settings": "Einstellungen",
+      "saved": "Änderungen gespeichert",
+      "page": "Seite",
+      "selection": "Auswahl",
+      "selected": "Elemente ausgewählt",
+      "color": "Farbe",
+      "styleName": "Mein lila Stil",
+      "wallpaper": "Hintergrundbilder",
+      "rotation": "Rotation",
+      "format": "Formatieren",
+      "seconds": "Sekunden",
+      "language": "Sprache",
+      "system": "System",
+      "currentLanguage": "Deutsch",
+      "restore": "Wiederherstellen",
+      "copy": "Sicherung",
+      "restoreCopy": "Überprüfen Sie es vor der Wiederherstellung",
+      "switchSync": "Auf „Synchronisiert“ umstellen?",
+      "applyNow": "Gilt nach Bestätigung",
+      "status": "Status",
+      "synchronized": "Synchronisiert",
+      "retry": "Speichern ausstehend · Wiederholen",
+      "keyboardQuery": "Tastatur",
+      "deleteExample": "Lesezeichen und Ordner werden gelöscht. Der Papierkorb ist leer."
+    },
+    "topics": {
+      "bookmarks": [
+        "Öffnen Sie das linke Menü und wählen Sie + → Lesezeichen.",
+        "Geben Sie den Seitennamen und die Adresse ein.",
+        "Bestätigen: Das Lesezeichen erscheint in einer freien Zelle."
+      ],
+      "quick-save": [
+        "Öffnen Sie New DeskTab über das Erweiterungssymbol.",
+        "Überprüfen Sie den vorgeschlagenen Namen, die Adresse und das Ziel.",
+        "Speichern: Das Lesezeichen wird in Ihrem Arbeitsbereich angezeigt, wenn Sie eine Registerkarte öffnen."
+      ],
+      "keyboard": [
+        "Drücken Sie die Tabulatortaste, um das erste Element zu fokussieren.",
+        "Pfeiltasten bewegen den Fokus. Enter öffnet das fokussierte Element.",
+        "Esc oder ein anderer Tab beendet die Navigation."
+      ],
+      "shortcuts": [
+        "Öffnen Sie Einstellungen → Tastaturkürzel.",
+        "Klicken Sie auf die Verknüpfung einer Aktion und geben Sie Ihre Kombination ein.",
+        "Speichern Sie, um die neue Verknüpfung anzuwenden."
+      ],
+      "search": [
+        "Die Symbolleistenlupe oder / öffnet die Suche.",
+        "Geben Sie einen Teil des Namens oder der Adresse ein.",
+        "Öffnen Sie das Ergebnis. Esc oder Schließen kehren zu Ihrem Arbeitsbereich zurück."
+      ],
+      "editing": [
+        "Der Menüstift zeigt das Raster und die Steuerelemente an.",
+        "Der Stift von Gmail öffnet seinen Namens- und URL-Editor.",
+        "Speichern Sie die Änderung und klicken Sie erneut auf den Menüstift, um den Vorgang abzuschließen."
+      ],
+      "movement": [
+        "Aktivieren Sie die Bearbeitung und halten Sie die Kachel gedrückt.",
+        "Cursor und Kachel bewegen sich gemeinsam in eine freie Zelle.",
+        "Loslassen: Die Endposition wird gespeichert."
+      ],
+      "resizing": [
+        "Aktivieren Sie die Bearbeitung und suchen Sie den Eckgriff.",
+        "Ziehen Sie diagonal, um Breite und Höhe zu ändern.",
+        "Lassen Sie bei 2 × 2 los. Vergleichen Sie „Keine“ und „Glätten“ mit dem Selektor."
+      ],
+      "drag-modes": [
+        "Verwenden Sie die Auswahl, um die drei Ziehmodi zu vergleichen.",
+        "Ziehen Sie in Richtung einer besetzten Zelle und beobachten Sie die anderen Kacheln.",
+        "Keiner verwendet eine freie Zelle; Umzug und Reihenfolge organisieren die Kacheln neu."
+      ],
+      "folders": [
+        "Benennen Sie einen Ordner, um Ihre Seiten zu gruppieren.",
+        "Ziehen Sie beim Bearbeiten ein Lesezeichen darauf.",
+        "Öffnen Sie den Ordner, um das Lesezeichen in seinem Raster zu finden."
+      ],
+      "workspaces": [
+        "Die Symbolleiste + erstellt einen Arbeitsbereich mit dem von Ihnen gewählten Namen.",
+        "Der neue Arbeitsbereich verfügt über ein eigenes Raster.",
+        "Alt + ↑ und Alt + ↓ blättern Sie durch Ihre Arbeitsbereiche."
+      ],
+      "selection": [
+        "Aktivieren Sie die Bearbeitung und wählen Sie mit einem kurzen Klick eine Kachel aus.",
+        "Wählen Sie eine andere aus: Die Symbolleiste bietet Gruppenaktionen an.",
+        "Klonen erstellt in einer Aktion Kopien in freien Zellen."
+      ],
+      "history": [
+        "Eine Kachel verschieben: Diese Änderung wird in den Verlauf eingetragen.",
+        "Mit „Rückgängig“ wird die Kachel an ihre vorherige Position zurückgesetzt.",
+        "Mit „Wiederholen“ wird der gerade rückgängig gemachte Zug wiederhergestellt."
+      ],
+      "appearance": [
+        "Der Stift der Kachel öffnet seinen Editor.",
+        "Ändern Sie die Farbe und sehen Sie sich die Vorschau an.",
+        "Speichern Sie, um dieses Erscheinungsbild auf die Kachel anzuwenden."
+      ],
+      "presets": [
+        "Öffnen Sie die Bibliothek über Einstellungen → Lesezeichen.",
+        "Benennen und speichern Sie einen Stil, um ihn wiederzuverwenden.",
+        "Laden Sie es als Standard und speichern Sie es für neue Lesezeichen."
+      ],
+      "wallpapers": [
+        "Öffnen Sie Einstellungen → Thema, um ein Hintergrundbild auszuwählen.",
+        "Überprüfen Sie das Vorschau- und Bibliotheksrotationsintervall.",
+        "Speichern: Das ausgewählte Hintergrundbild erscheint in Ihrem Arbeitsbereich."
+      ],
+      "clock": [
+        "Wählen Sie im linken Menü + → Widgets → Uhr.",
+        "Konfigurieren Sie das Format und die Sekunden mithilfe der Vorschau.",
+        "Fügen Sie die Uhr einer freien Arbeitsbereichszelle hinzu."
+      ],
+      "interface": [
+        "Öffnen Sie „Allgemein“ und wählen Sie die Menüsprache.",
+        "Vergleichen Sie die helle und dunkle Schnittstelle.",
+        "Speichern Sie Ihre Sprach- und Darstellungseinstellungen."
+      ],
+      "trash": [
+        "Öffnen Sie den Papierkorb, um ein gelöschtes Lesezeichen zu finden.",
+        "Wählen Sie es aus und klicken Sie auf „Wiederherstellen“. Es kehrt zum Raster zurück.",
+        "Wählen Sie im Allgemeinen aus, wie lange gelöschte Elemente aufbewahrt werden sollen."
+      ],
+      "backup": [
+        "Die Sicherungsoptionen finden Sie unter Einstellungen → Allgemein.",
+        "Beim Exportieren wird eine ZIP-Datei mit Daten und lokalen Dateien heruntergeladen.",
+        "Beim Import werden Sie vor dem Ersetzen von Daten um eine Bestätigung gebeten."
+      ],
+      "sync": [
+        "Öffnen Sie Einstellungen → Synchronisierung, um den aktuellen Modus zu überprüfen.",
+        "Wählen Sie „Synchronisiert“ und überprüfen Sie die Bestätigung.",
+        "„Akzeptieren“ wendet den Modus sofort an, ohne auf „Speichern“ zu klicken."
+      ],
+      "compact": [
+        "Wenn das Fenster kleiner wird, wird das Raster zu einer Liste.",
+        "Lesezeichen bleiben über die Liste zugänglich.",
+        "Erweitern Sie das Fenster, um zum Raster und zur Bearbeitung zurückzukehren."
+      ],
+      "data": [
+        "Das Beispiel verwendet eine andere Sprache, eine einfache Benutzeroberfläche und benutzerdefinierte Kacheln.",
+        "Beim Zurücksetzen werden die Standardeinstellungen wiederhergestellt, wobei die Lesezeichen und ihre Stile erhalten bleiben.",
+        "Löschen entfernt Lesezeichen und Ordner und hinterlässt nur den leeren Papierkorb."
+      ],
+      "learning": [
+        "Der Tagestipp lädt dazu ein, ein Feature zu entdecken. Klicken Sie auf „Zeig mir wie“.",
+        "Geben Sie „Tastatur“ in das Suchfeld ein, um „Mit der Tastatur navigieren“ zu finden.",
+        "Klicken Sie auf das Ergebnis, um die Anweisungen zu lesen."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "EIN KLEINER TIPP FÜR HEUTE",
+    "dismiss": "Verwerfen Sie den heutigen Tipp",
+    "read": "Zeig mir wie",
+    "pace": "Bewegen Sie den Mauszeiger, um zu pausieren.",
+    "enabled": "Tägliche Tipps",
+    "description": "Ein Tipp, wenn Sie Ihren ersten Tab des Tages öffnen."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Wie füge ich eine Seite zu meinen Lesezeichen hinzu?",
+      "searchTerms": "Seite hinzufügen; Lesezeichen erstellen; Website speichern; neuer Favorit",
+      "title": "Lesezeichen hinzufügen",
+      "summary": "Ihre Lieblingsseiten immer griffbereit in jedem neuen Tab.",
+      "steps": [
+        "Bewegen Sie sich zum linken Rand, um das Menü anzuzeigen. Wählen Sie + → Lesezeichen.",
+        "Geben Sie den Seitennamen und die Adresse ein. Sie können das Erscheinungsbild anpassen, bevor Sie es hinzufügen.",
+        "Bestätigen Sie, um das Lesezeichen an einem freien Platz im aktuellen Arbeitsbereich zu platzieren. Klicken Sie außerhalb des Bearbeitungsmodus darauf, um die Seite zu öffnen."
+      ],
+      "note": "Um ein vorhandenes Lesezeichen zu ändern, aktivieren Sie die Bearbeitung und verwenden Sie den Stift. Sie können die Adresse sperren, um versehentliche Änderungen zu vermeiden.",
+      "tip": "Am linken Rand befindet sich das Menü zum Hinzufügen von Lesezeichen. Bewegen Sie den Cursor dorthin und wählen Sie + → Lesezeichen."
+    },
+    "quick-save": {
+      "question": "Wie speichere ich die Seite, die ich besuche?",
+      "searchTerms": "aktuelle Seite speichern; offenen Tab speichern; Erweiterungssymbol; Capture-URL",
+      "title": "Speichern Sie die aktuelle Seite",
+      "summary": "Fügen Sie eine Seite über das Erweiterungssymbol hinzu.",
+      "steps": [
+        "Öffnen Sie beim Besuch einer Seite New DeskTab über das Erweiterungsmenü des Browsers.",
+        "Überprüfen Sie den vorgeschlagenen Namen und die vorgeschlagene Adresse und wählen Sie ein verfügbares Ziel aus.",
+        "Speichern Sie das Lesezeichen und öffnen Sie einen neuen Tab, um es in Ihrem Bereich zu finden."
+      ],
+      "note": "Hängen Sie das Erweiterungssymbol an die Symbolleiste Ihres Browsers an, um diese Verknüpfung immer griffbereit zu haben.",
+      "tip": "Sie müssen die URL nicht kopieren: Mit dem Browsersymbol von New DeskTab können Sie die von Ihnen besuchte Seite speichern."
+    },
+    "keyboard": {
+      "question": "Wie navigiere ich ohne Maus?",
+      "searchTerms": "ohne Maus; Tastatur verwenden; Pfeilnavigation; Tab eingeben",
+      "title": "Navigieren Sie mit der Tastatur",
+      "summary": "Tab, Pfeiltasten und Eingabetaste, um Ihren Raum zu erkunden.",
+      "steps": [
+        "Drücken Sie auf der Hauptseite die Tabulatortaste, um mit der Navigation durch die Elemente zu beginnen, ohne etwas in ein Feld einzugeben oder ein Dialogfeld zu öffnen.",
+        "Verwenden Sie die Pfeiltasten, um in jeder Richtung zum nächstgelegenen Element zu gelangen. Enter öffnet das Lesezeichen oder den Ordner; Im Bearbeitungsmodus öffnet es seinen Editor.",
+        "Drücken Sie erneut die Tabulatortaste oder Esc, um die Navigation zu verlassen. Innerhalb von Dialogen bewegen sich die Tasten Tab und Umschalt + Tab ganz normal zwischen den Steuerelementen."
+      ],
+      "note": "Im Bearbeitungsmodus wählt S das fokussierte Element aus. Durch Löschen oder Rücktaste wird es nach der Bestätigung entfernt. Widgets werden dauerhaft gelöscht.",
+      "tip": "Probieren Sie die Tabulatortaste in Ihrem Bereich aus: Pfeile bewegen sich zwischen Elementen und die Eingabetaste öffnet sie. Ein weiterer Tab verlässt diesen Modus."
+    },
+    "shortcuts": {
+      "question": "Wie ändere ich meine Tastaturkürzel?",
+      "searchTerms": "Verknüpfungen ändern; Schlüssel anpassen; Tastenkombinationen; Hotkey",
+      "title": "Machen Sie Verknüpfungen zu Ihren eigenen",
+      "summary": "Überprüfen und ändern Sie Ihre Verknüpfungen in den Einstellungen.",
+      "steps": [
+        "Öffnen Sie Einstellungen → Verknüpfungen, um Ihre Bindungen zum Bearbeiten, Hinzufügen von Lesezeichen, Ordnern und Widgets sowie zum Öffnen von Einstellungen anzuzeigen.",
+        "Klicken Sie auf die Tastenkombination einer Aktion und drücken Sie eine neue Tastenkombination. Esc bricht die Aufnahme ab; Wenn Sie mit der rechten Maustaste klicken, wird die Aktion nicht zugewiesen.",
+        "Speichern Sie die Einstellungen, um Ihre Änderungen zu übernehmen. Tastenkombinationen zurücksetzen stellt die ursprünglichen Kombinationen wieder her."
+      ],
+      "note": "Zunächst: E bearbeitet, B fügt ein Lesezeichen hinzu, F einen Ordner, W öffnet Widgets und S öffnet Einstellungen. Verknüpfungen berücksichtigen Textfelder und Dialoge.",
+      "tip": "Sie können Verknüpfungen in den Einstellungen ändern. Klicken Sie auf eine Kombination, um Ihre eigene aufzuzeichnen. Esc bricht den Vorgang ab und ein Rechtsklick hebt die Zuweisung auf."
+    },
+    "search": {
+      "question": "Wie finde ich ein Lesezeichen, das ich nicht sehen kann?",
+      "searchTerms": "Lesezeichen finden; Seite suchen; fehlendes Lesezeichen; Such-URL",
+      "title": "Suchen Sie ein Lesezeichen",
+      "summary": "Suchen Sie nach Name oder Adresse, auch innerhalb von Ordnern.",
+      "steps": [
+        "Drücken Sie /, wenn Sie nicht tippen, oder verwenden Sie die Lupe in der Arbeitsbereichsleiste.",
+        "Geben Sie einen Teil eines Namens oder einer Adresse ein. Die Suche umfasst Lesezeichen in anderen Arbeitsbereichen und innerhalb von Ordnern.",
+        "Öffnen Sie das gewünschte Ergebnis. Mit „Esc“ oder „Schließen“ kehren Sie zu Ihrem Bereich zurück."
+      ],
+      "note": "Sie müssen sich nicht merken, wo Sie eine Seite gespeichert haben, um sie zu finden.",
+      "tip": "Die Taste / öffnet die Suche. Es findet auch Lesezeichen in Ordnern und in anderen Arbeitsbereichen."
+    },
+    "editing": {
+      "question": "Wie aktiviere ich die Bearbeitung?",
+      "searchTerms": "Bearbeitung aktivieren; Desktop bearbeiten; Bleistiftredakteur; Lesezeichen ändern",
+      "title": "Bearbeitungsmodus",
+      "summary": "Schalten Sie den Stift ein, um zu organisieren und anzupassen.",
+      "steps": [
+        "Klicken Sie im linken Menü auf den Stift oder verwenden Sie Ihre Bearbeitungsverknüpfung, um das Raster und die Elementsteuerelemente anzuzeigen.",
+        "Verschieben Sie Elemente, ändern Sie ihre Größe oder wählen Sie sie aus. Der Bleistift jeder Karte öffnet den Editor für Namen, Adresse und Aussehen.",
+        "Klicken Sie erneut auf den Stift, wenn Sie fertig sind. Arbeitsbereichsänderungen werden automatisch gespeichert; Redakteure verfügen über eine eigene Schaltfläche „Speichern“."
+      ],
+      "note": "Esc löscht zunächst die Auswahl oder die Tastaturnavigation. Wenn keines von beiden aktiv ist, kann der Bearbeitungsmodus verlassen werden.",
+      "tip": "Der Menüstift beginnt mit der Bearbeitung: Kartengriffe und Steuerelemente werden angezeigt. Klicken Sie erneut darauf, um den Vorgang abzuschließen."
+    },
+    "movement": {
+      "question": "Wie verschiebe ich ein Lesezeichen?",
+      "searchTerms": "Lesezeichen verschieben; Favorit ziehen; Position ändern; Raster anordnen",
+      "title": "Elemente verschieben",
+      "summary": "Ziehen Sie die Karten im Raster an ihren Platz.",
+      "steps": [
+        "Aktivieren Sie den Bearbeitungsmodus und halten Sie die Karte gedrückt, die Sie verschieben möchten.",
+        "Ziehen Sie es an sein Ziel. Das Ergebnis hängt vom freien Speicherplatz und dem unter Einstellungen → Lesezeichen gewählten Ziehmodus ab.",
+        "Lassen Sie los, um die Position zu speichern. Sie können auch ein einzelnes Element mit einem Klick auswählen und es mit Pfeilen außerhalb der Tab-Navigation um eine Zelle verschieben."
+      ],
+      "note": "Blockierte Ziele zeigen eine visuelle Rückmeldung und das Element kehrt an eine gültige Position zurück. Sie können Änderungen rückgängig machen.",
+      "tip": "Klicken Sie im Bearbeitungsmodus, um eine Karte auszuwählen, und verwenden Sie die Pfeile, um sie Zelle für Zelle zu verschieben. Verlassen Sie zunächst die Tab-Navigation."
+    },
+    "resizing": {
+      "question": "Wie ändere ich die Größe einer Kachel?",
+      "searchTerms": "Größe der Kachel ändern; Lesezeichen vergrößern; Größe reduzieren; Größe der Griffe ändern; klicken; Schicht; Breite Höhe; 2x2",
+      "title": "Ändern Sie die Größe",
+      "summary": "Benutzen Sie die Seiten und Ecken einer Karte.",
+      "steps": [
+        "Aktivieren Sie die Bearbeitung und bewegen Sie sich zur Seite oder Ecke eines Elements, um dessen Größenänderungsgriffe zu verwenden.",
+        "Ziehen Sie den Griff. Eine Ecke ändert Breite und Höhe; Eine Seite verändert nur eine Dimension. Sie können auch auf einen Ziehpunkt klicken, um ihn um eine Zelle zu vergrößern, oder bei gedrückter Umschalttaste klicken, um ihn um eine Zelle zu verkleinern.",
+        "Wählen Sie unter „Einstellungen“ → „Lesezeichen“ die Option „Keine“, um nach dem Überschreiten von 50 % zwischen den Zellen zu springen, oder „Glatt“, um die Karte zu dehnen und beim Loslassen einzurasten."
+      ],
+      "note": "Die endgültige Größe berücksichtigt das Raster und die gültigen Positionen. Die Vorschau der Einstellungen zeigt den Unterschied, bevor Sie eine Auswahl treffen.",
+      "tip": "Klicken Sie auf einen Ziehpunkt, um ihn um eine Zelle zu vergrößern, oder bei gedrückter Umschalttaste und klicken Sie, um ihn um eine Zelle zu verkleinern. Ecken ändern gemeinsam Breite und Höhe; Seiten ändern nur eine Dimension."
+    },
+    "drag-modes": {
+      "question": "Warum kann ich nicht in einer besetzten Zelle vorbeikommen?",
+      "searchTerms": "besetzte Zelle; über einen anderen bewegen; blockierter Tropfen; Kaskade verlegen; Drag-Kollision",
+      "title": "Drag-Modi",
+      "summary": "Wählen Sie, was an einer besetzten Lesezeichenposition passiert.",
+      "steps": [
+        "Öffnen Sie Einstellungen → Lesezeichen und erweitern Sie das Ziehverhalten.",
+        "Keiner wird in freie Slots verschoben. Durch die Verschiebung wird eine Position für Lesezeichen am Zielort gefunden. Reihenfolge ordnet die Lesezeichen der Reihe nach neu an.",
+        "Sehen Sie sich die Animationen jeder Option an und speichern Sie den Modus, mit dem Sie sich am besten organisieren lassen."
+      ],
+      "note": "Liegt keine gültige Vereinbarung vor, wird ein Umzug abgelehnt. Ein transparenter Hintergrund macht eine belegte Zelle nicht frei.",
+      "tip": "Möchten Sie ein Lesezeichen in eine belegte Zelle verschieben? Sehen Sie sich Umzug und Reihenfolge unter Einstellungen → Lesezeichen an und sehen Sie sich deren Vorschau an."
+    },
+    "folders": {
+      "question": "Wie gruppiere ich Lesezeichen in Ordnern?",
+      "searchTerms": "Ordner erstellen; Gruppenlesezeichen; Favoriten organisieren; aus Ordner entfernen; Ordner umbenennen",
+      "title": "Organisieren Sie mit Ordnern",
+      "summary": "Sammeln Sie bis zu 18 Lesezeichen in einem Ordner.",
+      "steps": [
+        "Wählen Sie im linken Menü + → Ordner und geben Sie ihm einen Namen.",
+        "Ziehen Sie im Bearbeitungsmodus Lesezeichen darauf, um sie darin einzufügen. Öffnen Sie den Ordner, um sein Raster anzuzeigen.",
+        "Verwenden Sie den Bearbeitungsmodus des Ordners, um seine Lesezeichen anzuordnen. Klicken Sie auf den Namen, um es umzubenennen, und auf das Symbol, um sein Erscheinungsbild anzupassen."
+      ],
+      "note": "Das Löschen eines Ordners wirkt sich auch auf dessen Lesezeichen aus. Überprüfen Sie die Bestätigung, bevor Sie fortfahren. Der Papierkorb kann gelöschte Elemente wiederherstellen.",
+      "tip": "Ein Ordner fasst bis zu 18 Lesezeichen. Aktivieren Sie die Bearbeitungsfunktion und ziehen Sie eine Karte auf den Ordner, um sie hinzuzufügen."
+    },
+    "workspaces": {
+      "question": "Wie trenne ich persönliche und geschäftliche Seiten?",
+      "searchTerms": "persönliche Arbeit; Arbeitsbereich erstellen; Arbeitsbereich wechseln; Desktops",
+      "title": "Trennen Sie Ihre Arbeitsbereiche",
+      "summary": "Ein Raster für die Arbeit und ein anderes für alles andere.",
+      "steps": [
+        "Die Arbeitsbereichsleiste wechselt zwischen Haupt- und Ihren benutzerdefinierten Arbeitsbereichen. Sein + erzeugt ein neues.",
+        "Wählen Sie einen Arbeitsbereich aus, bevor Sie Elemente hinzufügen. Um vorhandene Elemente zu übertragen, wählen Sie diese aus und wählen Sie in der Aktionsleiste ein Ziel aus.",
+        "Alt + ↑ und Alt + ↓ blättern durch die Arbeitsbereiche. Die Schaltfläche − löscht nach Bestätigung den aktuellen benutzerdefinierten Arbeitsbereich."
+      ],
+      "note": "Durch das Löschen eines Arbeitsbereichs werden auch dessen Inhalte gelöscht. Hauptaufenthalte verfügbar und können nicht gelöscht werden.",
+      "tip": "Alt + ↑ und Alt + ↓ wechseln den Arbeitsbereich, ohne die Auswahl zu öffnen. Trennen Sie Arbeit, Hobbys oder Projekte mit dem + der Bar."
+    },
+    "selection": {
+      "question": "Wie ändere ich mehrere Artikel gleichzeitig?",
+      "searchTerms": "mehrere auswählen; Massenauswahl; mehrere bewegen; Klonauswahl; doppelte Lesezeichen",
+      "title": "In großen Mengen auswählen und handeln",
+      "summary": "Weniger wiederholte Aktionen beim Organisieren mehrerer Karten.",
+      "steps": [
+        "Aktivieren Sie die Bearbeitung und klicken Sie kurz auf jede Karte, um sie auszuwählen. Klicken Sie erneut, um die Auswahl aufzuheben. In der Tab-Navigation können Sie S verwenden.",
+        "Mit der Auswahlleiste können Sie je nach Elementtyp duplizieren, das Standarderscheinungsbild anwenden, in einen anderen Arbeitsbereich verschieben oder löschen.",
+        "Überprüfen Sie das Ziel oder die Bestätigung. Mit Esc oder der Schaltfläche „Auswahl löschen“ wird Ihre Auswahl aufgehoben."
+      ],
+      "note": "Für das Verschieben und Duplizieren sind freie Slots erforderlich. Die App sagt Ihnen, wenn einige Artikel nicht passen. Widgets landen nicht im Papierkorb.",
+      "tip": "Wählen Sie im Bearbeitungsmodus mehrere Karten mit kurzen Klicks aus, um sie gemeinsam zu verschieben, zu duplizieren oder neu zu gestalten. Esc löscht die Auswahl."
+    },
+    "history": {
+      "question": "Wie mache ich meine letzte Änderung rückgängig?",
+      "searchTerms": "Änderung rückgängig machen; Änderung wiederholen; geh zurück; Position wiederherstellen",
+      "title": "Rückgängig machen und wiederholen",
+      "summary": "Stellen Sie eine Position oder eine kürzlich vorgenommene Änderung wieder her.",
+      "steps": [
+        "Verwenden Sie den Rückgängig-Pfeil in der Arbeitsbereichsleiste, um zum vorherigen Zustand zurückzukehren.",
+        "Der Wiederherstellungspfeil stellt eine Änderung wieder her, die Sie gerade rückgängig gemacht haben. Sie können auch Strg/Befehl + Z und Strg/Befehl + Umschalt + Z verwenden.",
+        "Verwenden Sie in einem Editor die Pfeile neben dem Titel, um ausstehende Änderungen anzuzeigen. Textfelder behalten ihre normale Tastaturfunktion. Bei jeder Aktion wird eine kurze Meldung angezeigt und nicht verfügbare Pfeile sind deaktiviert. Überprüfen Sie das Ergebnis vor dem Speichern."
+      ],
+      "note": "Der Editor-Verlauf beginnt jedes Mal neu, wenn Sie einen Editor öffnen. Änderungen gelangen beim Speichern in Ihren Arbeitsbereich. Der Arbeitsbereichsverlauf ist temporär und kein Backup. Eine neue Sitzung oder Aktualisierungen von einer anderen Registerkarte können es zurücksetzen.",
+      "tip": "Wenn sich eine Änderung nicht richtig anfühlt, verwenden Sie den Rückgängig-Pfeil oder Strg/Befehl + Z. Mit Strg/Befehl + Umschalt + Z wird die Änderung wiederhergestellt."
+    },
+    "appearance": {
+      "question": "Wie ändere ich die Farbe, das Symbol oder den Text?",
+      "searchTerms": "Farbe ändern; Symbol ändern; Text ändern; Lesezeichen-Erscheinungsbild; Ordnerfarbe; Favicon",
+      "title": "Passen Sie Ihre Karten an",
+      "summary": "Farben, Bilder, Texte und Symbole nach Ihren Wünschen.",
+      "steps": [
+        "Aktivieren Sie die Bearbeitung und öffnen Sie den Stift eines Lesezeichens oder die Darstellungssteuerung für einen Ordner oder den Papierkorb.",
+        "Entdecken Sie den Editor: Hintergrund, Farbe, Bild, Text und Symbol. Die verfügbaren Steuerelemente hängen vom Elementtyp ab. Die Vorschau zeigt das Ergebnis.",
+        "Sparen Sie, wenn Sie zufrieden sind. Sie können Bilder von einer URL oder einer lokalen Datei verwenden, wenn der Editor diese Option anbietet."
+      ],
+      "note": "Lokale Bilder gehören zu diesem Browser. Fügen Sie beim Synchronisieren eine Fallback-URL für andere Geräte hinzu. Importe behalten enthaltene Bilder und klare Referenzen ohne Datei bei; Die Synchronisierung ignoriert Dateien, die auf diesem Gerät nicht verfügbar sind.",
+      "tip": "Der Bleistift eines Lesezeichens öffnet seinen visuellen Editor. Ändern Sie Farben, Text, Symbol oder Bild und prüfen Sie die Vorschau."
+    },
+    "presets": {
+      "question": "Wie kann ich einen Stil wiederverwenden, der mir gefällt?",
+      "searchTerms": "Stil speichern; Erscheinungsbild wiederverwenden; Standardstile; voreingestellte Bibliothek; Stil anwenden",
+      "title": "Erscheinungsbilder wiederverwenden",
+      "summary": "Speichern Sie einen Look und wenden Sie ihn auf andere Lesezeichen an.",
+      "steps": [
+        "Öffnen Sie die Bibliothek des Editors, um einen Look aus der verfügbaren Sammlung auszuwählen.",
+        "Speichern Sie ein benutzerdefiniertes Erscheinungsbild als Voreinstellung, um dessen Farben, Text und Symbol wiederzuverwenden, ohne den Namen oder die Adresse des Lesezeichens zu kopieren.",
+        "Konfigurieren Sie unter Einstellungen → Lesezeichen das Standard-Erscheinungsbild für neue Lesezeichen. Die Auswahlleiste kann es auf kompatible Elemente anwenden."
+      ],
+      "note": "Eine Voreinstellung ändert das Aussehen, nicht die Identität, das Ziel oder die Position des Lesezeichens.",
+      "tip": "Speichern Sie einen Look, der Ihnen gefällt, in der Erscheinungsbildbibliothek. Verwenden Sie es auf anderen Karten wieder, ohne deren Namen oder Adressen zu ändern."
+    },
+    "wallpapers": {
+      "question": "Wie verwende ich ein Bild oder Video als Hintergrund?",
+      "searchTerms": "Hintergrund ändern; Videohintergrund; Tapetenrotation; Thema",
+      "title": "Hintergrundbilder und Rotation",
+      "summary": "Farbe, Bild oder Video, um die Stimmung zu schaffen.",
+      "steps": [
+        "Öffnen Sie Einstellungen → Design und wählen Sie den Standardhintergrund, eine Farbe oder einen Medienhintergrund.",
+        "Fügen Sie Bilder oder Videos aus den im Panel angebotenen Quellen hinzu. Die Bibliothek sammelt mehrere Hintergründe mit einem Rotationsintervall.",
+        "Überprüfen Sie die Vorschau und speichern Sie. Sie können eine lokale Datei mit einer alternativen URL für andere Geräte koppeln."
+      ],
+      "note": "Lokale Dateien bleiben in diesem Browser. Durch die Synchronisierung werden sie nicht übertragen; Eine vollständige Sicherung kann sie bewahren.",
+      "tip": "Ihr Hintergrund kann sich automatisch ändern: Fügen Sie mehrere zur Einstellungen → Themenbibliothek hinzu und legen Sie ein Rotationsintervall fest."
+    },
+    "clock": {
+      "question": "Wie füge ich eine Uhr hinzu?",
+      "searchTerms": "Uhr hinzufügen; Show Time; Sekunden; 24-Stunden-Format; Uhr-Widget",
+      "title": "Fügen Sie eine Uhr hinzu",
+      "summary": "Ein Widget, das die Uhrzeit Ihres Geräts anzeigt.",
+      "steps": [
+        "Wählen Sie im linken Menü + → Widgets und dann Uhr.",
+        "Wählen Sie ein 12- oder 24-Stunden-Format und ob Sekunden angezeigt werden sollen. Die Vorschau hilft Ihnen bei der Entscheidung.",
+        "Fügen Sie es einem freien Slot hinzu. Im Bearbeitungsmodus können Sie die Optionen verschieben, in der Größe ändern oder erneut öffnen."
+      ],
+      "note": "Die Uhr folgt der Uhrzeit Ihres Geräts. Das Löschen eines Widgets ist dauerhaft; Es gelangt nicht in den Papierkorb.",
+      "tip": "Unter + → Widgets können Sie eine 12- oder 24-Stunden-Uhr mit optionalen Sekunden hinzufügen und die Größe an Ihren Platz anpassen."
+    },
+    "interface": {
+      "question": "Wie ändere ich die Sprache oder verwende den Dunkelmodus?",
+      "searchTerms": "Sprache ändern; dunkler Modus; Lichtmodus; Erscheinungsbild der Benutzeroberfläche",
+      "title": "Sprach- und Schnittstellenthema",
+      "summary": "Gestalten Sie Menüs, Dialoge und Bedienelemente komfortabel.",
+      "steps": [
+        "Wählen Sie unter Einstellungen → Allgemein eine Sprache aus oder lassen Sie sie Ihrem System folgen.",
+        "Wählen Sie je nach Wunsch eine helle, dunkle oder automatische Oberfläche.",
+        "Einstellungen speichern. Das Interface-Design funktioniert neben dem Hintergrund, den Sie unter „Thema“ ausgewählt haben."
+      ],
+      "note": "Systemsprache und automatische Darstellung richten sich nach Ihren Geräteeinstellungen.",
+      "tip": "Wählen Sie eine helle oder dunkle Oberfläche und behalten Sie dabei Ihr Hintergrundbild bei. Diese Option und Sprache finden Sie unter Einstellungen → Allgemein."
+    },
+    "trash": {
+      "question": "Wie kann ich ein gelöschtes Lesezeichen wiederherstellen?",
+      "searchTerms": "gelöschtes Lesezeichen wiederherstellen; Wiederherstellung entfernt; Papierkorb; versehentlich gelöscht; Wiederherstellungsordner",
+      "title": "Aus dem Papierkorb wiederherstellen",
+      "summary": "Eine zweite Chance für Lesezeichen und Ordner.",
+      "steps": [
+        "Öffnen Sie den Papierkorb Ihres Bereichs, um gelöschte Lesezeichen und Ordner zu überprüfen.",
+        "Wählen Sie aus, was Sie zurückhaben möchten, und verwenden Sie „Wiederherstellen“. Sie können Artikel auch dauerhaft löschen oder den Behälter nach Bestätigung leeren.",
+        "Wählen Sie unter „Einstellungen“ → „Allgemein“ aus, ob es angezeigt werden soll und wie lange die Elemente aufbewahrt werden: 1, 7, 14 oder 28 Tage, oder ob sie nie automatisch gelöscht werden sollen."
+      ],
+      "note": "Der Papierkorb gehört zu diesem Gerät. Abgelaufene oder dauerhaft gelöschte Elemente können daraus nicht mehr wiederhergestellt werden.",
+      "tip": "Aus Versehen ein Lesezeichen gelöscht? Öffnen Sie den Papierkorb und stellen Sie ihn wieder her. Passen Sie den Aufbewahrungszeitraum unter Einstellungen → Allgemein an."
+    },
+    "backup": {
+      "question": "Wie sichere oder übertrage ich meine Daten?",
+      "searchTerms": "Sicherungskopie; Daten exportieren; Kopie importieren; Sicherung wiederherstellen; ein anderer Browser; Daten übertragen",
+      "title": "Backups und Importe",
+      "summary": "Behalten Sie eine Kopie Ihres Platzes und nehmen Sie diese mit.",
+      "steps": [
+        "Exportieren Sie unter Einstellungen → Allgemein ein vollständiges Backup, um die im ZIP-Archiv enthaltenen Daten und lokalen Dateien zu erhalten.",
+        "Importieren Sie zum Wiederherstellen ein Backup und überprüfen Sie die Bestätigung, bevor Sie Daten ersetzen. Kompatible JSON-Backups werden ebenfalls unterstützt.",
+        "Unter Einstellungen → Lesezeichen können Sie nur Lesezeichen und Ordner exportieren oder importieren, wenn Sie kein vollständiges Backup benötigen."
+      ],
+      "note": "Ein Lesezeichenexport ist keine vollständige Sicherung der Einstellungen und lokalen Medien. Speichern Sie ein Backup, bevor Sie Daten wiederherstellen oder löschen.",
+      "tip": "Eine vollständige Sicherung über Einstellungen → Allgemein umfasst lokale Dateien in einer ZIP-Datei. Dies ist nützlich, bevor Sie den Browser wechseln oder Daten wiederherstellen."
+    },
+    "sync": {
+      "question": "Wie nutze ich denselben Speicherplatz auf einem anderen Computer?",
+      "searchTerms": "ein anderer Computer; Geräte synchronisieren; Synchronisation; Wolke; lokale Synchronisierung; Stoppen Sie die Synchronisierung; Synchronisierung deaktivieren; Lokaler Modus",
+      "title": "Geräteübergreifend synchronisieren",
+      "summary": "Teilen Sie Ihren Bereich mithilfe der Browsersynchronisierung.",
+      "steps": [
+        "Melden Sie sich an und aktivieren Sie die Erweiterungssynchronisierung in Ihrem Google Chrome-Profil.",
+        "Wählen Sie unter Einstellungen → Synchronisierung die Option „Synchronisiert“ und akzeptieren Sie die Bestätigung. Der Wechsel wird sofort wirksam: Vorhandene synchronisierte Lesezeichen und Einstellungen werden geladen, oder Ihre gespeicherten lokalen Daten werden synchronisiert, falls keine vorhanden sind.",
+        "Verwenden Sie dasselbe Profil auf dem anderen Gerät. Überprüfen Sie den Synchronisierungsstatus und den verfügbaren Platz im Panel."
+      ],
+      "note": "Zu jedem Gerät gehören lokale Dateien, der Papierkorb und tägliche Tipps. Für die Synchronisierung gelten Speicherbeschränkungen. Verwenden Sie alternative URLs für lokale Bilder und Videos. Die Auswahl von „Lokal“ erfordert ebenfalls eine Bestätigung und wird sofort wirksam, wobei die synchronisierten Daten gespeichert bleiben.",
+      "tip": "Durch die Synchronisierung wird Ihr Speicherplatz geräteübergreifend freigegeben, lokale Dateien benötigen jedoch eine alternative URL. Siehe Einstellungen → Synchronisierung."
+    },
+    "compact": {
+      "question": "Warum sehe ich eine Liste anstelle des Rasters?",
+      "searchTerms": "kleines Fenster; Listenansicht; Gitter verschwunden; verstecktes Panel; mobil",
+      "title": "Verwenden Sie ein kleineres Fenster",
+      "summary": "Greifen Sie weiterhin auf Ihre Lesezeichen zu, wenn der Platz begrenzt ist.",
+      "steps": [
+        "Wenn das Fenster kleiner wird, wechselt die App zu einer Liste, um den Zugriff auf Ihre Artikel zu ermöglichen.",
+        "Öffnen Sie Lesezeichen, Ordner oder suchen Sie in dieser Ansicht. Das Handbuch passt sich auch der verfügbaren Größe an.",
+        "Erweitern Sie das Fenster, um das Raster und die Bearbeitungsfelder wiederherzustellen. Ein angehaltener Bearbeitungsdialog behält seinen Entwurf bei."
+      ],
+      "note": "Die kompakte Ansicht hilft Ihnen beim Durchsuchen Ihres Raums. Für die Neuorganisation ist ein ausreichend breites Fenster erforderlich.",
+      "tip": "In einem schmalen Fenster bleiben Ihre Lesezeichen als Liste verfügbar. Erweitern Sie es, wenn Sie das Raster bearbeiten oder neu organisieren möchten."
+    },
+    "data": {
+      "question": "Wie lösche ich meine Daten oder setze Einstellungen zurück?",
+      "searchTerms": "Daten löschen; Einstellungen zurücksetzen; alles entfernen; von vorne anfangen",
+      "title": "Speichern und Zurücksetzen",
+      "summary": "Verstehen Sie, was gespeichert wird und was jede Aktion entfernt.",
+      "steps": [
+        "Arbeitsbereichsaktionen werden automatisch gespeichert. Bestätigen Sie in Editoren und Einstellungen mit Speichern; Mit „Abbrechen“ wird der Entwurf dieses Panels verworfen.",
+        "Wenn eine Benachrichtigung über eine ausstehende Speicherung angezeigt wird, klicken Sie auf „Speichern erneut versuchen“ und warten Sie auf die Bestätigung, bevor Sie die Registerkarte schließen.",
+        "Unter Einstellungen → Allgemein können Sie Einstellungen zurücksetzen oder alle Daten löschen. Lesen Sie die Bestätigung und exportieren Sie ein Backup von allem, was Sie behalten möchten."
+      ],
+      "note": "Durch das Zurücksetzen der Einstellungen bleiben Ihre Lesezeichen, ihre Größe und ihr Stil erhalten. Durch das Löschen aller lokalen Daten werden die Elemente entfernt und der Papierkorb geleert. Exportieren Sie ein Backup vor dem Löschen: Durch „Rückgängig“ wird ein Backup nicht ersetzt.",
+      "tip": "Wenn Sie einen Hinweis auf nicht gespeicherte Änderungen sehen, verwenden Sie „Speichern erneut versuchen“, bevor Sie die Registerkarte schließen. Schützen Sie Ihren Speicherplatz mit einem vollständigen Backup."
+    },
+    "learning": {
+      "question": "Wie öffne ich den Leitfaden erneut oder deaktiviere die täglichen Tipps?",
+      "searchTerms": "Tipps deaktivieren; Hilfe ausschalten; täglicher Alarm; Führer wieder öffnen; Bedienungsanleitung",
+      "title": "Lernen Sie in Ihrem eigenen Tempo",
+      "summary": "Eine Kurzanleitung, ein Handbuch und ein kleiner täglicher Tipp.",
+      "steps": [
+        "Besuchen Sie die Kurzanleitung erneut unter Einstellungen → Hilfe. Jeder Schritt verlinkt auf die entsprechenden Erläuterungen im Handbuch.",
+        "Durchsuchen Sie den Index oder suchen Sie nach einem Wort. Über die verwandten Links eines Abschnitts gelangen Sie zu anderen Funktionen, wenn Sie dazu bereit sind.",
+        "Ihr erster neuer Tab jeden Tag zeigt einen zufälligen Tipp. Verwerfen Sie es oder öffnen Sie seine Erklärung; Sie können Tipps in der Hilfe deaktivieren."
+      ],
+      "note": "Tipps besuchen Sie die Abschnitte ohne Wiederholung, bis die Sammlung vollständig ist. Sie dauern 20 Sekunden und pausieren, während Sie mit der Maus darüber fahren oder ihre Tasten fokussieren. Sie folgen dem lokalen Tag und den Einstellungen dieses Browsers.",
+      "tip": "Dieses Handbuch finden Sie immer unter Einstellungen → Hilfe. Tägliche Tipps öffnen einen Abschnitt, den Sie dort jederzeit deaktivieren können."
+    }
+  }
+}

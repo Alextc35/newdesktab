@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Poznámky k vydání",
+    "settingsDescription": "Co se změnilo a příběh každé aktualizace.",
+    "open": "Přečtěte si poznámky",
+    "history": "Historie verzí",
+    "dismiss": "Zavřete poznámky k vydání",
+    "continue": "Pokračujte",
+    "back": "Zpět k informacím",
+    "highlights": "Co můžete dělat dnes",
+    "generic": {
+      "title": "New DeskTab bylo aktualizováno",
+      "description": "Máte novou verzi. Kdykoli budete chtít, můžete se vrátit k dřívějším poznámkám k vydání v části Informace. Díky, že jsi tady."
+    },
+    "v1_0_0": {
+      "title": "Vaše pracovní plocha webových stránek. Konečně.",
+      "thanks": "Děkujeme, že jste vyzkoušeli New DeskTab. Jsem tak nadšený, že se s vámi konečně mohu podělit o první veřejné vydání tohoto projektu.",
+      "origin": "Všechno to začalo 26. září 2025. Při sledování streamu Just Chatting na Twitch jsem si všiml nové karty prohlížeče streamera: rozšíření, které uspořádalo webové stránky do barevných čtverců, bez názvů a log. Ten minimalismus mě fascinoval a řekl jsem si: proč si nepostavit vlastní rozšíření? Chtěl jsem, aby každá nová karta přinášela pocit pořádku, mé stránky na dosah ruky a panel, na který jsem se rád díval.",
+      "desktop": "Postupně tato myšlenka přerostla v osobní plochu webových stránek spíše než aplikací. Hodiny jsou prvním krokem a stále se na nich pracuje. V budoucnu bych rád přidal poznámkový blok a další widgety, které nabízejí něco užitečného, ​​jak pro mě, tak pro každého, kdo používá New DeskTab.",
+      "closing": "Tato aplikace je vytvořena pro mě a pro vás. Děkujeme, že důvěřujete New DeskTab a dáváte mu místo ve svém prohlížeči. Doufám, že se vám bude tvoření prostoru líbit stejně jako mě jeho budování.",
+      "highlights": {
+        "workspace": "Uspořádejte své stránky pomocí záložek, složek a nezávislých pracovních ploch.",
+        "appearance": "Přizpůsobte si barvy, velikost každé položky a pozadí plochy.",
+        "search": "Najděte své stránky pomocí vyhledávání a použijte klávesové zkratky k navigaci a vytváření položek.",
+        "backup": "Ukládejte zálohy a obnovujte smazané položky z koše.",
+        "sync": "Zvolte, zda chcete data ponechat v tomto zařízení nebo je synchronizovat s Google Chrome.",
+        "help": "Objevte funkce pomocí uvítacího průvodce, manuálu a každodenních tipů."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "VAŠE PRVNÍ MINUTA",
+    "skip": "Přeskočit průvodce",
+    "back": "Zpět",
+    "next": "Další",
+    "finish": "Zpět do nastavení",
+    "explore": "Prozkoumejte můj prostor",
+    "addFirst": "Přidat mou první záložku",
+    "progress": "Krok {{current}} z {{total}}",
+    "compactHint": "Pokud chcete přidat záložky a upravit prostor, rozšiřte okno.",
+    "reopenTitle": "Rychlý průvodce",
+    "reopenDescription": "Znovu objevte to podstatné během minuty.",
+    "reopen": "Zobrazit průvodce",
+    "demo": {
+      "work": "Práce",
+      "media": "Média",
+      "trash": "Koš na odpad",
+      "search": "Najděte své záložky"
+    },
+    "steps": {
+      "start": {
+        "title": "Vaše stránky. Svůj vlastní prostor.",
+        "body": "Vítejte v New DeskTab. Mějte své oblíbené stránky po ruce, kdykoli otevřete kartu. Chcete-li přidat jeden, přejděte k levému okraji a zvolte + → [[bookmarks|Záložka]].",
+        "hint": "Můžete také [[quick-save|uložte stránku, kterou jste navštívili]] pomocí ikony rozšíření v prohlížeči."
+      },
+      "edit": {
+        "title": "Dejte každé záložce její místo.",
+        "body": "Pro úpravy zapněte tužku v levém menu. Podržte a [[movement|táhnout]] položku přesunete; použijte jeho [[resizing|kliky]] ke změně jeho velikosti.",
+        "hint": "Tužka každé záložky otevírá svůj [[appearance|redaktor]]: název, barvy, ikonu a obrázek. Uložte [[presets|styly]], abyste je mohli znovu použít."
+      },
+      "organize": {
+        "title": "Méně nepořádku. More order.",
+        "body": "Vytvořte [[folders|složku]] z + a přetáhněte do něj záložky v režimu úprav. Otevírá se v čisté mřížce s místem až pro 18 záložek.",
+        "hint": "Pomocí + v [[workspaces|lišta pracovní plochy]] oddělte práci a zábavu. [[search|zvětšovací sklo]] také vyhledává uvnitř složek."
+      },
+      "style": {
+        "title": "Ať se cítí jako vy.",
+        "body": "V Nastavení → [[wallpapers|téma]] vyberte barvu, pozadí obrázku nebo videa a otočte své oblíbené tapety. V Nastavení → [[sync|Synchronizace]] synchronizujte svůj prostor mezi zařízeními pomocí účtu přihlášeného do vašeho profilu Chrome.",
+        "hint": "Přidejte [[clock|hodiny]] z + → Widgety. Můžete si také přizpůsobit [[appearance|vzhled]] svých složek."
+      },
+      "ready": {
+        "title": "Víte to podstatné.",
+        "body": "Stisknutím [[search|/]] vyhledejte záložku. Pomocí šipek [[history|vrátit zpět a znovu]] obnovte změny; smazané záložky přejdou na [[trash|odpadkový koš]].",
+        "hint": "Změny se automaticky uloží. V Nastavení exportujte [[backup|zálohování]] nebo povolte volitelné Google Chrome [[sync|synchronizace]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Vaše poslední změny se nepodařilo uložit.",
+    "retry": "Zkuste uložit znovu",
+    "saved": "Nevyřízené změny byly uloženy."
+  },
+  "itemEditor": {
+    "chooseIcon": "Vyberte ikonu",
+    "siteLogo": "Logo",
+    "noSymbol": "žádný",
+    "folderIconHint": "Symbol nahradí náhledy záložek ve složce.",
+    "icons": {
+      "mail": "Mail",
+      "calendar": "Kalendář",
+      "notes": "Poznámky",
+      "projects": "Projekty",
+      "design": "Design",
+      "music": "Hudba",
+      "tasks": "Úkoly",
+      "ideas": "Nápady",
+      "docs": "Dokumenty",
+      "ui-start": "Kompas",
+      "ui-organize": "Rozložení",
+      "ui-personalize": "Posuvníky",
+      "ui-protect": "Shield",
+      "ui-bookmarks": "Přidat záložku",
+      "ui-quick-save": "Prohlížeč",
+      "ui-keyboard": "klávesnice",
+      "ui-shortcuts": "Blesk",
+      "ui-search": "Hledat",
+      "ui-editing": "Tužka",
+      "ui-movement": "Pohybujte se",
+      "ui-resizing": "Změnit velikost",
+      "ui-drag-modes": "Přetáhněte",
+      "ui-folders": "Složka",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Selection",
+      "ui-history": "Historie",
+      "ui-appearance": "Paleta",
+      "ui-presets": "Předvolby",
+      "ui-wallpapers": "Obrázek",
+      "ui-clock": "Hodiny",
+      "ui-interface": "Zeměkoule",
+      "ui-trash": "Koš",
+      "ui-backup": "Archiv",
+      "ui-sync": "Synchronizovat",
+      "ui-compact": "Seznam",
+      "ui-data": "Database",
+      "ui-learning": "Kniha",
+      "ui-settings": "Nastavení",
+      "ui-controls": "Ovládací prvky",
+      "ui-cloud": "Cloud",
+      "ui-bookmark": "Záložka",
+      "ui-info": "Informace",
+      "ui-eye": "Oko",
+      "ui-check": "Dokončeno",
+      "ui-lock": "Zámek",
+      "ui-unlock": "Odemknout",
+      "ui-copy": "Kopírovat",
+      "ui-close": "Zavřít",
+      "ui-undo": "Vrátit zpět",
+      "ui-redo": "Znovu",
+      "ui-desktop": "Desktop",
+      "home": "Domů",
+      "briefcase": "Práce",
+      "code": "kód",
+      "game": "Hry",
+      "cart": "Nakupování",
+      "card": "Platby",
+      "people": "Lidé",
+      "message": "Zpráva",
+      "location": "Umístění",
+      "phone": "Telefon",
+      "camera": "Fotoaparát",
+      "headphones": "Sluchátka",
+      "link": "Odkaz",
+      "tag": "Tag",
+      "chart": "Statistics",
+      "coffee": "Káva",
+      "sun": "Slunce",
+      "moon": "Měsíc",
+      "circle": "Kruh",
+      "square": "náměstí",
+      "triangle": "Trojúhelník",
+      "diamond": "Diamant",
+      "pentagon": "Pentagon",
+      "hexagon": "šestiúhelník",
+      "star": "hvězda",
+      "heart": "srdce",
+      "plus": "Navíc",
+      "minus": "Mínus",
+      "video": "Video"
+    },
+    "searchIcons": "Search icons…",
+    "clearIconSearch": "Vymazat vyhledávání",
+    "noIcons": "Nebyly nalezeny žádné ikony",
+    "suggestedIcons": "Doporučeno",
+    "suggestedIcon": "Doporučené: {{name}}",
+    "logoKeywords": "logo favicon webové stránky značky",
+    "iconKeywords": {
+      "ui-trash": "popelnice odpad odpad smazat klasicky",
+      "mail": "mail email gmail outlook doručená pošta",
+      "docs": "dokumenty soubory pdf jednotka word",
+      "notes": "poznámky memo pojem onenote",
+      "ui-protect": "bezpečnost ochrana soukromí",
+      "game": "herní konzole herního ovladače",
+      "cart": "nakupování obchod prodejna koupit",
+      "card": "bankovní finance kreditní debetní peníze",
+      "people": "skupina přátel sociální komunity",
+      "ui-learning": "čtení knihovnictví studium",
+      "ui-clock": "čas hodiny hodinky",
+      "ui-interface": "světový jazyk internetu web",
+      "ui-data": "data sql úložiště",
+      "circle": "geometrické tvary postavy",
+      "square": "geometrické tvary postavy",
+      "triangle": "geometrické tvary postavy",
+      "diamond": "geometrické tvary postavy",
+      "pentagon": "geometrické tvary postavy",
+      "hexagon": "geometrické tvary postavy",
+      "star": "geometrické tvary postavy",
+      "heart": "geometrické tvary postavy"
+    },
+    "history": "Edit history",
+    "description": "Ať se ve vašem pracovním prostoru budete cítit jako doma.",
+    "looks": "Vyberte si vzhled",
+    "custom": "Vlastní",
+    "look": {
+      "original": "Původní",
+      "card": "Card",
+      "midnight": "Tmavý",
+      "paper": "Světlo"
+    },
+    "reset": "Obnovit vzhled",
+    "cardColor": "Barva karty",
+    "folderFill": "Barva složky",
+    "image": "Obrázek na pozadí",
+    "lock": "Zamknout nebo odemknout URL",
+    "copy": "Kopírovat URL",
+    "clear": "Jasný",
+    "section": {
+      "general": "To podstatné",
+      "text": "Jméno a štítky",
+      "icon": "ikona",
+      "card": "Card"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Jméno, které vidíte, a stránka, která se otevře.",
+        "text": "Vyberte, zda chcete zobrazit název, a upravit jeho barvu.",
+        "icon": "Pro obrázkové karty použijte velkou, vycentrovanou favikonu nebo malou ikonu vedle názvu."
+      },
+      "folder": {
+        "general": "Název, který spojí vaše záložky.",
+        "text": "Zobrazit název složky a upravit její barvu.",
+        "icon": "Přizpůsobte si ikonu složky a její miniatury záložek."
+      },
+      "recycleBin": {
+        "general": "Vyberte, zda se koš zobrazí ve vašem hlavním pracovním prostoru.",
+        "text": "Zobrazte název koše a upravte jeho barvu.",
+        "icon": "Dejte recyklačnímu koši svou vlastní barvu. Skryjte před generálem celý koš."
+      }
+    },
+    "addImage": "Přidat obrázek na pozadí",
+    "changeImage": "Upravit obrázek na pozadí"
+  },
+  "html": {
+    "title": "Nová karta"
+  },
+  "quickSave": {
+    "title": "Uložit záložku",
+    "name": "Jméno",
+    "workspace": "Pracovní prostor",
+    "folder": "Složka",
+    "mainWorkspace": "Hlavní",
+    "noFolder": "No folder",
+    "save": "Uložit záložku",
+    "saveAnyway": "Přesto uložit",
+    "savedButton": "Uloženo",
+    "alreadySaved": "Již uloženo",
+    "savedIn": "V {{location}}",
+    "savedInMore": "V {{location}} a {{count}} dalších",
+    "open": "Otevřít New DeskTab",
+    "unavailableTitle": "Tuto kartu nelze uložit",
+    "unavailable": "Otevřete webovou stránku (http nebo https) a uložte ji.",
+    "loadError": "Nepodařilo se načíst vaše záložky. Zkuste to znovu.",
+    "saving": "Ukládání…",
+    "saved": "Záložka byla uložena.",
+    "duplicate": "Tato adresa URL je již v daném cíli uložena.",
+    "noSpace": "V této destinaci nezbývá místo. Vyberte jiný.",
+    "invalid": "Zkontrolujte název a vybraný cíl.",
+    "saveError": "Záložku se nepodařilo uložit. Zkuste to znovu."
+  },
+  "launcher": {
+    "bookmark": "Záložka",
+    "folder": "Složka",
+    "widgets": "Widgety",
+    "editMode": {
+      "enter": "Vstupte do režimu úprav",
+      "exit": "Exit edit mode"
+    }
+  },
+  "widgets": {
+    "title": "Widgety",
+    "description": "Vyberte widget, který chcete přidat do tohoto pracovního prostoru.",
+    "empty": "Zatím nejsou k dispozici žádné widgety."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Chcete-li tuto funkci použít, rozšiřte okno.",
+      "suspended": "Panel skrytý. Chcete-li pokračovat, rozšiřte okno."
+    },
+    "editMode": {
+      "enabled": "Režim úprav povolen",
+      "disabled": "Režim úprav zakázán"
+    },
+    "selectionMode": {
+      "enabled": "Režim výběru zapnut",
+      "disabled": "Režim výběru zakázán"
+    },
+    "bookmark": {
+      "added": "Přidána záložka",
+      "notFound": "Záložka nebyla nalezena",
+      "updated": "Záložka aktualizována",
+      "deleted": "Záložka byla smazána"
+    },
+    "clock": {
+      "added": "Hodiny added",
+      "updated": "Hodiny updated",
+      "deleted": "Hodiny byly smazány"
+    },
+    "folder": {
+      "created": "Složka vytvořena",
+      "renamed": "Složka přejmenována",
+      "updated": "Složka aktualizována",
+      "deleted": "Složka a její záložky byly smazány",
+      "bookmarkAdded": "Záložka přidána do složky",
+      "folderFull": "Tato složka již obsahuje 18 záložek",
+      "bookmarkRemoved": "Záložka byla přesunuta zpět na mřížku"
+    },
+    "recycleBin": {
+      "moved": "Přesunuto do koše",
+      "restored": "Položky obnoveny",
+      "deletedPermanently": "Položky byly trvale smazány",
+      "updated": "Koš aktualizován"
+    },
+    "workspace": {
+      "created": "Pracovní prostor vytvořen",
+      "deleted": "Pracovní prostor byl smazán",
+      "switched": "Pracovní prostor: {{name}}"
+    },
+    "history": {
+      "undone": "Change undone",
+      "redone": "Změna předělána"
+    },
+    "bookmarks": {
+      "deletedAll": "Všechny záložky odstraněny",
+      "deletedAllWithFolders": "Všechny záložky a složky byly odstraněny",
+      "deleteAllError": "Smazání všech záložek se nezdařilo",
+      "exported": "Záložky byly exportovány",
+      "exportError": "Export záložek se nezdařil",
+      "imported": "Importované záložky",
+      "importError": "Import záložek se nezdařil",
+      "presetApplied": "Styl použitý na výběr",
+      "duplicatedSelected": "Vybrané položky byly duplikovány",
+      "deletedSelected": "Vybrané položky odstraněny",
+      "moved": "Položky přesunuty do vybraného pracovního prostoru"
+    },
+    "settings": {
+      "saved": "Nastavení uloženo",
+      "bookmarkDefaultSaved": "Výchozí vzhled záložky byl uložen",
+      "bookmarkDefaultError": "Výchozí vzhled záložky nelze uložit",
+      "copied": "Hodnota zkopírována do schránky",
+      "resetBg": "téma reset",
+      "deletedAllData": "Všechna místní data NewDeskTab byla smazána",
+      "deleteAllDataError": "Nelze smazat všechna místní data NewDeskTab",
+      "invalidWallpaperUrl": "Zadejte platnou adresu URL obrázku/videa HTTP nebo HTTPS.",
+      "invalidWallpaperFile": "Tento soubor nelze přidat. Použijte podporovaný obrázek nebo video MP4, WebM nebo Ogg do velikosti 200 MB.",
+      "wallpaperLimit": "Můžete přidat až 25 osobních tapet."
+    },
+    "localImage": {
+      "invalid": "Vyberte obrázek PNG, JPEG, WebP, GIF nebo AVIF.",
+      "tooLarge": "Tento obrázek je příliš velký pro uložení v tomto zařízení.",
+      "storageFull": "Pro tento obrázek není dostatek místního místa.",
+      "processing": "Tento obrázek se nepodařilo zpracovat."
+    },
+    "sync": {
+      "enabled": "Synchronizace povolena",
+      "localEnabled": "Místní režim povolen",
+      "remoteLoaded": "Načtena synchronizovaná data",
+      "updatedFromOtherDevice": "Synchronizované změny přijaté z jiného zařízení",
+      "deletedFromOtherDevice": "Cloudová data byla smazána z jiného zařízení. Toto zařízení nyní používá místní režim.",
+      "error": "Nelze změnit režim úložiště",
+      "versionBlocked": "Synchronizace byla pozastavena, protože cloudová data vyžadují novější verzi NewDeskTab. Zobrazují se místní data tohoto zařízení.",
+      "quotaError": "Data překračují dostupné úložiště pro synchronizaci",
+      "deleted": "Synchronizovaná data byla smazána",
+      "deleteError": "Synchronizovaná data se nepodařilo smazat"
+    },
+    "backup": {
+      "exported": "Záloha byla exportována",
+      "exportError": "Zálohu nelze exportovat",
+      "mediaUnavailable": "Některé odkazované místní obrázky nebo videa nejsou k dispozici, takže záloha nebyla vytvořena.",
+      "imported": "Záloha obnovena",
+      "importError": "Zálohu nelze obnovit",
+      "mediaStorageFull": "K obnovení záložních obrázků a videí není dostatek místního úložiště."
+    }
+  },
+  "view": {
+    "list": "Zobrazení seznamu",
+    "search": "Prohledávejte záložky a složky",
+    "clearSearch": "Vymazat vyhledávání",
+    "noResults": "Žádné výsledky."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Smazat všechny záložky?",
+      "deleteFolders": "Odstraňte také všechny složky",
+      "confirmDeleteSelected": "Smazat {{count}} vybraných položek?",
+      "confirmMoveOne": "Přesunout tuto položku do pracovního prostoru „{{workspace}}“?",
+      "confirmMoveSelected": "Přesunout {{count}} vybraných položek do pracovního prostoru „{{workspace}}“?",
+      "duplicateNoSpace": "{{count}} položek nebylo možné duplikovat, protože nebyl dostatek místa.",
+      "moveNoSpace": "{{count}} položek nebylo možné přesunout, protože nebyl dostatek místa.",
+      "no_space": "Pro více záložek není místo 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Zahodit novou záložku?"
+      },
+      "confirmDelete": "Smazat „{{name}}“?",
+      "confirmPermanentDelete": "Trvale smazat „{{name}}“? Toto nelze vrátit zpět.",
+      "cancel": "Zahodit změny?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Trvale smazat tento widget? Toto nelze vrátit zpět.",
+      "confirmDeleteSelected": "Smazat {{count}} vybraných položek? Vybrané widgety ({{widgetCount}}) budou trvale odstraněny a nelze je obnovit."
+    },
+    "folder": {
+      "createCancel": "Zahodit novou složku?",
+      "cancel": "Zahodit změny ve složce?"
+    },
+    "recycleBin": {
+      "folder": "Přesunout „{{name}}“ a jeho {{count}} záložky do koše?",
+      "empty": "Trvale smazat vše v koši? Toto nelze vrátit zpět.",
+      "deleteSelected": "Trvale smazat {{count}} vybraných položek? Toto nelze vrátit zpět.",
+      "noSpace": "{{count}} položek nebylo možné obnovit, protože v mřížce není dostatek místa. Zůstávají v koši.",
+      "cancel": "Zahodit změny koše?"
+    },
+    "settings": {
+      "cancel": "Zahodit změny nastavení?",
+      "reset": "Obnovit všechna nastavení? Záložky nebudou smazány.",
+      "deleteAllData": "Smazat všechna místní data NewDeskTab z tohoto zařízení? Záložky, složky, widgety, nastavení, položky koše, místní obrázky a místní videa budou trvale odstraněny. Cloudová data se nezmění. Pokud je synchronizace aktivní, toto zařízení se nejprve přepne na místní. Tuto akci nelze vrátit zpět.",
+      "theme": {
+        "reset": "Resetovat nastavení motivu?"
+      },
+      "bookmark": {
+        "cancel": "Zahodit změny výchozího vzhledu záložky?"
+      },
+      "shortcuts": {
+        "reset": "Obnovit výchozí klávesové zkratky?"
+      },
+      "sync": {
+        "enable": "Přepnout z místního na synchronizované? To se projeví nyní, bez kliknutí na Uložit. Pokud již synchronizovaná data existují, načtou se jejich záložky a nastavení. V opačném případě budou vaše uložená místní data synchronizována.",
+        "local": "Přepnout ze synchronizovaného na místní? To se projeví nyní, bez kliknutí na Uložit. Toto zařízení si uchová kopii aktuálních dat a zastaví synchronizaci změn. Synchronizovaná data zůstanou uložena pro ostatní zařízení.",
+        "delete": "Smazat všechna synchronizovaná data NewDeskTab? Toto zařízení a všechna ostatní zařízení využívající tato cloudová data se přepnou do místního režimu, když zjistí smazání. Toto nelze vrátit zpět."
+      }
+    },
+    "backup": {
+      "import": "Obnovit tuto zálohu? Nahradí vaše aktuální záložky a nastavení."
+    }
+  },
+  "addModal": {
+    "title": "Přidat novou záložku",
+    "name": "jméno:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Pokročilé možnosti",
+    "compactView": "▴ Kompaktní zobrazení"
+  },
+  "clock": {
+    "name": "Hodiny",
+    "inDevelopment": "Ve vývoji: hodiny ještě nejsou ve finální verzi. Pracujeme na jeho vylepšení.",
+    "createTitle": "Přidat hodiny",
+    "editTitle": "Nastavení hodin",
+    "description": "Ukažte svůj místní čas v tomto pracovním prostoru.",
+    "hourCycle": "Formát času",
+    "hour24": "24 hodin",
+    "hour12": "12 hodin",
+    "showSeconds": "Zobrazit sekundy",
+    "delete": "Smazat",
+    "edit": "Upravit hodiny",
+    "actions": "Akce hodin",
+    "openSettings": "Otevřete nastavení hodin",
+    "confirmDelete": "Smazat tyto hodiny? Tuto akci můžete vrátit zpět.",
+    "confirmPermanentDelete": "Trvale smazat tyto hodiny? Toto nelze vrátit zpět.",
+    "cancel": "Zahodit změny hodin?",
+    "noSpace": "Pro tyto hodiny není dostatek místa na mřížce."
+  },
+  "buttons": {
+    "save": "Uložit",
+    "apply": "Použít",
+    "add": "Přidat",
+    "accept": "Přijmout",
+    "cancel": "Zrušit",
+    "close": "Zavřít"
+  },
+  "localImage": {
+    "upload": "Nahrát z tohoto zařízení",
+    "label": "Místní obrázek:",
+    "activeSource": "Aktivní obrázek:",
+    "sourceLocal": "Místní",
+    "sourceUrl": "URL",
+    "remove": "Odstraňte místní obrázek",
+    "notice": "Místní obrázky nejsou synchronizovány.",
+    "unnamed": "Místní obrázek"
+  },
+  "workspace": {
+    "ariaLabel": "Ovládací prvky pracovního prostoru",
+    "current": "Pracovní prostor",
+    "main": "Hlavní",
+    "search": "Hledat v záložkách",
+    "add": "Vytvořte pracovní prostor",
+    "delete": "Smazat pracovní prostor",
+    "undo": "Vrátit zpět",
+    "redo": "Znovu",
+    "shortcutHint": "Přepínejte pracovní plochu pomocí Alt nebo Option a šipky nahoru nebo dolů",
+    "prompt": "Zadejte název nového pracovního prostoru",
+    "namePlaceholder": "Práce, volný čas…",
+    "confirmDelete": "Smazat „{{name}}“, jeho {{folderCount}} složek a {{bookmarkCount}} záložek? Chcete-li je zachovat, nejprve je přesuňte do hlavního nebo jiného pracovního prostoru."
+  },
+  "search": {
+    "title": "Hledat v záložkách",
+    "inputLabel": "Hledejte podle jména nebo URL",
+    "placeholder": "Název nebo URL",
+    "empty": "Nebyly nalezeny žádné záložky.",
+    "noUrl": "Žádná adresa URL",
+    "inFolder": "Složka: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Akce vybrané položky",
+    "selected": "{{count}} vybráno",
+    "move": "Přesuňte se do pracovního prostoru",
+    "applyPreset": "Použít výchozí styl",
+    "duplicate": "Duplicitní výběr",
+    "delete": "Smazat",
+    "clear": "Jasný výběr"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Ovládání záložek",
+    "edit": "Upravit záložku",
+    "delete": "Smazat záložku",
+    "copySuffix": "kopírovat"
+  },
+  "folder": {
+    "create": "Vytvořit složku",
+    "createPrompt": "Pojmenujte novou složku",
+    "namePlaceholder": "Nástroje, inspirace…",
+    "open": "Otevřít {{name}}, {{count}} uložených záložek",
+    "count": "{{count}} uloženo",
+    "summary": "Využito {{count}} z {{capacity}} míst",
+    "editMode": {
+      "enable": "Upravit",
+      "disable": "Dokončete úpravy"
+    },
+    "gridLabel": "Záložky do složek",
+    "dropHint": "Přetažením přidáte",
+    "noSpace": "Pro novou složku není žádná volná buňka mřížky.",
+    "removeNoSpace": "K odstranění této záložky ze složky není dostatek místa v mřížce.",
+    "confirmDelete": "Přesunout „{{name}}“ a jeho {{count}} záložky do koše?",
+    "confirmPermanentDelete": "Trvale smazat „{{name}}“ a jeho {{count}} záložky? Toto nelze vrátit zpět.",
+    "actions": {
+      "ariaLabel": "Ovládací prvky složky",
+      "customize": "Přizpůsobit složku",
+      "rename": "Přejmenovat složku",
+      "delete": "Smazat složku",
+      "editBookmark": "Upravit {{name}}",
+      "removeBookmark": "Přesuňte {{name}} ze složky",
+      "deleteBookmark": "Smazat {{name}}",
+      "acceptRename": "Uložit název složky",
+      "cancelRename": "Zrušit přejmenování složky"
+    },
+    "editor": {
+      "createTitle": "Přidat novou složku",
+      "title": "Upravit složku",
+      "name": "jméno:",
+      "showPreviews": "Zobrazit náhledy záložek",
+      "showName": "Zobrazit název složky",
+      "iconColor": "Barva symbolu:",
+      "outerBackgroundColor": "Barva vnějšího pozadí:",
+      "noOuterBackground": "Žádné vnější pozadí",
+      "resetOuterBackground": "Automaticky",
+      "noBackground": "Průhledná výplň složky",
+      "backgroundColor": "Barva složky:",
+      "backgroundImage": "Obrázek na pozadí (URL):",
+      "lockImage": "Zamknout nebo odemknout adresu URL obrázku",
+      "copyImage": "Zkopírujte adresu URL obrázku",
+      "clearImage": "Vymazat adresu URL obrázku",
+      "textColor": "Barva textu:",
+      "preview": "Náhled",
+      "previewName": "Složka",
+      "sections": {
+        "general": "Generál",
+        "style": "styl",
+        "text": "Text"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Koš",
+    "open": "Otevřete koš",
+    "openCount": "Otevřený odpadkový koš, {{count}} položek",
+    "dropHint": "Přetažením smažete",
+    "summary": "{{count}} položek · Automatické mazání: {{retention}}",
+    "empty": "Koš je prázdný.",
+    "selected": "{{count}} vybráno",
+    "select": "Vyberte {{name}}",
+    "folderContents": "{{count}} záložek",
+    "deletedAt": "Smazáno {{date}}",
+    "expiresIn": "Zbývá {{days}} dní",
+    "expiresInOne": "Zbývá 1 den",
+    "neverExpires": "Nikdy smazáno automaticky",
+    "restoreAll": "Obnovit vše",
+    "deleteAll": "Smazat vše",
+    "restoreSelected": "Obnovit vybrané",
+    "deleteSelected": "Smazat vybrané",
+    "editor": {
+      "title": "Upravit koš",
+      "animateIcon": "Animovat odpadkový koš",
+      "appearance": "Vzhled",
+      "backgroundColor": "Barva pozadí:",
+      "backgroundImage": "Obrázek na pozadí (URL):",
+      "lockImage": "Zamknout nebo odemknout adresu URL obrázku",
+      "copyImage": "Zkopírujte adresu URL obrázku",
+      "clearImage": "Vymazat adresu URL obrázku",
+      "noBackground": "Žádné pozadí",
+      "iconColor": "Barva ikony:",
+      "textColor": "Barva textu:",
+      "elements": "Viditelné prvky",
+      "showName": "Zobrazit jméno",
+      "visible": "Ukažte koš na hlavní mřížce",
+      "preview": "Náhled",
+      "actions": "Akce koše",
+      "edit": "Upravit koš",
+      "sections": {
+        "general": "Generál",
+        "style": "styl",
+        "text": "Text",
+        "icon": "ikona"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Zadejte název pro uložení předvolby."
+    },
+    "name": {
+      "required": "Zadejte název záložky."
+    },
+    "folderName": {
+      "required": "Zadejte název složky."
+    },
+    "url": {
+      "invalid": "Adresa URL není platná.",
+      "unsupportedProtocol": "Tento typ adresy URL není povolen."
+    },
+    "backgroundImageUrl": {
+      "invalid": "Adresa URL obrázku není platná.",
+      "unsupportedProtocol": "Tento typ obrázku není povolen."
+    }
+  },
+  "editModal": {
+    "title": "Upravit záložku",
+    "name": "jméno:",
+    "url": "URL:",
+    "backgroundImage": "Obrázek na pozadí (URL):",
+    "backgroundFavicon": "Velká ikona uprostřed",
+    "invertColorBg": "Invertovat barvy",
+    "noBackground": "Žádné pozadí",
+    "backgroundColor": "Barva záložky:",
+    "showText": "Zobrazit text",
+    "textColor": "Barva textu:",
+    "showFavicon": "Zobrazit ikonu",
+    "invertColorIcon": "Invertovat barvy ikon",
+    "iconColor": "Barva ikony:",
+    "sections": {
+      "general": "Generál",
+      "style": "styl",
+      "text": "Text",
+      "icon": "ikona"
+    },
+    "preview": "Náhled",
+    "previewName": "Náhled"
+  },
+  "colorPicker": {
+    "title": "Výběr barvy",
+    "sample": "Vyberte barvu z obrazovky",
+    "close": "Zavřete výběr barvy",
+    "saturationBrightness": "Sytost a jas",
+    "hue": "Odstín",
+    "quickColors": "Rychlé barvy",
+    "saturation": "Sytost",
+    "brightness": "Jas",
+    "hex": "Hexadecimální kód",
+    "copy": "Zkopírujte hexadecimální kód",
+    "copied": "Hexadecimální kód zkopírován",
+    "copyFailed": "Hexadecimální kód nelze zkopírovat"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Generál",
+      "sync": "Synchronizovat",
+      "theme": "téma",
+      "bookmark": "Záložky",
+      "shortcuts": "Zkratky",
+      "language": "Jazyky",
+      "help": "Pomoc",
+      "information": "Informace"
+    },
+    "general": {
+      "title": "Generál",
+      "subtitle": "Nastavení",
+      "export": "Exportujte zálohu",
+      "import": "Obnovit zálohu",
+      "resetSettings": "Obnovit nastavení",
+      "deleteAllData": "Smažte všechna místní data",
+      "recycleBin": {
+        "title": "Koš na odpad",
+        "show": "Ukažte koš na hlavní mřížce",
+        "retentionLabel": "Automaticky odstranit položky:",
+        "retentionOptions": {
+          "oneDay": "1 den",
+          "sevenDays": "7 dní",
+          "fourteenDays": "14 dní",
+          "twentyEightDays": "28 dní",
+          "never": "Nikdy"
+        }
+      },
+      "appearance": {
+        "title": "Vzhled",
+        "system": "Prohlížeč",
+        "light": "Světlo",
+        "dark": "Tmavý"
+      }
+    },
+    "sync": {
+      "title": "Synchronizovat",
+      "description": "Vyberte, kam chcete uložit nastavení a záložky.",
+      "ariaLabel": "Režim úložiště",
+      "local": {
+        "title": "Pouze toto zařízení",
+        "description": "Data jsou uložena pouze v tomto místním profilu prohlížeče."
+      },
+      "synced": {
+        "title": "Synchronizováno",
+        "description": "Dostupné v profilech Google Chrome připojených ke stejnému účtu.",
+        "tooltip": "Informace o synchronizaci"
+      },
+      "compatibility": {
+        "newerVersion": "Synchronizace je na tomto zařízení uzamčena, protože cloudová data vytvořila novější verze NewDeskTab. Vaše synchronizovaná data jsou v bezpečí a nebyla změněna. Chcete-li se znovu připojit, aktualizujte NewDeskTab."
+      },
+      "usage": {
+        "title": "Dostupnost úložiště",
+        "showExact": "Zobrazit přesné bajty",
+        "showHuman": "Zobrazit čitelné velikosti",
+        "local": "Místní",
+        "sync": "Synchronizováno",
+        "localSyncCopy": "Místní kopie pro synchronizaci",
+        "localAria": "Využití místního úložiště",
+        "syncAria": "Využití synchronizovaného úložiště",
+        "loading": "Počítání…",
+        "summary": "{{used}} z {{total}} · {{percent}} %",
+        "available": "{{free}} k dispozici",
+        "system": "Systém a metadata",
+        "bookmarks": "Záložky",
+        "folders": "Složky",
+        "trash": "Data koše",
+        "localImages": "Místní obrázky",
+        "themeImages": "téma",
+        "bookmarkImages": "Záložky",
+        "folderImages": "Složky",
+        "trashImages": "Koš na odpad",
+        "otherImages": "Jiné",
+        "widgets": "Widgety",
+        "widgetsHint": "Velikost zobrazená pro synchronizaci je odhad a nezahrnuje živý obsah načtený z externích služeb.",
+        "error": "Použití není k dispozici"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome synchronizuje New DeskTab prostřednictvím vašeho účtu Google. New DeskTab nespouští svůj vlastní synchronizační server.",
+        "brave": "Nedostupné v Brave: může ukládat data New DeskTab v chrome.storage.sync, ale momentálně je nepřenáší mezi zařízeními.",
+        "unsupported": "Synchronizované úložiště je zatím k dispozici pouze v Google Chrome. Ostatní prohlížeče zůstanou vypnuté, dokud nebude ověřena podpora mezi zařízeními."
+      },
+      "existingNotice": "Přijetím přepnutí na synchronizované se načtou všechna synchronizovaná data, která již existují.",
+      "deleteData": "Smazat synchronizovaná data",
+      "metadata": {
+        "loading": "Kontrola synchronizovaných dat…",
+        "updatedAt": "Poslední synchronizovaná aktualizace: {{date}}",
+        "unknown": "Synchronizovaná data existují, ale čas jejich aktualizace není k dispozici.",
+        "empty": "Nejsou uložena žádná synchronizovaná data New DeskTab.",
+        "error": "Informace o synchronizovaných datech nelze načíst."
+      },
+      "status": {
+        "idle": "Data jsou připravena.",
+        "saving": "Ukládání změn…",
+        "saved": "Všechny změny se uloží.",
+        "error": "Nepodařilo se uložit nejnovější změny."
+      }
+    },
+    "theme": {
+      "title": "téma",
+      "subtitle": "Pozadí stránky",
+      "backgroundImageMode": "Obrázek/video",
+      "wallpapersTitle": "Moje vlastní tapety",
+      "ownWallpapersHint": "Tyto tapety a jejich rotace jsou uloženy pouze v tomto zařízení.",
+      "mediaUrl": "URL tapety",
+      "image": "Obrázek",
+      "video": "Video",
+      "addUrl": "Přidat URL",
+      "addFiles": "Přidejte místní soubory",
+      "rotationInterval": "Rotace tapety",
+      "noRotation": "Neměňte automaticky",
+      "interval5": "5 sekund",
+      "interval15": "15 sekund",
+      "interval30": "30 sekund",
+      "interval60": "1 minuta",
+      "interval300": "5 minut",
+      "interval600": "10 minut",
+      "interval1800": "30 minut",
+      "previous": "Předchozí",
+      "next": "Další",
+      "moveUp": "Posuňte se nahoru",
+      "moveDown": "Posuňte se dolů",
+      "remove": "Odebrat",
+      "unavailableLocal": "Místní soubor není na tomto zařízení dostupný",
+      "mediaColor": "Barva za touto tapetou",
+      "mediaPreview": "Náhled tapety",
+      "activeSource": "Aktivní zdroj",
+      "backgroundSolid": "Jednobarevná",
+      "backgroundColor": "Barva:",
+      "editSolidColor": "Změnit plnou barvu pozadí",
+      "changeSolidColor": "Změňte barvu",
+      "backgroundImageColor": "Barva za obrázkem/videem",
+      "backgroundImage": "Adresa URL sdílená mezi zařízeními",
+      "urlHidden": "Adresa URL skryta",
+      "resetBackground": "Obnovit motiv"
+    },
+    "bookmark": {
+      "title": "Záložky",
+      "subtitle": "Výchozí záložka",
+      "description": "Vyberte vzhled použitý při vytváření nových záložek.",
+      "configure": "Nakonfigurujte výchozí záložku",
+      "editorTitle": "Výchozí vzhled záložky",
+      "previewName": "Výchozí záložka",
+      "export": "Exportujte záložky",
+      "import": "Importujte záložky",
+      "deleteAll": "Smazat všechny záložky",
+      "preview": "Náhled",
+      "drag": {
+        "title": "Chování přetažení",
+        "description": "Zvolte, jak se záložky reorganizují, když obsadíte jejich pozici.",
+        "none": {
+          "title": "žádný",
+          "description": "Umožňuje pouze přesuny do volných buněk."
+        },
+        "cascade": {
+          "title": "Sekvence",
+          "description": "Posouvá řetěz, dokud nenajde volnou buňku.",
+          "experimental": "Experimentální · Může obsahovat drobné chyby."
+        },
+        "relocate": {
+          "title": "Přemístění",
+          "description": "Přemístí záložky, které zabírají cíl."
+        }
+      },
+      "resize": {
+        "title": "Změna velikosti chování",
+        "description": "Vyberte, jak budou položky reagovat při přesunutí úchytu změny velikosti.",
+        "smooth": {
+          "title": "Hladký",
+          "description": "Roztáhne položku při přetahování a poté se přichytí k mřížce."
+        },
+        "none": {
+          "title": "žádný",
+          "description": "Přeskočí po buňce, když překročíte 50 % sousední buňky."
+        }
+      },
+      "presets": {
+        "title": "Knihovna stylů",
+        "tab": "Knihovna",
+        "description": "Uložte styly a znovu je použijte při nastavování výchozí záložky.",
+        "name": "Název předvolby",
+        "saved": "Uložené předvolby",
+        "save": "Uložit předvolbu",
+        "apply": "Načíst",
+        "delete": "Smazat",
+        "empty": "Žádné uložené předvolby"
+      }
+    },
+    "shortcuts": {
+      "title": "Klávesové zkratky",
+      "description": "Vyberte tlačítko zkratky a poté stiskněte písmeno nebo kombinaci kláves. Kliknutím pravým tlačítkem zrušíte přiřazení.",
+      "change": "Změňte zkratku {{action}}. Aktuální zkratka: {{shortcut}}.",
+      "press": "Stiskněte zkratku…",
+      "unassigned": "Nepřiřazeno",
+      "unassignedFlash": "Zástupce nepřiřazen.",
+      "modifierRequired": "Použijte písmeno samotné nebo kombinaci kláves s modifikátorem.",
+      "reserved": "Tato zkratka je vyhrazena prohlížečem nebo operačním systémem. Vyberte jinou kombinaci.",
+      "conflict": "Tento klíč je již přiřazen k jiné akci.",
+      "updated": "Zástupce aktualizován.",
+      "cancelled": "Změna zástupce zrušena.",
+      "restored": "Výchozí zkratky obnoveny.",
+      "reset": "Resetovat zkratky",
+      "actions": {
+        "toggleEditing": {
+          "title": "Režim úprav",
+          "description": "Zadejte nebo opusťte úpravy na hlavní mřížce nebo v otevřené složce."
+        },
+        "addBookmark": {
+          "title": "Vytvořit záložku",
+          "description": "Otevřete formulář pro přidání záložky."
+        },
+        "addFolder": {
+          "title": "Vytvořit složku",
+          "description": "Otevřete dialogové okno pro vytvoření složky."
+        },
+        "openWidgets": {
+          "title": "Otevřete widgety",
+          "description": "Otevřete seznam dostupných widgetů."
+        },
+        "openSettings": {
+          "title": "Otevřete nastavení",
+          "description": "Otevřete panel nastavení New DeskTab."
+        }
+      }
+    },
+    "languages": {
+      "title": "Jazyky",
+      "text": "Vyberte jazyk rozhraní:",
+      "system": "Prohlížeč",
+      "search": "Vyhledejte jazyk nebo zemi",
+      "empty": "Nebyly nalezeny žádné jazyky"
+    },
+    "information": {
+      "title": "Informace",
+      "version": "Verze: {{VERSION}}",
+      "author": "autor:"
+    }
+  }
+}

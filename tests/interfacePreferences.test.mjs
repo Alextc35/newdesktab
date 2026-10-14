@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { resolveLanguage } from '../src/domain/settings/interfacePreferences.js';
+import { SUPPORTED_LANGUAGES } from '../src/domain/settings/languageCatalog.js';
 import {
   createBackupEnvelope,
   migratePersistedData,
@@ -11,13 +12,16 @@ test('automatic language resolves supported device locales and falls back to Eng
   for (const [locale, expected] of [
     ['en-GB', 'en'], ['es', 'es'], ['es-ES', 'es'], ['es-MX', 'es_419'],
     ['es_419', 'es_419'], ['es-AR', 'es_419'], ['es-Latn-CO', 'es_419'],
-    ['pt-BR', 'pt_BR'], ['pt-PT', 'pt_BR'], ['fr-FR', 'en'], ['ja-JP', 'en'],
+    ['pt-BR', 'pt_BR'], ['pt-PT', 'pt_PT'], ['pt-AO', 'pt_PT'], ['fr-FR', 'fr'], ['ja-JP', 'ja'],
+    ['zh-CN', 'zh_CN'], ['zh-TW', 'zh_TW'], ['zh-HK', 'zh_TW'], ['zh-Hant', 'zh_TW'],
+    ['zh-Hant-CN', 'zh_TW'], ['zh-Hans-HK', 'zh_CN'], ['nb-NO', 'no'], ['tl-PH', 'fil'],
+    ['ar-SA', 'ar'], ['hi-IN', 'hi'], ['iw-IL', 'he'], ['unsupported', 'en'],
     ['', 'en'], [undefined, 'en']
   ]) assert.equal(resolveLanguage('system', locale), expected, locale);
 });
 
 test('an explicit language takes priority over the device language', () => {
-  for (const language of ['en', 'es', 'es_419', 'pt_BR']) {
+  for (const language of SUPPORTED_LANGUAGES) {
     assert.equal(resolveLanguage(language, 'fr-FR'), language);
     assert.equal(resolveLanguage(language, 'es-MX'), language);
   }

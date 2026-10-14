@@ -42,10 +42,40 @@ export function initCustomSelect(select) {
   trigger.append(valueLabel, chevron);
 
   const menu = document.createElement('div');
-  menu.id = `${id}-listbox`;
+  const searchable = select.hasAttribute('data-select-search');
+  menu.id = searchable ? `${id}-menu` : `${id}-listbox`;
   menu.className = 'custom-select-menu';
-  menu.setAttribute('role', 'listbox');
   menu.hidden = true;
+
+  const listbox = searchable ? document.createElement('div') : menu;
+  listbox.id = `${id}-listbox`;
+  listbox.setAttribute('role', 'listbox');
+  let searchInput;
+  let emptyMessage;
+  if (searchable) {
+    menu.classList.add('custom-select-menu-searchable');
+    const searchHeader = document.createElement('div');
+    searchHeader.className = 'custom-select-search';
+    const icon = document.createElement('span');
+    icon.className = 'custom-select-search-icon';
+    icon.setAttribute('aria-hidden', 'true');
+    searchInput = document.createElement('input');
+    searchInput.type = 'search';
+    searchInput.className = 'custom-select-search-input';
+    searchInput.autocomplete = 'off';
+    searchInput.spellcheck = false;
+    searchInput.setAttribute('role', 'combobox');
+    searchInput.setAttribute('aria-autocomplete', 'list');
+    searchInput.setAttribute('aria-controls', listbox.id);
+    searchInput.setAttribute('aria-expanded', 'false');
+    searchHeader.append(icon, searchInput);
+    listbox.className = 'custom-select-options';
+    emptyMessage = document.createElement('p');
+    emptyMessage.className = 'custom-select-empty';
+    emptyMessage.setAttribute('role', 'status');
+    emptyMessage.hidden = true;
+    menu.append(searchHeader, listbox, emptyMessage);
+  }
 
   const modal = select.closest('.modal');
   (modal ?? document.body).append(menu);
@@ -55,7 +85,7 @@ export function initCustomSelect(select) {
   select.classList.add('custom-select-native');
   select.tabIndex = -1;
   select.setAttribute('aria-hidden', 'true');
-  trigger.setAttribute('aria-controls', menu.id);
+  trigger.setAttribute('aria-controls', listbox.id);
 
   for (const [index, label] of labels.entries()) {
     if (!label.id) label.id = `${id}-label-${index + 1}`;
@@ -69,9 +99,9 @@ export function initCustomSelect(select) {
     trigger.setAttribute('aria-label', select.getAttribute('aria-label'));
   }
   if (trigger.getAttribute('aria-labelledby')) {
-    menu.setAttribute('aria-labelledby', trigger.getAttribute('aria-labelledby'));
+    listbox.setAttribute('aria-labelledby', trigger.getAttribute('aria-labelledby'));
   } else if (trigger.getAttribute('aria-label')) {
-    menu.setAttribute('aria-label', trigger.getAttribute('aria-label'));
+    listbox.setAttribute('aria-label', trigger.getAttribute('aria-label'));
   }
 
   let options = [];
@@ -85,26 +115,49 @@ export function initCustomSelect(select) {
     let index = start;
     for (let count = 0; count < options.length; count += 1) {
       index = (index + direction + options.length) % options.length;
-      if (!options[index].disabled) return index;
+      if (!options[index].disabled && !options[index].element.hidden) return index;
     }
     return -1;
   }
 
   function setActive(index) {
-    if (index < 0 || options[index]?.disabled) return;
+    if (index < 0 || options[index]?.disabled || options[index]?.element.hidden) return;
     activeIndex = index;
     options.forEach((entry, optionIndex) => {
       entry.element.dataset.active = String(optionIndex === activeIndex);
     });
     trigger.setAttribute('aria-activedescendant', options[index].element.id);
-    options[index].element.scrollIntoView({ block: 'nearest' });
+    searchInput?.setAttribute('aria-activedescendant', options[index].element.id);
+    if (isOpen) {
+      // Scroll the options only; moving an ancestor would close the popup.
+      const optionRect = options[index].element.getBoundingClientRect();
+      const listRect = listbox.getBoundingClientRect();
+      if (optionRect.top < listRect.top) listbox.scrollTop += optionRect.top - listRect.top;
+      else if (optionRect.bottom > listRect.bottom) listbox.scrollTop += optionRect.bottom - listRect.bottom;
+    }
+  }
+
+  function filterOptions() {
+    const words = normalizeSearch(searchInput?.value ?? '').split(/\s+/u).filter(Boolean);
+    for (const option of options) {
+      option.element.hidden = !words.every(word => option.searchTerms.includes(word));
+    }
+    if (emptyMessage) emptyMessage.hidden = options.some(option => !option.element.hidden);
+    activeIndex = options.findIndex(option => option.value === select.value
+      && !option.disabled && !option.element.hidden);
+    if (activeIndex < 0) activeIndex = getEnabledOptionIndex(-1, 1);
+    options.forEach(option => { option.element.dataset.active = 'false'; });
+    trigger.removeAttribute('aria-activedescendant');
+    searchInput?.removeAttribute('aria-activedescendant');
+    if (isOpen) positionMenu();
+    if (isOpen && activeIndex >= 0) setActive(activeIndex);
   }
 
   function positionMenu() {
     const rect = trigger.getBoundingClientRect();
-    const width = Math.min(Math.max(rect.width, 176), window.innerWidth - 16);
+    const width = Math.min(Math.max(rect.width, searchable ? 264 : 176), window.innerWidth - 16);
     menu.style.width = `${width}px`;
-    menu.style.maxHeight = `${Math.max(72, Math.min(280, window.innerHeight - 16))}px`;
+    menu.style.maxHeight = `${Math.max(72, Math.min(searchable ? 332 : 280, window.innerHeight - 16))}px`;
 
     const menuHeight = menu.offsetHeight;
     const below = window.innerHeight - rect.bottom - 8;
@@ -124,6 +177,13 @@ export function initCustomSelect(select) {
   function sync() {
     const selected = select.selectedOptions[0];
     valueLabel.textContent = selected?.label ?? '';
+    valueLabel.lang = selected?.lang || document.documentElement.lang;
+    valueLabel.dir = selected?.dir || 'auto';
+    if (searchInput) {
+      searchInput.placeholder = select.dataset.searchPlaceholder ?? '';
+      searchInput.setAttribute('aria-label', searchInput.placeholder);
+      emptyMessage.textContent = select.dataset.searchEmpty ?? '';
+    }
     if (selected) trigger.setAttribute('aria-valuetext', selected.label);
     else trigger.removeAttribute('aria-valuetext');
     trigger.disabled = select.disabled;
@@ -146,7 +206,7 @@ export function initCustomSelect(select) {
       .filter(option => !option.hidden)
       .map((option, index) => {
         const element = document.createElement('div');
-        element.id = `${menu.id}-option-${index}`;
+        element.id = `${listbox.id}-option-${index}`;
         element.className = 'custom-select-option';
         element.setAttribute('role', 'option');
         element.dataset.value = option.value;
@@ -154,6 +214,8 @@ export function initCustomSelect(select) {
         const text = document.createElement('span');
         text.className = 'custom-select-option-label';
         text.textContent = option.label;
+        text.lang = option.lang || document.documentElement.lang;
+        text.dir = option.dir || 'auto';
         const check = document.createElement('span');
         check.className = 'custom-select-option-check';
         check.setAttribute('aria-hidden', 'true');
@@ -168,16 +230,12 @@ export function initCustomSelect(select) {
         element.addEventListener('click', () => {
           if (!option.disabled) choose(option.value);
         });
-        return { value: option.value, label: option.label, disabled: option.disabled, element };
+        return { value: option.value, label: option.label, disabled: option.disabled, element,
+          searchTerms: normalizeSearch(`${option.label} ${option.dataset.searchTerms ?? ''}`) };
       });
 
-    menu.replaceChildren(...options.map(option => option.element));
-    if (isOpen) {
-      activeIndex = options.findIndex(option => option.value === select.value && !option.disabled);
-      if (activeIndex < 0) activeIndex = getEnabledOptionIndex(-1, 1);
-      if (activeIndex >= 0) setActive(activeIndex);
-      positionMenu();
-    }
+    listbox.replaceChildren(...options.map(option => option.element));
+    filterOptions();
   }
 
   function open() {
@@ -187,10 +245,12 @@ export function initCustomSelect(select) {
     openInstance = instance;
     menu.hidden = false;
     trigger.setAttribute('aria-expanded', 'true');
-    activeIndex = options.findIndex(option => option.value === select.value && !option.disabled);
-    if (activeIndex < 0) activeIndex = getEnabledOptionIndex(-1, 1);
-    positionMenu();
-    if (activeIndex >= 0) setActive(activeIndex);
+    if (searchInput) {
+      searchInput.value = '';
+      searchInput.setAttribute('aria-expanded', 'true');
+    }
+    filterOptions();
+    searchInput?.focus({ preventScroll: true });
   }
 
   function close() {
@@ -199,6 +259,8 @@ export function initCustomSelect(select) {
     menu.hidden = true;
     trigger.setAttribute('aria-expanded', 'false');
     trigger.removeAttribute('aria-activedescendant');
+    searchInput?.removeAttribute('aria-activedescendant');
+    searchInput?.setAttribute('aria-expanded', 'false');
     options.forEach(option => { option.element.dataset.active = 'false'; });
     if (openInstance === instance) openInstance = null;
   }
@@ -215,14 +277,18 @@ export function initCustomSelect(select) {
   }
 
   function onKeyDown(event) {
+    if (event.isComposing) return;
+    const fromSearch = event.target === searchInput;
     if (event.key === 'Escape' && isOpen) {
       event.preventDefault();
       event.stopPropagation();
       close();
+      trigger.focus({ preventScroll: true });
       return;
     }
     if (event.key === 'Tab') {
       close();
+      if (fromSearch) trigger.focus({ preventScroll: true });
       return;
     }
 
@@ -232,7 +298,7 @@ export function initCustomSelect(select) {
       else setActive(getEnabledOptionIndex(activeIndex, event.key === 'ArrowDown' ? 1 : -1));
       return;
     }
-    if (event.key === 'Home' || event.key === 'End') {
+    if (!fromSearch && (event.key === 'Home' || event.key === 'End')) {
       if (!isOpen) return;
       event.preventDefault();
       const index = event.key === 'Home'
@@ -241,12 +307,20 @@ export function initCustomSelect(select) {
       setActive(index);
       return;
     }
-    if ((event.key === 'Enter' || event.key === ' ') && isOpen) {
+    if ((event.key === 'Enter' || (!fromSearch && event.key === ' ')) && isOpen) {
       event.preventDefault();
       if (activeIndex >= 0) choose(options[activeIndex].value);
       return;
     }
     if (event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey) {
+      if (fromSearch) return;
+      if (searchInput && event.key !== ' ') {
+        event.preventDefault();
+        open();
+        searchInput.value += event.key;
+        filterOptions();
+        return;
+      }
       searchText += event.key.toLocaleLowerCase();
       window.clearTimeout(searchTimer);
       searchTimer = window.setTimeout(() => { searchText = ''; }, 700);
@@ -267,6 +341,8 @@ export function initCustomSelect(select) {
     signal: listenerController.signal
   });
   trigger.addEventListener('keydown', onKeyDown, { signal: listenerController.signal });
+  searchInput?.addEventListener('keydown', onKeyDown, { signal: listenerController.signal });
+  searchInput?.addEventListener('input', filterOptions, { signal: listenerController.signal });
   select.addEventListener('change', sync, { signal: listenerController.signal });
 
   function onOutsidePointer(event) {
@@ -277,6 +353,16 @@ export function initCustomSelect(select) {
   }
   function onViewportChange(event) {
     if (event?.type === 'scroll' && (event.target === menu || menu.contains(event.target))) return;
+    if (isOpen && searchable && event?.type === 'scroll') {
+      const rect = trigger.getBoundingClientRect();
+      let visible = rect.bottom > 0 && rect.top < window.innerHeight;
+      for (let parent = trigger.parentElement; visible && parent; parent = parent.parentElement) {
+        if (!['auto', 'scroll', 'hidden', 'clip'].includes(getComputedStyle(parent).overflowY)) continue;
+        const clip = parent.getBoundingClientRect();
+        visible = rect.bottom > clip.top && rect.top < clip.bottom;
+      }
+      if (visible) { positionMenu(); return; }
+    }
     if (isOpen) close();
   }
   document.addEventListener('pointerdown', onOutsidePointer, {
@@ -295,7 +381,8 @@ export function initCustomSelect(select) {
     childList: true,
     characterData: true,
     subtree: true,
-    attributeFilter: ['aria-describedby', 'aria-label', 'disabled', 'hidden', 'label', 'selected']
+    attributeFilter: ['aria-describedby', 'aria-label', 'disabled', 'hidden', 'label', 'selected',
+      'data-search-placeholder', 'data-search-empty', 'data-search-terms', 'lang', 'dir']
   });
 
   function destroy() {
@@ -327,6 +414,10 @@ export function initCustomSelect(select) {
 function restoreAttribute(element, name, value) {
   if (value === null) element.removeAttribute(name);
   else element.setAttribute(name, value);
+}
+
+function normalizeSearch(value) {
+  return value.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase();
 }
 
 /** Refreshes the visible value after a settings controller updates select.value. */

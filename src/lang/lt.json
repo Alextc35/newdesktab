@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "Išleidimo pastabos",
+    "settingsDescription": "Kas pasikeitė ir kiekvieno atnaujinimo istorija.",
+    "open": "Skaityti pastabas",
+    "history": "Versijų istorija",
+    "dismiss": "Uždarykite išleidimo pastabas",
+    "continue": "Tęsti",
+    "back": "Atgal į informaciją",
+    "highlights": "Ką galite padaryti šiandien",
+    "generic": {
+      "title": "New DeskTab buvo atnaujintas",
+      "description": "Turite naują versiją. Galite bet kada peržiūrėti ankstesnes leidimo pastabas skiltyje Informacija. Ačiū, kad esate čia."
+    },
+    "v1_0_0": {
+      "title": "Jūsų svetainių darbalaukis. Pagaliau.",
+      "thanks": "Dėkojame, kad išbandėte New DeskTab. Labai džiaugiuosi galėdamas pagaliau su jumis pasidalinti pirmuoju viešu šio projekto leidimu.",
+      "origin": "Viskas prasidėjo 2025 m. rugsėjo 26 d. Stebėdamas Just Chatting srautą Twitch, pastebėjau, kad transliuotojo naršyklėje yra naujas skirtukas: plėtinys, kuris sutvarkė svetaines kaip spalvotus kvadratus, be pavadinimų ar logotipų. Tas minimalizmas mane sužavėjo ir pagalvojau: kodėl gi nepastačius savo priestato? Norėjau, kad kiekvienas naujas skirtukas suteiktų tvarkos pojūtį, kad mano puslapiai būtų po ranka, o skydelis man patiktų žiūrėti.",
+      "desktop": "Palaipsniui ši idėja išaugo į asmeninį svetainių, o ne programų darbalaukį. Laikrodis yra pirmas žingsnis ir vis dar vyksta darbas. Ateityje norėčiau pridėti bloknotą ir kitus valdiklius, kurie pasiūlytų ką nors naudingo ir man, ir visiems, naudojantiems New DeskTab.",
+      "closing": "Ši programa sukurta man ir jums. Dėkojame, kad pasitikite New DeskTab ir suteikėte jai vietą naršyklėje. Tikiuosi, kad jums patinka kurti savo erdvę taip pat, kaip man patiko ją kurti.",
+      "highlights": {
+        "workspace": "Tvarkykite savo puslapius naudodami žymes, aplankus ir atskiras darbo sritis.",
+        "appearance": "Tinkinkite spalvas, kiekvieno elemento dydį ir darbalaukio foną.",
+        "search": "Raskite savo puslapius naudodami paiešką ir naudokite sparčiuosius klavišus, kad naršytumėte ir kurtumėte elementus.",
+        "backup": "Išsaugokite atsargines kopijas ir atkurkite ištrintus elementus iš šiukšliadėžės.",
+        "sync": "Pasirinkite saugoti duomenis šiame įrenginyje arba sinchronizuoti juos su Google Chrome.",
+        "help": "Atraskite funkcijas naudodami pasveikinimo vadovą, vadovą ir kasdienius patarimus."
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "JŪSŲ PIRMOJI MINUTĖ",
+    "skip": "Praleisti vadovą",
+    "back": "Atgal",
+    "next": "Kitas",
+    "finish": "Grįžti į nustatymus",
+    "explore": "Tyrinėkite mano erdvę",
+    "addFirst": "Pridėkite mano pirmąją žymę",
+    "progress": "{{current}} veiksmas iš {{total}}",
+    "compactHint": "Išplėskite langą, kai norite pridėti žymių ir redaguoti erdvę.",
+    "reopenTitle": "Greitas vadovas",
+    "reopenDescription": "Atraskite esminius dalykus iš naujo per minutę.",
+    "reopen": "Žiūrėti vadovą",
+    "demo": {
+      "work": "Darbas",
+      "media": "Žiniasklaida",
+      "trash": "Šiukšlių dėžė",
+      "search": "Raskite savo žymes"
+    },
+    "steps": {
+      "start": {
+        "title": "Jūsų puslapiai. Sava erdvė.",
+        "body": "Sveiki atvykę į New DeskTab. Kiekvieną kartą atidarę skirtuką laikykite mėgstamus puslapius po ranka. Norėdami pridėti vieną, pereikite prie kairiojo krašto ir pasirinkite + → [[bookmarks|Žymė]].",
+        "hint": "Taip pat galite [[quick-save|išsaugokite puslapį, kuriame lankotės]] naudodami plėtinio piktogramą naršyklėje."
+      },
+      "edit": {
+        "title": "Kiekvienai žymei skirkite savo vietą.",
+        "body": "Norėdami redaguoti, kairiajame meniu įjunkite pieštuką. Norėdami perkelti elementą, laikykite nuspaudę ir [[movement|vilkite]]; naudokite jo [[resizing|rankenos]], kad pakeistumėte jo dydį.",
+        "hint": "Kiekvienos žymės pieštukas atidaro savo [[appearance|redaktorius]]: pavadinimą, spalvas, piktogramą ir vaizdą. Išsaugokite [[presets|stiliai]], kad galėtumėte juos pakartotinai naudoti."
+      },
+      "organize": {
+        "title": "Mažiau netvarkos. Daugiau tvarkos.",
+        "body": "Sukurkite [[folders|aplanką]] iš + ir vilkite žymes į jį redagavimo režimu. Jis atsidaro švariame tinklelyje, kuriame telpa iki 18 žymių.",
+        "hint": "Naudokite + esantį [[workspaces|darbo vietos juosta]], kad atskirtumėte darbą ir žaidimą. [[search|padidinamąjį stiklą]] taip pat ieško aplankuose."
+      },
+      "style": {
+        "title": "Leisk jaustis kaip tu.",
+        "body": "Skiltyje „Nustatymai“ → [[wallpapers|tema]] pasirinkite spalvą, vaizdo arba vaizdo įrašo foną ir pasukite mėgstamus fono paveikslėlius. Skiltyje „Nustatymai“ → [[sync|Sinchronizavimas]] sinchronizuokite savo vietą įrenginiuose naudodami paskyrą, prisijungusią prie „Chrome“ profilio.",
+        "hint": "Pridėkite [[clock|laikrodis]] iš + → Valdikliai. Taip pat galite tinkinti savo aplankus [[appearance|išvaizda]]."
+      },
+      "ready": {
+        "title": "Žinote esminius dalykus.",
+        "body": "Paspauskite [[search|/]], kad rastumėte žymę. Norėdami atkurti pakeitimus, naudokite [[history|atšaukti ir perdaryti]] rodykles; ištrintos žymės patenka į [[trash|šiukšlių dėžė]].",
+        "hint": "Pakeitimai išsaugomi automatiškai. Nustatymuose eksportuokite [[backup|atsarginė kopija]] arba įgalinkite pasirenkamą Google Chrome [[sync|sinchronizavimas]]."
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "Nepavyko išsaugoti paskutinių pakeitimų.",
+    "retry": "Bandykite išsaugoti dar kartą",
+    "saved": "Laukiami pakeitimai išsaugoti."
+  },
+  "itemEditor": {
+    "chooseIcon": "Pasirinkite piktogramą",
+    "siteLogo": "Logotipas",
+    "noSymbol": "Nėra",
+    "folderIconHint": "Simbolis pakeičia žymių peržiūras aplanke.",
+    "icons": {
+      "mail": "paštas",
+      "calendar": "Kalendorius",
+      "notes": "Pastabos",
+      "projects": "Projektai",
+      "design": "Dizainas",
+      "music": "Muzika",
+      "tasks": "Užduotys",
+      "ideas": "Idėjos",
+      "docs": "Dokumentai",
+      "ui-start": "Kompasas",
+      "ui-organize": "Išdėstymas",
+      "ui-personalize": "Slankikliai",
+      "ui-protect": "Skydas",
+      "ui-bookmarks": "Pridėti žymę",
+      "ui-quick-save": "Naršyklė",
+      "ui-keyboard": "Klaviatūra",
+      "ui-shortcuts": "Žaibas",
+      "ui-search": "Ieškoti",
+      "ui-editing": "Pieštukas",
+      "ui-movement": "Judėti",
+      "ui-resizing": "Pakeisti dydį",
+      "ui-drag-modes": "Vilkite",
+      "ui-folders": "Aplankas",
+      "ui-workspaces": "Windows",
+      "ui-selection": "Atranka",
+      "ui-history": "Istorija",
+      "ui-appearance": "Paletė",
+      "ui-presets": "Išankstiniai nustatymai",
+      "ui-wallpapers": "Vaizdas",
+      "ui-clock": "Laikrodis",
+      "ui-interface": "Gaublys",
+      "ui-trash": "Šiukšliadėžė",
+      "ui-backup": "Archyvas",
+      "ui-sync": "Sinchronizuoti",
+      "ui-compact": "Sąrašas",
+      "ui-data": "Duomenų bazė",
+      "ui-learning": "Knyga",
+      "ui-settings": "Nustatymai",
+      "ui-controls": "Valdikliai",
+      "ui-cloud": "Debesis",
+      "ui-bookmark": "Žymė",
+      "ui-info": "Informacija",
+      "ui-eye": "Akis",
+      "ui-check": "Baigta",
+      "ui-lock": "Užraktas",
+      "ui-unlock": "Atrakinti",
+      "ui-copy": "Kopijuoti",
+      "ui-close": "Uždaryti",
+      "ui-undo": "Anuliuoti",
+      "ui-redo": "Perdaryti",
+      "ui-desktop": "Darbalaukis",
+      "home": "Pradžia",
+      "briefcase": "Darbas",
+      "code": "Kodas",
+      "game": "Žaidimai",
+      "cart": "Apsipirkimas",
+      "card": "Mokėjimai",
+      "people": "Žmonės",
+      "message": "Pranešimas",
+      "location": "Vieta",
+      "phone": "Telefonas",
+      "camera": "Fotoaparatas",
+      "headphones": "Ausinės",
+      "link": "Nuoroda",
+      "tag": "Žyma",
+      "chart": "Statistika",
+      "coffee": "Kava",
+      "sun": "Saulė",
+      "moon": "Mėnulis",
+      "circle": "Apskritimas",
+      "square": "Kvadratas",
+      "triangle": "Trikampis",
+      "diamond": "Deimantas",
+      "pentagon": "Pentagonas",
+      "hexagon": "Šešiakampis",
+      "star": "Žvaigždė",
+      "heart": "Širdis",
+      "plus": "Pliusas",
+      "minus": "Minusas",
+      "video": "Vaizdo įrašas"
+    },
+    "searchIcons": "Ieškoti piktogramų…",
+    "clearIconSearch": "Išvalyti paiešką",
+    "noIcons": "Piktogramų nerasta",
+    "suggestedIcons": "Siūloma",
+    "suggestedIcon": "Siūloma: {{name}}",
+    "logoKeywords": "logotipas favicon svetainės svetainės prekės ženklas",
+    "iconKeywords": {
+      "ui-trash": "šiukšliadėžės šiukšlės ištrinti klasika",
+      "mail": "paštas el gmail outlook gautieji",
+      "docs": "dokumentų failai pdf diskas word",
+      "notes": "pastabos atmintinė sąvoka onenote",
+      "ui-protect": "privatumo apsauga",
+      "game": "žaidimų žaidimų valdymo pultas",
+      "cart": "parduotuvė parduotuvė parduotuvė pirkti",
+      "card": "banko finansai kredito debeto pinigai",
+      "people": "socialinės bendruomenės draugų grupė",
+      "ui-learning": "skaitymo bibliotekos ugdymo studija",
+      "ui-clock": "laikas valandos žiūrėti",
+      "ui-interface": "interneto žiniatinklio pasaulio kalba",
+      "ui-data": "duomenų sql saugykla",
+      "circle": "geometrinių formų figūros",
+      "square": "geometrinių formų figūros",
+      "triangle": "geometrinių formų figūros",
+      "diamond": "geometrinių formų figūros",
+      "pentagon": "geometrinių formų figūros",
+      "hexagon": "geometrinių formų figūros",
+      "star": "geometrinių formų figūros",
+      "heart": "geometrinių formų figūros"
+    },
+    "history": "Redaguoti istoriją",
+    "description": "Leiskite jaustis kaip namie savo darbo vietoje.",
+    "looks": "Pasirinkite išvaizdą",
+    "custom": "Pasirinktinis",
+    "look": {
+      "original": "Originalus",
+      "card": "Kort",
+      "midnight": "Tamsus",
+      "paper": "Šviesa"
+    },
+    "reset": "Iš naujo nustatyti išvaizdą",
+    "cardColor": "Kortelės spalva",
+    "folderFill": "Aplanko spalva",
+    "image": "Fono vaizdas",
+    "lock": "Užrakinkite arba atrakinkite URL",
+    "copy": "Kopijuoti URL",
+    "clear": "Aišku",
+    "section": {
+      "general": "Būtiniausi dalykai",
+      "text": "Pavadinimas ir etiketės",
+      "icon": "Piktograma",
+      "card": "Kort"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "Vardas, kurį matote, ir atidaromas puslapis.",
+        "text": "Pasirinkite, ar rodyti pavadinimą ir koreguoti jo spalvą.",
+        "icon": "Naudokite didelę, centre esančią piktogramą arba mažą piktogramą šalia vaizdo kortelių pavadinimo."
+      },
+      "folder": {
+        "general": "Pavadinimas, skirtas sujungti žymes.",
+        "text": "Parodykite aplanko pavadinimą ir sureguliuokite jo spalvą.",
+        "icon": "Tinkinkite aplanko piktogramą ir jos žymių miniatiūras."
+      },
+      "recycleBin": {
+        "general": "Pasirinkite, ar šiukšliadėžė bus rodoma pagrindinėje darbo srityje.",
+        "text": "Parodykite šiukšliadėžės pavadinimą ir sureguliuokite jos spalvą.",
+        "icon": "Suteikite šiukšliadėžei savo spalvą. Paslėpti visą šiukšliadėžę nuo generolo."
+      }
+    },
+    "addImage": "Pridėkite fono paveikslėlį",
+    "changeImage": "Redaguoti fono paveikslėlį"
+  },
+  "html": {
+    "title": "Naujas skirtukas"
+  },
+  "quickSave": {
+    "title": "Išsaugoti žymę",
+    "name": "Vardas",
+    "workspace": "Darbo sritis",
+    "folder": "Aplankas",
+    "mainWorkspace": "Pagrindinis",
+    "noFolder": "Nėra aplanko",
+    "save": "Išsaugoti žymę",
+    "saveAnyway": "Vis tiek išsaugokite",
+    "savedButton": "Išsaugota",
+    "alreadySaved": "Jau išsaugota",
+    "savedIn": "{{location}}",
+    "savedInMore": "{{location}} ir dar {{count}}",
+    "open": "Atidaryti New DeskTab",
+    "unavailableTitle": "Šio skirtuko negalima išsaugoti",
+    "unavailable": "Atidarykite tinklalapį (http arba https), kad jį išsaugotumėte.",
+    "loadError": "Nepavyko įkelti jūsų žymių. Bandykite dar kartą.",
+    "saving": "Išsaugoma…",
+    "saved": "Žymė išsaugota.",
+    "duplicate": "Šis URL jau išsaugotas toje paskirties vietoje.",
+    "noSpace": "Toje vietoje nebeliko vietos. Pasirinkite kitą.",
+    "invalid": "Patikrinkite pavadinimą ir pasirinktą paskirties vietą.",
+    "saveError": "Nepavyko išsaugoti žymės. Bandykite dar kartą."
+  },
+  "launcher": {
+    "bookmark": "Žymė",
+    "folder": "Aplankas",
+    "widgets": "Valdikliai",
+    "editMode": {
+      "enter": "Įeikite į redagavimo režimą",
+      "exit": "Išeikite iš redagavimo režimo"
+    }
+  },
+  "widgets": {
+    "title": "Valdikliai",
+    "description": "Pasirinkite valdiklį, kurį norite pridėti prie šios darbo srities.",
+    "empty": "Dar nėra jokių valdiklių."
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "Norėdami naudoti šią funkciją, išplėskite langą.",
+      "suspended": "Skydas paslėptas. Norėdami tęsti, išplėskite langą."
+    },
+    "editMode": {
+      "enabled": "Redagavimo režimas įjungtas",
+      "disabled": "Redagavimo režimas išjungtas"
+    },
+    "selectionMode": {
+      "enabled": "Pasirinkimo režimas įjungtas",
+      "disabled": "Pasirinkimo režimas išjungtas"
+    },
+    "bookmark": {
+      "added": "Pridėta žymė",
+      "notFound": "Žymė nerasta",
+      "updated": "Žymė atnaujinta",
+      "deleted": "Žymė ištrinta"
+    },
+    "clock": {
+      "added": "Pridėtas laikrodis",
+      "updated": "Laikrodis atnaujintas",
+      "deleted": "Laikrodis ištrintas"
+    },
+    "folder": {
+      "created": "Sukurtas aplankas",
+      "renamed": "Aplankas pervardytas",
+      "updated": "Aplankas atnaujintas",
+      "deleted": "Aplankas ir jo žymės ištrintos",
+      "bookmarkAdded": "Žymė pridėta prie aplanko",
+      "folderFull": "Šiame aplanke jau yra 18 žymių",
+      "bookmarkRemoved": "Žymė perkelta atgal į tinklelį"
+    },
+    "recycleBin": {
+      "moved": "Perkelta į šiukšliadėžę",
+      "restored": "Daiktai atstatyti",
+      "deletedPermanently": "Elementai ištrinti visam laikui",
+      "updated": "Šiukšliadėžė atnaujinta"
+    },
+    "workspace": {
+      "created": "Sukurta darbo vieta",
+      "deleted": "Darbo sritis ištrinta",
+      "switched": "Darbo sritis: {{name}}"
+    },
+    "history": {
+      "undone": "Pakeitimas anuliuotas",
+      "redone": "Pakeitimas perdarytas"
+    },
+    "bookmarks": {
+      "deletedAll": "Visos žymės ištrintos",
+      "deletedAllWithFolders": "Ištrintos visos žymės ir aplankai",
+      "deleteAllError": "Nepavyko ištrinti visų žymių",
+      "exported": "Žymės eksportuotos",
+      "exportError": "Nepavyko eksportuoti žymių",
+      "imported": "Žymės importuotos",
+      "importError": "Nepavyko importuoti žymių",
+      "presetApplied": "Pasirinkimui pritaikytas stilius",
+      "duplicatedSelected": "Pasirinkti elementai pasikartoja",
+      "deletedSelected": "Pasirinkti elementai ištrinti",
+      "moved": "Elementai perkelti į pasirinktą darbo sritį"
+    },
+    "settings": {
+      "saved": "Nustatymai išsaugoti",
+      "bookmarkDefaultSaved": "Numatytoji žymės išvaizda išsaugota",
+      "bookmarkDefaultError": "Nepavyko išsaugoti numatytosios žymės išvaizdos",
+      "copied": "Vertė nukopijuota į mainų sritį",
+      "resetBg": "Temos nustatymas iš naujo",
+      "deletedAllData": "Visi vietiniai NewDeskTab duomenys ištrinti",
+      "deleteAllDataError": "Nepavyko ištrinti visų vietinių NewDeskTab duomenų",
+      "invalidWallpaperUrl": "Įveskite tinkamą HTTP arba HTTPS vaizdo / vaizdo įrašo URL.",
+      "invalidWallpaperFile": "Nepavyko pridėti šio failo. Naudokite palaikomą vaizdą arba MP4, WebM arba Ogg vaizdo įrašą iki 200 MB.",
+      "wallpaperLimit": "Galite pridėti iki 25 asmeninių tapetų."
+    },
+    "localImage": {
+      "invalid": "Pasirinkite PNG, JPEG, WebP, GIF arba AVIF vaizdą.",
+      "tooLarge": "Šis vaizdas per didelis, kad jį būtų galima saugoti šiame įrenginyje.",
+      "storageFull": "Vietos vietos šiam vaizdui nepakanka.",
+      "processing": "Šio vaizdo apdoroti nepavyko."
+    },
+    "sync": {
+      "enabled": "Sinchronizavimas įjungtas",
+      "localEnabled": "Vietinis režimas įjungtas",
+      "remoteLoaded": "Sinchronizuoti duomenys įkelti",
+      "updatedFromOtherDevice": "Sinchronizuoti pakeitimai, gauti iš kito įrenginio",
+      "deletedFromOtherDevice": "Debesų duomenys buvo ištrinti iš kito įrenginio. Šis įrenginys dabar naudoja vietinį režimą.",
+      "error": "Nepavyko pakeisti saugojimo režimo",
+      "versionBlocked": "Sinchronizavimas buvo pristabdytas, nes debesies duomenims reikalinga naujesnė NewDeskTab versija. Rodomi šio įrenginio vietiniai duomenys.",
+      "quotaError": "Duomenų kiekis viršija turimą sinchronizavimo saugyklą",
+      "deleted": "Sinchronizuoti duomenys ištrinti",
+      "deleteError": "Nepavyko ištrinti sinchronizuotų duomenų"
+    },
+    "backup": {
+      "exported": "Atsarginė kopija eksportuota",
+      "exportError": "Nepavyko eksportuoti atsarginės kopijos",
+      "mediaUnavailable": "Kai kurie nurodyti vietiniai vaizdai ar vaizdo įrašai nepasiekiami, todėl atsarginė kopija nebuvo sukurta.",
+      "imported": "Atkurta atsarginė kopija",
+      "importError": "Nepavyko atkurti atsarginės kopijos",
+      "mediaStorageFull": "Vietinės saugyklos nepakanka atkurti atsargines vaizdų ir vaizdo įrašų kopijas."
+    }
+  },
+  "view": {
+    "list": "Sąrašo vaizdas",
+    "search": "Ieškokite žymių ir aplankų",
+    "clearSearch": "Išvalyti paiešką",
+    "noResults": "Jokių rezultatų."
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "Ištrinti visas žymes?",
+      "deleteFolders": "Taip pat ištrinkite visus aplankus",
+      "confirmDeleteSelected": "Ištrinti {{count}} pasirinktus elementus?",
+      "confirmMoveOne": "Perkelti šį elementą į darbo sritį „{{workspace}}“?",
+      "confirmMoveSelected": "Perkelti {{count}} pasirinktus elementus į darbo sritį „{{workspace}}“?",
+      "duplicateNoSpace": "{{count}} elementų nepavyko nukopijuoti, nes neužteko vietos.",
+      "moveNoSpace": "{{count}} elementai negalėjo būti perkelti, nes neužteko vietos.",
+      "no_space": "Daugiau žymių vietos nėra 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "Išmesti naują žymę?"
+      },
+      "confirmDelete": "Ištrinti „{{name}}“?",
+      "confirmPermanentDelete": "Visam laikui ištrinti „{{name}}“? To negalima anuliuoti.",
+      "cancel": "Atmesti pakeitimus?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "Visam laikui ištrinti šį valdiklį? To negalima anuliuoti.",
+      "confirmDeleteSelected": "Ištrinti {{count}} pasirinktus elementus? Pasirinkti valdikliai ({{widgetCount}}) bus ištrinti visam laikui ir jų nebus galima atkurti."
+    },
+    "folder": {
+      "createCancel": "Išmesti naują aplanką?",
+      "cancel": "Atmesti aplanko pakeitimus?"
+    },
+    "recycleBin": {
+      "folder": "Perkelti „{{name}}“ ir jo {{count}} žymes į šiukšliadėžę?",
+      "empty": "Visam laikui ištrinti viską, kas yra šiukšliadėžėje? To negalima anuliuoti.",
+      "deleteSelected": "Visam laikui ištrinti {{count}} pasirinktus elementus? To negalima anuliuoti.",
+      "noSpace": "Nepavyko atkurti {{count}} elementų, nes tinkle nėra pakankamai vietos. Jie lieka šiukšliadėžėje.",
+      "cancel": "Išmesti šiukšlinės pakeitimus?"
+    },
+    "settings": {
+      "cancel": "Atmesti nustatymų pakeitimus?",
+      "reset": "Iš naujo nustatyti visus nustatymus? Žymės nebus ištrintos.",
+      "deleteAllData": "Ištrinti visus vietinius NewDeskTab duomenis iš šio įrenginio? Žymės, aplankai, valdikliai, nustatymai, šiukšliadėžės elementai, vietiniai vaizdai ir vietiniai vaizdo įrašai bus ištrinti visam laikui. Debesų duomenys nebus pakeisti. Jei sinchronizavimas aktyvus, šis įrenginys pirmiausia persijungs į vietinį. Šio veiksmo anuliuoti negalima.",
+      "theme": {
+        "reset": "Iš naujo nustatyti temos nustatymus?"
+      },
+      "bookmark": {
+        "cancel": "Atmesti numatytosios žymės išvaizdos pakeitimus?"
+      },
+      "shortcuts": {
+        "reset": "Atkurti numatytuosius sparčiuosius klavišus?"
+      },
+      "sync": {
+        "enable": "Perjungti iš vietinio į sinchronizuotą? Tai įsigalioja dabar, nespustelėjus Išsaugoti. Jei sinchronizuoti duomenys jau yra, bus įkeliamos jų žymės ir nustatymai. Priešingu atveju jūsų išsaugoti vietiniai duomenys bus sinchronizuojami.",
+        "local": "Perjungti iš sinchronizavimo į vietinį? Tai įsigalioja dabar, nespustelėjus Išsaugoti. Šis įrenginys išsaugos dabartinių duomenų kopiją ir nustos sinchronizuoti pakeitimus. Sinchronizuoti duomenys liks saugomi kituose įrenginiuose.",
+        "delete": "Ištrinti visus sinchronizuotus NewDeskTab duomenis? Šis įrenginys ir visi kiti įrenginiai, naudojantys šiuos debesies duomenis, persijungs į vietinį režimą, kai aptiks ištrynimą. To negalima anuliuoti."
+      }
+    },
+    "backup": {
+      "import": "Atkurti šią atsarginę kopiją? Jis pakeis dabartines žymes ir nustatymus."
+    }
+  },
+  "addModal": {
+    "title": "Pridėti naują žymę",
+    "name": "Vardas:",
+    "url": "URL:",
+    "advancedOptions": "⚙ Išplėstinės parinktys",
+    "compactView": "▴ Kompaktiškas vaizdas"
+  },
+  "clock": {
+    "name": "Laikrodis",
+    "inDevelopment": "Kuriamas: laikrodis dar nėra galutinės versijos. Mes stengiamės jį tobulinti.",
+    "createTitle": "Pridėti laikrodį",
+    "editTitle": "Laikrodžio nustatymai",
+    "description": "Šioje darbo vietoje parodykite savo vietos laiką.",
+    "hourCycle": "Laiko formatas",
+    "hour24": "24 valandos",
+    "hour12": "12 valandų",
+    "showSeconds": "Rodyti sekundes",
+    "delete": "Ištrinti",
+    "edit": "Redaguoti laikrodį",
+    "actions": "Laikrodžio veiksmai",
+    "openSettings": "Atidarykite laikrodžio nustatymus",
+    "confirmDelete": "Ištrinti šį laikrodį? Galite anuliuoti šį veiksmą.",
+    "confirmPermanentDelete": "Visam laikui ištrinti šį laikrodį? To negalima anuliuoti.",
+    "cancel": "Atmesti laikrodžio pakeitimus?",
+    "noSpace": "Šiam laikrodžiui tinkle nėra pakankamai vietos."
+  },
+  "buttons": {
+    "save": "Išsaugoti",
+    "apply": "Taikyti",
+    "add": "Pridėti",
+    "accept": "Priimti",
+    "cancel": "Atšaukti",
+    "close": "Uždaryti"
+  },
+  "localImage": {
+    "upload": "Įkelti iš šio įrenginio",
+    "label": "Vietinis vaizdas:",
+    "activeSource": "Aktyvus vaizdas:",
+    "sourceLocal": "Vietinis",
+    "sourceUrl": "URL",
+    "remove": "Pašalinkite vietinį vaizdą",
+    "notice": "Vietiniai vaizdai nėra sinchronizuojami.",
+    "unnamed": "Vietinis vaizdas"
+  },
+  "workspace": {
+    "ariaLabel": "Darbo srities valdikliai",
+    "current": "Darbo sritis",
+    "main": "Pagrindinis",
+    "search": "Ieškokite žymių",
+    "add": "Sukurkite darbo vietą",
+    "delete": "Ištrinkite darbo sritį",
+    "undo": "Anuliuoti",
+    "redo": "Perdaryti",
+    "shortcutHint": "Perjunkite darbo sritį naudodami Alt arba Option ir rodyklę aukštyn arba žemyn",
+    "prompt": "Įveskite naujos darbo srities pavadinimą",
+    "namePlaceholder": "Darbas, laisvalaikis…",
+    "confirmDelete": "Ištrinti „{{name}}“, jo {{folderCount}} aplankus ir {{bookmarkCount}} žymes? Norėdami juos išsaugoti, pirmiausia perkelkite juos į pagrindinę arba kitą darbo sritį."
+  },
+  "search": {
+    "title": "Ieškokite žymių",
+    "inputLabel": "Ieškokite pagal pavadinimą arba URL",
+    "placeholder": "Vardas arba URL",
+    "empty": "Žymių nerasta.",
+    "noUrl": "Nėra URL",
+    "inFolder": "Aplankas: {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "Pasirinkto elemento veiksmai",
+    "selected": "Pasirinktas {{count}}",
+    "move": "Perkelkite į darbo vietą",
+    "applyPreset": "Taikyti numatytąjį stilių",
+    "duplicate": "Pasikartojantis pasirinkimas",
+    "delete": "Ištrinti",
+    "clear": "Išvalyti pasirinkimą"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "Žymių valdikliai",
+    "edit": "Redaguoti žymę",
+    "delete": "Ištrinti žymę",
+    "copySuffix": "kopija"
+  },
+  "folder": {
+    "create": "Sukurti aplanką",
+    "createPrompt": "Pavadinkite naują aplanką",
+    "namePlaceholder": "Įrankiai, įkvėpimas…",
+    "open": "Atidaryti {{name}}, {{count}} išsaugotas žymes",
+    "count": "{{count}} išsaugotas",
+    "summary": "Panaudota {{count}} iš {{capacity}} vietų",
+    "editMode": {
+      "enable": "Redaguoti",
+      "disable": "Baigti redaguoti"
+    },
+    "gridLabel": "Aplanko žymės",
+    "dropHint": "Numeskite, kad pridėtumėte",
+    "noSpace": "Naujam aplankui nėra laisvo tinklelio langelio.",
+    "removeNoSpace": "Tinklele nepakanka vietos šiai žymei pašalinti iš aplanko.",
+    "confirmDelete": "Perkelti „{{name}}“ ir jo {{count}} žymes į šiukšliadėžę?",
+    "confirmPermanentDelete": "Visam laikui ištrinti „{{name}}“ ir jo {{count}} žymes? To negalima anuliuoti.",
+    "actions": {
+      "ariaLabel": "Aplanko valdikliai",
+      "customize": "Tinkinti aplanką",
+      "rename": "Pervardyti aplanką",
+      "delete": "Ištrinti aplanką",
+      "editBookmark": "Redaguoti {{name}}",
+      "removeBookmark": "Perkelkite {{name}} iš aplanko",
+      "deleteBookmark": "Ištrinti {{name}}",
+      "acceptRename": "Išsaugoti aplanko pavadinimą",
+      "cancelRename": "Atšaukti aplanko pervadinimą"
+    },
+    "editor": {
+      "createTitle": "Pridėti naują aplanką",
+      "title": "Redaguoti aplanką",
+      "name": "Vardas:",
+      "showPreviews": "Rodyti žymių peržiūras",
+      "showName": "Rodyti aplanko pavadinimą",
+      "iconColor": "Simbolio spalva:",
+      "outerBackgroundColor": "Išorinio fono spalva:",
+      "noOuterBackground": "Nėra išorinio fono",
+      "resetOuterBackground": "Automatinis",
+      "noBackground": "Skaidrus aplanko užpildymas",
+      "backgroundColor": "Aplanko spalva:",
+      "backgroundImage": "Fono vaizdas (URL):",
+      "lockImage": "Užrakinkite arba atrakinkite vaizdo URL",
+      "copyImage": "Kopijuoti vaizdo URL",
+      "clearImage": "Išvalyti vaizdo URL",
+      "textColor": "Teksto spalva:",
+      "preview": "Peržiūra",
+      "previewName": "Aplankas",
+      "sections": {
+        "general": "Generolas",
+        "style": "Stilius",
+        "text": "Tekstas"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "Šiukšliadėžė",
+    "open": "Atidarykite šiukšliadėžę",
+    "openCount": "Atidaryta šiukšliadėžė, {{count}} prekės",
+    "dropHint": "Numeskite, kad ištrintumėte",
+    "summary": "{{count}} elementai · Automatinis ištrynimas: {{retention}}",
+    "empty": "Šiukšliadėžė tuščia.",
+    "selected": "Pasirinktas {{count}}",
+    "select": "Pasirinkite {{name}}",
+    "folderContents": "{{count}} žymės",
+    "deletedAt": "Ištrinta {{date}}",
+    "expiresIn": "Liko {{days}} dienos",
+    "expiresInOne": "Liko 1 diena",
+    "neverExpires": "Niekada neištrinta automatiškai",
+    "restoreAll": "Atkurti viską",
+    "deleteAll": "Ištrinti viską",
+    "restoreSelected": "Atkurti pasirinktą",
+    "deleteSelected": "Ištrinti pasirinktus",
+    "editor": {
+      "title": "Redaguoti šiukšlinę",
+      "animateIcon": "Animuoti šiukšliadėžė",
+      "appearance": "Išvaizda",
+      "backgroundColor": "Fono spalva:",
+      "backgroundImage": "Fono vaizdas (URL):",
+      "lockImage": "Užrakinkite arba atrakinkite vaizdo URL",
+      "copyImage": "Kopijuoti vaizdo URL",
+      "clearImage": "Išvalyti vaizdo URL",
+      "noBackground": "Jokio fono",
+      "iconColor": "Piktogramos spalva:",
+      "textColor": "Teksto spalva:",
+      "elements": "Matomi elementai",
+      "showName": "Rodyti vardą",
+      "visible": "Rodyti šiukšliadėžę pagrindiniame tinkle",
+      "preview": "Peržiūra",
+      "actions": "Šiukšliadėžės veiksmai",
+      "edit": "Redaguoti šiukšlinę",
+      "sections": {
+        "general": "Generolas",
+        "style": "Stilius",
+        "text": "Tekstas",
+        "icon": "Piktograma"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "Įveskite pavadinimą, kad išsaugotumėte išankstinį nustatymą."
+    },
+    "name": {
+      "required": "Įveskite žymės pavadinimą."
+    },
+    "folderName": {
+      "required": "Įveskite aplanko pavadinimą."
+    },
+    "url": {
+      "invalid": "URL neteisingas.",
+      "unsupportedProtocol": "Šis URL tipas neleidžiamas."
+    },
+    "backgroundImageUrl": {
+      "invalid": "Vaizdo URL neteisingas.",
+      "unsupportedProtocol": "Šis vaizdo tipas neleidžiamas."
+    }
+  },
+  "editModal": {
+    "title": "Redaguoti žymę",
+    "name": "Vardas:",
+    "url": "URL:",
+    "backgroundImage": "Fono vaizdas (URL):",
+    "backgroundFavicon": "Didelė, centre esanti piktograma",
+    "invertColorBg": "Invertuoti spalvas",
+    "noBackground": "Jokio fono",
+    "backgroundColor": "Žymės spalva:",
+    "showText": "Rodyti tekstą",
+    "textColor": "Teksto spalva:",
+    "showFavicon": "Rodyti piktogramą",
+    "invertColorIcon": "Apverskite piktogramų spalvas",
+    "iconColor": "Piktogramos spalva:",
+    "sections": {
+      "general": "Generolas",
+      "style": "Stilius",
+      "text": "Tekstas",
+      "icon": "Piktograma"
+    },
+    "preview": "Peržiūra",
+    "previewName": "Peržiūra"
+  },
+  "colorPicker": {
+    "title": "Spalvų rinkiklis",
+    "sample": "Pasirinkite spalvą iš ekrano",
+    "close": "Uždarykite spalvų parinkiklį",
+    "saturationBrightness": "Sodrumas ir ryškumas",
+    "hue": "Atspalvis",
+    "quickColors": "Greitos spalvos",
+    "saturation": "Sodrumas",
+    "brightness": "Ryškumas",
+    "hex": "Hex kodas",
+    "copy": "Nukopijuokite šešioliktainį kodą",
+    "copied": "Hex kodas nukopijuotas",
+    "copyFailed": "Nepavyko nukopijuoti šešioliktainio kodo"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "Generolas",
+      "sync": "Sinchronizuoti",
+      "theme": "tema",
+      "bookmark": "Žymės",
+      "shortcuts": "Spartieji klavišai",
+      "language": "Kalbos",
+      "help": "Pagalba",
+      "information": "Informacija"
+    },
+    "general": {
+      "title": "Generolas",
+      "subtitle": "Nustatymai",
+      "export": "Eksportuoti atsarginę kopiją",
+      "import": "Atkurti atsarginę kopiją",
+      "resetSettings": "Iš naujo nustatyti nustatymus",
+      "deleteAllData": "Ištrinkite visus vietinius duomenis",
+      "recycleBin": {
+        "title": "Šiukšlių dėžė",
+        "show": "Parodykite šiukšliadėžę pagrindiniame tinkle",
+        "retentionLabel": "Automatiškai ištrinti elementus:",
+        "retentionOptions": {
+          "oneDay": "1 diena",
+          "sevenDays": "7 dienos",
+          "fourteenDays": "14 dienų",
+          "twentyEightDays": "28 dienos",
+          "never": "Niekada"
+        }
+      },
+      "appearance": {
+        "title": "Išvaizda",
+        "system": "Naršyklė",
+        "light": "Šviesa",
+        "dark": "Tamsus"
+      }
+    },
+    "sync": {
+      "title": "Sinchronizuoti",
+      "description": "Pasirinkite, kur saugoti nustatymus ir žymes.",
+      "ariaLabel": "Saugojimo režimas",
+      "local": {
+        "title": "Tik šis įrenginys",
+        "description": "Duomenys saugomi tik šiame vietiniame naršyklės profilyje."
+      },
+      "synced": {
+        "title": "Sinchronizuota",
+        "description": "Pasiekiama Google Chrome profiliuose, susietuose su ta pačia paskyra.",
+        "tooltip": "Sinchronizavimo informacija"
+      },
+      "compatibility": {
+        "newerVersion": "Sinchronizavimas šiame įrenginyje užrakintas, nes debesies duomenys buvo sukurti naudojant naujesnę NewDeskTab versiją. Jūsų sinchronizuoti duomenys yra saugūs ir nebuvo pakeisti. Atnaujinkite NewDeskTab, kad vėl prisijungtumėte."
+      },
+      "usage": {
+        "title": "Saugyklos prieinamumas",
+        "showExact": "Rodyti tikslius baitus",
+        "showHuman": "Rodyti įskaitomus dydžius",
+        "local": "Vietinis",
+        "sync": "Sinchronizuota",
+        "localSyncCopy": "Vietinio sinchronizavimo kopija",
+        "localAria": "Vietinės saugyklos naudojimas",
+        "syncAria": "Sinchronizuotas saugyklos naudojimas",
+        "loading": "Skaičiuojama…",
+        "summary": "{{used}} iš {{total}} · {{percent}} %",
+        "available": "Galimas {{free}}",
+        "system": "Sistema ir metaduomenys",
+        "bookmarks": "Žymės",
+        "folders": "Aplankai",
+        "trash": "Šiukšliadėžės duomenys",
+        "localImages": "Vietiniai vaizdai",
+        "themeImages": "tema",
+        "bookmarkImages": "Žymės",
+        "folderImages": "Aplankai",
+        "trashImages": "Šiukšlių dėžė",
+        "otherImages": "Kita",
+        "widgets": "Valdikliai",
+        "widgetsHint": "Sinchronizavimo dydis yra apytikslis ir neapima tiesioginio turinio, gauto iš išorinių paslaugų.",
+        "error": "Naudoti negalima"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome sinchronizuoja New DeskTab per „Google“ paskyrą. New DeskTab neveikia savo sinchronizavimo serverio.",
+        "brave": "Nepasiekiamas „Brave“: jis gali saugoti New DeskTab duomenų chrome.storage.sync, bet šiuo metu jų neplatina tarp įrenginių.",
+        "unsupported": "Sinchronizuota saugykla kol kas pasiekiama tik Google Chrome. Kitos naršyklės lieka išjungtos, kol nebus patvirtintas kelių įrenginių palaikymas."
+      },
+      "existingNotice": "Priėmus perjungimą į sinchronizuotą, įkeliami visi jau esantys sinchronizuoti duomenys.",
+      "deleteData": "Ištrinkite sinchronizuotus duomenis",
+      "metadata": {
+        "loading": "Tikrinami sinchronizuoti duomenys…",
+        "updatedAt": "Paskutinis sinchronizuotas naujinys: {{date}}",
+        "unknown": "Sinchronizuoti duomenys yra, bet jų atnaujinimo laikas nepasiekiamas.",
+        "empty": "Nesaugomi jokie sinchronizuoti New DeskTab duomenys.",
+        "error": "Nepavyko įkelti sinchronizuotų duomenų informacijos."
+      },
+      "status": {
+        "idle": "Duomenys paruošti.",
+        "saving": "Išsaugomi pakeitimai…",
+        "saved": "Visi pakeitimai išsaugomi.",
+        "error": "Nepavyko išsaugoti naujausių pakeitimų."
+      }
+    },
+    "theme": {
+      "title": "tema",
+      "subtitle": "Puslapio fonas",
+      "backgroundImageMode": "Vaizdas / vaizdo įrašas",
+      "wallpapersTitle": "Mano tapetai",
+      "ownWallpapersHint": "Šie tapetai ir jų pasukimas saugomi tik šiame įrenginyje.",
+      "mediaUrl": "Fono URL",
+      "image": "Vaizdas",
+      "video": "Vaizdo įrašas",
+      "addUrl": "Pridėti URL",
+      "addFiles": "Pridėti vietinių failų",
+      "rotationInterval": "Tapetų pasukimas",
+      "noRotation": "Nekeiskite automatiškai",
+      "interval5": "5 sekundes",
+      "interval15": "15 sekundžių",
+      "interval30": "30 sekundžių",
+      "interval60": "1 minutę",
+      "interval300": "5 minutes",
+      "interval600": "10 minučių",
+      "interval1800": "30 minučių",
+      "previous": "Ankstesnis",
+      "next": "Kitas",
+      "moveUp": "Judėti aukštyn",
+      "moveDown": "Judėti žemyn",
+      "remove": "Pašalinti",
+      "unavailableLocal": "Vietinis failas nepasiekiamas šiame įrenginyje",
+      "mediaColor": "Spalva už šių tapetų",
+      "mediaPreview": "Peržiūrėkite ekrano užsklandą",
+      "activeSource": "Aktyvus šaltinis",
+      "backgroundSolid": "Vienspalvis",
+      "backgroundColor": "Spalva:",
+      "editSolidColor": "Pakeiskite vientisą fono spalvą",
+      "changeSolidColor": "Keisti spalvą",
+      "backgroundImageColor": "Spalva už vaizdo / vaizdo įrašo",
+      "backgroundImage": "URL bendrinamas tarp įrenginių",
+      "urlHidden": "URL paslėptas",
+      "resetBackground": "Iš naujo nustatyti temą"
+    },
+    "bookmark": {
+      "title": "Žymės",
+      "subtitle": "Numatytoji žymė",
+      "description": "Pasirinkite išvaizdą, naudojamą kuriant naujas žymes.",
+      "configure": "Konfigūruoti numatytąją žymę",
+      "editorTitle": "Numatytoji žymės išvaizda",
+      "previewName": "Numatytoji žymė",
+      "export": "Eksportuoti žymes",
+      "import": "Importuoti žymes",
+      "deleteAll": "Ištrinti visas žymes",
+      "preview": "Peržiūra",
+      "drag": {
+        "title": "Vilkimo elgesys",
+        "description": "Pasirinkite, kaip žymės pertvarkomos, kai užimate jų vietą.",
+        "none": {
+          "title": "Nėra",
+          "description": "Leidžia judėti tik į laisvas ląsteles."
+        },
+        "cascade": {
+          "title": "Seka",
+          "description": "Perkelia grandinę, kol randa laisvą langelį.",
+          "experimental": "Eksperimentinis · Gali būti nedidelių klaidų."
+        },
+        "relocate": {
+          "title": "Perkėlimas",
+          "description": "Perkelia žymes, užimančias paskirties vietą."
+        }
+      },
+      "resize": {
+        "title": "Keisti elgesio dydį",
+        "description": "Pasirinkite, kaip elementai reaguoja perkeliant dydžio keitimo rankenėlę.",
+        "smooth": {
+          "title": "Sklandžiai",
+          "description": "Vilkdami ištempia elementą, tada priglunda prie tinklelio."
+        },
+        "none": {
+          "title": "Nėra",
+          "description": "Peršoka po langelį, kai kerta 50 % gretimo langelio."
+        }
+      },
+      "presets": {
+        "title": "Stiliaus biblioteka",
+        "tab": "biblioteka",
+        "description": "Išsaugokite stilius ir pakartotinai naudokite juos nustatydami numatytąją žymę.",
+        "name": "Iš anksto nustatytas pavadinimas",
+        "saved": "Išsaugoti išankstiniai nustatymai",
+        "save": "Išsaugoti išankstinį nustatymą",
+        "apply": "Įkelti",
+        "delete": "Ištrinti",
+        "empty": "Nėra išsaugotų išankstinių nustatymų"
+      }
+    },
+    "shortcuts": {
+      "title": "Spartieji klavišai",
+      "description": "Pasirinkite sparčiųjų klavišų mygtuką, tada paspauskite raidę arba klavišų kombinaciją. Dešiniuoju pelės mygtuku spustelėkite, kad atšauktumėte priskyrimą.",
+      "change": "Pakeiskite spartųjį klavišą {{action}}. Dabartinis spartusis klavišas: {{shortcut}}.",
+      "press": "Paspauskite spartųjį klavišą…",
+      "unassigned": "Nepriskirta",
+      "unassignedFlash": "Spartusis klavišas nepriskirtas.",
+      "modifierRequired": "Naudokite atskirą raidę arba klavišų kombinaciją su modifikatoriumi.",
+      "reserved": "Šį spartųjį klavišą rezervuoja naršyklė arba operacinė sistema. Pasirinkite kitą derinį.",
+      "conflict": "Šis klavišas jau priskirtas kitam veiksmui.",
+      "updated": "Spartusis klavišas atnaujintas.",
+      "cancelled": "Spartaus klavišo pakeitimas atšauktas.",
+      "restored": "Atkurti numatytieji spartieji klavišai.",
+      "reset": "Iš naujo nustatyti sparčiuosius klavišus",
+      "actions": {
+        "toggleEditing": {
+          "title": "Redagavimo režimas",
+          "description": "Įveskite arba palikite redagavimą pagrindiniame tinklelyje arba atidarytame aplanke."
+        },
+        "addBookmark": {
+          "title": "Sukurti žymę",
+          "description": "Atidarykite žymės pridėjimo formą."
+        },
+        "addFolder": {
+          "title": "Sukurti aplanką",
+          "description": "Atidarykite aplanko kūrimo dialogo langą."
+        },
+        "openWidgets": {
+          "title": "Atidaryti valdiklius",
+          "description": "Atidarykite galimų valdiklių sąrašą."
+        },
+        "openSettings": {
+          "title": "Atidarykite nustatymus",
+          "description": "Atidarykite New DeskTab nustatymų skydelį."
+        }
+      }
+    },
+    "languages": {
+      "title": "Kalbos",
+      "text": "Pasirinkite sąsajos kalbą:",
+      "system": "Naršyklė",
+      "search": "Ieškokite kalbos arba šalies",
+      "empty": "Kalbų nerasta"
+    },
+    "information": {
+      "title": "Informacija",
+      "version": "Versija: {{VERSION}}",
+      "author": "Autorius:"
+    }
+  }
+}

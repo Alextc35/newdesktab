@@ -1,0 +1,921 @@
+{
+  "releaseNotes": {
+    "settingsTitle": "የልቀት ማስታወሻዎች",
+    "settingsDescription": "ምን እንደተለወጠ እና ከእያንዳንዱ ዝመና በስተጀርባ ያለው ታሪክ።",
+    "open": "ማስታወሻዎችን ያንብቡ",
+    "history": "የስሪት ታሪክ",
+    "dismiss": "የመልቀቂያ ማስታወሻዎችን ዝጋ",
+    "continue": "ቀጥል",
+    "back": "ወደ መረጃ ተመለስ",
+    "highlights": "ዛሬ ምን ማድረግ ይችላሉ",
+    "generic": {
+      "title": "New DeskTab ተዘምኗል",
+      "description": "አዲሱ ስሪት አለህ። በፈለጉበት ጊዜ ቀደም ብለው የተለቀቁ ማስታወሻዎችን በመረጃ ውስጥ እንደገና መጎብኘት ይችላሉ። እዚህ በመሆኖ እናመሰግናለን።"
+    },
+    "v1_0_0": {
+      "title": "የእርስዎ የድር ጣቢያዎች ዴስክቶፕ። በመጨረሻ።",
+      "thanks": "New DeskTabን ስለሞከሩ እናመሰግናለን። የዚህን ፕሮጀክት የመጀመሪያ ይፋዊ ልቀት በመጨረሻ ላካፍላችሁ በጣም ጓጉቻለሁ።",
+      "origin": "ሁሉም የጀመረው በሴፕቴምበር 26፣ 2025 ነው። የJust Chatting ዥረት በTwitch ላይ እየተመለከትኩ ሳለ የዥረቱን አሳሽ አዲስ ትር አስተዋልኩ፡ ድህረ ገጾችን ያለስም ወይም አርማ ቀለም ያዘጋጀ ቅጥያ ነው። ያ ዝቅተኛነት ማረከኝ፣ እና አሰብኩ፡ ለምን የራሴን ቅጥያ አልገነባም? እያንዳንዱ አዲስ ትር የሥርዓት ስሜት እንዲያመጣ፣ ገጾቼ በእጃቸው እንዲጠጉ፣ እና በመመልከት የሚያስደስተኝን ፓነል እንዲያመጣ እፈልጋለሁ።",
+      "desktop": "ቀስ በቀስ፣ ያ ሃሳብ ከመተግበሪያዎች ይልቅ ወደ የግል የድረ-ገጾች ዴስክቶፕ አደገ። ሰዓቱ የመጀመሪያ እርምጃ ነው እና አሁንም በሂደት ላይ ያለ ስራ ነው። ለወደፊቱ፣ ለእኔ እና New DeskTab ለሚጠቀሙ ሁሉ ጠቃሚ ነገር የሚያቀርቡ የማስታወሻ ደብተር እና ሌሎች መግብሮችን ማከል እፈልጋለሁ።",
+      "closing": "ይህ መተግበሪያ ለእኔ እና ለእርስዎ ነው የተሰራው። New DeskTabን ስላመኑ እና በአሳሽዎ ውስጥ ቦታ ስለሰጡት እናመሰግናለን። በመገንባት የተደሰትኩትን ያህል የእርስዎን ቦታ መፍጠር እንደሚደሰቱ ተስፋ አደርጋለሁ።",
+      "highlights": {
+        "workspace": "ገጾችዎን በዕልባቶች ፣ አቃፊዎች እና ገለልተኛ የስራ ቦታዎች ያደራጁ።",
+        "appearance": "ቀለሞችን፣ የእያንዳንዱን ንጥል ነገር መጠን እና የዴስክቶፕዎን ዳራ አብጅ።",
+        "search": "ገጾችዎን በፍለጋ ይፈልጉ እና ለማሰስ እና ንጥሎችን ለመፍጠር የቁልፍ ሰሌዳ አቋራጮችን ይጠቀሙ።",
+        "backup": "ምትኬዎችን ያስቀምጡ እና የተሰረዙ እቃዎችን ከሪሳይክል ቢን መልሰው ያግኙ።",
+        "sync": "በዚህ መሣሪያ ላይ ውሂብ ለማቆየት ይምረጡ ወይም ከGoogle Chrome ጋር ያመሳስሉት።",
+        "help": "በእንኳን ደህና መጣችሁ መመሪያ፣ በእጅ እና በየቀኑ ጠቃሚ ምክሮች አማካኝነት ባህሪያቱን ያግኙ።"
+      }
+    }
+  },
+  "onboarding": {
+    "eyebrow": "የመጀመሪያ ደቂቃህ",
+    "skip": "መመሪያ ዝለል",
+    "back": "ተመለስ",
+    "next": "ቀጥሎ",
+    "finish": "ወደ ቅንብሮች ተመለስ",
+    "explore": "ቦታዬን አስስ",
+    "addFirst": "የመጀመሪያ ዕልባቴን ጨምር",
+    "progress": "ደረጃ {{current}} ከ {{total}}",
+    "compactHint": "ዕልባቶችን ለማከል እና ቦታዎን ለማርትዕ ሲፈልጉ መስኮቱን ያስፉት።",
+    "reopenTitle": "ፈጣን መመሪያ",
+    "reopenDescription": "በአንድ ደቂቃ ውስጥ አስፈላጊ የሆኑትን ነገሮች እንደገና ያግኙ።",
+    "reopen": "መመሪያን ይመልከቱ",
+    "demo": {
+      "work": "ስራ",
+      "media": "ሚዲያ",
+      "trash": "ሪሳይክል ቢን",
+      "search": "ዕልባቶችን ያግኙ"
+    },
+    "steps": {
+      "start": {
+        "title": "የእርስዎ ገጾች። የራስዎ ቦታ።",
+        "body": "ወደ New DeskTab እንኳን በደህና መጡ። ትር በከፈቱ ቁጥር የሚወዷቸውን ገጾች በእጅዎ ያቆዩ። አንዱን ለመጨመር ወደ ግራ ጠርዝ ይሂዱ እና + → [[bookmarks|ዕልባት]] ን ይምረጡ።",
+        "hint": "እንዲሁም በአሳሽዎ ውስጥ ካለው የቅጥያ አዶ [[quick-save|የሚጎበኙትን ገጽ ያስቀምጡ]] ማድረግ ይችላሉ።"
+      },
+      "edit": {
+        "title": "ለእያንዳንዱ ዕልባት ቦታውን ይስጡት።",
+        "body": "ለማርትዕ በግራ ምናሌው ላይ እርሳሱን ያብሩ። እሱን ለማንቀሳቀስ አንድ ንጥል ይያዙ እና [[movement|መጎተት]]; መጠኑን ለመቀየር [[resizing|መያዣዎች]] ይጠቀሙ።",
+        "hint": "የእያንዳንዱ የዕልባት እርሳስ [[appearance|አርታዒ]]: ስም, ቀለሞች, አዶ እና ምስል ይከፍታል. እነሱን እንደገና ለመጠቀም [[presets|ቅጦች]] ያስቀምጡ።"
+      },
+      "organize": {
+        "title": "ያነሰ ግርግር። ተጨማሪ ትዕዛዝ።",
+        "body": "[[folders|አቃፊ]] ከ+ ይፍጠሩ እና በአርትዖት ሁነታ ውስጥ ዕልባቶችን ይጎትቱት። እስከ 18 ዕልባቶች የሚሆን ክፍል ባለው ንጹህ ፍርግርግ ውስጥ ይከፈታል።",
+        "hint": "በ ውስጥ ያለውን + ተጠቀም[[workspaces|የስራ ቦታ አሞሌ]]ሥራን እና ጨዋታን ለመለየት. የ[[search|አጉሊ መነጽር]]እንዲሁም በአቃፊዎች ውስጥ መፈለግ."
+      },
+      "style": {
+        "title": "እንደ እርስዎ እንዲሰማዎት ያድርጉ.",
+        "body": "በቅንብሮች → ውስጥ[[wallpapers|ጭብጥ]]፣ ቀለም ፣ ምስል ወይም ቪዲዮ ዳራ ይምረጡ እና ተወዳጅ የግድግዳ ወረቀቶችዎን ያሽከርክሩ። በቅንብሮች → ውስጥ[[sync|ማመሳሰል]]ወደ Chrome መገለጫዎ የገባውን መለያ በመጠቀም ቦታዎን በሁሉም መሳሪያዎች ላይ ያመሳስሉ።",
+        "hint": "[[clock|ሰዓት]] ከ + → መግብሮች ያክሉ። የአቃፊዎችህን [[appearance|መልክ]] ማበጀት ትችላለህ።"
+      },
+      "ready": {
+        "title": "አስፈላጊዎቹን ነገሮች ያውቃሉ.",
+        "body": "ዕልባት ለማግኘት [[search|/]]ን ይጫኑ። ለውጦችን ለማግኘት [[history|ቀልብስ እና ድገም]] ቀስቶችን ይጠቀሙ; የተሰረዙ ዕልባቶች ወደ [[trash|ሪሳይክል ቢን]] ይሄዳሉ።",
+        "hint": "ለውጦች በራስ-ሰር ይቀመጣሉ። በቅንብሮች ውስጥ [[backup|ምትኬ]] ወደ ውጭ ይላኩ ወይም አማራጭ Google Chrome [[sync|ማመሳሰል]]ን አንቃ።"
+      }
+    }
+  },
+  "persistence": {
+    "unsaved": "የቅርብ ጊዜ ለውጦችህ ሊቀመጡ አልቻሉም።",
+    "retry": "ለማስቀመጥ እንደገና ይሞክሩ",
+    "saved": "በመጠባበቅ ላይ ያሉ ለውጦች ተቀምጠዋል።"
+  },
+  "itemEditor": {
+    "chooseIcon": "አዶ ይምረጡ",
+    "siteLogo": "አርማ",
+    "noSymbol": "ምንም",
+    "folderIconHint": "ምልክቱ በአቃፊው ውስጥ ያሉትን የዕልባቶች ቅድመ-እይታዎች ይተካል።",
+    "icons": {
+      "mail": "ደብዳቤ",
+      "calendar": "የቀን መቁጠሪያ",
+      "notes": "ማስታወሻዎች",
+      "projects": "ፕሮጀክቶች",
+      "design": "ንድፍ",
+      "music": "ሙዚቃ",
+      "tasks": "ተግባራት",
+      "ideas": "ሀሳቦች",
+      "docs": "ሰነዶች",
+      "ui-start": "ኮምፓስ",
+      "ui-organize": "አቀማመጥ",
+      "ui-personalize": "ተንሸራታቾች",
+      "ui-protect": "ጋሻ",
+      "ui-bookmarks": "ዕልባት ጨምር",
+      "ui-quick-save": "አሳሽ",
+      "ui-keyboard": "የቁልፍ ሰሌዳ",
+      "ui-shortcuts": "መብረቅ",
+      "ui-search": "ፈልግ",
+      "ui-editing": "እርሳስ",
+      "ui-movement": "አንቀሳቅስ",
+      "ui-resizing": "መጠን ቀይር",
+      "ui-drag-modes": "ጎትት",
+      "ui-folders": "አቃፊ",
+      "ui-workspaces": "ዊንዶውስ",
+      "ui-selection": "ምርጫ",
+      "ui-history": "ታሪክ",
+      "ui-appearance": "ቤተ-ስዕል",
+      "ui-presets": "ቅድመ-ቅምጦች",
+      "ui-wallpapers": "ምስል",
+      "ui-clock": "ሰዓት",
+      "ui-interface": "ግሎብ",
+      "ui-trash": "መጣያ",
+      "ui-backup": "ማህደር",
+      "ui-sync": "አመሳስል",
+      "ui-compact": "ዝርዝር",
+      "ui-data": "የውሂብ ጎታ",
+      "ui-learning": "መጽሐፍ",
+      "ui-settings": "ቅንብሮች",
+      "ui-controls": "መቆጣጠሪያዎች",
+      "ui-cloud": "ደመና",
+      "ui-bookmark": "ዕልባት",
+      "ui-info": "መረጃ",
+      "ui-eye": "አይን",
+      "ui-check": "ተጠናቀቀ",
+      "ui-lock": "ቆልፍ",
+      "ui-unlock": "ክፈት",
+      "ui-copy": "ቅዳ",
+      "ui-close": "ዝጋ",
+      "ui-undo": "ቀልብስ",
+      "ui-redo": "ድገም",
+      "ui-desktop": "ዴስክቶፕ",
+      "home": "ቤት",
+      "briefcase": "ስራ",
+      "code": "ኮድ",
+      "game": "ጨዋታዎች",
+      "cart": "ግዢ",
+      "card": "ክፍያዎች",
+      "people": "ሰዎች",
+      "message": "መልእክት",
+      "location": "አካባቢ",
+      "phone": "ስልክ",
+      "camera": "ካሜራ",
+      "headphones": "የጆሮ ማዳመጫዎች",
+      "link": "አገናኝ",
+      "tag": "መለያ",
+      "chart": "ስታትስቲክስ",
+      "coffee": "ቡና",
+      "sun": "ፀሐይ",
+      "moon": "ጨረቃ",
+      "circle": "ክብ",
+      "square": "ካሬ",
+      "triangle": "ትሪያንግል",
+      "diamond": "አልማዝ",
+      "pentagon": "ፔንታጎን",
+      "hexagon": "ባለ ስድስት ጎን",
+      "star": "ኮከብ",
+      "heart": "ልብ",
+      "plus": "በተጨማሪም",
+      "minus": "ተቀንሶ",
+      "video": "ቪዲዮ"
+    },
+    "searchIcons": "አዶዎችን ፈልግ…",
+    "clearIconSearch": "ፍለጋን አጽዳ",
+    "noIcons": "ምንም አዶዎች አልተገኙም።",
+    "suggestedIcons": "የተጠቆመ",
+    "suggestedIcon": "የተጠቆመው፡ {{name}}",
+    "logoKeywords": "logo favicon ድር ጣቢያ ብራንድ",
+    "iconKeywords": {
+      "ui-trash": "የቆሻሻ መጣያ ቆሻሻ ክላሲክን ሰርዝ",
+      "mail": "የፖስታ ኢሜል gmail እይታ የገቢ መልእክት ሳጥን",
+      "docs": "ሰነዶች ፋይሎች pdf ድራይቭ ቃል",
+      "notes": "ማስታወሻዎች ማስታወሻ አንድ ማስታወሻ",
+      "ui-protect": "የደህንነት ጥበቃ ግላዊነት",
+      "game": "የጨዋታ መቆጣጠሪያ ኮንሶል",
+      "cart": "የሱቅ ሱቅ ይግዙ",
+      "card": "የባንክ ፋይናንስ የብድር ዴቢት ገንዘብ",
+      "people": "የማህበራዊ ማህበረሰብ ጓደኞች ቡድን",
+      "ui-learning": "የቤተ መፃህፍት ትምህርት ጥናት ማንበብ",
+      "ui-clock": "የሰዓት ሰዓቶች ይመልከቱ",
+      "ui-interface": "የበይነመረብ ድር ዓለም ቋንቋ",
+      "ui-data": "ውሂብ sql ማከማቻ",
+      "circle": "የጂኦሜትሪክ ቅርጾች አሃዞች",
+      "square": "የጂኦሜትሪክ ቅርጾች አሃዞች",
+      "triangle": "የጂኦሜትሪክ ቅርጾች አሃዞች",
+      "diamond": "የጂኦሜትሪክ ቅርጾች አሃዞች",
+      "pentagon": "የጂኦሜትሪክ ቅርጾች አሃዞች",
+      "hexagon": "የጂኦሜትሪክ ቅርጾች አሃዞች",
+      "star": "የጂኦሜትሪክ ቅርጾች አሃዞች",
+      "heart": "የጂኦሜትሪክ ቅርጾች አሃዞች"
+    },
+    "history": "ታሪክን ያርትዑ",
+    "description": "በስራ ቦታዎ ውስጥ እንደ ቤት እንዲሰማዎት ያድርጉ።",
+    "looks": "መልክ ይምረጡ",
+    "custom": "ብጁ",
+    "look": {
+      "original": "ኦሪጅናል",
+      "card": "ካርድ",
+      "midnight": "ጨለማ",
+      "paper": "ብርሃን"
+    },
+    "reset": "መልክን ዳግም አስጀምር",
+    "cardColor": "የካርድ ቀለም",
+    "folderFill": "የአቃፊ ቀለም",
+    "image": "የበስተጀርባ ምስል",
+    "lock": "ዩአርኤልን ይቆልፉ ወይም ይክፈቱ",
+    "copy": "URL ቅዳ",
+    "clear": "ግልጽ",
+    "section": {
+      "general": "አስፈላጊዎቹ",
+      "text": "ስም እና መለያዎች",
+      "icon": "አዶ",
+      "card": "ካርድ"
+    },
+    "hint": {
+      "bookmark": {
+        "general": "የሚያዩት ስም እና የሚከፈተው ገጽ.",
+        "text": "ስሙን ለማሳየት እና ቀለሙን ለማስተካከል ይምረጡ።",
+        "icon": "ለምስል ካርዶች ትልቅ፣ መሃል ላይ ያለ ፋቪኮን ወይም ትንሽ አዶን ከስሙ አጠገብ ይጠቀሙ።"
+      },
+      "folder": {
+        "general": "ዕልባቶችዎን አንድ ላይ የሚያመጣበት ስም።",
+        "text": "የአቃፊውን ስም አሳይ እና ቀለሙን ያስተካክሉ።",
+        "icon": "የአቃፊ አዶውን እና የዕልባቶች ጥፍር አከሎችን አብጅ።"
+      },
+      "recycleBin": {
+        "general": "ሪሳይክል ቢን በዋናው የስራ ቦታዎ ላይ ይታይ እንደሆነ ይምረጡ።",
+        "text": "የሪሳይክል ቢን ስም ያሳዩ እና ቀለሙን ያስተካክሉ።",
+        "icon": "ለሪሳይክል ቢን የራስዎን ቀለም ይስጡት። ሙሉውን ቢን ከጄኔራል ደብቅ።"
+      }
+    },
+    "addImage": "የበስተጀርባ ምስል ያክሉ",
+    "changeImage": "የበስተጀርባ ምስልን ያርትዑ"
+  },
+  "html": {
+    "title": "አዲስ ትር"
+  },
+  "quickSave": {
+    "title": "ዕልባት አስቀምጥ",
+    "name": "ስም",
+    "workspace": "የስራ ቦታ",
+    "folder": "አቃፊ",
+    "mainWorkspace": "ዋና",
+    "noFolder": "አቃፊ የለም።",
+    "save": "ዕልባት አስቀምጥ",
+    "saveAnyway": "ለማንኛውም አስቀምጥ",
+    "savedButton": "ተቀምጧል",
+    "alreadySaved": "አስቀድሞ ተቀምጧል",
+    "savedIn": "በ{{location}} ውስጥ",
+    "savedInMore": "ውስጥ {{location}} እና {{count}} ተጨማሪ",
+    "open": "ክፈት New DeskTab",
+    "unavailableTitle": "ይህ ትር ሊቀመጥ አይችልም።",
+    "unavailable": "እሱን ለማስቀመጥ ድረ-ገጽ (http ወይም https) ይክፈቱ።",
+    "loadError": "ዕልባቶችን መጫን አልተቻለም። እንደገና ይሞክሩ።",
+    "saving": "በማስቀመጥ ላይ…",
+    "saved": "ዕልባት ተቀምጧል።",
+    "duplicate": "ይህ ዩአርኤል አስቀድሞ በዚያ መድረሻ ላይ ተቀምጧል።",
+    "noSpace": "በዚያ መድረሻ ምንም ቦታ አልቀረም። ሌላ ይምረጡ።",
+    "invalid": "ስሙን እና የተመረጠውን መድረሻ ያረጋግጡ.",
+    "saveError": "ዕልባቱን ማስቀመጥ አልተቻለም። እንደገና ይሞክሩ።"
+  },
+  "launcher": {
+    "bookmark": "ዕልባት",
+    "folder": "አቃፊ",
+    "widgets": "መግብሮች",
+    "editMode": {
+      "enter": "የአርትዖት ሁነታን አስገባ",
+      "exit": "ከአርትዖት ሁነታ ውጣ"
+    }
+  },
+  "widgets": {
+    "title": "መግብሮች",
+    "description": "ወደዚህ የስራ ቦታ ለመጨመር መግብር ይምረጡ።",
+    "empty": "እስካሁን ምንም መግብሮች የሉም።"
+  },
+  "flash": {
+    "viewport": {
+      "tooNarrow": "ይህንን ባህሪ ለመጠቀም መስኮቱን ያስፋፉ።",
+      "suspended": "ፓነል ተደብቋል። ለመቀጠል መስኮቱን ያስፋፉ."
+    },
+    "editMode": {
+      "enabled": "የአርትዖት ሁነታ ነቅቷል።",
+      "disabled": "የአርትዖት ሁነታ ተሰናክሏል።"
+    },
+    "selectionMode": {
+      "enabled": "የምርጫ ሁነታ ነቅቷል።",
+      "disabled": "የምርጫ ሁነታ ተሰናክሏል።"
+    },
+    "bookmark": {
+      "added": "ዕልባት ታክሏል።",
+      "notFound": "ዕልባት አልተገኘም።",
+      "updated": "ዕልባት ተዘምኗል",
+      "deleted": "ዕልባት ተሰርዟል።"
+    },
+    "clock": {
+      "added": "ሰዓት ታክሏል።",
+      "updated": "ሰዓት ተዘምኗል",
+      "deleted": "ሰዓት ተሰርዟል።"
+    },
+    "folder": {
+      "created": "አቃፊ ተፈጥሯል።",
+      "renamed": "አቃፊ እንደገና ተሰይሟል",
+      "updated": "አቃፊ ተዘምኗል",
+      "deleted": "አቃፊ እና ዕልባቶቹ ተሰርዘዋል",
+      "bookmarkAdded": "ዕልባት ወደ አቃፊ ታክሏል።",
+      "folderFull": "ይህ አቃፊ አስቀድሞ 18 ዕልባቶች አሉት",
+      "bookmarkRemoved": "ዕልባት ወደ ፍርግርግ ተመልሶ ተወስዷል"
+    },
+    "recycleBin": {
+      "moved": "ወደ ሪሳይክል መጣያ ተንቀሳቅሷል",
+      "restored": "እቃዎች ወደነበሩበት ተመልሰዋል።",
+      "deletedPermanently": "እቃዎች እስከመጨረሻው ተሰርዘዋል",
+      "updated": "ሪሳይክል ቢን ተዘምኗል"
+    },
+    "workspace": {
+      "created": "የስራ ቦታ ተፈጥሯል።",
+      "deleted": "የስራ ቦታ ተሰርዟል።",
+      "switched": "የስራ ቦታ፡ {{name}}"
+    },
+    "history": {
+      "undone": "ለውጥ ተቀልብሷል",
+      "redone": "ለውጥ ተስተካክሏል።"
+    },
+    "bookmarks": {
+      "deletedAll": "ሁሉም ዕልባቶች ተሰርዘዋል",
+      "deletedAllWithFolders": "ሁሉም ዕልባቶች እና አቃፊዎች ተሰርዘዋል",
+      "deleteAllError": "ሁሉንም ዕልባቶችን መሰረዝ አልተሳካም።",
+      "exported": "ዕልባቶች ወደ ውጭ ተልከዋል።",
+      "exportError": "ዕልባቶችን ወደ ውጭ መላክ አልተሳካም።",
+      "imported": "ዕልባቶች ገብተዋል።",
+      "importError": "ዕልባቶችን ማስመጣት አልተሳካም።",
+      "presetApplied": "በምርጫው ላይ ቅጥ ተተግብሯል።",
+      "duplicatedSelected": "የተመረጡ ንጥሎች ተባዝተዋል።",
+      "deletedSelected": "የተመረጡ ንጥሎች ተሰርዘዋል",
+      "moved": "እቃዎች ወደ ተመረጠው የስራ ቦታ ተንቀሳቅሰዋል"
+    },
+    "settings": {
+      "saved": "ቅንብሮች ተቀምጠዋል",
+      "bookmarkDefaultSaved": "ነባሪ የዕልባት መልክ ተቀምጧል",
+      "bookmarkDefaultError": "ነባሪውን የዕልባት ገጽታ ማስቀመጥ አልተቻለም",
+      "copied": "እሴት ወደ ቅንጥብ ሰሌዳ ተቀድቷል።",
+      "resetBg": "የገጽታ ዳግም ማስጀመር",
+      "deletedAllData": "ሁሉም የአካባቢ NewDeskTab ውሂብ ተሰርዟል።",
+      "deleteAllDataError": "ሁሉንም የአካባቢያዊ NewDeskTab ውሂብ መሰረዝ አልተቻለም",
+      "invalidWallpaperUrl": "የሚሰራ HTTP ወይም HTTPS ምስል/ቪዲዮ URL አስገባ።",
+      "invalidWallpaperFile": "ይህን ፋይል ማከል አልተቻለም። የሚደገፍ ምስል ወይም MP4፣ WebM ወይም Ogg ቪዲዮ እስከ 200 ሜባ ይጠቀሙ።",
+      "wallpaperLimit": "እስከ 25 የሚደርሱ የግል ልጣፎችን ማከል ይችላሉ።"
+    },
+    "localImage": {
+      "invalid": "የPNG፣ JPEG፣ WebP፣ GIF ወይም AVIF ምስል ይምረጡ።",
+      "tooLarge": "ይህ ምስል በዚህ መሳሪያ ላይ ለማከማቸት በጣም ትልቅ ነው።",
+      "storageFull": "ለዚህ ምስል በቂ የአካባቢ ቦታ የለም።",
+      "processing": "ይህ ምስል ሊሰራ አልቻለም።"
+    },
+    "sync": {
+      "enabled": "ማመሳሰል ነቅቷል።",
+      "localEnabled": "የአካባቢ ሁነታ ነቅቷል።",
+      "remoteLoaded": "የተመሳሰለ ውሂብ ተጭኗል",
+      "updatedFromOtherDevice": "ከሌላ መሣሪያ የተቀበሏቸው የተመሳሰሉ ለውጦች",
+      "deletedFromOtherDevice": "የደመና ውሂብ ከሌላ መሣሪያ ተሰርዟል። ይህ መሳሪያ አሁን የአካባቢ ሁነታን እየተጠቀመ ነው።",
+      "error": "የማከማቻ ሁነታን መቀየር አልተቻለም",
+      "versionBlocked": "የደመና ውሂብ አዲስ NewDeskTab ስሪት ስለሚያስፈልገው ማመሳሰል ባለበት ቆሟል። የዚህ መሣሪያ የአካባቢ ውሂብ እየታየ ነው።",
+      "quotaError": "ውሂቡ ካለው የማመሳሰል ማከማቻ ይበልጣል",
+      "deleted": "የተመሳሰለ ውሂብ ተሰርዟል።",
+      "deleteError": "የተመሳሰለውን ውሂብ መሰረዝ አልተቻለም"
+    },
+    "backup": {
+      "exported": "ምትኬ ወደ ውጭ ተልኳል።",
+      "exportError": "ምትኬን ወደ ውጭ መላክ አልተቻለም",
+      "mediaUnavailable": "አንዳንድ የተጠቀሱ የአካባቢ ምስሎች ወይም ቪዲዮዎች አይገኙም፣ ስለዚህ ምትኬ አልተፈጠረም።",
+      "imported": "ምትኬ ወደነበረበት ተመልሷል",
+      "importError": "ምትኬን ወደነበረበት መመለስ አልተቻለም",
+      "mediaStorageFull": "የመጠባበቂያ ምስሎችን እና ቪዲዮዎችን ወደነበረበት ለመመለስ በቂ የአካባቢ ማከማቻ የለም።"
+    }
+  },
+  "view": {
+    "list": "የዝርዝር እይታ",
+    "search": "ዕልባቶችን እና አቃፊዎችን ይፈልጉ",
+    "clearSearch": "ፍለጋን አጽዳ",
+    "noResults": "ምንም ውጤት የለም።"
+  },
+  "alert": {
+    "bookmarks": {
+      "confirmDeleteAll": "ሁሉም ዕልባቶች ይሰረዙ?",
+      "deleteFolders": "እንዲሁም ሁሉንም አቃፊዎች ሰርዝ",
+      "confirmDeleteSelected": "{{count}} የተመረጡ ንጥሎች ይሰረዙ?",
+      "confirmMoveOne": "ይህን ንጥል ወደ የስራ ቦታ ይውሰዱት \"{{workspace}}\"?",
+      "confirmMoveSelected": "{{count}} የተመረጡ ንጥሎች ወደ የስራ ቦታ \"{{workspace}} ይውሰዱ\"?",
+      "duplicateNoSpace": "በቂ ቦታ ስለሌለ {{count}} ንጥሎች ሊባዙ አልቻሉም።",
+      "moveNoSpace": "በቂ ቦታ ስለሌለ {{count}} እቃዎች ሊንቀሳቀሱ አልቻሉም።",
+      "no_space": "ለተጨማሪ ዕልባቶች ምንም ቦታ የለም 😅"
+    },
+    "bookmark": {
+      "add": {
+        "cancel": "አዲስ ዕልባት ይወገድ?"
+      },
+      "confirmDelete": "\"{{name}}\" ይሰርዙ?",
+      "confirmPermanentDelete": "\"{{name}}\" እስከመጨረሻው ይሰርዙ? ይህ ሊቀለበስ አይችልም።",
+      "cancel": "ለውጦች ይወገዱ?"
+    },
+    "widget": {
+      "confirmPermanentDelete": "ይህ መግብር እስከመጨረሻው ይሰረዝ? ይህ ሊቀለበስ አይችልም።",
+      "confirmDeleteSelected": "{{count}} የተመረጡ ንጥሎች ይሰረዙ? የተመረጡ መግብሮች ({{widgetCount}}) እስከመጨረሻው ይሰረዛሉ እና ወደነበሩበት ሊመለሱ አይችሉም።"
+    },
+    "folder": {
+      "createCancel": "አዲስ አቃፊ ይወገድ?",
+      "cancel": "የአቃፊ ለውጦች ይጣሉ?"
+    },
+    "recycleBin": {
+      "folder": "\"{{name}}\" እና የ{{count}} ዕልባቶቹን ወደ ሪሳይክል መጣያ ውሰድ?",
+      "empty": "በሪሳይክል መጣያ ውስጥ ያለውን ነገር እስከመጨረሻው ይሰርዙ? ይህ ሊቀለበስ አይችልም።",
+      "deleteSelected": "{{count}} የተመረጡ ንጥሎች እስከመጨረሻው ይሰረዙ? ይህ ሊቀለበስ አይችልም።",
+      "noSpace": "በቂ የፍርግርግ ቦታ ስለሌለ {{count}} ንጥሎች ወደነበሩበት ሊመለሱ አልቻሉም። በሪሳይክል መጣያ ውስጥ ይቀራሉ።",
+      "cancel": "ሪሳይክል ቢን ለውጦች ይጣሉ?"
+    },
+    "settings": {
+      "cancel": "የቅንብሮች ለውጦች ይወገዱ?",
+      "reset": "ሁሉም ቅንብሮች ዳግም ይጀመር? ዕልባቶች አይሰረዙም።",
+      "deleteAllData": "ከዚህ መሳሪያ ሁሉም የአካባቢ NewDeskTab ውሂብ ይሰረዝ? ዕልባቶች፣ አቃፊዎች፣ መግብሮች፣ ቅንጅቶች፣ ሪሳይክል ቢን እቃዎች፣ የአካባቢ ምስሎች እና የአካባቢ ቪዲዮዎች እስከመጨረሻው ይሰረዛሉ። የደመና ውሂብ አይቀየርም። ማመሳሰል ገባሪ ከሆነ ይህ መሳሪያ መጀመሪያ ወደ አካባቢያዊ ይቀየራል። ይህ እርምጃ ሊቀለበስ አይችልም።",
+      "theme": {
+        "reset": "የገጽታ ቅንብሮችን ዳግም ይጀመር?"
+      },
+      "bookmark": {
+        "cancel": "በነባሪው የዕልባት ገጽታ ላይ የተደረጉ ለውጦች ይጣሉ?"
+      },
+      "shortcuts": {
+        "reset": "ነባሪ የቁልፍ ሰሌዳ አቋራጮች ወደነበሩበት ይመለሱ?"
+      },
+      "sync": {
+        "enable": "ከአካባቢ ወደ ተመሳስሏል? አስቀምጥን ጠቅ ሳያደርጉ ይህ አሁን ተፈጻሚ ይሆናል። የተመሳሰለው ውሂብ አስቀድሞ ካለ ዕልባቶቹ እና ቅንብሮቹ ይጫናሉ። ያለበለዚያ የተቀመጠ የአካባቢ ውሂብዎ ይመሳሰላል።",
+        "local": "ከተመሳሰለ ወደ አካባቢያዊ ይቀየር? አስቀምጥን ጠቅ ሳያደርጉ ይህ አሁን ተፈጻሚ ይሆናል። ይህ መሣሪያ የአሁኑን ውሂብ ቅጂ ይይዛል እና ለውጦችን ማመሳሰል ያቆማል። የተመሳሰለው ውሂብ ለሌሎች መሳሪያዎች እንደተከማቸ ይቆያል።",
+        "delete": "ሁሉም የተመሳሰሉ NewDeskTab ውሂብ ይሰረዝ? ይህ መሳሪያ እና ይህን የደመና ውሂብ የሚጠቀሙ ሁሉም መሳሪያዎች መሰረዙን ሲያውቁ ወደ አካባቢያዊ ሁነታ ይቀየራሉ። ይህ ሊቀለበስ አይችልም።"
+      }
+    },
+    "backup": {
+      "import": "ይህ ምትኬ ወደነበረበት ይመለስ? የአሁኑን ዕልባቶችዎን እና ቅንብሮችዎን ይተካል።"
+    }
+  },
+  "addModal": {
+    "title": "አዲስ ዕልባት ጨምር",
+    "name": "ስም፡",
+    "url": "URL፡",
+    "advancedOptions": "⚙ የላቁ አማራጮች",
+    "compactView": "▴ የታመቀ እይታ"
+  },
+  "clock": {
+    "name": "ሰዓት",
+    "inDevelopment": "በእድገት ላይ: ሰዓቱ ገና በመጨረሻው ስሪት ውስጥ አይደለም. ለማሻሻል እየሰራን ነው።",
+    "createTitle": "ሰዓት ጨምር",
+    "editTitle": "የሰዓት ቅንብሮች",
+    "description": "በዚህ የስራ ቦታ ላይ የአካባቢዎን ጊዜ ያሳዩ።",
+    "hourCycle": "የጊዜ ቅርጸት",
+    "hour24": "24 ሰዓታት",
+    "hour12": "12 ሰዓታት",
+    "showSeconds": "ሰከንዶች አሳይ",
+    "delete": "ሰርዝ",
+    "edit": "ሰዓት አርትዕ",
+    "actions": "የሰዓት እርምጃዎች",
+    "openSettings": "የሰዓት ቅንብሮችን ይክፈቱ",
+    "confirmDelete": "ይህ ሰዓት ይሰረዝ? ይህን እርምጃ መቀልበስ ይችላሉ።",
+    "confirmPermanentDelete": "ይህ ሰዓት እስከመጨረሻው ይሰረዝ? ይህ ሊቀለበስ አይችልም።",
+    "cancel": "የሰዓት ለውጦች ይጣሉ?",
+    "noSpace": "ለዚህ ሰዓት በቂ የፍርግርግ ቦታ የለም።"
+  },
+  "buttons": {
+    "save": "አስቀምጥ",
+    "apply": "ያመልክቱ",
+    "add": "አክል",
+    "accept": "ተቀበል",
+    "cancel": "ሰርዝ",
+    "close": "ዝጋ"
+  },
+  "localImage": {
+    "upload": "ከዚህ መሳሪያ ስቀል",
+    "label": "የአካባቢ ምስል፡",
+    "activeSource": "ገባሪ ምስል፡",
+    "sourceLocal": "አካባቢያዊ",
+    "sourceUrl": "URL",
+    "remove": "የአካባቢ ምስል አስወግድ",
+    "notice": "የአካባቢ ምስሎች አልተመሳሰሉም።",
+    "unnamed": "የአካባቢ ምስል"
+  },
+  "workspace": {
+    "ariaLabel": "የስራ ቦታ መቆጣጠሪያዎች",
+    "current": "የስራ ቦታ",
+    "main": "ዋና",
+    "search": "ዕልባቶችን ፈልግ",
+    "add": "የስራ ቦታ ይፍጠሩ",
+    "delete": "የስራ ቦታን ሰርዝ",
+    "undo": "ቀልብስ",
+    "redo": "ድገም",
+    "shortcutHint": "የስራ ቦታን በ Alt ወይም Option plus ወደላይ ወይም ወደ ታች ቀስት ይቀይሩ",
+    "prompt": "ለአዲሱ የስራ ቦታ ስም ያስገቡ",
+    "namePlaceholder": "ሥራ፣ መዝናኛ…",
+    "confirmDelete": "\"{{name}}\"፣ {{folderCount}} ማህደሮች እና {{bookmarkCount}} ዕልባቶችን ይሰርዙ? እነሱን ለማቆየት መጀመሪያ ወደ ዋና ወይም ሌላ የስራ ቦታ ያንቀሳቅሷቸው።"
+  },
+  "search": {
+    "title": "ዕልባቶችን ፈልግ",
+    "inputLabel": "በስም ወይም በዩአርኤል ይፈልጉ",
+    "placeholder": "ስም ወይም URL",
+    "empty": "ምንም ዕልባቶች አልተገኙም።",
+    "noUrl": "URL የለም",
+    "inFolder": "አቃፊ፡ {{name}}"
+  },
+  "bulk": {
+    "ariaLabel": "የተመረጡ ንጥል ድርጊቶች",
+    "selected": "{{count}} ተመርጧል",
+    "move": "ወደ የስራ ቦታ ውሰድ",
+    "applyPreset": "ነባሪ ቅጥን ተግብር",
+    "duplicate": "የተባዛ ምርጫ",
+    "delete": "ሰርዝ",
+    "clear": "ምርጫን አጽዳ"
+  },
+  "bookmarkActions": {
+    "ariaLabel": "የዕልባት መቆጣጠሪያዎች",
+    "edit": "ዕልባት አርትዕ",
+    "delete": "ዕልባትን ሰርዝ",
+    "copySuffix": "ቅዳ"
+  },
+  "folder": {
+    "create": "አቃፊ ፍጠር",
+    "createPrompt": "አዲሱን አቃፊ ይሰይሙ",
+    "namePlaceholder": "መሳሪያዎች፣ መነሳሻ…",
+    "open": "{{name}}፣ {{count}} የተቀመጡ ዕልባቶችን ይክፈቱ",
+    "count": "{{count}} ተቀምጧል",
+    "summary": "{{count}} ከ {{capacity}} ቦታዎች ጥቅም ላይ ውሏል",
+    "editMode": {
+      "enable": "አርትዕ",
+      "disable": "ማረም ጨርስ"
+    },
+    "gridLabel": "የአቃፊ ዕልባቶች",
+    "dropHint": "ለመጨመር ጣል ያድርጉ",
+    "noSpace": "ለአዲስ አቃፊ ምንም ነፃ የፍርግርግ ሴል የለም።",
+    "removeNoSpace": "ይህንን ዕልባት ከአቃፊው ለማስወገድ በቂ የፍርግርግ ቦታ የለም።",
+    "confirmDelete": "\"{{name}}\" እና የ{{count}} ዕልባቶቹን ወደ ሪሳይክል መጣያ ውሰድ?",
+    "confirmPermanentDelete": "\"{{name}}\" እና የ{{count}} ዕልባቶቹን እስከመጨረሻው ይሰርዙ? ይህ ሊቀለበስ አይችልም።",
+    "actions": {
+      "ariaLabel": "የአቃፊ መቆጣጠሪያዎች",
+      "customize": "አቃፊን አብጅ",
+      "rename": "አቃፊ እንደገና ይሰይሙ",
+      "delete": "አቃፊ ሰርዝ",
+      "editBookmark": "አርትዕ {{name}}",
+      "removeBookmark": "{{name}}ን ከአቃፊው ይውሰዱ",
+      "deleteBookmark": "ሰርዝ {{name}}",
+      "acceptRename": "የአቃፊ ስም አስቀምጥ",
+      "cancelRename": "የአቃፊን ዳግም መሰየም ሰርዝ"
+    },
+    "editor": {
+      "createTitle": "አዲስ አቃፊ ያክሉ",
+      "title": "አቃፊ አርትዕ",
+      "name": "ስም፡",
+      "showPreviews": "የዕልባት ቅድመ እይታዎችን አሳይ",
+      "showName": "የአቃፊ ስም አሳይ",
+      "iconColor": "የምልክት ቀለም፡",
+      "outerBackgroundColor": "ውጫዊ የጀርባ ቀለም;",
+      "noOuterBackground": "ምንም ውጫዊ ዳራ የለም",
+      "resetOuterBackground": "አውቶማቲክ",
+      "noBackground": "ግልጽ የሆነ አቃፊ መሙላት",
+      "backgroundColor": "የአቃፊ ቀለም፡",
+      "backgroundImage": "የበስተጀርባ ምስል (ዩአርኤል)፦",
+      "lockImage": "የምስል URLን ቆልፍ ወይም ክፈት",
+      "copyImage": "የምስል URL ቅዳ",
+      "clearImage": "የምስል URL አጽዳ",
+      "textColor": "የጽሑፍ ቀለም፡",
+      "preview": "ቅድመ እይታ",
+      "previewName": "አቃፊ",
+      "sections": {
+        "general": "አጠቃላይ",
+        "style": "ቅጥ",
+        "text": "ጽሑፍ"
+      }
+    }
+  },
+  "recycleBin": {
+    "title": "ሪሳይክል ቢን",
+    "open": "ሪሳይክል ቢን ክፈት",
+    "openCount": "ሪሳይክል ቢን ክፈት፣ {{count}} እቃዎች",
+    "dropHint": "ለመሰረዝ ጣል ያድርጉ",
+    "summary": "{{count}} ንጥሎች · በራስ ሰር ስረዛ፡ {{retention}}",
+    "empty": "ሪሳይክል ቢን ባዶ ነው።",
+    "selected": "{{count}} ተመርጧል",
+    "select": "{{name}} ይምረጡ",
+    "folderContents": "{{count}} ዕልባቶች",
+    "deletedAt": "ተሰርዟል {{date}}",
+    "expiresIn": "{{days}} ቀናት ቀርተዋል።",
+    "expiresInOne": "1 ቀን ቀረው",
+    "neverExpires": "በጭራሽ በራስ ሰር አልተሰረዘም",
+    "restoreAll": "ሁሉንም እነበረበት መልስ",
+    "deleteAll": "ሁሉንም ሰርዝ",
+    "restoreSelected": "እነበረበት መልስ ተመርጧል",
+    "deleteSelected": "ሰርዝ ተመርጧል",
+    "editor": {
+      "title": "ሪሳይክል ቢን ያርትዑ",
+      "animateIcon": "አኒሜት ሪሳይክል ቢን",
+      "appearance": "መልክ",
+      "backgroundColor": "የበስተጀርባ ቀለም፡",
+      "backgroundImage": "የበስተጀርባ ምስል (ዩአርኤል)፦",
+      "lockImage": "የምስል URLን ቆልፍ ወይም ክፈት",
+      "copyImage": "የምስል URL ቅዳ",
+      "clearImage": "የምስል URL አጽዳ",
+      "noBackground": "ዳራ የለም።",
+      "iconColor": "የአዶ ቀለም፡",
+      "textColor": "የጽሑፍ ቀለም፡",
+      "elements": "የሚታዩ አካላት",
+      "showName": "ስም አሳይ",
+      "visible": "በዋናው ፍርግርግ ላይ ሪሳይክል ቢን አሳይ",
+      "preview": "ቅድመ እይታ",
+      "actions": "የቢን እርምጃዎችን እንደገና ጥቅም ላይ ማዋል",
+      "edit": "ሪሳይክል ቢን ያርትዑ",
+      "sections": {
+        "general": "አጠቃላይ",
+        "style": "ቅጥ",
+        "text": "ጽሑፍ",
+        "icon": "አዶ"
+      }
+    }
+  },
+  "validation": {
+    "preset": {
+      "name": "ቅድመ ዝግጅት ለማስቀመጥ ስም ያስገቡ።"
+    },
+    "name": {
+      "required": "ለዕልባቶች ስም ያስገቡ።"
+    },
+    "folderName": {
+      "required": "ለአቃፊው ስም ያስገቡ።"
+    },
+    "url": {
+      "invalid": "ዩአርኤሉ ልክ ያልሆነ ነው።",
+      "unsupportedProtocol": "ይህ የዩአርኤል አይነት አይፈቀድም።"
+    },
+    "backgroundImageUrl": {
+      "invalid": "የምስሉ URL ልክ ያልሆነ ነው።",
+      "unsupportedProtocol": "ይህ የምስል አይነት አይፈቀድም።"
+    }
+  },
+  "editModal": {
+    "title": "ዕልባት አርትዕ",
+    "name": "ስም፡",
+    "url": "URL፡",
+    "backgroundImage": "የበስተጀርባ ምስል (ዩአርኤል)፦",
+    "backgroundFavicon": "ትልቅ፣ ያማከለ አዶ",
+    "invertColorBg": "ቀለሞችን ገልብጥ",
+    "noBackground": "ዳራ የለም።",
+    "backgroundColor": "የዕልባት ቀለም፡",
+    "showText": "ጽሑፍ አሳይ",
+    "textColor": "የጽሑፍ ቀለም፡",
+    "showFavicon": "አዶ አሳይ",
+    "invertColorIcon": "የአዶ ቀለሞችን ገልብጥ",
+    "iconColor": "የአዶ ቀለም፡",
+    "sections": {
+      "general": "አጠቃላይ",
+      "style": "ቅጥ",
+      "text": "ጽሑፍ",
+      "icon": "አዶ"
+    },
+    "preview": "ቅድመ እይታ",
+    "previewName": "ቅድመ እይታ"
+  },
+  "colorPicker": {
+    "title": "ቀለም መራጭ",
+    "sample": "ከማያ ገጹ ላይ አንድ ቀለም ይምረጡ",
+    "close": "የቀለም መራጭን ይዝጉ",
+    "saturationBrightness": "ሙሌት እና ብሩህነት",
+    "hue": "ሁ",
+    "quickColors": "ፈጣን ቀለሞች",
+    "saturation": "ሙሌት",
+    "brightness": "ብሩህነት",
+    "hex": "የሄክስ ኮድ",
+    "copy": "የሄክስ ኮድ ቅዳ",
+    "copied": "የሄክስ ኮድ ተቀድቷል።",
+    "copyFailed": "የሄክስ ኮድ መቅዳት አልተቻለም"
+  },
+  "settingsModal": {
+    "sections": {
+      "general": "አጠቃላይ",
+      "sync": "አመሳስል",
+      "theme": "ጭብጥ",
+      "bookmark": "ዕልባቶች",
+      "shortcuts": "አቋራጮች",
+      "language": "ቋንቋዎች",
+      "help": "እገዛ",
+      "information": "መረጃ"
+    },
+    "general": {
+      "title": "አጠቃላይ",
+      "subtitle": "ቅንብሮች",
+      "export": "ምትኬን ወደ ውጪ ላክ",
+      "import": "ምትኬን ወደነበረበት መልስ",
+      "resetSettings": "ቅንብሮችን ዳግም አስጀምር",
+      "deleteAllData": "ሁሉንም የአካባቢ ውሂብ ሰርዝ",
+      "recycleBin": {
+        "title": "ሪሳይክል ቢን",
+        "show": "ሪሳይክል ቢን በዋናው ፍርግርግ ላይ አሳይ",
+        "retentionLabel": "ንጥሎችን በራስ ሰር ሰርዝ፡-",
+        "retentionOptions": {
+          "oneDay": "1 ቀን",
+          "sevenDays": "7 ቀናት",
+          "fourteenDays": "14 ቀናት",
+          "twentyEightDays": "28 ቀናት",
+          "never": "በጭራሽ"
+        }
+      },
+      "appearance": {
+        "title": "መልክ",
+        "system": "አሳሽ",
+        "light": "ብርሃን",
+        "dark": "ጨለማ"
+      }
+    },
+    "sync": {
+      "title": "አመሳስል",
+      "description": "ቅንብሮችዎን እና ዕልባቶችዎን የት እንደሚያከማቹ ይምረጡ።",
+      "ariaLabel": "የማከማቻ ሁነታ",
+      "local": {
+        "title": "ይህ መሳሪያ ብቻ",
+        "description": "ውሂብ የሚቀመጠው በዚህ የአካባቢ አሳሽ መገለጫ ውስጥ ብቻ ነው።"
+      },
+      "synced": {
+        "title": "ተመሳስሏል",
+        "description": "ውስጥ ይገኛልGoogle Chromeከተመሳሳዩ መለያ ጋር የተገናኙ መገለጫዎች።",
+        "tooltip": "የማመሳሰል መረጃ"
+      },
+      "compatibility": {
+        "newerVersion": "ማመሳሰል በዚህ መሳሪያ ላይ ተቆልፏል ምክንያቱም የደመና ውሂቡ የተፈጠረው በአዲስ NewDeskTab ስሪት ነው። የእርስዎ የተመሳሰለ ውሂብ ደህንነቱ የተጠበቀ ነው እና አልተለወጠም። ዳግም ለመገናኘት NewDeskTab ያዘምኑ።"
+      },
+      "usage": {
+        "title": "የማከማቻ መገኘት",
+        "showExact": "ትክክለኛ ባይት አሳይ",
+        "showHuman": "ሊነበቡ የሚችሉ መጠኖችን አሳይ",
+        "local": "አካባቢያዊ",
+        "sync": "ተመሳስሏል",
+        "localSyncCopy": "የአካባቢ አመሳስል ቅጂ",
+        "localAria": "የአካባቢ ማከማቻ አጠቃቀም",
+        "syncAria": "የተመሳሰለ የማከማቻ አጠቃቀም",
+        "loading": "በማስላት ላይ…",
+        "summary": "{{used}} ከ {{total}} · {{percent}}%",
+        "available": "{{free}} ይገኛል።",
+        "system": "ስርዓት እና ሜታዳታ",
+        "bookmarks": "ዕልባቶች",
+        "folders": "አቃፊዎች",
+        "trash": "የቢን ውሂብን እንደገና ጥቅም ላይ ማዋል",
+        "localImages": "የአካባቢ ምስሎች",
+        "themeImages": "ጭብጥ",
+        "bookmarkImages": "ዕልባቶች",
+        "folderImages": "አቃፊዎች",
+        "trashImages": "ሪሳይክል ቢን",
+        "otherImages": "ሌላ",
+        "widgets": "መግብሮች",
+        "widgetsHint": "ለማመሳሰል የሚታየው መጠን ግምት ነው እና ከውጪ አገልግሎቶች የተገኘ የቀጥታ ይዘትን አያካትትም።",
+        "error": "አጠቃቀም አይገኝም"
+      },
+      "browserSupport": {
+        "chrome": "Google Chrome — ውሂብዎን በGoogle መለያዎ በኩል ያመሳስለዋል። ቅጥያው የራሱን የማመሳሰል አገልጋይ አይሰራም።",
+        "brave": "በ Brave ውስጥ የለም፡ New DeskTab ውሂብን በchrome.storage.sync ውስጥ ማከማቸት ይችላል፣ነገር ግን በአሁኑ ጊዜ በመሳሪያዎች መካከል አያሰራጭም።",
+        "unsupported": "የተመሳሰለ ማከማቻ አሁን በGoogle Chrome ላይ ብቻ ይገኛል። የመሣሪያ ተሻጋሪ ድጋፍ እስኪረጋገጥ ድረስ ሌሎች አሳሾች እንደተሰናከሉ ይቆያሉ።"
+      },
+      "existingNotice": "ወደ የተመሳሰለ መቀየርን መቀበል አስቀድሞ ያለውን ማንኛውንም የተመሳሰለ ውሂብ ይጭናል።",
+      "deleteData": "የተመሳሰለውን ውሂብ ሰርዝ",
+      "metadata": {
+        "loading": "የተመሳሰለ ውሂብን በመፈተሽ ላይ…",
+        "updatedAt": "የመጨረሻው የተመሳሰለ ዝማኔ፡-{{date}}",
+        "unknown": "የተመሳሰለ ውሂብ አለ፣ ነገር ግን የዝማኔ ጊዜው የለም።",
+        "empty": "ምንም የተመሳሰለ New DeskTab ውሂብ አልተቀመጠም።",
+        "error": "የተመሳሰለ የውሂብ መረጃ ሊጫን አልቻለም።"
+      },
+      "status": {
+        "idle": "ውሂብ ዝግጁ ነው።",
+        "saving": "ለውጦችን በማስቀመጥ ላይ…",
+        "saved": "ሁሉም ለውጦች ተቀምጠዋል።",
+        "error": "የቅርብ ጊዜ ለውጦችን ማስቀመጥ አልተቻለም።"
+      }
+    },
+    "theme": {
+      "title": "ጭብጥ",
+      "subtitle": "የገጽ ዳራ",
+      "backgroundImageMode": "ምስል/ቪዲዮ",
+      "wallpapersTitle": "የራሴ የግድግዳ ወረቀቶች",
+      "ownWallpapersHint": "እነዚህ የግድግዳ ወረቀቶች እና መዞሪያቸው በዚህ መሳሪያ ላይ ብቻ ነው የተከማቹት።",
+      "mediaUrl": "ልጣፍ ዩአርኤል",
+      "image": "ምስል",
+      "video": "ቪዲዮ",
+      "addUrl": "URL አክል",
+      "addFiles": "የአካባቢ ፋይሎችን ያክሉ",
+      "rotationInterval": "የግድግዳ ወረቀት ሽክርክሪት",
+      "noRotation": "በራስ-ሰር አይቀይሩ",
+      "interval5": "5 ሰከንድ",
+      "interval15": "15 ሰከንድ",
+      "interval30": "30 ሰከንድ",
+      "interval60": "1 ደቂቃ",
+      "interval300": "5 ደቂቃዎች",
+      "interval600": "10 ደቂቃዎች",
+      "interval1800": "30 ደቂቃዎች",
+      "previous": "ቀዳሚ",
+      "next": "ቀጥሎ",
+      "moveUp": "ወደ ላይ ተንቀሳቀስ",
+      "moveDown": "ወደ ታች ውሰድ",
+      "remove": "አስወግድ",
+      "unavailableLocal": "የአካባቢ ፋይል በዚህ መሳሪያ ላይ አይገኝም",
+      "mediaColor": "ከዚህ የግድግዳ ወረቀት ጀርባ ቀለም",
+      "mediaPreview": "የግድግዳ ወረቀት አስቀድመው ይመልከቱ",
+      "activeSource": "ንቁ ምንጭ",
+      "backgroundSolid": "ድፍን ቀለም",
+      "backgroundColor": "ቀለም፡",
+      "editSolidColor": "ጠንካራ የጀርባ ቀለም ይለውጡ",
+      "changeSolidColor": "ቀለም ይቀይሩ",
+      "backgroundImageColor": "ከምስል/ቪዲዮው ጀርባ ቀለም",
+      "backgroundImage": "ዩአርኤል በመሳሪያዎች መካከል ተጋርቷል።",
+      "urlHidden": "URL ተደብቋል",
+      "resetBackground": "ገጽታን ዳግም አስጀምር"
+    },
+    "bookmark": {
+      "title": "ዕልባቶች",
+      "subtitle": "ነባሪ ዕልባት",
+      "description": "አዲስ ዕልባቶችን ሲፈጥሩ ጥቅም ላይ የዋለውን ገጽታ ይምረጡ።",
+      "configure": "ነባሪ ዕልባትን ያዋቅሩ",
+      "editorTitle": "ነባሪ የዕልባት ገጽታ",
+      "previewName": "ነባሪ ዕልባት",
+      "export": "ዕልባቶችን ወደ ውጪ ላክ",
+      "import": "ዕልባቶችን አስመጣ",
+      "deleteAll": "ሁሉንም ዕልባቶችን ሰርዝ",
+      "preview": "ቅድመ እይታ",
+      "drag": {
+        "title": "ባህሪን ይጎትቱ",
+        "description": "ቦታቸውን ሲይዙ ዕልባቶች እንዴት እንደገና እንደሚደራጁ ይምረጡ።",
+        "none": {
+          "title": "ምንም",
+          "description": "ወደ ነጻ ህዋሶች መንቀሳቀስን ብቻ ይፈቅዳል።"
+        },
+        "cascade": {
+          "title": "ቅደም ተከተል",
+          "description": "ነፃ ሕዋስ እስኪያገኝ ድረስ ሰንሰለቱን ይቀይራል።",
+          "experimental": "የሙከራ · ጥቃቅን ሳንካዎችን ሊይዝ ይችላል።"
+        },
+        "relocate": {
+          "title": "ማዛወር",
+          "description": "መድረሻውን የሚይዙ ዕልባቶችን ወደ ሌላ ቦታ ያንቀሳቅሳል።"
+        }
+      },
+      "resize": {
+        "title": "ባህሪን ቀይር",
+        "description": "የመጠን መቆጣጠሪያን ሲያንቀሳቅሱ ንጥሎች እንዴት ምላሽ እንደሚሰጡ ይምረጡ።",
+        "smooth": {
+          "title": "ለስላሳ",
+          "description": "እየጎተቱ እያለ እቃውን ይዘረጋል፣ ከዚያ ወደ ፍርግርግ ያቆማል።"
+        },
+        "none": {
+          "title": "ምንም",
+          "description": "የአጎራባች ሴል 50% ሲያቋርጡ በሴል ይዘልላል."
+        }
+      },
+      "presets": {
+        "title": "የቅጥ ቤተ-መጽሐፍት።",
+        "tab": "ቤተ መፃህፍት",
+        "description": "ቅጦችን ያስቀምጡ እና ነባሪውን ዕልባት ሲያዘጋጁ እንደገና ይጠቀሙባቸው።",
+        "name": "ቅድመ ስም",
+        "saved": "የተቀመጡ ቅድመ-ቅምጦች",
+        "save": "ቅድመ ዝግጅትን አስቀምጥ",
+        "apply": "ጫን",
+        "delete": "ሰርዝ",
+        "empty": "ምንም የተቀመጡ ቅድመ-ቅምጦች የሉም"
+      }
+    },
+    "shortcuts": {
+      "title": "የቁልፍ ሰሌዳ አቋራጮች",
+      "description": "አቋራጭ ቁልፍን ምረጥ እና ከዚያ የፊደል ወይም የቁልፍ ጥምርን ተጫን። እሱን ላለመመደብ ቀኝ-ጠቅ ያድርጉ።",
+      "change": "የ{{action}} አቋራጭ ቀይር። የአሁኑ አቋራጭ፡ {{shortcut}}።",
+      "press": "አቋራጭን ይጫኑ…",
+      "unassigned": "ያልተመደበ",
+      "unassignedFlash": "አቋራጭ አልተመደበም።",
+      "modifierRequired": "በራሱ ፊደል ወይም የቁልፍ ጥምርን ከመቀየሪያ ጋር ተጠቀም።",
+      "reserved": "ይህ አቋራጭ በአሳሹ ወይም በስርዓተ ክወናው የተጠበቀ ነው። ሌላ ጥምረት ይምረጡ።",
+      "conflict": "ይህ ቁልፍ አስቀድሞ ለሌላ ተግባር ተመድቧል።",
+      "updated": "አቋራጭ ተዘምኗል።",
+      "cancelled": "የአቋራጭ ለውጥ ተሰርዟል።",
+      "restored": "ነባሪ አቋራጮች ወደነበሩበት ተመልሰዋል።",
+      "reset": "አቋራጮችን ዳግም አስጀምር",
+      "actions": {
+        "toggleEditing": {
+          "title": "ሁነታን ያርትዑ",
+          "description": "በዋናው ፍርግርግ ላይ ወይም በክፍት አቃፊ ውስጥ አርትዖት ያስገቡ ወይም ይተዉት።"
+        },
+        "addBookmark": {
+          "title": "ዕልባት ይፍጠሩ",
+          "description": "ዕልባት ለመጨመር ቅጹን ይክፈቱ።"
+        },
+        "addFolder": {
+          "title": "አቃፊ ፍጠር",
+          "description": "አቃፊ ለመፍጠር መገናኛውን ይክፈቱ።"
+        },
+        "openWidgets": {
+          "title": "መግብሮችን ይክፈቱ",
+          "description": "የሚገኙትን መግብሮች ዝርዝር ይክፈቱ።"
+        },
+        "openSettings": {
+          "title": "ቅንብሮችን ይክፈቱ",
+          "description": "የNew DeskTab ቅንጅቶችን ፓነል ይክፈቱ።"
+        }
+      }
+    },
+    "languages": {
+      "title": "ቋንቋዎች",
+      "text": "የበይነገጽ ቋንቋ ይምረጡ፡-",
+      "system": "አሳሽ",
+      "search": "ቋንቋ ወይም አገር ይፈልጉ",
+      "empty": "ምንም ቋንቋዎች አልተገኙም።"
+    },
+    "information": {
+      "title": "መረጃ",
+      "version": "ስሪት፡ {{VERSION}}",
+      "author": "ደራሲ፡"
+    }
+  }
+}

@@ -1,0 +1,517 @@
+{
+  "title": "Návod na použitie",
+  "eyebrow": "VÁŠ PRIESTOR, VAŠE TEPLO",
+  "intro": "Spoznajte každú malú vlastnosť.",
+  "description": "Nájdite, čo potrebujete, alebo objavte niečo nové. Neponáhľaj sa.",
+  "settingsDescription": "Každá funkcia s jednoduchými krokmi a malými trikmi, ktoré môžete kedykoľvek vyskúšať.",
+  "search": {
+    "label": "S čím vám môžeme pomôcť?",
+    "placeholder": "Napríklad: obnoviť odstránenú záložku",
+    "common": "Časté otázky",
+    "found": "Odpovede na vaše hľadanie · {{count}}",
+    "empty": "Pre toto hľadanie sa nenašla žiadna pomoc. Skúste „klávesnicu“, „presunúť záložky“ alebo „zálohovať“.",
+    "resultsLabel": "Manuálne otázky a odpovede"
+  },
+  "open": "Preskúmajte príručku",
+  "searchLabel": "Vyhľadajte v príručke",
+  "searchPlaceholder": "Skúste „klávesnicu“, „tapetu“ alebo „zálohu“",
+  "count": "{{count}} sekcií na preskúmanie",
+  "empty": "Žiadne zápasy. Skúste iné slovo alebo vymažte vyhľadávanie, aby ste videli celý index.",
+  "back": "← Manuálny index",
+  "remember": "Dobré na zapamätanie",
+  "related": "Pokračujte v objavovaní",
+  "footer": "Vždy dostupné v Nastavenia → Pomocník.",
+  "guideLinks": "Viac sa dozviete v návode",
+  "groups": {
+    "start": "Začnite tu",
+    "organize": "Urobte si poriadok",
+    "personalize": "Urobte to podľa seba",
+    "protect": "Starajte sa o svoj priestor"
+  },
+  "demo": {
+    "browse": "Prehľadávať sekcie",
+    "previous": "← Predchádzajúca časť",
+    "next": "Ďalšia časť →",
+    "title": "Vidieť to v akcii",
+    "example": "Ukážkový príklad",
+    "steps": "Demonštračné kroky",
+    "step": "Krok {{step}} z {{count}}",
+    "play": "Hrať",
+    "pause": "Pauza",
+    "replay": "Prehrať znova",
+    "progress": "Pokrok v demonštrácii",
+    "mode": "Správanie",
+    "nextStep": "Ďalší krok",
+    "reducedMotion": "Znížený pohyb: preskúmajte kroky bez animácie.",
+    "labels": {
+      "settings": "Nastavenia",
+      "saved": "Zmeny boli uložené",
+      "page": "Stránka",
+      "selection": "Výber",
+      "selected": "vybratých položiek",
+      "color": "Farba",
+      "styleName": "Môj fialový štýl",
+      "wallpaper": "Tapety",
+      "rotation": "Rotácia",
+      "format": "Formátovať",
+      "seconds": "sekúnd",
+      "language": "Jazyk",
+      "system": "Systém",
+      "currentLanguage": "Slovenčina",
+      "restore": "Obnoviť",
+      "copy": "Zálohovanie",
+      "restoreCopy": "Pred obnovením skontrolujte",
+      "switchSync": "Prepnúť na synchronizované?",
+      "applyNow": "Platí po potvrdení",
+      "status": "Stav",
+      "synchronized": "Synchronizované",
+      "retry": "Čaká sa na uloženie · Skúsiť znova",
+      "keyboardQuery": "klávesnica",
+      "deleteExample": "Záložky a priečinky budú odstránené. Kôš bude prázdny."
+    },
+    "topics": {
+      "bookmarks": [
+        "Otvorte ľavú ponuku a vyberte + → Záložka.",
+        "Zadajte názov a adresu stránky.",
+        "Potvrdiť: záložka sa zobrazí vo voľnej bunke."
+      ],
+      "quick-save": [
+        "Otvorte New DeskTab pomocou ikony rozšírenia.",
+        "Skontrolujte navrhovaný názov, adresu a cieľ.",
+        "Uložiť: záložka bude vo vašom pracovnom priestore, keď otvoríte kartu."
+      ],
+      "keyboard": [
+        "Stlačením klávesu Tab zaostríte na prvú položku.",
+        "Klávesy so šípkami posúvajú zameranie. Enter otvorí zameranú položku.",
+        "Esc alebo iná karta ukončí navigáciu."
+      ],
+      "shortcuts": [
+        "Otvorte Nastavenia → Klávesové skratky.",
+        "Kliknite na skratku akcie a zadajte svoju kombináciu.",
+        "Uložiť, ak chcete použiť novú skratku."
+      ],
+      "search": [
+        "Lupa na paneli s nástrojmi alebo / otvorí vyhľadávanie.",
+        "Zadajte časť mena alebo adresy.",
+        "Otvorte výsledok. Esc alebo Zavrieť sa vrátia do vášho pracovného priestoru."
+      ],
+      "editing": [
+        "Ceruzka ponuky odhaľuje mriežku a ovládacie prvky.",
+        "Ceruzka Gmailu otvorí editor názvu a adresy URL.",
+        "Uložte zmenu a dokončite opätovným kliknutím na ceruzku ponuky."
+      ],
+      "movement": [
+        "Povoľte úpravy a podržte dlaždicu.",
+        "Kurzor a dlaždica sa presunú spolu do voľnej bunky.",
+        "Uvoľniť: konečná poloha sa uloží."
+      ],
+      "resizing": [
+        "Povoľte úpravy a nájdite rohovú rukoväť.",
+        "Potiahnutím diagonálne zmeníte šírku a výšku.",
+        "Uvoľnite pri 2 × 2. Pomocou voliča porovnajte žiadne a Hladký."
+      ],
+      "drag-modes": [
+        "Pomocou voliča porovnajte tri režimy ťahania.",
+        "Potiahnite smerom k obsadenej bunke a sledujte ostatné dlaždice.",
+        "Žiadny nepoužíva voľnú bunku; Premiestnenie a Sekvencia reorganizujú dlaždice."
+      ],
+      "folders": [
+        "Pomenujte priečinok na zoskupenie stránok.",
+        "Počas úprav na ňu presuňte záložku.",
+        "Otvorte priečinok a nájdite záložku v jej mriežke."
+      ],
+      "workspaces": [
+        "Panel nástrojov + vytvorí pracovný priestor s vybratým názvom.",
+        "Nový pracovný priestor má vlastnú mriežku.",
+        "Alt + ↑ a Alt + ↓ cyklicky prechádzajú vašimi pracovnými priestormi."
+      ],
+      "selection": [
+        "Povoľte úpravy a vyberte dlaždicu krátkym kliknutím.",
+        "Vyberte iný: panel s nástrojmi ponúka skupinové akcie.",
+        "Clone vytvorí kópie vo voľných bunkách v jednej akcii."
+      ],
+      "history": [
+        "Presunúť dlaždicu: táto zmena sa zapíše do histórie.",
+        "Vrátiť späť vráti dlaždicu na predchádzajúcu pozíciu.",
+        "Znova obnoví pohyb, ktorý ste práve zrušili."
+      ],
+      "appearance": [
+        "Ceruzka dlaždice otvorí editor.",
+        "Zmeňte farbu a pozrite si ukážku.",
+        "Uložením použijete tento vzhľad na dlaždicu."
+      ],
+      "presets": [
+        "Otvorte knižnicu z Nastavenia → Záložky.",
+        "Pomenujte a uložte štýl, aby ste ho mohli znova použiť.",
+        "Načítajte ho ako predvolený a uložte pre nové záložky."
+      ],
+      "wallpapers": [
+        "Otvorte Nastavenia → Motív a vyberte tapetu.",
+        "Skontrolujte interval otáčania náhľadu a knižnice.",
+        "Uložiť: zvolená tapeta sa zobrazí vo vašom pracovnom priestore."
+      ],
+      "clock": [
+        "V ľavom menu vyberte + → Widgety → Hodiny.",
+        "Nakonfigurujte formát a sekundy pomocou ukážky.",
+        "Pridajte hodiny do voľnej bunky pracovného priestoru."
+      ],
+      "interface": [
+        "Otvorte Všeobecné a vyberte jazyk ponuky.",
+        "Porovnajte svetlé a tmavé rozhranie.",
+        "Uložte si predvoľby jazyka a vzhľadu."
+      ],
+      "trash": [
+        "Otvorte kôš a nájdite odstránenú záložku.",
+        "Vyberte ho a kliknite na Obnoviť: vráti sa do mriežky.",
+        "Vo všeobecnosti vyberte, ako dlho sa budú odstránené položky uchovávať."
+      ],
+      "backup": [
+        "Možnosti zálohovania nájdete v Nastavenia → Všeobecné.",
+        "Export stiahne súbor ZIP s údajmi a lokálnymi súbormi.",
+        "Import si pred nahradením údajov vyžiada potvrdenie."
+      ],
+      "sync": [
+        "Otvorte Nastavenia → Synchronizácia a skontrolujte aktuálny režim.",
+        "Vyberte možnosť Synchronizované a skontrolujte potvrdenie.",
+        "Prijať použije režim okamžite bez kliknutia na tlačidlo Uložiť."
+      ],
+      "compact": [
+        "Keď sa okno zužuje, mriežka sa stáva zoznamom.",
+        "Záložky zostanú dostupné zo zoznamu.",
+        "Rozšírením okna sa vrátite do mriežky a úprav."
+      ],
+      "data": [
+        "Príklad používa iný jazyk, ľahké rozhranie a prispôsobené dlaždice.",
+        "Obnoviť obnoví predvolené nastavenia pri zachovaní záložiek a ich štýlov.",
+        "Odstrániť odstráni záložky a priečinky a zostane iba prázdny kôš."
+      ],
+      "learning": [
+        "Denný tip vás pozýva na objavenie funkcie. Kliknite na Zobraziť postup.",
+        "Do vyhľadávacieho poľa zadajte „klávesnica“, aby ste našli možnosť Navigovať pomocou klávesnice.",
+        "Kliknutím na výsledok si prečítajte pokyny."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "MALÝ TIP NA DNES",
+    "dismiss": "Odmietnite dnešný tip",
+    "read": "Ukáž mi ako",
+    "pace": "Umiestnite kurzor myši na pozastavenie.",
+    "enabled": "Denné tipy",
+    "description": "Jeden tip, keď otvoríte svoju prvú kartu dňa."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Ako pridám stránku do svojich záložiek?",
+      "searchTerms": "pridať stránku; vytvoriť záložku; uložiť webovú stránku; nový obľúbený",
+      "title": "Pridať záložky",
+      "summary": "Vaše obľúbené stránky na každej novej karte.",
+      "steps": [
+        "Presunutím na ľavý okraj zobrazíte ponuku. Vyberte + → Záložka.",
+        "Zadajte názov a adresu stránky. Pred pridaním môžete upraviť jeho vzhľad.",
+        "Potvrdením umiestnite záložku do voľného slotu v aktuálnom pracovnom priestore. Mimo režimu úprav kliknutím naň otvoríte stránku."
+      ],
+      "note": "Ak chcete zmeniť existujúcu záložku, zapnite úpravy a použite ceruzku. Adresu môžete uzamknúť, aby ste predišli náhodným zmenám.",
+      "tip": "Ponuka pre pridávanie záložiek je na ľavom okraji. Presuňte tam kurzor a vyberte + → Záložka."
+    },
+    "quick-save": {
+      "question": "Ako uložím stránku, ktorú navštevujem?",
+      "searchTerms": "uložiť aktuálnu stránku; uložiť otvorenú kartu; ikona rozšírenia; zachytiť URL",
+      "title": "Uložte aktuálnu stránku",
+      "summary": "Pridajte stránku pomocou ikony rozšírenia.",
+      "steps": [
+        "Počas návštevy stránky otvorte New DeskTab z ponuky rozšírení prehliadača.",
+        "Skontrolujte navrhované meno a adresu a vyberte dostupný cieľ.",
+        "Uložte záložku a otvorte novú kartu, aby ste ju našli vo svojom priestore."
+      ],
+      "note": "Pripnite si ikonu rozšírenia na panel s nástrojmi prehliadača, aby ste mali túto skratku na dosah.",
+      "tip": "Nie je potrebné kopírovať webovú adresu: Ikona prehliadača New DeskTab vám umožňuje uložiť stránku, ktorú ste navštívili."
+    },
+    "keyboard": {
+      "question": "Ako môžem navigovať bez myši?",
+      "searchTerms": "bez myši; používať klávesnicu; navigácia šípkami; tabulátor enter",
+      "title": "Navigujte pomocou klávesnice",
+      "summary": "Tab, šípky a Enter na preskúmanie priestoru.",
+      "steps": [
+        "Na hlavnej stránke bez zadávania poľa alebo otvorenia dialógového okna stlačením klávesu Tab spustite navigáciu v položkách.",
+        "Pomocou klávesov so šípkami sa dostanete k najbližšej položke v každom smere. Enter otvorí záložku alebo priečinok; v režime úprav otvorí svoj editor.",
+        "Opätovným stlačením klávesu Tab alebo Esc opustíte navigáciu. Vo vnútri dialógových okien sa medzi ovládacími prvkami normálne presúvajú klávesy Tab a Shift + Tab."
+      ],
+      "note": "V režime úprav S vyberie zameranú položku. Odstrániť alebo Backspace ho po potvrdení odstráni. Widgety sa natrvalo odstránia.",
+      "tip": "Vyskúšajte Tab vo svojom priestore: šípky sa pohybujú medzi položkami a kláves Enter ich otvorí. Iná karta opustí tento režim."
+    },
+    "shortcuts": {
+      "question": "Ako zmením svoje klávesové skratky?",
+      "searchTerms": "zmeniť skratky; prispôsobiť kľúče; kombinácie klávesov; klávesová skratka",
+      "title": "Vytvorte si vlastné skratky",
+      "summary": "Skontrolujte a zmeňte svoje skratky v Nastaveniach.",
+      "steps": [
+        "Otvorte Nastavenia → Skratky a zobrazte svoje väzby na úpravy, pridávanie záložiek, priečinkov a miniaplikácií a nastavenia otvárania.",
+        "Kliknite na kombináciu klávesov akcie a stlačte novú skratku. Esc zruší nahrávanie; kliknutím pravým tlačidlom myši zostane akcia nepriradená.",
+        "Ak chcete použiť zmeny, uložte nastavenia. Obnoviť skratky obnoví pôvodné kombinácie."
+      ],
+      "note": "Na začiatku: E upraví, B pridá záložku, F priečinok, W otvorí miniaplikácie a S otvorí nastavenia. Skratky rešpektujú textové polia a dialógové okná.",
+      "tip": "Skratky môžete zmeniť v Nastaveniach. Kliknutím na kombináciu zaznamenáte svoju vlastnú; Esc zruší a kliknutím pravým tlačidlom myši zrušíte priradenie."
+    },
+    "search": {
+      "question": "Ako nájdem záložku, ktorú nevidím?",
+      "searchTerms": "nájsť záložku; nájsť stránku; chýbajúca záložka; hľadať URL",
+      "title": "Nájdite záložku",
+      "summary": "Vyhľadávajte podľa mena alebo adresy vrátane vnútorných priečinkov.",
+      "steps": [
+        "Keď nepíšete, stlačte / alebo použite lupu na paneli pracovného priestoru.",
+        "Zadajte časť mena alebo adresy. Vyhľadávanie zahŕňa záložky v iných pracovných priestoroch a v priečinkoch.",
+        "Otvorte výsledok, ktorý potrebujete. Esc alebo Zavrieť vás vrátia späť do vášho priestoru."
+      ],
+      "note": "Nemusíte si pamätať, kde ste stránku uložili, aby ste ju našli.",
+      "tip": "Kláves / otvorí vyhľadávanie. Tiež nájde záložky v priečinkoch a v iných pracovných priestoroch."
+    },
+    "editing": {
+      "question": "Ako zapnem úpravy?",
+      "searchTerms": "povoliť úpravy; upraviť pracovnú plochu; editor ceruzky; upraviť záložku",
+      "title": "Režim úprav",
+      "summary": "Zapnite ceruzku na usporiadanie a prispôsobenie.",
+      "steps": [
+        "Kliknite na ceruzku v ľavej ponuke alebo použite skratku úprav, aby ste odkryli mriežku a ovládacie prvky položiek.",
+        "Presuňte, zmeňte veľkosť alebo vyberte položky. Ceruzka každej karty otvára jej názov, adresu a editor vzhľadu.",
+        "Po dokončení znova kliknite na ceruzku. Zmeny pracovného priestoru sa ukladajú automaticky; editory majú vlastné tlačidlo Uložiť."
+      ],
+      "note": "Esc najskôr vymaže výber alebo navigáciu klávesnicou. Keď nie je aktívny ani jeden, môže opustiť režim úprav.",
+      "tip": "Ceruzka ponuky začne upravovať: objavia sa rukoväte a ovládacie prvky kariet. Pre dokončenie kliknite naň znova."
+    },
+    "movement": {
+      "question": "Ako presuniem záložku?",
+      "searchTerms": "presunúť záložku; ťahať obľúbené; zmeniť polohu; usporiadať mriežku",
+      "title": "Presuňte položky",
+      "summary": "Presuňte karty na miesto na mriežke.",
+      "steps": [
+        "Zapnite režim úprav a podržte kartu, ktorú chcete presunúť.",
+        "Presuňte ho na miesto určenia. Výsledok závisí od voľného miesta a zvoleného režimu ťahania v Nastavenia → Záložky.",
+        "Uvoľnením uložíte jeho polohu. Môžete tiež vybrať jednu položku kliknutím a presunúť ju o jednu bunku pomocou šípok mimo navigácie na karte."
+      ],
+      "note": "Blokované ciele zobrazujú vizuálnu spätnú väzbu a položka sa vráti na platnú pozíciu. Zmeny môžete vrátiť späť.",
+      "tip": "V režime úprav kliknutím vyberte jednu kartu a pomocou šípok ju posúvajte po bunke. Najprv opustite navigáciu kartami."
+    },
+    "resizing": {
+      "question": "Ako zmením veľkosť dlaždice?",
+      "searchTerms": "zmeniť veľkosť dlaždice; zväčšiť záložku; zmenšiť veľkosť; zmeniť veľkosť rukoväte; kliknúť; Shift; šírka výška; 2x2",
+      "title": "Zmeňte veľkosť",
+      "summary": "Použite strany a rohy karty.",
+      "steps": [
+        "Zapnite úpravy a presuňte sa na stranu alebo roh položky, aby ste použili jej úchyty na zmenu veľkosti.",
+        "Potiahnite rukoväť. Roh mení šírku a výšku; strana zmení len jeden rozmer. Môžete tiež kliknúť na rukoväť, ak chcete narásť o jednu bunku, alebo Shift + kliknutie na zmenšenie o jednu bunku.",
+        "V Nastavenia → Záložky vyberte možnosť Žiadne, ak chcete preskočiť medzi bunkami po prekročení 50 %, alebo Vyhladiť, ak chcete kartu roztiahnuť a zacvaknúť pri uvoľnení."
+      ],
+      "note": "Konečná veľkosť rešpektuje mriežku a platné pozície. Ukážky nastavení ukážu rozdiel skôr, ako si vyberiete.",
+      "tip": "Kliknutím na rukoväť sa zväčší o jednu bunku alebo stlačením klávesu Shift + kliknutím sa zmenší o jednu bunku. Rohy menia šírku a výšku spolu; strany menia len jeden rozmer."
+    },
+    "drag-modes": {
+      "question": "Prečo nemôžem vstúpiť na obsadenú bunku?",
+      "searchTerms": "obsadená bunka; presunúť sa cez iný; zablokovaný pokles; premiestniť kaskádu; ťahať zrážku",
+      "title": "Režimy ťahania",
+      "summary": "Vyberte, čo sa stane na obsadenej pozícii záložky.",
+      "steps": [
+        "Otvorte Nastavenia → Záložky a rozbaľte správanie ťahania.",
+        "Žiadny sa neposúva do voľných slotov. Premiestnenie nájde pozíciu pre záložky v cieli. Sekvencia preusporiada záložky v poradí.",
+        "Pozrite si animáciu každej možnosti a uložte si režim, v ktorom sa pohodlne organizuje."
+      ],
+      "note": "Ak neexistuje platná dohoda, ťah je odmietnutý. Priehľadné pozadie neoslobodzuje obsadenú bunku.",
+      "tip": "Chcete presunúť záložku do obsadenej bunky? Pozrite sa na Premiestnenie a kaskádu v Nastaveniach → Záložky a pozrite si ich ukážky."
+    },
+    "folders": {
+      "question": "Ako môžem zoskupiť záložky do priečinkov?",
+      "searchTerms": "vytvoriť priečinok; skupinové záložky; organizovať obľúbené položky; odstrániť z priečinka; premenovať priečinok",
+      "title": "Usporiadajte pomocou priečinkov",
+      "summary": "Zhromaždite až 18 záložiek do jedného priečinka.",
+      "steps": [
+        "V ľavom menu vyberte + → Priečinok a pomenujte ho.",
+        "V režime úprav naň presuňte záložky, aby ste ich umiestnili dovnútra. Otvorte priečinok, aby ste videli jeho mriežku.",
+        "Použite režim úprav priečinka na usporiadanie jeho záložiek. Kliknutím na jeho názov ho premenujete a kliknutím na jeho ikonu prispôsobíte jeho vzhľad."
+      ],
+      "note": "Odstránenie priečinka ovplyvní aj jeho záložky. Pred pokračovaním skontrolujte potvrdenie; kôš môže obnoviť odstránené položky.",
+      "tip": "Priečinok obsahuje až 18 záložiek. Zapnite úpravy a presunutím karty do priečinka ju pridajte."
+    },
+    "workspaces": {
+      "question": "Ako udržím osobné a pracovné stránky oddelené?",
+      "searchTerms": "osobná práca; vytvoriť pracovný priestor; prepnúť pracovný priestor; desktopy",
+      "title": "Oddeľte svoje pracovné priestory",
+      "summary": "Jedna mriežka na prácu a druhá na všetko ostatné.",
+      "steps": [
+        "Lišta pracovného priestoru prepína medzi hlavnými a vašimi vlastnými pracovnými priestormi. Jeho + vytvorí nový.",
+        "Pred pridaním položiek vyberte pracovný priestor. Ak chcete preniesť existujúce položky, vyberte ich a na paneli akcií vyberte cieľ.",
+        "Alt + ↑ a Alt + ↓ cyklicky prechádzajú pracovnými priestormi. Tlačidlo − po potvrdení vymaže aktuálny vlastný pracovný priestor."
+      ],
+      "note": "Odstránením pracovného priestoru sa odstráni aj jeho obsah. Hlavné zostávajú dostupné a nedajú sa odstrániť.",
+      "tip": "Alt + ↑ a Alt + ↓ prepínajú pracovné priestory bez otvárania voliča. Oddeľte prácu, koníčky alebo projekty pomocou baru +."
+    },
+    "selection": {
+      "question": "Ako zmením niekoľko položiek naraz?",
+      "searchTerms": "vybrať viacero; hromadný výber; presunúť niekoľko; výber klonov; duplicitné záložky",
+      "title": "Vyberajte a konajte hromadne",
+      "summary": "Menej opakovaných akcií pri organizovaní viacerých kariet.",
+      "steps": [
+        "Zapnite úpravy a krátkym kliknutím vyberte každú kartu. Opätovným kliknutím zrušíte výber; v navigácii pomocou kariet môžete použiť S.",
+        "Panel výberu vám umožňuje duplikovať, použiť predvolený vzhľad, presunúť sa do iného pracovného priestoru alebo odstrániť v závislosti od typu položky.",
+        "Skontrolujte cieľ alebo potvrdenie. Esc alebo tlačidlo na vymazanie výberu zruší váš výber."
+      ],
+      "note": "Presúvanie a duplikovanie vyžaduje voľné sloty. Aplikácia vám povie, ak sa niektoré položky nezmestia. Widgety nejdú do koša.",
+      "tip": "V režime úprav vyberte niekoľko kariet krátkymi kliknutiami, aby ste ich mohli presunúť, duplikovať alebo zmeniť štýl. Esc vymaže výber."
+    },
+    "history": {
+      "question": "Ako zruším svoju poslednú zmenu?",
+      "searchTerms": "vrátiť späť zmenu; zopakovať zmenu; vrátiť sa; obnoviť polohu",
+      "title": "Vrátiť späť a zopakovať",
+      "summary": "Obnovte pozíciu alebo nedávnu zmenu.",
+      "steps": [
+        "Pomocou šípky späť na paneli pracovného priestoru sa vrátite do predchádzajúceho stavu.",
+        "Šípka znova obnoví zmenu, ktorú ste práve zrušili. Môžete tiež použiť Ctrl/Cmd + Z a Ctrl/Cmd + Shift + Z.",
+        "V editore použite šípky vedľa jeho názvu na čakajúce zmeny; textové polia si zachovajú svoju normálnu klávesnicu späť. Každá akcia zobrazuje krátku správu a nedostupné šípky sú vypnuté. Pred uložením skontrolujte výsledok."
+      ],
+      "note": "História editora sa začína odznova vždy, keď otvoríte editor; zmeny sa dostanú do vášho pracovného priestoru, keď ich uložíte. História pracovného priestoru je dočasná a nie je zálohou. Nová relácia alebo aktualizácie z inej karty ho môžu resetovať.",
+      "tip": "Ak sa vám zmena nezdá byť správna, použite šípku späť alebo Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z ju zopakuje."
+    },
+    "appearance": {
+      "question": "Ako zmením farbu, ikonu alebo text?",
+      "searchTerms": "zmeniť farbu; zmeniť ikonu; zmeniť text; vzhľad záložky; farba priečinka; favicon",
+      "title": "Prispôsobte si karty",
+      "summary": "Farby, obrázky, text a ikony podľa vašich predstáv.",
+      "steps": [
+        "Zapnite úpravy a otvorte ceruzku záložky alebo ovládací prvok vzhľadu priečinka alebo koša.",
+        "Preskúmajte editor: pozadie, farbu, obrázok, text a ikonu. Dostupné ovládacie prvky závisia od typu položky; náhľad ukazuje výsledok.",
+        "Šetrite, keď ste šťastní. Môžete použiť obrázky z adresy URL alebo lokálneho súboru, kde editor ponúka túto možnosť."
+      ],
+      "note": "Miestne obrázky patria tomuto prehliadaču. Pri synchronizácii pridajte záložnú webovú adresu pre iné zariadenia. Importy uchovávajú zahrnuté obrázky a jasné referencie bez súboru; Synchronizácia ignoruje súbory nedostupné na tomto zariadení.",
+      "tip": "Ceruzka záložky otvorí jej vizuálny editor. Zmeňte farby, text, ikonu alebo obrázok a skontrolujte náhľad."
+    },
+    "presets": {
+      "question": "Ako môžem znova použiť štýl, ktorý sa mi páči?",
+      "searchTerms": "uložiť štýl; opätovné použitie vzhľadu; predvolené štýly; prednastavená knižnica; aplikovať štýl",
+      "title": "Znova použite vzhľady",
+      "summary": "Uložte si vzhľad a použite ho na iné záložky.",
+      "steps": [
+        "Otvorte knižnicu editora a vyberte si vzhľad z dostupnej kolekcie.",
+        "Uložte si vlastný vzhľad ako predvoľbu, aby ste mohli znova použiť jeho farby, text a ikonu bez kopírovania názvu alebo adresy záložky.",
+        "V časti Nastavenia → Záložky nakonfigurujte predvolený vzhľad nových záložiek. Panel výberu ho môže použiť na kompatibilné položky."
+      ],
+      "note": "Predvoľba mení vzhľad, nie identitu, cieľ alebo polohu záložky.",
+      "tip": "Uložte si vzhľad, ktorý sa vám páči, do knižnice vzhľadov. Opätovne ho použite na iných kartách bez toho, aby ste zmenili ich mená alebo adresy."
+    },
+    "wallpapers": {
+      "question": "Ako môžem použiť obrázok alebo video ako pozadie?",
+      "searchTerms": "zmeniť pozadie; video pozadie; otáčanie tapety; tému",
+      "title": "Tapety a rotácia",
+      "summary": "Farba, obrázok alebo video na nastavenie nálady.",
+      "steps": [
+        "Otvorte Nastavenia → Motív a vyberte predvolené pozadie, farbu alebo mediálne pozadie.",
+        "Pridajte obrázky alebo videá zo zdrojov ponúkaných na paneli. Knižnica zhromažďuje viacero pozadí s intervalom rotácie.",
+        "Skontrolujte náhľad a uložte. Miestny súbor môžete spárovať s alternatívnou adresou URL pre iné zariadenia."
+      ],
+      "note": "Miestne súbory zostávajú v tomto prehliadači. Synchronizácia ich neprenáša; úplná záloha ich môže zachovať.",
+      "tip": "Pozadie sa môže meniť automaticky: pridajte viacero pozadí do knižnice v Nastavenia → Téma a nastavte interval striedania."
+    },
+    "clock": {
+      "question": "Ako pridám hodiny?",
+      "searchTerms": "pridať hodiny; zobraziť čas; sekúnd; 24-hodinový formát; widget hodín",
+      "title": "Pridajte hodiny",
+      "summary": "Miniaplikácia zobrazujúca čas vášho zariadenia.",
+      "steps": [
+        "V ľavom menu vyberte + → Widgety a vyberte Hodiny.",
+        "Vyberte 12- alebo 24-hodinový formát a či sa majú zobrazovať sekundy. Ukážka vám pomôže rozhodnúť sa.",
+        "Pridajte ho do voľného slotu. V režime úprav môžete presúvať, meniť veľkosť alebo znova otvárať jeho možnosti."
+      ],
+      "note": "Hodiny sledujú čas vášho zariadenia. Odstránenie miniaplikácie je trvalé; nevstúpi do koša.",
+      "tip": "V + → Widgety môžete pridať 12- alebo 24-hodinové hodiny s voliteľnými sekundami a zmeniť ich veľkosť, aby vyhovovali vášmu priestoru."
+    },
+    "interface": {
+      "question": "Ako zmením jazyk alebo použijem tmavý režim?",
+      "searchTerms": "zmeniť jazyk; tmavý režim; svetelný režim; vzhľad rozhrania",
+      "title": "Jazyk a téma rozhrania",
+      "summary": "Urobte ponuky, dialógy a ovládacie prvky pohodlnými.",
+      "steps": [
+        "V časti Nastavenia → Všeobecné vyberte jazyk alebo ho nechajte nasledovať vo vašom systéme.",
+        "Vyberte si svetlé, tmavé alebo automatické rozhranie podľa svojich preferencií.",
+        "Uložiť nastavenia. Téma rozhrania funguje spolu s pozadím, ktoré ste si vybrali v téme."
+      ],
+      "note": "Jazyk systému a automatický vzhľad sa riadia nastaveniami vášho zariadenia.",
+      "tip": "Vyberte si svetlé alebo tmavé rozhranie a ponechajte si tapetu. Nájdite túto možnosť a jazyk v časti Nastavenia → Všeobecné."
+    },
+    "trash": {
+      "question": "Ako obnovím odstránenú záložku?",
+      "searchTerms": "obnoviť vymazanú záložku; obnoviť odstránené; odpadkový kôš; náhodne vymazané; obnoviť priečinok",
+      "title": "Obnovte z koša",
+      "summary": "Druhá šanca pre záložky a priečinky.",
+      "steps": [
+        "Otvorte kôš vo svojom priestore a skontrolujte odstránené záložky a priečinky.",
+        "Vyberte, čo chcete späť, a použite Obnoviť. You can also permanently delete items or empty the bin after confirmation.",
+        "V Nastavenia → Všeobecné vyberte, či sa má kôš zobrazovať a ako dlho uchováva položky: 1, 7, 14 alebo 28 dní, prípadne ich nikdy neodstraňujte automaticky."
+      ],
+      "note": "Kôš patrí k tomuto zariadeniu. Položky s vypršanou platnosťou alebo natrvalo odstránené položky z nej už nie je možné obnoviť.",
+      "tip": "Odstránili ste omylom záložku? Open the recycle bin and restore it. Upravte dobu uchovávania v Nastavenia → Všeobecné."
+    },
+    "backup": {
+      "question": "Ako zálohujem alebo prenesiem svoje dáta?",
+      "searchTerms": "záložná kópia; exportovať údaje; importovať kópiu; obnoviť zálohu; iný prehliadač; prenášať dáta",
+      "title": "Zálohy a importy",
+      "summary": "Ponechajte si kópiu svojho priestoru a vezmite si ju so sebou.",
+      "steps": [
+        "V časti Nastavenia → Všeobecné exportujte úplnú zálohu, aby ste zachovali údaje a lokálne súbory zahrnuté v archíve ZIP.",
+        "Ak chcete obnoviť, importujte zálohu a pred výmenou údajov skontrolujte potvrdenie. Podporované sú aj kompatibilné zálohy JSON.",
+        "V Nastavenia → Záložky môžete exportovať alebo importovať iba záložky a priečinky, keď nepotrebujete úplnú zálohu."
+      ],
+      "note": "Export záložiek nie je úplnou zálohou nastavení a miestnych médií. Pred obnovením alebo odstránením údajov si uložte zálohu.",
+      "tip": "Úplná záloha z Nastavenia → Všeobecné obsahuje lokálne súbory v ZIP. Je to užitočné pred prepnutím prehliadačov alebo obnovením údajov."
+    },
+    "sync": {
+      "question": "Ako môžem použiť rovnaký priestor na inom počítači?",
+      "searchTerms": "iný počítač; synchronizovať zariadenia; synchronizácia; oblak; lokálna synchronizácia; zastaviť synchronizáciu; zakázať synchronizáciu; lokálny režim",
+      "title": "Synchronizácia medzi zariadeniami",
+      "summary": "Zdieľajte svoj priestor pomocou synchronizácie prehliadača.",
+      "steps": [
+        "Prihláste sa a povoľte synchronizáciu rozšírení vo svojom profile Google Chrome.",
+        "V Nastavenia → Synchronizácia vyberte Synchronizované a potvrďte potvrdenie. Prepnutie sa prejaví okamžite: načítajú sa existujúce synchronizované záložky a nastavenia alebo sa zosynchronizujú vaše uložené lokálne údaje, ak žiadne neexistujú.",
+        "Použite rovnaký profil na druhom zariadení. Skontrolujte stav synchronizácie a dostupné miesto na paneli."
+      ],
+      "note": "Ku každému zariadeniu patria lokálne súbory, kôš a denné tipy. Synchronizácia má limity úložiska; použite alternatívne adresy URL pre miestne obrázky a videá. Voľba Miestne si tiež vyžiada potvrdenie a prejaví sa okamžite, pričom synchronizované údaje zostanú uložené.",
+      "tip": "Synchronizácia zdieľa váš priestor medzi zariadeniami, ale lokálne súbory potrebujú alternatívnu adresu URL. See Nastavenia → Synchronizovať."
+    },
+    "compact": {
+      "question": "Prečo sa mi namiesto mriežky zobrazuje zoznam?",
+      "searchTerms": "malé okno; zobrazenie zoznamu; mriežka zmizla; skrytý panel; mobilné",
+      "title": "Použite menšie okno",
+      "summary": "Pokračujte v dosahovaní svojich záložiek, keď je priestor obmedzený.",
+      "steps": [
+        "Keď sa okno zúži, aplikácia sa prepne na zoznam, aby boli vaše položky prístupné.",
+        "V tomto zobrazení otvárajte záložky, priečinky alebo hľadajte. The manual also adapts to the available size.",
+        "Rozšírte okno, aby ste vrátili mriežku a panely úprav. Pozastavené dialógové okno úprav zachová svoj koncept."
+      ],
+      "note": "Kompaktné zobrazenie vám pomôže pri prehliadaní priestoru; reorganizácia potrebuje dostatočne široké okno.",
+      "tip": "V úzkom okne zostávajú vaše záložky dostupné ako zoznam. Rozšírte ju, keď chcete upraviť alebo reorganizovať mriežku."
+    },
+    "data": {
+      "question": "Ako vymažem svoje údaje alebo obnovím nastavenia?",
+      "searchTerms": "vymazať údaje; obnoviť nastavenia; odstrániť všetko; začať odznova",
+      "title": "Ukladanie a resetovanie",
+      "summary": "Pochopte, čo sa uloží a čo každá akcia odstráni.",
+      "steps": [
+        "Akcie pracovného priestoru sa ukladajú automaticky. V editoroch a Nastaveniach potvrďte tlačidlom Uložiť; Zrušiť zahodí koncept tohto panelu.",
+        "Ak sa zobrazí hlásenie o čakaní na uloženie, kliknite na tlačidlo Opakovať uloženie a pred zatvorením karty počkajte na potvrdenie.",
+        "V Nastavenia → Všeobecné môžete obnoviť nastavenia alebo vymazať všetky údaje. Prečítajte si potvrdenie a exportujte zálohu všetkého, čo si chcete ponechať."
+      ],
+      "note": "Obnovením nastavení sa zachovajú vaše záložky, ich veľkosti a štýly. Vymazaním všetkých miestnych údajov sa odstránia položky a vyprázdni sa kôš. Exportujte zálohu pred odstránením: Vrátiť späť zálohu nenahradí.",
+      "tip": "Ak uvidíte oznámenie o neuložených zmenách, pred zatvorením karty použite možnosť Opakovať uloženie. Chráňte svoj priestor pomocou úplnej zálohy."
+    },
+    "learning": {
+      "question": "Ako znovu otvorím sprievodcu alebo vypnem denné tipy?",
+      "searchTerms": "zakázať tipy; vypnúť pomoc; denné upozornenie; znovu otvoriť sprievodcu; užívateľskú príručku",
+      "title": "Učte sa vlastným tempom",
+      "summary": "Rýchly sprievodca, manuál a malý každodenný tip.",
+      "steps": [
+        "Znovu si pozrite stručnú príručku z Nastavenia → Pomocník. Každý krok odkazuje na príslušné vysvetlenia v príručke.",
+        "Preskúmajte index alebo vyhľadajte slovo. Keď budete pripravení, súvisiace odkazy sekcie vás prenesú na ďalšie funkcie.",
+        "Vaša prvá nová karta každý deň zobrazuje náhodný tip. Zamietnite ho alebo otvorte jeho vysvetlenie; tipy môžete vypnúť v Pomocníkovi."
+      ],
+      "note": "Tipy prejdite do sekcií bez opakovania, kým sa zbierka nedokončí. Trvajú 20 sekúnd a pozastavia sa, kým sa vznášajú alebo zaostrujú svoje tlačidlá. Riadia sa miestnym dňom a preferenciou tohto prehliadača.",
+      "tip": "Táto príručka je vždy v časti Nastavenia → Pomocník. Denné tipy otvárajú sekciu, kde ich môžete kedykoľvek vypnúť."
+    }
+  }
+}

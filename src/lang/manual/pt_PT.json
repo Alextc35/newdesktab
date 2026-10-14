@@ -1,0 +1,517 @@
+{
+  "title": "Manual do usuário",
+  "eyebrow": "SEU ESPAÇO, SEU RITMO",
+  "intro": "Conheça cada pequeno recurso.",
+  "description": "Encontre o que você precisa ou descubra algo novo. Sem pressa.",
+  "settingsDescription": "Cada recurso, com passos simples e pequenos truques para experimentar sempre que quiser.",
+  "search": {
+    "label": "Em que podemos ajudá-lo?",
+    "placeholder": "Por exemplo: recuperar um favorito excluído",
+    "common": "Perguntas comuns",
+    "found": "Respostas para sua pesquisa · {{count}}",
+    "empty": "Nenhuma ajuda encontrada para essa pesquisa. Experimente “teclado”, “mover favoritos” ou “backup”.",
+    "resultsLabel": "Perguntas e respostas manuais"
+  },
+  "open": "Explorar o manual",
+  "searchLabel": "Pesquise o manual",
+  "searchPlaceholder": "Experimente “teclado”, “papel de parede” ou “backup”",
+  "count": "{{count}} seções para explorar",
+  "empty": "Nenhuma correspondência. Tente outra palavra ou limpe a pesquisa para ver o índice completo.",
+  "back": "← Índice manual",
+  "remember": "É bom lembrar",
+  "related": "Continue descobrindo",
+  "footer": "Sempre disponível em Configurações → Ajuda.",
+  "guideLinks": "Saiba mais no manual",
+  "groups": {
+    "start": "Comece aqui",
+    "organize": "Organize-se",
+    "personalize": "Faça com que seja seu",
+    "protect": "Cuide do seu espaço"
+  },
+  "demo": {
+    "browse": "Navegar pelas seções",
+    "previous": "← Seção anterior",
+    "next": "Próxima seção →",
+    "title": "Veja-o em ação",
+    "example": "Exemplo de demonstração",
+    "steps": "Etapas de demonstração",
+    "step": "Etapa {{step}} de {{count}}",
+    "play": "Jogar",
+    "pause": "Pausa",
+    "replay": "Repetir",
+    "progress": "Progresso da demonstração",
+    "mode": "Comportamento",
+    "nextStep": "Próxima etapa",
+    "reducedMotion": "Movimento reduzido: explore as etapas sem animação.",
+    "labels": {
+      "settings": "Configurações",
+      "saved": "Alterações salvas",
+      "page": "Página",
+      "selection": "Seleção",
+      "selected": "itens selecionados",
+      "color": "Cor",
+      "styleName": "Meu estilo roxo",
+      "wallpaper": "Papéis de parede",
+      "rotation": "Rotação",
+      "format": "Formato",
+      "seconds": "Segundos",
+      "language": "Idioma",
+      "system": "Sistema",
+      "currentLanguage": "Português (Portugal)",
+      "restore": "Restaurar",
+      "copy": "Cópia de segurança",
+      "restoreCopy": "Revise antes de restaurar",
+      "switchSync": "Mudar para sincronizado?",
+      "applyNow": "Aplica-se quando confirmado",
+      "status": "Estado",
+      "synchronized": "Sincronizado",
+      "retry": "Salvar pendente · Tentar novamente",
+      "keyboardQuery": "teclado",
+      "deleteExample": "Favoritos e pastas serão excluídos. A lixeira estará vazia."
+    },
+    "topics": {
+      "bookmarks": [
+        "Abra o menu esquerdo e escolha + → Marcador.",
+        "Digite o nome e o endereço da página.",
+        "Confirme: o marcador aparece em uma célula livre."
+      ],
+      "quick-save": [
+        "Abra New DeskTab em seu ícone de extensão.",
+        "Revise o nome, endereço e destino sugeridos.",
+        "Salvar: o marcador estará na sua área de trabalho quando você abrir uma aba."
+      ],
+      "keyboard": [
+        "Pressione Tab para focar o primeiro item.",
+        "As teclas de seta movem o foco. Enter abre o item em foco.",
+        "Esc ou outra guia encerra a navegação."
+      ],
+      "shortcuts": [
+        "Abra Configurações → Atalhos de teclado.",
+        "Clique no atalho de uma ação e digite sua combinação.",
+        "Salve para aplicar o novo atalho."
+      ],
+      "search": [
+        "A lupa da barra de ferramentas ou / abre a pesquisa.",
+        "Digite parte do nome ou endereço.",
+        "Abra o resultado. Esc ou Fechar retorna ao seu espaço de trabalho."
+      ],
+      "editing": [
+        "O lápis do menu revela a grade e os controles.",
+        "O lápis do Gmail abre seu editor de nome e URL.",
+        "Salve a alteração e clique no lápis do menu novamente para finalizar."
+      ],
+      "movement": [
+        "Ative a edição e segure o bloco.",
+        "O cursor e o bloco se movem juntos para uma célula livre.",
+        "Liberar: a posição final é salva."
+      ],
+      "resizing": [
+        "Ative a edição e encontre a alça do canto.",
+        "Arraste diagonalmente para alterar a largura e a altura.",
+        "Solte em 2 × 2. Compare Nenhum e Suave usando o seletor."
+      ],
+      "drag-modes": [
+        "Use o seletor para comparar os três modos de arrastar.",
+        "Arraste em direção a uma célula ocupada e observe as outras peças.",
+        "Nenhum usa célula livre; Mudança e Sequência reorganizam as peças."
+      ],
+      "folders": [
+        "Nomeie uma pasta para agrupar suas páginas.",
+        "Durante a edição, arraste um marcador para ele.",
+        "Abra a pasta para encontrar o favorito em sua grade."
+      ],
+      "workspaces": [
+        "A barra de ferramentas + cria um espaço de trabalho com o nome escolhido.",
+        "O novo espaço de trabalho possui sua própria grade.",
+        "Alt + ↑ e Alt + ↓ percorrem seus espaços de trabalho."
+      ],
+      "selection": [
+        "Ative a edição e selecione um bloco com um clique curto.",
+        "Selecione outro: a barra de ferramentas oferece ações de grupo.",
+        "Clone cria cópias em células livres em uma ação."
+      ],
+      "history": [
+        "Mover um bloco: essa mudança entra no histórico.",
+        "Desfazer retorna o bloco à sua posição anterior.",
+        "Refazer restaura o movimento que você acabou de desfazer."
+      ],
+      "appearance": [
+        "O lápis do bloco abre seu editor.",
+        "Mude a cor e assista à prévia.",
+        "Salve para aplicar essa aparência ao bloco."
+      ],
+      "presets": [
+        "Abra a biblioteca em Configurações → Favoritos.",
+        "Nomeie e salve um estilo para reutilizá-lo.",
+        "Carregue-o como padrão e salve para novos favoritos."
+      ],
+      "wallpapers": [
+        "Abra Configurações → Tema para escolher um papel de parede.",
+        "Revise a visualização e o intervalo de rotação da biblioteca.",
+        "Salvar: o papel de parede escolhido aparece na sua área de trabalho."
+      ],
+      "clock": [
+        "Escolha + → Widgets → Relógio no menu esquerdo.",
+        "Configure o formato e os segundos usando a visualização.",
+        "Adicione o relógio a uma célula do espaço de trabalho livre."
+      ],
+      "interface": [
+        "Abra Geral e escolha o idioma do menu.",
+        "Compare a interface clara e escura.",
+        "Salve suas preferências de idioma e aparência."
+      ],
+      "trash": [
+        "Abra a lixeira para encontrar um favorito excluído.",
+        "Selecione-o e clique em Restaurar: ele retorna à grade.",
+        "Em geral, escolha por quanto tempo os itens excluídos serão mantidos."
+      ],
+      "backup": [
+        "Encontre as opções de backup em Configurações → Geral.",
+        "Exportar baixa um ZIP com dados e arquivos locais.",
+        "A importação pede confirmação antes de substituir os dados."
+      ],
+      "sync": [
+        "Abra Configurações → Sincronização para verificar o modo atual.",
+        "Escolha Sincronizado e revise a confirmação.",
+        "Aceitar aplica o modo imediatamente, sem clicar em Salvar."
+      ],
+      "compact": [
+        "À medida que a janela se estreita, a grade se torna uma lista.",
+        "Os marcadores permanecem acessíveis na lista.",
+        "Amplie a janela para retornar à grade e à edição."
+      ],
+      "data": [
+        "O exemplo utiliza outra linguagem, uma interface leve e blocos customizados.",
+        "Redefinir restaura as configurações padrão, mantendo os favoritos e seus estilos.",
+        "Excluir remove marcadores e pastas, deixando apenas a lixeira vazia."
+      ],
+      "learning": [
+        "A dica diária convida você a descobrir uma funcionalidade. Clique em Mostre-me como.",
+        "Digite “teclado” na caixa de pesquisa para encontrar Navegar com o teclado.",
+        "Clique no resultado para ler suas instruções."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "UMA PEQUENA DICA PARA HOJE",
+    "dismiss": "Dispense a dica de hoje",
+    "read": "Mostre-me como",
+    "pace": "Passe o mouse para fazer uma pausa.",
+    "enabled": "Dicas diárias",
+    "description": "Uma dica ao abrir sua primeira aba do dia."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Como adiciono uma página aos meus favoritos?",
+      "searchTerms": "adicionar página; criar marcador; salvar site; novo favorito",
+      "title": "Adicionar favoritos",
+      "summary": "Suas páginas favoritas disponíveis em cada nova aba.",
+      "steps": [
+        "Mova para a borda esquerda para revelar o menu. Escolha + → Marcador.",
+        "Digite o nome e o endereço da página. Você pode ajustar sua aparência antes de adicioná-lo.",
+        "Confirme para colocar o marcador em um slot livre na área de trabalho atual. Fora do modo de edição, clique nele para abrir a página."
+      ],
+      "note": "Para alterar um marcador existente, ative a edição e use o lápis. Você pode bloquear o endereço para evitar alterações acidentais.",
+      "tip": "O menu para adicionar marcadores está na borda esquerda. Mova o cursor até lá e escolha + → Marcador."
+    },
+    "quick-save": {
+      "question": "Como faço para salvar a página que estou visitando?",
+      "searchTerms": "salvar a página atual; salvar aba aberta; ícone de extensão; URL de captura",
+      "title": "Salvar a página atual",
+      "summary": "Adicione uma página do ícone da extensão.",
+      "steps": [
+        "Ao visitar uma página, abra New DeskTab no menu de extensões do navegador.",
+        "Verifique o nome e endereço propostos e escolha um destino disponível.",
+        "Salve o marcador e abra uma nova aba para encontrá-lo em seu espaço."
+      ],
+      "note": "Fixe o ícone da extensão na barra de ferramentas do navegador para manter este atalho ao seu alcance.",
+      "tip": "Não há necessidade de copiar o URL: o ícone do navegador de New DeskTab permite salvar a página que você está visitando."
+    },
+    "keyboard": {
+      "question": "Como navegar sem mouse?",
+      "searchTerms": "sem mouse; usar teclado; navegação por seta; guia entrar",
+      "title": "Navegue com o teclado",
+      "summary": "Tab, teclas de seta e Enter para explorar seu espaço.",
+      "steps": [
+        "Na página principal, sem digitar em um campo ou abrir uma caixa de diálogo, pressione Tab para começar a navegar pelos itens.",
+        "Use as setas do teclado para chegar ao item mais próximo em cada direção. Enter abre o marcador ou pasta; no modo de edição, abre seu editor.",
+        "Pressione Tab novamente ou Esc para sair da navegação. Dentro das caixas de diálogo, Tab e Shift + Tab movem-se normalmente entre os controles."
+      ],
+      "note": "No modo de edição, S seleciona o item em foco. Excluir ou Backspace remove-o após a confirmação. Os widgets são excluídos permanentemente.",
+      "tip": "Experimente Tab no seu espaço: as setas se movem entre os itens e Enter os abre. Outra guia sai deste modo."
+    },
+    "shortcuts": {
+      "question": "Como altero meus atalhos de teclado?",
+      "searchTerms": "alterar atalhos; personalizar chaves; combinações de teclas; tecla de atalho",
+      "title": "Crie seus próprios atalhos",
+      "summary": "Verifique e altere seus atalhos em Configurações.",
+      "steps": [
+        "Abra Configurações → Atalhos para ver suas ligações para edição, adição de favoritos, pastas e widgets e abertura de configurações.",
+        "Clique na combinação de teclas de uma ação e pressione um novo atalho. Esc cancela a gravação; clicar com o botão direito deixa a ação não atribuída.",
+        "Salve as configurações para aplicar suas alterações. Redefinir atalhos restaura as combinações originais."
+      ],
+      "note": "Inicialmente: E edita, B adiciona um marcador, F uma pasta, W abre widgets e S abre configurações. Os atalhos respeitam campos de texto e caixas de diálogo.",
+      "tip": "Você pode alterar os atalhos em Configurações. Clique em uma combinação para gravar a sua; Esc cancela e clique com o botão direito para cancelar a atribuição."
+    },
+    "search": {
+      "question": "Como encontro um marcador que não consigo ver?",
+      "searchTerms": "encontrar marcador; localizar página; marcador ausente; URL de pesquisa",
+      "title": "Encontre um marcador",
+      "summary": "Pesquise por nome ou endereço, inclusive dentro de pastas.",
+      "steps": [
+        "Pressione / quando não estiver digitando ou use a lupa na barra da área de trabalho.",
+        "Digite parte de um nome ou endereço. A pesquisa inclui marcadores em outros espaços de trabalho e dentro de pastas.",
+        "Abra o resultado que você precisa. Esc ou Fechar leva você de volta ao seu espaço."
+      ],
+      "note": "Você não precisa se lembrar onde salvou uma página para encontrá-la.",
+      "tip": "A tecla / abre a pesquisa. Ele também encontra marcadores dentro de pastas e em outros espaços de trabalho."
+    },
+    "editing": {
+      "question": "Como eu ativo a edição?",
+      "searchTerms": "habilitar edição; editar área de trabalho; editor de lápis; modificar favorito",
+      "title": "Modo de edição",
+      "summary": "Ligue o lápis para organizar e personalizar.",
+      "steps": [
+        "Clique no lápis no menu esquerdo ou use o atalho de edição para revelar a grade e os controles dos itens.",
+        "Mova, redimensione ou selecione itens. O lápis de cada cartão abre seu editor de nome, endereço e aparência.",
+        "Clique no lápis novamente quando terminar. As alterações no espaço de trabalho são salvas automaticamente; os editores têm seu próprio botão Salvar."
+      ],
+      "note": "Esc primeiro limpa a seleção ou a navegação do teclado. Quando nenhum deles estiver ativo, ele poderá sair do modo de edição.",
+      "tip": "O lápis do menu inicia a edição: as alças e os controles do cartão aparecem. Clique novamente para finalizar."
+    },
+    "movement": {
+      "question": "Como movo um marcador?",
+      "searchTerms": "mover marcador; arraste favorito; mudar de posição; organizar grade",
+      "title": "Mover itens",
+      "summary": "Arraste as cartas para o lugar na grade.",
+      "steps": [
+        "Ative o modo de edição e segure o cartão que deseja mover.",
+        "Arraste-o para o seu destino. O resultado depende do espaço livre e do modo de arrastar escolhido em Configurações → Favoritos.",
+        "Solte para salvar sua posição. Você também pode selecionar um único item com um clique e movê-lo uma célula com setas, fora da navegação por guias."
+      ],
+      "note": "Os destinos bloqueados mostram feedback visual e o item retorna para uma posição válida. Você pode desfazer alterações.",
+      "tip": "No modo de edição, clique para selecionar um cartão e use as setas para movê-lo célula por célula. Deixe a navegação por guias primeiro."
+    },
+    "resizing": {
+      "question": "Como altero o tamanho de um ladrilho?",
+      "searchTerms": "redimensionar ladrilho; ampliar marcador; reduzir o tamanho; redimensionar alças; clique; Mudança; largura altura; 2x2",
+      "title": "Alterar o tamanho",
+      "summary": "Use as laterais e cantos de um cartão.",
+      "steps": [
+        "Ative a edição e vá para a lateral ou canto de um item para usar suas alças de redimensionamento.",
+        "Arraste a alça. Um canto muda de largura e altura; um lado muda apenas uma dimensão. Você também pode clicar em uma alça para aumentar uma célula ou Shift + clicar para diminuir uma célula.",
+        "Em Configurações → Marcadores, escolha Nenhum para pular entre as células após cruzar 50% ou Suavizar para esticar o cartão e encaixá-lo ao soltá-lo."
+      ],
+      "note": "O tamanho final respeita a grade e as posições válidas. As visualizações das configurações mostram a diferença antes de você escolher.",
+      "tip": "Clique em uma alça para aumentar uma célula ou Shift + clique para diminuir uma célula. Os cantos mudam de largura e altura juntos; os lados mudam apenas uma dimensão."
+    },
+    "drag-modes": {
+      "question": "Por que não posso cair em uma cela ocupada?",
+      "searchTerms": "cela ocupada; passar por cima de outro; queda bloqueada; realocar cascata; colisão de arrasto",
+      "title": "Modos de arrastar",
+      "summary": "Escolha o que acontece em uma posição de marcador ocupada.",
+      "steps": [
+        "Abra Configurações → Favoritos e expanda o comportamento de arrastar.",
+        "Nenhum se move para slots livres. A relocação encontra uma posição para marcadores no destino. Sequência reorganiza os marcadores em sequência.",
+        "Assista à animação de cada opção e salve o modo com o qual você se sente confortável para organizar."
+      ],
+      "note": "Um movimento é rejeitado se não existir nenhum acordo válido. Um fundo transparente não libera uma célula ocupada.",
+      "tip": "Quer mover um marcador para uma célula ocupada? Veja Mudança e Sequência em Configurações → Favoritos e assista às suas prévias."
+    },
+    "folders": {
+      "question": "Como agrupo marcadores em pastas?",
+      "searchTerms": "criar pasta; marcadores de grupo; organizar favoritos; remova da pasta; renomear pasta",
+      "title": "Organize com pastas",
+      "summary": "Reúna até 18 marcadores em uma pasta.",
+      "steps": [
+        "Escolha + → Pasta no menu esquerdo e dê um nome a ela.",
+        "No modo de edição, arraste os favoritos para colocá-los dentro. Abra a pasta para ver sua grade.",
+        "Use o modo de edição da pasta para organizar seus marcadores. Clique em seu nome para renomeá-lo e em seu ícone para personalizar sua aparência."
+      ],
+      "note": "A exclusão de uma pasta também afeta seus favoritos. Revise a confirmação antes de continuar; a lixeira pode restaurar itens excluídos.",
+      "tip": "Uma pasta contém até 18 marcadores. Ative a edição e arraste um cartão para a pasta para adicioná-lo."
+    },
+    "workspaces": {
+      "question": "Como mantenho as páginas pessoais e de trabalho separadas?",
+      "searchTerms": "trabalho pessoal; criar espaço de trabalho; mudar de espaço de trabalho; desktops",
+      "title": "Separe seus espaços de trabalho",
+      "summary": "Uma grade para trabalho e outra para todo o resto.",
+      "steps": [
+        "A barra do espaço de trabalho alterna entre os espaços de trabalho Principal e personalizados. Seu + cria um novo.",
+        "Escolha um espaço de trabalho antes de adicionar itens. Para transferir itens existentes, selecione-os e escolha um destino na barra de ação.",
+        "Alt + ↑ e Alt + ↓ percorrem os espaços de trabalho. O botão − exclui o espaço de trabalho personalizado atual após a confirmação."
+      ],
+      "note": "Excluir um espaço de trabalho também exclui seu conteúdo. Principal permanece disponível e não pode ser excluído.",
+      "tip": "Alt + ↑ e Alt + ↓ alternam os espaços de trabalho sem abrir o seletor. Separe trabalhos, hobbies ou projetos com o + da barra."
+    },
+    "selection": {
+      "question": "Como altero vários itens de uma vez?",
+      "searchTerms": "selecione vários; seleção em massa; mova vários; seleção de clones; favoritos duplicados",
+      "title": "Selecione e atue em massa",
+      "summary": "Menos ações repetidas ao organizar vários cartões.",
+      "steps": [
+        "Ative a edição e clique brevemente em cada cartão para selecioná-lo. Clique novamente para desmarcar; na navegação por guias você pode usar S.",
+        "A barra de seleção permite duplicar, aplicar a aparência padrão, mover para outro espaço de trabalho ou excluir, dependendo do tipo de item.",
+        "Verifique o destino ou confirmação. Esc ou o botão limpar seleção cancela sua seleção."
+      ],
+      "note": "A movimentação e a duplicação precisam de slots livres. O aplicativo informa se alguns itens não cabem. Widgets não vão para a lixeira.",
+      "tip": "No modo de edição, selecione vários cartões com cliques curtos para movê-los, duplicá-los ou reestilizá-los juntos. Esc limpa a seleção."
+    },
+    "history": {
+      "question": "Como faço para desfazer minha última alteração?",
+      "searchTerms": "desfazer alteração; refazer a mudança; volte; restaurar posição",
+      "title": "Desfazer e refazer",
+      "summary": "Recuperar uma posição ou uma mudança recente.",
+      "steps": [
+        "Use a seta de desfazer na barra da área de trabalho para retornar ao estado anterior.",
+        "A seta de refazer recupera uma alteração que você acabou de desfazer. Você também pode usar Ctrl/Cmd + Z e Ctrl/Cmd + Shift + Z.",
+        "Dentro de um editor, use as setas ao lado do título para alterações pendentes; os campos de texto mantêm o desfazer normal do teclado. Cada ação mostra uma breve mensagem e as setas indisponíveis são desativadas. Verifique o resultado antes de salvar."
+      ],
+      "note": "O histórico do editor começa do zero cada vez que você abre um editor; as alterações chegam ao seu espaço de trabalho quando você salva. O histórico do espaço de trabalho é temporário e não é um backup. Uma nova sessão ou atualizações de outra guia podem redefini-la.",
+      "tip": "Se uma alteração não parecer correta, use a seta de desfazer ou Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z refaz."
+    },
+    "appearance": {
+      "question": "Como altero a cor, ícone ou texto?",
+      "searchTerms": "mudar de cor; alterar ícone; alterar texto; aparência do marcador; cor da pasta; favicon",
+      "title": "Personalize seus cartões",
+      "summary": "Cores, imagens, textos e ícones do seu jeito.",
+      "steps": [
+        "Ative a edição e abra o lápis de um marcador ou o controle de aparência de uma pasta ou lixeira.",
+        "Explore o editor: plano de fundo, cor, imagem, texto e ícone. Os controles disponíveis dependem do tipo de item; a visualização mostra o resultado.",
+        "Economize quando estiver feliz. Você pode usar imagens de uma URL ou arquivo local onde o editor oferece essa opção."
+      ],
+      "note": "As imagens locais pertencem a este navegador. Ao sincronizar, adicione um URL substituto para outros dispositivos. As importações mantêm imagens incluídas e referências claras sem arquivo; A sincronização ignora arquivos indisponíveis neste dispositivo.",
+      "tip": "O lápis de um marcador abre seu editor visual. Altere cores, texto, ícone ou imagem e verifique a visualização."
+    },
+    "presets": {
+      "question": "Como posso reutilizar um estilo que gosto?",
+      "searchTerms": "salvar estilo; reutilizar aparência; estilos padrão; biblioteca predefinida; aplicar estilo",
+      "title": "Reutilizar aparências",
+      "summary": "Salve uma olhada e aplique-a a outros favoritos.",
+      "steps": [
+        "Abra a Biblioteca do editor para escolher um visual da coleção disponível.",
+        "Salve uma aparência personalizada como predefinição para reutilizar suas cores, texto e ícone sem copiar o nome ou endereço do marcador.",
+        "Em Configurações → Favoritos configure a aparência padrão para novos favoritos. A barra de seleção pode aplicá-lo a itens compatíveis."
+      ],
+      "note": "Uma predefinição altera a aparência, não a identidade, o destino ou a posição do marcador.",
+      "tip": "Salve uma aparência que você goste na biblioteca de aparências. Reutilize-o em outros cartões sem alterar seus nomes ou endereços."
+    },
+    "wallpapers": {
+      "question": "Como posso usar uma imagem ou vídeo como plano de fundo?",
+      "searchTerms": "mudar o plano de fundo; fundo de vídeo; rotação do papel de parede; tema",
+      "title": "Papéis de parede e rotação",
+      "summary": "Cor, imagem ou vídeo para definir o clima.",
+      "steps": [
+        "Abra Configurações → Tema e escolha o plano de fundo padrão, uma cor ou um plano de fundo de mídia.",
+        "Adicione imagens ou vídeos das fontes oferecidas no painel. A biblioteca coleta vários planos de fundo com um intervalo de rotação.",
+        "Verifique a visualização e salve. Você pode emparelhar um arquivo local com um URL alternativo para outros dispositivos."
+      ],
+      "note": "Os arquivos locais permanecem neste navegador. A sincronização não os transfere; um backup completo pode preservá-los.",
+      "tip": "Seu plano de fundo pode mudar automaticamente: adicione vários em Configurações → Biblioteca de temas e defina um intervalo de rotação."
+    },
+    "clock": {
+      "question": "Como adiciono um relógio?",
+      "searchTerms": "adicionar relógio; altura de começar; segundos; Formato 24 horas; widget de relógio",
+      "title": "Adicionar um relógio",
+      "summary": "Um widget que mostra a hora do seu dispositivo.",
+      "steps": [
+        "Escolha + → Widgets no menu esquerdo e selecione Relógio.",
+        "Escolha um formato de 12 ou 24 horas e se deseja mostrar os segundos. A visualização ajuda você a decidir.",
+        "Adicione-o a um slot livre. No modo de edição você pode mover, redimensionar ou reabrir suas opções."
+      ],
+      "note": "O relógio segue a hora do seu dispositivo. A exclusão de um widget é permanente; ele não entra na lixeira.",
+      "tip": "Em + → Widgets você pode adicionar um relógio de 12 ou 24 horas com segundos opcionais e redimensioná-lo para se adequar ao seu espaço."
+    },
+    "interface": {
+      "question": "Como altero o idioma ou uso o modo escuro?",
+      "searchTerms": "mudar de idioma; modo escuro; modo de luz; aparência da interface",
+      "title": "Tema de idioma e interface",
+      "summary": "Torne menus, caixas de diálogo e controles confortáveis.",
+      "steps": [
+        "Em Configurações → Geral escolha um idioma ou deixe-o seguir o seu sistema.",
+        "Escolha uma interface clara, escura ou automática de acordo com sua preferência.",
+        "Salve as configurações. O tema da interface funciona junto com o plano de fundo que você escolheu em Tema."
+      ],
+      "note": "O idioma do sistema e a aparência automática seguem as preferências do seu dispositivo.",
+      "tip": "Escolha uma interface clara ou escura enquanto mantém seu papel de parede. Encontre esta opção e idioma em Configurações → Geral."
+    },
+    "trash": {
+      "question": "Como recupero um favorito excluído?",
+      "searchTerms": "recuperar marcador excluído; restauração removida; lixeira; excluído acidentalmente; recuperar pasta",
+      "title": "Restaurar da lixeira",
+      "summary": "Uma segunda chance para marcadores e pastas.",
+      "steps": [
+        "Abra a lixeira do seu espaço para revisar marcadores e pastas excluídos.",
+        "Selecione o que deseja de volta e use Restaurar. Você também pode excluir itens permanentemente ou esvaziar a lixeira após a confirmação.",
+        "Em Ajustes → Geral escolha se deseja mostrá-lo e por quanto tempo ele mantém os itens: 1, 7, 14 ou 28 dias, ou nunca excluí-los automaticamente."
+      ],
+      "note": "A lixeira pertence a este dispositivo. Itens expirados ou excluídos permanentemente não podem mais ser restaurados.",
+      "tip": "Excluiu um favorito por engano? Abra a lixeira e restaure-a. Ajuste o período de retenção em Configurações → Geral."
+    },
+    "backup": {
+      "question": "Como faço backup ou transfiro meus dados?",
+      "searchTerms": "cópia de segurança; exportar dados; importar cópia; restaurar backup; outro navegador; transferir dados",
+      "title": "Backups e importações",
+      "summary": "Guarde uma cópia do seu espaço e leve-a consigo.",
+      "steps": [
+        "Em Configurações → Geral, exporte um backup completo para preservar os dados e os arquivos locais incluídos no arquivo ZIP.",
+        "Para restaurar, importe um backup e revise a confirmação antes de substituir os dados. Backups JSON compatíveis também são suportados.",
+        "Em Configurações → Favoritos você pode exportar ou importar apenas favoritos e pastas quando não precisar de um backup completo."
+      ],
+      "note": "Uma exportação de favoritos não é um backup completo das configurações e da mídia local. Salve um backup antes de restaurar ou excluir dados.",
+      "tip": "Um backup completo em Configurações → Geral inclui arquivos locais em um ZIP. É útil antes de mudar de navegador ou restaurar dados."
+    },
+    "sync": {
+      "question": "Como faço para usar o mesmo espaço em outro computador?",
+      "searchTerms": "outro computador; sincronizar dispositivos; sincronização; nuvem; sincronização local; parar a sincronização; desativar a sincronização; modo local",
+      "title": "Sincronize entre dispositivos",
+      "summary": "Compartilhe seu espaço usando a sincronização do navegador.",
+      "steps": [
+        "Faça login e ative a sincronização de extensões em seu perfil Google Chrome.",
+        "Em Configurações → Sincronização escolha Sincronizado e aceite a confirmação. A mudança entra em vigor imediatamente: os marcadores e configurações sincronizados existentes são carregados ou os dados locais salvos são sincronizados se não existirem.",
+        "Use o mesmo perfil no outro dispositivo. Verifique o status da sincronização e o espaço disponível no painel."
+      ],
+      "note": "Arquivos locais, lixeira e dicas diárias pertencem a cada dispositivo. A sincronização tem limites de armazenamento; use URLs alternativos para imagens e vídeos locais. A escolha de Locais também pede confirmação e tem efeito imediato, mantendo armazenados os dados sincronizados.",
+      "tip": "A sincronização compartilha seu espaço entre dispositivos, mas os arquivos locais precisam de um URL alternativo. Consulte Configurações → Sincronização."
+    },
+    "compact": {
+      "question": "Por que vejo uma lista em vez da grade?",
+      "searchTerms": "pequena janela; visualização de lista; a grade desapareceu; painel oculto; celular",
+      "title": "Use uma janela menor",
+      "summary": "Continue acessando seus favoritos quando o espaço for limitado.",
+      "steps": [
+        "Quando a janela se estreita, o aplicativo muda para uma lista para manter seus itens acessíveis.",
+        "Abra favoritos, pastas ou pesquise nesta visualização. O manual também se adapta ao tamanho disponível.",
+        "Amplie a janela para trazer de volta a grade e os painéis de edição. Uma caixa de diálogo de edição suspensa preserva seu rascunho."
+      ],
+      "note": "A visualização compacta ajuda você a navegar pelo seu espaço; a reorganização necessita de uma janela suficientemente ampla.",
+      "tip": "Em uma janela estreita, seus favoritos ficam disponíveis como uma lista. Amplie-o quando quiser editar ou reorganizar a grade."
+    },
+    "data": {
+      "question": "Como excluo meus dados ou redefino configurações?",
+      "searchTerms": "excluir dados; redefinir configurações; remova tudo; recomeçar",
+      "title": "Salvando e redefinindo",
+      "summary": "Entenda o que é salvo e o que cada ação remove.",
+      "steps": [
+        "As ações do espaço de trabalho são salvas automaticamente. Em editores e Configurações, confirme em Salvar; Cancelar descarta o rascunho desse painel.",
+        "Se aparecer um aviso de salvamento pendente, clique em Tentar salvar novamente e aguarde a confirmação antes de fechar a guia.",
+        "Em Configurações → Geral você pode redefinir as configurações ou excluir todos os dados. Leia a confirmação e exporte um backup de tudo o que deseja manter."
+      ],
+      "note": "A redefinição das configurações mantém seus favoritos, seus tamanhos e estilos. A exclusão de todos os dados locais remove os itens e esvazia a lixeira. Exportar um backup antes de excluir: Desfazer não substitui um backup.",
+      "tip": "Se você vir um aviso de alterações não salvas, use Tentar salvar novamente antes de fechar a guia. Proteja seu espaço com um backup completo."
+    },
+    "learning": {
+      "question": "Como reabrir o guia ou desativar as dicas diárias?",
+      "searchTerms": "desabilitar dicas; desligue a ajuda; alerta diário; guia de reabertura; manual do usuário",
+      "title": "Aprenda no seu próprio ritmo",
+      "summary": "Um guia rápido, um manual e uma pequena dica diária.",
+      "steps": [
+        "Revisite o guia rápido em Configurações → Ajuda. Cada etapa está vinculada às explicações correspondentes no manual.",
+        "Explore o índice ou pesquise uma palavra. Os links relacionados de uma seção levam você a outros recursos quando estiver pronto.",
+        "Sua primeira nova guia de cada dia mostra uma dica aleatória. Ignore-o ou abra sua explicação; você pode desativar dicas na Ajuda."
+      ],
+      "note": "As dicas visitam as seções sem repetir até que a coleção esteja completa. Eles duram 20 segundos e fazem uma pausa enquanto pairam ou focam seus botões. Eles seguem o dia local e a preferência deste navegador.",
+      "tip": "Este manual está sempre em Configurações → Ajuda. As dicas diárias abrem uma seção e você pode desativá-las quando quiser."
+    }
+  }
+}

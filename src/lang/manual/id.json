@@ -1,0 +1,517 @@
+{
+  "title": "Panduan pengguna",
+  "eyebrow": "RUANG ANDA, KECEPATAN ANDA",
+  "intro": "Kenali setiap fitur kecilnya.",
+  "description": "Temukan apa yang Anda butuhkan atau temukan sesuatu yang baru. Tidak usah buru-buru.",
+  "settingsDescription": "Setiap fitur, dengan langkah sederhana dan sedikit trik untuk dicoba kapan pun Anda mau.",
+  "search": {
+    "label": "Apa yang bisa kami bantu?",
+    "placeholder": "Misalnya: memulihkan bookmark yang dihapus",
+    "common": "Pertanyaan umum",
+    "found": "Jawaban untuk pencarian Anda · {{count}}",
+    "empty": "Tidak ada bantuan yang ditemukan untuk pencarian itu. Coba “keyboard”, “pindahkan bookmark” atau “cadangan”.",
+    "resultsLabel": "Pertanyaan dan jawaban manual"
+  },
+  "open": "Jelajahi manualnya",
+  "searchLabel": "Cari manualnya",
+  "searchPlaceholder": "Coba “keyboard”, “wallpaper” atau “cadangan”",
+  "count": "{{count}} bagian untuk dijelajahi",
+  "empty": "Tidak ada kecocokan. Coba kata lain atau hapus pencarian untuk melihat keseluruhan indeks.",
+  "back": "← Indeks manual",
+  "remember": "Senang mengingatnya",
+  "related": "Terus temukan",
+  "footer": "Selalu tersedia di Pengaturan → Bantuan.",
+  "guideLinks": "Pelajari lebih lanjut di manual",
+  "groups": {
+    "start": "Mulai di sini",
+    "organize": "Bersikaplah terorganisir",
+    "personalize": "Jadikan itu milikmu",
+    "protect": "Jaga ruang Anda"
+  },
+  "demo": {
+    "browse": "Telusuri bagian",
+    "previous": "← Bagian sebelumnya",
+    "next": "Bagian selanjutnya →",
+    "title": "Lihat aksinya",
+    "example": "Contoh demonstrasi",
+    "steps": "Langkah-langkah demonstrasi",
+    "step": "Langkah {{step}} dari {{count}}",
+    "play": "Mainkan",
+    "pause": "Jeda",
+    "replay": "Putar ulang",
+    "progress": "Kemajuan demonstrasi",
+    "mode": "Perilaku",
+    "nextStep": "Langkah selanjutnya",
+    "reducedMotion": "Gerakan yang dikurangi: jelajahi langkah-langkah tanpa animasi.",
+    "labels": {
+      "settings": "Pengaturan",
+      "saved": "Perubahan disimpan",
+      "page": "Halaman",
+      "selection": "Seleksi",
+      "selected": "item yang dipilih",
+      "color": "Warna",
+      "styleName": "Gaya unguku",
+      "wallpaper": "Wallpaper",
+      "rotation": "Rotasi",
+      "format": "Format",
+      "seconds": "Detik",
+      "language": "Bahasa",
+      "system": "Sistem",
+      "currentLanguage": "Bahasa Indonesia",
+      "restore": "Pulihkan",
+      "copy": "Cadangan",
+      "restoreCopy": "Tinjau sebelum memulihkan",
+      "switchSync": "Beralih ke Disinkronkan?",
+      "applyNow": "Berlaku saat dikonfirmasi",
+      "status": "Status",
+      "synchronized": "Disinkronkan",
+      "retry": "Simpan tertunda · Coba lagi",
+      "keyboardQuery": "papan ketik",
+      "deleteExample": "Bookmark dan folder akan dihapus. Tempat sampah akan kosong."
+    },
+    "topics": {
+      "bookmarks": [
+        "Buka menu sebelah kiri dan pilih + → Bookmark.",
+        "Masukkan nama halaman dan alamat.",
+        "Konfirmasikan: bookmark muncul di sel bebas."
+      ],
+      "quick-save": [
+        "Buka New DeskTab dari ikon ekstensinya.",
+        "Tinjau nama, alamat, dan tujuan yang disarankan.",
+        "Simpan: bookmark akan berada di ruang kerja Anda saat Anda membuka tab."
+      ],
+      "keyboard": [
+        "Tekan Tab untuk memfokuskan item pertama.",
+        "Tombol panah memindahkan fokus. Enter membuka item yang difokuskan.",
+        "Esc atau Tab lain mengakhiri navigasi."
+      ],
+      "shortcuts": [
+        "Buka Pengaturan → Pintasan keyboard.",
+        "Klik pintasan tindakan dan ketikkan kombinasi Anda.",
+        "Simpan untuk menerapkan pintasan baru."
+      ],
+      "search": [
+        "Kaca pembesar toolbar atau / membuka pencarian.",
+        "Ketikkan bagian nama atau alamat.",
+        "Buka hasilnya. Esc atau Tutup kembali ke ruang kerja Anda."
+      ],
+      "editing": [
+        "Pensil menu memperlihatkan kisi dan kontrol.",
+        "Pensil Gmail membuka nama dan editor URL-nya.",
+        "Simpan perubahannya dan klik lagi menu pensil untuk menyelesaikan."
+      ],
+      "movement": [
+        "Aktifkan pengeditan dan tahan ubin.",
+        "Kursor dan ubin berpindah bersama ke sel bebas.",
+        "Rilis: posisi akhir disimpan."
+      ],
+      "resizing": [
+        "Aktifkan pengeditan dan temukan pegangan sudut.",
+        "Seret secara diagonal untuk mengubah lebar dan tinggi.",
+        "Lepaskan pada 2 × 2. Bandingkan Tidak Ada dan Halus menggunakan pemilih."
+      ],
+      "drag-modes": [
+        "Gunakan pemilih untuk membandingkan tiga mode drag.",
+        "Seret ke sel yang ditempati dan perhatikan ubin lainnya.",
+        "Tidak ada yang menggunakan sel bebas; Relokasi dan Urutan mengatur ulang ubin."
+      ],
+      "folders": [
+        "Beri nama folder untuk mengelompokkan halaman Anda.",
+        "Saat mengedit, seret bookmark ke dalamnya.",
+        "Buka folder untuk menemukan bookmark di kisi-kisinya."
+      ],
+      "workspaces": [
+        "Toolbar + membuat ruang kerja dengan nama pilihan Anda.",
+        "Ruang kerja baru memiliki gridnya sendiri.",
+        "Alt + ↑ dan Alt + ↓ menelusuri ruang kerja Anda."
+      ],
+      "selection": [
+        "Aktifkan pengeditan dan pilih ubin dengan satu klik singkat.",
+        "Pilih yang lain: toolbar menawarkan tindakan grup.",
+        "Clone membuat salinan di sel bebas dalam satu tindakan."
+      ],
+      "history": [
+        "Pindahkan ubin: perubahan itu memasuki sejarah.",
+        "Membatalkan mengembalikan ubin ke posisi sebelumnya.",
+        "Ulangi mengembalikan langkah yang baru saja Anda batalkan."
+      ],
+      "appearance": [
+        "Pensil ubin membuka editornya.",
+        "Ubah warnanya dan tonton pratinjaunya.",
+        "Simpan untuk menerapkan tampilan itu pada ubin."
+      ],
+      "presets": [
+        "Buka perpustakaan dari Pengaturan → Bookmark.",
+        "Beri nama dan simpan gaya untuk digunakan kembali.",
+        "Muat sebagai default dan simpan untuk bookmark baru."
+      ],
+      "wallpapers": [
+        "Buka Pengaturan → Tema untuk memilih wallpaper.",
+        "Tinjau pratinjau dan interval rotasi perpustakaan.",
+        "Simpan: wallpaper yang dipilih muncul di ruang kerja Anda."
+      ],
+      "clock": [
+        "Pilih + → Widget → Jam di menu sebelah kiri.",
+        "Konfigurasikan format dan detik menggunakan pratinjau.",
+        "Tambahkan jam ke sel ruang kerja gratis."
+      ],
+      "interface": [
+        "Buka Umum dan pilih bahasa menu.",
+        "Bandingkan antarmuka terang dan gelap.",
+        "Simpan preferensi bahasa dan penampilan Anda."
+      ],
+      "trash": [
+        "Buka recycle bin untuk menemukan bookmark yang dihapus.",
+        "Pilih dan klik Pulihkan: ia kembali ke grid.",
+        "Secara Umum, pilih berapa lama item yang dihapus disimpan."
+      ],
+      "backup": [
+        "Temukan opsi pencadangan di Pengaturan → Umum.",
+        "Ekspor unduhan ZIP dengan data dan file lokal.",
+        "Impor meminta konfirmasi sebelum mengganti data."
+      ],
+      "sync": [
+        "Buka Pengaturan → Sinkronisasi untuk memeriksa mode saat ini.",
+        "Pilih Disinkronkan dan tinjau konfirmasinya.",
+        "Terima, segera terapkan mode, tanpa mengklik Simpan."
+      ],
+      "compact": [
+        "Saat jendela menyempit, grid menjadi sebuah daftar.",
+        "Bookmark tetap dapat diakses dari daftar.",
+        "Perluas jendela untuk kembali ke grid dan mengedit."
+      ],
+      "data": [
+        "Contohnya menggunakan bahasa lain, antarmuka yang ringan, dan ubin yang disesuaikan.",
+        "Reset mengembalikan pengaturan default sambil mempertahankan bookmark dan gayanya.",
+        "Hapus menghapus bookmark dan folder, hanya menyisakan tempat sampah kosong."
+      ],
+      "learning": [
+        "Tip harian mengundang Anda untuk menemukan suatu fitur. Klik Tunjukkan caranya.",
+        "Ketik “papan ketik” di kotak pencarian untuk menemukan Navigasi dengan papan ketikoard.",
+        "Klik hasilnya untuk membaca instruksinya."
+      ]
+    }
+  },
+  "daily": {
+    "eyebrow": "TIPS SEDIKIT UNTUK HARI INI",
+    "dismiss": "Abaikan tip hari ini",
+    "read": "Tunjukkan padaku caranya",
+    "pace": "Arahkan kursor untuk berhenti sejenak.",
+    "enabled": "Kiat harian",
+    "description": "Salah satu tip ketika Anda membuka tab pertama hari itu."
+  },
+  "topics": {
+    "bookmarks": {
+      "question": "Bagaimana cara menambahkan halaman ke bookmark saya?",
+      "searchTerms": "tambahkan halaman; buat penanda; simpan situs web; favorit baru",
+      "title": "Tambahkan bookmark",
+      "summary": "Halaman favorit Anda tersedia di setiap tab baru.",
+      "steps": [
+        "Pindah ke tepi kiri untuk membuka menu. Pilih + → Penanda.",
+        "Masukkan nama halaman dan alamat. Anda dapat menyesuaikan tampilannya sebelum menambahkannya.",
+        "Konfirmasikan untuk menempatkan bookmark di slot kosong di ruang kerja saat ini. Di luar mode edit, klik untuk membuka halaman."
+      ],
+      "note": "Untuk mengubah bookmark yang ada, aktifkan pengeditan dan gunakan pensilnya. Anda dapat mengunci alamat untuk menghindari perubahan yang tidak disengaja.",
+      "tip": "Menu untuk menambahkan bookmark ada di tepi kiri. Pindahkan kursor Anda ke sana dan pilih + → Bookmark."
+    },
+    "quick-save": {
+      "question": "Bagaimana cara menyimpan halaman yang saya kunjungi?",
+      "searchTerms": "simpan halaman saat ini; simpan tab yang terbuka; ikon ekstensi; menangkap URL",
+      "title": "Simpan halaman saat ini",
+      "summary": "Tambahkan halaman dari ikon ekstensi.",
+      "steps": [
+        "Saat mengunjungi suatu halaman, buka New DeskTab dari menu ekstensi browser.",
+        "Periksa nama dan alamat yang diusulkan, dan pilih tujuan yang tersedia.",
+        "Simpan bookmark dan buka tab baru untuk menemukannya di ruang Anda."
+      ],
+      "note": "Sematkan ikon ekstensi ke bilah alat browser Anda agar pintasan ini tetap mudah dijangkau.",
+      "tip": "Tidak perlu menyalin URL: Ikon browser New DeskTab memungkinkan Anda menyimpan halaman yang Anda kunjungi."
+    },
+    "keyboard": {
+      "question": "Bagaimana cara bernavigasi tanpa mouse?",
+      "searchTerms": "tanpa tikus; gunakan papan ketik; navigasi panah; tab masuk",
+      "title": "Navigasi dengan keyboard",
+      "summary": "Tab, tombol panah dan Enter untuk menjelajahi ruang Anda.",
+      "steps": [
+        "Di halaman utama, tanpa mengetikkan kolom atau membuka dialog, tekan Tab untuk mulai menavigasi item.",
+        "Gunakan tombol panah untuk mencapai item terdekat di setiap arah. Enter membuka bookmark atau folder; dalam mode edit, ia membuka editornya.",
+        "Tekan Tab lagi atau Esc untuk keluar dari navigasi. Dialog di dalam, Tab dan Shift + Tab berpindah antar kontrol secara normal."
+      ],
+      "note": "Dalam mode edit, S memilih item yang difokuskan. Hapus atau Backspace menghapusnya setelah konfirmasi. Widget dihapus secara permanen.",
+      "tip": "Coba Tab di ruang Anda: panah berpindah antar item dan Enter membukanya. Tab lain keluar dari mode ini."
+    },
+    "shortcuts": {
+      "question": "Bagaimana cara mengubah pintasan keyboard saya?",
+      "searchTerms": "mengubah pintasan; sesuaikan kunci; kombinasi tombol; tombol pintas",
+      "title": "Jadikan pintasan Anda sendiri",
+      "summary": "Periksa dan ubah pintasan Anda di Pengaturan.",
+      "steps": [
+        "Buka Pengaturan → Pintasan untuk melihat pengikatan Anda untuk mengedit, menambahkan bookmark, folder dan widget, dan membuka pengaturan.",
+        "Klik kombinasi tombol tindakan dan tekan pintasan baru. Esc membatalkan perekaman; klik kanan membuat tindakan tidak ditetapkan.",
+        "Simpan pengaturan untuk menerapkan perubahan Anda. Reset pintasan mengembalikan kombinasi asli."
+      ],
+      "note": "Awalnya: E mengedit, B menambahkan bookmark, F folder, W membuka widget dan S membuka pengaturan. Pintasan menghormati bidang teks dan dialog.",
+      "tip": "Anda dapat mengubah pintasan di Pengaturan. Klik kombinasi untuk merekam kombinasi Anda sendiri; Esc membatalkan dan klik kanan untuk membatalkan penetapannya."
+    },
+    "search": {
+      "question": "Bagaimana cara menemukan bookmark yang tidak dapat saya lihat?",
+      "searchTerms": "temukan penanda; temukan halaman; penanda buku hilang; URL pencarian",
+      "title": "Temukan penanda",
+      "summary": "Cari berdasarkan nama atau alamat, termasuk di dalam folder.",
+      "steps": [
+        "Tekan / saat Anda tidak sedang mengetik, atau gunakan kaca pembesar di bilah ruang kerja.",
+        "Ketikkan bagian nama atau alamat. Pencarian mencakup penanda di ruang kerja lain dan di dalam folder.",
+        "Buka hasil yang Anda butuhkan. Esc atau Tutup membawa Anda kembali ke ruang Anda."
+      ],
+      "note": "Anda tidak perlu mengingat di mana Anda menyimpan halaman untuk menemukannya.",
+      "tip": "Tombol / membuka pencarian. Ia juga menemukan penanda di dalam folder dan ruang kerja lainnya."
+    },
+    "editing": {
+      "question": "Bagaimana cara mengaktifkan pengeditan?",
+      "searchTerms": "aktifkan pengeditan; edit desktop; editor pensil; memodifikasi penanda",
+      "title": "Modus penyuntingan",
+      "summary": "Nyalakan pensil untuk mengatur dan menyesuaikan.",
+      "steps": [
+        "Klik pensil di menu sebelah kiri, atau gunakan pintasan pengeditan Anda, untuk menampilkan kontrol kisi dan item.",
+        "Memindahkan, mengubah ukuran, atau memilih item. Pensil setiap kartu membuka editor nama, alamat, dan penampilannya.",
+        "Klik pensil lagi setelah selesai. Perubahan ruang kerja disimpan secara otomatis; editor memiliki tombol Simpan sendiri."
+      ],
+      "note": "Esc pertama-tama menghapus pilihan atau navigasi keyboard. Jika tidak ada yang aktif, ia dapat keluar dari mode edit.",
+      "tip": "Pensil menu mulai mengedit: pegangan dan kontrol kartu muncul. Klik lagi untuk menyelesaikan."
+    },
+    "movement": {
+      "question": "Bagaimana cara memindahkan bookmark?",
+      "searchTerms": "pindahkan penanda; seret favorit; mengubah posisi; mengatur kisi-kisi",
+      "title": "Pindahkan item",
+      "summary": "Seret kartu ke tempatnya di grid.",
+      "steps": [
+        "Aktifkan mode edit dan tahan kartu yang ingin Anda pindahkan.",
+        "Seret ke tujuannya. Hasilnya tergantung pada ruang kosong dan mode seret yang dipilih di Pengaturan → Bookmark.",
+        "Lepaskan untuk menyimpan posisinya. Anda juga dapat memilih satu item dengan satu klik dan memindahkannya satu sel dengan panah, di luar navigasi Tab."
+      ],
+      "note": "Tujuan yang diblokir menampilkan umpan balik visual dan item kembali ke posisi yang valid. Anda dapat membatalkan perubahan.",
+      "tip": "Dalam mode edit, klik untuk memilih satu kartu dan gunakan panah untuk memindahkannya sel demi sel. Tinggalkan navigasi Tab terlebih dahulu."
+    },
+    "resizing": {
+      "question": "Bagaimana cara mengubah ukuran ubin?",
+      "searchTerms": "mengubah ukuran ubin; perbesar penanda; mengurangi ukuran; mengubah ukuran pegangan; klik; Menggeser; lebar tinggi; 2x2",
+      "title": "Ubah ukurannya",
+      "summary": "Gunakan sisi dan sudut kartu.",
+      "steps": [
+        "Aktifkan pengeditan dan pindah ke sisi atau sudut item untuk menggunakan pengendali pengubah ukurannya.",
+        "Tarik pegangannya. Sebuah sudut mengubah lebar dan tinggi; suatu sisi hanya berubah satu dimensi. Anda juga dapat mengeklik salah satu pengendali untuk memperbesar satu sel, atau Shift + klik untuk memperkecil satu sel.",
+        "Di Pengaturan → Penanda, pilih Tidak Ada untuk berpindah antar sel setelah melewati 50%, atau Halus untuk meregangkan kartu dan melepaskannya."
+      ],
+      "note": "Ukuran akhir menghormati grid dan posisi yang valid. Pratinjau pengaturan menunjukkan perbedaannya sebelum Anda memilih.",
+      "tip": "Klik salah satu pegangan untuk bertambah satu sel atau Shift + klik untuk menyusut satu sel. Sudut mengubah lebar dan tinggi secara bersamaan; sisi berubah hanya satu dimensi."
+    },
+    "drag-modes": {
+      "question": "Mengapa saya tidak bisa mampir ke sel yang terisi?",
+      "searchTerms": "sel yang ditempati; pindah ke yang lain; penurunan yang diblokir; pindahkan kaskade; tabrakan tarik",
+      "title": "Mode seret",
+      "summary": "Pilih apa yang terjadi pada posisi penanda yang ditempati.",
+      "steps": [
+        "Buka Pengaturan → Bookmark dan perluas perilaku seret.",
+        "Tidak ada yang berpindah ke slot gratis. Relokasi menemukan posisi penanda di tempat tujuan. Urutan mengatur ulang bookmark secara berurutan.",
+        "Tonton animasi setiap opsi dan simpan mode yang terasa nyaman untuk diatur."
+      ],
+      "note": "Perpindahan ditolak jika tidak ada pengaturan yang sah. Latar belakang transparan tidak membuat sel yang ditempati menjadi bebas.",
+      "tip": "Ingin memindahkan penanda ke sel yang terisi? Lihat Relokasi dan Urutan di Pengaturan → Bookmark dan tonton pratinjaunya."
+    },
+    "folders": {
+      "question": "Bagaimana cara mengelompokkan bookmark ke dalam folder?",
+      "searchTerms": "membuat folder; penanda grup; mengatur favorit; hapus dari folder; ganti nama folder",
+      "title": "Atur dengan folder",
+      "summary": "Kumpulkan hingga 18 bookmark dalam satu folder.",
+      "steps": [
+        "Pilih + → Folder di menu sebelah kiri dan beri nama.",
+        "Dalam mode edit, seret penanda ke dalamnya untuk memasukkannya ke dalam. Buka folder untuk melihat kisi-kisinya.",
+        "Gunakan mode edit folder untuk mengatur penandanya. Klik namanya untuk mengganti namanya dan ikonnya untuk menyesuaikan tampilannya."
+      ],
+      "note": "Menghapus folder juga mempengaruhi bookmarknya. Tinjau konfirmasi sebelum melanjutkan; recycle bin dapat mengembalikan item yang terhapus.",
+      "tip": "Sebuah folder menampung hingga 18 bookmark. Aktifkan pengeditan dan seret kartu ke folder untuk menambahkannya."
+    },
+    "workspaces": {
+      "question": "Bagaimana cara memisahkan halaman pribadi dan halaman kerja?",
+      "searchTerms": "pekerjaan pribadi; membuat ruang kerja; beralih ruang kerja; desktop",
+      "title": "Pisahkan ruang kerja Anda",
+      "summary": "Satu kotak untuk pekerjaan dan satu lagi untuk yang lainnya.",
+      "steps": [
+        "Bilah ruang kerja beralih antara ruang kerja Utama dan ruang kerja kustom Anda. +nya menciptakan yang baru.",
+        "Pilih ruang kerja sebelum menambahkan item. Untuk mentransfer item yang ada, pilih item tersebut dan pilih tujuan di bilah tindakan.",
+        "Alt + ↑ dan Alt + ↓ menelusuri ruang kerja. Tombol − menghapus ruang kerja khusus saat ini setelah konfirmasi."
+      ],
+      "note": "Menghapus ruang kerja juga menghapus isinya. Tetap utama tersedia dan tidak dapat dihapus.",
+      "tip": "Alt + ↑ dan Alt + ↓ berpindah ruang kerja tanpa membuka pemilih. Pisahkan pekerjaan, hobi, atau proyek dengan + bilah."
+    },
+    "selection": {
+      "question": "Bagaimana cara mengubah beberapa item sekaligus?",
+      "searchTerms": "pilih beberapa; seleksi massal; pindahkan beberapa; seleksi klon; duplikat bookmark",
+      "title": "Pilih dan bertindak secara massal",
+      "summary": "Lebih sedikit tindakan berulang saat mengatur beberapa kartu.",
+      "steps": [
+        "Aktifkan pengeditan dan klik sebentar setiap kartu untuk memilihnya. Klik lagi untuk membatalkan pilihan; di navigasi Tab Anda dapat menggunakan S.",
+        "Bilah pilihan memungkinkan Anda menduplikasi, menerapkan tampilan default, berpindah ke ruang kerja lain, atau menghapus, bergantung pada jenis item.",
+        "Periksa tujuan atau konfirmasi. Esc atau tombol hapus pilihan membatalkan pilihan Anda."
+      ],
+      "note": "Memindahkan dan menggandakan membutuhkan slot gratis. Aplikasi ini memberi tahu Anda jika beberapa item tidak muat. Widget tidak masuk ke recycle bin.",
+      "tip": "Dalam mode edit, pilih beberapa kartu dengan klik singkat untuk memindahkan, menduplikasi, atau menata ulang kartu tersebut secara bersamaan. Esc menghapus pilihan."
+    },
+    "history": {
+      "question": "Bagaimana cara membatalkan perubahan terakhir saya?",
+      "searchTerms": "membatalkan perubahan; ulangi perubahan; kembali; mengembalikan posisi",
+      "title": "Batalkan dan ulangi",
+      "summary": "Pulihkan posisi atau perubahan terkini.",
+      "steps": [
+        "Gunakan panah undo pada bilah ruang kerja untuk kembali ke keadaan sebelumnya.",
+        "Panah ulangi memulihkan perubahan yang baru saja Anda batalkan. Anda juga dapat menggunakan Ctrl/Cmd + Z dan Ctrl/Cmd + Shift + Z.",
+        "Di dalam editor, gunakan panah di samping judulnya untuk perubahan yang tertunda; bidang teks membuat keyboard normalnya tetap dibatalkan. Setiap tindakan menampilkan pesan singkat dan panah yang tidak tersedia dinonaktifkan. Periksa hasilnya sebelum disimpan."
+      ],
+      "note": "Riwayat editor dimulai dari awal setiap kali Anda membuka editor; perubahan mencapai ruang kerja Anda saat Anda menyimpan. Riwayat ruang kerja bersifat sementara dan bukan merupakan cadangan. Sesi baru atau pembaruan dari tab lain dapat mengatur ulangnya.",
+      "tip": "Jika perubahan dirasa tidak tepat, gunakan panah batalkan atau Ctrl/Cmd + Z. Ctrl/Cmd + Shift + Z mengulanginya."
+    },
+    "appearance": {
+      "question": "Bagaimana cara mengubah warna, ikon, atau teks?",
+      "searchTerms": "berubah warna; ubah ikon; mengubah teks; penampilan penanda; warna folder; favicon",
+      "title": "Sesuaikan kartu Anda",
+      "summary": "Warna, gambar, teks, dan ikon sesuai keinginan Anda.",
+      "steps": [
+        "Aktifkan pengeditan dan buka pensil penanda, atau kontrol tampilan untuk folder atau keranjang sampah.",
+        "Jelajahi editor: latar belakang, warna, gambar, teks, dan ikon. Kontrol yang tersedia bergantung pada jenis item; pratinjau menunjukkan hasilnya.",
+        "Simpan saat Anda bahagia. Anda dapat menggunakan gambar dari URL atau file lokal tempat editor menawarkan opsi tersebut."
+      ],
+      "note": "Gambar lokal milik browser ini. Saat menyinkronkan, tambahkan URL cadangan untuk perangkat lain. Impor tetap menyertakan gambar dan referensi yang jelas tanpa file; Sinkronisasi mengabaikan file yang tidak tersedia di perangkat ini.",
+      "tip": "Pensil penanda membuka editor visualnya. Ubah warna, teks, ikon atau gambar dan periksa pratinjau."
+    },
+    "presets": {
+      "question": "Bagaimana cara menggunakan kembali gaya yang saya suka?",
+      "searchTerms": "simpan gaya; menggunakan kembali penampilan; gaya bawaan; perpustakaan yang telah ditetapkan sebelumnya; menerapkan gaya",
+      "title": "Gunakan kembali penampilan",
+      "summary": "Simpan tampilan dan terapkan ke bookmark lain.",
+      "steps": [
+        "Buka Perpustakaan editor untuk memilih tampilan dari koleksi yang tersedia.",
+        "Simpan tampilan khusus sebagai preset untuk menggunakan kembali warna, teks, dan ikonnya tanpa menyalin nama atau alamat bookmark.",
+        "Di Pengaturan → Bookmark, konfigurasikan tampilan default untuk bookmark baru. Bilah pilihan dapat menerapkannya ke item yang kompatibel."
+      ],
+      "note": "Prasetel mengubah tampilan, bukan identitas, tujuan, atau posisi penanda.",
+      "tip": "Simpan tampilan yang Anda suka di perpustakaan penampilan. Gunakan kembali di kartu lain tanpa mengubah nama atau alamatnya."
+    },
+    "wallpapers": {
+      "question": "Bagaimana cara menggunakan gambar atau video sebagai latar belakang saya?",
+      "searchTerms": "ubah latar belakang; latar belakang video; rotasi wallpaper; tema",
+      "title": "Wallpaper dan rotasi",
+      "summary": "Warna, gambar, atau video untuk mengatur suasana hati.",
+      "steps": [
+        "Buka Pengaturan → Tema dan pilih latar belakang default, warna atau latar belakang media.",
+        "Tambahkan gambar atau video dari sumber yang ditawarkan di panel. Perpustakaan mengumpulkan banyak latar belakang dengan interval rotasi.",
+        "Periksa pratinjau dan simpan. Anda dapat memasangkan file lokal dengan URL alternatif untuk perangkat lain."
+      ],
+      "note": "File lokal tetap ada di browser ini. Sinkronisasi tidak mentransfernya; cadangan penuh dapat menyimpannya.",
+      "tip": "Latar belakang Anda dapat berubah secara otomatis: tambahkan beberapa ke Pengaturan → Perpustakaan tema dan atur interval rotasi."
+    },
+    "clock": {
+      "question": "Bagaimana cara menambahkan jam?",
+      "searchTerms": "tambahkan jam; waktu pertunjukan; detik; format 24 jam; widget jam",
+      "title": "Tambahkan jam",
+      "summary": "Widget yang menunjukkan waktu perangkat Anda.",
+      "steps": [
+        "Pilih + → Widget di menu sebelah kiri dan pilih Jam.",
+        "Pilih format 12 atau 24 jam dan apakah akan menampilkan detik. Pratinjau membantu Anda memutuskan.",
+        "Tambahkan ke slot gratis. Dalam mode edit Anda dapat memindahkan, mengubah ukuran, atau membuka kembali opsinya."
+      ],
+      "note": "Jam mengikuti waktu perangkat Anda. Menghapus widget bersifat permanen; itu tidak masuk ke recycle bin.",
+      "tip": "Di + → Widget Anda dapat menambahkan jam 12 atau 24 jam dengan detik opsional dan mengubah ukurannya agar sesuai dengan ruang Anda."
+    },
+    "interface": {
+      "question": "Bagaimana cara mengubah bahasa atau menggunakan mode gelap?",
+      "searchTerms": "mengubah bahasa; mode gelap; mode cahaya; penampilan antarmuka",
+      "title": "Tema bahasa dan antarmuka",
+      "summary": "Jadikan menu, dialog, dan kontrol nyaman.",
+      "steps": [
+        "Di Pengaturan → Umum pilih bahasa atau biarkan mengikuti sistem Anda.",
+        "Pilih antarmuka terang, gelap, atau otomatis sesuai preferensi Anda.",
+        "Simpan pengaturan. Tema antarmuka berfungsi bersama dengan latar belakang yang Anda pilih di Tema."
+      ],
+      "note": "Bahasa sistem dan tampilan otomatis mengikuti preferensi perangkat Anda.",
+      "tip": "Pilih antarmuka terang atau gelap sambil mempertahankan wallpaper Anda. Temukan opsi dan bahasa ini di Pengaturan → Umum."
+    },
+    "trash": {
+      "question": "Bagaimana cara memulihkan bookmark yang dihapus?",
+      "searchTerms": "memulihkan bookmark yang dihapus; pemulihan dihapus; tempat sampah; terhapus secara tidak sengaja; memulihkan folder",
+      "title": "Pulihkan dari tempat sampah",
+      "summary": "Kesempatan kedua untuk bookmark dan folder.",
+      "steps": [
+        "Buka keranjang sampah di ruang Anda untuk meninjau bookmark dan folder yang dihapus.",
+        "Pilih apa yang ingin Anda kembalikan dan gunakan Pulihkan. Anda juga dapat menghapus item secara permanen atau mengosongkan sampah setelah konfirmasi.",
+        "Di Pengaturan → Umum pilih apakah akan menampilkannya dan berapa lama item disimpan: 1, 7, 14 atau 28 hari, atau jangan pernah menghapusnya secara otomatis."
+      ],
+      "note": "Tempat sampah milik perangkat ini. Item yang kedaluwarsa atau dihapus secara permanen tidak dapat dipulihkan lagi.",
+      "tip": "Menghapus bookmark secara tidak sengaja? Buka tempat sampah dan pulihkan. Sesuaikan periode retensi di Pengaturan → Umum."
+    },
+    "backup": {
+      "question": "Bagaimana cara mencadangkan atau mentransfer data saya?",
+      "searchTerms": "salinan cadangan; ekspor data; salinan impor; memulihkan cadangan; peramban lain; mentransfer data",
+      "title": "Cadangan dan impor",
+      "summary": "Simpan salinan ruangan Anda dan bawalah bersama Anda.",
+      "steps": [
+        "Di Pengaturan → Umum, ekspor cadangan lengkap untuk menyimpan data dan file lokal yang disertakan dalam arsip ZIP.",
+        "Untuk memulihkan, impor cadangan dan tinjau konfirmasi sebelum mengganti data. Cadangan JSON yang kompatibel juga didukung.",
+        "Di Pengaturan → Bookmark, Anda dapat mengekspor atau mengimpor bookmark dan folder saja saat Anda tidak memerlukan cadangan penuh."
+      ],
+      "note": "Ekspor bookmark bukanlah cadangan lengkap pengaturan dan media lokal. Simpan cadangan sebelum memulihkan atau menghapus data.",
+      "tip": "Cadangan lengkap dari Pengaturan → Umum menyertakan file lokal dalam ZIP. Ini berguna sebelum berpindah browser atau memulihkan data."
+    },
+    "sync": {
+      "question": "Bagaimana cara menggunakan ruang yang sama di komputer lain?",
+      "searchTerms": "komputer lain; menyinkronkan perangkat; sinkronisasi; awan; sinkronisasi lokal; hentikan sinkronisasi; nonaktifkan sinkronisasi; modus lokal",
+      "title": "Sinkronisasi antar perangkat",
+      "summary": "Bagikan ruang Anda menggunakan sinkronisasi browser.",
+      "steps": [
+        "Masuk dan aktifkan sinkronisasi ekstensi di profil Google Chrome Anda.",
+        "Di Pengaturan → Sinkronisasi pilih Disinkronkan dan terima konfirmasi. Peralihan ini akan segera berlaku: penanda dan pengaturan tersinkronisasi yang ada akan dimuat, atau data lokal yang Anda simpan akan disinkronkan jika tidak ada.",
+        "Gunakan profil yang sama di perangkat lain. Periksa status sinkronisasi dan ruang yang tersedia di panel."
+      ],
+      "note": "File lokal, recycle bin, dan tips harian adalah milik masing-masing perangkat. Sinkronisasi memiliki batasan penyimpanan; gunakan URL alternatif untuk gambar dan video lokal. Memilih Lokal juga meminta konfirmasi dan segera berlaku, menjaga data tetap tersinkronisasi.",
+      "tip": "Sinkronisasi membagi ruang Anda di seluruh perangkat, namun file lokal memerlukan URL alternatif. Lihat Pengaturan → Sinkronisasi."
+    },
+    "compact": {
+      "question": "Mengapa saya melihat daftar, bukan kisi?",
+      "searchTerms": "jendela kecil; tampilan daftar; jaringan menghilang; panel tersembunyi; seluler",
+      "title": "Gunakan jendela yang lebih kecil",
+      "summary": "Terus capai bookmark Anda saat ruang terbatas.",
+      "steps": [
+        "Saat jendela menyempit, aplikasi beralih ke daftar agar item Anda tetap dapat diakses.",
+        "Buka bookmark, folder, atau cari di tampilan ini. Panduannya juga menyesuaikan dengan ukuran yang tersedia.",
+        "Perluas jendela untuk mengembalikan grid dan panel pengeditan. Dialog pengeditan yang ditangguhkan mempertahankan drafnya."
+      ],
+      "note": "Tampilan ringkas membantu Anda menelusuri ruang Anda; reorganisasi membutuhkan jendela yang cukup lebar.",
+      "tip": "Di jendela sempit, bookmark Anda tetap tersedia sebagai daftar. Perluas ketika Anda ingin mengedit atau mengatur ulang grid."
+    },
+    "data": {
+      "question": "Bagaimana cara menghapus data atau mengatur ulang pengaturan?",
+      "searchTerms": "menghapus data; mengatur ulang pengaturan; hapus semuanya; memulai kembali",
+      "title": "Menyimpan dan mengatur ulang",
+      "summary": "Pahami apa yang disimpan dan apa yang dihapus dari setiap tindakan.",
+      "steps": [
+        "Tindakan ruang kerja disimpan secara otomatis. Di editor dan Pengaturan, konfirmasikan dengan Simpan; Batal membuang draf panel tersebut.",
+        "Jika muncul pemberitahuan penyimpanan tertunda, klik Coba lagi simpan dan tunggu konfirmasi sebelum menutup tab.",
+        "Di Pengaturan → Umum Anda dapat mengatur ulang pengaturan atau menghapus semua data. Baca konfirmasi dan ekspor cadangan apa pun yang ingin Anda simpan."
+      ],
+      "note": "Menyetel ulang pengaturan akan mempertahankan bookmark Anda, ukuran dan gayanya. Menghapus semua data lokal akan menghapus item dan mengosongkan keranjang sampah. Ekspor cadangan sebelum menghapus: Pembatalan tidak menggantikan cadangan.",
+      "tip": "Jika Anda melihat pemberitahuan perubahan yang belum disimpan, gunakan Coba lagi simpan sebelum menutup tab. Lindungi ruang Anda dengan cadangan penuh."
+    },
+    "learning": {
+      "question": "Bagaimana cara membuka kembali panduan atau menonaktifkan tips harian?",
+      "searchTerms": "nonaktifkan tip; matikan bantuan; peringatan harian; buka kembali panduan; panduan pengguna",
+      "title": "Belajarlah sesuai kecepatan Anda sendiri",
+      "summary": "Panduan singkat, manual, dan sedikit tip harian.",
+      "steps": [
+        "Kunjungi kembali panduan cepat dari Pengaturan → Bantuan. Setiap langkah tertaut ke penjelasan terkait di manual.",
+        "Jelajahi indeks atau cari kata. Tautan terkait suatu bagian membawa Anda ke fitur lain saat Anda siap.",
+        "Tab baru pertama Anda setiap hari menampilkan tip acak. Singkirkan atau buka penjelasannya; Anda dapat menonaktifkan tip di Bantuan."
+      ],
+      "note": "Tips mengunjungi bagian-bagiannya tanpa mengulanginya sampai koleksinya selesai. Mereka bertahan selama 20 detik dan berhenti sejenak sambil mengarahkan atau memfokuskan tombolnya. Mereka mengikuti hari setempat dan preferensi browser ini.",
+      "tip": "Panduan ini selalu ada di Pengaturan → Bantuan. Kiat harian membuka suatu bagian, dan Anda dapat menonaktifkannya di sana kapan pun Anda mau."
+    }
+  }
+}
