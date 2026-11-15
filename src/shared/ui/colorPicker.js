@@ -137,6 +137,8 @@ export function initCustomColorPicker(input) {
   let currentColor = normalizeHex(input.value) ?? '#000000';
   let initialColor = currentColor;
   let isOpen = false;
+  let isSampling = false;
+  let sampleAbortController = null;
   let hasChanges = false;
   let dragging = false;
   let focusReturnTarget = input;
@@ -250,6 +252,7 @@ export function initCustomColorPicker(input) {
 
   function close({ commit = true, restoreFocus = false } = {}) {
     if (!isOpen) return;
+    sampleAbortController?.abort();
     if (commit && hasChanges) {
       input.dispatchEvent(new Event('change', { bubbles: true }));
     } else if (!commit && currentColor !== initialColor) {
@@ -293,12 +296,14 @@ export function initCustomColorPicker(input) {
   }
 
   function onOutsidePointer(event) {
+    if (isSampling) return;
     if (!isOpen || input === event.target || popover.contains(event.target)
       || activeAnchor === event.target || activeAnchor.contains(event.target)) return;
     close({ commit: true });
   }
 
   function onFocusIn(event) {
+    if (isSampling) return;
     if (isOpen && event.target !== input && !popover.contains(event.target)
       && activeAnchor !== event.target && !activeAnchor.contains(event.target)) {
       close({ commit: true });
@@ -307,6 +312,12 @@ export function initCustomColorPicker(input) {
 
   function onKeyDown(event) {
     if (!isOpen) return;
+    if (isSampling && event.key === 'Escape') {
+      event.preventDefault();
+      event.stopPropagation();
+      sampleAbortController?.abort();
+      return;
+    }
     if (event.key === 'Escape') {
       event.preventDefault();
       event.stopPropagation();
@@ -315,6 +326,7 @@ export function initCustomColorPicker(input) {
   }
 
   function onViewportChange(event) {
+    if (isSampling) return;
     if (event?.type === 'scroll'
       && (event.target === popover || popover.contains(event.target))) return;
     if (isOpen) close({ commit: true });
@@ -412,14 +424,27 @@ export function initCustomColorPicker(input) {
 
   closeButton.addEventListener('click', () => close({ commit: true, restoreFocus: true }));
   sampleButton.addEventListener('click', async () => {
-    if (typeof window.EyeDropper !== 'function') return;
+    if (typeof window.EyeDropper !== 'function' || isSampling) return;
+    isSampling = true;
+    sampleAbortController = new AbortController();
+    popover.hidden = true;
+    input.setAttribute('aria-expanded', 'false');
     try {
-      const result = await new window.EyeDropper().open();
+      const result = await new window.EyeDropper().open({ signal: sampleAbortController.signal });
       setColor(result.sRGBHex);
       commitChanges();
     } catch (error) {
       if (error?.name !== 'AbortError') {
         console.warn('[COLOR PICKER] Could not sample a screen color:', error);
+      }
+    } finally {
+      isSampling = false;
+      sampleAbortController = null;
+      if (isOpen) {
+        popover.hidden = false;
+        input.setAttribute('aria-expanded', 'true');
+        positionPopover(activeAnchor);
+        sampleButton.focus({ preventScroll: true });
       }
     }
   });

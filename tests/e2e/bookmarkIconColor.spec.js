@@ -35,6 +35,41 @@ async function pickColor(editor, color) {
   await popover.locator('.app-color-picker-close').click();
 }
 
+test('hides the color picker during pixel sampling and restores it after Escape or selection', async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__eyeDropperCalls = 0;
+    window.EyeDropper = class {
+      open({ signal }) {
+        window.__eyeDropperCalls += 1;
+        if (window.__eyeDropperCalls > 1) return Promise.resolve({ sRGBHex: '#22c55e' });
+        return new Promise((resolve, reject) => {
+          signal.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')),
+            { once: true });
+        });
+      }
+    };
+  });
+  await page.reload();
+  await expectAppReady(page);
+  const editor = await openEditor(page);
+  const colorInput = editor.locator('[data-field="iconColor"]');
+  await colorInput.click();
+  const popoverId = await colorInput.getAttribute('aria-controls');
+  const popover = page.locator(`#${popoverId}`);
+  const sampleButton = popover.locator('.app-color-picker-sample');
+  await expect(popover).toBeVisible();
+
+  await sampleButton.click();
+  await expect(popover).toBeHidden();
+  await page.keyboard.press('Escape');
+  await expect(popover).toBeVisible();
+  await expect(colorInput).toHaveValue('#000000');
+
+  await sampleButton.click();
+  await expect(colorInput).toHaveValue('#22c55e');
+  await expect(popover).toBeVisible();
+});
+
 test('changes SVG color independently of text, supports undo and persists to grid, list and trash', async ({ page }, testInfo) => {
   const editor = await openEditor(page);
   const previewIcon = editor.locator('.bookmark-preview .catalog-icon');
