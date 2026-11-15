@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { RELEASE_NOTES, getReleaseNotes } from '../src/features/release-notes/releaseCatalog.js';
 import { compareVersions } from '../src/shared/data/compareVersions.js';
+import { SUPPORTED_LANGUAGES } from '../src/domain/settings/languageCatalog.js';
 
 test('numeric release ordering supports Chrome version components and rejects malformed versions', () => {
   assert.equal(compareVersions('1.0.10', '1.0.9'), 1);
@@ -13,11 +14,21 @@ test('numeric release ordering supports Chrome version components and rejects ma
   }
 });
 
+test('release notes controls have translations in every supported language', () => {
+  for (const language of SUPPORTED_LANGUAGES) {
+    const { releaseNotes } = JSON.parse(readFileSync(`src/lang/${language}.json`, 'utf8'));
+    for (const key of ['settingsTitle', 'settingsDescription', 'open', 'history', 'dismiss', 'continue', 'back', 'highlights']) {
+      assert.equal(typeof releaseNotes?.[key], 'string', `${language}: missing releaseNotes.${key}`);
+      assert.ok(releaseNotes[key].trim(), `${language}: empty releaseNotes.${key}`);
+    }
+  }
+});
+
 test('every shipped release has an entry and translated paragraphs and highlights in every language', () => {
   const { version } = JSON.parse(readFileSync('manifest.json', 'utf8'));
   assert.ok(RELEASE_NOTES.some(entry => entry.version === version), 'Add notes for the manifest version before shipping.');
   assert.equal(new Set(RELEASE_NOTES.map(entry => entry.version)).size, RELEASE_NOTES.length);
-  for (const language of ['en', 'es', 'es_419', 'pt_BR']) {
+  for (const language of SUPPORTED_LANGUAGES) {
     const dictionary = JSON.parse(readFileSync(`src/lang/${language}.json`, 'utf8'));
     for (const entry of RELEASE_NOTES) {
       assert.equal(compareVersions(entry.version, entry.version), 0);

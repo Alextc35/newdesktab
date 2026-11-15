@@ -236,6 +236,129 @@
   margin-bottom: 16px;
 }
 
+.window-resize-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding: 14px 12px;
+  border: 1px solid var(--ui-border);
+  border-radius: 10px;
+  background: var(--ui-input);
+}
+
+.window-resize-preview-sample {
+  display: grid;
+  container-type: inline-size;
+  justify-items: center;
+  align-content: start;
+  min-width: 0;
+  gap: 8px;
+}
+
+.window-resize-preview-sample > small {
+  color: var(--ui-muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+.window-resize-preview-window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 114px;
+  overflow: hidden;
+  border: 1px solid var(--ui-border);
+  border-radius: 7px;
+  background: var(--ui-sidebar);
+  box-shadow: 0 3px 8px color-mix(in srgb, var(--ui-text) 5%, transparent);
+}
+
+.window-resize-preview-window::before {
+  content: '';
+  flex: 0 0 17px;
+  border-bottom: 1px solid var(--ui-border);
+  background: var(--ui-card);
+}
+
+.window-resize-preview-window::after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 8px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ui-muted);
+  box-shadow: 6px 0 var(--ui-muted), 12px 0 var(--ui-muted);
+  opacity: .6;
+}
+
+.window-resize-preview-window.is-narrow {
+  width: 70%;
+  height: 90px;
+}
+
+.window-resize-preview-canvas {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.window-resize-preview-grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: calc(100cqi - 24px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+  transform: translate(-50%, -50%);
+}
+
+.window-resize-preview-grid > span {
+  aspect-ratio: 1.15;
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--ui-accent) 45%, var(--ui-border));
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--ui-accent) 24%, var(--ui-card));
+}
+
+.window-resize-preview-grid > span:nth-child(3n + 2) {
+  background: color-mix(in srgb, var(--ui-accent) 38%, var(--ui-card));
+}
+
+.window-resize-preview-window.is-narrow .window-resize-preview-grid {
+  width: calc(70cqi - 24px);
+}
+
+.window-resize-preview[data-mode="relative"] .window-resize-preview-window.is-narrow .window-resize-preview-grid {
+  width: calc(100cqi - 24px);
+}
+
+.window-resize-preview[data-mode="relative"] .is-narrow .window-resize-preview-canvas::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  inset: auto 0 0;
+  height: 7px;
+  border-top: 1px solid var(--ui-border);
+  background: var(--ui-card);
+}
+
+.window-resize-preview[data-mode="relative"] .is-narrow .window-resize-preview-canvas::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: 2px;
+  left: 30%;
+  width: 40%;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--ui-accent);
+}
+
 .settings-language {
   margin: 0 0 20px;
 }

@@ -163,6 +163,19 @@ test('normalizes unsupported bookmark drag modes to none', () => {
   assert.equal(migrated.settings.bookmarkDragMode, BOOKMARK_DRAG_MODES.NONE);
 });
 
+test('normalizes the global window resize mode and preserves the selected behavior', () => {
+  const legacy = migratePersistedData({ bookmarks: [], settings: { language: 'es' } });
+  assert.equal(legacy.settings.windowResizeMode, 'fit');
+  const relative = migratePersistedData({ bookmarks: [], settings: {
+    ...DEFAULT_SETTINGS, windowResizeMode: 'relative'
+  } });
+  assert.equal(relative.settings.windowResizeMode, 'relative');
+  const invalid = migratePersistedData({ bookmarks: [], settings: {
+    ...DEFAULT_SETTINGS, windowResizeMode: 'narrow'
+  } });
+  assert.equal(invalid.settings.windowResizeMode, 'fit');
+});
+
 test('adds safe keyboard shortcuts to legacy settings and preserves custom values', () => {
   const legacy = migratePersistedData({ bookmarks: [], settings: { language: 'es' } });
   assert.deepEqual(legacy.settings.keyboardShortcuts, DEFAULT_KEYBOARD_SHORTCUTS);

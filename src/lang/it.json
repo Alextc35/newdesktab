@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "Note sulla versione",
     "settingsDescription": "Cosa è cambiato e la storia dietro ogni aggiornamento.",
     "open": "Leggi le note",
     "history": "Cronologia delle versioni",
@@ -729,6 +730,20 @@
         "system": "Navigatore",
         "light": "Luce",
         "dark": "Buio"
+      },
+      "windowResize": {
+        "title": "Window resizing behavior",
+        "description": "Choose how bookmarks respond when the window changes size.",
+        "fit": {
+          "title": "Fit to window",
+          "description": "Shrink or grow bookmarks to fill the available space."
+        },
+        "relative": {
+          "title": "Keep bookmark size",
+          "description": "In smaller windows, keep bookmark sizes and scroll the grid."
+        },
+        "previewWide": "Wide window",
+        "previewNarrow": "Narrow window"
       }
     },
     "sync": {

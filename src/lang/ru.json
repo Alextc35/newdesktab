@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "Примечания к выпуску",
     "settingsDescription": "Что изменилось и история каждого обновления.",
     "open": "Читать заметки",
     "history": "История версий",
@@ -729,6 +730,20 @@
         "system": "Браузер",
         "light": "Свет",
         "dark": "Темный"
+      },
+      "windowResize": {
+        "title": "Window resizing behavior",
+        "description": "Choose how bookmarks respond when the window changes size.",
+        "fit": {
+          "title": "Fit to window",
+          "description": "Shrink or grow bookmarks to fill the available space."
+        },
+        "relative": {
+          "title": "Keep bookmark size",
+          "description": "In smaller windows, keep bookmark sizes and scroll the grid."
+        },
+        "previewWide": "Wide window",
+        "previewNarrow": "Narrow window"
       }
     },
     "sync": {

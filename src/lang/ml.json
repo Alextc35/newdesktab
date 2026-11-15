@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "റിലീസ് കുറിപ്പുകൾ",
     "settingsDescription": "എന്താണ് മാറിയത്, ഓരോ അപ്‌ഡേറ്റിനും പിന്നിലെ കഥ.",
     "open": "കുറിപ്പുകൾ വായിക്കുക",
     "history": "പതിപ്പ് ചരിത്രം",
@@ -729,6 +730,20 @@
         "system": "ബ്രൗസർ",
         "light": "വെളിച്ചം",
         "dark": "ഇരുട്ട്"
+      },
+      "windowResize": {
+        "title": "Window resizing behavior",
+        "description": "Choose how bookmarks respond when the window changes size.",
+        "fit": {
+          "title": "Fit to window",
+          "description": "Shrink or grow bookmarks to fill the available space."
+        },
+        "relative": {
+          "title": "Keep bookmark size",
+          "description": "In smaller windows, keep bookmark sizes and scroll the grid."
+        },
+        "previewWide": "Wide window",
+        "previewNarrow": "Narrow window"
       }
     },
     "sync": {

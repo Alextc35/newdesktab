@@ -837,6 +837,68 @@
                 </label>
               </div>
             </section>
+            <section class="bookmark-behavior-settings bookmark-resize-settings window-resize-settings"
+              aria-labelledby="window-resize-settings-title">
+              <button id="window-resize-settings-title" class="settings-collapsible-toggle"
+                type="button" aria-expanded="false" aria-controls="window-resize-settings-body">
+                <span class="settings-collapsible-heading">
+                  <span class="settings-action-heading">
+                    <svg class="settings-action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8V4h4M20 16v4h-4M4 4l6 6m10 10-6-6M14 4h6v6M4 14v6h6M20 4l-6 6M4 20l6-6"/></svg>
+                    <span data-i18n="settingsModal.general.windowResize.title">Window resizing behavior</span>
+                  </span>
+                  <small id="window-resize-settings-summary">Fit window</small>
+                </span>
+              </button>
+              <div id="window-resize-settings-body" class="settings-collapsible-body" hidden>
+                <p data-i18n="settingsModal.general.windowResize.description">
+                  Choose how bookmarks respond when the window changes size.
+                </p>
+                <div class="drag-mode-options" role="radiogroup" aria-labelledby="window-resize-settings-title">
+                  <label class="drag-mode-option">
+                    <input type="radio" name="window-resize-mode" value="fit">
+                    <span class="drag-mode-copy">
+                      <strong data-i18n="settingsModal.general.windowResize.fit.title">Fit window</strong>
+                      <small data-i18n="settingsModal.general.windowResize.fit.description">
+                        Shrink and grow bookmarks to fit the available area.
+                      </small>
+                    </span>
+                  </label>
+                  <label class="drag-mode-option">
+                    <input type="radio" name="window-resize-mode" value="relative">
+                    <span class="drag-mode-copy">
+                      <strong data-i18n="settingsModal.general.windowResize.relative.title">Keep bookmark size</strong>
+                      <small data-i18n="settingsModal.general.windowResize.relative.description">
+                        Keep bookmark sizes in smaller windows and scroll the grid.
+                      </small>
+                    </span>
+                  </label>
+                </div>
+                <div id="window-resize-preview" class="window-resize-preview" data-mode="fit" aria-hidden="true">
+                  <div class="window-resize-preview-sample">
+                    <small data-i18n="settingsModal.general.windowResize.previewWide">Wide window</small>
+                    <div class="window-resize-preview-window">
+                      <div class="window-resize-preview-canvas">
+                        <div class="window-resize-preview-grid">
+                          <span></span><span></span><span></span>
+                          <span></span><span></span><span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="window-resize-preview-sample">
+                    <small data-i18n="settingsModal.general.windowResize.previewNarrow">Narrow window</small>
+                    <div class="window-resize-preview-window is-narrow">
+                      <div class="window-resize-preview-canvas">
+                        <div class="window-resize-preview-grid">
+                          <span></span><span></span><span></span>
+                          <span></span><span></span><span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
             <section class="settings-recycle-bin" aria-labelledby="settings-recycle-bin-title">
               <h3 id="settings-recycle-bin-title" data-i18n="settingsModal.general.recycleBin.title">Papelera de reciclaje</h3>
               <label class="settings-recycle-bin-option" for="settings-show-recycle-bin">

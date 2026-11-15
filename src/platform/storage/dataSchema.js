@@ -10,7 +10,8 @@ import {
 } from '../../domain/bookmarks/bookmarkModel.js';
 import {
   normalizeBookmarkDragMode,
-  normalizeBookmarkResizeMode
+  normalizeBookmarkResizeMode,
+  normalizeWindowResizeMode
 } from '../../domain/settings/gridInteractionModes.js';
 import { normalizeKeyboardShortcuts } from '../../shared/keyboard/keyboardShortcuts.js';
 import { normalizeFolderStyle } from '../../domain/folders/folderModel.js';
@@ -116,6 +117,7 @@ export function migratePersistedData(input, { useDefaultsWhenEmpty = true } = {}
       bookmarkDefault: normalizeBookmarkPreset(rawSettings.bookmarkDefault),
       bookmarkDragMode: normalizeBookmarkDragMode(rawSettings.bookmarkDragMode),
       bookmarkResizeMode: normalizeBookmarkResizeMode(rawSettings.bookmarkResizeMode),
+      windowResizeMode: normalizeWindowResizeMode(rawSettings.windowResizeMode),
       keyboardShortcuts: normalizeKeyboardShortcuts(rawSettings.keyboardShortcuts),
       showRecycleBin: rawSettings.showRecycleBin !== false,
       recycleBinRetentionDays: normalizeRecycleBinRetentionDays(rawSettings.recycleBinRetentionDays),

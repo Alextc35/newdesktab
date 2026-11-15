@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "प्रकाशन नोट्स",
     "settingsDescription": "काय बदलले आणि प्रत्येक अद्यतनामागील कथा.",
     "open": "नोट्स वाचा",
     "history": "आवृत्ती इतिहास",
@@ -729,6 +730,20 @@
         "system": "ब्राउझर",
         "light": "प्रकाश",
         "dark": "गडद"
+      },
+      "windowResize": {
+        "title": "Window resizing behavior",
+        "description": "Choose how bookmarks respond when the window changes size.",
+        "fit": {
+          "title": "Fit to window",
+          "description": "Shrink or grow bookmarks to fill the available space."
+        },
+        "relative": {
+          "title": "Keep bookmark size",
+          "description": "In smaller windows, keep bookmark sizes and scroll the grid."
+        },
+        "previewWide": "Wide window",
+        "previewNarrow": "Narrow window"
       }
     },
     "sync": {

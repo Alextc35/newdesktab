@@ -1,6 +1,7 @@
 import {
   normalizeBookmarkDragMode,
-  normalizeBookmarkResizeMode
+  normalizeBookmarkResizeMode,
+  normalizeWindowResizeMode
 } from '../../domain/settings/gridInteractionModes.js';
 import { normalizeInterfaceTheme } from '../../domain/settings/interfacePreferences.js';
 import { normalizeRecycleBinRetentionDays } from '../../domain/settings/recycleBinRetention.js';
@@ -19,6 +20,7 @@ let draftLanguage = null;
 let draftInterfaceTheme = null;
 let draftShowRecycleBin = null;
 let draftRecycleBinRetentionDays = null;
+let draftWindowResizeMode = null;
 
 /**
  * Draft bookmark default state used while the settings modal is open.
@@ -71,6 +73,7 @@ export function initDraft(settings, storageMode) {
   draftInterfaceTheme = normalizeInterfaceTheme(settings.interfaceTheme);
   draftShowRecycleBin = settings.showRecycleBin !== false;
   draftRecycleBinRetentionDays = normalizeRecycleBinRetentionDays(settings.recycleBinRetentionDays);
+  draftWindowResizeMode = normalizeWindowResizeMode(settings.windowResizeMode);
   draftBookmarkDefault = structuredClone(settings.bookmarkDefault);
   draftBookmarkPresets = structuredClone(settings.bookmarkPresets ?? []);
   draftBookmarkDragMode = normalizeBookmarkDragMode(settings.bookmarkDragMode);
@@ -90,6 +93,7 @@ export function resetState() {
   draftInterfaceTheme = null;
   draftShowRecycleBin = null;
   draftRecycleBinRetentionDays = null;
+  draftWindowResizeMode = null;
   draftBookmarkDefault = null;
   draftBookmarkPresets = null;
   draftBookmarkDragMode = null;
@@ -141,6 +145,14 @@ export function getDraftRecycleBinRetentionDays() {
 
 export function setDraftRecycleBinRetentionDays(value) {
   draftRecycleBinRetentionDays = normalizeRecycleBinRetentionDays(value);
+}
+
+export function getDraftWindowResizeMode() {
+  return normalizeWindowResizeMode(draftWindowResizeMode ?? getSettings().windowResizeMode);
+}
+
+export function setDraftWindowResizeMode(value) {
+  draftWindowResizeMode = normalizeWindowResizeMode(value);
 }
 
 /** Returns the draft language preference, including the automatic option. */
@@ -288,6 +300,7 @@ export function replaceDraftSettings(settings) {
   draftInterfaceTheme = normalizeInterfaceTheme(settings.interfaceTheme);
   draftShowRecycleBin = settings.showRecycleBin !== false;
   draftRecycleBinRetentionDays = normalizeRecycleBinRetentionDays(settings.recycleBinRetentionDays);
+  draftWindowResizeMode = normalizeWindowResizeMode(settings.windowResizeMode);
   draftBookmarkDefault = structuredClone(settings.bookmarkDefault);
   draftBookmarkPresets = structuredClone(settings.bookmarkPresets ?? []);
   draftBookmarkDragMode = normalizeBookmarkDragMode(settings.bookmarkDragMode);
@@ -320,6 +333,7 @@ export function hasChanges() {
     interfaceTheme: draftInterfaceTheme,
     showRecycleBin: draftShowRecycleBin,
     recycleBinRetentionDays: draftRecycleBinRetentionDays,
+    windowResizeMode: draftWindowResizeMode,
     theme: draftTheme,
     bookmarkDragMode: draftBookmarkDragMode,
     bookmarkResizeMode: draftBookmarkResizeMode,
@@ -333,6 +347,7 @@ export function hasChanges() {
     interfaceTheme: normalizeInterfaceTheme(initialSnapshot.interfaceTheme),
     showRecycleBin: initialSnapshot.showRecycleBin !== false,
     recycleBinRetentionDays: normalizeRecycleBinRetentionDays(initialSnapshot.recycleBinRetentionDays),
+    windowResizeMode: normalizeWindowResizeMode(initialSnapshot.windowResizeMode),
     theme: initialSnapshot.theme,
     bookmarkDragMode: normalizeBookmarkDragMode(initialSnapshot.bookmarkDragMode),
     bookmarkResizeMode: normalizeBookmarkResizeMode(initialSnapshot.bookmarkResizeMode),
@@ -362,6 +377,7 @@ export function buildNewSettings() {
     interfaceTheme: draftInterfaceTheme,
     showRecycleBin: draftShowRecycleBin,
     recycleBinRetentionDays: draftRecycleBinRetentionDays,
+    windowResizeMode: draftWindowResizeMode,
     theme: structuredClone(draftTheme),
     bookmarkDragMode: draftBookmarkDragMode,
     bookmarkResizeMode: draftBookmarkResizeMode,

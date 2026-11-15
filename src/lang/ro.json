@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "Note de lansare",
     "settingsDescription": "Ce s-a schimbat și povestea din spatele fiecărei actualizări.",
     "open": "Citiți notele",
     "history": "Istoricul versiunilor",
@@ -729,6 +730,20 @@
         "system": "Browser",
         "light": "Lumină",
         "dark": "Întuneric"
+      },
+      "windowResize": {
+        "title": "Window resizing behavior",
+        "description": "Choose how bookmarks respond when the window changes size.",
+        "fit": {
+          "title": "Fit to window",
+          "description": "Shrink or grow bookmarks to fill the available space."
+        },
+        "relative": {
+          "title": "Keep bookmark size",
+          "description": "In smaller windows, keep bookmark sizes and scroll the grid."
+        },
+        "previewWide": "Wide window",
+        "previewNarrow": "Narrow window"
       }
     },
     "sync": {

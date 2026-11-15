@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "Notas de versión",
     "settingsDescription": "Las novedades y la historia de cada actualización.",
     "open": "Ver notas",
     "history": "Historial de versiones",
@@ -729,6 +730,20 @@
         "system": "Navegador",
         "light": "Claro",
         "dark": "Oscuro"
+      },
+      "windowResize": {
+        "title": "Comportamiento al redimensionar ventana",
+        "description": "Elige cómo responden los bookmarks cuando cambia el tamaño de la ventana.",
+        "fit": {
+          "title": "Ajustar a la ventana",
+          "description": "Reduce o amplía los bookmarks para ocupar el espacio disponible."
+        },
+        "relative": {
+          "title": "Mantener tamaño",
+          "description": "En ventanas pequeñas, conserva el tamaño de los bookmarks y permite desplazarse por la cuadrícula."
+        },
+        "previewWide": "Ventana amplia",
+        "previewNarrow": "Ventana pequeña"
       }
     },
     "sync": {

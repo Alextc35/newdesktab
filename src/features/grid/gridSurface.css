@@ -7,6 +7,10 @@
   z-index: var(--z-bookmark);
 }
 
+#bookmark-viewport.is-relative-grid {
+  overflow: auto;
+}
+
 .is-list-view #bookmark-viewport {
   overflow-x: hidden;
   overflow-y: auto;
@@ -26,6 +30,24 @@
   background: var(--ui-accent);
   border: 3px solid var(--ui-sidebar);
   border-radius: 12px;
+}
+
+/* Keep the scrollable canvas stable while its chrome stays out of view. */
+#bookmark-viewport.is-relative-grid::-webkit-scrollbar,
+#bookmark-viewport.is-relative-grid::-webkit-scrollbar-track,
+#bookmark-viewport.is-relative-grid::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+#bookmark-viewport.is-relative-grid::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-color: transparent;
+  background-clip: padding-box;
+}
+
+#bookmark-viewport.is-relative-grid.is-vertical-scrollbar-visible::-webkit-scrollbar-thumb:vertical,
+#bookmark-viewport.is-relative-grid.is-horizontal-scrollbar-visible::-webkit-scrollbar-thumb:horizontal {
+  background-color: var(--ui-handle);
 }
 
 #bookmark-container {

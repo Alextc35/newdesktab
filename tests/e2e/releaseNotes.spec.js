@@ -98,15 +98,16 @@ test('Information keeps the settings draft and release history is localized in e
   await information(page);
   await page.locator('[data-tab="settings-modal-tab-general"]').click();
   await page.locator('input[name="interface-theme"][value="dark"]').check();
-  for (const [language, title, clock] of [
-    ['es', 'Tu escritorio de webs. Por fin.', 'todavía está en desarrollo'],
-    ['es_419', 'Tu escritorio de webs. Por fin.', 'todavía está en desarrollo'],
-    ['pt_BR', 'Seu desktop de sites. Finalmente.', 'ainda está em desenvolvimento'],
-    ['en', 'Your desktop of websites. At last.', 'still a work in progress']
+  for (const [language, title, clock, settingsTitle] of [
+    ['es', 'Tu escritorio de webs. Por fin.', 'todavía está en desarrollo', 'Notas de versión'],
+    ['es_419', 'Tu escritorio de webs. Por fin.', 'todavía está en desarrollo', 'Notas de versión'],
+    ['pt_BR', 'Seu desktop de sites. Finalmente.', 'ainda está em desenvolvimento', 'Notas de versão'],
+    ['en', 'Your desktop of websites. At last.', 'still a work in progress', 'Release notes']
   ]) {
     await page.locator('[data-tab="settings-modal-tab-general"]').click();
     await page.locator('#language-select').selectOption(language);
     await page.locator('[data-tab="settings-modal-tab-info"]').click();
+    await expect(page.locator('[data-i18n="releaseNotes.settingsTitle"]')).toHaveText(settingsTitle);
     await page.locator('#settings-open-release-notes').click();
     await expect(page.locator('#release-notes-title')).toHaveText(title);
     await expect(page.locator('#release-notes-content')).toContainText(clock);

@@ -110,6 +110,7 @@
  * @property {'system'|'light'|'dark'} interfaceTheme
  * @property {'none'|'cascade'|'relocate'} bookmarkDragMode
  * @property {'smooth'|'none'} bookmarkResizeMode
+ * @property {'fit'|'relative'} windowResizeMode
  * @property {{toggleEditing: string|null, addBookmark: string|null, addFolder: string|null, openWidgets: string|null, openSettings: string|null}} keyboardShortcuts
  * @property {Object} theme
  * @property {boolean} theme.backgroundDefault

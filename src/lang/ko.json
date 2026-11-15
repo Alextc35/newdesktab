@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "릴리스 노트",
     "settingsDescription": "변경된 사항과 각 업데이트의 비하인드 스토리.",
     "open": "메모 읽기",
     "history": "버전 기록",
@@ -729,6 +730,20 @@
         "system": "브라우저",
         "light": "빛",
         "dark": "어둠"
+      },
+      "windowResize": {
+        "title": "Window resizing behavior",
+        "description": "Choose how bookmarks respond when the window changes size.",
+        "fit": {
+          "title": "Fit to window",
+          "description": "Shrink or grow bookmarks to fill the available space."
+        },
+        "relative": {
+          "title": "Keep bookmark size",
+          "description": "In smaller windows, keep bookmark sizes and scroll the grid."
+        },
+        "previewWide": "Wide window",
+        "previewNarrow": "Narrow window"
       }
     },
     "sync": {

@@ -9,8 +9,14 @@ export const BOOKMARK_RESIZE_MODES = Object.freeze({
   SMOOTH: 'smooth'
 });
 
+export const WINDOW_RESIZE_MODES = Object.freeze({
+  FIT: 'fit',
+  RELATIVE: 'relative'
+});
+
 const VALID_DRAG_MODES = new Set(Object.values(BOOKMARK_DRAG_MODES));
 const VALID_RESIZE_MODES = new Set(Object.values(BOOKMARK_RESIZE_MODES));
+const VALID_WINDOW_RESIZE_MODES = new Set(Object.values(WINDOW_RESIZE_MODES));
 
 /** @returns {'none'|'cascade'|'relocate'} */
 export function normalizeBookmarkDragMode(value) {
@@ -24,4 +30,11 @@ export function normalizeBookmarkResizeMode(value) {
   return VALID_RESIZE_MODES.has(value)
     ? value
     : BOOKMARK_RESIZE_MODES.SMOOTH;
+}
+
+/** @returns {'fit'|'relative'} */
+export function normalizeWindowResizeMode(value) {
+  return VALID_WINDOW_RESIZE_MODES.has(value)
+    ? value
+    : WINDOW_RESIZE_MODES.FIT;
 }

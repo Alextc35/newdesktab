@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "வெளியீட்டுக் குறிப்புகள்",
     "settingsDescription": "என்ன மாறிவிட்டது மற்றும் ஒவ்வொரு புதுப்பிப்பின் பின்னணியில் உள்ள கதை.",
     "open": "குறிப்புகளைப் படிக்கவும்",
     "history": "பதிப்பு வரலாறு",
@@ -729,6 +730,20 @@
         "system": "உலாவி",
         "light": "ஒளி",
         "dark": "இருள்"
+      },
+      "windowResize": {
+        "title": "Window resizing behavior",
+        "description": "Choose how bookmarks respond when the window changes size.",
+        "fit": {
+          "title": "Fit to window",
+          "description": "Shrink or grow bookmarks to fill the available space."
+        },
+        "relative": {
+          "title": "Keep bookmark size",
+          "description": "In smaller windows, keep bookmark sizes and scroll the grid."
+        },
+        "previewWide": "Wide window",
+        "previewNarrow": "Narrow window"
       }
     },
     "sync": {

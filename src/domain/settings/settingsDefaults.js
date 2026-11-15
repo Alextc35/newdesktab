@@ -2,7 +2,8 @@ import '../../types/types.js';
 import { DEFAULT_BOOKMARK_STYLE } from '../bookmarks/bookmarkDefaults.js';
 import {
   BOOKMARK_DRAG_MODES,
-  BOOKMARK_RESIZE_MODES
+  BOOKMARK_RESIZE_MODES,
+  WINDOW_RESIZE_MODES
 } from './gridInteractionModes.js';
 import { DEFAULT_KEYBOARD_SHORTCUTS } from '../../shared/keyboard/keyboardShortcuts.js';
 import { DEFAULT_WALLPAPER_INTERVAL } from './wallpaperMedia.js';
@@ -14,6 +15,7 @@ export const DEFAULT_SETTINGS = {
   interfaceTheme: 'system',
   bookmarkDragMode: BOOKMARK_DRAG_MODES.NONE,
   bookmarkResizeMode: BOOKMARK_RESIZE_MODES.SMOOTH,
+  windowResizeMode: WINDOW_RESIZE_MODES.FIT,
   keyboardShortcuts: structuredClone(DEFAULT_KEYBOARD_SHORTCUTS),
   showRecycleBin: true,
   recycleBinRetentionDays: DEFAULT_RECYCLE_BIN_RETENTION_DAYS,

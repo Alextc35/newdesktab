@@ -3,9 +3,11 @@ import {
   getDraftInterfaceTheme,
   getDraftShowRecycleBin,
   getDraftRecycleBinRetentionDays,
+  getDraftWindowResizeMode,
   setDraftInterfaceTheme,
   setDraftShowRecycleBin,
   setDraftRecycleBinRetentionDays,
+  setDraftWindowResizeMode,
   getInitialSnapshot
 } from './settingsDraft.js';
 import { t } from '../../platform/i18n/i18n.js';
@@ -24,8 +26,21 @@ export function initGeneralSection({
   const themeInputs = document.querySelectorAll('input[name="interface-theme"]');
   const showRecycleBinInput = document.getElementById('settings-show-recycle-bin');
   const recycleBinRetentionSelect = document.getElementById('settings-recycle-bin-retention');
+  const windowResizeInputs = [...document.querySelectorAll('input[name="window-resize-mode"]')];
+  const windowResizeSummary = document.getElementById('window-resize-settings-summary');
+  const windowResizePreview = document.getElementById('window-resize-preview');
   document.querySelector('.settings-recycle-bin-icon')
     .replaceChildren(createRecycleBinSvg());
+
+  function renderWindowResizeMode() {
+    const mode = getDraftWindowResizeMode();
+    for (const input of windowResizeInputs) {
+      input.checked = input.value === mode;
+      input.closest('.drag-mode-option')?.classList.toggle('is-selected', input.checked);
+    }
+    windowResizeSummary.textContent = t(`settingsModal.general.windowResize.${mode}.title`);
+    windowResizePreview.dataset.mode = mode;
+  }
 
   function syncUI() {
     const preference = getDraftInterfaceTheme();
@@ -34,6 +49,7 @@ export function initGeneralSection({
     showRecycleBinInput.checked = getDraftShowRecycleBin();
     recycleBinRetentionSelect.value = String(getDraftRecycleBinRetentionDays());
     refreshCustomSelect(recycleBinRetentionSelect);
+    renderWindowResizeMode();
   }
 
   showRecycleBinInput.addEventListener('change', () => {
@@ -46,6 +62,15 @@ export function initGeneralSection({
     refreshCustomSelect(recycleBinRetentionSelect);
     onRequestSaveStateUpdate();
   });
+
+  for (const input of windowResizeInputs) {
+    input.addEventListener('change', () => {
+      if (!input.checked) return;
+      setDraftWindowResizeMode(input.value);
+      renderWindowResizeMode();
+      onRequestSaveStateUpdate();
+    });
+  }
 
   for (const input of themeInputs) {
     input.addEventListener('change', () => {

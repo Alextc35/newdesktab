@@ -3,8 +3,10 @@ import test from 'node:test';
 import {
   BOOKMARK_DRAG_MODES,
   BOOKMARK_RESIZE_MODES,
+  WINDOW_RESIZE_MODES,
   normalizeBookmarkDragMode,
-  normalizeBookmarkResizeMode
+  normalizeBookmarkResizeMode,
+  normalizeWindowResizeMode
 } from '../src/domain/settings/gridInteractionModes.js';
 
 test('normalizes persisted drag modes without changing supported values', () => {
@@ -21,4 +23,12 @@ test('normalizes persisted resize modes without changing supported values', () =
   }
   assert.equal(normalizeBookmarkResizeMode('unknown'), BOOKMARK_RESIZE_MODES.SMOOTH);
   assert.equal(normalizeBookmarkResizeMode(undefined), BOOKMARK_RESIZE_MODES.SMOOTH);
+});
+
+test('normalizes global window resize modes and defaults to fitting the window', () => {
+  for (const mode of Object.values(WINDOW_RESIZE_MODES)) {
+    assert.equal(normalizeWindowResizeMode(mode), mode);
+  }
+  assert.equal(normalizeWindowResizeMode('unknown'), WINDOW_RESIZE_MODES.FIT);
+  assert.equal(normalizeWindowResizeMode(undefined), WINDOW_RESIZE_MODES.FIT);
 });

@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "یادداشت‌های انتشار",
     "settingsDescription": "چه چیزی تغییر کرد و داستان پشت هر به روز رسانی.",
     "open": "یادداشت ها را بخوانید",
     "history": "تاریخچه نسخه",
@@ -729,6 +730,20 @@
         "system": "مرورگر",
         "light": "نور",
         "dark": "تاریک"
+      },
+      "windowResize": {
+        "title": "Window resizing behavior",
+        "description": "Choose how bookmarks respond when the window changes size.",
+        "fit": {
+          "title": "Fit to window",
+          "description": "Shrink or grow bookmarks to fill the available space."
+        },
+        "relative": {
+          "title": "Keep bookmark size",
+          "description": "In smaller windows, keep bookmark sizes and scroll the grid."
+        },
+        "previewWide": "Wide window",
+        "previewNarrow": "Narrow window"
       }
     },
     "sync": {

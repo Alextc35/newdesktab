@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "ಬಿಡುಗಡೆ ಟಿಪ್ಪಣಿಗಳು",
     "settingsDescription": "ಏನು ಬದಲಾಗಿದೆ ಮತ್ತು ಪ್ರತಿ ನವೀಕರಣದ ಹಿಂದಿನ ಕಥೆ.",
     "open": "ಟಿಪ್ಪಣಿಗಳನ್ನು ಓದಿ",
     "history": "ಆವೃತ್ತಿ ಇತಿಹಾಸ",
@@ -729,6 +730,20 @@
         "system": "ಬ್ರೌಸರ್",
         "light": "ಬೆಳಕು",
         "dark": "ಕತ್ತಲು"
+      },
+      "windowResize": {
+        "title": "Window resizing behavior",
+        "description": "Choose how bookmarks respond when the window changes size.",
+        "fit": {
+          "title": "Fit to window",
+          "description": "Shrink or grow bookmarks to fill the available space."
+        },
+        "relative": {
+          "title": "Keep bookmark size",
+          "description": "In smaller windows, keep bookmark sizes and scroll the grid."
+        },
+        "previewWide": "Wide window",
+        "previewNarrow": "Narrow window"
       }
     },
     "sync": {

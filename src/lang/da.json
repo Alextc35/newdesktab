@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "Udgivelsesnoter",
     "settingsDescription": "Hvad ændrede sig og historien bag hver opdatering.",
     "open": "Læs noter",
     "history": "Versionshistorik",
@@ -729,6 +730,20 @@
         "system": "Browser",
         "light": "Lys",
         "dark": "Mørk"
+      },
+      "windowResize": {
+        "title": "Window resizing behavior",
+        "description": "Choose how bookmarks respond when the window changes size.",
+        "fit": {
+          "title": "Fit to window",
+          "description": "Shrink or grow bookmarks to fill the available space."
+        },
+        "relative": {
+          "title": "Keep bookmark size",
+          "description": "In smaller windows, keep bookmark sizes and scroll the grid."
+        },
+        "previewWide": "Wide window",
+        "previewNarrow": "Narrow window"
       }
     },
     "sync": {

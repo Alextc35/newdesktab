@@ -1,5 +1,6 @@
 {
   "releaseNotes": {
+    "settingsTitle": "發行說明",
     "settingsDescription": "發生了什麼變化以及每次更新背後的故事。",
     "open": "閱讀筆記",
     "history": "版本歷史",
@@ -729,6 +730,20 @@
         "system": "瀏覽器",
         "light": "光",
         "dark": "黑暗"
+      },
+      "windowResize": {
+        "title": "Window resizing behavior",
+        "description": "Choose how bookmarks respond when the window changes size.",
+        "fit": {
+          "title": "Fit to window",
+          "description": "Shrink or grow bookmarks to fill the available space."
+        },
+        "relative": {
+          "title": "Keep bookmark size",
+          "description": "In smaller windows, keep bookmark sizes and scroll the grid."
+        },
+        "previewWide": "Wide window",
+        "previewNarrow": "Narrow window"
       }
     },
     "sync": {

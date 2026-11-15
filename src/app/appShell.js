@@ -41,8 +41,35 @@ export function initAppShell({
   toggleButtonRef = toggleButton;
 
   window.addEventListener('resize', handleResize);
+  initGridScrollbarVisibility(container.closest('#bookmark-viewport'));
 
   toggleButtonRef?.addEventListener('click', toggleEditMode);
+}
+
+/** Reveals each grid scrollbar only while the pointer is near its edge. */
+function initGridScrollbarVisibility(viewport) {
+  if (!viewport) return;
+  const edgeSize = 18;
+  const verticalClass = 'is-vertical-scrollbar-visible';
+  const horizontalClass = 'is-horizontal-scrollbar-visible';
+  const hideScrollbars = () => viewport.classList.remove(verticalClass, horizontalClass);
+
+  viewport.addEventListener('pointermove', event => {
+    if (event.pointerType !== 'mouse' || !viewport.classList.contains('is-relative-grid')) {
+      hideScrollbars();
+      return;
+    }
+    const bounds = viewport.getBoundingClientRect();
+    viewport.classList.toggle(verticalClass,
+      viewport.scrollHeight > viewport.clientHeight
+      && event.clientX >= bounds.right - edgeSize && event.clientX <= bounds.right);
+    viewport.classList.toggle(horizontalClass,
+      viewport.scrollWidth > viewport.clientWidth
+      && event.clientY >= bounds.bottom - edgeSize && event.clientY <= bounds.bottom);
+  }, { passive: true });
+  viewport.addEventListener('pointerleave', hideScrollbars);
+  window.addEventListener('resize', hideScrollbars);
+  window.addEventListener('blur', hideScrollbars);
 }
 
 /**
