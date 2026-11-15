@@ -511,7 +511,11 @@
     "invalidWallpaperUrl": "Digite uma URL de imagem HTTP ou HTTPS válida.",
     "settingsSaved": "Configurações do espaço salvas.",
     "discardSettings": "Descartar as alterações não salvas do espaço de trabalho?",
-    "confirmDelete": "Excluir «{{name}}», suas {{folderCount}} pastas e {{bookmarkCount}} favoritos? Se quiser mantê-los, mova-os antes para Principal ou para outro espaço."
+    "confirmDelete": "Excluir «{{name}}», suas {{folderCount}} pastas e {{bookmarkCount}} favoritos? Se quiser mantê-los, mova-os antes para Principal ou para outro espaço.",
+    "useGlobalTheme": "Use the global theme for this workspace",
+    "solidBackground": "Use a solid background color",
+    "solidColor": "Background color",
+    "globalThemePreview": "Using the global theme"
   },
   "search": {
     "title": "Buscar favoritos",

@@ -486,6 +486,14 @@ export function openCustomColorPicker(input, options = {}) {
   instances.get(input)?.open(options);
 }
 
+/** Toggles an initialized picker from a separate preview or button trigger. */
+export function toggleCustomColorPicker(input, options = {}) {
+  const instance = instances.get(input);
+  if (!instance) return;
+  if (openInstance === instance) instance.close({ commit: true, restoreFocus: true });
+  else instance.open(options);
+}
+
 /** Refreshes an open picker after its owning editor restores a draft snapshot. */
 export function refreshCustomColorPickers(root) {
   root.querySelectorAll('input[type="color"]').forEach(input => instances.get(input)?.refresh());

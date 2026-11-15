@@ -511,7 +511,11 @@
     "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
-    "confirmDelete": "Padamkan “{{name}}”, {{folderCount}} folder dan {{bookmarkCount}} penanda halamannya? Untuk menyimpannya, alihkannya ke Utama atau ruang kerja lain terlebih dahulu."
+    "confirmDelete": "Padamkan “{{name}}”, {{folderCount}} folder dan {{bookmarkCount}} penanda halamannya? Untuk menyimpannya, alihkannya ke Utama atau ruang kerja lain terlebih dahulu.",
+    "useGlobalTheme": "Use the global theme for this workspace",
+    "solidBackground": "Use a solid background color",
+    "solidColor": "Background color",
+    "globalThemePreview": "Using the global theme"
   },
   "search": {
     "title": "Cari penanda halaman",

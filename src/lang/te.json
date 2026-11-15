@@ -511,7 +511,11 @@
     "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
-    "confirmDelete": "“{{name}}”, దాని {{folderCount}} ఫోల్డర్‌లు మరియు {{bookmarkCount}} బుక్‌మార్క్‌లను తొలగించాలా? వాటిని ఉంచడానికి, ముందుగా వాటిని ప్రధాన లేదా మరొక కార్యస్థలానికి తరలించండి."
+    "confirmDelete": "“{{name}}”, దాని {{folderCount}} ఫోల్డర్‌లు మరియు {{bookmarkCount}} బుక్‌మార్క్‌లను తొలగించాలా? వాటిని ఉంచడానికి, ముందుగా వాటిని ప్రధాన లేదా మరొక కార్యస్థలానికి తరలించండి.",
+    "useGlobalTheme": "Use the global theme for this workspace",
+    "solidBackground": "Use a solid background color",
+    "solidColor": "Background color",
+    "globalThemePreview": "Using the global theme"
   },
   "search": {
     "title": "బుక్‌మార్క్‌లను శోధించండి",

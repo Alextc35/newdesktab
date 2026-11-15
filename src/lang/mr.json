@@ -511,7 +511,11 @@
     "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
-    "confirmDelete": "“{{name}}”, त्याचे {{folderCount}} फोल्डर आणि {{bookmarkCount}} बुकमार्क हटवायचे? त्यांना ठेवण्यासाठी, त्यांना प्रथम मुख्य किंवा दुसऱ्या कार्यस्थानावर हलवा."
+    "confirmDelete": "“{{name}}”, त्याचे {{folderCount}} फोल्डर आणि {{bookmarkCount}} बुकमार्क हटवायचे? त्यांना ठेवण्यासाठी, त्यांना प्रथम मुख्य किंवा दुसऱ्या कार्यस्थानावर हलवा.",
+    "useGlobalTheme": "Use the global theme for this workspace",
+    "solidBackground": "Use a solid background color",
+    "solidColor": "Background color",
+    "globalThemePreview": "Using the global theme"
   },
   "search": {
     "title": "बुकमार्क शोधा",

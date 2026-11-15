@@ -16,11 +16,16 @@ async function waitForSaved(page) {
 async function openWorkspaceSettings(page, workspaceId) {
   const toolbar = page.getByRole('navigation', { name: 'Workspace controls' });
   await toolbar.hover();
-  await page.locator('#workspace-toggle').click();
-  const selector = workspaceId
-    ? `#workspace-options [data-workspace-settings-id="${workspaceId}"]`
-    : '#workspace-options [data-workspace-settings-id=""]';
-  await page.locator(selector).click();
+  const activeWorkspaceId = await page.locator('#workspace-select').inputValue();
+  if (activeWorkspaceId === (workspaceId || '')) {
+    await page.locator('#workspace-settings-current').click();
+  } else {
+    await page.locator('#workspace-toggle').click();
+    const selector = workspaceId
+      ? `#workspace-options [data-workspace-settings-id="${workspaceId}"]`
+      : '#workspace-options [data-workspace-settings-id=""]';
+    await page.locator(selector).click();
+  }
   await expect(page.locator('#workspace-settings-modal')).toBeVisible();
 }
 
@@ -47,11 +52,17 @@ test.beforeEach(async ({ page }) => {
 
 test('edits Main and custom workspace names and wallpapers independently', async ({ page }) => {
   await page.getByRole('navigation', { name: 'Workspace controls' }).hover();
+  await page.locator('#workspace-toggle').click();
+  await expect(page.locator('#workspace-options [aria-current="true"]')
+    .locator('..').locator('.workspace-option-settings')).toHaveCount(0);
+  await expect(page.locator('#workspace-settings-current')).toBeVisible();
+  await page.locator('#workspace-toggle').click();
   await page.locator('#workspace-settings-current').click();
   await expect(page.locator('#workspace-settings-modal')).toBeVisible();
   await page.locator('#workspace-settings-cancel').click();
 
   await openWorkspaceSettings(page, null);
+  await page.locator('#workspace-settings-use-global-theme').uncheck();
   await page.locator('#workspace-settings-name').fill('Home');
   await page.locator('#workspace-settings-wallpaper-url').fill('https://images.test/home.jpg');
   await page.locator('#workspace-settings-media-add').click();
@@ -72,6 +83,7 @@ test('edits Main and custom workspace names and wallpapers independently', async
 
   await openWorkspaceSettings(page, workspaceId);
   await page.locator('#workspace-settings-name').fill('Research');
+  await page.locator('#workspace-settings-use-global-theme').uncheck();
   await page.locator('#workspace-settings-wallpaper-url').fill('https://images.test/research-fallback.jpg');
   await page.locator('#workspace-settings-media-add').click();
   await page.locator('#workspace-settings-file').setInputFiles({
@@ -134,4 +146,83 @@ test('edits Main and custom workspace names and wallpapers independently', async
   await expectAppReady(page);
   await expect(page.locator('#workspace-current-name')).toHaveText('Research');
   await expect(page.locator('html')).toHaveCSS('--image-bg-body', /data:image\//);
+});
+
+test('supports a solid workspace color and returning to the global theme', async ({ page }) => {
+  const toolbar = page.getByRole('navigation', { name: 'Workspace controls' });
+  await toolbar.hover();
+  await page.getByRole('button', { name: 'Create workspace' }).click();
+  await page.locator('#alert-modal-input').fill('Color test');
+  await page.locator('#alert-modal-accept').click();
+  await waitForSaved(page);
+  const workspaceId = await page.locator('#workspace-select').inputValue();
+
+  await openWorkspaceSettings(page, workspaceId);
+  await expect(page.locator('#workspace-settings-wallpaper-controls')).toBeHidden();
+  await page.locator('#workspace-settings-use-global-theme').uncheck();
+  await page.locator('#workspace-settings-solid-background').check();
+  await page.locator('#workspace-wallpaper-preview').click();
+  const picker = page.locator('#workspace-settings-solid-color-color-picker');
+  await expect(picker).toBeVisible();
+  await expect(page.locator('#workspace-wallpaper-preview-message')).toBeHidden();
+  await picker.locator('.app-color-picker-hex').fill('#D90004');
+  await expect(page.locator('#workspace-wallpaper-preview'))
+    .toHaveCSS('background-color', 'rgb(217, 0, 4)');
+  await expect(page.locator('#workspace-wallpaper-preview')).toHaveCSS('background-image', 'none');
+  await picker.locator('.app-color-picker-hex').fill('#336699');
+  await expect(page.locator('#workspace-wallpaper-preview'))
+    .toHaveCSS('background-color', 'rgb(51, 102, 153)');
+  await picker.locator('.app-color-picker-hex').press('Enter');
+  await page.locator('#workspace-wallpaper-preview').click();
+  await expect(picker).toBeHidden();
+  await expect(page.locator('#workspace-wallpaper-preview-message')).toBeVisible();
+  await page.locator('#workspace-wallpaper-preview').click();
+  await expect(picker).toBeVisible();
+  await picker.locator('.app-color-picker-close').click();
+  await page.locator('#workspace-settings-save').click();
+  await waitForSaved(page);
+  await expect(page.locator('html')).toHaveCSS('--color-bg-body', '#336699');
+
+  const custom = await page.evaluate(async id => {
+    const { getState } = await import('/src/state/appStore.js');
+    return getState().data.settings.bookmarkGroups.find(item => item.id === id);
+  }, workspaceId);
+  expect(custom).toMatchObject({ themeEnabled: true, backgroundSolid: true, backgroundColor: '#336699' });
+
+  await openWorkspaceSettings(page, workspaceId);
+  await page.locator('#workspace-settings-use-global-theme').check();
+  await expect(page.locator('#workspace-settings-theme-controls')).toBeHidden();
+  await page.locator('#workspace-settings-save').click();
+  await waitForSaved(page);
+  await expect(page.locator('html')).not.toHaveCSS('--color-bg-body', '#336699');
+  const globalMode = await page.evaluate(async id => {
+    const { getState } = await import('/src/state/appStore.js');
+    return getState().data.settings.bookmarkGroups.find(item => item.id === id).themeEnabled;
+  }, workspaceId);
+  expect(globalMode).toBe(false);
+});
+
+test('uses the default preview when the global theme has no active background', async ({ page }) => {
+  await page.evaluate(async () => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    const data = getState().data;
+    await setState({ data: { ...data, settings: { ...data.settings, theme: {
+      ...data.settings.theme,
+      backgroundDefault: true,
+      backgroundSolid: false,
+      backgroundMedia: [{ id: 'saved-but-inactive', type: 'image',
+        backgroundImageUrl: 'https://images.test/inactive.jpg', backgroundImageLocal: null,
+        backgroundImageSource: 'url' }]
+    } } } });
+  });
+  await openWorkspaceSettings(page, null);
+  await expect(page.locator('#workspace-settings-use-global-theme')).toBeChecked();
+  await expect(page.locator('#workspace-wallpaper-preview-image')).toBeHidden();
+  await expect(page.locator('#workspace-wallpaper-preview')).toHaveClass(/is-default-bg/);
+  const defaultPreview = await page.locator('#workspace-wallpaper-preview').evaluate(element => ({
+    wordmark: getComputedStyle(element, '::after').content,
+    background: getComputedStyle(element).backgroundImage
+  }));
+  expect(defaultPreview.wordmark).toBe('"New DeskTab"');
+  expect(defaultPreview.background).toContain('radial-gradient');
 });

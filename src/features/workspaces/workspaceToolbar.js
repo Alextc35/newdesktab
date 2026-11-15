@@ -226,7 +226,8 @@ function createWorkspaceOption({ id, name }, active) {
   settingsButton.setAttribute('aria-label', t('workspace.editSettingsFor', { name }));
   settingsButton.title = t('workspace.editSettingsFor', { name });
   settingsButton.innerHTML = '<span class="workspace-option-settings-icon" aria-hidden="true"></span>';
-  item.append(button, settingsButton);
+  item.append(button);
+  if (!active) item.append(settingsButton);
   return item;
 }
 

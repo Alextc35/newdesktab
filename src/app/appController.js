@@ -34,15 +34,20 @@ export function createAppController({ container }) {
           backgroundColor: settings.theme.backgroundImageColor }]
         : [];
     const hasWorkspaceWallpaper = workspaceMedia.length > 0;
-    const themeSettings = hasWorkspaceWallpaper
+    const usesWorkspaceTheme = Boolean(workspace && workspace.themeEnabled !== false);
+    const themeSettings = usesWorkspaceTheme
       ? {
           ...settings,
           theme: {
             ...settings.theme,
-            backgroundDefault: false,
-            backgroundSolid: false,
+            backgroundDefault: !workspace.backgroundSolid && !hasWorkspaceWallpaper,
+            backgroundSolid: workspace.backgroundSolid === true,
+            backgroundColor: workspace.backgroundColor ?? settings.theme.backgroundColor,
             backgroundMedia: workspaceMedia,
-            backgroundRotationSeconds: workspace.backgroundRotationSeconds ?? 0
+            backgroundRotationSeconds: workspace.backgroundSolid
+              ? 0 : workspace.backgroundRotationSeconds ?? 0,
+            backgroundImageUrl: null,
+            backgroundImageLocal: null
           }
         }
       : settings;

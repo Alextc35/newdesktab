@@ -1,6 +1,7 @@
 import '../../types/types.js';
 import {
   createWorkspace as createWorkspaceEntity,
+  normalizeWorkspaceColor,
   normalizeWorkspaceWallpaperUrl,
   resolveWorkspaceId
 } from '../../domain/workspaces/workspaceModel.js';
@@ -40,6 +41,12 @@ export function updateWorkspace(workspaceId, changes) {
       ? { backgroundMedia: normalizeWallpaperMedia(changes.backgroundMedia) } : {}),
     ...(Object.hasOwn(changes ?? {}, 'backgroundRotationSeconds')
       ? { backgroundRotationSeconds: normalizeWallpaperInterval(changes.backgroundRotationSeconds) } : {}),
+    ...(Object.hasOwn(changes ?? {}, 'themeEnabled')
+      ? { themeEnabled: changes.themeEnabled === true } : {}),
+    ...(Object.hasOwn(changes ?? {}, 'backgroundSolid')
+      ? { backgroundSolid: changes.backgroundSolid === true } : {}),
+    ...(Object.hasOwn(changes ?? {}, 'backgroundColor')
+      ? { backgroundColor: normalizeWorkspaceColor(changes.backgroundColor) } : {}),
     ...(includesUrl ? { backgroundImageUrl } : {})
   };
 

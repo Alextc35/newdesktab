@@ -511,7 +511,11 @@
     "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
-    "confirmDelete": "Διαγραφή του \"{{name}}\", των {{folderCount}} φακέλων και των {{bookmarkCount}} σελιδοδεικτών του; Για να τα διατηρήσετε, μετακινήστε τα πρώτα στο Κύρια ή σε άλλο χώρο εργασίας."
+    "confirmDelete": "Διαγραφή του \"{{name}}\", των {{folderCount}} φακέλων και των {{bookmarkCount}} σελιδοδεικτών του; Για να τα διατηρήσετε, μετακινήστε τα πρώτα στο Κύρια ή σε άλλο χώρο εργασίας.",
+    "useGlobalTheme": "Use the global theme for this workspace",
+    "solidBackground": "Use a solid background color",
+    "solidColor": "Background color",
+    "globalThemePreview": "Using the global theme"
   },
   "search": {
     "title": "Αναζήτηση σελιδοδεικτών",

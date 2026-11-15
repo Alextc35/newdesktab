@@ -2,9 +2,7 @@ import { showAlert } from '../../shared/ui/alertModal.js';
 import { refreshCustomSelect } from '../../shared/ui/customSelect.js';
 import { createLockableInputController } from '../../shared/ui/lockableInput.js';
 import { t } from '../../platform/i18n/i18n.js';
-import {
-  openCustomColorPicker
-} from '../../shared/ui/colorPicker.js';
+import { toggleCustomColorPicker } from '../../shared/ui/colorPicker.js';
 import { DEFAULT_SETTINGS } from '../../domain/settings/settingsDefaults.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { getImageInputValue, setImageInputValue } from '../../shared/ui/localImageUpload.js';
@@ -367,7 +365,7 @@ export function initThemeSection({
 
   function openSolidColorPicker() {
     if (bgColorInput.disabled) return;
-    openCustomColorPicker(bgColorInput, {
+    toggleCustomColorPicker(bgColorInput, {
       anchor: bgPreview,
       returnFocusTo: bgPreview,
       onOpen: () => { bgPreviewColorHint.hidden = true; },

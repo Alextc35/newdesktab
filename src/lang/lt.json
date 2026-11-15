@@ -511,7 +511,11 @@
     "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
-    "confirmDelete": "Ištrinti „{{name}}“, jo {{folderCount}} aplankus ir {{bookmarkCount}} žymes? Norėdami juos išsaugoti, pirmiausia perkelkite juos į pagrindinę arba kitą darbo sritį."
+    "confirmDelete": "Ištrinti „{{name}}“, jo {{folderCount}} aplankus ir {{bookmarkCount}} žymes? Norėdami juos išsaugoti, pirmiausia perkelkite juos į pagrindinę arba kitą darbo sritį.",
+    "useGlobalTheme": "Use the global theme for this workspace",
+    "solidBackground": "Use a solid background color",
+    "solidColor": "Background color",
+    "globalThemePreview": "Using the global theme"
   },
   "search": {
     "title": "Ieškokite žymių",

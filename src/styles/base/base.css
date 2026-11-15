@@ -83,6 +83,13 @@ html.is-default-bg body::after,
   pointer-events: none;
 }
 
+.bg-preview.is-default-bg::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: clamp(1.35rem, 5vw, 2.4rem);
+}
+
 html.is-default-bg body::before,
 .bg-preview.is-default-bg::before {
   content: var(--version);
@@ -94,4 +101,11 @@ html.is-default-bg body::before,
   letter-spacing: 0.2em;
   color: var(--default-wallpaper-muted);
   pointer-events: none;
+}
+
+.bg-preview.is-default-bg::before {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  font-size: .65rem;
 }

@@ -27,6 +27,35 @@
   margin-bottom: 7px;
 }
 
+.workspace-theme-options > .checkbox-wrapper {
+  margin-bottom: 9px;
+}
+
+#workspace-settings-theme-controls[hidden],
+#workspace-settings-wallpaper-controls[hidden],
+#workspace-settings-solid-color[hidden] {
+  display: none;
+}
+
+.workspace-solid-theme-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 42px;
+}
+
+.workspace-solid-theme-row .checkbox-wrapper {
+  min-width: 0;
+}
+
+#workspace-settings-solid-color {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 34px;
+  padding: 3px;
+}
+
 .workspace-wallpaper-preview {
   position: relative;
   display: grid;
@@ -44,6 +73,16 @@
   color: rgb(255 255 255 / 82%);
   font-size: 13px;
   text-shadow: 0 1px 8px rgb(0 0 0 / 65%);
+}
+
+.workspace-wallpaper-preview.is-solid-color-trigger {
+  cursor: pointer;
+}
+
+.workspace-wallpaper-preview.is-solid-color-trigger:hover,
+.workspace-wallpaper-preview.is-solid-color-trigger:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 2px;
 }
 
 .workspace-wallpaper-preview > img,

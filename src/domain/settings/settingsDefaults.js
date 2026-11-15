@@ -46,7 +46,10 @@ export const DEFAULT_SETTINGS = {
     backgroundImageSource: 'url',
     backgroundImageUrlLocked: false,
     backgroundMedia: [],
-    backgroundRotationSeconds: 0
+    backgroundRotationSeconds: 0,
+    themeEnabled: false,
+    backgroundSolid: false,
+    backgroundColor: '#101827'
   },
   activeBookmarkGroupId: null
 };

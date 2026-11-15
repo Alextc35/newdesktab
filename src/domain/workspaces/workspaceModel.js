@@ -14,7 +14,11 @@ export function normalizeWorkspaceName(value, fallback = '') {
 export function createWorkspace({ id, name }) {
   const normalizedName = normalizeWorkspaceName(name);
   if (typeof id !== 'string' || !id.trim() || !normalizedName) return null;
-  return { id, name: normalizedName, ...normalizeBackgroundImage(), backgroundMedia: [], backgroundRotationSeconds: 0 };
+  return {
+    id, name: normalizedName, ...normalizeBackgroundImage(), backgroundMedia: [],
+    backgroundRotationSeconds: 0, themeEnabled: false, backgroundSolid: false,
+    backgroundColor: '#101827'
+  };
 }
 
 /** Normalizes the legacy persisted workspace collection. */
@@ -25,6 +29,7 @@ export function normalizeWorkspaces(value) {
     .filter(workspace => workspace && typeof workspace === 'object')
     .map((workspace, index) => {
       const image = normalizeBackgroundImage(workspace);
+      const backgroundMedia = normalizeWorkspaceMedia(workspace);
       return {
         id: typeof workspace.id === 'string' && workspace.id.trim()
           ? workspace.id
@@ -32,8 +37,11 @@ export function normalizeWorkspaces(value) {
         name: normalizeWorkspaceName(workspace.name, `Workspace ${index + 1}`),
         ...image,
         backgroundImageUrl: normalizeWorkspaceWallpaperUrl(image.backgroundImageUrl),
-        backgroundMedia: normalizeWorkspaceMedia(workspace),
-        backgroundRotationSeconds: normalizeWallpaperInterval(workspace.backgroundRotationSeconds)
+        backgroundMedia,
+        backgroundRotationSeconds: normalizeWallpaperInterval(workspace.backgroundRotationSeconds),
+        themeEnabled: normalizeWorkspaceThemeEnabled(workspace, backgroundMedia),
+        backgroundSolid: workspace.backgroundSolid === true,
+        backgroundColor: normalizeWorkspaceColor(workspace.backgroundColor)
       };
     });
 }
@@ -42,13 +50,27 @@ export function normalizeWorkspaces(value) {
 export function normalizeMainWorkspace(value) {
   const source = value && typeof value === 'object' ? value : {};
   const image = normalizeBackgroundImage(source);
+  const backgroundMedia = normalizeWorkspaceMedia(source);
   return {
     name: normalizeWorkspaceName(source.name) || null,
     ...image,
     backgroundImageUrl: normalizeWorkspaceWallpaperUrl(image.backgroundImageUrl),
-    backgroundMedia: normalizeWorkspaceMedia(source),
-    backgroundRotationSeconds: normalizeWallpaperInterval(source.backgroundRotationSeconds)
+    backgroundMedia,
+    backgroundRotationSeconds: normalizeWallpaperInterval(source.backgroundRotationSeconds),
+    themeEnabled: normalizeWorkspaceThemeEnabled(source, backgroundMedia),
+    backgroundSolid: source.backgroundSolid === true,
+    backgroundColor: normalizeWorkspaceColor(source.backgroundColor)
   };
+}
+
+function normalizeWorkspaceThemeEnabled(source, media) {
+  return typeof source.themeEnabled === 'boolean'
+    ? source.themeEnabled
+    : Boolean(media.length || source.backgroundImageUrl || source.backgroundImageLocal || source.backgroundSolid);
+}
+
+export function normalizeWorkspaceColor(value) {
+  return typeof value === 'string' && /^#[\da-f]{6}$/i.test(value) ? value : '#101827';
 }
 
 function normalizeWorkspaceMedia(source) {

@@ -10,6 +10,7 @@ import { getWorkspaceById } from './workspaceSelectors.js';
 import { updateWorkspace } from './workspaceActions.js';
 import { createWallpaperFiles } from '../settings/wallpaperFiles.js';
 import { createWallpaperLibrary } from '../settings/wallpaperLibrary.js';
+import { toggleCustomColorPicker } from '../../shared/ui/colorPicker.js';
 
 const MODAL_ID = 'workspace-settings';
 const MAX_NAME_LENGTH = 60;
@@ -19,10 +20,16 @@ let initialValue = null;
 let draftValue = null;
 let submitting = false;
 let isUploading = false;
+let solidColorPickerOpen = false;
 let modal;
 let title;
 let nameInput;
 let nameError;
+let useGlobalThemeInput;
+let themeControls;
+let solidBackgroundInput;
+let solidColorInput;
+let wallpaperControls;
 let urlInput;
 let urlError;
 let fileInput;
@@ -43,6 +50,12 @@ export function initWorkspaceSettingsModal() {
   title = requiredElement('workspace-settings-title');
   nameInput = requiredElement('workspace-settings-name');
   nameError = requiredElement('workspace-settings-name-error');
+  useGlobalThemeInput = requiredElement('workspace-settings-use-global-theme');
+  themeControls = requiredElement('workspace-settings-theme-controls');
+  solidBackgroundInput = requiredElement('workspace-settings-solid-background');
+  solidColorInput = requiredElement('workspace-settings-solid-color');
+  solidColorInput.hidden = true;
+  wallpaperControls = requiredElement('workspace-settings-wallpaper-controls');
   urlInput = requiredElement('workspace-settings-wallpaper-url');
   urlError = requiredElement('workspace-settings-url-error');
   fileInput = requiredElement('workspace-settings-file');
@@ -74,6 +87,30 @@ export function initWorkspaceSettingsModal() {
   nameInput.addEventListener('input', () => {
     clearError(nameInput, nameError);
     syncSaveButton();
+  });
+  useGlobalThemeInput.addEventListener('change', () => {
+    draftValue.themeEnabled = !useGlobalThemeInput.checked;
+    syncThemeControls();
+    renderPreview();
+    syncSaveButton();
+  });
+  solidBackgroundInput.addEventListener('change', () => {
+    draftValue.backgroundSolid = solidBackgroundInput.checked;
+    syncThemeControls();
+    renderPreview();
+    syncSaveButton();
+  });
+  solidColorInput.addEventListener('input', () => {
+    draftValue.backgroundColor = solidColorInput.value;
+    renderPreview();
+    syncSaveButton();
+  });
+  preview.addEventListener('click', openSolidColorPicker);
+  preview.addEventListener('keydown', event => {
+    if (!['Enter', ' '].includes(event.key) || !draftValue?.themeEnabled
+      || !draftValue.backgroundSolid) return;
+    event.preventDefault();
+    openSolidColorPicker();
   });
   urlInput.addEventListener('input', () => {
     clearError(urlInput, urlError);
@@ -109,13 +146,21 @@ export function openWorkspaceSettings(workspaceId) {
   initialValue = structuredClone(workspace);
   draftValue = structuredClone(workspace);
   draftValue.backgroundMedia ??= [];
+  draftValue.themeEnabled ??= Boolean(draftValue.backgroundMedia.length
+    || draftValue.backgroundImageUrl || draftValue.backgroundImageLocal || draftValue.backgroundSolid);
+  draftValue.backgroundSolid ??= false;
+  draftValue.backgroundColor ??= '#101827';
   submitting = false;
   title.textContent = t('workspace.settingsTitleFor', { name: workspace.name || t('workspace.main') });
   nameInput.value = workspace.name || t('workspace.main');
   nameInput.maxLength = MAX_NAME_LENGTH;
+  useGlobalThemeInput.checked = !draftValue.themeEnabled;
+  solidBackgroundInput.checked = draftValue.backgroundSolid;
+  solidColorInput.value = draftValue.backgroundColor;
   urlInput.value = '';
   fileInput.value = '';
   intervalInput.value = String(normalizeWallpaperInterval(draftValue.backgroundRotationSeconds));
+  syncThemeControls();
   clearAllErrors();
   library.render();
   renderPreview();
@@ -191,6 +236,9 @@ async function handleFileSelection() {
 function getDraft() {
   return {
     name: normalizeWorkspaceName(nameInput.value),
+    themeEnabled: draftValue.themeEnabled,
+    backgroundSolid: draftValue.backgroundSolid,
+    backgroundColor: draftValue.backgroundColor,
     backgroundMedia: draftValue.backgroundMedia,
     backgroundRotationSeconds: Number(intervalInput.value),
     backgroundImageUrl: null,
@@ -201,25 +249,85 @@ function getDraft() {
 }
 
 function renderPreview(itemId) {
-  const first = (draftValue?.backgroundMedia ?? []).find(item => item.id === itemId)
-    ?? draftValue?.backgroundMedia?.[0];
+  const globalTheme = getState().data.settings.theme;
+  const usingGlobalTheme = !draftValue?.themeEnabled;
+  const hasWorkspaceWallpaper = Boolean(draftValue?.backgroundMedia?.length
+    || draftValue?.backgroundImageUrl || draftValue?.backgroundImageLocal);
+  const usingDefaultTheme = usingGlobalTheme
+    ? globalTheme.backgroundDefault
+    : !draftValue?.backgroundSolid && !hasWorkspaceWallpaper;
+  if (usingDefaultTheme) {
+    clearPreviewMedia();
+    preview.style.backgroundColor = '';
+    preview.style.removeProperty('background-image');
+    previewMessage.hidden = true;
+    preview.classList.add('is-default-bg');
+    preview.classList.remove('has-wallpaper', 'is-solid-color-trigger');
+    preview.removeAttribute('role');
+    preview.removeAttribute('tabindex');
+    preview.removeAttribute('aria-label');
+    preview.removeAttribute('aria-haspopup');
+    return;
+  }
+  const themeIsSolid = usingGlobalTheme ? globalTheme.backgroundSolid : draftValue?.backgroundSolid;
+  if (themeIsSolid) {
+    clearPreviewMedia();
+    preview.classList.remove('is-default-bg');
+    preview.style.backgroundImage = 'none';
+    preview.style.backgroundColor = usingGlobalTheme
+      ? globalTheme.backgroundColor : draftValue.backgroundColor;
+    previewMessage.hidden = usingGlobalTheme || solidColorPickerOpen;
+    if (!usingGlobalTheme) {
+      previewMessage.textContent = t('settingsModal.theme.editSolidColor');
+    }
+    preview.classList.add('has-wallpaper');
+    preview.classList.toggle('is-solid-color-trigger', !usingGlobalTheme);
+    if (usingGlobalTheme) {
+      preview.removeAttribute('role');
+      preview.removeAttribute('tabindex');
+      preview.removeAttribute('aria-label');
+      preview.removeAttribute('aria-haspopup');
+    } else {
+      preview.setAttribute('role', 'button');
+      preview.setAttribute('tabindex', '0');
+      preview.setAttribute('aria-haspopup', 'dialog');
+      preview.setAttribute('aria-label',
+        `${t('settingsModal.theme.editSolidColor')}: ${solidColorInput.value.toUpperCase()}`);
+    }
+    return;
+  }
+  preview.classList.remove('is-solid-color-trigger');
+  preview.classList.remove('is-default-bg');
+  preview.style.removeProperty('background-image');
+  preview.removeAttribute('role');
+  preview.removeAttribute('tabindex');
+  preview.removeAttribute('aria-label');
+  preview.removeAttribute('aria-haspopup');
+  let first;
+  if (usingGlobalTheme) {
+    first = globalTheme.backgroundMedia?.[0] ?? (globalTheme.backgroundImageUrl
+      ? { id: 'global-primary', type: globalTheme.backgroundPrimaryType === 'video' ? 'video' : 'image',
+        url: globalTheme.backgroundVideo?.url,
+        backgroundImageUrl: globalTheme.backgroundImageUrl,
+        backgroundImageLocal: globalTheme.backgroundImageLocal,
+        backgroundImageSource: globalTheme.backgroundImageSource,
+        local: globalTheme.backgroundVideo?.local,
+        source: globalTheme.backgroundVideo?.source }
+      : null);
+  } else {
+    first = (draftValue?.backgroundMedia ?? []).find(item => item.id === itemId)
+      ?? draftValue?.backgroundMedia?.[0];
+  }
   const source = first && resolveWallpaperItem(first);
-  previewImage.onload = null;
-  previewImage.onerror = null;
-  previewVideo.onloadeddata = null;
-  previewVideo.onerror = null;
-  previewVideo.pause();
-  previewVideo.removeAttribute('src');
-  previewVideo.load();
-  previewImage.removeAttribute('src');
-  previewImage.hidden = true;
-  previewVideo.hidden = true;
+  clearPreviewMedia();
   previewMessage.hidden = false;
-  previewMessage.textContent = !first ? t('workspace.wallpaperPreview')
+  previewMessage.textContent = usingGlobalTheme && globalTheme.backgroundDefault
+    ? t('workspace.globalThemePreview')
+    : !first ? t('workspace.wallpaperPreview')
     : source?.url ? '' : t('settingsModal.theme.unavailableLocal');
   preview.classList.remove('has-wallpaper');
   preview.style.backgroundColor = first?.type === 'video' ? '#05070a'
-    : first?.backgroundColor ?? getState().data.settings.theme.backgroundImageColor;
+    : first?.backgroundColor ?? globalTheme.backgroundImageColor;
 
   if (!source?.url) return;
   if (source.type === 'video') {
@@ -250,6 +358,42 @@ function renderPreview(itemId) {
   previewImage.src = source.url;
 }
 
+function clearPreviewMedia() {
+  previewImage.onload = null;
+  previewImage.onerror = null;
+  previewVideo.onloadeddata = null;
+  previewVideo.onerror = null;
+  previewVideo.pause();
+  previewVideo.removeAttribute('src');
+  previewVideo.load();
+  previewImage.removeAttribute('src');
+  previewImage.hidden = true;
+  previewVideo.hidden = true;
+}
+
+function syncThemeControls() {
+  const enabled = Boolean(draftValue?.themeEnabled);
+  const solid = Boolean(draftValue?.backgroundSolid);
+  themeControls.hidden = !enabled;
+  wallpaperControls.hidden = !enabled || solid;
+}
+
+function openSolidColorPicker() {
+  if (!draftValue?.themeEnabled || !draftValue.backgroundSolid) return;
+  toggleCustomColorPicker(solidColorInput, {
+    anchor: preview,
+    returnFocusTo: preview,
+    onOpen: () => {
+      solidColorPickerOpen = true;
+      previewMessage.hidden = true;
+    },
+    onClose: () => {
+      solidColorPickerOpen = false;
+      previewMessage.hidden = !draftValue?.themeEnabled || !draftValue.backgroundSolid;
+    }
+  });
+}
+
 function validateDraft() {
   clearAllErrors();
   const name = nameInput.value.trim();
@@ -263,6 +407,10 @@ function validateDraft() {
 function isDirty() {
   return Boolean(initialValue && JSON.stringify(getDraft()) !== JSON.stringify({
     name: initialValue.name || t('workspace.main'),
+    themeEnabled: initialValue.themeEnabled ?? Boolean(initialValue.backgroundMedia?.length
+      || initialValue.backgroundImageUrl || initialValue.backgroundImageLocal || initialValue.backgroundSolid),
+    backgroundSolid: initialValue.backgroundSolid ?? false,
+    backgroundColor: initialValue.backgroundColor ?? '#101827',
     backgroundMedia: initialValue.backgroundMedia ?? [],
     backgroundRotationSeconds: initialValue.backgroundRotationSeconds ?? 0,
     backgroundImageUrl: null,
@@ -305,6 +453,7 @@ async function handleCancel() {
 
 function closeEditor() {
   closeModal(MODAL_ID);
+  solidColorPickerOpen = false;
   activeWorkspaceId = null;
   initialValue = null;
   draftValue = null;

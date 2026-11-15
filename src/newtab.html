@@ -59,7 +59,7 @@
     <div class="modal-overlay"></div>
     <section class="modal-card workspace-settings-card">
       <h2 id="workspace-settings-title" data-i18n="workspace.settingsTitle">Workspace settings</h2>
-      <div id="workspace-wallpaper-preview" class="workspace-wallpaper-preview"
+      <div id="workspace-wallpaper-preview" class="bg-preview workspace-wallpaper-preview"
         role="img" data-i18n-aria-label="workspace.wallpaperPreview"
         aria-label="Workspace wallpaper preview">
         <img id="workspace-wallpaper-preview-image" alt="" hidden>
@@ -71,7 +71,27 @@
         <input id="workspace-settings-name" type="text" maxlength="60" autocomplete="off">
         <p id="workspace-settings-name-error" class="field-error is-hidden" role="alert"></p>
       </div>
-      <div class="modal-field workspace-wallpapers">
+      <div class="modal-field workspace-theme-options">
+        <div class="checkbox-wrapper">
+          <input id="workspace-settings-use-global-theme" type="checkbox">
+          <label for="workspace-settings-use-global-theme" data-i18n="workspace.useGlobalTheme">
+            Use global theme for this workspace
+          </label>
+        </div>
+        <div id="workspace-settings-theme-controls">
+          <div class="workspace-solid-theme-row">
+            <div class="checkbox-wrapper">
+              <input id="workspace-settings-solid-background" type="checkbox">
+              <label for="workspace-settings-solid-background" data-i18n="workspace.solidBackground">
+                Use a solid background color
+              </label>
+            </div>
+            <input id="workspace-settings-solid-color" type="color" aria-label="Solid background color"
+              data-i18n-aria-label="workspace.solidColor">
+          </div>
+        </div>
+      </div>
+      <div id="workspace-settings-wallpaper-controls" class="modal-field workspace-wallpapers">
         <label for="workspace-settings-wallpaper-url" data-i18n="workspace.wallpaperUrl">Wallpaper URL</label>
         <div class="theme-wallpaper-add">
           <input id="workspace-settings-wallpaper-url" type="url" placeholder="https://…" autocomplete="url">

@@ -19,7 +19,10 @@ test('creates and normalizes workspace entities without changing persisted ident
     backgroundImageSource: 'url',
     backgroundImageUrlLocked: false,
     backgroundMedia: [],
-    backgroundRotationSeconds: 0
+    backgroundRotationSeconds: 0,
+    themeEnabled: false,
+    backgroundSolid: false,
+    backgroundColor: '#101827'
   });
   assert.equal(createWorkspace({ id: 'work', name: '  ' }), null);
 
@@ -31,12 +34,14 @@ test('creates and normalizes workspace entities without changing persisted ident
     {
       id: 'work', name: 'Work', backgroundImageUrl: null, backgroundImageLocal: null,
       backgroundImageSource: 'url', backgroundImageUrlLocked: false,
-      backgroundMedia: [], backgroundRotationSeconds: 0
+      backgroundMedia: [], backgroundRotationSeconds: 0, themeEnabled: false,
+      backgroundSolid: false, backgroundColor: '#101827'
     },
     {
       id: 'workspace-2', name: 'Workspace 2', backgroundImageUrl: null,
       backgroundImageLocal: null, backgroundImageSource: 'url', backgroundImageUrlLocked: false,
-      backgroundMedia: [], backgroundRotationSeconds: 0
+      backgroundMedia: [], backgroundRotationSeconds: 0, themeEnabled: false,
+      backgroundSolid: false, backgroundColor: '#101827'
     }
   ]);
 });
@@ -76,8 +81,24 @@ test('normalizes the editable Main workspace settings', () => {
     backgroundMedia: [{ id: 'workspace-wallpaper-legacy', type: 'image',
       backgroundImageUrl: 'https://images.example/main.jpg', backgroundImageLocal: null,
       backgroundImageSource: 'url', backgroundColor: null }],
-    backgroundRotationSeconds: 0
+    backgroundRotationSeconds: 0,
+    themeEnabled: true,
+    backgroundSolid: false,
+    backgroundColor: '#101827'
   });
+});
+
+test('normalizes per-workspace global and solid background theme options', () => {
+  const [global, solid] = normalizeWorkspaces([
+    { id: 'global', name: 'Global', themeEnabled: false, backgroundSolid: true },
+    { id: 'solid', name: 'Solid', backgroundSolid: true, backgroundColor: '#336699' }
+  ]);
+  assert.equal(global.themeEnabled, false);
+  assert.equal(solid.themeEnabled, true);
+  assert.equal(solid.backgroundSolid, true);
+  assert.equal(solid.backgroundColor, '#336699');
+  assert.equal(normalizeWorkspaces([{ id: 'bad', name: 'Bad', backgroundColor: 'red' }])[0]
+    .backgroundColor, '#101827');
 });
 
 test('resolves unknown workspace references to Main', () => {

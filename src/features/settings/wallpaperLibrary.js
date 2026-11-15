@@ -25,16 +25,16 @@ export function createWallpaperLibrary({ getTheme, setMedia, resetPreviewIndex, 
   function placeWallpaperPeek(peek, anchor) {
     const anchorRect = anchor.getBoundingClientRect();
     const width = Math.min(340, window.innerWidth * .85);
-    const height = width * 9 / 16 + 2;
-    const spaceAbove = anchorRect.top - 8;
-    const spaceBelow = window.innerHeight - anchorRect.bottom - 8;
-    const below = spaceBelow >= height + 12 || spaceBelow >= spaceAbove;
+    // Keep the preview below its eye button, matching the interaction in both
+    // the global theme settings and the workspace editor. The modal can scroll
+    // independently, while this preview is portaled above it in the page layer.
     peek.style.position = 'fixed';
     peek.style.width = `${width}px`;
     peek.style.left = `${Math.max(8, Math.min(window.innerWidth - width - 8, anchorRect.right - width))}px`;
-    peek.style.top = `${below ? anchorRect.bottom + 6 : Math.max(8, anchorRect.top - height - 6)}px`;
+    peek.style.top = `${anchorRect.bottom + 6}px`;
     peek.style.right = 'auto';
     peek.style.bottom = 'auto';
+    peek.dataset.placement = 'below';
     const openModalLayers = [...document.querySelectorAll('.modal.is-open')]
       .map(element => Number.parseInt(getComputedStyle(element).zIndex, 10) || 0);
     peek.style.zIndex = String(Math.max(1001, ...openModalLayers) + 1);
