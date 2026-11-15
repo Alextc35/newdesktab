@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Odstrániť „{{name}}“, jeho {{folderCount}} priečinkov a {{bookmarkCount}} záložiek? Ak si ich chcete ponechať, najskôr ich presuňte do hlavného alebo iného pracovného priestoru.",
+    "confirmDeleteWidgets": "Tým sa tiež natrvalo odstráni {{count}} widgetov.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Zobraziť text",
     "textColor": "Farba textu:",
     "showFavicon": "Zobraziť ikonu",
+    "captionPosition": "Poloha ikony:",
+    "captionPositionLeft": "Vľavo",
+    "captionPositionRight": "Vpravo",
     "invertColorIcon": "Invertovať farby ikon",
     "iconColor": "Farba ikony:",
     "sections": {

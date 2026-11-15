@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Usunąć „{{name}}”, jego {{folderCount}} folderów i {{bookmarkCount}} zakładek? Aby je zachować, przenieś je najpierw do głównego lub innego obszaru roboczego.",
+    "confirmDeleteWidgets": "Spowoduje to również trwałe usunięcie {{count}} widżetów.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Pokaż tekst",
     "textColor": "Kolor tekstu:",
     "showFavicon": "Pokaż ikonę",
+    "captionPosition": "Pozycja ikony:",
+    "captionPositionLeft": "Po lewej",
+    "captionPositionRight": "Po prawej",
     "invertColorIcon": "Odwróć kolory ikon",
     "iconColor": "Kolor ikony:",
     "sections": {

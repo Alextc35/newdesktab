@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Eliminare \"{{name}}\", le sue {{folderCount}} cartelle e {{bookmarkCount}} segnalibri? Per conservarli, spostali prima su Principale o su un'altra area di lavoro.",
+    "confirmDeleteWidgets": "Verranno eliminati definitivamente anche {{count}} widget.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Mostra testo",
     "textColor": "Colore del testo:",
     "showFavicon": "Mostra icona",
+    "captionPosition": "Posizione icona:",
+    "captionPositionLeft": "Sinistra",
+    "captionPositionRight": "Destra",
     "invertColorIcon": "Inverti i colori delle icone",
     "iconColor": "Colore dell'icona:",
     "sections": {

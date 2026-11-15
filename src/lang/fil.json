@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "I-delete ang “{{name}}”, ang {{folderCount}} folder at {{bookmarkCount}} na bookmark nito? Para panatilihin ang mga ito, ilipat muna ang mga ito sa Pangunahing o sa ibang workspace.",
+    "confirmDeleteWidgets": "Permanenteng buburahin din nito ang {{count}} widget.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Ipakita ang teksto",
     "textColor": "Kulay ng teksto:",
     "showFavicon": "Ipakita ang icon",
+    "captionPosition": "Posisyon ng icon:",
+    "captionPositionLeft": "Kaliwa",
+    "captionPositionRight": "Kanan",
     "invertColorIcon": "Baliktarin ang mga kulay ng icon",
     "iconColor": "Kulay ng icon:",
     "sections": {

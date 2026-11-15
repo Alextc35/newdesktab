@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Видалити “{{name}}”, його {{folderCount}} папок і {{bookmarkCount}} закладок? Щоб зберегти їх, спершу перемістіть їх у головну або іншу робочу область.",
+    "confirmDeleteWidgets": "Також буде назавжди видалено {{count}} віджетів.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Показати текст",
     "textColor": "Колір тексту:",
     "showFavicon": "Показати значок",
+    "captionPosition": "Розташування значка:",
+    "captionPositionLeft": "Ліворуч",
+    "captionPositionRight": "Праворуч",
     "invertColorIcon": "Інвертувати кольори піктограм",
     "iconColor": "Колір значка:",
     "sections": {

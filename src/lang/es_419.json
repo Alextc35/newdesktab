@@ -514,6 +514,7 @@
     "settingsSaved": "Se guardaron los ajustes del espacio.",
     "discardSettings": "¿Descartar los cambios del espacio de trabajo?",
     "confirmDelete": "¿Eliminar «{{name}}», sus {{folderCount}} carpetas y {{bookmarkCount}} marcadores? Si quieres conservarlos, muévelos antes a Principal o a otro espacio.",
+    "confirmDeleteWidgets": "También se eliminarán definitivamente {{count}} widgets.",
     "useGlobalTheme": "Usar el tema global en este espacio",
     "solidBackground": "Usar un color de fondo sólido",
     "solidColor": "Color de fondo",
@@ -671,6 +672,9 @@
     "showText": "Mostrar texto",
     "textColor": "Color del texto:",
     "showFavicon": "Mostrar ícono",
+    "captionPosition": "Posición del icono:",
+    "captionPositionLeft": "Izquierda",
+    "captionPositionRight": "Derecha",
     "invertColorIcon": "Invertir colores",
     "iconColor": "Color del icono:",
     "sections": {

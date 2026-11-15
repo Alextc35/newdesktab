@@ -295,6 +295,7 @@ test('migrates local data to an empty synchronized area', async () => {
     showText: true,
     textColor: '#ffffff',
     showFavicon: true,
+    captionPosition: 'left',
     invertColorIcon: false
   });
   assert.ok(chrome.storage.sync.data.newdesktabSyncMeta);

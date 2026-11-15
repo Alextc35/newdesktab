@@ -14,6 +14,26 @@ import {
 } from '../workspaces/workspaceSelectors.js';
 
 const listSearchStates = new WeakMap();
+const pendingGridRenders = new WeakMap();
+
+/** Records asynchronous preparation before the application replaces a grid. */
+export function trackGridRender(container, rendering) {
+  if (container) pendingGridRenders.set(container, rendering);
+}
+
+/** Whether asynchronous preparation still belongs to the newest requested view. */
+export function isLatestGridRender(container, rendering) {
+  return pendingGridRenders.get(container) === rendering;
+}
+
+/** Waits until the latest scheduled grid has its contents and viewport ready. */
+export async function waitForGridRender(container) {
+  let rendering;
+  do {
+    rendering = pendingGridRenders.get(container);
+    await rendering;
+  } while (!isLatestGridRender(container, rendering));
+}
 
 /** Renders registered item types for the active workspace. */
 export function renderGrid(container, snapshot) {

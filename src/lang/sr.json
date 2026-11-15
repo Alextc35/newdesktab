@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Избриши “{{name}}”, свој {{folderCount}} фасцикле и {{bookmarkCount}} обележивачи? Да бисте их задржали, прво их преместите у главни или други радни простор.",
+    "confirmDeleteWidgets": "Ово ће такође трајно избрисати {{count}} виџета.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Прикажи текст",
     "textColor": "Боја текста:",
     "showFavicon": "Прикажи икону",
+    "captionPosition": "Положај иконе:",
+    "captionPositionLeft": "Лево",
+    "captionPositionRight": "Десно",
     "invertColorIcon": "Обрните боје икона",
     "iconColor": "Боја иконе:",
     "sections": {

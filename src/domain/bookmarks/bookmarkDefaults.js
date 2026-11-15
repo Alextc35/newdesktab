@@ -15,6 +15,7 @@ export const DEFAULT_BOOKMARK_STYLE = {
   showText: true,
   textColor: '#ffffff',
   showFavicon: true,
+  captionPosition: 'left',
   invertColorIcon: false
 };
 

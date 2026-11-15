@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "“{{name}}”, அதன் {{folderCount}} கோப்புறைகள் மற்றும் {{bookmarkCount}} புக்மார்க்குகளை நீக்கவா? அவற்றை வைத்திருக்க, முதலில் அவற்றை முதன்மை அல்லது வேறு பணியிடத்திற்கு நகர்த்தவும்.",
+    "confirmDeleteWidgets": "இதனால் {{count}} விட்ஜெட்டுகளும் நிரந்தரமாக நீக்கப்படும்.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "உரையைக் காட்டு",
     "textColor": "உரை நிறம்:",
     "showFavicon": "ஐகானைக் காட்டு",
+    "captionPosition": "சின்னத்தின் இடம்:",
+    "captionPositionLeft": "இடது",
+    "captionPositionRight": "வலது",
     "invertColorIcon": "ஐகான் வண்ணங்களை மாற்றவும்",
     "iconColor": "ஐகான் நிறம்:",
     "sections": {

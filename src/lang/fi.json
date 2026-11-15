@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Poistetaanko \"{{name}}\", sen {{folderCount}} kansiota ja {{bookmarkCount}} kirjanmerkkiä? Jos haluat säilyttää ne, siirrä ne ensin päätilaan tai toiseen työtilaan.",
+    "confirmDeleteWidgets": "Myös {{count}} widgetiä poistetaan pysyvästi.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Näytä teksti",
     "textColor": "Tekstin väri:",
     "showFavicon": "Näytä kuvake",
+    "captionPosition": "Kuvakkeen sijainti:",
+    "captionPositionLeft": "Vasemmalla",
+    "captionPositionRight": "Oikealla",
     "invertColorIcon": "Kääntää kuvakkeen värit",
     "iconColor": "Ikonin väri:",
     "sections": {

@@ -18,7 +18,7 @@ const PALETTES = {
   paper: { background: '#f1f0ec', text: '#292524', icon: '#78716c' }
 };
 const CONTENT_FIELDS = {
-  bookmark: ['iconId', 'iconColor', 'backgroundFavicon', 'showText', 'showFavicon', 'invertColorIcon'],
+  bookmark: ['iconId', 'iconColor', 'backgroundFavicon', 'showText', 'showFavicon', 'captionPosition', 'invertColorIcon'],
   folder: ['iconId', 'iconColor', 'showPreviews', 'showName'],
   recycleBin: ['showName', 'animateIcon']
 };
@@ -61,6 +61,7 @@ export function getItemAppearance(type, look = 'original', current = {}) {
 export function createItemAppearanceEditor({ root, type, stylePanel, getValue, renderSample, renderOriginalIcon, onApply, signal }) {
   if (!stylePanel) return { sync() {}, destroy() {} };
   root.classList.add('item-appearance-editor');
+  if (type === 'bookmark') root.classList.add('bookmark-appearance-editor');
   const abortController = new AbortController();
   const options = { signal: abortController.signal };
   signal?.addEventListener('abort', () => abortController.abort(), { once: true });
@@ -147,7 +148,10 @@ export function createItemAppearanceEditor({ root, type, stylePanel, getValue, r
   if (iconPicker) groups.icon.firstElementChild.after(iconPicker.element);
   const bookmarkIconColorRow = type === 'bookmark'
     ? groups.icon?.querySelector('[data-field="iconColor"]')?.closest('.edit-bookmark-modal-color-options') : null;
-  if (iconPicker && bookmarkIconColorRow) iconPicker.element.after(bookmarkIconColorRow);
+  if (iconPicker && bookmarkIconColorRow) {
+    const positionRow = groups.icon.querySelector('.editor-caption-position');
+    (positionRow ?? iconPicker.element).after(bookmarkIconColorRow);
+  }
 
   // Card/folder color is independent of the image source and URL lock.
   const colorInput = root.querySelector(type === 'bookmark'

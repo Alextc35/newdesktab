@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "„{{name}}“, seine {{folderCount}} Ordner und {{bookmarkCount}} Lesezeichen löschen? Um sie zu behalten, verschieben Sie sie zunächst in den Hauptarbeitsbereich oder einen anderen Arbeitsbereich.",
+    "confirmDeleteWidgets": "Dabei werden auch {{count}} Widgets dauerhaft gelöscht.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Text anzeigen",
     "textColor": "Textfarbe:",
     "showFavicon": "Symbol anzeigen",
+    "captionPosition": "Symbolposition:",
+    "captionPositionLeft": "Links",
+    "captionPositionRight": "Rechts",
     "invertColorIcon": "Symbolfarben umkehren",
     "iconColor": "Symbolfarbe:",
     "sections": {

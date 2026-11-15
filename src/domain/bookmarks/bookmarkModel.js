@@ -21,6 +21,7 @@ export const BOOKMARK_STYLE_KEYS = Object.freeze([
   'showText',
   'textColor',
   'showFavicon',
+  'captionPosition',
   'invertColorIcon'
 ]);
 
@@ -58,6 +59,11 @@ export function normalizeBookmarkPreset(value = {}) {
   for (const key of BOOKMARK_STYLE_KEYS) {
     const fallback = DEFAULT_BOOKMARK_STYLE[key];
     const candidate = source[key];
+
+    if (key === 'captionPosition') {
+      preset[key] = candidate === 'right' ? 'right' : fallback;
+      continue;
+    }
 
     if (BOOLEAN_STYLE_KEYS.has(key)) {
       preset[key] = typeof candidate === 'boolean' ? candidate : fallback;

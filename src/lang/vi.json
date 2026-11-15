@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Xóa “{{name}}”, {{folderCount}} thư mục và {{bookmarkCount}} dấu trang của nó? Để giữ chúng, trước tiên hãy di chuyển chúng đến Chính hoặc không gian làm việc khác.",
+    "confirmDeleteWidgets": "Thao tác này cũng sẽ xóa vĩnh viễn {{count}} widget.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Hiển thị văn bản",
     "textColor": "Màu văn bản:",
     "showFavicon": "Hiển thị biểu tượng",
+    "captionPosition": "Vị trí biểu tượng:",
+    "captionPositionLeft": "Trái",
+    "captionPositionRight": "Phải",
     "invertColorIcon": "Đảo ngược màu biểu tượng",
     "iconColor": "Màu biểu tượng:",
     "sections": {

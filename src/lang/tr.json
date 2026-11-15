@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "“{{name}}”, {{folderCount}} klasörü ve {{bookmarkCount}} yer işareti silinsin mi? Bunları saklamak için önce Ana'ya veya başka bir çalışma alanına taşıyın.",
+    "confirmDeleteWidgets": "Bu işlem ayrıca {{count}} widget’ı kalıcı olarak silecektir.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Metni göster",
     "textColor": "Metin rengi:",
     "showFavicon": "Simgeyi göster",
+    "captionPosition": "Simge konumu:",
+    "captionPositionLeft": "Sol",
+    "captionPositionRight": "Sağ",
     "invertColorIcon": "Simge renklerini ters çevir",
     "iconColor": "Simge rengi:",
     "sections": {

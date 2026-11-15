@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "هل تريد حذف \"{{name}}\" ومجلداتها البالغ عددها {{folderCount}} وإشاراتها المرجعية البالغ عددها {{bookmarkCount}}؟ للاحتفاظ بها، انقلها إلى مساحة العمل الرئيسية أو إلى مساحة عمل أخرى أولاً.",
+    "confirmDeleteWidgets": "سيؤدي هذا أيضًا إلى حذف {{count}} من الحاجيات نهائيًا.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "إظهار النص",
     "textColor": "لون النص:",
     "showFavicon": "إظهار الأيقونة",
+    "captionPosition": "موضع الأيقونة:",
+    "captionPositionLeft": "يسار",
+    "captionPositionRight": "يمين",
     "invertColorIcon": "عكس ألوان الأيقونات",
     "iconColor": "لون الرمز:",
     "sections": {

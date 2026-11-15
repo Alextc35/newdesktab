@@ -60,8 +60,8 @@ for (const [theme, colorScheme] of [['dark', 'light'], ['light', 'dark'], ['syst
       .toHaveCSS('color', 'rgb(248, 250, 252)');
 
     await openSettings(page, 'theme');
-    await expect(page.locator('.bg-preview')).toHaveCSS('background-image', background);
-    await page.locator('.bg-preview').screenshot({ path: testInfo.outputPath('settings-default.png') });
+    await expect(page.locator('#settings-theme-bg-preview')).toHaveCSS('background-image', background);
+    await page.locator('#settings-theme-bg-preview').screenshot({ path: testInfo.outputPath('settings-default.png') });
     await page.locator('#settings-modal-cancel').click();
 
     await openSettings(page, 'help');

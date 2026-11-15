@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Voleu suprimir \"{{name}}\", les seves carpetes {{folderCount}} i les adreces d'interès {{bookmarkCount}}? Per conservar-los, moveu-los primer a Principal o a un altre espai de treball.",
+    "confirmDeleteWidgets": "També se suprimiran definitivament {{count}} ginys.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Mostra el text",
     "textColor": "Color del text:",
     "showFavicon": "Mostra la icona",
+    "captionPosition": "Posició de la icona:",
+    "captionPositionLeft": "Esquerra",
+    "captionPositionRight": "Dreta",
     "invertColorIcon": "Inverteix els colors de les icones",
     "iconColor": "Color de la icona:",
     "sections": {

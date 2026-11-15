@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Hapus “{{name}}”, {{folderCount}} folder dan {{bookmarkCount}} bookmarknya? Untuk menyimpannya, pindahkan ke Ruang Utama atau ruang kerja lain terlebih dahulu.",
+    "confirmDeleteWidgets": "Ini juga akan menghapus {{count}} widget secara permanen.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Tampilkan teks",
     "textColor": "Warna teks:",
     "showFavicon": "Tampilkan ikon",
+    "captionPosition": "Posisi ikon:",
+    "captionPositionLeft": "Kiri",
+    "captionPositionRight": "Kanan",
     "invertColorIcon": "Balikkan warna ikon",
     "iconColor": "Warna ikon:",
     "sections": {

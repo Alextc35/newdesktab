@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Delete “{{name}}”, its {{folderCount}} folders and {{bookmarkCount}} bookmarks? To keep them, move them to Main or another workspace first.",
+    "confirmDeleteWidgets": "This will also permanently delete {{count}} widgets.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Show text",
     "textColor": "Text color:",
     "showFavicon": "Show icon",
+    "captionPosition": "Icon position:",
+    "captionPositionLeft": "Left",
+    "captionPositionRight": "Right",
     "invertColorIcon": "Invert icon colors",
     "iconColor": "Icon color:",
     "sections": {

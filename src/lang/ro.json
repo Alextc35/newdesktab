@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Ștergeți „{{name}}”, folderele sale {{folderCount}} și marcajele {{bookmarkCount}}? Pentru a le păstra, mutați-le mai întâi în principal sau în alt spațiu de lucru.",
+    "confirmDeleteWidgets": "Vor fi șterse definitiv și {{count}} widgeturi.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Afișează text",
     "textColor": "Culoarea textului:",
     "showFavicon": "Afișați pictograma",
+    "captionPosition": "Poziția pictogramei:",
+    "captionPositionLeft": "Stânga",
+    "captionPositionRight": "Dreapta",
     "invertColorIcon": "Inversați culorile pictogramei",
     "iconColor": "Culoarea pictogramei:",
     "sections": {

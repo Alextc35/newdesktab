@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "\"{{name}}\", इसके {{folderCount}} फ़ोल्डर और {{bookmarkCount}} बुकमार्क हटाएं? उन्हें रखने के लिए, पहले उन्हें मुख्य या किसी अन्य कार्यस्थान पर ले जाएँ।",
+    "confirmDeleteWidgets": "इससे {{count}} विजेट्स भी स्थायी रूप से हट जाएँगे।",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "पाठ दिखाएँ",
     "textColor": "पाठ का रंग:",
     "showFavicon": "आइकन दिखाएँ",
+    "captionPosition": "आइकन की स्थिति:",
+    "captionPositionLeft": "बाएँ",
+    "captionPositionRight": "दाएँ",
     "invertColorIcon": "आइकन के रंग उलटें",
     "iconColor": "चिह्न का रंग:",
     "sections": {

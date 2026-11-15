@@ -1,5 +1,57 @@
 # Revisión de preparación para publicar — 1.0.0
 
+## Cierre actual — 15 de noviembre de 2026
+
+La versión pública continúa siendo **1.0.0**, con esquema 1 y Chrome 123 como
+mínimo. Este cierre incluye todos los ajustes de interfaz, atajos y confirmaciones
+del commit `c306342`, más las correcciones y preferencias siguientes:
+
+- Mantener tamaño conserva la geometría de las tarjetas al cambiar de espacio.
+  La transición usa solo opacidad y espera al contenido y al scroll restaurados.
+  Una preparación de medios antigua no puede repintar un espacio posterior.
+- El redimensionado conserva el anclaje al centro. Las posiciones X/Y se guardan
+  por espacio en este dispositivo, fuera de Sync y de las copias de seguridad.
+  El recorte temporal de un eje no elimina la posición guardada del otro.
+- Icono y nombre tienen filas alineadas en el editor. El rótulo puede colocarse
+  a izquierda o derecha, con el logo después del texto en la opción derecha.
+  La preferencia se conserva en favoritos, carpetas, borradores y backups.
+- Eliminar un espacio también elimina sus widgets, con aviso explícito, para
+  impedir que reaparezcan en Inicio al recargar.
+- Las cuatro claves nuevas están traducidas en los 52 idiomas. Se revisaron las
+  capturas de la Store y se actualizaron dependencias compatibles vulnerables.
+
+| Comprobación actual | Resultado |
+| --- | --- |
+| `npm run check` | ESLint correcto; 308 tests unitarios y 85 DOM correctos. Incluye cuatro escenarios de concurrencia de render con medios controlados. |
+| Batería completa Chromium 151.0.7922.34 | 388 escenarios correctos, sin omitidos ni reintentos. Los 41 escenarios afectados pasaron de nuevo sobre las fuentes finales. |
+| Batería Chrome 123.0.6312.122 | 386 correctos y dos evaluaciones interrumpidas por CDP con «Resulting promise was garbage collected». Se corrigió la espera de esos tests para observar la persistencia sin retener la evaluación a través de Web Locks. Los 41 escenarios de favicons, atajos, espacios y redimensionado pasaron después sobre las fuentes finales. |
+| ZIP instalado con Manifest V3 | Smoke correcto en Chromium 151, Chrome 123, Google Chrome 157.0.8103.51 y Brave 157.1.99.57, con perfiles temporales independientes. Incluye nueva pestaña, edición, popup, recarga, atajos, backup ZIP de vídeo, scroll local y posición derecha del logo. |
+| `npm audit --audit-level=high` | Cero vulnerabilidades. |
+| Auditoría de fuentes | 202 módulos conectados a los puntos de entrada; ningún módulo inaccesible. |
+| Store | Cuatro capturas regeneradas e inspeccionadas, además del mosaico promocional. |
+| Rendimiento de interfaz | Los 13 recorridos con 60 y 1.200 favoritos terminaron sin errores, con CPU limitada a 4×. Son mediciones, no un presupuesto de rendimiento. |
+| Backups grandes | Exportación y restauración verificadas con vídeos de 10, 50 y 200 MiB. El ZIP de 200 MiB se exportó en 1,03 s y se restauró en 1,31 s en este equipo. |
+
+Los smoke tests se ejecutaron sobre el ZIP extraído, con solicitudes externas
+bloqueadas. El empaquetador verificó cada entrada y sus bytes contra las fuentes.
+Después de la batería completa se añadió la protección frente a preparaciones
+de medios concurrentes, validada con los cuatro tests DOM y los recorridos
+en Chromium y Chrome 123 indicados arriba. No se repitió la comprobación de Google Sync
+entre cuentas reales; la confirmación del autor que figura abajo es histórica.
+
+Artefacto actual: `dist/newdesktab-1.0.0.zip`, **3.703.900 bytes y 439 archivos**.
+
+SHA-256:
+
+```text
+7cefeea691680b4f52aeae0f0a50115307b27930750d913811127fd4e1d49cc7
+```
+
+## Registro histórico — octubre de 2026
+
+El resto del documento conserva las pruebas y mediciones de octubre. Sus cifras,
+navegadores y hash corresponden a aquel artefacto y no sustituyen el cierre actual.
+
 Revisión de cierre del 12 de octubre de 2026. Este informe distingue la validación
 automatizada de las comprobaciones que necesitan perfiles y cuentas reales.
 Chrome Sync entre perfiles o dispositivos reales está verificado por el autor,

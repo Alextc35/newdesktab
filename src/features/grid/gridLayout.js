@@ -1,6 +1,11 @@
 import { GRID_COLS, GRID_ROWS } from '../../shared/grid/gridGeometry.js';
 import { isListView } from '../../shared/ui/viewportMode.js';
-import { getState } from '../../state/appStore.js';
+import { getSettings } from '../../state/appStore.js';
+import {
+  createDeviceGridScrollStore,
+  resolveDeviceGridScroll
+} from '../../platform/storage/deviceGridScroll.js';
+import { getActiveWorkspaceId } from '../workspaces/workspaceSelectors.js';
 import {
   normalizeWindowResizeMode,
   WINDOW_RESIZE_MODES
@@ -9,6 +14,8 @@ import {
 const GRID_REFERENCE_SIZE_KEY = 'newdesktab:responsive-grid-reference';
 let cachedGridReferenceSize = null;
 const viewportLayouts = new WeakMap();
+const trackedViewports = new WeakSet();
+const gridScrollPositions = createDeviceGridScrollStore();
 
 /**
  * Updates CSS variables representing grid cell size.
@@ -26,12 +33,19 @@ export function updateGridSize(container) {
 
   const viewport = container.closest('#bookmark-viewport');
   const compact = isListView();
+  const settings = getSettings();
+  const workspaceId = getActiveWorkspaceId({ settings });
+  const windowResizeMode = normalizeWindowResizeMode(settings.windowResizeMode);
+  const preserveGridSize = !compact && windowResizeMode === WINDOW_RESIZE_MODES.RELATIVE;
+  const previousLayout = viewportLayouts.get(viewport);
+  // The old surface is still mounted here. Flush its last pan before changing
+  // workspace/mode, even when its scroll event has not run yet.
+  rememberGridScroll(viewport, previousLayout, previousLayout?.preserveGridSize,
+    previousLayout?.workspaceId);
+  trackGridScroll(viewport);
   container.classList.toggle('is-list-view', compact);
   document.documentElement.classList.toggle('is-list-view', compact);
-  const windowResizeMode = normalizeWindowResizeMode(getState().data.settings.windowResizeMode);
-  const preserveGridSize = !compact && windowResizeMode === WINDOW_RESIZE_MODES.RELATIVE;
   viewport.classList.toggle('is-relative-grid', preserveGridSize);
-  const previousLayout = viewportLayouts.get(viewport);
   // Scrollbars must not change the device's reference size as the window resizes.
   const viewportWidth = viewport.offsetWidth;
   const viewportHeight = viewport.offsetHeight;
@@ -57,22 +71,77 @@ export function updateGridSize(container) {
 
   if (preserveGridSize && (
     !previousLayout?.preserveGridSize
+    || previousLayout.resizing
+    || previousLayout.workspaceId !== workspaceId
     || previousLayout.viewportWidth !== viewportWidth
     || previousLayout.viewportHeight !== viewportHeight
     || previousLayout.width !== width
     || previousLayout.height !== height
   )) {
-    // Read the final client size, including any scrollbars introduced above.
-    // Ordinary renders leave manual scrolling alone.
-    viewport.scrollLeft = Math.max(0, (width - viewport.clientWidth) / 2);
-    viewport.scrollTop = Math.max(0, (height - viewport.clientHeight) / 2);
+    // Clamp the displayed position without replacing a saved pan with that clamp.
+    // A workspace without a manual position keeps the original centered behavior.
+    let saved = gridScrollPositions.read(workspaceId);
+    const maxX = Math.max(0, width - viewport.clientWidth);
+    const maxY = Math.max(0, height - viewport.clientHeight);
+    if (saved && (saved.maxX === undefined || saved.maxY === undefined)) {
+      // Older records contain XY only; keep that exact pan and learn its basis.
+      saved = { ...saved, maxX: saved.maxX ?? maxX, maxY: saved.maxY ?? maxY };
+      gridScrollPositions.save(workspaceId, saved);
+    }
+    const position = resolveDeviceGridScroll(saved, { maxX, maxY });
+    viewport.scrollLeft = position.x;
+    viewport.scrollTop = position.y;
   } else if (!preserveGridSize && previousLayout?.preserveGridSize) {
     viewport.scrollLeft = 0;
     viewport.scrollTop = 0;
   }
   viewportLayouts.set(viewport, {
-    preserveGridSize, viewportWidth, viewportHeight, width, height
+    preserveGridSize, workspaceId, viewportWidth, viewportHeight, width, height,
+    clientWidth: viewport.clientWidth, clientHeight: viewport.clientHeight,
+    scrollX: viewport.scrollLeft, scrollY: viewport.scrollTop
   });
+}
+
+function trackGridScroll(viewport) {
+  if (trackedViewports.has(viewport)) return;
+  trackedViewports.add(viewport);
+  window.addEventListener('resize', () => {
+    const layout = viewportLayouts.get(viewport);
+    if (layout) layout.resizing = true;
+  });
+  viewport.addEventListener('scroll', () => {
+    const settings = getSettings();
+    const preserveGridSize = !isListView()
+      && normalizeWindowResizeMode(settings.windowResizeMode) === WINDOW_RESIZE_MODES.RELATIVE;
+    rememberGridScroll(viewport, viewportLayouts.get(viewport), preserveGridSize,
+      getActiveWorkspaceId({ settings }));
+  }, { passive: true });
+}
+
+function rememberGridScroll(viewport, layout, preserveGridSize, workspaceId) {
+  if (!preserveGridSize || !layout?.preserveGridSize || layout.resizing || layout.workspaceId !== workspaceId
+    || layout.viewportWidth !== viewport.offsetWidth || layout.viewportHeight !== viewport.offsetHeight
+    || layout.clientWidth !== viewport.clientWidth || layout.clientHeight !== viewport.clientHeight) return;
+  const x = viewport.scrollLeft;
+  const y = viewport.scrollTop;
+  if (x === layout.scrollX && y === layout.scrollY) return;
+  const maxX = Math.max(0, layout.width - layout.clientWidth);
+  const maxY = Math.max(0, layout.height - layout.clientHeight);
+  const position = gridScrollPositions.read(workspaceId) ?? {
+    x: layout.scrollX, y: layout.scrollY, maxX, maxY
+  };
+  // A vertical move must not overwrite an X anchor that is currently clamped.
+  if (x !== layout.scrollX) {
+    position.x = x;
+    position.maxX = maxX;
+  }
+  if (y !== layout.scrollY) {
+    position.y = y;
+    position.maxY = maxY;
+  }
+  gridScrollPositions.save(workspaceId, position);
+  layout.scrollX = x;
+  layout.scrollY = y;
 }
 
 function updateGridReferenceSize(width, height) {

@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Διαγραφή του \"{{name}}\", των {{folderCount}} φακέλων και των {{bookmarkCount}} σελιδοδεικτών του; Για να τα διατηρήσετε, μετακινήστε τα πρώτα στο Κύρια ή σε άλλο χώρο εργασίας.",
+    "confirmDeleteWidgets": "Θα διαγραφούν επίσης οριστικά {{count}} γραφικά στοιχεία.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Εμφάνιση κειμένου",
     "textColor": "Χρώμα κειμένου:",
     "showFavicon": "Εμφάνιση εικονιδίου",
+    "captionPosition": "Θέση εικονιδίου:",
+    "captionPositionLeft": "Αριστερά",
+    "captionPositionRight": "Δεξιά",
     "invertColorIcon": "Αντιστροφή χρωμάτων εικονιδίων",
     "iconColor": "Χρώμα εικονιδίου:",
     "sections": {

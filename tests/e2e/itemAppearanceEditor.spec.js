@@ -64,6 +64,90 @@ async function storedValue(page, type) {
   }, type);
 }
 
+test('aligns the bookmark icon selector and position with the text controls', async ({ page }, testInfo) => {
+  const modal = await openEditor(page, 'bookmark');
+  const position = modal.locator('[data-field="captionPosition"]');
+  await expect(position).toHaveValue('left');
+  await expect(position).toBeDisabled();
+  await modal.locator('[data-field="backgroundFavicon"]').uncheck();
+  await expect(position).toBeEnabled();
+  const alignedRows = [
+    [modal.locator('.editor-icon-picker > summary'),
+      modal.locator('[data-field="showText"]').locator('..')],
+    [modal.locator('.editor-caption-position'),
+      modal.locator('[data-field="textColor"]').locator('..').locator('..')]
+  ];
+  for (const [left, right] of alignedRows) {
+    const first = await left.boundingBox();
+    const second = await right.boundingBox();
+    expect(Math.abs(first.y - second.y)).toBeLessThan(0.5);
+    expect(Math.abs(first.height - second.height)).toBeLessThan(0.5);
+  }
+  await page.evaluate(async () => {
+    await (await import('/src/platform/i18n/i18n.js')).changeLanguage({ language: 'es' });
+  });
+  await expect(position).toHaveAccessibleName('Posición del icono:');
+  await position.selectOption('right');
+  await page.mouse.move(0, 0);
+  await modal.locator('.modal-card').screenshot({ path: testInfo.outputPath('caption-position-editor-es.png') });
+});
+
+for (const position of ['left', 'right']) {
+  test(`keeps a long caption and its small icon at the ${position} after saving and inside a folder`, async ({ page }, testInfo) => {
+    const longName = 'A long bookmark title that must truncate while keeping its logo visible';
+    await page.evaluate(async name => {
+      const { updateBookmarkById } = await import('/src/features/bookmarks/bookmarkActions.js');
+      updateBookmarkById('editor-bookmark', { name });
+      await (await import('/src/state/appStore.js')).requirePersistence();
+    }, longName);
+    const modal = await openEditor(page, 'bookmark');
+    await modal.locator('[data-appearance-look="card"]').click();
+    await modal.locator('[data-field="captionPosition"]').selectOption(position);
+    await modal.locator('[data-appearance-look="midnight"]').click();
+    await expect(modal.locator('[data-field="captionPosition"]')).toHaveValue(position);
+    const checkCaption = async card => {
+      const info = card.locator('.bookmark-info');
+      await expect(info).toHaveCSS('flex-direction', position === 'right' ? 'row-reverse' : 'row');
+      const [caption, icon, text] = await Promise.all([
+        info.boundingBox(), info.locator('.bookmark-favicon').boundingBox(),
+        info.locator('.bookmark-title').boundingBox()
+      ]);
+      expect(icon.width).toBe(16);
+      expect(icon.height).toBe(16);
+      if (position === 'right') {
+        expect(text.x + text.width).toBeLessThanOrEqual(icon.x);
+        expect(Math.abs(icon.x + icon.width - caption.x - caption.width)).toBeLessThan(0.5);
+      } else {
+        expect(icon.x + icon.width).toBeLessThanOrEqual(text.x);
+        expect(Math.abs(icon.x - caption.x)).toBeLessThan(0.5);
+      }
+      const overflow = await info.locator('.bookmark-title').evaluate(element => ({
+        width: element.clientWidth, full: element.scrollWidth, ellipsis: getComputedStyle(element).textOverflow
+      }));
+      expect(overflow.full).toBeGreaterThan(overflow.width);
+      expect(overflow.ellipsis).toBe('ellipsis');
+    };
+    await checkCaption(modal.locator('.bookmark-preview > .bookmark'));
+    await modal.locator('.bookmark-preview').screenshot({ path: testInfo.outputPath(`caption-${position}-preview.png`) });
+    await page.locator('#edit-bookmark-modal-save').click();
+    await expect(modal).toBeHidden();
+    expect(await storedValue(page, 'bookmark')).toMatchObject({ captionPosition: position, backgroundFavicon: false });
+    await page.reload();
+    await expectAppReady(page);
+    await checkCaption(page.locator('#bookmark-container [data-bookmark-id="editor-bookmark"]'));
+    await page.evaluate(async () => {
+      const { updateBookmarkById } = await import('/src/features/bookmarks/bookmarkActions.js');
+      updateBookmarkById('editor-bookmark', { folderId: 'editor-folder' });
+      await (await import('/src/state/appStore.js')).requirePersistence();
+    });
+    await page.locator('[data-folder-id="editor-folder"] .folder-open').click();
+    await expect(page.locator('#folder-modal')).toBeVisible();
+    await expect.poll(() => page.locator('#folder-modal').evaluate(element => element
+      .getAnimations({ subtree: true }).filter(animation => animation.playState === 'running').length)).toBe(0);
+    await checkCaption(page.locator('#folder-modal-items [data-bookmark-id="editor-bookmark"]'));
+  });
+}
+
 for (const type of ['bookmark', 'folder', 'recycleBin']) {
   test(`${type}: background image disclosure animates both ways, reverses smoothly and respects reduced motion`, async ({ page }) => {
     const modal = await openEditor(page, type);

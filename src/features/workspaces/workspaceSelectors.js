@@ -41,6 +41,7 @@ export function getWorkspaceItemCounts(data, workspaceId) {
   const id = workspaceId ?? null;
   return {
     bookmarks: data.bookmarks.filter(bookmark => (bookmark.groupId ?? null) === id).length,
-    folders: data.folders.filter(folder => (folder.groupId ?? null) === id).length
+    folders: data.folders.filter(folder => (folder.groupId ?? null) === id).length,
+    widgets: (data.widgets ?? []).filter(widget => (widget.groupId ?? null) === id).length
   };
 }

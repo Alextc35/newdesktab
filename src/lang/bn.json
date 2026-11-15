@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "\"{{name}}\", এর {{folderCount}} ফোল্ডার এবং {{bookmarkCount}} বুকমার্ক মুছবেন? সেগুলি রাখতে, প্রথমে সেগুলিকে প্রধান বা অন্য ওয়ার্কস্পেসে নিয়ে যান৷",
+    "confirmDeleteWidgets": "এতে {{count}}টি উইজেটও স্থায়ীভাবে মুছে যাবে।",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "পাঠ্য দেখান",
     "textColor": "পাঠ্যের রঙ:",
     "showFavicon": "আইকন দেখান",
+    "captionPosition": "আইকনের অবস্থান:",
+    "captionPositionLeft": "বামে",
+    "captionPositionRight": "ডানে",
     "invertColorIcon": "আইকন রং উল্টানো",
     "iconColor": "আইকন রঙ:",
     "sections": {

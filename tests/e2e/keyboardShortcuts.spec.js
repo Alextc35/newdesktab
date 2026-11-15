@@ -1,5 +1,5 @@
 import { expect, test } from './helpers/test.js';
-import { expectAppReady } from './helpers/appReady.js';
+import { expectAppReady, expectAppSaved } from './helpers/appReady.js';
 
 async function expectReady(page) {
   await expectAppReady(page);
@@ -24,10 +24,11 @@ async function updateShortcuts(page, changes) {
   await page.evaluate(async next => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const { data } = getState();
-    await setState({ data: { settings: { ...data.settings,
+    void setState({ data: { settings: { ...data.settings,
       keyboardShortcuts: { ...data.settings.keyboardShortcuts, ...next }
     } } });
   }, changes);
+  await expectAppSaved(page);
 }
 
 async function shortcutPrevented(page, shortcut, target = 'body') {

@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "למחוק את \"{{name}}\", {{folderCount}} התיקיות ו-{{bookmarkCount}} הסימניות שלו? כדי לשמור אותם, העבר אותם תחילה לראשי או לסביבת עבודה אחרת.",
+    "confirmDeleteWidgets": "פעולה זו תמחק לצמיתות גם {{count}} ווידג׳טים.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "הצג טקסט",
     "textColor": "צבע טקסט:",
     "showFavicon": "הצג סמל",
+    "captionPosition": "מיקום הסמל:",
+    "captionPositionLeft": "שמאל",
+    "captionPositionRight": "ימין",
     "invertColorIcon": "הפוך את צבעי הסמלים",
     "iconColor": "צבע סמל:",
     "sections": {

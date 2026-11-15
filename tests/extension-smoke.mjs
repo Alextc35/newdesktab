@@ -261,10 +261,49 @@ try {
     return { name: getLocalVideoName(local), text: await (await fetch(resolveLocalVideo(local))).text() };
   }), { name: 'smoke.webm', text: 'extension video fixture' });
 
+  // Check the new layout preferences under the packaged extension's real origin.
+  await page.evaluate(async () => {
+    const { getState, setState, requirePersistence } = await import('./state/appStore.js');
+    const { updateBookmarkById } = await import('./features/bookmarks/bookmarkActions.js');
+    const bookmark = getState().data.bookmarks.find(item => item.name === 'Release smoke');
+    updateBookmarkById(bookmark.id, {
+      captionPosition: 'right', backgroundFavicon: false, showText: true, showFavicon: true
+    });
+    await setState({ data: { settings: { ...getState().data.settings, windowResizeMode: 'relative' } } });
+    await requirePersistence();
+  });
+  await page.setViewportSize({ width: 700, height: 500 });
+  await page.waitForFunction(() => {
+    const viewport = document.getElementById('bookmark-viewport');
+    const grid = document.getElementById('bookmark-container');
+    return viewport.classList.contains('is-relative-grid')
+      && Math.abs(viewport.scrollLeft - (grid.clientWidth - viewport.clientWidth) / 2) <= 1
+      && Math.abs(viewport.scrollTop - (grid.clientHeight - viewport.clientHeight) / 2) <= 1;
+  });
+  await page.locator('#bookmark-viewport').evaluate(viewport => {
+    viewport.scrollLeft = 160;
+    viewport.scrollTop = 100;
+  });
+  await page.waitForFunction(() => {
+    const position = JSON.parse(localStorage.getItem('newdesktab:grid-scroll:v1:main') || 'null');
+    return position?.x === 160 && position?.y === 100;
+  });
+  await page.reload();
+  await page.getByRole('link', { name: /Release smoke/ }).waitFor({ state: 'visible' });
+  await page.waitForFunction(() => {
+    const viewport = document.getElementById('bookmark-viewport');
+    return viewport.scrollLeft === 160 && viewport.scrollTop === 100;
+  });
+  const caption = page.getByRole('link', { name: /Release smoke/ }).locator('.bookmark-info');
+  const captionIcon = await caption.locator('.bookmark-favicon').boundingBox();
+  const captionName = await caption.locator('.bookmark-title').boundingBox();
+  assert.ok(captionIcon && captionName && captionIcon.x >= captionName.x + captionName.width,
+    'The saved right-hand caption must put the icon after its name.');
+
   assert.deepEqual(errors, []);
   assert.equal(consoleErrors.some(message => message.includes('[NewDeskTab] Could not initialize the page:')),
     false, `Startup errors: ${consoleErrors.join(' | ')}`);
-  console.log(`Extension smoke passed: ${manifest.version}, new tab, folder editing, popup save, reload, shortcuts and ZIP video backup.`);
+  console.log(`Extension smoke passed: ${manifest.version}, new tab, folder editing, popup save, reload, shortcuts, ZIP video backup, local grid scroll and caption position.`);
 } finally {
   await context.close();
 }

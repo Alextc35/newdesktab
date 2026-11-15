@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "ลบ “{{name}}” ซึ่งเป็นโฟลเดอร์ {{folderCount}} และบุ๊กมาร์ก {{bookmarkCount}} รายการหรือไม่ หากต้องการเก็บไว้ ให้ย้ายไปที่หลักหรือพื้นที่ทำงานอื่นก่อน",
+    "confirmDeleteWidgets": "การดำเนินการนี้จะลบวิดเจ็ต {{count}} รายการอย่างถาวรด้วย",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "แสดงข้อความ",
     "textColor": "สีข้อความ:",
     "showFavicon": "แสดงไอคอน",
+    "captionPosition": "ตำแหน่งไอคอน:",
+    "captionPositionLeft": "ซ้าย",
+    "captionPositionRight": "ขวา",
     "invertColorIcon": "สลับสีไอคอน",
     "iconColor": "สีไอคอน:",
     "sections": {

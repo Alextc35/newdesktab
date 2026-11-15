@@ -127,6 +127,10 @@ grid, list and editor previews; quick looks preserve the selected category.
 The selection is included in presets, synchronization and backups. Choosing the
 original folder icon restores its bookmark previews and cover image.
 
+For the normal bookmark caption, **Style → Icon → Position** places the icon
+and name at the bottom left or bottom right. The right position puts the name
+before the icon. This appearance choice is included in presets and backups.
+
 Edit mode exposes a direct pencil button on each bookmark. A middle click opens
 the same editor without opening the bookmark in a tab. A short primary click
 toggles selection, while holding the primary button starts dragging instead.
@@ -137,6 +141,14 @@ Bookmarks and folders have eight resize handles. Drag a handle for continuous
 resizing, click it to grow one grid cell in that direction, or `Shift + click`
 to shrink. Invalid resize attempts restore the complete rectangle that existed
 before the gesture.
+
+**Settings → General → Window resizing behavior → Keep bookmark size** keeps
+the larger grid available in smaller windows. Each workspace remembers its
+horizontal and vertical scroll position on this device. These positions are
+excluded from Chrome Sync and backups; a workspace without a saved position
+starts centered.
+Resizing keeps the visible center anchored. Workspace changes fade in place
+after restoring their saved view, without scaling the grid.
 
 **Settings → Bookmarks → Drag behavior** controls occupied-cell handling:
 
@@ -462,9 +474,9 @@ Actions. Read [CONTRIBUTING.md](CONTRIBUTING.md) before structural changes.
 
 ## Languages
 
-The interface ships with English (`en`), Spanish from Spain (`es`), Latin
-American Spanish (`es_419`) and Brazilian Portuguese (`pt_BR`) in
-`src/lang/`.
+The interface ships with 52 offline locales in `src/lang/`, including English
+(`en`), Spanish from Spain (`es`), Latin American Spanish (`es_419`) and Brazilian
+Portuguese (`pt_BR`). The language picker supports native names and search.
 
 ## Roadmap
 

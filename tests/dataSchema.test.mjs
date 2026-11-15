@@ -59,6 +59,25 @@ test('preserves folder controls across backup and bookmarks-only exports', () =>
   );
 });
 
+test('preserves caption position in bookmarks, defaults, presets and exported backups', () => {
+  const data = migratePersistedData({
+    bookmarks: [{ id: 'right', name: 'Right', captionPosition: 'right' },
+      { id: 'legacy', name: 'Legacy' }, { id: 'invalid', name: 'Invalid', captionPosition: 'center' }],
+    settings: {
+      bookmarkDefault: { captionPosition: 'right' },
+      bookmarkPresets: [{ id: 'right-preset', name: 'Right preset', style: { captionPosition: 'right' } }]
+    }
+  });
+  assert.deepEqual(data.bookmarks.map(bookmark => bookmark.captionPosition), ['right', 'left', 'left']);
+  assert.equal(data.settings.bookmarkDefault.captionPosition, 'right');
+  assert.equal(data.settings.bookmarkPresets[0].style.captionPosition, 'right');
+  assert.deepEqual(parseBackupPayload(createBackupEnvelope(data)), data);
+  assert.deepEqual(
+    parseBookmarksPayload(createBookmarksEnvelope(data.bookmarks, data.folders), data).bookmarks,
+    data.bookmarks
+  );
+});
+
 test('separates legacy local images from URLs across themes, bookmarks, folders and presets', () => {
   const reference = 'newdesktab-local-image:4c5b9a2e-3f0e-4c7e-889c-72117afc09e9';
   const legacyStyle = { backgroundImageUrl: reference, backgroundImageUrlLocked: true };

@@ -50,6 +50,7 @@
  * @property {boolean} showText
  * @property {string} textColor
  * @property {boolean} showFavicon
+ * @property {'left'|'right'} captionPosition Position of the small icon and name caption.
  * @property {boolean} invertColorIcon
  * @property {number} createdAt
  * @property {number} updatedAt
@@ -101,6 +102,7 @@
  * @property {boolean} showText
  * @property {string} textColor
  * @property {boolean} showFavicon
+ * @property {'left'|'right'} captionPosition
  * @property {boolean} invertColorIcon
  */
 

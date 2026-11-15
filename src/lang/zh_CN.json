@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "删除“{{name}}”及其{{folderCount}}个文件夹和{{bookmarkCount}}个书签？要保留它们，请先将它们移至主工作区或其他工作区。",
+    "confirmDeleteWidgets": "这还会永久删除 {{count}} 个小部件。",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "显示文字",
     "textColor": "文字颜色：",
     "showFavicon": "显示图标",
+    "captionPosition": "图标位置：",
+    "captionPositionLeft": "左侧",
+    "captionPositionRight": "右侧",
     "invertColorIcon": "反转图标颜色",
     "iconColor": "图标颜色：",
     "sections": {

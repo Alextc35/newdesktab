@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "\"{{name}}\"፣ {{folderCount}} ማህደሮች እና {{bookmarkCount}} ዕልባቶችን ይሰርዙ? እነሱን ለማቆየት መጀመሪያ ወደ ዋና ወይም ሌላ የስራ ቦታ ያንቀሳቅሷቸው።",
+    "confirmDeleteWidgets": "ይህ ደግሞ {{count}} መግብሮችን እስከመጨረሻው ይሰርዛል።",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "ጽሑፍ አሳይ",
     "textColor": "የጽሑፍ ቀለም፡",
     "showFavicon": "አዶ አሳይ",
+    "captionPosition": "የአዶ አቀማመጥ፦",
+    "captionPositionLeft": "ግራ",
+    "captionPositionRight": "ቀኝ",
     "invertColorIcon": "የአዶ ቀለሞችን ገልብጥ",
     "iconColor": "የአዶ ቀለም፡",
     "sections": {

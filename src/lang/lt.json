@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Ištrinti „{{name}}“, jo {{folderCount}} aplankus ir {{bookmarkCount}} žymes? Norėdami juos išsaugoti, pirmiausia perkelkite juos į pagrindinę arba kitą darbo sritį.",
+    "confirmDeleteWidgets": "Taip pat bus visam laikui ištrinti {{count}} valdikliai.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Rodyti tekstą",
     "textColor": "Teksto spalva:",
     "showFavicon": "Rodyti piktogramą",
+    "captionPosition": "Piktogramos padėtis:",
+    "captionPositionLeft": "Kairėje",
+    "captionPositionRight": "Dešinėje",
     "invertColorIcon": "Apverskite piktogramų spalvas",
     "iconColor": "Piktogramos spalva:",
     "sections": {

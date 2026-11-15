@@ -467,10 +467,12 @@ async function handleDelete() {
       const { data } = getState();
       const workspace = getWorkspaceById(data, workspaceId);
       if (!workspace) return;
-      const { bookmarks: bookmarkCount, folders: folderCount } = getWorkspaceItemCounts(data, workspaceId);
-      const confirmed = await showAlert(t('workspace.confirmDelete', {
+      const { bookmarks: bookmarkCount, folders: folderCount, widgets: widgetCount } = getWorkspaceItemCounts(data, workspaceId);
+      let confirmation = t('workspace.confirmDelete', {
         name: workspace.name, bookmarkCount, folderCount
-      }), { type: 'confirm', requiresWideViewport: true });
+      });
+      if (widgetCount > 0) confirmation += `\n\n${t('workspace.confirmDeleteWidgets', { count: widgetCount })}`;
+      const confirmed = await showAlert(confirmation, { type: 'confirm', requiresWideViewport: true });
       if (!confirmed || !ensurePanelFits()) return;
       deletionPending = true;
     }

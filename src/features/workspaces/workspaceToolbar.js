@@ -20,7 +20,9 @@ import { flashInfo, flashSuccess } from '../../shared/ui/flash.js';
 import { runPersistedAction } from '../persistence/persistedAction.js';
 import { hasOpenModal } from '../../shared/ui/modalManager.js';
 import { openWorkspaceSettings } from './workspaceSettingsModal.js';
-import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
+import { ensurePanelFits, isListView } from '../../shared/ui/viewportMode.js';
+import { WINDOW_RESIZE_MODES } from '../../domain/settings/gridInteractionModes.js';
+import { waitForGridRender } from '../grid/gridRenderer.js';
 
 const WORKSPACE_EXIT_DURATION = 120;
 const WORKSPACE_ENTER_DURATION = 220;
@@ -134,15 +136,17 @@ export function initWorkspaceToolbar() {
     const workspace = getWorkspaceById(data, select.value);
     if (!workspace) return;
 
-    const { bookmarks: bookmarkCount, folders: folderCount } = getWorkspaceItemCounts(
+    const { bookmarks: bookmarkCount, folders: folderCount, widgets: widgetCount } = getWorkspaceItemCounts(
       data,
       workspace.id
     );
-    const confirmed = await showAlert(t('workspace.confirmDelete', {
+    let confirmation = t('workspace.confirmDelete', {
       name: workspace.name,
       bookmarkCount,
       folderCount
-    }), { type: 'confirm', requiresWideViewport: true });
+    });
+    if (widgetCount > 0) confirmation += `\n\n${t('workspace.confirmDeleteWidgets', { count: widgetCount })}`;
+    const confirmed = await showAlert(confirmation, { type: 'confirm', requiresWideViewport: true });
     if (confirmed && ensurePanelFits()) await runPersistedAction(`workspace-delete:${workspace.id}`,
       () => deleteWorkspace(workspace.id), deleted => {
         if (deleted) flashSuccess('flash.workspace.deleted');
@@ -326,12 +330,14 @@ async function switchWorkspace(container, targetId, direction) {
   container?.classList.add('is-switching-workspace');
 
   const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const keepGridFixed = !isListView()
+    && getState().data.settings.windowResizeMode === WINDOW_RESIZE_MODES.RELATIVE;
   const distance = direction < 0 ? 18 : -18;
   let exitAnimation = null;
 
   try {
     if (!reducedMotion && typeof container?.animate === 'function') {
-      exitAnimation = container.animate([
+      exitAnimation = container.animate(keepGridFixed ? [{ opacity: 1 }, { opacity: 0 }] : [
         { opacity: 1, transform: 'translateY(0) scale(1)' },
         { opacity: 0, transform: `translateY(${distance}px) scale(.992)` }
       ], {
@@ -343,6 +349,7 @@ async function switchWorkspace(container, targetId, direction) {
     }
 
     const changed = await setActiveWorkspace(targetId);
+    await waitForGridRender(container);
     exitAnimation?.cancel();
     exitAnimation = null;
     if (!changed) return false;
@@ -354,7 +361,7 @@ async function switchWorkspace(container, targetId, direction) {
     flashInfo(t('flash.workspace.switched', { name: activeWorkspaceName }));
 
     if (!reducedMotion && typeof container?.animate === 'function') {
-      const enterAnimation = container.animate([
+      const enterAnimation = container.animate(keepGridFixed ? [{ opacity: 0 }, { opacity: 1 }] : [
         { opacity: 0, transform: `translateY(${-distance}px) scale(.992)` },
         { opacity: 1, transform: 'translateY(0) scale(1)' }
       ], {

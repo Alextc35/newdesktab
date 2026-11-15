@@ -514,6 +514,7 @@
     "settingsSaved": "Configurações do espaço salvas.",
     "discardSettings": "Descartar as alterações não salvas do espaço de trabalho?",
     "confirmDelete": "Excluir «{{name}}», suas {{folderCount}} pastas e {{bookmarkCount}} favoritos? Se quiser mantê-los, mova-os antes para Principal ou para outro espaço.",
+    "confirmDeleteWidgets": "Isso também excluirá permanentemente {{count}} widgets.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Mostrar texto",
     "textColor": "Cor do texto:",
     "showFavicon": "Mostrar ícone",
+    "captionPosition": "Posição do ícone:",
+    "captionPositionLeft": "Esquerda",
+    "captionPositionRight": "Direita",
     "invertColorIcon": "Inverter cores",
     "iconColor": "Cor do ícone:",
     "sections": {

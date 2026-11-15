@@ -201,6 +201,65 @@ h3.editor-section-heading { margin: 0 0 6px; font-size: 13px; font-weight: 600; 
   padding-top: 12px;
   border-top: 1px solid var(--ui-divider);
 }
+
+.bookmark-appearance-editor .editor-content-groups {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-top: 8px;
+}
+
+.bookmark-appearance-editor [data-tab-panel="style"] {
+  gap: 8px;
+}
+
+.bookmark-appearance-editor .editor-looks {
+  padding-bottom: 6px;
+}
+
+.bookmark-appearance-editor .editor-control-group {
+  gap: 5px;
+}
+
+.bookmark-appearance-editor .editor-image-section {
+  padding-top: 4px;
+}
+
+.bookmark-appearance-editor .editor-content-groups .editor-control-group > h3 {
+  min-height: 17px;
+  line-height: 17px;
+}
+
+.bookmark-appearance-editor .editor-icon-picker > summary,
+.bookmark-appearance-editor .editor-text-group > .checkbox-wrapper,
+.bookmark-appearance-editor .editor-text-group > .edit-bookmark-modal-color-options,
+.editor-caption-position {
+  min-height: 34px;
+  box-sizing: border-box;
+}
+
+.editor-caption-position {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.editor-caption-position > label {
+  min-width: 0;
+}
+
+.editor-caption-position > select {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 60%;
+  height: 30px;
+  padding: 3px 8px;
+  border: 1px solid var(--ui-border);
+  border-radius: 6px;
+  background: var(--ui-input);
+  color: var(--ui-text);
+  font: inherit;
+  font-size: 12px;
+}
 .editor-background-controls { display: flex; align-items: center; gap: 14px; }
 .editor-background-controls > .checkbox-wrapper { flex: 1; min-width: 0; }
 .editor-content-groups .editor-background-controls { gap: 8px; }

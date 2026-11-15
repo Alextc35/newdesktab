@@ -100,12 +100,20 @@ test('changes SVG color independently of text, supports undo and persists to gri
   await expect(page.locator('#recycle-bin-list .catalog-icon')).toHaveCSS('color', 'rgb(239, 68, 68)');
 });
 
-test('shows the color directly below the SVG picker and hides it for the official logo', async ({ page }) => {
+test('shows SVG color below the icon controls and hides it for the official logo', async ({ page }) => {
   const editor = await openEditor(page);
-  const row = editor.locator('.bookmark-symbol-color');
-  const picker = editor.locator('.editor-icon-picker');
+  const iconGroup = editor.locator('.editor-icon-group');
+  const row = iconGroup.locator('.bookmark-symbol-color');
+  const picker = iconGroup.locator('.editor-icon-picker');
+  const position = iconGroup.locator('[data-field="captionPosition"]');
   await expect(row).toBeVisible();
-  expect(await picker.evaluate(element => element.nextElementSibling.classList.contains('bookmark-symbol-color'))).toBe(true);
+  await expect(position).toHaveValue('left');
+  const [pickerBox, positionBox, colorBox] = await Promise.all([
+    picker.boundingBox(), position.boundingBox(), row.boundingBox()
+  ]);
+  expect(positionBox.y).toBeGreaterThanOrEqual(pickerBox.y + pickerBox.height);
+  expect(colorBox.y).toBeGreaterThanOrEqual(positionBox.y + positionBox.height);
+  expect(colorBox.x).toBeCloseTo(pickerBox.x, 1);
   await pickColor(editor, '#22C55E');
   await picker.locator('summary').click();
   await picker.locator('[data-icon-choice=""]').click();

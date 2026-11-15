@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "“{{name}}”, അതിൻ്റെ {{folderCount}} ഫോൾഡറുകളും {{bookmarkCount}} ബുക്ക്‌മാർക്കുകളും ഇല്ലാതാക്കണോ? അവ സൂക്ഷിക്കാൻ, ആദ്യം അവയെ മെയിനിലേക്കോ മറ്റൊരു വർക്ക്‌സ്‌പെയ്‌സിലേക്കോ നീക്കുക.",
+    "confirmDeleteWidgets": "ഇത് {{count}} വിഡ്ജറ്റുകളും ശാശ്വതമായി ഇല്ലാതാക്കും.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "ടെക്സ്റ്റ് കാണിക്കുക",
     "textColor": "വാചക നിറം:",
     "showFavicon": "ഐക്കൺ കാണിക്കുക",
+    "captionPosition": "ഐക്കണിന്റെ സ്ഥാനം:",
+    "captionPositionLeft": "ഇടത്",
+    "captionPositionRight": "വലത്",
     "invertColorIcon": "ഐക്കൺ നിറങ്ങൾ വിപരീതമാക്കുക",
     "iconColor": "ഐക്കൺ നിറം:",
     "sections": {

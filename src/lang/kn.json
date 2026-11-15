@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "“{{name}}”, ಅದರ {{folderCount}} ಫೋಲ್ಡರ್‌ಗಳು ಮತ್ತು {{bookmarkCount}} ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳನ್ನು ಅಳಿಸುವುದೇ? ಅವುಗಳನ್ನು ಇರಿಸಿಕೊಳ್ಳಲು, ಅವುಗಳನ್ನು ಮೊದಲು ಮುಖ್ಯ ಅಥವಾ ಇನ್ನೊಂದು ಕಾರ್ಯಸ್ಥಳಕ್ಕೆ ಸರಿಸಿ.",
+    "confirmDeleteWidgets": "ಇದು {{count}} ವಿಜೆಟ್‌ಗಳನ್ನೂ ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುತ್ತದೆ.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "ಪಠ್ಯವನ್ನು ತೋರಿಸಿ",
     "textColor": "ಪಠ್ಯದ ಬಣ್ಣ:",
     "showFavicon": "ಐಕಾನ್ ತೋರಿಸು",
+    "captionPosition": "ಐಕಾನ್ ಸ್ಥಾನ:",
+    "captionPositionLeft": "ಎಡ",
+    "captionPositionRight": "ಬಲ",
     "invertColorIcon": "ಐಕಾನ್ ಬಣ್ಣಗಳನ್ನು ತಿರುಗಿಸಿ",
     "iconColor": "ಐಕಾನ್ ಬಣ್ಣ:",
     "sections": {

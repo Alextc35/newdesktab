@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Törli a „{{name}}” {{folderCount}} mappát és a {{bookmarkCount}} könyvjelzőt? Ha meg szeretné tartani őket, először helyezze át őket a Főoldalra vagy egy másik munkaterületre.",
+    "confirmDeleteWidgets": "Ezzel {{count}} widget is véglegesen törlődik.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Szöveg megjelenítése",
     "textColor": "Szöveg színe:",
     "showFavicon": "Ikon megjelenítése",
+    "captionPosition": "Ikon helyzete:",
+    "captionPositionLeft": "Balra",
+    "captionPositionRight": "Jobbra",
     "invertColorIcon": "Az ikon színeinek megfordítása",
     "iconColor": "Ikon színe:",
     "sections": {

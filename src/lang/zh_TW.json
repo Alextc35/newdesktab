@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "刪除「{{name}}」及其{{folderCount}}個資料夾和{{bookmarkCount}}個書籤？若要保留它們，請先將它們移至主工作區或其他工作區。",
+    "confirmDeleteWidgets": "這還會永久刪除 {{count}} 個小部件。",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "顯示文字",
     "textColor": "文字顏色：",
     "showFavicon": "顯示圖示",
+    "captionPosition": "圖示位置：",
+    "captionPositionLeft": "左側",
+    "captionPositionRight": "右側",
     "invertColorIcon": "反轉圖示顏色",
     "iconColor": "圖示顏色：",
     "sections": {

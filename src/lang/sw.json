@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Ungependa kufuta “{{name}}”, folda zake {{folderCount}} na vialamisho {{bookmarkCount}}? Ili kuziweka, zihamishe hadi kwa Kuu au sehemu nyingine ya kazi kwanza.",
+    "confirmDeleteWidgets": "Hii pia itafuta kabisa wijeti {{count}}.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Onyesha maandishi",
     "textColor": "Rangi ya maandishi:",
     "showFavicon": "Onyesha ikoni",
+    "captionPosition": "Nafasi ya ikoni:",
+    "captionPositionLeft": "Kushoto",
+    "captionPositionRight": "Kulia",
     "invertColorIcon": "Geuza rangi za ikoni",
     "iconColor": "Rangi ya ikoni:",
     "sections": {

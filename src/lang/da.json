@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Vil du slette \"{{name}}\", dets {{folderCount}} mapper og {{bookmarkCount}} bogmærker? For at beholde dem skal du først flytte dem til Hoved eller et andet arbejdsområde.",
+    "confirmDeleteWidgets": "Dette sletter også {{count}} widgets permanent.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Vis tekst",
     "textColor": "Tekstfarve:",
     "showFavicon": "Vis ikon",
+    "captionPosition": "Ikonplacering:",
+    "captionPositionLeft": "Venstre",
+    "captionPositionRight": "Højre",
     "invertColorIcon": "Inverter ikonfarver",
     "iconColor": "Ikon farve:",
     "sections": {

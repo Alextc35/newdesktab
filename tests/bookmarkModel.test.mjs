@@ -54,6 +54,24 @@ test('SVG color is optional, validated, and preserved by presets independently o
   assert.equal(applyBookmarkPreset(bookmark, { iconColor: '#abcdef' }).iconColor, '#abcdef');
 });
 
+test('caption position defaults safely and follows drafts and visual presets', () => {
+  for (const captionPosition of [undefined, null, '', 'center', 'RIGHT', {}, false]) {
+    assert.equal(normalizeBookmarkPreset({ captionPosition }).captionPosition, 'left');
+  }
+  const bookmark = normalizeBookmark({
+    id: 'saved', name: 'Right caption', url: 'https://example.test',
+    gx: 4, gy: 2, backgroundFavicon: false, captionPosition: 'right'
+  });
+  assert.equal(bookmark.captionPosition, 'right');
+  assert.equal(createBookmarkDraft({ bookmark }).captionPosition, 'right');
+  assert.equal(createBookmarkDraft({ preset: { captionPosition: 'right' } }).captionPosition, 'right');
+  const applied = applyBookmarkPreset(bookmark, { captionPosition: 'left' });
+  assert.equal(applied.captionPosition, 'left');
+  assert.equal(applied.id, bookmark.id);
+  assert.equal(applied.gx, 4);
+  assert.equal(applied.gy, 2);
+});
+
 test('normalization can be deterministic through injected runtime values', () => {
   const bookmark = normalizeBookmark({
     name: '  NewDeskTab  ',

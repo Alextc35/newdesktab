@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "“{{name}}”, దాని {{folderCount}} ఫోల్డర్‌లు మరియు {{bookmarkCount}} బుక్‌మార్క్‌లను తొలగించాలా? వాటిని ఉంచడానికి, ముందుగా వాటిని ప్రధాన లేదా మరొక కార్యస్థలానికి తరలించండి.",
+    "confirmDeleteWidgets": "ఇది {{count}} విడ్జెట్‌లను కూడా శాశ్వతంగా తొలగిస్తుంది.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "వచనాన్ని చూపు",
     "textColor": "వచన రంగు:",
     "showFavicon": "చిహ్నాన్ని చూపించు",
+    "captionPosition": "చిహ్నం స్థానం:",
+    "captionPositionLeft": "ఎడమ",
+    "captionPositionRight": "కుడి",
     "invertColorIcon": "చిహ్న రంగులను విలోమం చేయండి",
     "iconColor": "చిహ్నం రంగు:",
     "sections": {

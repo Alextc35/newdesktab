@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Verwijder “{{name}}”, de {{folderCount}} mappen en {{bookmarkCount}} bladwijzers? Om ze te behouden, verplaatst u ze eerst naar de hoofdwerkruimte of naar een andere werkruimte.",
+    "confirmDeleteWidgets": "Hiermee worden ook {{count}} widgets permanent verwijderd.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Toon tekst",
     "textColor": "Tekstkleur:",
     "showFavicon": "Pictogram weergeven",
+    "captionPosition": "Pictogrampositie:",
+    "captionPositionLeft": "Links",
+    "captionPositionRight": "Rechts",
     "invertColorIcon": "Pictogramkleuren omkeren",
     "iconColor": "Pictogramkleur:",
     "sections": {

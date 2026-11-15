@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "「{{name}}」とその {{folderCount}} 個のフォルダーと {{bookmarkCount}} 個のブックマークを削除しますか?それらを保持するには、まずメインまたは別のワークスペースに移動します。",
+    "confirmDeleteWidgets": "{{count}} 個のウィジェットも完全に削除されます。",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "テキストを表示",
     "textColor": "文字の色:",
     "showFavicon": "アイコンを表示",
+    "captionPosition": "アイコンの位置:",
+    "captionPositionLeft": "左",
+    "captionPositionRight": "右",
     "invertColorIcon": "アイコンの色を反転する",
     "iconColor": "アイコンの色:",
     "sections": {

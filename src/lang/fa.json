@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "\"{{name}}\"، {{folderCount}} پوشه و {{bookmarkCount}} نشانک آن حذف شود؟ برای حفظ آنها، ابتدا آنها را به اصلی یا فضای کاری دیگری منتقل کنید.",
+    "confirmDeleteWidgets": "این کار {{count}} ابزارک را نیز برای همیشه حذف می‌کند.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "نمایش متن",
     "textColor": "رنگ متن:",
     "showFavicon": "نمایش نماد",
+    "captionPosition": "موقعیت آیکون:",
+    "captionPositionLeft": "چپ",
+    "captionPositionRight": "راست",
     "invertColorIcon": "رنگ های نماد را معکوس کنید",
     "iconColor": "رنگ آیکون:",
     "sections": {

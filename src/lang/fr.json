@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Supprimer « {{name}} », ses {{folderCount}} dossiers et {{bookmarkCount}} favoris ? Pour les conserver, déplacez-les d’abord vers Principal ou un autre espace de travail.",
+    "confirmDeleteWidgets": "Cela supprimera également définitivement {{count}} widgets.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Afficher le texte",
     "textColor": "Couleur du texte :",
     "showFavicon": "Afficher l'icône",
+    "captionPosition": "Position de l’icône :",
+    "captionPositionLeft": "Gauche",
+    "captionPositionRight": "Droite",
     "invertColorIcon": "Inverser les couleurs des icônes",
     "iconColor": "Couleur de l'icône :",
     "sections": {

@@ -63,6 +63,7 @@ function createBookmarkContent(element, bookmark, isEditing, faviconUrl) {
 
   const info = document.createElement('div');
   info.className = 'bookmark-info';
+  info.classList.toggle('is-caption-right', bookmark.captionPosition === 'right');
   if (bookmark.showFavicon ?? true) {
     const icon = createIcon(bookmark, faviconUrl, true);
     icon.style.width = '16px';

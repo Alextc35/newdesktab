@@ -2,7 +2,12 @@ import { debug } from '../shared/diagnostics/debug.js';
 import { changeLanguage } from '../platform/i18n/i18n.js';
 import { applyInterfaceTheme } from '../shared/ui/interfaceTheme.js';
 import { applyPageTheme } from '../shared/ui/pageTheme.js';
-import { enableGridEditing, renderGrid } from '../features/grid/gridRenderer.js';
+import {
+  enableGridEditing,
+  isLatestGridRender,
+  renderGrid,
+  trackGridRender
+} from '../features/grid/gridRenderer.js';
 import { clearGridItemSelection } from '../features/grid/gridSelection.js';
 import { preloadLocalImages } from '../platform/images/localImages.js';
 import { preloadLocalVideos } from '../platform/images/localVideos.js';
@@ -107,16 +112,25 @@ function renderChangedGrid(container, state, settingsChanged, applyCurrentPageTh
     folders: state.data.folders.length,
     widgets: state.data.widgets.length
   });
-  void Promise.all([preloadLocalImages(state.data), preloadLocalVideos(state.data)]).then(() => {
+  const rendering = Promise.all([preloadLocalImages(state.data), preloadLocalVideos(state.data)]).then(() => {
+    if (!isLatestGridRender(container, rendering)) {
+      trace.end({ superseded: true });
+      return;
+    }
     trace.mark('Resolve local images');
     if (settingsChanged) applyCurrentPageTheme(state.data.settings);
     renderGrid(container);
     trace.mark('Build grid DOM');
     trace.end();
   }).catch(error => {
+    if (!isLatestGridRender(container, rendering)) {
+      trace.end({ superseded: true });
+      return;
+    }
     trace.end({ status: 'error', error: error.message });
     console.error('[LOCAL_IMAGE] Could not load local image:', error);
     if (settingsChanged) applyCurrentPageTheme(state.data.settings);
     renderGrid(container);
   });
+  trackGridRender(container, rendering);
 }

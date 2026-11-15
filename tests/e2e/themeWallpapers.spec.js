@@ -284,13 +284,15 @@ test('rotates personal URLs, preserves their colors and preview crop after reloa
   });
   expect(colorStyle.personal).toEqual(colorStyle.fallback);
   await rows.nth(1).getByRole('button', { name: 'Preview wallpaper' }).hover();
-  await expect(page.locator('.theme-wallpaper-peek:visible')).toHaveCSS('background-image', /second\.png/);
-  await expect(page.locator('.theme-wallpaper-peek:visible')).toHaveCSS('background-color', 'rgb(18, 52, 86)');
-  const previewLayout = await page.evaluate(() => {
+  const peek = page.locator('body > .theme-wallpaper-peek:visible');
+  await expect(peek).toHaveCount(1);
+  await expect(peek).toHaveCSS('background-image', /second\.png/);
+  await expect(peek).toHaveCSS('background-color', 'rgb(18, 52, 86)');
+  const previewLayout = await peek.evaluate(peekElement => {
     const row = document.querySelectorAll('#settings-theme-media-list .theme-wallpaper-row')[1];
+    const rowBounds = row.getBoundingClientRect();
     const viewport = document.querySelector('#bookmark-viewport').getBoundingClientRect();
     const previewElement = document.querySelector('#settings-theme-bg-preview');
-    const peekElement = row.querySelector('.theme-wallpaper-peek');
     const preview = previewElement.getBoundingClientRect();
     const peek = peekElement.getBoundingClientRect();
     return {
@@ -299,6 +301,8 @@ test('rotates personal URLs, preserves their colors and preview crop after reloa
       viewportRatio: viewport.width / viewport.height,
       previewRatio: preview.width / preview.height,
       peekRatio: peek.width / peek.height,
+      peekGapBelowRow: peek.top - rowBounds.bottom,
+      peekInsideHorizontalEdges: peek.left >= viewport.left + 8 && peek.right <= viewport.right - 8,
       sameCrop: ['backgroundSize', 'backgroundPosition', 'backgroundRepeat'].every(property =>
         getComputedStyle(previewElement)[property] === getComputedStyle(peekElement)[property])
     };
@@ -306,6 +310,8 @@ test('rotates personal URLs, preserves their colors and preview crop after reloa
   expect(previewLayout.previewBeforeColor).toBe(true);
   expect(previewLayout.previewRatio).toBeCloseTo(previewLayout.viewportRatio, 1);
   expect(previewLayout.peekRatio).toBeCloseTo(previewLayout.viewportRatio, 1);
+  expect(previewLayout.peekGapBelowRow).toBeCloseTo(6, 1);
+  expect(previewLayout.peekInsideHorizontalEdges).toBe(true);
   expect(previewLayout.sameCrop).toBe(true);
 
   await rows.nth(1).getByRole('button', { name: 'Move up' }).click();

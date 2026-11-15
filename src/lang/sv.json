@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Ta bort \"{{name}}\", dess {{folderCount}} mappar och {{bookmarkCount}} bokmärken? För att behålla dem, flytta dem till Main eller en annan arbetsyta först.",
+    "confirmDeleteWidgets": "Detta raderar även {{count}} widgets permanent.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Visa text",
     "textColor": "Textfärg:",
     "showFavicon": "Visa ikon",
+    "captionPosition": "Ikonplacering:",
+    "captionPositionLeft": "Vänster",
+    "captionPositionRight": "Höger",
     "invertColorIcon": "Invertera ikonfärger",
     "iconColor": "Ikonfärg:",
     "sections": {

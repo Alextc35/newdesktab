@@ -104,6 +104,10 @@
   will-change: opacity, transform;
 }
 
+.is-relative-grid #bookmark-container.is-switching-workspace {
+  will-change: opacity;
+}
+
 @media (prefers-reduced-motion: reduce) {
   #bookmark-container::after {
     transition: none;

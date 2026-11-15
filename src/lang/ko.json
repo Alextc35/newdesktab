@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "'{{name}}', 폴더 {{folderCount}}개, 북마크 {{bookmarkCount}}개를 삭제하시겠습니까? 이를 유지하려면 먼저 기본 작업 공간이나 다른 작업 공간으로 이동하세요.",
+    "confirmDeleteWidgets": "위젯 {{count}}개도 영구적으로 삭제됩니다.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "텍스트 표시",
     "textColor": "텍스트 색상:",
     "showFavicon": "아이콘 표시",
+    "captionPosition": "아이콘 위치:",
+    "captionPositionLeft": "왼쪽",
+    "captionPositionRight": "오른쪽",
     "invertColorIcon": "아이콘 색상 반전",
     "iconColor": "아이콘 색상:",
     "sections": {

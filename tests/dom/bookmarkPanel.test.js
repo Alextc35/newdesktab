@@ -37,6 +37,27 @@ describe('BookmarkEditorPanel', () => {
     panel.destroy();
   });
 
+  test('caption position updates the preview without changing large icons', () => {
+    const panel = createBookmarkEditorPanel({
+      host: document.getElementById('bookmark-modal-form-host'), mode: 'edit',
+      value: { name: 'Caption', url: 'https://example.test', backgroundFavicon: false }
+    });
+    const position = panel.elements.captionPosition;
+    expect(position.value).toBe('left');
+    expect(position.disabled).toBe(false);
+    expect(position.labels[0].htmlFor).toBe(position.id);
+    position.value = 'right';
+    position.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(panel.getValue().captionPosition).toBe('right');
+    expect(panel.elements.preview.querySelector('.bookmark-info').classList.contains('is-caption-right')).toBe(true);
+    panel.setValue({ ...panel.getValue(), backgroundFavicon: true });
+    expect(position.disabled).toBe(true);
+    expect(panel.elements.preview.querySelector('.bookmark-info')).toBeNull();
+    expect(panel.elements.preview.querySelector('.bookmark-favicon')).not.toBeNull();
+    expect(panel.getValue().captionPosition).toBe('right');
+    panel.destroy();
+  });
+
   test('uses one panel contract for create and preset modes', () => {
     const createPanel = createBookmarkEditorPanel({
       host: document.getElementById('bookmark-modal-form-host'),

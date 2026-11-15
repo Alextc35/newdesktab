@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "“{{name}}”, તેના {{folderCount}} ફોલ્ડર્સ અને {{bookmarkCount}} બુકમાર્ક્સ કાઢી નાખીએ? તેમને રાખવા માટે, તેમને પહેલા મુખ્ય અથવા અન્ય કાર્યસ્થળ પર ખસેડો.",
+    "confirmDeleteWidgets": "આનાથી {{count}} વિજેટ્સ પણ કાયમ માટે કાઢી નાખવામાં આવશે.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "ટેક્સ્ટ બતાવો",
     "textColor": "ટેક્સ્ટ રંગ:",
     "showFavicon": "આયકન બતાવો",
+    "captionPosition": "આયકનનું સ્થાન:",
+    "captionPositionLeft": "ડાબે",
+    "captionPositionRight": "જમણે",
     "invertColorIcon": "આયકન રંગો ઉલટાવો",
     "iconColor": "ચિહ્ન રંગ:",
     "sections": {

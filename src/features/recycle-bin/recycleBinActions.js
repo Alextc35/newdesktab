@@ -175,7 +175,7 @@ export async function replaceGridDataThroughRecycleBin(bookmarks, folders) {
   return entries.length;
 }
 
-/** Deletes a workspace while retaining its contents in the recycle bin. */
+/** Retains workspace bookmarks/folders in trash; widgets are deleted permanently. */
 export function moveWorkspaceToRecycleBin(groupId, nextSettings) {
   const { data } = getState();
   const folders = data.folders.filter(folder => folder.groupId === groupId);
@@ -186,6 +186,7 @@ export function moveWorkspaceToRecycleBin(groupId, nextSettings) {
     data: {
       bookmarks: data.bookmarks.filter(bookmark => bookmark.groupId !== groupId),
       folders: data.folders.filter(folder => folder.groupId !== groupId),
+      widgets: data.widgets.filter(widget => widget.groupId !== groupId),
       trash: [...data.trash, ...entries],
       settings: nextSettings
     }

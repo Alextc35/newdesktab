@@ -44,7 +44,7 @@ const {
 const { getState, hydrateStore, setState } = await import('../src/state/appStore.js');
 const { moveGridItemsToWorkspace } = await import('../src/features/grid/gridItemActions.js');
 
-test('deleting a workspace also deletes its bookmarks without moving them to Main', async () => {
+test('deleting a workspace removes its bookmarks, folders and widgets without moving them to Main', async () => {
   await hydrateStore();
   await setState({
     data: {
@@ -55,6 +55,10 @@ test('deleting a workspace also deletes its bookmarks without moving them to Mai
       folders: [
         { id: 'main-folder', name: 'Main folder', groupId: null, gx: 1, gy: 0, w: 1, h: 1 },
         { id: 'temporary-folder', name: 'Temporary folder', groupId: 'temporary', gx: 1, gy: 0, w: 1, h: 1 }
+      ],
+      widgets: [
+        { id: 'main-clock', type: 'clock', groupId: null, gx: 2, gy: 0, w: 1, h: 1 },
+        { id: 'temporary-clock', type: 'clock', groupId: 'temporary', gx: 2, gy: 0, w: 1, h: 1 }
       ],
       settings: {
         ...getState().data.settings,
@@ -67,6 +71,7 @@ test('deleting a workspace also deletes its bookmarks without moving them to Mai
   assert.equal(deleteWorkspace('temporary'), true);
   assert.deepEqual(getState().data.bookmarks.map(bookmark => bookmark.id), ['main']);
   assert.deepEqual(getState().data.folders.map(folder => folder.id), ['main-folder']);
+  assert.deepEqual(getState().data.widgets.map(widget => widget.id), ['main-clock']);
   assert.deepEqual(getState().data.settings.bookmarkGroups, []);
   assert.equal(getState().data.settings.activeBookmarkGroupId, null);
 });

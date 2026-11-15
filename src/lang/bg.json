@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Изтриване на „{{name}}“, неговите {{folderCount}} папки и {{bookmarkCount}} отметки? За да ги запазите, първо ги преместете в Главно или друго работно пространство.",
+    "confirmDeleteWidgets": "Това също ще изтрие окончателно {{count}} джаджи.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Показване на текст",
     "textColor": "Цвят на текста:",
     "showFavicon": "Показване на икона",
+    "captionPosition": "Позиция на иконата:",
+    "captionPositionLeft": "Ляво",
+    "captionPositionRight": "Дясно",
     "invertColorIcon": "Обърнете цветовете на иконите",
     "iconColor": "Цвят на иконата:",
     "sections": {

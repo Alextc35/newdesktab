@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Izbrisati “{{name}}”, njegovih {{folderCount}} mapa i {{bookmarkCount}} oznaka? Da biste ih zadržali, prvo ih premjestite u glavni ili drugi radni prostor.",
+    "confirmDeleteWidgets": "Time će se trajno izbrisati i {{count}} widgeta.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Prikaži tekst",
     "textColor": "Boja teksta:",
     "showFavicon": "Prikaži ikonu",
+    "captionPosition": "Položaj ikone:",
+    "captionPositionLeft": "Lijevo",
+    "captionPositionRight": "Desno",
     "invertColorIcon": "Invertiraj boje ikona",
     "iconColor": "Boja ikone:",
     "sections": {

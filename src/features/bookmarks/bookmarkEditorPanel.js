@@ -296,6 +296,7 @@ function resolveElements(root) {
     textColor: field('textColor'),
     iconColor: field('iconColor'),
     showFavicon: field('showFavicon'),
+    captionPosition: field('captionPosition'),
     invertIcon: field('invertIcon'),
     urlToggleBtn: field('urlToggle'),
     urlCopyBtn: field('urlCopy'),

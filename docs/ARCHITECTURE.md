@@ -1013,12 +1013,23 @@ showing folder context when present. `features/search/listSearch.js` filters the
 already-rendered compact view without changing saved data. Selection is pruned
 when bookmarks disappear and is cleared when edit mode closes.
 
+The grid's saved X/Y scroll positions are owned by
+`platform/storage/deviceGridScroll.js` and keyed by workspace in browser-local
+storage. They stay outside the persisted application payload, Sync and backups.
+Grid layout restores and clamps them when entering preserved-size mode; absent
+positions retain the centered default.
+Saved offsets also retain each axis's scroll range, allowing resize to preserve
+the viewport's offset from the canvas center without overwriting a clamped pan.
+
 `features/workspaces/workspaceToolbar.js` owns cyclic workspace navigation.
 `Ctrl` with the up or down arrow resolves the adjacent workspace through
 the workspace domain and feature selectors,
 animates the current grid out and the next grid in, and skips the transition
 when the operating system requests reduced motion. Shortcuts are ignored while
 typing or while a modal is open.
+In preserved-size mode, transitions animate opacity only. The outgoing fade
+stays hidden until the latest tracked asynchronous grid render finishes, so the
+incoming DOM and its device-local viewport are ready before the fade starts.
 
 The workspace navigation handler runs during event capture so focused dock
 controls cannot consume its arrow keys. Adding Control to the configured

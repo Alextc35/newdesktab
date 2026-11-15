@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Vai dzēst “{{name}}”, tā {{folderCount}} mapes un {{bookmarkCount}} grāmatzīmes? Lai tos saglabātu, vispirms pārvietojiet tos uz galveno vai citu darbvietu.",
+    "confirmDeleteWidgets": "Tiks neatgriezeniski izdzēsti arī {{count}} logrīki.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Rādīt tekstu",
     "textColor": "Teksta krāsa:",
     "showFavicon": "Rādīt ikonu",
+    "captionPosition": "Ikonas novietojums:",
+    "captionPositionLeft": "Pa kreisi",
+    "captionPositionRight": "Pa labi",
     "invertColorIcon": "Apgriezt ikonu krāsas",
     "iconColor": "Ikonas krāsa:",
     "sections": {

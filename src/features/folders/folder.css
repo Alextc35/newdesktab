@@ -827,13 +827,13 @@
   bottom: 5px;
   left: 6px;
   min-width: 0;
-  justify-content: center;
+  justify-content: var(--bookmark-caption-justify, center);
   gap: 6px;
 }
 
 .folder-grid-bookmark.bookmark .bookmark-info .bookmark-title {
   margin-top: 0;
-  text-align: center;
+  text-align: var(--bookmark-caption-align, center);
 }
 
 .folder-grid-bookmark.bookmark .bookmark-title {

@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Excluir “{{name}}”, suas {{folderCount}} pastas e {{bookmarkCount}} marcadores? Para mantê-los, mova-os primeiro para Principal ou para outro espaço de trabalho.",
+    "confirmDeleteWidgets": "Isto também eliminará permanentemente {{count}} widgets.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Mostrar texto",
     "textColor": "Cor do texto:",
     "showFavicon": "Mostrar ícone",
+    "captionPosition": "Posição do ícone:",
+    "captionPositionLeft": "Esquerda",
+    "captionPositionRight": "Direita",
     "invertColorIcon": "Inverter cores dos ícones",
     "iconColor": "Cor do ícone:",
     "sections": {

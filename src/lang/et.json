@@ -514,6 +514,7 @@
     "settingsSaved": "Workspace settings saved.",
     "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Kas kustutada „{{name}}”, selle {{folderCount}} kausta ja {{bookmarkCount}} järjehoidjat? Nende säilitamiseks teisaldage need esmalt põhilehele või mõnele muule tööalale.",
+    "confirmDeleteWidgets": "See kustutab jäädavalt ka {{count}} vidinat.",
     "useGlobalTheme": "Use the global theme for this workspace",
     "solidBackground": "Use a solid background color",
     "solidColor": "Background color",
@@ -671,6 +672,9 @@
     "showText": "Näita teksti",
     "textColor": "Teksti värv:",
     "showFavicon": "Näita ikooni",
+    "captionPosition": "Ikooni asukoht:",
+    "captionPositionLeft": "Vasakul",
+    "captionPositionRight": "Paremal",
     "invertColorIcon": "Pöörake ikooni värvid ümber",
     "iconColor": "Ikooni värv:",
     "sections": {

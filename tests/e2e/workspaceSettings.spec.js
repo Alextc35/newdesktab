@@ -44,10 +44,17 @@ async function createWorkspaceWithContents(page) {
     const { createWorkspace } = await import('/src/features/workspaces/workspaceActions.js');
     const { createBookmarkFolder } = await import('/src/features/folders/folderActions.js');
     const { addBookmark } = await import('/src/features/bookmarks/bookmarkActions.js');
+    const { addWidget } = await import('/src/widgets/widgetActions.js');
+    addWidget({ type: 'clock', w: 1, h: 1 }, {
+      columns: 12, rows: 6, idFactory: () => 'workspace-kept-clock'
+    });
     const workspace = createWorkspace('Minimalist');
     const folder = createBookmarkFolder('Reading', { columns: 12, rows: 6 });
     addBookmark({ name: 'Outside', url: 'https://outside.test', groupId: workspace.id, gx: 2, gy: 0 });
     addBookmark({ name: 'Inside', url: 'https://inside.test', groupId: workspace.id, folderId: folder.id });
+    addWidget({ type: 'clock', w: 1, h: 1 }, {
+      columns: 12, rows: 6, idFactory: () => 'workspace-delete-clock'
+    });
     return workspace.id;
   });
   await waitForSaved(page);
@@ -455,6 +462,7 @@ test('deletes a custom workspace from its settings after confirming its saved na
   await page.locator('#workspace-settings-delete').click();
   await expect(page.locator('#alert-modal-title')).toHaveText(
     'Delete “Minimalist”, its 1 folders and 2 bookmarks? To keep them, move them to Main or another workspace first.'
+    + '\n\nThis will also permanently delete 1 widgets.'
   );
   await page.locator('#alert-modal-cancel').click();
   await expect(page.locator('#workspace-settings-name')).toHaveValue('Unfinished name');
@@ -478,11 +486,16 @@ test('deletes a custom workspace from its settings after confirming its saved na
   expect(after.settings.mainWorkspace).toEqual(before.settings.mainWorkspace);
   expect(after.bookmarks).toEqual(before.bookmarks.filter(item => item.groupId !== workspaceId));
   expect(after.folders).toEqual(before.folders.filter(item => item.groupId !== workspaceId));
+  expect(after.widgets).toEqual(before.widgets.filter(item => item.groupId !== workspaceId));
   expect(after.trash).toHaveLength(before.trash.length + 2);
   await expect(page.locator('#workspace-current-name')).toHaveText('Main');
   expect(await localImageKeys(page)).toEqual(previousImages);
   await page.reload();
   await expectAppReady(page);
+  expect(await page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getState().data.widgets)).toEqual(after.widgets);
+  await expect(page.locator('#bookmark-container .clock-widget')).toHaveCount(1);
   await openWorkspaceSettings(page, null);
   await expect(page.locator('#workspace-settings-delete')).toBeHidden();
 });
@@ -528,6 +541,8 @@ for (const retry of ['global', 'delete']) {
     expect(saved.trash.find(entry => entry.type === 'bookmark').bookmark.name).toBe('Outside');
     expect(saved.settings.bookmarkGroups.some(item => item.id === workspaceId)).toBe(false);
     expect(saved.settings.activeBookmarkGroupId).toBeNull();
+    expect(saved.widgets.map(widget => ({ id: widget.id, groupId: widget.groupId })))
+      .toEqual([{ id: 'workspace-kept-clock', groupId: null }]);
   });
 }
 

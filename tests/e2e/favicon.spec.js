@@ -1,5 +1,5 @@
 import { expect, test } from './helpers/test.js';
-import { expectAppReady } from './helpers/appReady.js';
+import { expectAppReady, expectAppSaved } from './helpers/appReady.js';
 
 const icon = Buffer.from(
   'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScL1SQAAAABJRU5ErkJggg==',
@@ -113,8 +113,9 @@ test('offline initials fallback follows the interface theme', async ({ page }) =
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const settings = getState().data.settings;
-    await setState({ data: { settings: { ...settings, interfaceTheme: 'dark' } } });
+    void setState({ data: { settings: { ...settings, interfaceTheme: 'dark' } } });
   });
+  await expectAppSaved(page);
 
   await expect(fallback).toHaveCSS('background-color', 'rgb(24, 36, 56)');
   await expect(fallback).toHaveCSS('color', 'rgb(255, 255, 255)');
