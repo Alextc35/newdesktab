@@ -1,6 +1,5 @@
 {
   "releaseNotes": {
-    "settingsTitle": "Напомене о издању",
     "settingsDescription": "Шта се променило и прича иза сваког ажурирања.",
     "open": "Прочитај белешке",
     "history": "Историја верзија",
@@ -499,6 +498,19 @@
     "shortcutHint": "Промените радни простор помоћу Алт или Оптион плус стрелица нагоре или надоле",
     "prompt": "Унесите име за нови радни простор",
     "namePlaceholder": "Посао, слободно време…",
+    "editSettingsFor": "Settings for {{name}}",
+    "settingsTitle": "Workspace settings",
+    "settingsTitleFor": "Settings · {{name}}",
+    "nameLabel": "Workspace name",
+    "wallpaperUrl": "Wallpaper URL",
+    "wallpaperSource": "Use wallpaper from",
+    "noLocalImage": "No uploaded image",
+    "wallpaperPreview": "Wallpaper preview",
+    "wallpaperSyncNote": "Wallpaper URLs sync through the cloud. Uploaded files stay on this device.",
+    "invalidName": "Enter a workspace name of up to 60 characters.",
+    "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
+    "settingsSaved": "Workspace settings saved.",
+    "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Избриши “{{name}}”, свој {{folderCount}} фасцикле и {{bookmarkCount}} обележивачи? Да бисте их задржали, прво их преместите у главни или други радни простор."
   },
   "search": {

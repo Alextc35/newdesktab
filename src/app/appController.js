@@ -20,9 +20,36 @@ import { getStorageMode } from '../state/appStore.js';
  */
 export function createAppController({ container }) {
   let lastStorageMode;
-  const applyCurrentPageTheme = settings => applyPageTheme(settings, {
-    includeFallback: getStorageMode() === 'sync'
-  });
+  const applyCurrentPageTheme = settings => {
+    const workspace = settings.bookmarkGroups?.find(item => (
+      item.id === settings.activeBookmarkGroupId
+    )) ?? (settings.activeBookmarkGroupId === null ? settings.mainWorkspace : null);
+    const workspaceMedia = workspace?.backgroundMedia?.length
+      ? workspace.backgroundMedia
+      : workspace?.backgroundImageUrl || workspace?.backgroundImageLocal
+        ? [{ id: `workspace-${settings.activeBookmarkGroupId ?? 'main'}`, type: 'image',
+          backgroundImageUrl: workspace.backgroundImageUrl,
+          backgroundImageLocal: workspace.backgroundImageLocal,
+          backgroundImageSource: workspace.backgroundImageSource,
+          backgroundColor: settings.theme.backgroundImageColor }]
+        : [];
+    const hasWorkspaceWallpaper = workspaceMedia.length > 0;
+    const themeSettings = hasWorkspaceWallpaper
+      ? {
+          ...settings,
+          theme: {
+            ...settings.theme,
+            backgroundDefault: false,
+            backgroundSolid: false,
+            backgroundMedia: workspaceMedia,
+            backgroundRotationSeconds: workspace.backgroundRotationSeconds ?? 0
+          }
+        }
+      : settings;
+    applyPageTheme(themeSettings, {
+      includeFallback: hasWorkspaceWallpaper || getStorageMode() === 'sync'
+    });
+  };
   return Object.freeze({
     handleStateChange(state, previousState) {
       const storageMode = getStorageMode();

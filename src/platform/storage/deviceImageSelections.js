@@ -17,6 +17,19 @@ function imageSlots(data) {
     ...(data.settings?.theme?.backgroundMedia ?? [])
       .filter(item => item?.type === 'video')
       .map(item => [`theme-video:${item.id}`, item]),
+    ...(data.settings?.bookmarkGroups ?? [])
+      .flatMap(workspace => [
+        [`workspace:${workspace.id}`, workspace],
+        ...(workspace.backgroundMedia ?? []).filter(item => item.type === 'image')
+          .map(item => [`workspace:${workspace.id}:${item.id}`, item]),
+        ...(workspace.backgroundMedia ?? []).filter(item => item.type === 'video')
+          .map(item => [`workspace-video:${workspace.id}:${item.id}`, item])
+      ]),
+    ['workspace:main', data.settings?.mainWorkspace],
+    ...(data.settings?.mainWorkspace?.backgroundMedia ?? []).filter(item => item.type === 'image')
+      .map(item => [`workspace:main:${item.id}`, item]),
+    ...(data.settings?.mainWorkspace?.backgroundMedia ?? []).filter(item => item.type === 'video')
+      .map(item => [`workspace-video:main:${item.id}`, item]),
     ['bookmarkDefault', data.settings?.bookmarkDefault],
     ['recycleBin', data.recycleBin],
     ...(data.bookmarks ?? []).map(item => [`bookmark:${item.id}`, item]),
@@ -35,9 +48,10 @@ function imageSlots(data) {
 export function withoutDeviceImages(data) {
   const shared = structuredClone(data);
   for (const [key, style] of imageSlots(shared)) {
-    if (key.startsWith('theme-video:')) {
+    if (key.startsWith('theme-video:') || key.startsWith('workspace-video:')) {
       delete style.local;
       delete style.source;
+      if (style.type === 'video' && !style.url) style.localPlaceholder = true;
     } else {
       delete style.backgroundImageLocal;
       delete style.backgroundImageSource;
@@ -52,7 +66,7 @@ export async function saveDeviceImageSelections(data) {
   const slots = imageSlots(data);
   let changed = pruneSelections(selections, slots);
   for (const [key, style] of slots) {
-    const isVideo = key.startsWith('theme-video:');
+    const isVideo = key.startsWith('theme-video:') || key.startsWith('workspace-video:');
     const reference = isVideo
       ? (isLocalVideoReference(style.local) ? style.local : null)
       : (isLocalImageReference(style.backgroundImageLocal) ? style.backgroundImageLocal : null);
@@ -85,14 +99,14 @@ export async function restoreDeviceImageSelections(data) {
   const slots = imageSlots(restored);
   const candidates = slots.map(([key, style]) => (
     Object.hasOwn(selections, key) ? selections[key].reference
-      : key.startsWith('theme-video:') ? style.local : style.backgroundImageLocal
+      : key.startsWith('theme-video:') || key.startsWith('workspace-video:') ? style.local : style.backgroundImageLocal
   ));
   await preloadLocalImages(candidates, { refresh: true });
   await preloadLocalVideoReferences(candidates);
 
   let changed = pruneSelections(selections, slots);
   for (const [key, style] of slots) {
-    const isVideo = key.startsWith('theme-video:');
+    const isVideo = key.startsWith('theme-video:') || key.startsWith('workspace-video:');
     const hasSelection = Object.hasOwn(selections, key);
     const reference = hasSelection ? selections[key].reference
       : isVideo ? style.local : style.backgroundImageLocal;

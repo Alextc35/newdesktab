@@ -350,7 +350,11 @@ test('normalizes named presets and workspace references', () => {
   });
 
   assert.equal(migrated.bookmarks[0].groupId, 'work');
-  assert.deepEqual(migrated.settings.bookmarkGroups, [{ id: 'work', name: 'Work' }]);
+  assert.deepEqual(migrated.settings.bookmarkGroups, [{
+    id: 'work', name: 'Work', backgroundImageUrl: null, backgroundImageLocal: null,
+    backgroundImageSource: 'url', backgroundImageUrlLocked: false,
+    backgroundMedia: [], backgroundRotationSeconds: 0
+  }]);
   assert.equal(migrated.settings.activeBookmarkGroupId, 'work');
   assert.equal(migrated.settings.bookmarkPresets[0].name, 'Dark');
   assert.equal(migrated.settings.bookmarkPresets[0].style.name, undefined);

@@ -1,6 +1,5 @@
 {
   "releaseNotes": {
-    "settingsTitle": "Notas de lançamento",
     "settingsDescription": "O que mudou e a história por trás de cada atualização.",
     "open": "Ler notas",
     "history": "Histórico de versões",
@@ -499,6 +498,19 @@
     "shortcutHint": "Alterne a área de trabalho com Alt ou Option mais seta para cima ou para baixo",
     "prompt": "Insira um nome para o novo espaço de trabalho",
     "namePlaceholder": "Trabalho, lazer…",
+    "editSettingsFor": "Settings for {{name}}",
+    "settingsTitle": "Workspace settings",
+    "settingsTitleFor": "Settings · {{name}}",
+    "nameLabel": "Workspace name",
+    "wallpaperUrl": "Wallpaper URL",
+    "wallpaperSource": "Use wallpaper from",
+    "noLocalImage": "No uploaded image",
+    "wallpaperPreview": "Wallpaper preview",
+    "wallpaperSyncNote": "Wallpaper URLs sync through the cloud. Uploaded files stay on this device.",
+    "invalidName": "Enter a workspace name of up to 60 characters.",
+    "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
+    "settingsSaved": "Workspace settings saved.",
+    "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Excluir “{{name}}”, suas {{folderCount}} pastas e {{bookmarkCount}} marcadores? Para mantê-los, mova-os primeiro para Principal ou para outro espaço de trabalho."
   },
   "search": {

@@ -1,6 +1,5 @@
 {
   "releaseNotes": {
-    "settingsTitle": "Julkaisutiedot",
     "settingsDescription": "Mikä muuttui ja tarina jokaisen päivityksen takana.",
     "open": "Lue muistiinpanoja",
     "history": "Versiohistoria",
@@ -499,6 +498,19 @@
     "shortcutHint": "Vaihda työtilaa Alt- tai Optio- ja ylä- tai alanuolinäppäimillä",
     "prompt": "Anna uudelle työtilalle nimi",
     "namePlaceholder": "Työ, vapaa-aika…",
+    "editSettingsFor": "Settings for {{name}}",
+    "settingsTitle": "Workspace settings",
+    "settingsTitleFor": "Settings · {{name}}",
+    "nameLabel": "Workspace name",
+    "wallpaperUrl": "Wallpaper URL",
+    "wallpaperSource": "Use wallpaper from",
+    "noLocalImage": "No uploaded image",
+    "wallpaperPreview": "Wallpaper preview",
+    "wallpaperSyncNote": "Wallpaper URLs sync through the cloud. Uploaded files stay on this device.",
+    "invalidName": "Enter a workspace name of up to 60 characters.",
+    "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
+    "settingsSaved": "Workspace settings saved.",
+    "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Poistetaanko \"{{name}}\", sen {{folderCount}} kansiota ja {{bookmarkCount}} kirjanmerkkiä? Jos haluat säilyttää ne, siirrä ne ensin päätilaan tai toiseen työtilaan."
   },
   "search": {

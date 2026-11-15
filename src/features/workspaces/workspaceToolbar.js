@@ -18,6 +18,7 @@ import { showAlert, showPrompt } from '../../shared/ui/alertModal.js';
 import { flashInfo, flashSuccess } from '../../shared/ui/flash.js';
 import { runPersistedAction } from '../persistence/persistedAction.js';
 import { hasOpenModal } from '../../shared/ui/modalManager.js';
+import { openWorkspaceSettings } from './workspaceSettingsModal.js';
 
 const WORKSPACE_EXIT_DURATION = 120;
 const WORKSPACE_ENTER_DURATION = 220;
@@ -30,6 +31,7 @@ export function initWorkspaceToolbar() {
   const toolbar = document.getElementById('workspace-toolbar');
   const select = document.getElementById('workspace-select');
   const toggle = document.getElementById('workspace-toggle');
+  const currentSettingsButton = document.getElementById('workspace-settings-current');
   const currentName = document.getElementById('workspace-current-name');
   const options = document.getElementById('workspace-options');
   const addButton = document.getElementById('workspace-add');
@@ -52,7 +54,14 @@ export function initWorkspaceToolbar() {
     buttons[activeIndex < 0 ? fallbackIndex : activeIndex]?.focus();
   });
   options.addEventListener('click', event => {
-    const button = event.target.closest('[data-workspace-id]');
+    const settingsButton = event.target.closest('[data-workspace-settings-id]');
+    if (settingsButton) {
+      setWorkspaceOptionsOpen(false);
+      openWorkspaceSettings(settingsButton.dataset.workspaceSettingsId || null);
+      return;
+    }
+
+    const button = event.target.closest('.workspace-option[data-workspace-id]');
     if (!button) return;
     const targetId = button.dataset.workspaceId || null;
     setWorkspaceOptionsOpen(false);
@@ -114,23 +123,31 @@ export function initWorkspaceToolbar() {
         if (deleted) flashSuccess('flash.workspace.deleted');
       });
   });
+  currentSettingsButton.addEventListener('click', () => {
+    const workspaceId = getActiveWorkspaceId(getState().data);
+    openWorkspaceSettings(workspaceId);
+  });
   let lastChoices;
   subscribe(state => {
     const workspaces = getWorkspaces(state.data);
     const selected = getActiveWorkspaceId(state.data) ?? '';
     const workspaceChoices = [
-      { id: '', name: t('workspace.main') },
+      { id: '', name: state.data.settings.mainWorkspace?.name || t('workspace.main') },
       ...workspaces.map(workspace => ({ id: workspace.id, name: workspace.name }))
     ];
     const signature = JSON.stringify([selected, workspaceChoices]);
     if (signature === lastChoices) return;
     lastChoices = signature;
-    select.replaceChildren(new Option(t('workspace.main'), ''));
+    select.replaceChildren(new Option(
+      state.data.settings.mainWorkspace?.name || t('workspace.main'), ''
+    ));
     for (const workspace of workspaces) select.add(new Option(workspace.name, workspace.id));
     select.value = selected;
     select.title = select.selectedOptions[0]?.textContent ?? '';
     currentName.textContent = select.title;
     toggle.title = select.title;
+    currentSettingsButton.title = t('workspace.editSettingsFor', { name: select.title });
+    currentSettingsButton.setAttribute('aria-label', currentSettingsButton.title);
     options.replaceChildren(...workspaceChoices.map(choice => createWorkspaceOption(
       choice,
       choice.id === selected
@@ -187,6 +204,7 @@ export function initWorkspaceToolbar() {
 function createWorkspaceOption({ id, name }, active) {
   const item = document.createElement('div');
   item.setAttribute('role', 'listitem');
+  item.className = 'workspace-option-row';
   const button = document.createElement('button');
   button.type = 'button';
   button.dataset.workspaceId = id;
@@ -201,7 +219,14 @@ function createWorkspaceOption({ id, name }, active) {
   check.setAttribute('aria-hidden', 'true');
   check.textContent = '✓';
   button.append(label, check);
-  item.append(button);
+  const settingsButton = document.createElement('button');
+  settingsButton.type = 'button';
+  settingsButton.className = 'workspace-option-settings';
+  settingsButton.dataset.workspaceSettingsId = id;
+  settingsButton.setAttribute('aria-label', t('workspace.editSettingsFor', { name }));
+  settingsButton.title = t('workspace.editSettingsFor', { name });
+  settingsButton.innerHTML = '<span class="workspace-option-settings-icon" aria-hidden="true"></span>';
+  item.append(button, settingsButton);
   return item;
 }
 

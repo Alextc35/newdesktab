@@ -40,6 +40,10 @@
         <span id="workspace-current-name">Principal</span>
         <span class="workspace-toggle-icon" aria-hidden="true"></span>
       </button>
+      <button id="workspace-settings-current" class="workspace-settings-current" type="button"
+        aria-label="Workspace settings">
+        <span class="workspace-option-settings-icon" aria-hidden="true"></span>
+      </button>
       <span id="workspace-shortcut-hint" class="is-hidden" data-i18n="workspace.shortcutHint">
         Switch workspace with Alt plus up or down arrow
       </span>
@@ -50,6 +54,60 @@
       <button id="history-redo" type="button" data-i18n-aria-label="workspace.redo" aria-label="Redo">↷</button>
     </div>
   </nav>
+
+  <div id="workspace-settings-modal" class="modal">
+    <div class="modal-overlay"></div>
+    <section class="modal-card workspace-settings-card">
+      <h2 id="workspace-settings-title" data-i18n="workspace.settingsTitle">Workspace settings</h2>
+      <div id="workspace-wallpaper-preview" class="workspace-wallpaper-preview"
+        role="img" data-i18n-aria-label="workspace.wallpaperPreview"
+        aria-label="Workspace wallpaper preview">
+        <img id="workspace-wallpaper-preview-image" alt="" hidden>
+        <video id="workspace-wallpaper-preview-video" muted autoplay playsinline loop hidden></video>
+        <span id="workspace-wallpaper-preview-message" data-i18n="workspace.wallpaperPreview">Wallpaper preview</span>
+      </div>
+      <div class="modal-field">
+        <label for="workspace-settings-name" data-i18n="workspace.nameLabel">Workspace name</label>
+        <input id="workspace-settings-name" type="text" maxlength="60" autocomplete="off">
+        <p id="workspace-settings-name-error" class="field-error is-hidden" role="alert"></p>
+      </div>
+      <div class="modal-field workspace-wallpapers">
+        <label for="workspace-settings-wallpaper-url" data-i18n="workspace.wallpaperUrl">Wallpaper URL</label>
+        <div class="theme-wallpaper-add">
+          <input id="workspace-settings-wallpaper-url" type="url" placeholder="https://…" autocomplete="url">
+          <button id="workspace-settings-media-add" class="btn btn-secondary" type="button"
+            data-i18n="settingsModal.theme.addUrl">Add URL</button>
+        </div>
+        <p id="workspace-settings-url-error" class="field-error is-hidden" role="alert"></p>
+        <button id="workspace-settings-upload" class="btn btn-secondary" type="button"
+          data-i18n="settingsModal.theme.addFiles">Add local files</button>
+        <input id="workspace-settings-file" type="file" accept="image/avif,image/gif,image/jpeg,image/png,image/webp,video/mp4,video/webm,video/ogg" multiple hidden>
+        <div id="workspace-settings-media-list" class="theme-wallpaper-list"></div>
+        <div class="theme-wallpaper-rotation-row">
+          <label for="workspace-settings-media-interval" data-i18n="settingsModal.theme.rotationInterval">Wallpaper rotation</label>
+          <select id="workspace-settings-media-interval">
+            <option value="0" data-i18n="settingsModal.theme.noRotation">Do not change automatically</option>
+            <option value="5" data-i18n="settingsModal.theme.interval5">5 seconds</option>
+            <option value="15" data-i18n="settingsModal.theme.interval15">15 seconds</option>
+            <option value="30" data-i18n="settingsModal.theme.interval30">30 seconds</option>
+            <option value="60" data-i18n="settingsModal.theme.interval60">1 minute</option>
+            <option value="300" data-i18n="settingsModal.theme.interval300">5 minutes</option>
+            <option value="600" data-i18n="settingsModal.theme.interval600">10 minutes</option>
+            <option value="1800" data-i18n="settingsModal.theme.interval1800">30 minutes</option>
+          </select>
+        </div>
+      </div>
+      <p class="workspace-image-sync-note" data-i18n="workspace.wallpaperSyncNote">
+        Wallpaper URLs sync through the cloud. Uploaded files stay on this device.
+      </p>
+      <div class="modal-actions">
+        <button id="workspace-settings-cancel" class="btn btn-ghost" type="button"
+          data-i18n="buttons.cancel">Cancel</button>
+        <button id="workspace-settings-save" class="btn btn-primary" type="button"
+          data-i18n="buttons.save">Save</button>
+      </div>
+    </section>
+  </div>
 
   <div id="bulk-actions" class="bulk-actions is-hidden" role="toolbar"
     data-i18n-aria-label="bulk.ariaLabel" aria-label="Selected item actions">

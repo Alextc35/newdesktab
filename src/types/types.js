@@ -127,6 +127,7 @@
  * @property {BookmarkPreset} bookmarkDefault
  * @property {Array<{id: string, name: string, style: BookmarkPreset}>} bookmarkPresets
  * @property {Workspace[]} bookmarkGroups Legacy persisted field for workspaces.
+ * @property {{name:string|null, backgroundImageUrl:string|null, backgroundImageLocal:string|null, backgroundImageSource:'url'|'local', backgroundImageUrlLocked:boolean, backgroundMedia:Array<{id:string,type:'image'|'video'}>, backgroundRotationSeconds:number}} mainWorkspace Editable name and image settings for Main.
  * @property {string|null} activeBookmarkGroupId
  * @property {boolean} showRecycleBin
  * @property {number} recycleBinRetentionDays Zero means items never expire.
@@ -136,6 +137,12 @@
  * @typedef {Object} Workspace
  * @property {string} id
  * @property {string} name
+ * @property {string|null} backgroundImageUrl
+ * @property {string|null} backgroundImageLocal
+ * @property {'url'|'local'} backgroundImageSource
+ * @property {boolean} backgroundImageUrlLocked
+ * @property {Array<{id:string,type:'image'|'video'}>} backgroundMedia
+ * @property {number} backgroundRotationSeconds
  */
 
 /**

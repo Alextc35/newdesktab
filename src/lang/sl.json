@@ -1,6 +1,5 @@
 {
   "releaseNotes": {
-    "settingsTitle": "Opombe ob izdaji",
     "settingsDescription": "Kaj se je spremenilo in zgodba za vsako posodobitvijo.",
     "open": "Preberi opombe",
     "history": "Zgodovina različic",
@@ -499,6 +498,19 @@
     "shortcutHint": "Delovni prostor preklopite z Alt ali Option in puščico gor ali dol",
     "prompt": "Vnesite ime za nov delovni prostor",
     "namePlaceholder": "Delo, prosti čas…",
+    "editSettingsFor": "Settings for {{name}}",
+    "settingsTitle": "Workspace settings",
+    "settingsTitleFor": "Settings · {{name}}",
+    "nameLabel": "Workspace name",
+    "wallpaperUrl": "Wallpaper URL",
+    "wallpaperSource": "Use wallpaper from",
+    "noLocalImage": "No uploaded image",
+    "wallpaperPreview": "Wallpaper preview",
+    "wallpaperSyncNote": "Wallpaper URLs sync through the cloud. Uploaded files stay on this device.",
+    "invalidName": "Enter a workspace name of up to 60 characters.",
+    "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
+    "settingsSaved": "Workspace settings saved.",
+    "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Želite izbrisati »{{name}}«, njegovih {{folderCount}} map in {{bookmarkCount}} zaznamkov? Če jih želite obdržati, jih najprej premaknite v glavni ali drug delovni prostor."
   },
   "search": {

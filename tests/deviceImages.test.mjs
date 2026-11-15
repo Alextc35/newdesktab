@@ -92,6 +92,72 @@ test('keeps each device image source choice beside its local file selection', as
   }
 });
 
+test('keeps workspace uploads local while sharing URL fallbacks with sync', async () => {
+  const workspaceData = migratePersistedData({
+    bookmarks: [],
+    folders: [],
+    settings: {
+      bookmarkGroups: [{
+        id: 'research',
+        name: 'Research',
+        backgroundImageUrl: 'https://images.test/research.jpg',
+        backgroundImageLocal: owned,
+        backgroundImageSource: 'local'
+      }]
+    }
+  });
+
+  await saveDeviceImageSelections(workspaceData);
+  const shared = withoutDeviceImages(workspaceData);
+  assert.equal(shared.settings.bookmarkGroups[0].backgroundImageUrl,
+    'https://images.test/research.jpg');
+  assert.equal(Object.hasOwn(shared.settings.bookmarkGroups[0], 'backgroundImageLocal'), false);
+  assert.equal(Object.hasOwn(shared.settings.bookmarkGroups[0], 'backgroundImageSource'), false);
+  assert.equal(JSON.stringify(shared).includes(owned), false);
+
+  const remoteUpdate = migratePersistedData({
+    bookmarks: [],
+    folders: [],
+    settings: {
+      bookmarkGroups: [{
+        id: 'research', name: 'Research',
+        backgroundImageUrl: 'https://images.test/updated.jpg'
+      }]
+    }
+  });
+  const restored = await restoreDeviceImageSelections(remoteUpdate);
+  assert.equal(restored.settings.bookmarkGroups[0].backgroundImageLocal, owned);
+  assert.equal(restored.settings.bookmarkGroups[0].backgroundImageSource, 'local');
+  assert.equal(restored.settings.bookmarkGroups[0].backgroundImageUrl,
+    'https://images.test/updated.jpg');
+});
+
+test('keeps Main workspace uploads local while sharing its URL fallback', async () => {
+  const mainData = migratePersistedData({
+    bookmarks: [],
+    folders: [],
+    settings: {
+      mainWorkspace: {
+        name: 'Home',
+        backgroundImageUrl: 'https://images.test/home.jpg',
+        backgroundImageLocal: replacement,
+        backgroundImageSource: 'local'
+      }
+    }
+  });
+
+  await saveDeviceImageSelections(mainData);
+  const shared = withoutDeviceImages(mainData);
+  assert.equal(shared.settings.mainWorkspace.backgroundImageUrl,
+    'https://images.test/home.jpg');
+  assert.equal(Object.hasOwn(shared.settings.mainWorkspace, 'backgroundImageLocal'), false);
+  assert.equal(JSON.stringify(shared).includes(replacement), false);
+
+  const restored = await restoreDeviceImageSelections(shared);
+  assert.equal(restored.settings.mainWorkspace.backgroundImageLocal, replacement);
+  assert.equal(restored.settings.mainWorkspace.backgroundImageSource, 'local');
+});
+
 test('keeps deleted-item image choices out of synchronized payloads', () => {
   const style = { backgroundImageLocal: owned, backgroundImageUrl: 'https://images.test/fallback.gif' };
   const data = migratePersistedData({

@@ -1,6 +1,5 @@
 {
   "releaseNotes": {
-    "settingsTitle": "విడుదల గమనికలు",
     "settingsDescription": "ఏమి మారింది మరియు ప్రతి నవీకరణ వెనుక కథ.",
     "open": "గమనికలను చదవండి",
     "history": "సంస్కరణ చరిత్ర",
@@ -499,6 +498,19 @@
     "shortcutHint": "Alt లేదా ఆప్షన్ ప్లస్ పైకి లేదా క్రిందికి బాణంతో కార్యస్థలాన్ని మార్చండి",
     "prompt": "కొత్త కార్యస్థలం కోసం పేరును నమోదు చేయండి",
     "namePlaceholder": "పని, విశ్రాంతి...",
+    "editSettingsFor": "Settings for {{name}}",
+    "settingsTitle": "Workspace settings",
+    "settingsTitleFor": "Settings · {{name}}",
+    "nameLabel": "Workspace name",
+    "wallpaperUrl": "Wallpaper URL",
+    "wallpaperSource": "Use wallpaper from",
+    "noLocalImage": "No uploaded image",
+    "wallpaperPreview": "Wallpaper preview",
+    "wallpaperSyncNote": "Wallpaper URLs sync through the cloud. Uploaded files stay on this device.",
+    "invalidName": "Enter a workspace name of up to 60 characters.",
+    "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
+    "settingsSaved": "Workspace settings saved.",
+    "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "“{{name}}”, దాని {{folderCount}} ఫోల్డర్‌లు మరియు {{bookmarkCount}} బుక్‌మార్క్‌లను తొలగించాలా? వాటిని ఉంచడానికి, ముందుగా వాటిని ప్రధాన లేదా మరొక కార్యస్థలానికి తరలించండి."
   },
   "search": {

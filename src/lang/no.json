@@ -1,6 +1,5 @@
 {
   "releaseNotes": {
-    "settingsTitle": "Utgivelsesnotater",
     "settingsDescription": "Hva endret seg og historien bak hver oppdatering.",
     "open": "Les notater",
     "history": "Versjonshistorikk",
@@ -499,6 +498,19 @@
     "shortcutHint": "Bytt arbeidsområde med Alt eller Tilvalg pluss Pil opp eller Ned",
     "prompt": "Skriv inn et navn for det nye arbeidsområdet",
     "namePlaceholder": "Jobb, fritid...",
+    "editSettingsFor": "Settings for {{name}}",
+    "settingsTitle": "Workspace settings",
+    "settingsTitleFor": "Settings · {{name}}",
+    "nameLabel": "Workspace name",
+    "wallpaperUrl": "Wallpaper URL",
+    "wallpaperSource": "Use wallpaper from",
+    "noLocalImage": "No uploaded image",
+    "wallpaperPreview": "Wallpaper preview",
+    "wallpaperSyncNote": "Wallpaper URLs sync through the cloud. Uploaded files stay on this device.",
+    "invalidName": "Enter a workspace name of up to 60 characters.",
+    "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
+    "settingsSaved": "Workspace settings saved.",
+    "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Vil du slette «{{name}}», dens {{folderCount}} mapper og {{bookmarkCount}} bokmerker? For å beholde dem, flytt dem til Hoved eller et annet arbeidsområde først."
   },
   "search": {

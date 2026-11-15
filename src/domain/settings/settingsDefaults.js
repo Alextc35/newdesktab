@@ -39,5 +39,14 @@ export const DEFAULT_SETTINGS = {
 
   bookmarkPresets: [],
   bookmarkGroups: [],
+  mainWorkspace: {
+    name: null,
+    backgroundImageUrl: null,
+    backgroundImageLocal: null,
+    backgroundImageSource: 'url',
+    backgroundImageUrlLocked: false,
+    backgroundMedia: [],
+    backgroundRotationSeconds: 0
+  },
   activeBookmarkGroupId: null
 };

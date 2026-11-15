@@ -369,6 +369,13 @@ export function buildNewSettings() {
     bookmarkDefault: structuredClone(draftBookmarkDefault),
     bookmarkPresets: structuredClone(draftBookmarkPresets),
     bookmarkGroups: structuredClone(initialSnapshot?.bookmarkGroups ?? []),
+    mainWorkspace: structuredClone(initialSnapshot?.mainWorkspace ?? {
+      name: null,
+      backgroundImageUrl: null,
+      backgroundImageLocal: null,
+      backgroundImageSource: 'url',
+      backgroundImageUrlLocked: false
+    }),
     activeBookmarkGroupId: initialSnapshot?.activeBookmarkGroupId ?? null
   };
 }

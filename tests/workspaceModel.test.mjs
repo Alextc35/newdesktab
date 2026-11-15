@@ -5,6 +5,7 @@ import {
   createWorkspace,
   getAdjacentWorkspaceId,
   getWorkspaceIds,
+  normalizeMainWorkspace,
   normalizeWorkspaces,
   resolveWorkspaceId
 } from '../src/domain/workspaces/workspaceModel.js';
@@ -12,7 +13,13 @@ import {
 test('creates and normalizes workspace entities without changing persisted identity', () => {
   assert.deepEqual(createWorkspace({ id: 'work', name: '  Work  ' }), {
     id: 'work',
-    name: 'Work'
+    name: 'Work',
+    backgroundImageUrl: null,
+    backgroundImageLocal: null,
+    backgroundImageSource: 'url',
+    backgroundImageUrlLocked: false,
+    backgroundMedia: [],
+    backgroundRotationSeconds: 0
   });
   assert.equal(createWorkspace({ id: 'work', name: '  ' }), null);
 
@@ -21,9 +28,56 @@ test('creates and normalizes workspace entities without changing persisted ident
     { id: '', name: '' },
     null
   ]), [
-    { id: 'work', name: 'Work' },
-    { id: 'workspace-2', name: 'Workspace 2' }
+    {
+      id: 'work', name: 'Work', backgroundImageUrl: null, backgroundImageLocal: null,
+      backgroundImageSource: 'url', backgroundImageUrlLocked: false,
+      backgroundMedia: [], backgroundRotationSeconds: 0
+    },
+    {
+      id: 'workspace-2', name: 'Workspace 2', backgroundImageUrl: null,
+      backgroundImageLocal: null, backgroundImageSource: 'url', backgroundImageUrlLocked: false,
+      backgroundMedia: [], backgroundRotationSeconds: 0
+    }
   ]);
+});
+
+test('normalizes a workspace URL and preserves local-upload selection separately', () => {
+  const workspaces = normalizeWorkspaces([{
+    id: 'work',
+    name: 'Work',
+    backgroundImageUrl: ' https://images.example/wallpaper.jpg ',
+    backgroundImageLocal: 'newdesktab-local-image:4c5b9a2e-3f0e-4c7e-889c-72117afc09e9',
+    backgroundImageSource: 'local'
+  }, {
+    id: 'invalid', name: 'Invalid', backgroundImageUrl: 'javascript:alert(1)'
+  }]);
+
+  assert.equal(workspaces[0].backgroundImageUrl, 'https://images.example/wallpaper.jpg');
+  assert.equal(workspaces[0].backgroundImageLocal,
+    'newdesktab-local-image:4c5b9a2e-3f0e-4c7e-889c-72117afc09e9');
+  assert.equal(workspaces[0].backgroundImageSource, 'local');
+  assert.equal(workspaces[1].backgroundImageUrl, null);
+  assert.equal(normalizeWorkspaces([{
+    id: 'inline', name: 'Inline',
+    backgroundImageUrl: 'data:image/png;base64,aGVsbG8='
+  }])[0].backgroundImageUrl, null);
+});
+
+test('normalizes the editable Main workspace settings', () => {
+  assert.deepEqual(normalizeMainWorkspace({
+    name: ' Main ',
+    backgroundImageUrl: 'https://images.example/main.jpg'
+  }), {
+    name: 'Main',
+    backgroundImageUrl: 'https://images.example/main.jpg',
+    backgroundImageLocal: null,
+    backgroundImageSource: 'url',
+    backgroundImageUrlLocked: false,
+    backgroundMedia: [{ id: 'workspace-wallpaper-legacy', type: 'image',
+      backgroundImageUrl: 'https://images.example/main.jpg', backgroundImageLocal: null,
+      backgroundImageSource: 'url', backgroundColor: null }],
+    backgroundRotationSeconds: 0
+  });
 });
 
 test('resolves unknown workspace references to Main', () => {

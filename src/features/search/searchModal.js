@@ -46,6 +46,7 @@ function renderResults() {
     workspace.id,
     workspace.name
   ]));
+  workspaces.set(null, data.settings.mainWorkspace?.name || t('workspace.main'));
   const folderNames = new Map(folders.map(folder => [folder.id, folder.name]));
   const matches = searchBookmarks(bookmarks, input.value);
 

@@ -1,6 +1,5 @@
 {
   "releaseNotes": {
-    "settingsTitle": "Išleidimo pastabos",
     "settingsDescription": "Kas pasikeitė ir kiekvieno atnaujinimo istorija.",
     "open": "Skaityti pastabas",
     "history": "Versijų istorija",
@@ -499,6 +498,19 @@
     "shortcutHint": "Perjunkite darbo sritį naudodami Alt arba Option ir rodyklę aukštyn arba žemyn",
     "prompt": "Įveskite naujos darbo srities pavadinimą",
     "namePlaceholder": "Darbas, laisvalaikis…",
+    "editSettingsFor": "Settings for {{name}}",
+    "settingsTitle": "Workspace settings",
+    "settingsTitleFor": "Settings · {{name}}",
+    "nameLabel": "Workspace name",
+    "wallpaperUrl": "Wallpaper URL",
+    "wallpaperSource": "Use wallpaper from",
+    "noLocalImage": "No uploaded image",
+    "wallpaperPreview": "Wallpaper preview",
+    "wallpaperSyncNote": "Wallpaper URLs sync through the cloud. Uploaded files stay on this device.",
+    "invalidName": "Enter a workspace name of up to 60 characters.",
+    "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
+    "settingsSaved": "Workspace settings saved.",
+    "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "Ištrinti „{{name}}“, jo {{folderCount}} aplankus ir {{bookmarkCount}} žymes? Norėdami juos išsaugoti, pirmiausia perkelkite juos į pagrindinę arba kitą darbo sritį."
   },
   "search": {

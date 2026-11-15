@@ -3,11 +3,17 @@ import { getLocalVideoName } from '../../platform/images/localVideos.js';
 import { initCustomColorPicker } from '../../shared/ui/colorPicker.js';
 import { resolveWallpaperItem } from '../../shared/ui/pageTheme.js';
 import { t } from '../../platform/i18n/i18n.js';
-import { setDraftThemeValue } from './settingsDraft.js';
 
 /** Renders and edits the personal wallpaper list, including row previews. */
-export function createWallpaperLibrary({ getTheme, setMedia, updatePreview, onRequestSaveStateUpdate, resetPreviewIndex }) {
-  const mediaList = document.getElementById('settings-theme-media-list');
+export function createWallpaperLibrary({ getTheme, setMedia, resetPreviewIndex, mediaList: suppliedList, onPreview, onPreviewEnd }) {
+  const mediaList = suppliedList ?? document.getElementById('settings-theme-media-list');
+  let activePeek = null;
+  function closeActivePeek() {
+    if (!activePeek) return;
+    activePeek.querySelector('video')?.pause();
+    activePeek.remove();
+    activePeek = null;
+  }
   function mediaLabel(item) {
     if (item.type === 'video') {
       return getLocalVideoName(item.local) ?? item.url ?? t('settingsModal.theme.unavailableLocal');
@@ -18,24 +24,24 @@ export function createWallpaperLibrary({ getTheme, setMedia, updatePreview, onRe
 
   function placeWallpaperPeek(peek, anchor) {
     const anchorRect = anchor.getBoundingClientRect();
-    const scrollArea = peek.closest('.settings-modal-tab-content');
-    const scrollAreaRect = scrollArea?.getBoundingClientRect();
-    const visibleTop = scrollAreaRect
-      ? scrollAreaRect.top + scrollArea.clientTop
-      : 0;
-    const visibleBottom = scrollAreaRect
-      ? visibleTop + scrollArea.clientHeight
-      : window.innerHeight;
-    const peekHeight = peek.getBoundingClientRect().height;
-    const spaceAbove = anchorRect.top - visibleTop;
-    const spaceBelow = visibleBottom - anchorRect.bottom;
-    const placement = spaceAbove < peekHeight + 12 && spaceBelow > spaceAbove
-      ? 'below' : 'above';
-
-    peek.dataset.placement = placement;
+    const width = Math.min(340, window.innerWidth * .85);
+    const height = width * 9 / 16 + 2;
+    const spaceAbove = anchorRect.top - 8;
+    const spaceBelow = window.innerHeight - anchorRect.bottom - 8;
+    const below = spaceBelow >= height + 12 || spaceBelow >= spaceAbove;
+    peek.style.position = 'fixed';
+    peek.style.width = `${width}px`;
+    peek.style.left = `${Math.max(8, Math.min(window.innerWidth - width - 8, anchorRect.right - width))}px`;
+    peek.style.top = `${below ? anchorRect.bottom + 6 : Math.max(8, anchorRect.top - height - 6)}px`;
+    peek.style.right = 'auto';
+    peek.style.bottom = 'auto';
+    const openModalLayers = [...document.querySelectorAll('.modal.is-open')]
+      .map(element => Number.parseInt(getComputedStyle(element).zIndex, 10) || 0);
+    peek.style.zIndex = String(Math.max(1001, ...openModalLayers) + 1);
   }
 
   function renderMediaList() {
+    closeActivePeek();
     mediaList.querySelectorAll('video').forEach(video => video.pause());
     mediaList.replaceChildren();
     const entries = getTheme().backgroundMedia ?? [];
@@ -84,9 +90,7 @@ export function createWallpaperLibrary({ getTheme, setMedia, updatePreview, onRe
         const position = next.findIndex(entry => entry.id === item.id);
         if (position < 0) return;
         next[position] = { ...next[position], backgroundColor: color.value };
-        setDraftThemeValue('backgroundMedia', next);
-        updatePreview();
-        onRequestSaveStateUpdate();
+        setMedia(next);
       });
       row.append(color);
       initCustomColorPicker(color);
@@ -133,7 +137,11 @@ export function createWallpaperLibrary({ getTheme, setMedia, updatePreview, onRe
           peek.textContent = t('settingsModal.theme.unavailableLocal');
         }
         peek.hidden = false;
+        closeActivePeek();
+        document.body.append(peek);
+        activePeek = peek;
         placeWallpaperPeek(peek, row);
+        onPreview?.(current);
       }
       function hidePeek() {
         const video = peek.querySelector('video');
@@ -146,6 +154,10 @@ export function createWallpaperLibrary({ getTheme, setMedia, updatePreview, onRe
         peek.style.backgroundImage = '';
         delete peek.dataset.placement;
         peek.hidden = true;
+        if (activePeek === peek) activePeek = null;
+        if (mediaList.contains(row)) row.append(peek);
+        else peek.remove();
+        onPreviewEnd?.();
       }
       peekButton.addEventListener('mouseenter', showPeek);
       peekButton.addEventListener('mouseleave', hidePeek);

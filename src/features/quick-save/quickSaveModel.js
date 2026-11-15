@@ -24,7 +24,7 @@ export function isSaveableTabUrl(value) {
 
 export function getQuickSaveWorkspaces(data) {
   return [
-    { id: null },
+    { id: null, name: data.settings.mainWorkspace?.name ?? null },
     ...getWorkspaces(data)
   ];
 }

@@ -20,8 +20,13 @@ export function getActiveWorkspaceId(data) {
 }
 
 export function getWorkspaceById(data, workspaceId) {
-  if (workspaceId === null) return null;
+  if (workspaceId === null) return data?.settings?.mainWorkspace ?? null;
   return getWorkspaces(data).find(workspace => workspace.id === workspaceId) ?? null;
+}
+
+export function getWorkspaceName(data, workspaceId, fallback = 'Main') {
+  const workspace = getWorkspaceById(data, workspaceId);
+  return workspace?.name || fallback;
 }
 
 export function getWorkspaceIds(data) {

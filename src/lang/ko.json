@@ -1,6 +1,5 @@
 {
   "releaseNotes": {
-    "settingsTitle": "릴리스 노트",
     "settingsDescription": "변경된 사항과 각 업데이트의 비하인드 스토리.",
     "open": "메모 읽기",
     "history": "버전 기록",
@@ -499,6 +498,19 @@
     "shortcutHint": "Alt 또는 Option과 위쪽 또는 아래쪽 화살표를 사용하여 작업 공간 전환",
     "prompt": "새 작업공간의 이름을 입력하세요.",
     "namePlaceholder": "일, 여가…",
+    "editSettingsFor": "Settings for {{name}}",
+    "settingsTitle": "Workspace settings",
+    "settingsTitleFor": "Settings · {{name}}",
+    "nameLabel": "Workspace name",
+    "wallpaperUrl": "Wallpaper URL",
+    "wallpaperSource": "Use wallpaper from",
+    "noLocalImage": "No uploaded image",
+    "wallpaperPreview": "Wallpaper preview",
+    "wallpaperSyncNote": "Wallpaper URLs sync through the cloud. Uploaded files stay on this device.",
+    "invalidName": "Enter a workspace name of up to 60 characters.",
+    "invalidWallpaperUrl": "Enter a valid HTTP or HTTPS image URL.",
+    "settingsSaved": "Workspace settings saved.",
+    "discardSettings": "Discard unsaved workspace settings?",
     "confirmDelete": "'{{name}}', 폴더 {{folderCount}}개, 북마크 {{bookmarkCount}}개를 삭제하시겠습니까? 이를 유지하려면 먼저 기본 작업 공간이나 다른 작업 공간으로 이동하세요."
   },
   "search": {

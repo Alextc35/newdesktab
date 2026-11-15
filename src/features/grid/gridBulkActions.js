@@ -114,7 +114,9 @@ export function initGridBulkActions() {
       folderIds: state.data.folders.map(folder => folder.id),
       widgetIds: state.data.widgets.map(widget => widget.id)
     });
-    groupSelect.replaceChildren(new Option(t('workspace.main'), ''));
+    groupSelect.replaceChildren(new Option(
+      state.data.settings.mainWorkspace?.name || t('workspace.main'), ''
+    ));
     for (const workspace of getWorkspaces(state.data)) {
       groupSelect.add(new Option(workspace.name, workspace.id));
     }

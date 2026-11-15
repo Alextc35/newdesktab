@@ -35,7 +35,8 @@ globalThis.chrome = {
 const {
   createWorkspace,
   deleteWorkspace,
-  setActiveWorkspace
+  setActiveWorkspace,
+  updateWorkspace
 } = await import(
   '../src/features/workspaces/workspaceActions.js'
 );
@@ -77,6 +78,38 @@ test('creates, activates and safely resolves workspaces through feature actions'
   assert.equal(await setActiveWorkspace('missing'), true);
   assert.equal(getState().data.settings.activeBookmarkGroupId, null);
   assert.equal(await setActiveWorkspace(null), false);
+});
+
+test('updates a workspace name and wallpaper without changing its identity', async () => {
+  const workspace = createWorkspace('Studio');
+  const updated = updateWorkspace(workspace.id, {
+    name: '  Research  ',
+    backgroundImageUrl: 'https://images.example/research.jpg',
+    backgroundImageSource: 'url'
+  });
+
+  assert.equal(updated.name, 'Research');
+  assert.equal(updated.id, workspace.id);
+  assert.equal(updated.backgroundImageUrl, 'https://images.example/research.jpg');
+  assert.equal(updateWorkspace(workspace.id, { name: '  ' }), null);
+  assert.equal(updateWorkspace('missing', { name: 'Unused' }), null);
+});
+
+test('updates Main workspace name and wallpaper without adding a custom workspace', () => {
+  setState({ data: { settings: {
+    ...getState().data.settings,
+    bookmarkGroups: [],
+    activeBookmarkGroupId: null
+  } } });
+  const updated = updateWorkspace(null, {
+    name: 'Home',
+    backgroundImageUrl: 'https://images.example/home.jpg'
+  });
+
+  assert.equal(updated.name, 'Home');
+  assert.equal(getState().data.settings.mainWorkspace.backgroundImageUrl,
+    'https://images.example/home.jpg');
+  assert.equal(getState().data.settings.bookmarkGroups.length, 0);
 });
 
 test('moves bookmarks into available cells in the requested workspace', async () => {

@@ -22,6 +22,7 @@ import {
 } from '../../domain/settings/interfacePreferences.js';
 import { normalizeRecycleBinStyle } from '../../domain/recycle-bin/recycleBinModel.js';
 import {
+  normalizeMainWorkspace,
   normalizeWorkspaces,
   resolveWorkspaceId
 } from '../../domain/workspaces/workspaceModel.js';
@@ -120,6 +121,7 @@ export function migratePersistedData(input, { useDefaultsWhenEmpty = true } = {}
       recycleBinRetentionDays: normalizeRecycleBinRetentionDays(rawSettings.recycleBinRetentionDays),
       bookmarkPresets: normalizeNamedPresets(rawSettings.bookmarkPresets),
       bookmarkGroups: workspaces,
+      mainWorkspace: normalizeMainWorkspace(rawSettings.mainWorkspace),
       activeBookmarkGroupId: activeWorkspaceId
     }
   };

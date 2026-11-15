@@ -105,7 +105,9 @@ function renderWorkspaces(data) {
   workspaceSelect.replaceChildren(...getQuickSaveWorkspaces(data).map(workspace => {
     const option = document.createElement('option');
     option.value = workspace.id ?? '';
-    option.textContent = workspace.id === null ? t('quickSave.mainWorkspace') : workspace.name;
+    option.textContent = workspace.id === null
+      ? workspace.name || t('quickSave.mainWorkspace')
+      : workspace.name;
     return option;
   }));
   workspaceSelect.value = getActiveWorkspaceId(data) ?? '';
@@ -147,7 +149,8 @@ function renderMatch() {
   const workspace = getQuickSaveWorkspaces(data).find(item => item.id === (match.groupId ?? null));
   const folder = data.folders.find(item => item.id === match.folderId);
   const location = [
-    workspace?.id === null || !workspace ? t('quickSave.mainWorkspace') : workspace.name,
+    !workspace ? t('quickSave.mainWorkspace')
+      : workspace.id === null ? workspace.name || t('quickSave.mainWorkspace') : workspace.name,
     folder?.name
   ].filter(Boolean).join(' › ');
   const others = matches.length - 1;

@@ -7,6 +7,7 @@
 @import '../features/grid/gridOverlay.css';
 @import '../features/launcher/floatingMenu.css';
 @import '../features/workspaces/workspaceToolbar.css';
+@import '../features/workspaces/workspaceSettingsModal.css';
 
 @import '../features/grid/gridItem.css';
 @import '../features/bookmarks/bookmarkCard.css';

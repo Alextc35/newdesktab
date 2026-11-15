@@ -1,8 +1,10 @@
 import '../../types/types.js';
 import {
   createWorkspace as createWorkspaceEntity,
+  normalizeWorkspaceWallpaperUrl,
   resolveWorkspaceId
 } from '../../domain/workspaces/workspaceModel.js';
+import { normalizeWallpaperMedia, normalizeWallpaperInterval } from '../../domain/settings/wallpaperMedia.js';
 import { clearBookmarkHistory, getState, setState } from '../../state/appStore.js';
 import { moveWorkspaceToRecycleBin } from '../recycle-bin/recycleBinActions.js';
 import { getActiveWorkspaceId, getWorkspaces } from './workspaceSelectors.js';
@@ -19,6 +21,45 @@ export function createWorkspace(name) {
   };
   setState({ data: { settings: nextSettings } });
   return workspace;
+}
+
+/** Updates a workspace's name and device-local/URL wallpaper choices. */
+export function updateWorkspace(workspaceId, changes) {
+  const name = typeof changes?.name === 'string' ? changes.name.trim() : '';
+  if (!name || name.length > 60) return null;
+  const includesUrl = Object.hasOwn(changes ?? {}, 'backgroundImageUrl');
+  const rawUrl = typeof changes?.backgroundImageUrl === 'string'
+    ? changes.backgroundImageUrl.trim() : '';
+  const backgroundImageUrl = includesUrl
+    ? normalizeWorkspaceWallpaperUrl(rawUrl)
+    : undefined;
+  if (rawUrl && !backgroundImageUrl) return null;
+  const normalizedChanges = {
+    ...changes,
+    ...(Object.hasOwn(changes ?? {}, 'backgroundMedia')
+      ? { backgroundMedia: normalizeWallpaperMedia(changes.backgroundMedia) } : {}),
+    ...(Object.hasOwn(changes ?? {}, 'backgroundRotationSeconds')
+      ? { backgroundRotationSeconds: normalizeWallpaperInterval(changes.backgroundRotationSeconds) } : {}),
+    ...(includesUrl ? { backgroundImageUrl } : {})
+  };
+
+  const { data } = getState();
+  if (workspaceId === null) {
+    const updated = { ...data.settings.mainWorkspace, ...normalizedChanges, name };
+    setState({ data: { settings: { ...data.settings, mainWorkspace: updated } } });
+    return updated;
+  }
+
+  let updated = null;
+  const bookmarkGroups = data.settings.bookmarkGroups.map(workspace => {
+    if (workspace.id !== workspaceId) return workspace;
+    updated = { ...workspace, ...normalizedChanges, name };
+    return updated;
+  });
+  if (!updated) return null;
+
+  setState({ data: { settings: { ...data.settings, bookmarkGroups } } });
+  return updated;
 }
 
 export async function setActiveWorkspace(workspaceId) {

@@ -26,6 +26,7 @@ import { initHistoryControls } from '../features/history/historyControls.js';
 import { initSearchModal } from '../features/search/searchModal.js';
 import { initSettingsModal } from '../features/settings/settingsModal.js';
 import { initWorkspaceToolbar } from '../features/workspaces/workspaceToolbar.js';
+import { initWorkspaceSettingsModal } from '../features/workspaces/workspaceSettingsModal.js';
 import { preloadLocalImages } from '../platform/images/localImages.js';
 import { preloadLocalVideos } from '../platform/images/localVideos.js';
 import { initGridBulkActions } from '../features/grid/gridBulkActions.js';
@@ -138,6 +139,7 @@ function initializeUserInterface({ container, gridOverlay, toggleButton }) {
   initFloatingMenu();
   initModals();
   initHistoryControls();
+  initWorkspaceSettingsModal();
   initWorkspaceToolbar();
   initGridBulkActions();
   initGridKeyboardNavigation(container);

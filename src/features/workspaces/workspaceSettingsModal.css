@@ -1,0 +1,116 @@
+.workspace-option-row {
+  position: relative;
+}
+
+.workspace-settings-card {
+  width: min(620px, calc(100vw - 32px));
+  max-height: min(90vh, 820px);
+  overflow-y: auto;
+}
+
+#workspace-settings-media-list {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 2px;
+}
+
+#workspace-settings-modal .theme-wallpaper-label {
+  white-space: nowrap;
+}
+
+#workspace-settings-modal .theme-wallpaper-rotation-row {
+  margin-top: 12px;
+}
+
+.workspace-wallpapers > label {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.workspace-wallpaper-preview {
+  position: relative;
+  display: grid;
+  min-height: 150px;
+  margin: 0 0 18px;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid var(--ui-border);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 20% 20%, rgb(96 165 250 / 28%), transparent 44%),
+    linear-gradient(135deg, #182131, #080b12);
+  background-position: center;
+  background-size: cover;
+  color: rgb(255 255 255 / 82%);
+  font-size: 13px;
+  text-shadow: 0 1px 8px rgb(0 0 0 / 65%);
+}
+
+.workspace-wallpaper-preview > img,
+.workspace-wallpaper-preview > video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.workspace-wallpaper-preview > span {
+  position: relative;
+  z-index: 1;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgb(8 12 20 / 48%);
+}
+
+.workspace-wallpaper-preview > span[hidden],
+.workspace-wallpaper-preview > img[hidden],
+.workspace-wallpaper-preview > video[hidden] {
+  display: none;
+}
+
+.workspace-local-image-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin: -2px 0 4px;
+}
+
+.workspace-local-image-name {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ui-muted);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspace-image-sync-note {
+  margin: 4px 0 14px;
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+#workspace-settings-modal .field-error {
+  margin: 0;
+}
+
+#workspace-settings-modal [aria-invalid="true"] {
+  border-color: var(--ui-danger, #ef4444);
+}
+
+@media (max-width: 520px) {
+  .workspace-settings-card {
+    width: min(620px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px);
+    padding: 16px;
+  }
+
+  .workspace-wallpaper-preview {
+    min-height: 120px;
+  }
+
+}

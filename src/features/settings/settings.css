@@ -1026,7 +1026,7 @@
   position: absolute;
   right: 32px;
   bottom: calc(100% + 6px);
-  z-index: 10;
+  z-index: calc(var(--z-modal) + 1);
   display: flex;
   width: min(340px, 85vw);
   aspect-ratio: var(--theme-wallpaper-preview-ratio, 16 / 9);

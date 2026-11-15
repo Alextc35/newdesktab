@@ -114,6 +114,26 @@
   outline-offset: 2px;
 }
 
+#workspace-toolbar .workspace-settings-current {
+  display: grid;
+  width: 32px;
+  min-width: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  color: var(--ui-menu-muted);
+}
+
+#workspace-toolbar .workspace-settings-current:hover,
+#workspace-toolbar .workspace-settings-current:focus-visible {
+  background: var(--ui-glass-hover);
+  color: var(--ui-menu-text);
+}
+
+#workspace-toolbar .workspace-settings-current:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 1px;
+}
+
 .workspace-options {
   display: grid;
   gap: 4px;
@@ -161,6 +181,44 @@
   min-height: 38px;
   padding: 8px 10px;
   text-align: left;
+}
+
+.workspace-option-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+#workspace-toolbar .workspace-option-row > .workspace-option {
+  flex: 1 1 auto;
+}
+
+#workspace-toolbar .workspace-option-settings {
+  display: grid;
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  border: 1px solid transparent;
+  color: var(--ui-menu-muted);
+}
+
+.workspace-option-settings-icon {
+  display: block;
+  width: 17px;
+  height: 17px;
+  background: currentColor;
+  -webkit-mask: url('/src/assets/icons/settings.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/settings.svg') center / contain no-repeat;
+}
+
+#workspace-toolbar .workspace-option-settings:hover,
+#workspace-toolbar .workspace-option-settings:focus-visible {
+  border-color: var(--ui-glass-border);
+  background: var(--ui-glass-hover);
+  color: var(--ui-menu-text);
 }
 
 #workspace-toolbar .workspace-option[aria-current="true"] {
