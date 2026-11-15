@@ -302,3 +302,114 @@ test('enables workspace scrolling only after the expanding animation finishes', 
   }));
   expect(size.scrollHeight).toBeGreaterThan(size.clientHeight);
 });
+
+test('blocks workspace editing in list view while keeping workspace navigation available', async ({ page }) => {
+  const ids = await page.evaluate(async () => {
+    const { createWorkspace } = await import('/src/features/workspaces/workspaceActions.js');
+    return ['Alpha', 'Beta', 'Gamma'].map(name => createWorkspace(name).id);
+  });
+  await waitForSaved(page);
+  const workspaces = () => page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getState().data.settings.bookmarkGroups);
+  const original = await workspaces();
+  await page.setViewportSize({ width: 600, height: 720 });
+  await expect(page.locator('#bookmark-container')).toHaveClass(/is-list-view/);
+
+  const expectBlocked = async () => {
+    await expect(page.locator('.flash-error').last())
+      .toHaveText('Widen the window to use this feature.');
+    await expect(page.locator('.modal.is-open')).toHaveCount(0);
+    expect(await workspaces()).toEqual(original);
+    await page.locator('#flash-container').evaluate(element => element.replaceChildren());
+  };
+  for (const id of ['workspace-settings-current', 'workspace-add', 'workspace-delete']) {
+    await page.locator('#workspace-toolbar').hover();
+    await page.locator(`#${id}`).click();
+    await expectBlocked();
+  }
+
+  await page.locator('#workspace-toggle').click();
+  await page.locator(`[data-workspace-settings-id="${ids[0]}"]`).click();
+  await expectBlocked();
+  await page.locator('#workspace-toggle').click();
+  await page.locator(`[data-workspace-order-id="${ids[1]}"][data-workspace-order-offset="1"]`).click();
+  await expectBlocked();
+  await page.keyboard.press('Escape');
+
+  await selectWorkspace(page, ids[0]);
+  await expect(page.locator('#workspace-select')).toHaveValue(ids[0]);
+  await expect(page.locator('#workspace-current-name')).toHaveText('Alpha');
+  expect(await workspaces()).toEqual(original);
+});
+
+test('suspends workspace settings in list view and restores the unfinished draft and cursor', async ({ page }) => {
+  await openWorkspaceSettings(page, null);
+  const name = page.locator('#workspace-settings-name');
+  await name.fill('Unfinished workspace');
+  await name.focus();
+  await name.evaluate(input => input.setSelectionRange(2, 8));
+  const original = await page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getState().data);
+
+  await page.setViewportSize({ width: 601, height: 720 });
+  await expect(page.locator('#workspace-settings-modal')).toBeVisible();
+  await page.setViewportSize({ width: 600, height: 720 });
+  await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+  await expect(page.locator('.flash-info'))
+    .toHaveText('Panel hidden. Widen the window to continue.');
+  await page.evaluate(async () => (
+    await import('/src/features/workspaces/workspaceSettingsModal.js')
+  ).openWorkspaceSettings(null));
+  await expect(page.locator('.flash-error').last())
+    .toHaveText('Widen the window to use this feature.');
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('Escape');
+  expect(await page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getState().data)).toEqual(original);
+
+  await page.setViewportSize({ width: 601, height: 720 });
+  await expect(name).toBeVisible();
+  await expect(name).toBeFocused();
+  await expect(name).toHaveValue('Unfinished workspace');
+  expect(await name.evaluate(input => [input.selectionStart, input.selectionEnd])).toEqual([2, 8]);
+  await page.locator('#workspace-settings-save').click();
+  await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+  await waitForSaved(page);
+  await expect(page.locator('#workspace-current-name')).toHaveText('Unfinished workspace');
+});
+
+test('suspends workspace creation and deletion prompts until the window is widened', async ({ page }) => {
+  await page.locator('#workspace-toolbar').hover();
+  await page.locator('#workspace-add').click();
+  await page.locator('#alert-modal-input').fill('Pending workspace');
+  await page.setViewportSize({ width: 600, height: 720 });
+  await expect(page.locator('#alert-modal')).toBeHidden();
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('Escape');
+  const workspaceNames = () => page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getState().data.settings.bookmarkGroups.map(workspace => workspace.name));
+  expect(await workspaceNames()).toEqual([]);
+  await page.setViewportSize({ width: 601, height: 720 });
+  await expect(page.locator('#alert-modal-input')).toHaveValue('Pending workspace');
+  await page.locator('#alert-modal-accept').click();
+  await waitForSaved(page);
+  expect(await workspaceNames()).toEqual(['Pending workspace']);
+
+  await page.locator('#workspace-toolbar').hover();
+  await page.locator('#workspace-delete').click();
+  await expect(page.locator('#alert-modal')).toBeVisible();
+  await page.setViewportSize({ width: 600, height: 720 });
+  await expect(page.locator('#alert-modal')).toBeHidden();
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('Escape');
+  expect(await workspaceNames()).toEqual(['Pending workspace']);
+  await page.setViewportSize({ width: 601, height: 720 });
+  await expect(page.locator('#alert-modal')).toBeVisible();
+  await page.locator('#alert-modal-accept').click();
+  await waitForSaved(page);
+  expect(await workspaceNames()).toEqual([]);
+});

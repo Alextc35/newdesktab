@@ -11,6 +11,7 @@ import { updateWorkspace } from './workspaceActions.js';
 import { createWallpaperFiles } from '../settings/wallpaperFiles.js';
 import { createWallpaperLibrary } from '../settings/wallpaperLibrary.js';
 import { toggleCustomColorPicker } from '../../shared/ui/colorPicker.js';
+import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 
 const MODAL_ID = 'workspace-settings';
 const MAX_NAME_LENGTH = 60;
@@ -133,13 +134,13 @@ export function initWorkspaceSettingsModal() {
 
   registerModal({
     id: MODAL_ID, element: modal, closeOnEsc: true, closeOnOverlay: true,
-    acceptOnEnter: true, initialFocus: nameInput
+    acceptOnEnter: true, initialFocus: nameInput, requiresWideViewport: true
   });
   initialized = true;
 }
 
 export function openWorkspaceSettings(workspaceId) {
-  if (!initialized) return;
+  if (!initialized || !ensurePanelFits()) return;
   const workspace = getWorkspaceById(getState().data, workspaceId);
   if (!workspace) return;
   activeWorkspaceId = workspaceId;
@@ -423,6 +424,7 @@ function isDirty() {
 function syncSaveButton() { saveButton.disabled = submitting || isUploading || !isDirty(); }
 
 async function handleSave() {
+  if (!ensurePanelFits()) return;
   if (submitting || activeWorkspaceId === undefined || !validateDraft() || !isDirty()) return;
   submitting = true;
   syncSaveButton();

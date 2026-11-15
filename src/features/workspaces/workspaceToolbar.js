@@ -20,6 +20,7 @@ import { flashInfo, flashSuccess } from '../../shared/ui/flash.js';
 import { runPersistedAction } from '../persistence/persistedAction.js';
 import { hasOpenModal } from '../../shared/ui/modalManager.js';
 import { openWorkspaceSettings } from './workspaceSettingsModal.js';
+import { ensurePanelFits } from '../../shared/ui/viewportMode.js';
 
 const WORKSPACE_EXIT_DURATION = 120;
 const WORKSPACE_ENTER_DURATION = 220;
@@ -61,6 +62,7 @@ export function initWorkspaceToolbar() {
     if (orderButton) {
       event.preventDefault();
       event.stopPropagation();
+      if (!ensurePanelFits()) return;
       const { data } = getState();
       const workspaces = getWorkspaces(data);
       const index = workspaces.findIndex(workspace => workspace.id === orderButton.dataset.workspaceOrderId);
@@ -115,15 +117,18 @@ export function initWorkspaceToolbar() {
   });
   addButton.addEventListener('click', async () => {
     setWorkspaceOptionsOpen(false);
+    if (!ensurePanelFits()) return;
     const name = await showPrompt(t('workspace.prompt'), {
-      placeholder: t('workspace.namePlaceholder')
+      placeholder: t('workspace.namePlaceholder'),
+      requiresWideViewport: true
     });
-    if (name) await runPersistedAction('workspace-create', () => createWorkspace(name), created => {
+    if (name && ensurePanelFits()) await runPersistedAction('workspace-create', () => createWorkspace(name), created => {
       if (created) flashSuccess('flash.workspace.created');
     });
   });
   deleteButton.addEventListener('click', async () => {
     setWorkspaceOptionsOpen(false);
+    if (!ensurePanelFits()) return;
     if (!select.value) return;
     const { data } = getState();
     const workspace = getWorkspaceById(data, select.value);
@@ -137,8 +142,8 @@ export function initWorkspaceToolbar() {
       name: workspace.name,
       bookmarkCount,
       folderCount
-    }), { type: 'confirm' });
-    if (confirmed) await runPersistedAction(`workspace-delete:${workspace.id}`,
+    }), { type: 'confirm', requiresWideViewport: true });
+    if (confirmed && ensurePanelFits()) await runPersistedAction(`workspace-delete:${workspace.id}`,
       () => deleteWorkspace(workspace.id), deleted => {
         if (deleted) flashSuccess('flash.workspace.deleted');
       });
