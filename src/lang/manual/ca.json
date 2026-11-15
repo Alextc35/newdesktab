@@ -123,7 +123,7 @@
       "workspaces": [
         "La barra d'eines + crea un espai de treball amb el nom escollit.",
         "El nou espai de treball té la seva pròpia graella.",
-        "Alt + ↑ i Alt + ↓ recorren els vostres espais de treball."
+        "Ctrl + ↑ i Ctrl + ↓ recorren els vostres espais de treball."
       ],
       "selection": [
         "Activeu l'edició i seleccioneu una fitxa amb un clic breu.",
@@ -339,10 +339,10 @@
       "steps": [
         "La barra d'espai de treball canvia entre els espais de treball principal i personalitzats. El seu + en crea un de nou.",
         "Trieu un espai de treball abans d'afegir elements. Per transferir elements existents, seleccioneu-los i trieu una destinació a la barra d'accions.",
-        "Alt + ↑ i Alt + ↓ recorren els espais de treball. El botó − elimina l'espai de treball personalitzat actual després de la confirmació."
+        "Ctrl + ↑ i Ctrl + ↓ recorren els espais de treball. El botó − elimina l'espai de treball personalitzat actual després de la confirmació."
       ],
       "note": "Suprimir un espai de treball també se n'elimina el contingut. Estades principals disponibles i no es poden suprimir.",
-      "tip": "Alt + ↑ i Alt + ↓ canvien d'espai de treball sense obrir el selector. Separa feina, aficions o projectes amb el bar's +."
+      "tip": "Ctrl + ↑ i Ctrl + ↓ canvien d'espai de treball sense obrir el selector. Separa feina, aficions o projectes amb el bar's +."
     },
     "selection": {
       "question": "Com puc canviar diversos elements alhora?",

@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Gusto mo bang mag-export ng backup ng iyong data at mga setting?",
       "import": "Ibalik ang backup na ito? Papalitan nito ang iyong kasalukuyang mga bookmark at setting."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Tanggalin ang workspace",
     "undo": "I-undo",
     "redo": "Gawin muli",
-    "shortcutHint": "Lumipat ng workspace gamit ang Alt o Option kasama ang Up o Down Arrow",
+    "shortcutHint": "Lumipat ng workspace gamit ang Ctrl kasama ang Up o Down Arrow",
     "prompt": "Maglagay ng pangalan para sa bagong workspace",
     "namePlaceholder": "Trabaho, paglilibang…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Ibalik ang backup",
       "resetSettings": "I-reset ang mga setting",
       "deleteAllData": "Tanggalin ang lahat ng lokal na data",
+      "panels": {
+        "title": "Mga panel",
+        "showLauncher": "Ipakita ang kaliwang panel",
+        "showWorkspaceToolbar": "Ipakita ang panel sa ibaba",
+        "shortcutsHint": "Magagamit pa rin ang mga keyboard shortcut kapag nakatago ang mga panel.",
+        "shortcutRequired": "Magtakda ng shortcut para sa Mga Setting bago itago ang kaliwang panel."
+      },
       "recycleBin": {
         "title": "Recycle bin",
         "show": "Ipakita ang recycle bin sa Pangunahing grid",

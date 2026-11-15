@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Möchten Sie eine Sicherung Ihrer Daten und Einstellungen exportieren?",
       "import": "Dieses Backup wiederherstellen? Es ersetzt Ihre aktuellen Lesezeichen und Einstellungen."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Arbeitsbereich löschen",
     "undo": "Rückgängig machen",
     "redo": "Wiederholen",
-    "shortcutHint": "Wechseln Sie den Arbeitsbereich mit Alt oder Option plus Auf- oder Abwärtspfeil",
+    "shortcutHint": "Wechseln Sie den Arbeitsbereich mit Ctrl plus Auf- oder Abwärtspfeil",
     "prompt": "Geben Sie einen Namen für den neuen Arbeitsbereich ein",
     "namePlaceholder": "Arbeit, Freizeit…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Sicherung wiederherstellen",
       "resetSettings": "Einstellungen zurücksetzen",
       "deleteAllData": "Löschen Sie alle lokalen Daten",
+      "panels": {
+        "title": "Bereiche",
+        "showLauncher": "Linken Bereich anzeigen",
+        "showWorkspaceToolbar": "Unteren Bereich anzeigen",
+        "shortcutsHint": "Tastenkürzel bleiben verfügbar, wenn die Bereiche ausgeblendet sind.",
+        "shortcutRequired": "Weisen Sie den Einstellungen ein Tastenkürzel zu, bevor Sie den linken Bereich ausblenden."
+      },
       "recycleBin": {
         "title": "Papierkorb",
         "show": "Zeigen Sie den Papierkorb im Hauptraster an",

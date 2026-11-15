@@ -123,7 +123,7 @@
       "workspaces": [
         "Įrankių juosta + sukuria darbo sritį jūsų pasirinktu pavadinimu.",
         "Naujoji darbo sritis turi savo tinklelį.",
-        "Alt + ↑ ir Alt + ↓ pereina per darbo sritis."
+        "Ctrl + ↑ ir Ctrl + ↓ pereina per darbo sritis."
       ],
       "selection": [
         "Įgalinkite redagavimą ir trumpu paspaudimu pasirinkite plytelę.",
@@ -339,10 +339,10 @@
       "steps": [
         "Darbo srities juosta perjungia pagrindinę ir pasirinktines darbo sritis. Jo + sukuria naują.",
         "Prieš pridėdami elementus pasirinkite darbo sritį. Norėdami perkelti esamus elementus, pasirinkite juos ir veiksmų juostoje pasirinkite paskirties vietą.",
-        "Alt + ↑ ir Alt + ↓ pereina per darbo sritis. Po patvirtinimo mygtukas – ištrina dabartinę pasirinktinę darbo sritį."
+        "Ctrl + ↑ ir Ctrl + ↓ pereina per darbo sritis. Po patvirtinimo mygtukas – ištrina dabartinę pasirinktinę darbo sritį."
       ],
       "note": "Ištrynus darbo sritį ištrinamas ir jos turinys. Pagrindinis išlieka prieinamas ir jo negalima ištrinti.",
-      "tip": "Alt + ↑ ir Alt + ↓ perjungia darbo sritis neatidarius parinkiklio. Atskiras darbas, pomėgiai ar projektai su baro +."
+      "tip": "Ctrl + ↑ ir Ctrl + ↓ perjungia darbo sritis neatidarius parinkiklio. Atskiras darbas, pomėgiai ar projektai su baro +."
     },
     "selection": {
       "question": "Kaip vienu metu pakeisti kelis elementus?",

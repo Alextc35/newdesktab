@@ -123,7 +123,7 @@
       "workspaces": [
         "Panel nástrojů + vytvoří pracovní plochu s vámi zvoleným názvem.",
         "Nový pracovní prostor má vlastní mřížku.",
-        "Alt + ↑ a Alt + ↓ procházejí vaše pracovní prostory."
+        "Ctrl + ↑ a Ctrl + ↓ procházejí vaše pracovní prostory."
       ],
       "selection": [
         "Povolte úpravy a vyberte dlaždici krátkým kliknutím.",
@@ -339,10 +339,10 @@
       "steps": [
         "Lišta pracovní plochy přepíná mezi hlavní a vlastní pracovní plochou. Jeho + vytvoří nový.",
         "Před přidáním položek vyberte pracovní prostor. Chcete-li přenést existující položky, vyberte je a na panelu akcí vyberte cíl.",
-        "Alt + ↑ a Alt + ↓ procházejí pracovní prostory. Tlačítko − po potvrzení smaže aktuální vlastní pracovní prostor."
+        "Ctrl + ↑ a Ctrl + ↓ procházejí pracovní prostory. Tlačítko − po potvrzení smaže aktuální vlastní pracovní prostor."
       ],
       "note": "Odstraněním pracovního prostoru se odstraní také jeho obsah. Hlavní zůstávají k dispozici a nelze je smazat.",
-      "tip": "Alt + ↑ a Alt + ↓ přepínají pracovní prostory bez otevření voliče. Oddělte práci, koníčky nebo projekty s barovým +."
+      "tip": "Ctrl + ↑ a Ctrl + ↓ přepínají pracovní prostory bez otevření voliče. Oddělte práci, koníčky nebo projekty s barovým +."
     },
     "selection": {
       "question": "Jak změním několik položek najednou?",

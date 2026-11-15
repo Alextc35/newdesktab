@@ -6,8 +6,9 @@ import { getState, requirePersistence } from '../../state/appStore.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashError, flashSuccess } from '../../shared/ui/flash.js';
 import { closeModal, openModal, registerModal } from '../../shared/ui/modalManager.js';
-import { getWorkspaceById } from './workspaceSelectors.js';
-import { updateWorkspace } from './workspaceActions.js';
+import { getWorkspaceById, getWorkspaceItemCounts } from './workspaceSelectors.js';
+import { deleteWorkspace, updateWorkspace } from './workspaceActions.js';
+import { runPersistedAction } from '../persistence/persistedAction.js';
 import { createWallpaperFiles } from '../settings/wallpaperFiles.js';
 import { createWallpaperLibrary } from '../settings/wallpaperLibrary.js';
 import { toggleCustomColorPicker } from '../../shared/ui/colorPicker.js';
@@ -20,6 +21,7 @@ let activeWorkspaceId = null;
 let initialValue = null;
 let draftValue = null;
 let submitting = false;
+let deletionPending = false;
 let isUploading = false;
 let solidColorPickerOpen = false;
 let modal;
@@ -42,6 +44,7 @@ let previewImage;
 let previewVideo;
 let previewMessage;
 let saveButton;
+let deleteButton;
 let library;
 let localFiles;
 
@@ -68,6 +71,7 @@ export function initWorkspaceSettingsModal() {
   previewVideo = requiredElement('workspace-wallpaper-preview-video');
   previewMessage = requiredElement('workspace-wallpaper-preview-message');
   saveButton = requiredElement('workspace-settings-save');
+  deleteButton = requiredElement('workspace-settings-delete');
   localFiles = createWallpaperFiles({
     getRetainedTheme: () => getWorkspaceById(getState().data, activeWorkspaceId)
   });
@@ -131,6 +135,7 @@ export function initWorkspaceSettingsModal() {
   });
   cancelButton.addEventListener('click', () => { void handleCancel(); });
   saveButton.addEventListener('click', () => { void handleSave(); });
+  deleteButton.addEventListener('click', () => { void handleDelete(); });
 
   registerModal({
     id: MODAL_ID, element: modal, closeOnEsc: true, closeOnOverlay: true,
@@ -152,6 +157,8 @@ export function openWorkspaceSettings(workspaceId) {
   draftValue.backgroundSolid ??= false;
   draftValue.backgroundColor ??= '#101827';
   submitting = false;
+  deletionPending = false;
+  deleteButton.hidden = workspaceId === null;
   title.textContent = t('workspace.settingsTitleFor', { name: workspace.name || t('workspace.main') });
   nameInput.value = workspace.name || t('workspace.main');
   nameInput.maxLength = MAX_NAME_LENGTH;
@@ -421,11 +428,17 @@ function isDirty() {
   }));
 }
 
-function syncSaveButton() { saveButton.disabled = submitting || isUploading || !isDirty(); }
+function syncSaveButton() {
+  const busy = submitting || isUploading;
+  saveButton.disabled = busy || deletionPending || !isDirty();
+  deleteButton.disabled = busy;
+  cancelButton.disabled = busy;
+}
 
 async function handleSave() {
   if (!ensurePanelFits()) return;
-  if (submitting || activeWorkspaceId === undefined || !validateDraft() || !isDirty()) return;
+  if (submitting || isUploading || deletionPending || activeWorkspaceId === undefined
+    || !validateDraft() || !isDirty()) return;
   submitting = true;
   syncSaveButton();
   try {
@@ -440,6 +453,57 @@ async function handleSave() {
   } finally {
     submitting = false;
     syncSaveButton();
+  }
+}
+
+async function handleDelete() {
+  if (!ensurePanelFits() || submitting || isUploading || activeWorkspaceId === null) return;
+  const workspaceId = activeWorkspaceId;
+  const editorDraft = draftValue;
+  submitting = true;
+  syncSaveButton();
+  try {
+    if (!deletionPending) {
+      const { data } = getState();
+      const workspace = getWorkspaceById(data, workspaceId);
+      if (!workspace) return;
+      const { bookmarks: bookmarkCount, folders: folderCount } = getWorkspaceItemCounts(data, workspaceId);
+      const confirmed = await showAlert(t('workspace.confirmDelete', {
+        name: workspace.name, bookmarkCount, folderCount
+      }), { type: 'confirm', requiresWideViewport: true });
+      if (!confirmed || !ensurePanelFits()) return;
+      deletionPending = true;
+    }
+    let completion;
+    await runPersistedAction(`workspace-delete:${workspaceId}`, () => {
+      if (!deleteWorkspace(workspaceId)) throw new Error('Workspace deletion failed.');
+      return true;
+    }, () => { completion = finishDeletion(editorDraft); });
+    await completion;
+  } finally {
+    if (draftValue === editorDraft) {
+      submitting = false;
+      syncSaveButton();
+    }
+  }
+}
+
+async function finishDeletion(editorDraft) {
+  flashSuccess('flash.workspace.deleted');
+  // A durable retry may finish after this editor was cancelled or reopened.
+  if (draftValue !== editorDraft) return;
+  submitting = true;
+  syncSaveButton();
+  try {
+    await localFiles.discardUploadedMedia();
+  } catch (error) {
+    console.error('[WORKSPACE] Could not discard deleted workspace draft media:', error);
+  } finally {
+    if (draftValue === editorDraft) {
+      closeEditor();
+      submitting = false;
+      syncSaveButton();
+    }
   }
 }
 
@@ -459,6 +523,7 @@ function closeEditor() {
   activeWorkspaceId = null;
   initialValue = null;
   draftValue = null;
+  deletionPending = false;
   fileInput.value = '';
 }
 

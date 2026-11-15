@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Bạn có muốn xuất bản sao lưu dữ liệu và cài đặt của mình không?",
       "import": "Khôi phục bản sao lưu này? Nó sẽ thay thế các dấu trang và cài đặt hiện tại của bạn."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Xóa không gian làm việc",
     "undo": "Hoàn tác",
     "redo": "Làm lại",
-    "shortcutHint": "Chuyển đổi không gian làm việc bằng Alt hoặc Option cộng với Mũi tên lên hoặc xuống",
+    "shortcutHint": "Chuyển đổi không gian làm việc bằng Ctrl cộng với Mũi tên lên hoặc xuống",
     "prompt": "Nhập tên cho không gian làm việc mới",
     "namePlaceholder": "Công việc, giải trí…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Khôi phục bản sao lưu",
       "resetSettings": "Đặt lại cài đặt",
       "deleteAllData": "Xóa tất cả dữ liệu cục bộ",
+      "panels": {
+        "title": "Bảng điều khiển",
+        "showLauncher": "Hiện bảng bên trái",
+        "showWorkspaceToolbar": "Hiện bảng phía dưới",
+        "shortcutsHint": "Phím tắt vẫn khả dụng khi các bảng bị ẩn.",
+        "shortcutRequired": "Gán phím tắt cho Cài đặt trước khi ẩn bảng bên trái."
+      },
       "recycleBin": {
         "title": "Thùng rác",
         "show": "Hiển thị thùng rác trên lưới chính",

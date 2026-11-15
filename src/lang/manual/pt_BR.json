@@ -118,7 +118,7 @@
       "workspaces": [
         "O + da barra cria um espaço com o nome escolhido.",
         "O novo espaço tem sua própria grade.",
-        "Alt + ↑ e Alt + ↓ percorrem seus espaços."
+        "Ctrl + ↑ e Ctrl + ↓ percorrem seus espaços."
       ],
       "selection": [
         "Ative a edição e selecione um cartão com um clique curto.",
@@ -266,9 +266,9 @@
     "workspaces": {
       "question": "Como separo meu espaço pessoal do trabalho?", "searchTerms": "pessoal trabalho; criar espaço; trocar espaço; áreas trabalho; workspace",
       "title": "Separar em espaços", "summary": "Uma grade para trabalhar e outra para o restante.",
-      "steps": ["A barra de espaços alterna entre Principal e seus espaços personalizados. O + cria um novo.", "Escolha o espaço antes de adicionar elementos. Para transferir os existentes, selecione-os e escolha um destino na barra de ações.", "Alt + ↑ e Alt + ↓ percorrem os espaços. O botão − exclui o espaço personalizado atual após confirmação."],
+      "steps": ["A barra de espaços alterna entre Principal e seus espaços personalizados. O + cria um novo.", "Escolha o espaço antes de adicionar elementos. Para transferir os existentes, selecione-os e escolha um destino na barra de ações.", "Ctrl + ↑ e Ctrl + ↓ percorrem os espaços. O botão − exclui o espaço personalizado atual após confirmação."],
       "note": "Excluir um espaço também exclui seu conteúdo. Principal permanece disponível e não pode ser excluído.",
-      "tip": "Alt + ↑ e Alt + ↓ trocam de espaço sem abrir o seletor. Separe trabalho, lazer ou projetos pelo + da barra."
+      "tip": "Ctrl + ↑ e Ctrl + ↓ trocam de espaço sem abrir o seletor. Separe trabalho, lazer ou projetos pelo + da barra."
     },
     "selection": {
       "question": "Como altero vários elementos de uma vez?", "searchTerms": "selecionar vários; seleção múltipla; mover vários; clonar seleção; duplicar favoritos",

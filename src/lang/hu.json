@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Szeretne biztonsági másolatot exportálni az adatairól és beállításairól?",
       "import": "Visszaállítja ezt a biztonsági másolatot? Leváltja a jelenlegi könyvjelzőit és beállításait."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Munkaterület törlése",
     "undo": "Visszavonás",
     "redo": "Újra",
-    "shortcutHint": "Váltson munkaterületet az Alt vagy az Option, valamint a fel vagy le nyílgombbal",
+    "shortcutHint": "Váltson munkaterületet a Ctrl és a fel vagy le nyílgombbal",
     "prompt": "Adja meg az új munkaterület nevét",
     "namePlaceholder": "Munka, szabadidő…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Biztonsági másolat visszaállítása",
       "resetSettings": "Beállítások visszaállítása",
       "deleteAllData": "Törölje az összes helyi adatot",
+      "panels": {
+        "title": "Panelek",
+        "showLauncher": "Bal oldali panel megjelenítése",
+        "showWorkspaceToolbar": "Alsó panel megjelenítése",
+        "shortcutsHint": "A billentyűparancsok a panelek elrejtésekor is elérhetők maradnak.",
+        "shortcutRequired": "A bal oldali panel elrejtése előtt rendeljen billentyűparancsot a Beállításokhoz."
+      },
       "recycleBin": {
         "title": "Lomtár",
         "show": "Mutasd meg a lomtárat a főhálózaton",

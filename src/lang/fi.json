@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Haluatko viedä varmuuskopion tiedoistasi ja asetuksistasi?",
       "import": "Palauta tämä varmuuskopio? Se korvaa nykyiset kirjanmerkkisi ja asetuksesi."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Poista työtila",
     "undo": "Kumoa",
     "redo": "Toista",
-    "shortcutHint": "Vaihda työtilaa Alt- tai Optio- ja ylä- tai alanuolinäppäimillä",
+    "shortcutHint": "Vaihda työtilaa Ctrl- ja ylä- tai alanuolinäppäimillä",
     "prompt": "Anna uudelle työtilalle nimi",
     "namePlaceholder": "Työ, vapaa-aika…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Palauta varmuuskopio",
       "resetSettings": "Palauta asetukset",
       "deleteAllData": "Poista kaikki paikalliset tiedot",
+      "panels": {
+        "title": "Paneelit",
+        "showLauncher": "Näytä vasen paneeli",
+        "showWorkspaceToolbar": "Näytä alapaneeli",
+        "shortcutsHint": "Pikanäppäimet ovat käytettävissä myös silloin, kun paneelit on piilotettu.",
+        "shortcutRequired": "Määritä Asetuksille pikanäppäin ennen vasemman paneelin piilottamista."
+      },
       "recycleBin": {
         "title": "Roskakori",
         "show": "Näytä roskakori pääverkossa",

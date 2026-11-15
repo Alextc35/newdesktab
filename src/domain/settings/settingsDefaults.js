@@ -18,6 +18,8 @@ export const DEFAULT_SETTINGS = {
   windowResizeMode: WINDOW_RESIZE_MODES.FIT,
   keyboardShortcuts: structuredClone(DEFAULT_KEYBOARD_SHORTCUTS),
   showRecycleBin: true,
+  showLauncher: true,
+  showWorkspaceToolbar: true,
   recycleBinRetentionDays: DEFAULT_RECYCLE_BIN_RETENTION_DAYS,
 
   theme: {

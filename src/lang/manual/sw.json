@@ -123,7 +123,7 @@
       "workspaces": [
         "Upau wa vidhibiti + huunda nafasi ya kazi na jina lako ulilochagua.",
         "Nafasi mpya ya kazi ina gridi yake mwenyewe.",
-        "Mzunguko wa Alt + ↑ na Alt + ↓ kupitia nafasi zako za kazi."
+        "Mzunguko wa Ctrl + ↑ na Ctrl + ↓ kupitia nafasi zako za kazi."
       ],
       "selection": [
         "Washa uhariri na uchague kigae kwa kubofya kwa muda mfupi.",
@@ -339,10 +339,10 @@
       "steps": [
         "Upau wa nafasi ya kazi hubadilisha kati ya Kuu na nafasi zako maalum za kazi. Yake + inaunda mpya.",
         "Chagua nafasi ya kazi kabla ya kuongeza vipengee. Ili kuhamisha vipengee vilivyopo, vichague na uchague lengwa katika upau wa kitendo.",
-        "Alt + ↑ na Alt + ↓ mzunguko kupitia nafasi za kazi. Kitufe - hufuta nafasi ya sasa ya kazi maalum baada ya uthibitisho."
+        "Ctrl + ↑ na Ctrl + ↓ mzunguko kupitia nafasi za kazi. Kitufe - hufuta nafasi ya sasa ya kazi maalum baada ya uthibitisho."
       ],
       "note": "Kufuta nafasi ya kazi pia hufuta yaliyomo. Makao makuu yanapatikana na hayawezi kufutwa.",
-      "tip": "Alt + ↑ na Alt + ↓ badilisha nafasi za kazi bila kufungua kiteuzi. Tenganisha kazi, vitu vya kufurahisha au miradi na bar ya +."
+      "tip": "Ctrl + ↑ na Ctrl + ↓ badilisha nafasi za kazi bila kufungua kiteuzi. Tenganisha kazi, vitu vya kufurahisha au miradi na bar ya +."
     },
     "selection": {
       "question": "Ninabadilishaje vitu kadhaa mara moja?",

@@ -123,7 +123,7 @@
       "workspaces": [
         "Pasek narzędzi + tworzy obszar roboczy o wybranej przez Ciebie nazwie.",
         "Nowy obszar roboczy ma własną siatkę.",
-        "Alt + ↑ i Alt + ↓ przełączają się między obszarami roboczymi."
+        "Ctrl + ↑ i Ctrl + ↓ przełączają się między obszarami roboczymi."
       ],
       "selection": [
         "Włącz edycję i wybierz kafelek krótkim kliknięciem.",
@@ -339,10 +339,10 @@
       "steps": [
         "Pasek obszaru roboczego przełącza między głównym i niestandardowym obszarem roboczym. Jego + tworzy nowy.",
         "Wybierz obszar roboczy przed dodaniem elementów. Aby przenieść istniejące elementy, zaznacz je i wybierz miejsce docelowe na pasku akcji.",
-        "Alt + ↑ i Alt + ↓ umożliwiają przełączanie między obszarami roboczymi. Przycisk − po potwierdzeniu usuwa bieżący niestandardowy obszar roboczy."
+        "Ctrl + ↑ i Ctrl + ↓ umożliwiają przełączanie między obszarami roboczymi. Przycisk − po potwierdzeniu usuwa bieżący niestandardowy obszar roboczy."
       ],
       "note": "Usunięcie obszaru roboczego powoduje również usunięcie jego zawartości. Główne pobyty są dostępne i nie można ich usunąć.",
-      "tip": "Alt + ↑ i Alt + ↓ przełączają obszary robocze bez otwierania selektora. Oddziel pracę, hobby lub projekty za pomocą paska +."
+      "tip": "Ctrl + ↑ i Ctrl + ↓ przełączają obszary robocze bez otwierania selektora. Oddziel pracę, hobby lub projekty za pomocą paska +."
     },
     "selection": {
       "question": "Jak zmienić kilka elementów na raz?",

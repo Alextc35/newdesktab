@@ -123,7 +123,7 @@
       "workspaces": [
         "Gumagawa ang toolbar + ng workspace gamit ang iyong napiling pangalan.",
         "Ang bagong workspace ay may sariling grid.",
-        "Alt + ↑ at Alt + ↓ cycle sa iyong mga workspace."
+        "Ctrl + ↑ at Ctrl + ↓ cycle sa iyong mga workspace."
       ],
       "selection": [
         "Paganahin ang pag-edit at pumili ng tile na may maikling pag-click.",
@@ -339,10 +339,10 @@
       "steps": [
         "Ang workspace bar ay lumilipat sa pagitan ng Pangunahing at iyong custom na workspaces. Ang + nito ay lumilikha ng bago.",
         "Pumili ng workspace bago magdagdag ng mga item. Upang ilipat ang mga kasalukuyang item, piliin ang mga ito at pumili ng patutunguhan sa action bar.",
-        "Alt + ↑ at Alt + ↓ cycle sa mga workspace. Tinatanggal ng − button ang kasalukuyang custom na workspace pagkatapos ng kumpirmasyon."
+        "Ctrl + ↑ at Ctrl + ↓ cycle sa mga workspace. Tinatanggal ng − button ang kasalukuyang custom na workspace pagkatapos ng kumpirmasyon."
       ],
       "note": "Ang pagtanggal ng isang workspace ay nagtatanggal din ng mga nilalaman nito. Available ang mga pangunahing pananatili at hindi matatanggal.",
-      "tip": "Alt + ↑ at Alt + ↓ lumipat ng workspace nang hindi binubuksan ang selector. Paghiwalayin ang trabaho, libangan o proyekto sa mga + ng bar."
+      "tip": "Ctrl + ↑ at Ctrl + ↓ lumipat ng workspace nang hindi binubuksan ang selector. Paghiwalayin ang trabaho, libangan o proyekto sa mga + ng bar."
     },
     "selection": {
       "question": "Paano ko babaguhin ang ilang item nang sabay-sabay?",

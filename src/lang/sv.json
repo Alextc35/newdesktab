@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Vill du exportera en säkerhetskopia av dina data och inställningar?",
       "import": "Återställa denna säkerhetskopia? Det kommer att ersätta dina nuvarande bokmärken och inställningar."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Ta bort arbetsyta",
     "undo": "Ångra",
     "redo": "Gör om",
-    "shortcutHint": "Byt arbetsyta med Alt eller Alternativ plus upp- eller nedpil",
+    "shortcutHint": "Byt arbetsyta med Ctrl plus upp- eller nedpil",
     "prompt": "Ange ett namn för den nya arbetsytan",
     "namePlaceholder": "Jobb, fritid...",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Återställ säkerhetskopia",
       "resetSettings": "Återställ inställningarna",
       "deleteAllData": "Ta bort all lokal data",
+      "panels": {
+        "title": "Paneler",
+        "showLauncher": "Visa vänster panel",
+        "showWorkspaceToolbar": "Visa nedre panel",
+        "shortcutsHint": "Kortkommandon är fortfarande tillgängliga när panelerna är dolda.",
+        "shortcutRequired": "Tilldela ett kortkommando till Inställningar innan du döljer vänster panel."
+      },
       "recycleBin": {
         "title": "Papperskorgen",
         "show": "Visa papperskorgen på huvudnätet",

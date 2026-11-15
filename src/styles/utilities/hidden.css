@@ -1,4 +1,6 @@
 /* Cross-feature visibility utility. */
-.is-hidden {
+.is-hidden,
+#floating-menu[hidden],
+#workspace-toolbar[hidden] {
   display: none;
 }

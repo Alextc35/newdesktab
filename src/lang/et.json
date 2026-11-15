@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Kas soovite eksportida oma andmete ja seadete varukoopia?",
       "import": "Kas taastada see varukoopia? See asendab teie praegused järjehoidjad ja seaded."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Kustuta tööruum",
     "undo": "Võta tagasi",
     "redo": "Tee uuesti",
-    "shortcutHint": "Vahetage tööala klahviga Alt või Option ja noolega üles või alla",
+    "shortcutHint": "Vahetage tööala klahviga Ctrl ja noolega üles või alla",
     "prompt": "Sisestage uuele tööruumile nimi",
     "namePlaceholder": "Töö, vaba aeg…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Taasta varukoopia",
       "resetSettings": "Lähtestage seaded",
       "deleteAllData": "Kustutage kõik kohalikud andmed",
+      "panels": {
+        "title": "Paneelid",
+        "showLauncher": "Kuva vasak paneel",
+        "showWorkspaceToolbar": "Kuva alumine paneel",
+        "shortcutsHint": "Klaviatuuri otseteed on saadaval ka siis, kui paneelid on peidetud.",
+        "shortcutRequired": "Enne vasaku paneeli peitmist määra seadete avamiseks otsetee."
+      },
       "recycleBin": {
         "title": "Prügikast",
         "show": "Näidake põhivõrgul prügikasti",

@@ -19,6 +19,8 @@ let draftTheme = null;
 let draftLanguage = null;
 let draftInterfaceTheme = null;
 let draftShowRecycleBin = null;
+let draftShowLauncher = null;
+let draftShowWorkspaceToolbar = null;
 let draftRecycleBinRetentionDays = null;
 let draftWindowResizeMode = null;
 
@@ -72,6 +74,8 @@ export function initDraft(settings, storageMode) {
   draftLanguage = settings.language;
   draftInterfaceTheme = normalizeInterfaceTheme(settings.interfaceTheme);
   draftShowRecycleBin = settings.showRecycleBin !== false;
+  draftShowLauncher = settings.showLauncher !== false;
+  draftShowWorkspaceToolbar = settings.showWorkspaceToolbar !== false;
   draftRecycleBinRetentionDays = normalizeRecycleBinRetentionDays(settings.recycleBinRetentionDays);
   draftWindowResizeMode = normalizeWindowResizeMode(settings.windowResizeMode);
   draftBookmarkDefault = structuredClone(settings.bookmarkDefault);
@@ -92,6 +96,8 @@ export function resetState() {
   draftLanguage = null;
   draftInterfaceTheme = null;
   draftShowRecycleBin = null;
+  draftShowLauncher = null;
+  draftShowWorkspaceToolbar = null;
   draftRecycleBinRetentionDays = null;
   draftWindowResizeMode = null;
   draftBookmarkDefault = null;
@@ -135,6 +141,22 @@ export function getDraftShowRecycleBin() {
 
 export function setDraftShowRecycleBin(value) {
   draftShowRecycleBin = value === true;
+}
+
+export function getDraftShowLauncher() {
+  return draftShowLauncher ?? (getSettings().showLauncher !== false);
+}
+
+export function setDraftShowLauncher(value) {
+  draftShowLauncher = value === true;
+}
+
+export function getDraftShowWorkspaceToolbar() {
+  return draftShowWorkspaceToolbar ?? (getSettings().showWorkspaceToolbar !== false);
+}
+
+export function setDraftShowWorkspaceToolbar(value) {
+  draftShowWorkspaceToolbar = value === true;
 }
 
 export function getDraftRecycleBinRetentionDays() {
@@ -299,6 +321,8 @@ export function replaceDraftSettings(settings) {
   draftLanguage = settings.language;
   draftInterfaceTheme = normalizeInterfaceTheme(settings.interfaceTheme);
   draftShowRecycleBin = settings.showRecycleBin !== false;
+  draftShowLauncher = settings.showLauncher !== false;
+  draftShowWorkspaceToolbar = settings.showWorkspaceToolbar !== false;
   draftRecycleBinRetentionDays = normalizeRecycleBinRetentionDays(settings.recycleBinRetentionDays);
   draftWindowResizeMode = normalizeWindowResizeMode(settings.windowResizeMode);
   draftBookmarkDefault = structuredClone(settings.bookmarkDefault);
@@ -332,6 +356,8 @@ export function hasChanges() {
     language: draftLanguage,
     interfaceTheme: draftInterfaceTheme,
     showRecycleBin: draftShowRecycleBin,
+    showLauncher: draftShowLauncher,
+    showWorkspaceToolbar: draftShowWorkspaceToolbar,
     recycleBinRetentionDays: draftRecycleBinRetentionDays,
     windowResizeMode: draftWindowResizeMode,
     theme: draftTheme,
@@ -346,6 +372,8 @@ export function hasChanges() {
     language: initialSnapshot.language,
     interfaceTheme: normalizeInterfaceTheme(initialSnapshot.interfaceTheme),
     showRecycleBin: initialSnapshot.showRecycleBin !== false,
+    showLauncher: initialSnapshot.showLauncher !== false,
+    showWorkspaceToolbar: initialSnapshot.showWorkspaceToolbar !== false,
     recycleBinRetentionDays: normalizeRecycleBinRetentionDays(initialSnapshot.recycleBinRetentionDays),
     windowResizeMode: normalizeWindowResizeMode(initialSnapshot.windowResizeMode),
     theme: initialSnapshot.theme,
@@ -376,6 +404,8 @@ export function buildNewSettings() {
     language: draftLanguage,
     interfaceTheme: draftInterfaceTheme,
     showRecycleBin: draftShowRecycleBin,
+    showLauncher: draftShowLauncher,
+    showWorkspaceToolbar: draftShowWorkspaceToolbar,
     recycleBinRetentionDays: draftRecycleBinRetentionDays,
     windowResizeMode: draftWindowResizeMode,
     theme: structuredClone(draftTheme),

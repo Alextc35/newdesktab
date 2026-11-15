@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Do you want to export a backup of your data and settings?",
       "import": "Restore this backup? It will replace your current bookmarks and settings."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Delete workspace",
     "undo": "Undo",
     "redo": "Redo",
-    "shortcutHint": "Switch workspace with Alt or Option plus Up or Down Arrow",
+    "shortcutHint": "Switch workspace with Ctrl plus Up or Down Arrow",
     "prompt": "Enter a name for the new workspace",
     "namePlaceholder": "Work, leisure…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Restore backup",
       "resetSettings": "Reset settings",
       "deleteAllData": "Delete all local data",
+      "panels": {
+        "title": "Panels",
+        "showLauncher": "Show left panel",
+        "showWorkspaceToolbar": "Show bottom panel",
+        "shortcutsHint": "Keyboard shortcuts remain available when panels are hidden.",
+        "shortcutRequired": "Assign a shortcut to Settings before hiding the left panel."
+      },
       "recycleBin": {
         "title": "Recycle bin",
         "show": "Show the recycle bin on the Main grid",

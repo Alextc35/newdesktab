@@ -131,6 +131,8 @@
  * @property {{name:string|null, backgroundImageUrl:string|null, backgroundImageLocal:string|null, backgroundImageSource:'url'|'local', backgroundImageUrlLocked:boolean, backgroundMedia:Array<{id:string,type:'image'|'video'}>, backgroundRotationSeconds:number}} mainWorkspace Editable name and image settings for Main.
  * @property {string|null} activeBookmarkGroupId
  * @property {boolean} showRecycleBin
+ * @property {boolean} showLauncher
+ * @property {boolean} showWorkspaceToolbar
  * @property {number} recycleBinRetentionDays Zero means items never expire.
  */
 

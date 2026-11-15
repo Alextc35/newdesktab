@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Chcete exportovať zálohu svojich údajov a nastavení?",
       "import": "Obnoviť túto zálohu? Nahradí vaše aktuálne záložky a nastavenia."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Odstrániť pracovný priestor",
     "undo": "Vrátiť späť",
     "redo": "Znovu",
-    "shortcutHint": "Prepnite pracovný priestor pomocou Alt alebo Option a šípkou nahor alebo nadol",
+    "shortcutHint": "Prepnite pracovný priestor pomocou Ctrl a šípkou nahor alebo nadol",
     "prompt": "Zadajte názov nového pracovného priestoru",
     "namePlaceholder": "Práca, voľný čas…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Obnoviť zálohu",
       "resetSettings": "Obnoviť nastavenia",
       "deleteAllData": "Vymažte všetky miestne údaje",
+      "panels": {
+        "title": "Panely",
+        "showLauncher": "Zobraziť ľavý panel",
+        "showWorkspaceToolbar": "Zobraziť dolný panel",
+        "shortcutsHint": "Klávesové skratky zostávajú dostupné, aj keď sú panely skryté.",
+        "shortcutRequired": "Pred skrytím ľavého panela priraďte klávesovú skratku pre Nastavenia."
+      },
       "recycleBin": {
         "title": "Recyklačný kôš",
         "show": "Ukážte kôš na hlavnej mriežke",

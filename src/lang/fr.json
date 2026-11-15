@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Voulez-vous exporter une sauvegarde de vos données et paramètres ?",
       "import": "Restaurer cette sauvegarde ? Il remplacera vos favoris et paramètres actuels."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Supprimer l'espace de travail",
     "undo": "Annuler",
     "redo": "Refaire",
-    "shortcutHint": "Changer d'espace de travail avec Alt ou Option plus flèche vers le haut ou vers le bas",
+    "shortcutHint": "Changer d'espace de travail avec Ctrl plus flèche vers le haut ou vers le bas",
     "prompt": "Entrez un nom pour le nouvel espace de travail",
     "namePlaceholder": "Travail, loisirs…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Restaurer la sauvegarde",
       "resetSettings": "Réinitialiser les paramètres",
       "deleteAllData": "Supprimer toutes les données locales",
+      "panels": {
+        "title": "Panneaux",
+        "showLauncher": "Afficher le panneau de gauche",
+        "showWorkspaceToolbar": "Afficher le panneau du bas",
+        "shortcutsHint": "Les raccourcis clavier restent disponibles lorsque les panneaux sont masqués.",
+        "shortcutRequired": "Attribuez un raccourci aux Paramètres avant de masquer le panneau de gauche."
+      },
       "recycleBin": {
         "title": "Corbeille",
         "show": "Afficher la corbeille sur la grille principale",

@@ -8,6 +8,18 @@
   overflow-y: auto;
 }
 
+.workspace-settings-actions {
+  flex-wrap: wrap;
+}
+
+#workspace-settings-delete {
+  flex: 1 0 100%;
+}
+
+#workspace-settings-delete[hidden] {
+  display: none;
+}
+
 #workspace-settings-media-list {
   max-height: 240px;
   overflow-y: auto;

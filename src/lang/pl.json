@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Czy chcesz wyeksportować kopię zapasową swoich danych i ustawień?",
       "import": "Przywrócić tę kopię zapasową? Zastąpi Twoje obecne zakładki i ustawienia."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Usuń obszar roboczy",
     "undo": "Cofnij",
     "redo": "Powtórz",
-    "shortcutHint": "Przełącz obszar roboczy za pomocą Alt lub Option oraz strzałki w górę lub w dół",
+    "shortcutHint": "Przełącz obszar roboczy za pomocą Ctrl oraz strzałki w górę lub w dół",
     "prompt": "Wprowadź nazwę nowego obszaru roboczego",
     "namePlaceholder": "Praca, wypoczynek…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Przywróć kopię zapasową",
       "resetSettings": "Zresetuj ustawienia",
       "deleteAllData": "Usuń wszystkie dane lokalne",
+      "panels": {
+        "title": "Panele",
+        "showLauncher": "Pokaż lewy panel",
+        "showWorkspaceToolbar": "Pokaż dolny panel",
+        "shortcutsHint": "Skróty klawiaturowe pozostają dostępne, gdy panele są ukryte.",
+        "shortcutRequired": "Przypisz skrót do Ustawień przed ukryciem lewego panelu."
+      },
       "recycleBin": {
         "title": "Kosz",
         "show": "Pokaż kosz w siatce głównej",

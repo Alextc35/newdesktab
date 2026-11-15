@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "데이터와 설정의 백업을 내보내시겠습니까?",
       "import": "이 백업을 복원하시겠습니까? 현재 북마크와 설정을 대체합니다."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "작업공간 삭제",
     "undo": "실행 취소",
     "redo": "다시 실행",
-    "shortcutHint": "Alt 또는 Option과 위쪽 또는 아래쪽 화살표를 사용하여 작업 공간 전환",
+    "shortcutHint": "Ctrl과 위쪽 또는 아래쪽 화살표를 사용하여 작업 공간 전환",
     "prompt": "새 작업공간의 이름을 입력하세요.",
     "namePlaceholder": "일, 여가…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "백업 복원",
       "resetSettings": "설정 재설정",
       "deleteAllData": "모든 로컬 데이터 삭제",
+      "panels": {
+        "title": "패널",
+        "showLauncher": "왼쪽 패널 표시",
+        "showWorkspaceToolbar": "하단 패널 표시",
+        "shortcutsHint": "패널을 숨겨도 키보드 단축키를 계속 사용할 수 있습니다.",
+        "shortcutRequired": "왼쪽 패널을 숨기기 전에 설정에 단축키를 지정하세요."
+      },
       "recycleBin": {
         "title": "휴지통",
         "show": "메인 그리드에 휴지통 표시",

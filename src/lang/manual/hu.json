@@ -123,7 +123,7 @@
       "workspaces": [
         "Az eszköztár + létrehoz egy munkaterületet a választott névvel.",
         "Az új munkaterületnek saját rácsja van.",
-        "Az Alt + ↑ és az Alt + ↓ billentyűk lépkednek a munkaterületeken."
+        "Az Ctrl + ↑ és az Ctrl + ↓ billentyűk lépkednek a munkaterületeken."
       ],
       "selection": [
         "Engedélyezze a szerkesztést, és rövid kattintással válasszon ki egy csempét.",
@@ -339,10 +339,10 @@
       "steps": [
         "A munkaterület sávja vált a Fő és az egyéni munkaterületek között. A + egy újat hoz létre.",
         "Az elemek hozzáadása előtt válasszon egy munkaterületet. Meglévő elemek átviteléhez jelölje ki őket, és válasszon célt a műveletsoron.",
-        "Az Alt + ↑ és az Alt + ↓ váltogatják a munkaterületeket. A − gomb a jóváhagyást követően törli az aktuális egyéni munkaterületet."
+        "Az Ctrl + ↑ és az Ctrl + ↓ váltogatják a munkaterületeket. A − gomb a jóváhagyást követően törli az aktuális egyéni munkaterületet."
       ],
       "note": "A munkaterület törlésével a tartalma is törlődik. A fő elérhető marad, és nem törölhető.",
-      "tip": "Az Alt + ↑ és az Alt + ↓ a választó kinyitása nélkül válthat a munkaterületek között. Különítse el a munkát, hobbit vagy projektet a bár + jelével."
+      "tip": "Az Ctrl + ↑ és az Ctrl + ↓ a választó kinyitása nélkül válthat a munkaterületek között. Különítse el a munkát, hobbit vagy projektet a bár + jelével."
     },
     "selection": {
       "question": "Hogyan módosíthatok egyszerre több elemet?",

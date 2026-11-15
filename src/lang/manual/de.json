@@ -123,7 +123,7 @@
       "workspaces": [
         "Die Symbolleiste + erstellt einen Arbeitsbereich mit dem von Ihnen gewählten Namen.",
         "Der neue Arbeitsbereich verfügt über ein eigenes Raster.",
-        "Alt + ↑ und Alt + ↓ blättern Sie durch Ihre Arbeitsbereiche."
+        "Ctrl + ↑ und Ctrl + ↓ blättern Sie durch Ihre Arbeitsbereiche."
       ],
       "selection": [
         "Aktivieren Sie die Bearbeitung und wählen Sie mit einem kurzen Klick eine Kachel aus.",
@@ -339,10 +339,10 @@
       "steps": [
         "Die Arbeitsbereichsleiste wechselt zwischen Haupt- und Ihren benutzerdefinierten Arbeitsbereichen. Sein + erzeugt ein neues.",
         "Wählen Sie einen Arbeitsbereich aus, bevor Sie Elemente hinzufügen. Um vorhandene Elemente zu übertragen, wählen Sie diese aus und wählen Sie in der Aktionsleiste ein Ziel aus.",
-        "Alt + ↑ und Alt + ↓ blättern durch die Arbeitsbereiche. Die Schaltfläche − löscht nach Bestätigung den aktuellen benutzerdefinierten Arbeitsbereich."
+        "Ctrl + ↑ und Ctrl + ↓ blättern durch die Arbeitsbereiche. Die Schaltfläche − löscht nach Bestätigung den aktuellen benutzerdefinierten Arbeitsbereich."
       ],
       "note": "Durch das Löschen eines Arbeitsbereichs werden auch dessen Inhalte gelöscht. Hauptaufenthalte verfügbar und können nicht gelöscht werden.",
-      "tip": "Alt + ↑ und Alt + ↓ wechseln den Arbeitsbereich, ohne die Auswahl zu öffnen. Trennen Sie Arbeit, Hobbys oder Projekte mit dem + der Bar."
+      "tip": "Ctrl + ↑ und Ctrl + ↓ wechseln den Arbeitsbereich, ohne die Auswahl zu öffnen. Trennen Sie Arbeit, Hobbys oder Projekte mit dem + der Bar."
     },
     "selection": {
       "question": "Wie ändere ich mehrere Artikel gleichzeitig?",

@@ -61,6 +61,7 @@ export function createAppController({ container }) {
       const modeChanged = lastStorageMode !== undefined && storageMode !== lastStorageMode;
       lastStorageMode = storageMode;
       if (!previousState) {
+        applyPanelVisibility(state.data.settings);
         applyCurrentPageTheme(state.data.settings);
         updateAppShellEditing(state.ui.isEditing);
         const trace = debug.start('Initial grid render');
@@ -77,6 +78,7 @@ export function createAppController({ container }) {
       }
 
       if (changes.settings) {
+        applyPanelVisibility(state.data.settings);
         applyInterfaceTheme(state.data.settings.interfaceTheme);
         void changeLanguage(state.data.settings);
         syncKeyboardShortcutAccessibility(state.data.settings.keyboardShortcuts);
@@ -92,6 +94,11 @@ export function createAppController({ container }) {
       if (changes.editing) updateAppShellEditing(state.ui.isEditing);
     }
   });
+}
+
+function applyPanelVisibility(settings) {
+  document.getElementById('floating-menu').hidden = settings.showLauncher === false;
+  document.getElementById('workspace-toolbar').hidden = settings.showWorkspaceToolbar === false;
 }
 
 function renderChangedGrid(container, state, settingsChanged, applyCurrentPageTheme) {

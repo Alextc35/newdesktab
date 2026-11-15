@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Pretende exportar uma cópia de segurança dos seus dados e definições?",
       "import": "Restaurar este backup? Ele substituirá seus favoritos e configurações atuais."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Excluir espaço de trabalho",
     "undo": "Desfazer",
     "redo": "Refazer",
-    "shortcutHint": "Alterne a área de trabalho com Alt ou Option mais seta para cima ou para baixo",
+    "shortcutHint": "Alterne a área de trabalho com Ctrl mais seta para cima ou para baixo",
     "prompt": "Insira um nome para o novo espaço de trabalho",
     "namePlaceholder": "Trabalho, lazer…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Restaurar cópia de segurança",
       "resetSettings": "Redefinir configurações",
       "deleteAllData": "Exclua todos os dados locais",
+      "panels": {
+        "title": "Painéis",
+        "showLauncher": "Mostrar painel esquerdo",
+        "showWorkspaceToolbar": "Mostrar painel inferior",
+        "shortcutsHint": "Os atalhos de teclado continuam disponíveis quando os painéis estão ocultos.",
+        "shortcutRequired": "Atribua um atalho às Definições antes de ocultar o painel esquerdo."
+      },
       "recycleBin": {
         "title": "Lixeira",
         "show": "Mostrar a lixeira na grade principal",

@@ -176,6 +176,26 @@ test('normalizes the global window resize mode and preserves the selected behavi
   assert.equal(invalid.settings.windowResizeMode, 'fit');
 });
 
+test('defaults panels to visible and round-trips hidden panels with a safe settings entry point', () => {
+  const legacy = migratePersistedData({ bookmarks: [], settings: { language: 'es' } });
+  assert.equal(legacy.settings.showLauncher, true);
+  assert.equal(legacy.settings.showWorkspaceToolbar, true);
+
+  const hidden = migratePersistedData({ bookmarks: [], settings: {
+    ...DEFAULT_SETTINGS, showLauncher: false, showWorkspaceToolbar: false
+  } });
+  assert.equal(hidden.settings.showLauncher, false);
+  assert.equal(hidden.settings.showWorkspaceToolbar, false);
+  const backup = createBackupEnvelope(hidden);
+  assert.deepEqual(parseBackupPayload(backup), hidden);
+
+  backup.data.settings.keyboardShortcuts.openSettings = null;
+  const recovered = parseBackupPayload(backup);
+  assert.equal(recovered.settings.keyboardShortcuts.openSettings, null);
+  assert.equal(recovered.settings.showLauncher, true);
+  assert.equal(recovered.settings.showWorkspaceToolbar, false);
+});
+
 test('adds safe keyboard shortcuts to legacy settings and preserves custom values', () => {
   const legacy = migratePersistedData({ bookmarks: [], settings: { language: 'es' } });
   assert.deepEqual(legacy.settings.keyboardShortcuts, DEFAULT_KEYBOARD_SHORTCUTS);

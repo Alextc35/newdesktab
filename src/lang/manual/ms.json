@@ -123,7 +123,7 @@
       "workspaces": [
         "Bar alat + mencipta ruang kerja dengan nama pilihan anda.",
         "Ruang kerja baharu mempunyai grid sendiri.",
-        "Alt + ↑ dan Alt + ↓ kitaran melalui ruang kerja anda."
+        "Ctrl + ↑ dan Ctrl + ↓ kitaran melalui ruang kerja anda."
       ],
       "selection": [
         "Dayakan pengeditan dan pilih jubin dengan klik singkat.",
@@ -339,10 +339,10 @@
       "steps": [
         "Bar ruang kerja bertukar antara ruang kerja Utama dan tersuai anda. Its + mencipta yang baharu.",
         "Pilih ruang kerja sebelum menambah item. Untuk memindahkan item sedia ada, pilih item tersebut dan pilih destinasi dalam bar tindakan.",
-        "Alt + ↑ dan Alt + ↓ kitaran melalui ruang kerja. Butang − memadamkan ruang kerja tersuai semasa selepas pengesahan."
+        "Ctrl + ↑ dan Ctrl + ↓ kitaran melalui ruang kerja. Butang − memadamkan ruang kerja tersuai semasa selepas pengesahan."
       ],
       "note": "Memadamkan ruang kerja turut memadamkan kandungannya. Kediaman utama tersedia dan tidak boleh dipadamkan.",
-      "tip": "Alt + ↑ dan Alt + ↓ menukar ruang kerja tanpa membuka pemilih. Asingkan kerja, hobi atau projek dengan bar +."
+      "tip": "Ctrl + ↑ dan Ctrl + ↓ menukar ruang kerja tanpa membuka pemilih. Asingkan kerja, hobi atau projek dengan bar +."
     },
     "selection": {
       "question": "Bagaimanakah cara menukar beberapa item sekaligus?",

@@ -230,7 +230,7 @@ export function buildManualDemo(topic, v, t, variant = 'none', dataLocale = null
       const work = v.bookmark('New DeskTab', 174, 26);
       v.track(work, [[0, { opacity: 0 }], [5900, { opacity: 0 }], [6300, { opacity: 1 }], [8300, { opacity: 1 }],
         [8600, { opacity: 0 }], [10200, { opacity: 0 }], [10500, { opacity: 1 }], [12000, { opacity: 1 }]]);
-      v.keys([[8100, 9800, 'Alt + ↑'], [10400, 11800, 'Alt + ↓']]);
+      v.keys([[8100, 9800, 'Ctrl + ↑'], [10400, 11800, 'Ctrl + ↓']]);
       v.cursor([[600, v.plus], [1800, name], [2900, add], [6000, 225, 55], [7500, 470, 190, 0]],
         [[900, v.plus], [3400, add]]);
       v.during(v.workspace, 'is-demo-active', [[4200]]);

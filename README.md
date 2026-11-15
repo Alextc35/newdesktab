@@ -32,7 +32,7 @@ items on a desktop without relying on a NewDeskTab account or backend.
   an existing-favorite indicator and automatic popup close after a successful save
 * Named appearance presets
 * Reusable category SVG icons for bookmarks, folders, the recycle bin and default bookmark styles
-* Independent bookmark workspaces with smooth `Alt/⌥ + ↑/↓` navigation
+* Independent bookmark workspaces with smooth `Ctrl + ↑/↓` navigation
 * Resizable folders with a clean link view and an editable 3 × 6 workspace
 * Bundled resizable clock widget (work in progress) with 12/24-hour and seconds controls
 * Global search palette (`/`)
@@ -350,9 +350,10 @@ a file nor a URL are removed from this device's collection.
 * `F` opens the create-folder dialog.
 * `W` opens the widget catalog.
 * `S` opens Settings.
+* `Ctrl` plus the configured Settings shortcut (`Ctrl + S` by default) opens the current workspace's settings.
 * `/` opens global search.
 * `Middle click` opens that bookmark's editor while editing the grid.
-* `Alt/⌥ + ↑/↓` cycles through workspaces.
+* `Ctrl + ↑/↓` cycles through workspaces.
 * `Ctrl/Cmd + Z` undoes the latest workspace operation or the pending draft change inside an editor.
 * `Ctrl/Cmd + Shift + Z` redoes it.
 
@@ -364,6 +365,11 @@ The first five shortcuts are configurable under **Settings → Keyboard
 shortcuts**. They are part of the versioned settings payload, so custom values
 are included in complete backups and follow the user between Chrome profiles or
 devices when Sync is enabled.
+
+**Settings → General → Panels** independently controls the left action panel and
+the bottom workspace panel. Hiding either panel keeps its keyboard shortcuts
+available. Keep a Settings shortcut assigned to reopen Settings when the left
+panel is hidden.
 
 Press `Tab` while the page is focused to enter keyboard grid navigation; press
 `Tab` again to leave it. The first visible top-level item receives focus and

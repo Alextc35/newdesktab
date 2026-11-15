@@ -118,7 +118,7 @@
       "workspaces": [
         "El + de la barra crea un espacio con el nombre que elijas.",
         "El espacio nuevo tiene su propia cuadrícula.",
-        "Alt + ↑ y Alt + ↓ recorren tus espacios."
+        "Ctrl + ↑ y Ctrl + ↓ recorren tus espacios."
       ],
       "selection": [
         "Activa la edición y selecciona una tarjeta con un clic corto.",
@@ -269,9 +269,9 @@
     "workspaces": {
       "question": "¿Cómo separo mi espacio personal del trabajo?", "searchTerms": "personal trabajo; crear espacio; cambiar espacio; escritorios; workspace",
       "title": "Separar en espacios", "summary": "Una cuadrícula para trabajar y otra para lo demás.",
-      "steps": ["La barra de espacios permite cambiar entre Principal y tus espacios personalizados. Su + crea uno nuevo.", "Selecciona el espacio antes de añadir elementos. Para trasladar los existentes, usa la selección y el destino de la barra de acciones.", "Alt + ↑ y Alt + ↓ recorren los espacios. El botón − elimina el espacio personalizado actual tras confirmar."],
+      "steps": ["La barra de espacios permite cambiar entre Principal y tus espacios personalizados. Su + crea uno nuevo.", "Selecciona el espacio antes de añadir elementos. Para trasladar los existentes, usa la selección y el destino de la barra de acciones.", "Ctrl + ↑ y Ctrl + ↓ recorren los espacios. El botón − elimina el espacio personalizado actual tras confirmar."],
       "note": "Eliminar un espacio elimina también sus contenidos. Principal permanece disponible y no se puede eliminar.",
-      "tip": "Alt + ↑ y Alt + ↓ cambian de espacio sin abrir el selector. Puedes separar trabajo, ocio o proyectos desde el + de la barra."
+      "tip": "Ctrl + ↑ y Ctrl + ↓ cambian de espacio sin abrir el selector. Puedes separar trabajo, ocio o proyectos desde el + de la barra."
     },
     "selection": {
       "question": "¿Cómo cambio varios elementos a la vez?", "searchTerms": "seleccionar varios; selección múltiple; mover varios; clonar selección; duplicar favoritos",

@@ -20,6 +20,24 @@ async function isEditing(page) {
   ).getState().ui.isEditing);
 }
 
+async function updateShortcuts(page, changes) {
+  await page.evaluate(async next => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    const { data } = getState();
+    await setState({ data: { settings: { ...data.settings,
+      keyboardShortcuts: { ...data.settings.keyboardShortcuts, ...next }
+    } } });
+  }, changes);
+}
+
+async function shortcutPrevented(page, shortcut, target = 'body') {
+  return page.locator(target).evaluate((element, keys) => {
+    const event = new KeyboardEvent('keydown', { ...keys, bubbles: true, cancelable: true });
+    element.dispatchEvent(event);
+    return event.defaultPrevented;
+  }, shortcut);
+}
+
 test('edit launcher swaps SVG assets and accessible labels with its mode', async ({ page }) => {
   await start(page);
   const button = page.locator('#edit-toggle-mode');
@@ -83,6 +101,177 @@ test('single-key defaults open their actions and expose accessible hints', async
   await expect(page.locator('.shortcut-setting-row')).toHaveCount(5);
   await expect(page.locator('[data-shortcut-action="toggleEditing"] kbd')).toHaveText(['E']);
   await expect(page.locator('[data-shortcut-action="openWidgets"] kbd')).toHaveText(['W']);
+});
+
+for (const [key, modalId, nextKey, nextModalId] of [
+  ['KeyB', 'edit-bookmark-modal', 'KeyF', 'edit-folder-modal'],
+  ['KeyF', 'edit-folder-modal', 'KeyB', 'edit-bookmark-modal']
+]) {
+  test(`${key} cancellation returns to the grid from either the grid or add launcher`, async ({ page }) => {
+    await start(page);
+    const grid = page.locator('#bookmark-container');
+    const toggle = page.locator('#add-toggle');
+    for (const opener of [grid, toggle]) {
+      await opener.focus();
+      await page.keyboard.press(key);
+      await expect(page.locator(`#${modalId}`)).toBeVisible();
+      await page.keyboard.press('Escape');
+      await expect(page.locator(`#${modalId}`)).toBeHidden();
+      await expect(grid).toBeFocused();
+      await expect(toggle).not.toBeFocused();
+
+      await page.keyboard.press('Tab');
+      await expect(grid.locator('.recycle-bin')).toHaveClass(/is-keyboard-active/);
+      await page.keyboard.press('ArrowDown');
+      await expect(grid.locator('[data-bookmark-id="test-developed-by"]'))
+        .toHaveClass(/is-keyboard-active/);
+      await page.keyboard.press('ArrowRight');
+      await expect(grid.locator('[data-bookmark-id="test-banana"]'))
+        .toHaveClass(/is-keyboard-active/);
+      await page.keyboard.press('Tab');
+      await expect(grid.locator('.is-keyboard-active')).toHaveCount(0);
+
+      await page.keyboard.press('KeyE');
+      expect(await isEditing(page)).toBe(true);
+      await page.keyboard.press('KeyE');
+      expect(await isEditing(page)).toBe(false);
+      await page.keyboard.press(nextKey);
+      await expect(page.locator(`#${nextModalId}`)).toBeVisible();
+      await page.keyboard.press('Escape');
+      await expect(page.locator(`#${nextModalId}`)).toBeHidden();
+      await expect(grid).toBeFocused();
+    }
+  });
+}
+
+test('native add-menu clicks and keyboard activation restore the visible launcher', async ({ page }) => {
+  await start(page);
+  const toggle = page.locator('#add-toggle');
+  for (const [actionId, modalId, arrowCount] of [
+    ['add-bookmark', 'edit-bookmark-modal', 1],
+    ['add-folder', 'edit-folder-modal', 2]
+  ]) {
+    for (const activation of ['click', 'Enter', 'Space']) {
+      if (activation === 'click') {
+        await page.mouse.move(5, page.viewportSize().height / 2);
+        await toggle.click();
+        await page.locator(`#${actionId}`).click();
+      } else {
+        await toggle.focus();
+        for (let step = 0; step < arrowCount; step += 1) {
+          await page.keyboard.press('ArrowDown');
+        }
+        await expect(page.locator(`#${actionId}`)).toBeFocused();
+        await page.keyboard.press(activation);
+      }
+      await expect(page.locator(`#${modalId}`)).toBeVisible();
+      await page.keyboard.press('Escape');
+      await expect(page.locator(`#${modalId}`)).toBeHidden();
+      await expect(toggle).toBeFocused();
+      await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    }
+  }
+});
+
+test('Control plus settings opens the current workspace while the plain shortcut keeps general settings', async ({ page }) => {
+  await start(page);
+  await page.evaluate(async () => (
+    await import('/src/features/workspaces/workspaceActions.js')
+  ).createWorkspace('Current workspace'));
+  await expect(page.locator('#workspace-current-name')).toHaveText('Current workspace');
+  await expect(page.locator('#workspace-settings-current')).toHaveAttribute('aria-keyshortcuts', 'Control+S');
+
+  await page.keyboard.press('KeyS');
+  await expect(page.locator('#settings-modal')).toBeVisible();
+  await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+  expect(await shortcutPrevented(page, { key: 's', code: 'KeyS', ctrlKey: true }, '#settings-modal'))
+    .toBe(false);
+  await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#settings-modal')).toBeHidden();
+
+  await page.keyboard.press('Control+KeyS');
+  await expect(page.locator('#workspace-settings-modal')).toBeVisible();
+  await expect(page.locator('#workspace-settings-name')).toHaveValue('Current workspace');
+  await expect(page.locator('#settings-modal')).toBeHidden();
+  expect(await shortcutPrevented(page, { key: 's', code: 'KeyS', ctrlKey: true }, '#workspace-settings-name'))
+    .toBe(false);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+
+  await page.evaluate(() => {
+    const input = document.createElement('input');
+    input.id = 'workspace-shortcut-input';
+    document.body.append(input);
+    input.focus();
+  });
+  expect(await shortcutPrevented(page, { key: 's', code: 'KeyS', ctrlKey: true }, '#workspace-shortcut-input'))
+    .toBe(false);
+  await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+});
+
+for (const [settingKeys, generalHint, workspaceKeys, workspaceHint] of [
+  ['KeyG', 'G', 'Control+KeyG', 'Control+G'],
+  ['Alt+Shift+KeyG', 'Alt+Shift+G', 'Control+Alt+Shift+KeyG', 'Control+Alt+Shift+G']
+]) {
+  test(`workspace settings follow the customized ${generalHint} settings shortcut`, async ({ page }) => {
+    await start(page);
+    await page.keyboard.press('KeyS');
+    await page.locator('[data-tab="settings-modal-tab-shortcuts"]').click();
+    await page.locator('[data-shortcut-action="openSettings"]').click();
+    await page.keyboard.press(settingKeys);
+    await page.locator('#settings-modal-save').click();
+    await expect(page.locator('#settings-modal')).toBeHidden();
+    await expect(page.locator('#settings')).toHaveAttribute('aria-keyshortcuts', generalHint);
+    await expect(page.locator('#workspace-settings-current')).toHaveAttribute('aria-keyshortcuts', workspaceHint);
+    expect(await shortcutPrevented(page, { key: 's', code: 'KeyS', ctrlKey: true })).toBe(false);
+    await page.keyboard.press(workspaceKeys);
+    await expect(page.locator('#workspace-settings-modal')).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+    await page.keyboard.press(settingKeys);
+    await expect(page.locator('#settings-modal')).toBeVisible();
+    await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+  });
+}
+
+test('workspace settings shortcuts respect explicit bindings, Control bindings and unassigned settings', async ({ page }) => {
+  await start(page);
+  const workspaceControl = page.locator('#workspace-settings-current');
+  await updateShortcuts(page, { openSettings: 'G', openWidgets: 'Ctrl+G' });
+  await expect(workspaceControl).not.toHaveAttribute('aria-keyshortcuts');
+  await page.keyboard.press('Control+KeyG');
+  await expect(page.locator('#widget-catalog-modal')).toBeVisible();
+  await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#widget-catalog-modal')).toBeHidden();
+
+  await updateShortcuts(page, { openSettings: 'Ctrl+G', openWidgets: 'W' });
+  await expect(workspaceControl).not.toHaveAttribute('aria-keyshortcuts');
+  await page.keyboard.press('Control+KeyG');
+  await expect(page.locator('#settings-modal')).toBeVisible();
+  await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#settings-modal')).toBeHidden();
+
+  await updateShortcuts(page, { openSettings: 'L' });
+  await expect(workspaceControl).not.toHaveAttribute('aria-keyshortcuts');
+  expect(await shortcutPrevented(page, { key: 'l', code: 'KeyL', ctrlKey: true })).toBe(false);
+  await updateShortcuts(page, { openSettings: null });
+  await expect(workspaceControl).not.toHaveAttribute('aria-keyshortcuts');
+  expect(await shortcutPrevented(page, { key: 's', code: 'KeyS', ctrlKey: true })).toBe(false);
+  expect(await shortcutPrevented(page, { key: 's', code: 'KeyS' })).toBe(false);
+  expect(await shortcutPrevented(page, { key: 'Enter', code: 'Enter' })).toBe(false);
+  await expect(page.locator('.modal.is-open')).toHaveCount(0);
+});
+
+test('workspace settings shortcuts show the usual warning in list view', async ({ page }) => {
+  await start(page);
+  await page.setViewportSize({ width: 600, height: 720 });
+  await page.keyboard.press('Control+KeyS');
+  await expect(page.locator('.flash-error').last()).toHaveText('Widen the window to use this feature.');
+  await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+  await expect(page.locator('.modal.is-open')).toHaveCount(0);
 });
 
 test('custom shortcuts reject conflicts and survive a Sync round trip', async ({ page }) => {

@@ -123,7 +123,7 @@
       "workspaces": [
         "Työkalupalkki + luo työtilan valitsemallasi nimellä.",
         "Uudessa työtilassa on oma ruudukko.",
-        "Alt + ↑ ja Alt + ↓ selaa työtilojasi."
+        "Ctrl + ↑ ja Ctrl + ↓ selaa työtilojasi."
       ],
       "selection": [
         "Ota muokkaus käyttöön ja valitse laatta lyhyellä napsautuksella.",
@@ -339,10 +339,10 @@
       "steps": [
         "Työtilapalkki vaihtaa Main- ja mukautettujen työtilojesi välillä. Sen + luo uuden.",
         "Valitse työtila ennen kohteiden lisäämistä. Jos haluat siirtää olemassa olevia kohteita, valitse ne ja valitse kohde toimintopalkista.",
-        "Alt + ↑ ja Alt + ↓ selaavat työtiloja. −-painike poistaa nykyisen mukautetun työtilan vahvistuksen jälkeen."
+        "Ctrl + ↑ ja Ctrl + ↓ selaavat työtiloja. −-painike poistaa nykyisen mukautetun työtilan vahvistuksen jälkeen."
       ],
       "note": "Työtilan poistaminen poistaa myös sen sisällön. Pääosa pysyy saatavilla, eikä sitä voi poistaa.",
-      "tip": "Alt + ↑ ja Alt + ↓ vaihtavat työtiloja avaamatta valitsinta. Erota työt, harrastukset tai projektit baarin +:lla."
+      "tip": "Ctrl + ↑ ja Ctrl + ↓ vaihtavat työtiloja avaamatta valitsinta. Erota työt, harrastukset tai projektit baarin +:lla."
     },
     "selection": {
       "question": "Kuinka voin muuttaa useita kohteita kerralla?",

@@ -1014,11 +1014,22 @@ already-rendered compact view without changing saved data. Selection is pruned
 when bookmarks disappear and is cleared when edit mode closes.
 
 `features/workspaces/workspaceToolbar.js` owns cyclic workspace navigation.
-`Alt/Option` with the up or down arrow resolves the adjacent workspace through
+`Ctrl` with the up or down arrow resolves the adjacent workspace through
 the workspace domain and feature selectors,
 animates the current grid out and the next grid in, and skips the transition
 when the operating system requests reduced motion. Shortcuts are ignored while
 typing or while a modal is open.
+
+The workspace navigation handler runs during event capture so focused dock
+controls cannot consume its arrow keys. Adding Control to the configured
+Settings shortcut opens the active workspace's editor when that combination is
+available; explicitly assigned shortcuts retain priority.
+
+The `showLauncher` and `showWorkspaceToolbar` settings control each dock's
+visibility independently. The settings draft owns these preferences until Save,
+and `appController` applies their `hidden` attributes when settings change.
+Keyboard actions remain available while docks are hidden. Hiding the launcher
+requires an assigned Settings shortcut so the preferences remain reachable.
 
 ## Verification
 

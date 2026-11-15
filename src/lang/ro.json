@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Doriți să exportați o copie de siguranță a datelor și setărilor dvs.?",
       "import": "Restabiliți această copie de rezervă? Acesta va înlocui marcajele și setările dvs. actuale."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Șterge spațiul de lucru",
     "undo": "Anulați",
     "redo": "Reface",
-    "shortcutHint": "Schimbați spațiul de lucru cu Alt sau Opțiune plus săgeata sus sau jos",
+    "shortcutHint": "Schimbați spațiul de lucru cu Ctrl plus săgeata sus sau jos",
     "prompt": "Introduceți un nume pentru noul spațiu de lucru",
     "namePlaceholder": "Munca, petrecerea timpului liber…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Restaurați backupul",
       "resetSettings": "Resetați setările",
       "deleteAllData": "Ștergeți toate datele locale",
+      "panels": {
+        "title": "Panouri",
+        "showLauncher": "Afișează panoul din stânga",
+        "showWorkspaceToolbar": "Afișează panoul de jos",
+        "shortcutsHint": "Comenzile rapide de la tastatură rămân disponibile când panourile sunt ascunse.",
+        "shortcutRequired": "Atribuiți o comandă rapidă pentru Setări înainte de a ascunde panoul din stânga."
+      },
       "recycleBin": {
         "title": "Coșul de reciclare",
         "show": "Afișați coșul de reciclare pe grila principală",

@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Vols exportar una còpia de seguretat de les teves dades i configuració?",
       "import": "Voleu restaurar aquesta còpia de seguretat? Substituirà les vostres adreces d'interès i configuració actuals."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Suprimeix l'espai de treball",
     "undo": "Desfer",
     "redo": "Refer",
-    "shortcutHint": "Canvia l'espai de treball amb Alt o Opció més la fletxa amunt o avall",
+    "shortcutHint": "Canvia l'espai de treball amb Ctrl més la fletxa amunt o avall",
     "prompt": "Introduïu un nom per a l'espai de treball nou",
     "namePlaceholder": "Treball, lleure...",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Restaura la còpia de seguretat",
       "resetSettings": "Restableix la configuració",
       "deleteAllData": "Suprimeix totes les dades locals",
+      "panels": {
+        "title": "Panells",
+        "showLauncher": "Mostra el panell esquerre",
+        "showWorkspaceToolbar": "Mostra el panell inferior",
+        "shortcutsHint": "Les dreceres de teclat continuen disponibles quan els panells estan ocults.",
+        "shortcutRequired": "Assigna una drecera a Configuració abans d’ocultar el panell esquerre."
+      },
       "recycleBin": {
         "title": "Paperera de reciclatge",
         "show": "Mostra la paperera de reciclatge a la graella principal",

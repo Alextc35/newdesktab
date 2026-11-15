@@ -123,7 +123,7 @@
       "workspaces": [
         "Verktygsfältet + skapar en arbetsyta med ditt valda namn.",
         "Den nya arbetsytan har ett eget rutnät.",
-        "Alt + ↑ och Alt + ↓ bläddrar genom dina arbetsytor."
+        "Ctrl + ↑ och Ctrl + ↓ bläddrar genom dina arbetsytor."
       ],
       "selection": [
         "Aktivera redigering och välj en bricka med ett kort klick.",
@@ -339,10 +339,10 @@
       "steps": [
         "Arbetsytefältet växlar mellan Main och dina anpassade arbetsytor. Dess + skapar en ny.",
         "Välj en arbetsyta innan du lägger till objekt. För att överföra befintliga objekt, välj dem och välj en destination i åtgärdsfältet.",
-        "Alt + ↑ och Alt + ↓ växlar genom arbetsytor. Knappen − tar bort den aktuella anpassade arbetsytan efter bekräftelse."
+        "Ctrl + ↑ och Ctrl + ↓ växlar genom arbetsytor. Knappen − tar bort den aktuella anpassade arbetsytan efter bekräftelse."
       ],
       "note": "Om du tar bort en arbetsyta raderas även dess innehåll. Main stays tillgängliga och kan inte raderas.",
-      "tip": "Alt + ↑ och Alt + ↓ växlar arbetsytor utan att öppna väljaren. Separera arbete, hobbyer eller projekt med barens +."
+      "tip": "Ctrl + ↑ och Ctrl + ↓ växlar arbetsytor utan att öppna väljaren. Separera arbete, hobbyer eller projekt med barens +."
     },
     "selection": {
       "question": "Hur ändrar jag flera objekt samtidigt?",

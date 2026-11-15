@@ -123,7 +123,7 @@
       "workspaces": [
         "Rīkjosla + izveido darbvietu ar jūsu izvēlēto nosaukumu.",
         "Jaunajai darbvietai ir savs režģis.",
-        "Alt + ↑ un Alt + ↓ pārvietojas pa darbvietām."
+        "Ctrl + ↑ un Ctrl + ↓ pārvietojas pa darbvietām."
       ],
       "selection": [
         "Iespējojiet rediģēšanu un atlasiet elementu ar īsu klikšķi.",
@@ -339,10 +339,10 @@
       "steps": [
         "Darbvietas josla pārslēdzas starp galveno un jūsu pielāgotajām darbvietām. Tā + izveido jaunu.",
         "Pirms vienumu pievienošanas izvēlieties darbvietu. Lai pārsūtītu esošos vienumus, atlasiet tos un darbību joslā izvēlieties galamērķi.",
-        "Alt + ↑ un Alt + ↓ pārvietojas pa darbvietām. Poga − pēc apstiprināšanas dzēš pašreizējo pielāgoto darbvietu."
+        "Ctrl + ↑ un Ctrl + ↓ pārvietojas pa darbvietām. Poga − pēc apstiprināšanas dzēš pašreizējo pielāgoto darbvietu."
       ],
       "note": "Dzēšot darbvietu, tiek dzēsts arī tās saturs. Galvenā paliek pieejama, un to nevar izdzēst.",
-      "tip": "Alt + ↑ un Alt + ↓ pārslēdz darbvietas, neatverot atlasītāju. Atsevišķs darbs, hobiji vai projekti ar bāra +."
+      "tip": "Ctrl + ↑ un Ctrl + ↓ pārslēdz darbvietas, neatverot atlasītāju. Atsevišķs darbs, hobiji vai projekti ar bāra +."
     },
     "selection": {
       "question": "Kā nomainīt vairākus vienumus vienlaikus?",

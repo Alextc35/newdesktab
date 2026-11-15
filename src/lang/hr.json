@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Želite li izvesti sigurnosnu kopiju svojih podataka i postavki?",
       "import": "Vratiti ovu sigurnosnu kopiju? Zamijenit će vaše trenutne oznake i postavke."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Izbriši radni prostor",
     "undo": "Poništi",
     "redo": "Ponovi",
-    "shortcutHint": "Promijenite radni prostor pomoću Alt ili Option plus strelica gore ili dolje",
+    "shortcutHint": "Promijenite radni prostor pomoću Ctrl plus strelica gore ili dolje",
     "prompt": "Unesite naziv za novi radni prostor",
     "namePlaceholder": "Posao, slobodno vrijeme…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Vrati sigurnosnu kopiju",
       "resetSettings": "Resetiraj postavke",
       "deleteAllData": "Izbrišite sve lokalne podatke",
+      "panels": {
+        "title": "Paneli",
+        "showLauncher": "Prikaži lijevi panel",
+        "showWorkspaceToolbar": "Prikaži donji panel",
+        "shortcutsHint": "Tipkovni prečaci ostaju dostupni kada su paneli skriveni.",
+        "shortcutRequired": "Dodijelite prečac za Postavke prije skrivanja lijevog panela."
+      },
       "recycleBin": {
         "title": "koš za smeće",
         "show": "Pokažite koš za smeće na glavnoj mreži",

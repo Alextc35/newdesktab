@@ -123,7 +123,7 @@
       "workspaces": [
         "La barre d'outils + crée un espace de travail avec le nom que vous avez choisi.",
         "Le nouvel espace de travail possède sa propre grille.",
-        "Alt + ↑ et Alt + ↓ parcourent vos espaces de travail."
+        "Ctrl + ↑ et Ctrl + ↓ parcourent vos espaces de travail."
       ],
       "selection": [
         "Activez l'édition et sélectionnez une vignette avec un clic court.",
@@ -339,10 +339,10 @@
       "steps": [
         "La barre d'espace de travail bascule entre l'espace de travail principal et vos espaces de travail personnalisés. Son + en crée un nouveau.",
         "Choisissez un espace de travail avant d'ajouter des éléments. Pour transférer des éléments existants, sélectionnez-les et choisissez une destination dans la barre d'action.",
-        "Alt + ↑ et Alt + ↓ parcourent les espaces de travail. Le bouton − supprime l'espace de travail personnalisé actuel après confirmation."
+        "Ctrl + ↑ et Ctrl + ↓ parcourent les espaces de travail. Le bouton − supprime l'espace de travail personnalisé actuel après confirmation."
       ],
       "note": "La suppression d'un espace de travail supprime également son contenu. Le principal reste disponible et ne peut pas être supprimé.",
-      "tip": "Alt + ↑ et Alt + ↓ changent d'espace de travail sans ouvrir le sélecteur. Séparez le travail, les loisirs ou les projets avec le + du bar."
+      "tip": "Ctrl + ↑ et Ctrl + ↓ changent d'espace de travail sans ouvrir le sélecteur. Séparez le travail, les loisirs ou les projets avec le + du bar."
     },
     "selection": {
       "question": "Comment modifier plusieurs éléments à la fois ?",

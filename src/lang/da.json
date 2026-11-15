@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Vil du eksportere en sikkerhedskopi af dine data og indstillinger?",
       "import": "Vil du gendanne denne sikkerhedskopi? Det vil erstatte dine nuværende bogmærker og indstillinger."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Slet arbejdsområde",
     "undo": "Fortryd",
     "redo": "Gentag",
-    "shortcutHint": "Skift arbejdsområde med Alt eller Option plus pil op eller pil ned",
+    "shortcutHint": "Skift arbejdsområde med Ctrl plus pil op eller pil ned",
     "prompt": "Indtast et navn til det nye arbejdsområde",
     "namePlaceholder": "arbejde, fritid...",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Gendan backup",
       "resetSettings": "Nulstil indstillinger",
       "deleteAllData": "Slet alle lokale data",
+      "panels": {
+        "title": "Paneler",
+        "showLauncher": "Vis venstre panel",
+        "showWorkspaceToolbar": "Vis nederste panel",
+        "shortcutsHint": "Tastaturgenveje er stadig tilgængelige, når panelerne er skjult.",
+        "shortcutRequired": "Tildel en genvej til Indstillinger, før du skjuler venstre panel."
+      },
       "recycleBin": {
         "title": "Papirkurv",
         "show": "Vis papirkurven på hovednettet",

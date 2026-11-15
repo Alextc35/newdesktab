@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "データと設定のバックアップをエクスポートしますか？",
       "import": "このバックアップを復元しますか?現在のブックマークと設定が置き換えられます。"
     }
   },
@@ -496,7 +497,7 @@
     "delete": "ワークスペースの削除",
     "undo": "元に戻す",
     "redo": "やり直し",
-    "shortcutHint": "Alt または Option と上矢印または下矢印でワークスペースを切り替えます",
+    "shortcutHint": "Ctrl と上矢印または下矢印でワークスペースを切り替えます",
     "prompt": "新しいワークスペースの名前を入力します",
     "namePlaceholder": "仕事もレジャーも…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "バックアップを復元する",
       "resetSettings": "設定をリセットする",
       "deleteAllData": "ローカルデータをすべて削除する",
+      "panels": {
+        "title": "パネル",
+        "showLauncher": "左パネルを表示",
+        "showWorkspaceToolbar": "下部パネルを表示",
+        "shortcutsHint": "パネルを非表示にしてもキーボードショートカットは使用できます。",
+        "shortcutRequired": "左パネルを非表示にする前に、設定にショートカットを割り当ててください。"
+      },
       "recycleBin": {
         "title": "ごみ箱",
         "show": "メイングリッドにゴミ箱を表示する",

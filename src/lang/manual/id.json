@@ -123,7 +123,7 @@
       "workspaces": [
         "Toolbar + membuat ruang kerja dengan nama pilihan Anda.",
         "Ruang kerja baru memiliki gridnya sendiri.",
-        "Alt + ↑ dan Alt + ↓ menelusuri ruang kerja Anda."
+        "Ctrl + ↑ dan Ctrl + ↓ menelusuri ruang kerja Anda."
       ],
       "selection": [
         "Aktifkan pengeditan dan pilih ubin dengan satu klik singkat.",
@@ -339,10 +339,10 @@
       "steps": [
         "Bilah ruang kerja beralih antara ruang kerja Utama dan ruang kerja kustom Anda. +nya menciptakan yang baru.",
         "Pilih ruang kerja sebelum menambahkan item. Untuk mentransfer item yang ada, pilih item tersebut dan pilih tujuan di bilah tindakan.",
-        "Alt + ↑ dan Alt + ↓ menelusuri ruang kerja. Tombol − menghapus ruang kerja khusus saat ini setelah konfirmasi."
+        "Ctrl + ↑ dan Ctrl + ↓ menelusuri ruang kerja. Tombol − menghapus ruang kerja khusus saat ini setelah konfirmasi."
       ],
       "note": "Menghapus ruang kerja juga menghapus isinya. Tetap utama tersedia dan tidak dapat dihapus.",
-      "tip": "Alt + ↑ dan Alt + ↓ berpindah ruang kerja tanpa membuka pemilih. Pisahkan pekerjaan, hobi, atau proyek dengan + bilah."
+      "tip": "Ctrl + ↑ dan Ctrl + ↓ berpindah ruang kerja tanpa membuka pemilih. Pisahkan pekerjaan, hobi, atau proyek dengan + bilah."
     },
     "selection": {
       "question": "Bagaimana cara mengubah beberapa item sekaligus?",

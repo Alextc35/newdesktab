@@ -2,10 +2,14 @@ import {
   findShortcutAction,
   formatAriaShortcut,
   normalizeKeyboardShortcuts,
+  normalizeShortcut,
+  shortcutFromKeyboardEvent,
   SHORTCUT_ACTIONS
 } from '../../shared/keyboard/keyboardShortcuts.js';
-import { getSettings } from '../../state/appStore.js';
+import { getSettings, getState } from '../../state/appStore.js';
 import { hasOpenModal, isModalActive } from '../../shared/ui/modalManager.js';
+import { getActiveWorkspaceId } from '../workspaces/workspaceSelectors.js';
+import { openWorkspaceSettings } from '../workspaces/workspaceSettingsModal.js';
 
 let initialized = false;
 
@@ -36,6 +40,20 @@ export function syncKeyboardShortcutAccessibility(shortcuts) {
       else control?.removeAttribute('aria-keyshortcuts');
     }
   }
+  const workspaceControl = document.getElementById('workspace-settings-current');
+  const workspaceShortcut = formatAriaShortcut(getWorkspaceSettingsShortcut(normalized));
+  if (workspaceShortcut) workspaceControl?.setAttribute('aria-keyshortcuts', workspaceShortcut);
+  else workspaceControl?.removeAttribute('aria-keyshortcuts');
+}
+
+/** Adds Control to settings unless that combination already has another owner. */
+function getWorkspaceSettingsShortcut(shortcuts) {
+  const settingsShortcut = shortcuts[SHORTCUT_ACTIONS.OPEN_SETTINGS];
+  if (!settingsShortcut || settingsShortcut.split('+').includes('Ctrl')) return null;
+  const workspaceShortcut = normalizeShortcut(`Ctrl+${settingsShortcut}`);
+  return workspaceShortcut && !Object.values(shortcuts).includes(workspaceShortcut)
+    ? workspaceShortcut
+    : null;
 }
 
 function handleShortcut(event) {
@@ -45,11 +63,12 @@ function handleShortcut(event) {
   );
   if (editableTarget && !editableTarget.closest('.modal[hidden]')) return;
 
-  const action = findShortcutAction(
-    event,
-    getSettings().keyboardShortcuts
-  );
-  if (!action) return;
+  const shortcuts = normalizeKeyboardShortcuts(getSettings().keyboardShortcuts);
+  const action = findShortcutAction(event, shortcuts);
+  const workspaceShortcut = getWorkspaceSettingsShortcut(shortcuts);
+  const opensWorkspaceSettings = !action && workspaceShortcut
+    && workspaceShortcut === shortcutFromKeyboardEvent(event);
+  if (!action && (!opensWorkspaceSettings || hasOpenModal())) return;
 
   event.preventDefault();
   event.stopPropagation();
@@ -59,6 +78,11 @@ function handleShortcut(event) {
     if (action === SHORTCUT_ACTIONS.TOGGLE_EDITING && isModalActive('folder')) {
       document.getElementById('folder-modal-edit-toggle')?.click();
     }
+    return;
+  }
+
+  if (opensWorkspaceSettings) {
+    openWorkspaceSettings(getActiveWorkspaceId(getState().data));
     return;
   }
 

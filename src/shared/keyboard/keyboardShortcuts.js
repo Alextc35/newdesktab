@@ -30,8 +30,9 @@ const LEGACY_DEFAULT_KEYBOARD_SHORTCUTS = Object.freeze({
   [SHORTCUT_ACTIONS.OPEN_SETTINGS]: 'Ctrl+S'
 });
 
-// Browser- and OS-owned navigation/closing shortcuts must never be assigned.
+// Browser, OS and fixed workspace navigation shortcuts cannot be reassigned.
 const RESERVED_SHORTCUTS = new Set([
+  'Ctrl+ArrowUp', 'Ctrl+ArrowDown',
   'Ctrl+W', 'Ctrl+F4', 'Ctrl+Shift+W', 'Ctrl+L', 'Alt+D', 'Alt+E', 'Alt+F',
   'Ctrl+T', 'Ctrl+Shift+T', 'Ctrl+N', 'Ctrl+Shift+N',
   'Ctrl+R', 'Ctrl+Shift+R', 'Ctrl+Q', 'Ctrl+Shift+Q',
@@ -120,7 +121,7 @@ export function normalizeShortcut(value) {
   return isReservedShortcut(shortcut) ? null : shortcut;
 }
 
-/** Recognizes combinations owned by the browser or operating system. */
+/** Recognizes combinations reserved for system or workspace navigation. */
 export function isReservedShortcut(shortcut) {
   return RESERVED_SHORTCUTS.has(shortcut);
 }

@@ -123,7 +123,7 @@
       "workspaces": [
         "A barra de ferramentas + cria um espaço de trabalho com o nome escolhido.",
         "O novo espaço de trabalho possui sua própria grade.",
-        "Alt + ↑ e Alt + ↓ percorrem seus espaços de trabalho."
+        "Ctrl + ↑ e Ctrl + ↓ percorrem seus espaços de trabalho."
       ],
       "selection": [
         "Ative a edição e selecione um bloco com um clique curto.",
@@ -339,10 +339,10 @@
       "steps": [
         "A barra do espaço de trabalho alterna entre os espaços de trabalho Principal e personalizados. Seu + cria um novo.",
         "Escolha um espaço de trabalho antes de adicionar itens. Para transferir itens existentes, selecione-os e escolha um destino na barra de ação.",
-        "Alt + ↑ e Alt + ↓ percorrem os espaços de trabalho. O botão − exclui o espaço de trabalho personalizado atual após a confirmação."
+        "Ctrl + ↑ e Ctrl + ↓ percorrem os espaços de trabalho. O botão − exclui o espaço de trabalho personalizado atual após a confirmação."
       ],
       "note": "Excluir um espaço de trabalho também exclui seu conteúdo. Principal permanece disponível e não pode ser excluído.",
-      "tip": "Alt + ↑ e Alt + ↓ alternam os espaços de trabalho sem abrir o seletor. Separe trabalhos, hobbies ou projetos com o + da barra."
+      "tip": "Ctrl + ↑ e Ctrl + ↓ alternam os espaços de trabalho sem abrir o seletor. Separe trabalhos, hobbies ou projetos com o + da barra."
     },
     "selection": {
       "question": "Como altero vários itens de uma vez?",

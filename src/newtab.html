@@ -45,7 +45,7 @@
         <span class="workspace-option-settings-icon" aria-hidden="true"></span>
       </button>
       <span id="workspace-shortcut-hint" class="is-hidden" data-i18n="workspace.shortcutHint">
-        Switch workspace with Alt plus up or down arrow
+        Switch workspace with Ctrl plus up or down arrow
       </span>
       <button id="workspace-add" type="button" data-i18n-aria-label="workspace.add" aria-label="Add workspace">＋</button>
       <button id="workspace-delete" type="button" data-i18n-aria-label="workspace.delete" aria-label="Delete workspace">−</button>
@@ -120,7 +120,9 @@
       <p class="workspace-image-sync-note" data-i18n="workspace.wallpaperSyncNote">
         Wallpaper URLs sync through the cloud. Uploaded files stay on this device.
       </p>
-      <div class="modal-actions">
+      <div class="modal-actions workspace-settings-actions">
+        <button id="workspace-settings-delete" class="btn btn-danger" type="button" hidden
+          data-i18n="workspace.delete">Delete workspace</button>
         <button id="workspace-settings-cancel" class="btn btn-ghost" type="button"
           data-i18n="buttons.cancel">Cancel</button>
         <button id="workspace-settings-save" class="btn btn-primary" type="button"
@@ -836,6 +838,18 @@
                   <span data-i18n="settingsModal.general.appearance.dark">Oscuro</span>
                 </label>
               </div>
+            </section>
+            <section class="settings-panel-visibility" aria-labelledby="settings-panels-title">
+              <h3 id="settings-panels-title" data-i18n="settingsModal.general.panels.title">Panels</h3>
+              <div class="checkbox-wrapper">
+                <input id="settings-show-launcher" type="checkbox" aria-controls="floating-menu" checked>
+                <label for="settings-show-launcher" data-i18n="settingsModal.general.panels.showLauncher">Show left panel</label>
+              </div>
+              <div class="checkbox-wrapper">
+                <input id="settings-show-workspace-toolbar" type="checkbox" aria-controls="workspace-toolbar" checked>
+                <label for="settings-show-workspace-toolbar" data-i18n="settingsModal.general.panels.showWorkspaceToolbar">Show bottom panel</label>
+              </div>
+              <p data-i18n="settingsModal.general.panels.shortcutsHint">Keyboard shortcuts remain available when the panels are hidden.</p>
             </section>
             <section class="bookmark-behavior-settings bookmark-resize-settings window-resize-settings"
               aria-labelledby="window-resize-settings-title">

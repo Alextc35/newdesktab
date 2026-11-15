@@ -123,7 +123,7 @@
       "workspaces": [
         "Tööriistariba + loob teie valitud nimega tööruumi.",
         "Uuel tööruumil on oma ruudustik.",
-        "Alt + ↑ ja Alt + ↓ liiguvad teie tööruumides ringi."
+        "Ctrl + ↑ ja Ctrl + ↓ liiguvad teie tööruumides ringi."
       ],
       "selection": [
         "Lubage redigeerimine ja valige paan lühikese klõpsuga.",
@@ -339,10 +339,10 @@
       "steps": [
         "Tööruumi riba lülitub põhi- ja kohandatud tööruumide vahel. Selle + loob uue.",
         "Valige enne üksuste lisamist tööala. Olemasolevate üksuste teisaldamiseks valige need ja valige tegevusribal sihtkoht.",
-        "Alt + ↑ ja Alt + ↓ liiguvad läbi tööruumide. Nupp − kustutab pärast kinnitamist praeguse kohandatud tööruumi."
+        "Ctrl + ↑ ja Ctrl + ↓ liiguvad läbi tööruumide. Nupp − kustutab pärast kinnitamist praeguse kohandatud tööruumi."
       ],
       "note": "Tööruumi kustutamisel kustutatakse ka selle sisu. Põhi jääb kättesaadavaks ja seda ei saa kustutada.",
-      "tip": "Alt + ↑ ja Alt + ↓ vahetavad tööruume valijat avamata. Eraldage töö, hobid või projektid baari +-ga."
+      "tip": "Ctrl + ↑ ja Ctrl + ↓ vahetavad tööruume valijat avamata. Eraldage töö, hobid või projektid baari +-ga."
     },
     "selection": {
       "question": "Kuidas muuta mitut üksust korraga?",

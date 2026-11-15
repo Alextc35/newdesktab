@@ -123,7 +123,7 @@
       "workspaces": [
         "De werkbalk + creëert een werkruimte met de door u gekozen naam.",
         "De nieuwe werkruimte heeft een eigen raster.",
-        "Alt + ↑ en Alt + ↓ bladeren door uw werkruimten."
+        "Ctrl + ↑ en Ctrl + ↓ bladeren door uw werkruimten."
       ],
       "selection": [
         "Schakel bewerken in en selecteer een tegel met een korte klik.",
@@ -339,10 +339,10 @@
       "steps": [
         "De werkruimtebalk schakelt tussen de hoofdwerkruimte en uw aangepaste werkruimte. De + creëert een nieuwe.",
         "Kies een werkruimte voordat u items toevoegt. Om bestaande items over te dragen, selecteert u ze en kiest u een bestemming in de actiebalk.",
-        "Alt + ↑ en Alt + ↓ bladeren door werkruimten. Met de knop − verwijdert u na bevestiging de huidige aangepaste werkruimte."
+        "Ctrl + ↑ en Ctrl + ↓ bladeren door werkruimten. Met de knop − verwijdert u na bevestiging de huidige aangepaste werkruimte."
       ],
       "note": "Als u een werkruimte verwijdert, wordt ook de inhoud ervan verwijderd. Belangrijkste blijft beschikbaar en kan niet worden verwijderd.",
-      "tip": "Alt + ↑ en Alt + ↓ wisselen van werkruimte zonder de selector te openen. Scheid werk, hobby's of projecten met de + van de bar."
+      "tip": "Ctrl + ↑ en Ctrl + ↓ wisselen van werkruimte zonder de selector te openen. Scheid werk, hobby's of projecten met de + van de bar."
     },
     "selection": {
       "question": "Hoe wijzig ik meerdere artikelen tegelijk?",

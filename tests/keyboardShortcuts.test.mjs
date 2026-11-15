@@ -25,6 +25,8 @@ test('normalizes editable shortcuts into a stable modifier order', () => {
   assert.equal(normalizeShortcut('Ctrl+F4'), null);
   assert.equal(normalizeShortcut('Ctrl+L'), null);
   assert.equal(normalizeShortcut('Alt+F'), null);
+  assert.equal(normalizeShortcut('Ctrl+ArrowUp'), null);
+  assert.equal(normalizeShortcut('Ctrl+ArrowDown'), null);
   assert.equal(isReservedShortcut('Ctrl+W'), true);
   assert.equal(isReservedShortcut('W'), false);
 });

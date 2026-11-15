@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Ar norite eksportuoti atsarginę duomenų ir nustatymų kopiją?",
       "import": "Atkurti šią atsarginę kopiją? Jis pakeis dabartines žymes ir nustatymus."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Ištrinkite darbo sritį",
     "undo": "Anuliuoti",
     "redo": "Perdaryti",
-    "shortcutHint": "Perjunkite darbo sritį naudodami Alt arba Option ir rodyklę aukštyn arba žemyn",
+    "shortcutHint": "Perjunkite darbo sritį naudodami Ctrl ir rodyklę aukštyn arba žemyn",
     "prompt": "Įveskite naujos darbo srities pavadinimą",
     "namePlaceholder": "Darbas, laisvalaikis…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Atkurti atsarginę kopiją",
       "resetSettings": "Iš naujo nustatyti nustatymus",
       "deleteAllData": "Ištrinkite visus vietinius duomenis",
+      "panels": {
+        "title": "Skydeliai",
+        "showLauncher": "Rodyti kairįjį skydelį",
+        "showWorkspaceToolbar": "Rodyti apatinį skydelį",
+        "shortcutsHint": "Spartieji klavišai išlieka pasiekiami, kai skydeliai paslėpti.",
+        "shortcutRequired": "Prieš paslėpdami kairįjį skydelį, priskirkite spartųjį klavišą Nustatymams."
+      },
       "recycleBin": {
         "title": "Šiukšlių dėžė",
         "show": "Parodykite šiukšliadėžę pagrindiniame tinkle",

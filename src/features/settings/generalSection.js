@@ -2,10 +2,14 @@ import { applyInterfaceTheme } from '../../shared/ui/interfaceTheme.js';
 import {
   getDraftInterfaceTheme,
   getDraftShowRecycleBin,
+  getDraftShowLauncher,
+  getDraftShowWorkspaceToolbar,
   getDraftRecycleBinRetentionDays,
   getDraftWindowResizeMode,
   setDraftInterfaceTheme,
   setDraftShowRecycleBin,
+  setDraftShowLauncher,
+  setDraftShowWorkspaceToolbar,
   setDraftRecycleBinRetentionDays,
   setDraftWindowResizeMode,
   getInitialSnapshot
@@ -25,6 +29,8 @@ export function initGeneralSection({
 }) {
   const themeInputs = document.querySelectorAll('input[name="interface-theme"]');
   const showRecycleBinInput = document.getElementById('settings-show-recycle-bin');
+  const showLauncherInput = document.getElementById('settings-show-launcher');
+  const showWorkspaceToolbarInput = document.getElementById('settings-show-workspace-toolbar');
   const recycleBinRetentionSelect = document.getElementById('settings-recycle-bin-retention');
   const windowResizeInputs = [...document.querySelectorAll('input[name="window-resize-mode"]')];
   const windowResizeSummary = document.getElementById('window-resize-settings-summary');
@@ -47,6 +53,8 @@ export function initGeneralSection({
     for (const input of themeInputs) input.checked = input.value === preference;
     applyInterfaceTheme(preference);
     showRecycleBinInput.checked = getDraftShowRecycleBin();
+    showLauncherInput.checked = getDraftShowLauncher();
+    showWorkspaceToolbarInput.checked = getDraftShowWorkspaceToolbar();
     recycleBinRetentionSelect.value = String(getDraftRecycleBinRetentionDays());
     refreshCustomSelect(recycleBinRetentionSelect);
     renderWindowResizeMode();
@@ -54,6 +62,15 @@ export function initGeneralSection({
 
   showRecycleBinInput.addEventListener('change', () => {
     setDraftShowRecycleBin(showRecycleBinInput.checked);
+    onRequestSaveStateUpdate();
+  });
+
+  showLauncherInput.addEventListener('change', () => {
+    setDraftShowLauncher(showLauncherInput.checked);
+    onRequestSaveStateUpdate();
+  });
+  showWorkspaceToolbarInput.addEventListener('change', () => {
+    setDraftShowWorkspaceToolbar(showWorkspaceToolbarInput.checked);
     onRequestSaveStateUpdate();
   });
 
@@ -91,9 +108,17 @@ export function initGeneralSection({
   const deleteAllDataButton = document.getElementById('delete-all-data-btn-general');
 
   exportButton.addEventListener('click', async () => {
+    if (exportButton.disabled) return;
     exportButton.disabled = true;
-    try { await exportBackup(); }
-    finally { exportButton.disabled = false; }
+    try {
+      const confirmed = await showAlert(t('alert.backup.export'), {
+        type: 'confirm',
+        requiresWideViewport: true
+      });
+      if (confirmed) await exportBackup();
+    } finally {
+      exportButton.disabled = false;
+    }
   });
   importButton.addEventListener('click', () => importInput.click());
 

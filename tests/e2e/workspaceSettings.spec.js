@@ -39,6 +39,27 @@ async function selectWorkspace(page, workspaceId) {
   await page.locator(selector).click();
 }
 
+async function createWorkspaceWithContents(page) {
+  const workspaceId = await page.evaluate(async () => {
+    const { createWorkspace } = await import('/src/features/workspaces/workspaceActions.js');
+    const { createBookmarkFolder } = await import('/src/features/folders/folderActions.js');
+    const { addBookmark } = await import('/src/features/bookmarks/bookmarkActions.js');
+    const workspace = createWorkspace('Minimalist');
+    const folder = createBookmarkFolder('Reading', { columns: 12, rows: 6 });
+    addBookmark({ name: 'Outside', url: 'https://outside.test', groupId: workspace.id, gx: 2, gy: 0 });
+    addBookmark({ name: 'Inside', url: 'https://inside.test', groupId: workspace.id, folderId: folder.id });
+    return workspace.id;
+  });
+  await waitForSaved(page);
+  return workspaceId;
+}
+
+async function localImageKeys(page) {
+  return page.evaluate(() => new Promise(resolve => chrome.storage.local.get(null, items => {
+    resolve(Object.keys(items).filter(key => key.startsWith('newdesktabLocalImage:')));
+  })));
+}
+
 test.beforeEach(async ({ page }) => {
   await page.route('https://images.test/**', route => route.fulfill({
     status: 200, contentType: 'image/png', body: imageBytes
@@ -62,6 +83,7 @@ test('edits Main and custom workspace names and wallpapers independently', async
   await page.locator('#workspace-settings-cancel').click();
 
   await openWorkspaceSettings(page, null);
+  await expect(page.locator('#workspace-settings-delete')).toBeHidden();
   await page.locator('#workspace-settings-use-global-theme').uncheck();
   await page.locator('#workspace-settings-name').fill('Home');
   await page.locator('#workspace-settings-wallpaper-url').fill('https://images.test/home.jpg');
@@ -82,6 +104,7 @@ test('edits Main and custom workspace names and wallpapers independently', async
   const workspaceId = await page.locator('#workspace-select').inputValue();
 
   await openWorkspaceSettings(page, workspaceId);
+  await expect(page.locator('#workspace-settings-delete')).toHaveText('Delete workspace');
   await page.locator('#workspace-settings-name').fill('Research');
   await page.locator('#workspace-settings-use-global-theme').uncheck();
   await page.locator('#workspace-settings-wallpaper-url').fill('https://images.test/research-fallback.jpg');
@@ -412,4 +435,121 @@ test('suspends workspace creation and deletion prompts until the window is widen
   await page.locator('#alert-modal-accept').click();
   await waitForSaved(page);
   expect(await workspaceNames()).toEqual([]);
+});
+
+test('deletes a custom workspace from its settings after confirming its saved name and contents', async ({ page }) => {
+  const workspaceId = await createWorkspaceWithContents(page);
+  const before = await page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getState().data);
+  const previousImages = await localImageKeys(page);
+  await openWorkspaceSettings(page, workspaceId);
+  await page.locator('#workspace-settings-name').fill('Unfinished name');
+  await page.locator('#workspace-settings-use-global-theme').uncheck();
+  await page.locator('#workspace-settings-file').setInputFiles({
+    name: 'unfinished.png', mimeType: 'image/png', buffer: imageBytes
+  });
+  await expect(page.locator('#workspace-settings-media-list .theme-wallpaper-row')).toHaveCount(1);
+  await expect.poll(() => localImageKeys(page)).toHaveLength(previousImages.length + 1);
+
+  await page.locator('#workspace-settings-delete').click();
+  await expect(page.locator('#alert-modal-title')).toHaveText(
+    'Delete “Minimalist”, its 1 folders and 2 bookmarks? To keep them, move them to Main or another workspace first.'
+  );
+  await page.locator('#alert-modal-cancel').click();
+  await expect(page.locator('#workspace-settings-name')).toHaveValue('Unfinished name');
+  await expect(page.locator('#workspace-settings-media-list')).toContainText('unfinished.png');
+  await expect(page.locator('#workspace-settings-save')).toBeEnabled();
+  expect(await page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getState().data)).toEqual(before);
+  expect(await localImageKeys(page)).toHaveLength(previousImages.length + 1);
+
+  await page.locator('#workspace-settings-delete').click();
+  await page.locator('#alert-modal-accept').click();
+  await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+  await expect(page.locator('#alert-modal')).toBeHidden();
+  await waitForSaved(page);
+  const after = await page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getState().data);
+  expect(after.settings.bookmarkGroups).toEqual(before.settings.bookmarkGroups.filter(item => item.id !== workspaceId));
+  expect(after.settings.activeBookmarkGroupId).toBeNull();
+  expect(after.settings.mainWorkspace).toEqual(before.settings.mainWorkspace);
+  expect(after.bookmarks).toEqual(before.bookmarks.filter(item => item.groupId !== workspaceId));
+  expect(after.folders).toEqual(before.folders.filter(item => item.groupId !== workspaceId));
+  expect(after.trash).toHaveLength(before.trash.length + 2);
+  await expect(page.locator('#workspace-current-name')).toHaveText('Main');
+  expect(await localImageKeys(page)).toEqual(previousImages);
+  await page.reload();
+  await expectAppReady(page);
+  await openWorkspaceSettings(page, null);
+  await expect(page.locator('#workspace-settings-delete')).toBeHidden();
+});
+
+for (const retry of ['global', 'delete']) {
+  test(`keeps the workspace settings draft on failed deletion and closes after a ${retry} retry`, async ({ page }) => {
+    const workspaceId = await createWorkspaceWithContents(page);
+    await openWorkspaceSettings(page, workspaceId);
+    await page.locator('#workspace-settings-name').fill('Unfinished name');
+    await page.locator('#workspace-settings-delete').click();
+    await page.evaluate(() => {
+      const original = chrome.storage.local.set;
+      chrome.storage.local.set = (items, callback) => {
+        if (!items.bookmarks) return original(items, callback);
+        chrome.storage.local.set = original;
+        chrome.runtime.lastError = { message: 'Simulated full storage' };
+        callback?.();
+        chrome.runtime.lastError = null;
+      };
+    });
+    await page.locator('#alert-modal-accept').click();
+    await expect(page.locator('#persistence-feedback')).toBeVisible();
+    await expect(page.locator('#workspace-settings-modal')).toBeVisible();
+    await expect(page.locator('#workspace-settings-name')).toHaveValue('Unfinished name');
+    await expect(page.locator('#workspace-settings-save')).toBeDisabled();
+    await expect(page.locator('#workspace-settings-delete')).toBeEnabled();
+    await expect(page.locator('.flash-success')).toHaveCount(0);
+    const pendingTrash = await page.evaluate(async () => (
+      await import('/src/state/appStore.js')
+    ).getState().data.trash);
+
+    await page.locator(retry === 'global' ? '#persistence-retry' : '#workspace-settings-delete').click();
+    await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+    await expect(page.locator('#persistence-feedback')).toBeHidden();
+    await page.reload();
+    await expectAppReady(page);
+    const saved = await page.evaluate(async () => (
+      await import('/src/state/appStore.js')
+    ).getState().data);
+    expect(saved.trash.map(({ id, type }) => ({ id, type })))
+      .toEqual(pendingTrash.map(({ id, type }) => ({ id, type })));
+    expect(saved.trash.find(entry => entry.type === 'folder').bookmarks[0].name).toBe('Inside');
+    expect(saved.trash.find(entry => entry.type === 'bookmark').bookmark.name).toBe('Outside');
+    expect(saved.settings.bookmarkGroups.some(item => item.id === workspaceId)).toBe(false);
+    expect(saved.settings.activeBookmarkGroupId).toBeNull();
+  });
+}
+
+test('suspends workspace deletion from its settings without losing the draft or applying the confirmation', async ({ page }) => {
+  const workspaceId = await createWorkspaceWithContents(page);
+  await openWorkspaceSettings(page, workspaceId);
+  await page.locator('#workspace-settings-name').fill('Unfinished name');
+  await page.locator('#workspace-settings-delete').click();
+  const before = await page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getState().data);
+  await page.setViewportSize({ width: 600, height: 720 });
+  await expect(page.locator('#workspace-settings-modal')).toBeHidden();
+  await expect(page.locator('#alert-modal')).toBeHidden();
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('Escape');
+  expect(await page.evaluate(async () => (
+    await import('/src/state/appStore.js')
+  ).getState().data)).toEqual(before);
+  await page.setViewportSize({ width: 601, height: 720 });
+  await expect(page.locator('#alert-modal')).toBeVisible();
+  await page.locator('#alert-modal-cancel').click();
+  await expect(page.locator('#workspace-settings-name')).toHaveValue('Unfinished name');
+  await expect(page.locator('#workspace-settings-save')).toBeEnabled();
 });

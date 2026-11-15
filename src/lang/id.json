@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Apakah Anda ingin mengekspor cadangan data dan pengaturan Anda?",
       "import": "Pulihkan cadangan ini? Ini akan menggantikan bookmark dan pengaturan Anda saat ini."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Hapus ruang kerja",
     "undo": "Membatalkan",
     "redo": "Ulangi",
-    "shortcutHint": "Beralih ruang kerja dengan Alt atau Option plus Panah Atas atau Bawah",
+    "shortcutHint": "Beralih ruang kerja dengan Ctrl plus Panah Atas atau Bawah",
     "prompt": "Masukkan nama untuk ruang kerja baru",
     "namePlaceholder": "Bekerja, bersantai…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Pulihkan cadangan",
       "resetSettings": "Atur ulang pengaturan",
       "deleteAllData": "Hapus semua data lokal",
+      "panels": {
+        "title": "Panel",
+        "showLauncher": "Tampilkan panel kiri",
+        "showWorkspaceToolbar": "Tampilkan panel bawah",
+        "shortcutsHint": "Pintasan keyboard tetap tersedia saat panel disembunyikan.",
+        "shortcutRequired": "Tetapkan pintasan untuk Pengaturan sebelum menyembunyikan panel kiri."
+      },
       "recycleBin": {
         "title": "Tempat sampah daur ulang",
         "show": "Tampilkan recycle bin pada grid Utama",

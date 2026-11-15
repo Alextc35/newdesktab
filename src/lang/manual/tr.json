@@ -123,7 +123,7 @@
       "workspaces": [
         "Araç çubuğu + seçtiğiniz adla bir çalışma alanı oluşturur.",
         "Yeni çalışma alanının kendi ızgarası var.",
-        "Alt + ↑ ve Alt + ↓ çalışma alanlarınız arasında geçiş yapar."
+        "Ctrl + ↑ ve Ctrl + ↓ çalışma alanlarınız arasında geçiş yapar."
       ],
       "selection": [
         "Düzenlemeyi etkinleştirin ve kısa tıklamayla bir döşeme seçin.",
@@ -339,10 +339,10 @@
       "steps": [
         "Çalışma alanı çubuğu Ana çalışma alanı ile özel çalışma alanlarınız arasında geçiş yapar. +'sı yeni bir tane yaratır.",
         "Öğeleri eklemeden önce bir çalışma alanı seçin. Mevcut öğeleri aktarmak için bunları seçin ve işlem çubuğunda bir hedef seçin.",
-        "Alt + ↑ ve Alt + ↓ çalışma alanları arasında geçiş yapar. − düğmesi, onaylandıktan sonra mevcut özel çalışma alanını siler."
+        "Ctrl + ↑ ve Ctrl + ↓ çalışma alanları arasında geçiş yapar. − düğmesi, onaylandıktan sonra mevcut özel çalışma alanını siler."
       ],
       "note": "Bir çalışma alanının silinmesi aynı zamanda içeriğinin de silinmesine neden olur. Ana konaklamalar mevcuttur ve silinemez.",
-      "tip": "Alt + ↑ ve Alt + ↓ seçiciyi açmadan çalışma alanlarını değiştirir. İşinizi, hobilerinizi veya projelerinizi çubuğun + işaretiyle ayırın."
+      "tip": "Ctrl + ↑ ve Ctrl + ↓ seçiciyi açmadan çalışma alanlarını değiştirir. İşinizi, hobilerinizi veya projelerinizi çubuğun + işaretiyle ayırın."
     },
     "selection": {
       "question": "Birden fazla öğeyi aynı anda nasıl değiştirebilirim?",

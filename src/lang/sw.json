@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Je, ungependa kuhamisha nakala rudufu ya data na mipangilio yako?",
       "import": "Ungependa kurejesha nakala hii? Itachukua nafasi ya vialamisho na mipangilio yako ya sasa."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Futa nafasi ya kazi",
     "undo": "Tendua",
     "redo": "Rudia",
-    "shortcutHint": "Badilisha nafasi ya kazi ukitumia Alt au Chaguo pamoja na Kishale cha Juu au Chini",
+    "shortcutHint": "Badilisha nafasi ya kazi ukitumia Ctrl pamoja na Kishale cha Juu au Chini",
     "prompt": "Weka jina la nafasi mpya ya kazi",
     "namePlaceholder": "Kazi, burudani ...",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Rejesha nakala rudufu",
       "resetSettings": "Weka upya mipangilio",
       "deleteAllData": "Futa data yote ya ndani",
+      "panels": {
+        "title": "Paneli",
+        "showLauncher": "Onyesha paneli ya kushoto",
+        "showWorkspaceToolbar": "Onyesha paneli ya chini",
+        "shortcutsHint": "Njia za mkato za kibodi zinaendelea kupatikana paneli zinapofichwa.",
+        "shortcutRequired": "Weka njia ya mkato ya Mipangilio kabla ya kuficha paneli ya kushoto."
+      },
       "recycleBin": {
         "title": "Recycle bin",
         "show": "Onyesha pipa la kuchakata kwenye gridi Kuu",

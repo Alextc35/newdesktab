@@ -123,7 +123,7 @@
       "workspaces": [
         "Verktøylinjen + oppretter et arbeidsområde med ditt valgte navn.",
         "Det nye arbeidsområdet har sitt eget rutenett.",
-        "Alt + ↑ og Alt + ↓ blar gjennom arbeidsområdene dine."
+        "Ctrl + ↑ og Ctrl + ↓ blar gjennom arbeidsområdene dine."
       ],
       "selection": [
         "Aktiver redigering og velg en flis med et kort klikk.",
@@ -339,10 +339,10 @@
       "steps": [
         "Arbeidsområdelinjen bytter mellom hoved- og egendefinerte arbeidsområder. Dens + oppretter en ny.",
         "Velg et arbeidsområde før du legger til elementer. For å overføre eksisterende elementer, velg dem og velg en destinasjon i handlingslinjen.",
-        "Alt + ↑ og Alt + ↓ blar gjennom arbeidsområder. −-knappen sletter gjeldende egendefinerte arbeidsområde etter bekreftelse."
+        "Ctrl + ↑ og Ctrl + ↓ blar gjennom arbeidsområder. −-knappen sletter gjeldende egendefinerte arbeidsområde etter bekreftelse."
       ],
       "note": "Sletting av et arbeidsområde sletter også innholdet. Hovedopphold tilgjengelig og kan ikke slettes.",
-      "tip": "Alt + ↑ og Alt + ↓ bytter arbeidsområde uten å åpne velgeren. Skill arbeid, hobbyer eller prosjekter med barens +."
+      "tip": "Ctrl + ↑ og Ctrl + ↓ bytter arbeidsområde uten å åpne velgeren. Skill arbeid, hobbyer eller prosjekter med barens +."
     },
     "selection": {
       "question": "Hvordan endrer jeg flere elementer samtidig?",

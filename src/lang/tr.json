@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Verilerinizin ve ayarlarınızın yedeğini dışa aktarmak ister misiniz?",
       "import": "Bu yedekleme geri yüklensin mi? Mevcut yer işaretlerinizin ve ayarlarınızın yerini alacaktır."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Çalışma alanını sil",
     "undo": "Geri al",
     "redo": "Yinele",
-    "shortcutHint": "Çalışma alanını Alt veya Option artı Yukarı veya Aşağı Ok tuşlarıyla değiştirin",
+    "shortcutHint": "Çalışma alanını Ctrl artı Yukarı veya Aşağı Ok tuşlarıyla değiştirin",
     "prompt": "Yeni çalışma alanı için bir ad girin",
     "namePlaceholder": "Çalışmak, eğlenmek…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Yedeği geri yükle",
       "resetSettings": "Ayarları sıfırla",
       "deleteAllData": "Tüm yerel verileri sil",
+      "panels": {
+        "title": "Paneller",
+        "showLauncher": "Sol paneli göster",
+        "showWorkspaceToolbar": "Alt paneli göster",
+        "shortcutsHint": "Paneller gizlendiğinde klavye kısayolları kullanılabilir olmaya devam eder.",
+        "shortcutRequired": "Sol paneli gizlemeden önce Ayarlar için bir kısayol atayın."
+      },
       "recycleBin": {
         "title": "Geri dönüşüm kutusu",
         "show": "Ana ızgarada geri dönüşüm kutusunu göster",

@@ -123,7 +123,7 @@
       "workspaces": [
         "Thanh công cụ + tạo không gian làm việc với tên bạn đã chọn.",
         "Không gian làm việc mới có lưới riêng.",
-        "Alt + ↑ và Alt + ↓ duyệt qua các không gian làm việc của bạn."
+        "Ctrl + ↑ và Ctrl + ↓ duyệt qua các không gian làm việc của bạn."
       ],
       "selection": [
         "Cho phép chỉnh sửa và chọn một ô bằng một cú nhấp chuột ngắn.",
@@ -339,10 +339,10 @@
       "steps": [
         "Thanh không gian làm việc chuyển đổi giữa không gian làm việc Chính và không gian làm việc tùy chỉnh của bạn. Nó + tạo ra một cái mới.",
         "Chọn một không gian làm việc trước khi thêm các mục. Để chuyển các mục hiện có, hãy chọn chúng và chọn đích đến trong thanh hành động.",
-        "Alt + ↑ và Alt + ↓ duyệt qua các không gian làm việc. Nút − xóa không gian làm việc tùy chỉnh hiện tại sau khi xác nhận."
+        "Ctrl + ↑ và Ctrl + ↓ duyệt qua các không gian làm việc. Nút − xóa không gian làm việc tùy chỉnh hiện tại sau khi xác nhận."
       ],
       "note": "Xóa một không gian làm việc cũng sẽ xóa nội dung của nó. Chính vẫn có sẵn và không thể bị xóa.",
-      "tip": "Alt + ↑ và Alt + ↓ chuyển đổi không gian làm việc mà không cần mở bộ chọn. Phân tách công việc, sở thích hoặc dự án bằng dấu +."
+      "tip": "Ctrl + ↑ và Ctrl + ↓ chuyển đổi không gian làm việc mà không cần mở bộ chọn. Phân tách công việc, sở thích hoặc dự án bằng dấu +."
     },
     "selection": {
       "question": "Làm cách nào để thay đổi nhiều mục cùng một lúc?",

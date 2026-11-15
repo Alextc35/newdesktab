@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Wilt u een back-up van uw gegevens en instellingen exporteren?",
       "import": "Deze back-up herstellen? Het vervangt uw huidige bladwijzers en instellingen."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Werkruimte verwijderen",
     "undo": "Ongedaan maken",
     "redo": "Opnieuw uitvoeren",
-    "shortcutHint": "Wissel van werkruimte met Alt of Option plus pijl-omhoog of pijl-omlaag",
+    "shortcutHint": "Wissel van werkruimte met Ctrl plus pijl-omhoog of pijl-omlaag",
     "prompt": "Voer een naam in voor de nieuwe werkruimte",
     "namePlaceholder": "Werk, vrije tijd…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Back-up herstellen",
       "resetSettings": "Instellingen resetten",
       "deleteAllData": "Verwijder alle lokale gegevens",
+      "panels": {
+        "title": "Panelen",
+        "showLauncher": "Linkerpaneel tonen",
+        "showWorkspaceToolbar": "Onderste paneel tonen",
+        "shortcutsHint": "Sneltoetsen blijven beschikbaar wanneer de panelen verborgen zijn.",
+        "shortcutRequired": "Wijs een sneltoets toe aan Instellingen voordat u het linkerpaneel verbergt."
+      },
       "recycleBin": {
         "title": "Prullenbak",
         "show": "Toon de prullenbak op het hoofdraster",

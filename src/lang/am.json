@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "የውሂብዎን እና የቅንብሮችዎን ምትኬ መላክ ይፈልጋሉ?",
       "import": "ይህ ምትኬ ወደነበረበት ይመለስ? የአሁኑን ዕልባቶችዎን እና ቅንብሮችዎን ይተካል።"
     }
   },
@@ -496,7 +497,7 @@
     "delete": "የስራ ቦታን ሰርዝ",
     "undo": "ቀልብስ",
     "redo": "ድገም",
-    "shortcutHint": "የስራ ቦታን በ Alt ወይም Option plus ወደላይ ወይም ወደ ታች ቀስት ይቀይሩ",
+    "shortcutHint": "የስራ ቦታን በ Ctrl plus ወደላይ ወይም ወደ ታች ቀስት ይቀይሩ",
     "prompt": "ለአዲሱ የስራ ቦታ ስም ያስገቡ",
     "namePlaceholder": "ሥራ፣ መዝናኛ…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "ምትኬን ወደነበረበት መልስ",
       "resetSettings": "ቅንብሮችን ዳግም አስጀምር",
       "deleteAllData": "ሁሉንም የአካባቢ ውሂብ ሰርዝ",
+      "panels": {
+        "title": "ፓነሎች",
+        "showLauncher": "የግራ ፓነልን አሳይ",
+        "showWorkspaceToolbar": "የታችኛውን ፓነል አሳይ",
+        "shortcutsHint": "ፓነሎቹ ሲደበቁም የቁልፍ ሰሌዳ አቋራጮች መጠቀም ይቻላል።",
+        "shortcutRequired": "የግራ ፓነልን ከመደበቅዎ በፊት ለቅንብሮች አቋራጭ ይመድቡ።"
+      },
       "recycleBin": {
         "title": "ሪሳይክል ቢን",
         "show": "ሪሳይክል ቢን በዋናው ፍርግርግ ላይ አሳይ",

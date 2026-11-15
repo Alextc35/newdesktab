@@ -123,7 +123,7 @@
       "workspaces": [
         "Alatna traka + stvara radni prostor s vašim odabranim nazivom.",
         "Novi radni prostor ima vlastitu mrežu.",
-        "Alt + ↑ i Alt + ↓ kruže kroz vaše radne prostore."
+        "Ctrl + ↑ i Ctrl + ↓ kruže kroz vaše radne prostore."
       ],
       "selection": [
         "Omogućite uređivanje i odaberite pločicu kratkim klikom.",
@@ -339,10 +339,10 @@
       "steps": [
         "Traka radnog prostora prebacuje se između glavnog i prilagođenog radnog prostora. Njegov + stvara novi.",
         "Odaberite radni prostor prije dodavanja stavki. Za prijenos postojećih stavki, odaberite ih i odaberite odredište na akcijskoj traci.",
-        "Alt + ↑ i Alt + ↓ kruže radnim prostorima. Gumb − briše trenutni prilagođeni radni prostor nakon potvrde."
+        "Ctrl + ↑ i Ctrl + ↓ kruže radnim prostorima. Gumb − briše trenutni prilagođeni radni prostor nakon potvrde."
       ],
       "note": "Brisanje radnog prostora također briše njegov sadržaj. Glavni ostaje dostupan i ne može se izbrisati.",
-      "tip": "Alt + ↑ i Alt + ↓ mijenjaju radne prostore bez otvaranja birača. Odvojite posao, hobije ili projekte sa +."
+      "tip": "Ctrl + ↑ i Ctrl + ↓ mijenjaju radne prostore bez otvaranja birača. Odvojite posao, hobije ili projekte sa +."
     },
     "selection": {
       "question": "Kako mogu promijeniti nekoliko stavki odjednom?",

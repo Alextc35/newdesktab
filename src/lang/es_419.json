@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "¿Quieres exportar una copia de seguridad de tus datos y ajustes?",
       "import": "¿Restaurar esta copia? Reemplazará los marcadores y la configuración actuales."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Eliminar espacio de trabajo",
     "undo": "Deshacer",
     "redo": "Rehacer",
-    "shortcutHint": "Cambia de espacio con Alt u Opción más Flecha arriba o Flecha abajo",
+    "shortcutHint": "Cambia de espacio con Ctrl más Flecha arriba o Flecha abajo",
     "prompt": "Nombre del nuevo espacio de trabajo",
     "namePlaceholder": "Trabajo, ocio…",
     "editSettingsFor": "Ajustes de {{name}}",
@@ -713,6 +714,13 @@
       "import": "Restaurar copia de seguridad",
       "resetSettings": "Restablecer configuración",
       "deleteAllData": "Eliminar todos los datos locales",
+      "panels": {
+        "title": "Paneles",
+        "showLauncher": "Mostrar panel izquierdo",
+        "showWorkspaceToolbar": "Mostrar panel inferior",
+        "shortcutsHint": "Los atajos siguen disponibles cuando los paneles están ocultos.",
+        "shortcutRequired": "Asigna un atajo a Ajustes antes de ocultar el panel izquierdo."
+      },
       "recycleBin": {
         "title": "Papelera de reciclaje",
         "show": "Mostrar la papelera en la cuadrícula Principal",

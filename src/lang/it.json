@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Vuoi esportare un backup dei tuoi dati e delle tue impostazioni?",
       "import": "Ripristinare questo backup? Sostituirà i tuoi segnalibri e le tue impostazioni attuali."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Elimina l'area di lavoro",
     "undo": "Annulla",
     "redo": "Rifare",
-    "shortcutHint": "Cambia area di lavoro con Alt o Opzione più Freccia su o giù",
+    "shortcutHint": "Cambia area di lavoro con Ctrl più Freccia su o giù",
     "prompt": "Immettere un nome per la nuova area di lavoro",
     "namePlaceholder": "Lavoro, tempo libero…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Ripristina il backup",
       "resetSettings": "Ripristina le impostazioni",
       "deleteAllData": "Elimina tutti i dati locali",
+      "panels": {
+        "title": "Pannelli",
+        "showLauncher": "Mostra il pannello sinistro",
+        "showWorkspaceToolbar": "Mostra il pannello inferiore",
+        "shortcutsHint": "Le scorciatoie da tastiera restano disponibili quando i pannelli sono nascosti.",
+        "shortcutRequired": "Assegna una scorciatoia alle Impostazioni prima di nascondere il pannello sinistro."
+      },
       "recycleBin": {
         "title": "Cestino",
         "show": "Mostra il cestino sulla griglia principale",

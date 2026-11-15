@@ -239,18 +239,21 @@ export function initWorkspaceToolbar() {
   }
 
   document.addEventListener('keydown', event => {
-    if (!event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (event.defaultPrevented) return;
+    if (!event.ctrlKey || event.altKey || event.metaKey || event.shiftKey) return;
     if (!['ArrowUp', 'ArrowDown'].includes(event.key)) return;
-    if (isSwitchingWorkspace || hasOpenModal() || isTypingTarget(event.target)) return;
+    if (hasOpenModal() || isTypingTarget(event.target)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (isSwitchingWorkspace) return;
 
     const direction = event.key === 'ArrowUp' ? -1 : 1;
     const { data } = getState();
     const targetId = getAdjacentWorkspaceId(data, direction);
     if (targetId === getActiveWorkspaceId(data)) return;
 
-    event.preventDefault();
     void switchWorkspace(container, targetId, direction);
-  });
+  }, { capture: true });
 }
 
 function createWorkspaceOption({ id, name }, active, orderIndex, workspaceCount) {

@@ -25,11 +25,12 @@ export function initFloatingMenu() {
   setOpen(false);
   toggle.addEventListener('click', () => setOpen(!isOpen()));
 
-  // Restore focus before the existing action opens its dialog, so closing the
-  // dialog returns to the visible + button instead of a hidden option.
+  // Native activations return to the visible + button when the dialog closes.
+  // Shortcut clicks return to the grid so the launcher does not retain focus.
   options.addEventListener('click', event => {
     if (!event.target.closest('button')) return;
-    toggle.focus();
+    const returnTarget = event.isTrusted ? toggle : document.getElementById('bookmark-container');
+    returnTarget?.focus({ preventScroll: true });
     setOpen(false);
   }, true);
 

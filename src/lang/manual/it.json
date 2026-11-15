@@ -123,7 +123,7 @@
       "workspaces": [
         "La barra degli strumenti + crea un'area di lavoro con il nome scelto.",
         "Il nuovo spazio di lavoro ha una propria griglia.",
-        "Alt + ↑ e Alt + ↓ scorrono le aree di lavoro."
+        "Ctrl + ↑ e Ctrl + ↓ scorrono le aree di lavoro."
       ],
       "selection": [
         "Abilita la modifica e seleziona un riquadro con un breve clic.",
@@ -339,10 +339,10 @@
       "steps": [
         "La barra dell'area di lavoro alterna tra l'area principale e l'area di lavoro personalizzata. Il suo + ne crea uno nuovo.",
         "Scegli un'area di lavoro prima di aggiungere elementi. Per trasferire elementi esistenti, selezionali e scegli una destinazione nella barra delle azioni.",
-        "Alt + ↑ e Alt + ↓ scorrono le aree di lavoro. Il pulsante − elimina l'area di lavoro personalizzata corrente dopo la conferma."
+        "Ctrl + ↑ e Ctrl + ↓ scorrono le aree di lavoro. Il pulsante − elimina l'area di lavoro personalizzata corrente dopo la conferma."
       ],
       "note": "L'eliminazione di un'area di lavoro ne elimina anche il contenuto. I soggiorni principali sono disponibili e non possono essere cancellati.",
-      "tip": "Alt + ↑ e Alt + ↓ cambiano area di lavoro senza aprire il selettore. Separa lavoro, hobby o progetti con la barra +."
+      "tip": "Ctrl + ↑ e Ctrl + ↓ cambiano area di lavoro senza aprire il selettore. Separa lavoro, hobby o progetti con la barra +."
     },
     "selection": {
       "question": "Come posso modificare più elementi contemporaneamente?",

@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Adakah anda mahu mengeksport sandaran data dan tetapan anda?",
       "import": "Pulihkan sandaran ini? Ia akan menggantikan penanda halaman dan tetapan semasa anda."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Padamkan ruang kerja",
     "undo": "Buat asal",
     "redo": "Buat semula",
-    "shortcutHint": "Tukar ruang kerja dengan Alt atau Option tambah Anak Panah Atas atau Bawah",
+    "shortcutHint": "Tukar ruang kerja dengan Ctrl tambah Anak Panah Atas atau Bawah",
     "prompt": "Masukkan nama untuk ruang kerja baharu",
     "namePlaceholder": "Kerja, riadah…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Pulihkan sandaran",
       "resetSettings": "Tetapkan semula tetapan",
       "deleteAllData": "Padamkan semua data setempat",
+      "panels": {
+        "title": "Panel",
+        "showLauncher": "Tunjukkan panel kiri",
+        "showWorkspaceToolbar": "Tunjukkan panel bawah",
+        "shortcutsHint": "Pintasan papan kekunci kekal tersedia apabila panel disembunyikan.",
+        "shortcutRequired": "Tetapkan pintasan untuk Tetapan sebelum menyembunyikan panel kiri."
+      },
       "recycleBin": {
         "title": "Tong kitar semula",
         "show": "Tunjukkan tong kitar semula pada grid Utama",

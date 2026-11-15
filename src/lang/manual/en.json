@@ -118,7 +118,7 @@
       "workspaces": [
         "The toolbar + creates a workspace with your chosen name.",
         "The new workspace has its own grid.",
-        "Alt + ↑ and Alt + ↓ cycle through your workspaces."
+        "Ctrl + ↑ and Ctrl + ↓ cycle through your workspaces."
       ],
       "selection": [
         "Enable editing and select a tile with a short click.",
@@ -269,9 +269,9 @@
     "workspaces": {
       "question": "How do I keep personal and work pages separate?", "searchTerms": "personal work; create workspace; switch workspace; desktops",
       "title": "Separate your workspaces", "summary": "One grid for work and another for everything else.",
-      "steps": ["The workspace bar switches between Main and your custom workspaces. Its + creates a new one.", "Choose a workspace before adding items. To transfer existing items, select them and choose a destination in the action bar.", "Alt + ↑ and Alt + ↓ cycle through workspaces. The − button deletes the current custom workspace after confirmation."],
+      "steps": ["The workspace bar switches between Main and your custom workspaces. Its + creates a new one.", "Choose a workspace before adding items. To transfer existing items, select them and choose a destination in the action bar.", "Ctrl + ↑ and Ctrl + ↓ cycle through workspaces. The − button deletes the current custom workspace after confirmation."],
       "note": "Deleting a workspace also deletes its contents. Main stays available and can't be deleted.",
-      "tip": "Alt + ↑ and Alt + ↓ switch workspaces without opening the selector. Separate work, hobbies or projects with the bar's +."
+      "tip": "Ctrl + ↑ and Ctrl + ↓ switch workspaces without opening the selector. Separate work, hobbies or projects with the bar's +."
     },
     "selection": {
       "question": "How do I change several items at once?", "searchTerms": "select multiple; bulk selection; move several; clone selection; duplicate bookmarks",

@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "要导出数据和设置的备份吗？",
       "import": "恢复这个备份吗？它将替换您当前的书签和设置。"
     }
   },
@@ -496,7 +497,7 @@
     "delete": "删除工作区",
     "undo": "撤消",
     "redo": "重做",
-    "shortcutHint": "使用 Alt 或 Option 加向上或向下箭头切换工作区",
+    "shortcutHint": "使用 Ctrl 加向上或向下箭头切换工作区",
     "prompt": "输入新工作区的名称",
     "namePlaceholder": "工作、休闲……",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "恢复备份",
       "resetSettings": "重置设置",
       "deleteAllData": "删除所有本地数据",
+      "panels": {
+        "title": "面板",
+        "showLauncher": "显示左侧面板",
+        "showWorkspaceToolbar": "显示底部面板",
+        "shortcutsHint": "隐藏面板后，键盘快捷键仍然可用。",
+        "shortcutRequired": "隐藏左侧面板前，请为设置分配快捷键。"
+      },
       "recycleBin": {
         "title": "回收站",
         "show": "在主网格上显示回收站",

@@ -84,6 +84,8 @@ test('a downloaded complete backup restores local images and videos after deleti
   await page.evaluate(() => document.getElementById('settings').click());
   const downloadPromise = page.waitForEvent('download');
   await page.locator('#export-btn-general').click();
+  await expect(page.locator('#export-btn-general')).toBeDisabled();
+  await page.locator('#alert-modal-accept').click();
   const download = await downloadPromise;
   expect(download.suggestedFilename()).toMatch(/\.zip$/);
   await download.saveAs('test-results/media-backup.zip');
@@ -130,7 +132,7 @@ test('a downloaded complete backup restores local images and videos after deleti
   expect(media.videoData).toBe('data:video/webm;base64,dmlkZW8gZml4dHVyZQ==');
 });
 
-test('video URLs alone keep the complete backup in JSON', async ({ page }) => {
+test('backup export waits for confirmation and video URLs alone keep it in JSON', async ({ page }) => {
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
     await setState({ data: { settings: { ...getState().data.settings, theme: {
@@ -138,9 +140,30 @@ test('video URLs alone keep the complete backup in JSON', async ({ page }) => {
       backgroundMedia: [{ id: 'remote', type: 'video', url: 'https://video.internal/wallpaper.webm', source: 'url' }]
     } } } });
   });
+  const downloads = [];
+  page.on('download', download => downloads.push(download));
+  await page.keyboard.press('KeyS');
+  await expect(page.locator('#settings-modal')).toBeVisible();
+  const exportButton = page.locator('#export-btn-general');
+  await exportButton.click();
+  await expect(page.locator('#alert-modal-title'))
+    .toHaveText('Do you want to export a backup of your data and settings?');
+  await expect(exportButton).toBeDisabled();
+  expect(downloads).toHaveLength(0);
+  await page.locator('#alert-modal-cancel').click();
+  await expect(page.locator('#alert-modal')).toBeHidden();
+  await expect(exportButton).toBeEnabled();
+  expect(downloads).toHaveLength(0);
+
+  await exportButton.click();
+  await expect(page.locator('#alert-modal')).toBeVisible();
+  expect(downloads).toHaveLength(0);
   const downloadPromise = page.waitForEvent('download');
-  await page.evaluate(async () => (await import('/src/features/settings/backupActions.js')).exportBackup());
+  await page.locator('#alert-modal-accept').click();
   const download = await downloadPromise;
+  expect(downloads).toHaveLength(1);
+  await expect(exportButton).toBeEnabled();
+  await expect(page.locator('#settings-modal')).toBeVisible();
   expect(download.suggestedFilename()).toMatch(/\.json$/);
   const payload = JSON.parse(await readFile(await download.path(), 'utf8'));
   expect(payload.format).toBe('newdesktab-backup');

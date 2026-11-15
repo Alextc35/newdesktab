@@ -440,6 +440,7 @@
       }
     },
     "backup": {
+      "export": "Vai vēlaties eksportēt savu datu un iestatījumu dublējumu?",
       "import": "Vai atjaunot šo dublējumu? Tas aizstās jūsu pašreizējās grāmatzīmes un iestatījumus."
     }
   },
@@ -496,7 +497,7 @@
     "delete": "Dzēst darbvietu",
     "undo": "Atsaukt",
     "redo": "Atkārtoti",
-    "shortcutHint": "Pārslēdziet darbvietu, izmantojot taustiņu Alt vai Option un augšupvērsto vai lejupvērsto bultiņu",
+    "shortcutHint": "Pārslēdziet darbvietu, izmantojot taustiņu Ctrl un augšupvērsto vai lejupvērsto bultiņu",
     "prompt": "Ievadiet jaunās darbvietas nosaukumu",
     "namePlaceholder": "Darbs, atpūta…",
     "editSettingsFor": "Settings for {{name}}",
@@ -713,6 +714,13 @@
       "import": "Atjaunot dublējumu",
       "resetSettings": "Atiestatīt iestatījumus",
       "deleteAllData": "Dzēst visus vietējos datus",
+      "panels": {
+        "title": "Paneļi",
+        "showLauncher": "Rādīt kreiso paneli",
+        "showWorkspaceToolbar": "Rādīt apakšējo paneli",
+        "shortcutsHint": "Tastatūras saīsnes ir pieejamas arī tad, kad paneļi ir paslēpti.",
+        "shortcutRequired": "Pirms kreisā paneļa paslēpšanas piešķiriet saīsni Iestatījumiem."
+      },
       "recycleBin": {
         "title": "Atkritne",
         "show": "Parādiet atkritni galvenajā tīklā",

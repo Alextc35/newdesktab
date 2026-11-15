@@ -311,6 +311,10 @@ export function initSettingsModal() {
   async function saveSettings() {
     if (themeSection.isUploading() || isStorageModeChanging) return;
     const newSettings = buildNewSettings();
+    if (!newSettings.showLauncher && !newSettings.keyboardShortcuts.openSettings) {
+      flashError('settingsModal.general.panels.shortcutRequired');
+      return;
+    }
     const previousTheme = getState().data.settings.theme;
     const currentStorageMode = getStorageMode();
     const nextStorageMode = getDraftStorageMode();

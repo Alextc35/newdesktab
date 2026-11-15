@@ -123,7 +123,7 @@
       "workspaces": [
         "Bara de instrumente + creează un spațiu de lucru cu numele ales.",
         "Noul spațiu de lucru are propria grilă.",
-        "Alt + ↑ și Alt + ↓ parcurg spațiile de lucru."
+        "Ctrl + ↑ și Ctrl + ↓ parcurg spațiile de lucru."
       ],
       "selection": [
         "Activați editarea și selectați o dală cu un clic scurt.",
@@ -339,10 +339,10 @@
       "steps": [
         "Bara de spațiu de lucru comută între spațiile de lucru principale și personalizate. + al său creează unul nou.",
         "Alegeți un spațiu de lucru înainte de a adăuga elemente. Pentru a transfera articole existente, selectați-le și alegeți o destinație în bara de acțiuni.",
-        "Alt + ↑ și Alt + ↓ parcurg spațiile de lucru. Butonul - șterge spațiul de lucru personalizat curent după confirmare."
+        "Ctrl + ↑ și Ctrl + ↓ parcurg spațiile de lucru. Butonul - șterge spațiul de lucru personalizat curent după confirmare."
       ],
       "note": "Ștergerea unui spațiu de lucru șterge și conținutul acestuia. Sejururile principale disponibile și nu pot fi șterse.",
-      "tip": "Alt + ↑ și Alt + ↓ schimbă spațiul de lucru fără a deschide selectorul. Separați munca, hobby-urile sau proiectele cu barul +."
+      "tip": "Ctrl + ↑ și Ctrl + ↓ schimbă spațiul de lucru fără a deschide selectorul. Separați munca, hobby-urile sau proiectele cu barul +."
     },
     "selection": {
       "question": "Cum schimb mai multe articole deodată?",

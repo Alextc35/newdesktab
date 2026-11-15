@@ -2011,7 +2011,7 @@ test('creates a workspace and finds bookmarks across workspaces', async ({ page 
   await expect(page.getByRole('option', { name: /Work dashboard/ })).toContainText('Work');
 });
 
-test('cycles workspaces with Alt plus arrow keys and animates the grid', async ({ page }) => {
+test('cycles workspaces with Ctrl plus arrow keys and animates the grid', async ({ page }) => {
   await page.getByRole('navigation', { name: 'Workspace controls' }).hover();
   await page.getByRole('button', { name: 'Create workspace' }).click();
   await page.getByPlaceholder('Work, leisure…').fill('Work');
@@ -2019,15 +2019,49 @@ test('cycles workspaces with Alt plus arrow keys and animates the grid', async (
 
   const workspace = page.locator('#workspace-select');
   const workId = await workspace.inputValue();
-  await page.keyboard.press('Alt+ArrowUp');
+  await page.keyboard.press('Control+ArrowUp');
   await expect(workspace).toHaveValue('');
   await expect(page.locator('.flash-message').last()).toHaveText('Workspace: Main');
   await expect(page.locator('#bookmark-container')).not.toHaveClass(/is-switching-workspace/);
 
-  await page.keyboard.press('Alt+ArrowDown');
+  await page.keyboard.press('Control+ArrowDown');
   await expect(workspace).toHaveValue(workId);
   await expect(page.locator('.flash-message').last()).toHaveText('Workspace: Work');
   await expect(page.locator('#bookmark-container')).not.toHaveClass(/is-switching-workspace/);
+
+  await page.locator('#workspace-toggle').focus();
+  await page.keyboard.press('Control+ArrowUp');
+  await expect(workspace).toHaveValue('');
+  await expect(page.locator('#bookmark-container')).not.toHaveClass(/is-switching-workspace/);
+  await page.locator('#add-toggle').focus();
+  await page.keyboard.press('Control+ArrowDown');
+  await expect(workspace).toHaveValue(workId);
+  await expect(page.locator('#bookmark-container')).not.toHaveClass(/is-switching-workspace/);
+
+  const ignoredAlt = await page.evaluate(() => {
+    const event = new KeyboardEvent('keydown', {
+      code: 'ArrowUp', key: 'ArrowUp', altKey: true, bubbles: true, cancelable: true
+    });
+    document.dispatchEvent(event);
+    return !event.defaultPrevented;
+  });
+  expect(ignoredAlt).toBe(true);
+  await expect(workspace).toHaveValue(workId);
+
+  await page.keyboard.press('KeyB');
+  await expect(page.locator('#edit-bookmark-modal')).toBeVisible();
+  await page.keyboard.press('Control+ArrowUp');
+  await expect(workspace).toHaveValue(workId);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#edit-bookmark-modal')).toBeHidden();
+
+  await page.setViewportSize({ width: 600, height: 720 });
+  await expect(page.locator('#bookmark-container')).toHaveClass(/is-list-view/);
+  await page.keyboard.press('Control+ArrowUp');
+  await expect(workspace).toHaveValue('');
+  await expect(page.locator('#bookmark-container')).not.toHaveClass(/is-switching-workspace/);
+  await page.keyboard.press('Control+ArrowDown');
+  await expect(workspace).toHaveValue(workId);
 });
 
 test('warns before deleting a workspace and removes its bookmarks', async ({ page }) => {

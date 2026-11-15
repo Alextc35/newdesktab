@@ -123,7 +123,7 @@
       "workspaces": [
         "Orodna vrstica + ustvari delovni prostor z vašim izbranim imenom.",
         "Novi delovni prostor ima lastno mrežo.",
-        "Alt + ↑ in Alt + ↓ krožite po svojih delovnih prostorih."
+        "Ctrl + ↑ in Ctrl + ↓ krožite po svojih delovnih prostorih."
       ],
       "selection": [
         "Omogočite urejanje in izberite ploščico s kratkim klikom.",
@@ -339,10 +339,10 @@
       "steps": [
         "Vrstica delovnega prostora preklaplja med glavnim in delovnim prostorom po meri. Njegov + ustvari novega.",
         "Pred dodajanjem elementov izberite delovni prostor. Če želite prenesti obstoječe elemente, jih izberite in v vrstici z dejanji izberite cilj.",
-        "Alt + ↑ in Alt + ↓ krožita po delovnih prostorih. Gumb − po potrditvi izbriše trenutni delovni prostor po meri."
+        "Ctrl + ↑ in Ctrl + ↓ krožita po delovnih prostorih. Gumb − po potrditvi izbriše trenutni delovni prostor po meri."
       ],
       "note": "Z brisanjem delovnega prostora izbrišete tudi njegovo vsebino. Glavni ostane na voljo in ga ni mogoče izbrisati.",
-      "tip": "Alt + ↑ in Alt + ↓ preklapljata med delovnimi prostori, ne da bi odprli izbirnik. Ločite delo, hobije ali projekte z znakom +."
+      "tip": "Ctrl + ↑ in Ctrl + ↓ preklapljata med delovnimi prostori, ne da bi odprli izbirnik. Ločite delo, hobije ali projekte z znakom +."
     },
     "selection": {
       "question": "Kako spremenim več elementov hkrati?",

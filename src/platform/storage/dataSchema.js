@@ -120,6 +120,9 @@ export function migratePersistedData(input, { useDefaultsWhenEmpty = true } = {}
       windowResizeMode: normalizeWindowResizeMode(rawSettings.windowResizeMode),
       keyboardShortcuts: normalizeKeyboardShortcuts(rawSettings.keyboardShortcuts),
       showRecycleBin: rawSettings.showRecycleBin !== false,
+      showLauncher: rawSettings.showLauncher !== false
+        || !normalizeKeyboardShortcuts(rawSettings.keyboardShortcuts).openSettings,
+      showWorkspaceToolbar: rawSettings.showWorkspaceToolbar !== false,
       recycleBinRetentionDays: normalizeRecycleBinRetentionDays(rawSettings.recycleBinRetentionDays),
       bookmarkPresets: normalizeNamedPresets(rawSettings.bookmarkPresets),
       bookmarkGroups: workspaces,
