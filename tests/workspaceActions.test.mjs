@@ -35,6 +35,7 @@ globalThis.chrome = {
 const {
   createWorkspace,
   deleteWorkspace,
+  reorderWorkspaces,
   setActiveWorkspace,
   updateWorkspace
 } = await import(
@@ -78,6 +79,22 @@ test('creates, activates and safely resolves workspaces through feature actions'
   assert.equal(await setActiveWorkspace('missing'), true);
   assert.equal(getState().data.settings.activeBookmarkGroupId, null);
   assert.equal(await setActiveWorkspace(null), false);
+});
+
+test('reorders workspaces while preserving their data and active selection', () => {
+  const alpha = { id: 'alpha', name: 'Alpha', backgroundColor: '#112233' };
+  const beta = { id: 'beta', name: 'Beta', backgroundImageUrl: 'https://images.example/beta.jpg' };
+  setState({ data: { settings: {
+    ...getState().data.settings,
+    bookmarkGroups: [alpha, beta],
+    activeBookmarkGroupId: 'alpha'
+  } } });
+
+  assert.equal(reorderWorkspaces(['beta', 'alpha']), true);
+  assert.deepEqual(getState().data.settings.bookmarkGroups, [beta, alpha]);
+  assert.equal(getState().data.settings.activeBookmarkGroupId, 'alpha');
+  assert.equal(reorderWorkspaces(['beta', 'missing']), false);
+  assert.equal(reorderWorkspaces(['beta', 'beta']), false);
 });
 
 test('updates a workspace name and wallpaper without changing its identity', async () => {

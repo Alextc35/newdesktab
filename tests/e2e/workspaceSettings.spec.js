@@ -226,3 +226,79 @@ test('uses the default preview when the global theme has no active background', 
   expect(defaultPreview.wordmark).toBe('"New DeskTab"');
   expect(defaultPreview.background).toContain('radial-gradient');
 });
+
+test('reorders workspaces with up and down buttons and saves automatically', async ({ page }) => {
+  const created = await page.evaluate(async () => {
+    const { createWorkspace } = await import('/src/features/workspaces/workspaceActions.js');
+    return ['Alpha', 'Beta', 'Gamma'].map(name => createWorkspace(name).id);
+  });
+  await waitForSaved(page);
+  const toolbar = page.getByRole('navigation', { name: 'Workspace controls' });
+  await toolbar.hover();
+  await page.locator('#workspace-toggle').click();
+  const alphaUp = page.locator(`#workspace-options [data-workspace-order-id="${created[0]}"][data-workspace-order-offset="-1"]`);
+  const gammaDown = page.locator(`#workspace-options [data-workspace-order-id="${created[2]}"][data-workspace-order-offset="1"]`);
+  await expect(alphaUp).toBeDisabled();
+  await expect(gammaDown).toBeDisabled();
+  await page.locator(`#workspace-options [data-workspace-order-id="${created[1]}"][data-workspace-order-offset="1"]`).click();
+  await waitForSaved(page);
+  await page.locator(`#workspace-options [data-workspace-order-id="${created[2]}"][data-workspace-order-offset="-1"]`).click();
+  await expect.poll(() => page.evaluate(async () => {
+    const { getState } = await import('/src/state/appStore.js');
+    return getState().data.settings.bookmarkGroups.map(workspace => workspace.name);
+  })).toEqual(['Gamma', 'Alpha', 'Beta']);
+  await waitForSaved(page);
+  await expect(page.locator('#workspace-current-name')).toHaveText('Gamma');
+  await page.reload();
+  await expectAppReady(page);
+  await expect(page.locator('#workspace-current-name')).toHaveText('Gamma');
+  const savedOrder = await page.evaluate(async () => {
+    const { getState } = await import('/src/state/appStore.js');
+    return getState().data.settings.bookmarkGroups.map(workspace => workspace.name);
+  });
+  expect(savedOrder).toEqual(['Gamma', 'Alpha', 'Beta']);
+});
+
+test('sizes the workspace dropdown to its rows when scrolling is unnecessary', async ({ page }) => {
+  await page.setViewportSize({ width: 376, height: 219 });
+  await page.evaluate(async () => {
+    const { createWorkspace } = await import('/src/features/workspaces/workspaceActions.js');
+    createWorkspace('Alpha');
+    createWorkspace('Beta');
+  });
+  await waitForSaved(page);
+  await page.locator('#workspace-toolbar').hover();
+  await page.locator('#workspace-toggle').click();
+  const menu = page.locator('#workspace-options');
+  await expect(menu).toHaveCSS('overflow-y', 'hidden');
+  await expect.poll(() => menu.evaluate(element => getComputedStyle(element).overflowY))
+    .toBe('auto');
+  await expect.poll(() => menu.evaluate(element => element.clientHeight)).toBeGreaterThan(0);
+  const size = await menu.evaluate(element => ({
+    clientHeight: element.clientHeight,
+    scrollHeight: element.scrollHeight,
+    top: element.getBoundingClientRect().top
+  }));
+  expect(size.scrollHeight).toBeLessThanOrEqual(size.clientHeight);
+  expect(size.top).toBeGreaterThanOrEqual(0);
+});
+
+test('enables workspace scrolling only after the expanding animation finishes', async ({ page }) => {
+  await page.setViewportSize({ width: 376, height: 219 });
+  await page.evaluate(async () => {
+    const { createWorkspace } = await import('/src/features/workspaces/workspaceActions.js');
+    for (let index = 0; index < 8; index += 1) createWorkspace(`Workspace ${index + 1}`);
+  });
+  await waitForSaved(page);
+  await page.locator('#workspace-toolbar').hover();
+  await page.locator('#workspace-toggle').click();
+  const menu = page.locator('#workspace-options');
+  await expect(menu).toHaveCSS('overflow-y', 'hidden');
+  await expect.poll(() => menu.evaluate(element => getComputedStyle(element).overflowY))
+    .toBe('auto');
+  const size = await menu.evaluate(element => ({
+    clientHeight: element.clientHeight,
+    scrollHeight: element.scrollHeight
+  }));
+  expect(size.scrollHeight).toBeGreaterThan(size.clientHeight);
+});

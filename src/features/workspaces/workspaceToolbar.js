@@ -1,6 +1,7 @@
 import {
   createWorkspace,
   deleteWorkspace,
+  reorderWorkspaces,
   setActiveWorkspace
 } from './workspaceActions.js';
 import {
@@ -36,6 +37,8 @@ export function initWorkspaceToolbar() {
   const options = document.getElementById('workspace-options');
   const addButton = document.getElementById('workspace-add');
   const deleteButton = document.getElementById('workspace-delete');
+  let optionsScrollTimer = null;
+  let onOptionsTransitionEnd = null;
 
   options.hidden = false;
   setWorkspaceOptionsOpen(false);
@@ -54,6 +57,23 @@ export function initWorkspaceToolbar() {
     buttons[activeIndex < 0 ? fallbackIndex : activeIndex]?.focus();
   });
   options.addEventListener('click', event => {
+    const orderButton = event.target.closest('[data-workspace-order-id]');
+    if (orderButton) {
+      event.preventDefault();
+      event.stopPropagation();
+      const { data } = getState();
+      const workspaces = getWorkspaces(data);
+      const index = workspaces.findIndex(workspace => workspace.id === orderButton.dataset.workspaceOrderId);
+      const offset = Number(orderButton.dataset.workspaceOrderOffset);
+      const nextIndex = index + offset;
+      if (index >= 0 && nextIndex >= 0 && nextIndex < workspaces.length) {
+        const ids = workspaces.map(workspace => workspace.id);
+        [ids[index], ids[nextIndex]] = [ids[nextIndex], ids[index]];
+        void runPersistedAction(`workspace-reorder:${orderButton.dataset.workspaceOrderId}:${offset}`,
+          () => reorderWorkspaces(ids));
+      }
+      return;
+    }
     const settingsButton = event.target.closest('[data-workspace-settings-id]');
     if (settingsButton) {
       setWorkspaceOptionsOpen(false);
@@ -148,9 +168,11 @@ export function initWorkspaceToolbar() {
     toggle.title = select.title;
     currentSettingsButton.title = t('workspace.editSettingsFor', { name: select.title });
     currentSettingsButton.setAttribute('aria-label', currentSettingsButton.title);
-    options.replaceChildren(...workspaceChoices.map(choice => createWorkspaceOption(
+    options.replaceChildren(...workspaceChoices.map((choice, index) => createWorkspaceOption(
       choice,
-      choice.id === selected
+      choice.id === selected,
+      index - 1,
+      workspaces.length
     )));
     deleteButton.disabled = !selected;
   });
@@ -168,9 +190,34 @@ export function initWorkspaceToolbar() {
   });
 
   function setWorkspaceOptionsOpen(open) {
+    const wasOpen = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(open));
     options.toggleAttribute('inert', !open);
     options.setAttribute('aria-hidden', String(!open));
+    if (open === wasOpen) {
+      if (!open) options.style.overflowY = 'hidden';
+      return;
+    }
+    window.clearTimeout(optionsScrollTimer);
+    if (onOptionsTransitionEnd) {
+      options.removeEventListener('transitionend', onOptionsTransitionEnd);
+      onOptionsTransitionEnd = null;
+    }
+    options.style.overflowY = 'hidden';
+    if (!open) return;
+
+    const enableScrolling = event => {
+      if (event && (event.target !== options || event.propertyName !== 'max-height')) return;
+      if (toggle.getAttribute('aria-expanded') !== 'true') return;
+      window.clearTimeout(optionsScrollTimer);
+      options.removeEventListener('transitionend', onOptionsTransitionEnd);
+      onOptionsTransitionEnd = null;
+      options.style.overflowY = 'auto';
+    };
+    onOptionsTransitionEnd = enableScrolling;
+    options.addEventListener('transitionend', enableScrolling);
+    const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    optionsScrollTimer = window.setTimeout(() => enableScrolling(), reducedMotion ? 0 : 320);
   }
 
   function getWorkspaceOptionButtons() {
@@ -201,7 +248,7 @@ export function initWorkspaceToolbar() {
   });
 }
 
-function createWorkspaceOption({ id, name }, active) {
+function createWorkspaceOption({ id, name }, active, orderIndex, workspaceCount) {
   const item = document.createElement('div');
   item.setAttribute('role', 'listitem');
   item.className = 'workspace-option-row';
@@ -219,16 +266,39 @@ function createWorkspaceOption({ id, name }, active) {
   check.setAttribute('aria-hidden', 'true');
   check.textContent = '✓';
   button.append(label, check);
-  const settingsButton = document.createElement('button');
-  settingsButton.type = 'button';
-  settingsButton.className = 'workspace-option-settings';
-  settingsButton.dataset.workspaceSettingsId = id;
-  settingsButton.setAttribute('aria-label', t('workspace.editSettingsFor', { name }));
-  settingsButton.title = t('workspace.editSettingsFor', { name });
-  settingsButton.innerHTML = '<span class="workspace-option-settings-icon" aria-hidden="true"></span>';
+  const actions = document.createElement('div');
+  actions.className = 'workspace-option-actions';
+  if (id) {
+    actions.append(createWorkspaceOrderButton(id, name, -1, orderIndex === 0));
+    actions.append(createWorkspaceOrderButton(id, name, 1, orderIndex === workspaceCount - 1));
+  }
   item.append(button);
-  if (!active) item.append(settingsButton);
+  if (!active) {
+    const settingsButton = document.createElement('button');
+    settingsButton.type = 'button';
+    settingsButton.className = 'workspace-option-settings';
+    settingsButton.dataset.workspaceSettingsId = id;
+    settingsButton.setAttribute('aria-label', t('workspace.editSettingsFor', { name }));
+    settingsButton.title = t('workspace.editSettingsFor', { name });
+    settingsButton.innerHTML = '<span class="workspace-option-settings-icon" aria-hidden="true"></span>';
+    actions.append(settingsButton);
+  }
+  if (actions.childElementCount) item.append(actions);
   return item;
+}
+
+function createWorkspaceOrderButton(id, name, offset, disabled) {
+  const button = document.createElement('button');
+  const direction = offset < 0 ? 'up' : 'down';
+  button.type = 'button';
+  button.className = 'workspace-option-order';
+  button.dataset.workspaceOrderId = id;
+  button.dataset.workspaceOrderOffset = String(offset);
+  button.textContent = offset < 0 ? '↑' : '↓';
+  button.title = `${t(`settingsModal.theme.move${direction === 'up' ? 'Up' : 'Down'}`)}: ${name}`;
+  button.setAttribute('aria-label', button.title);
+  button.disabled = disabled;
+  return button;
 }
 
 /**

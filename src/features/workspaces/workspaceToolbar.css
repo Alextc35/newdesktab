@@ -160,7 +160,7 @@
 }
 
 #workspace-toolbar:has(#workspace-toggle[aria-expanded="true"]) .workspace-options {
-  max-height: min(280px, calc(100dvh - 96px));
+  max-height: min(280px, calc(100dvh - 40px));
   margin-bottom: 6px;
   padding-top: 6px;
   overflow-y: auto;
@@ -192,6 +192,29 @@
 
 #workspace-toolbar .workspace-option-row > .workspace-option {
   flex: 1 1 auto;
+}
+
+.workspace-option-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 2px;
+}
+
+#workspace-toolbar .workspace-option-order {
+  display: grid;
+  width: 25px;
+  min-width: 25px;
+  height: 30px;
+  place-items: center;
+  color: var(--ui-menu-muted);
+  font-size: 15px;
+  line-height: 1;
+}
+
+#workspace-toolbar .workspace-option-order:hover:not(:disabled),
+#workspace-toolbar .workspace-option-order:focus-visible {
+  color: var(--ui-menu-text);
 }
 
 #workspace-toolbar .workspace-option-settings {

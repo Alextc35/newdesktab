@@ -24,6 +24,25 @@ export function createWorkspace(name) {
   return workspace;
 }
 
+/** Reorders custom workspaces without changing their identity or contents. */
+export function reorderWorkspaces(workspaceIds) {
+  if (!Array.isArray(workspaceIds)) return false;
+  const { data } = getState();
+  const workspaces = getWorkspaces(data);
+  if (workspaceIds.length !== workspaces.length
+    || new Set(workspaceIds).size !== workspaces.length) return false;
+
+  const byId = new Map(workspaces.map(workspace => [workspace.id, workspace]));
+  if (workspaceIds.some(id => !byId.has(id))) return false;
+  const bookmarkGroups = workspaceIds.map(id => byId.get(id));
+  if (bookmarkGroups.every((workspace, index) => workspace.id === workspaces[index].id)) {
+    return false;
+  }
+
+  setState({ data: { settings: { ...data.settings, bookmarkGroups } } });
+  return true;
+}
+
 /** Updates a workspace's name and device-local/URL wallpaper choices. */
 export function updateWorkspace(workspaceId, changes) {
   const name = typeof changes?.name === 'string' ? changes.name.trim() : '';
