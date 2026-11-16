@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  Chrome &amp; Brave &nbsp;·&nbsp; 52 languages &nbsp;·&nbsp; No account required
+  Chrome &nbsp;·&nbsp; 52 languages &nbsp;·&nbsp; No account required
 </p>
 
 <p align="center">
