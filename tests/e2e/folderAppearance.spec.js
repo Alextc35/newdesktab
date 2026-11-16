@@ -5,6 +5,17 @@ const folderId = 'appearance-folder';
 const folderCard = page => page.locator(`#bookmark-container [data-folder-id="${folderId}"]`);
 const previewCard = page => page.locator('.edit-item-modal-preview > .folder-editor-preview-card');
 const saveButton = page => page.locator('#edit-folder-modal-save');
+const pageErrors = new WeakMap();
+
+test.beforeEach(({ page }) => {
+  const errors = [];
+  pageErrors.set(page, errors);
+  page.on('pageerror', error => errors.push(error.message));
+});
+
+test.afterEach(({ page }) => {
+  expect(pageErrors.get(page), 'unexpected page errors').toEqual([]);
+});
 
 async function start(page, layouts = [{ id: folderId, gx: 0, gy: 0, w: 2, h: 2 }]) {
   await page.setViewportSize({ width: 1280, height: 800 });
@@ -308,9 +319,10 @@ test('new folders and the default recycle bin have no outer background', async (
   await page.evaluate(async () => {
     const { DEFAULT_RECYCLE_BIN } = await import('/src/domain/recycle-bin/recycleBinDefaults.js');
     const { setState } = await import('/src/state/appStore.js');
-    await setState({ data: { bookmarks: [], folders: [],
+    void setState({ data: { bookmarks: [], folders: [],
       recycleBin: structuredClone(DEFAULT_RECYCLE_BIN) } });
   });
+  await expectAppSaved(page);
 
   const recycleBin = page.locator('#bookmark-container .recycle-bin');
   await expect(recycleBin).toHaveClass(/is-recycle-bin-transparent/);
@@ -359,7 +371,7 @@ test('aligns bookmark, folder and recycle bin even with legacy count settings', 
     const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
     const { getState, setState } = await import('/src/state/appStore.js');
     const data = getState().data;
-    await setState({ data: { recycleBin: { ...data.recycleBin, gx: 2, gy: 0, w: 1, h: 1 },
+    void setState({ data: { recycleBin: { ...data.recycleBin, gx: 2, gy: 0, w: 1, h: 1 },
       bookmarks: [...data.bookmarks, {
       ...DEFAULT_BOOKMARK,
       id: 'comparison-bookmark', name: 'YouTube', url: 'https://youtube.com',
@@ -367,6 +379,7 @@ test('aligns bookmark, folder and recycle bin even with legacy count settings', 
     }] } });
   });
 
+  await expectAppSaved(page);
   const bookmark = page.locator('[data-bookmark-id="comparison-bookmark"]');
   await expect(bookmark).toBeVisible();
   const withoutCounts = await measureGridCardAlignment(page);
@@ -380,11 +393,12 @@ test('aligns bookmark, folder and recycle bin even with legacy count settings', 
   await page.evaluate(async id => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const data = getState().data;
-    await setState({ data: {
+    void setState({ data: {
       folders: data.folders.map(folder => folder.id === id ? { ...folder, showCount: true } : folder),
       recycleBin: { ...data.recycleBin, showCount: true }
     } });
   }, folderId);
+  await expectAppSaved(page);
   await expect(folderCard(page).locator('.folder-count')).toHaveCount(0);
   await expect(page.locator('#bookmark-container > .recycle-bin .recycle-bin-caption small'))
     .toHaveCount(0);
@@ -398,13 +412,14 @@ test('aligns bookmark, folder and recycle bin even with legacy count settings', 
   await page.evaluate(async id => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const data = getState().data;
-    await setState({ data: {
+    void setState({ data: {
       folders: data.folders.map(folder => folder.id === id ? { ...folder, w: 2, h: 2 } : folder),
       bookmarks: data.bookmarks.map(item => item.id === 'comparison-bookmark'
         ? { ...item, gx: 2, w: 2, h: 2 } : item),
       recycleBin: { ...data.recycleBin, gx: 4, w: 2, h: 2 }
     } });
   }, folderId);
+  await expectAppSaved(page);
   await expect.poll(() => folderCard(page).evaluate(card => card.getBoundingClientRect().width))
     .toBeGreaterThan(150);
   const enlarged = await measureGridCardAlignment(page);
@@ -455,13 +470,15 @@ test('previews, persists and resets the exterior color without making an unchang
 
 test('shows the automatic light folder background in the exterior color picker', async ({ page }) => {
   await start(page);
+  // Observe persistence without retaining its Web Locks promise in CDP.
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
-    await setState({ data: { settings: {
+    void setState({ data: { settings: {
       ...getState().data.settings,
       interfaceTheme: 'light'
     } } });
   });
+  await expectAppSaved(page);
   await expect(page.locator('html')).toHaveAttribute('data-interface-theme', 'light');
 
   await openEditor(page);
@@ -487,7 +504,7 @@ test('shares the bookmark edit control position and adapts it to the folder surf
   await page.evaluate(async () => {
     const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
     const { getState, setState } = await import('/src/state/appStore.js');
-    await setState({ data: { bookmarks: [...getState().data.bookmarks, {
+    void setState({ data: { bookmarks: [...getState().data.bookmarks, {
       ...DEFAULT_BOOKMARK,
       id: 'action-bookmark',
       name: 'Action bookmark',
@@ -498,6 +515,7 @@ test('shares the bookmark edit control position and adapts it to the folder surf
       backgroundColor: '#ffffff'
     }] } });
   });
+  await expectAppSaved(page);
   await page.keyboard.press('KeyE');
 
   const bookmark = page.locator('[data-bookmark-id="action-bookmark"]');

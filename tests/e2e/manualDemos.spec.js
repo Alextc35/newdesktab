@@ -1,5 +1,6 @@
 import { expect, test } from './helpers/test.js';
 import { expectAppReady } from './helpers/appReady.js';
+import { MANUAL_TOPICS } from '../../src/features/help/manualCatalog.js';
 
 async function start(page) {
   await page.setViewportSize({ width: 1280, height: 900 });
@@ -31,13 +32,14 @@ const tileSize = page => page.locator('.manual-demo [data-demo-item="Gmail"]').e
   width: parseFloat(getComputedStyle(element).width), height: parseFloat(getComputedStyle(element).height)
 }));
 
-test('every section has a seekable demonstration and leaves real data untouched', async ({ page }) => {
-  const errors = [];
-  page.on('pageerror', error => errors.push(error.message));
-  await start(page);
-  const topics = await page.locator('.manual-index .manual-topic').evaluateAll(nodes => nodes.map(node => node.dataset.manualTopic));
-  const before = await page.evaluate(() => sessionStorage.getItem('newdesktab-test-local'));
-  for (const topic of topics) {
+// Each topic has its own timeout budget; capturing every demo in one test can
+// exhaust the shared timeout on CI even when each individual demo is healthy.
+for (const { id: topic } of MANUAL_TOPICS) {
+  test(`${topic} has a seekable demonstration and leaves real data untouched`, async ({ page }) => {
+    const errors = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await start(page);
+    const before = await page.evaluate(() => sessionStorage.getItem('newdesktab-test-local'));
     await openTopic(page, topic);
     await expect(page.locator('.manual-demo-step-buttons button')).toHaveCount(3);
     await expect(page.locator('.manual-demo-scene')).toHaveAttribute('inert', '');
@@ -62,9 +64,9 @@ test('every section has a seekable demonstration and leaves real data untouched'
     expect(await page.evaluate(() => sessionStorage.getItem('newdesktab-test-local'))).toBe(before);
     await page.locator('#manual-back').click();
     expect(await page.evaluate(() => document.getAnimations().filter(animation => animation.id.startsWith('manual-demo-')).length)).toBe(0);
-  }
-  expect(errors).toEqual([]);
-});
+    expect(errors).toEqual([]);
+  });
+}
 
 test('playback pauses, resumes, stops at the result and pauses when its dialog closes', async ({ page }) => {
   await start(page);
