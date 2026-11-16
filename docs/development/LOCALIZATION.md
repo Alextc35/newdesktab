@@ -1,5 +1,7 @@
 # Localization
 
+[Documentation index](../README.md) · [Development](DEVELOPMENT.md) · [Release notes](../releases/RELEASE_NOTES.md)
+
 The extension ships 52 locales in `src/domain/settings/languageCatalog.js`.
 Language names are native names. The selector also searches localized language
 and country names, English names, Spanish names and locale codes. English covers

@@ -1,5 +1,7 @@
 # NewDeskTab architecture
 
+[Documentation index](../README.md) · [Development](../development/DEVELOPMENT.md) · [Technical walkthrough](PROJECT_GUIDE.md)
+
 NewDeskTab is a Manifest V3 new-tab extension written in vanilla JavaScript. Its
 source is organized around explicit application, domain, feature, platform,
 state, widget and shared boundaries. The former `ui/`, `core/`, `css/` and `js/`
@@ -45,9 +47,9 @@ requires otherwise.
 
 ## Current source layout
 
-Phases 1 through 27 established the application, domain, feature, platform,
-state and widget seams, including the first visible bundled widget. This is an
-abridged ownership map; colocated styles follow the same directories:
+The application, domain, feature, platform, state and widget boundaries define
+the current ownership map. This is an abridged layout; colocated styles follow
+the same directories:
 
 ```text
 src/
@@ -275,7 +277,7 @@ application data shapes.
 Optional timing subscribers receive isolated copies of completed traces without
 changing the bounded console history. The E2E action audit enables this collector
 only when `NEWDESKTAB_AUDIT_DIR` is set; normal tests and production keep Debug
-disabled. See [the audit procedure](benchmarks/ACTION_AUDIT.md) for the measured
+disabled. See [the audit procedure](../benchmarks/ACTION_AUDIT.md) for the measured
 boundaries, coverage limits and source-reachability checks.
 
 ## Shared UI primitives
@@ -444,9 +446,9 @@ real field changes remain significant.
 ## GridItem and the item-type registry
 
 `GridItem` is a structural contract: `id`, `gx`, `gy`, `w`, `h` and `groupId`.
-Bookmarks, folders and the recycle bin already satisfy it. The type is supplied
-by a feature adapter rather than persisted on every item, so this phase needs no
-schema migration and old synchronized data remains compatible.
+Bookmarks, folders and the recycle bin satisfy it. Their type is supplied by a
+feature adapter rather than persisted on every item. Widget instances additionally
+persist their bundled widget `type` in their own envelope.
 
 `shared/grid/gridItemRegistry.js` knows only the adapter protocol. A definition
 provides:
@@ -489,8 +491,9 @@ platform/storage/deviceTrashStorage.js → chrome.storage.local
 The domain module receives plain data and returns new data. It does not read
 the store, DOM, clock, random ids or Chrome APIs. Feature actions decide when a
 command happens, create ids and timestamps, and commit one store transition so
-undo behavior remains unchanged. The platform adapter owns the device-local
-record used to recover data that was permanently removed from the application.
+undo behavior remains unchanged. The platform adapter owns device-local
+recycle-bin contents. They are omitted from the shared Sync payload and can
+restore supported deleted items.
 
 ## Workspace as a domain entity
 
@@ -499,8 +502,8 @@ Persisted workspaces remain represented by `settings.bookmarkGroups` and
 entity owns identity, naming, normalization, active-workspace resolution and
 navigation without knowing about the store or browser APIs. Feature selectors
 are the adapter between those concepts and the legacy settings keys, so UI code
-does not edit the persisted collections directly. This phase deliberately does
-not change `schemaVersion` or synchronized data.
+does not edit the persisted collections directly. This adapter boundary preserves
+the persisted workspace field names.
 
 ## Store, persistence and synchronization
 
@@ -526,20 +529,21 @@ shared/data/mergeChanges.js
 platform/storage/storageFacade.js
 ```
 
-`store.js` retains live state, subscriptions, undo/redo and the ordered
+`state/appStore.js` retains live state, subscriptions, undo/redo and the ordered
 persistence queue. It depends on the facade, but does not know Chrome keys,
 callbacks, quotas, chunks or sync wire format. The facade owns local/sync mode,
 compatibility fallback and Chrome change events. The sync module is pure: it
 encodes and decodes the existing versioned chunk format and can be tested
-without browser globals. Schema version 17 adds the generic `widgets`
-collection; all stored/imported migrations remain together under
+without browser globals. Public schema version 1 includes the generic `widgets`
+collection; stored/imported normalization and migrations remain together under
 `platform/storage`. Visual components continue to call feature actions rather
 than the storage facade directly.
 
 The destructive General-settings reset is explicitly device-local. In Local
 mode it replaces persisted app data with an empty default state; in Sync mode
 it first switches the device to Local using that empty state. It then clears
-device trash, image selections and every owned local-image blob. It never
+device trash, personal wallpapers, image selections and every owned local-image
+and local-video file. It never
 writes to or deletes the synchronized payload; remote deletion remains the
 separate action in the Sync section.
 
@@ -609,7 +613,12 @@ facade. It participates in local/sync persistence, backups, selection,
 cross-workspace movement, keyboard navigation and collision handling through
 the existing contracts. Remote executable plugins remain out of scope.
 
-## Incremental roadmap
+## Historical refactoring milestones
+
+This list records intermediate steps that led to the current boundaries. It is
+not a future roadmap or a description of every current behavior. For example,
+the initial widget scaffold preceded the visible clock, and user-facing widget
+deletion now follows the permanent-removal policy documented above.
 
 1. ✅ Establish the GridItem registry and feature-owned rendering.
 2. ✅ Complete the recycle-bin slice: separate pure domain
@@ -676,8 +685,9 @@ the existing contracts. Remote executable plugins remain out of scope.
     audit selectors and documentation, then run the complete browser,
     unpacked-extension and store-package verification.
 
-Each phase must finish with lint, unit and DOM tests, relevant E2E journeys and
-the unpacked-extension smoke/package checks.
+Future structural changes should use lint, unit and DOM tests, relevant E2E
+journeys and the unpacked-extension smoke/package checks described in the
+[development guide](../development/DEVELOPMENT.md).
 
 ## Existing implementation details
 
@@ -841,20 +851,25 @@ that state and lets the modal manager restore focus to the same card on close;
 bookmark URLs are the one exception because they navigate away from the page.
 
 `features/grid/gridKeyboardMovement.js` moves one visible, top-level selected
-bookmark or folder in edit mode when keyboard grid navigation is not active.
-None mode scans to the next free rectangle; the smart modes exchange bookmarks
-one keypress at a time and skip fixed folder rectangles. The resulting bookmark
-and displacement updates use one state transition and therefore one undo entry.
+grid item in edit mode when keyboard grid navigation is not active. It discovers
+bookmarks, folders and widgets through the registry. None mode scans to the next
+free rectangle. Bookmark movement limits displacement to top-level bookmarks,
+so it skips fixed folder rectangles; folder and widget movement use the broader
+movable-item set while the recycle bin stays fixed. All affected positions use
+one state transition and therefore one undo entry.
 
 ## Persistence
 
-Local mode uses `chrome.storage.local`. Sync mode serializes the complete
-versioned payload and divides it into quota-safe `chrome.storage.sync` chunks.
+Local mode uses `chrome.storage.local`. Sync mode serializes the versioned shared
+representation, omitting device-only data, into quota-safe `chrome.storage.sync` chunks.
 The local storage-mode choice remains device-specific.
 
-Custom keyboard shortcuts live inside the versioned `settings` object. They
-therefore use the same migration, backup and Sync paths as visual preferences;
-only the persistence-mode choice remains device-specific.
+Custom keyboard shortcuts live inside the versioned `settings` object and follow
+the same migration, backup and Sync paths as portable visual preferences.
+The persistence-mode choice, recycle-bin contents, local media, personal
+wallpaper collections, device image selections, scroll positions and introductory
+notice preferences remain device-specific. Complete backups include the supported
+workspace data and referenced media, not every device-only preference.
 
 `browserCapabilities.js` currently permits Sync only in Google Chrome. Brave
 and unverified Chromium browsers stay in Local mode because exposing
@@ -920,7 +935,8 @@ commands. Recycle-bin modals call their colocated feature actions. The
 modal manager owns stacking, focus trapping, background isolation and focus
 restoration.
 
-The renderer displays top-level bookmarks and folders in the active workspace.
+The renderer displays the active workspace's registered grid items, including
+top-level bookmarks, folders, the visible recycle bin and bundled widgets.
 `features/onboarding/` owns a five-step optional welcome and its illustrative
 workspace, with live localization and the existing modal focus lifecycle. Its
 inert desktop preview reuses the production bookmark, folder and recycle-bin
@@ -1099,4 +1115,4 @@ bookmarks and folders. Trash rows include the deletion date for both types.
 
 Large-backup measurements run separately from the test suite using
 `scripts/benchmark-backups.mjs`; see
-[the methodology and format decision](benchmarks/BACKUP_MEDIA.md).
+[the methodology and format decision](../benchmarks/BACKUP_MEDIA.md).

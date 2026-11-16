@@ -2,6 +2,12 @@
 
 Thanks for helping NewDeskTab grow without losing its simplicity.
 
+Start with the [documentation index](docs/README.md). The
+[development guide](docs/development/DEVELOPMENT.md) covers setup, diagnostics,
+browser tests and packaging; the [architecture reference](docs/architecture/ARCHITECTURE.md)
+and [technical project guide](docs/architecture/PROJECT_GUIDE.md) explain module
+ownership and the runtime in depth.
+
 ## Local setup
 
 1. Use Node.js 24 or a compatible current LTS release.

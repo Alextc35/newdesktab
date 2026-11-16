@@ -1,509 +1,137 @@
-<img src="assets/icons/brand-mark.svg" alt="New DeskTab" width="96" height="96">
+<p align="center">
+  <img src="assets/icons/brand-mark.svg" width="88" height="88" alt="New DeskTab logo">
+</p>
 
-# NewDeskTab
+<h1 align="center">New DeskTab</h1>
 
-Minimalist Chrome/Brave new-tab extension for organizing bookmarks in a visual
-grid workspace.
+<p align="center">
+  <strong>Your new tab. Your own space.</strong><br>
+  Turn your favorite websites into a desktop you can arrange, personalize and make your own.
+</p>
 
-![Chrome Extension](https://img.shields.io/badge/Chrome_Extension-Manifest_V3-4285F4?logo=googlechrome)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript)
-![version](https://img.shields.io/badge/version-1.0.0-blue)
-![license](https://img.shields.io/badge/license-MIT-green)
+<p align="center">
+  Chrome &amp; Brave &nbsp;·&nbsp; 52 languages &nbsp;·&nbsp; No account required
+</p>
 
-https://github.com/user-attachments/assets/f57533bd-2499-4ff1-9c20-4afb5c9d9c94
+<p align="center">
+  <a href="#get-started">Get started</a> &nbsp;·&nbsp;
+  <a href="#make-it-yours">Take a look</a> &nbsp;·&nbsp;
+  <a href="docs/guide/USER_GUIDE.md">User guide</a> &nbsp;·&nbsp;
+  <a href="https://github.com/Alextc35/newdesktab/issues">Feedback &amp; support</a>
+</p>
 
-NewDeskTab replaces the browser's default new tab with a private, customizable
-visual bookmark workspace. Bookmarks can be placed, resized and styled like
-items on a desktop without relying on a NewDeskTab account or backend.
+[![Example New DeskTab workspace with colorful website shortcuts, folders and a clock on a space background](assets/store/screenshot-1280x800.png)](assets/store/screenshot-1280x800.png)
 
-## Features
+<p align="center"><sub>An example workspace. Each bookmark card opens a website you choose.</sub></p>
 
-* Release notes shown once per version and browser profile, with a history in Settings → Information
-* Dedicated Settings → Help section with the searchable manual, welcome guide and daily-tip preference
-* Optional five-step first-visit guide, replayable from Settings → Help
-* Smooth eight-direction drag and resize on a collision-aware grid
-* Configurable drag behavior: None (default), Relocation and experimental
-  Sequence
-* Direct bookmark editing plus short-click selection and a middle-click editor
-* Keyboard grid navigation across bookmarks and folders with `Tab` and arrows
-* Arrow-key movement for a single selected bookmark outside grid navigation
-* Compact bookmark creation that expands into the shared full style editor
-* Toolbar popup to save the current web page into a workspace or folder, with
-  an existing-favorite indicator and automatic popup close after a successful save
-* Named appearance presets
-* Reusable category SVG icons for bookmarks, folders, the recycle bin and default bookmark styles
-* Independent bookmark workspaces with smooth `Ctrl + ↑/↓` navigation
-* Resizable folders with a clean link view and an editable 3 × 6 workspace
-* Bundled resizable clock widget (work in progress) with 12/24-hour and seconds controls
-* Global search palette (`/`)
-* Multi-select, bulk styling, moving, duplication and deletion
-* Bookmark duplication plus atomic undo/redo for bookmark and folder changes
-* Solid, image and muted-video themes with ordered wallpaper rotation; local
-  media or remote URLs, plus favicon previews
-* 52 offline interface locales with native language names, automatic browser
-  detection and language/country search, including localized guides and help
-* Versioned bookmark import/export and complete backups
-* Optional Google Chrome profile synchronization with status and data
-  management
-* Accessible modal focus management and keyboard navigation
+## A home for the things you open every day
 
-## Installation
+New DeskTab replaces your browser's new tab with a visual bookmark workspace.
+Keep your everyday links close, group the rest into folders, and create separate
+spaces for work, study or whatever you are into.
 
-Requires Chrome 123 or newer, or a compatible Chromium-based browser. Chrome
-Sync is available only in Google Chrome; Brave uses local storage.
+| Arrange your way | Keep things together | Set the mood |
+| :--- | :--- | :--- |
+| Move and resize bookmark cards on a flexible grid. Give important links more room. | Organize links into folders and switch between independent workspaces. | Choose colors, category icons, cover images and image or video wallpapers. |
 
-1. Clone the repository:
+## Make it yours
+
+Start with a few links, then shape the space around the way you use the web.
+Save favorite styles as presets and reuse them across your bookmarks.
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="assets/store/screenshot-folder-1280x800.png"><img src="assets/store/screenshot-folder-1280x800.png" alt="Folder style editor with a custom cover image and a live preview" width="640"></a>
+      <p><strong>Give every folder its own look</strong><br>Choose a cover, colors and icon, with a preview as you edit.</p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="assets/store/screenshot-settings-1280x800.png"><img src="assets/store/screenshot-settings-1280x800.png" alt="General settings showing language, light and dark appearance, and panel visibility" width="640"></a>
+      <p><strong>Make yourself comfortable</strong><br>Use a light or dark interface, choose your language and show the panels you need.</p>
+    </td>
+  </tr>
+</table>
+
+## Small details that help every day
+
+- **Save the page you are on.** Click the extension icon to add it to a workspace
+  or folder. Existing favorites are identified in the popup.
+- **Edit with room to change your mind.** Select several bookmarks, move or style
+  them together, and undo or redo workspace changes.
+- **Keep your bookmarks in sync.** Enable optional Chrome Sync to share bookmarks
+  and settings across your Google Chrome devices.
+- **Keep a copy.** Export your New DeskTab bookmarks or make a complete backup,
+  including the local media referenced by your workspace.
+- **Learn as you go.** A welcome guide, searchable manual and optional daily tips
+  are built in, with 52 bundled interface languages.
+- **Add a clock.** A resizable clock widget is included and is still in development.
+  More work on widgets is planned for upcoming updates.
+
+<details>
+  <summary><strong>A closer look at New DeskTab</strong></summary>
+
+  <p>The Information panel brings together the installed version, author and release history.</p>
+  <img src="assets/store/screenshot-information-1280x800.png" alt="New DeskTab Information panel with the product logo, version, author and release notes" width="1280">
+</details>
+
+## Get started
+
+Requires **Chrome / Chromium 123 or newer**, or a compatible Brave version.
+To install only the extension files, generate a clean package first.
+Packaging requires **Node.js/npm and Python 3.9 or newer**. If you already have
+a generated extension ZIP, start at step 3.
+
+1. Download the repository with **Code → Download ZIP** and extract it, or clone it:
 
    ```sh
    git clone https://github.com/Alextc35/newdesktab.git
    ```
 
-2. Open `chrome://extensions` or `brave://extensions`.
-3. Enable **Developer Mode**.
-4. Choose **Load unpacked** and select the `newdesktab` folder.
-
-## Bookmark and grid model
-
-Each bookmark owns identity, grid layout and appearance:
-
-```js
-{
-  id: "…",
-  name: "GitHub",
-  url: "https://github.com",
-  gx: 0,
-  gy: 0,
-  w: 1,
-  h: 1,
-  groupId: null,
-  folderId: null,
-  backgroundColor: "#000000",
-  backgroundImageUrl: null,
-  showFavicon: true
-}
-```
-
-An appearance preset never contains bookmark identity, timestamps, workspace or
-grid coordinates. New bookmarks combine an empty identity with the active
-preset and are placed in the first available cell of the current workspace.
-
-Folders are first-class, resizable grid items. They start at `1 × 1`, then keep
-their own position and dimensions just like bookmarks:
-
-```js
-{
-  id: "…",
-  name: "Reading",
-  gx: 0,
-  gy: 1,
-  w: 1,
-  h: 1,
-  groupId: null
-}
-```
-
-A bookmark inside a folder keeps its appearance and saved `w × h` size but no
-longer reserves cells in the main workspace. Each folder exposes a compact
-3-row × 6-column grid for up to 18 bookmarks. Internal cards always occupy one
-compact cell. The configured None, Relocation or Sequence behavior also applies
-inside the folder, with smooth reversible cell transitions. The local order
-persists across reopens and reloads.
-
-Dragging a top-level bookmark onto the folder assigns the first free local
-cell. Taking it out places it in the first free main-grid area that fits its
-saved dimensions. Deleting a folder asks for confirmation and deletes the
-bookmarks it contains.
-
-## Editing and grid behavior
-
-In **Style → Icon**, choose the site's logo or original artwork, or search the
-bundled catalog of category symbols, interface icons and geometric shapes.
-Local suggestions use the site's hostname or the section name to offer useful
-choices for mail, documents, shopping, work, games and other common cases.
-Search works in the interface language and ignores accents. This is available
-for bookmarks, folders, the recycle bin and the default bookmark style.
-Category icons use the item's colors and work in
-grid, list and editor previews; quick looks preserve the selected category.
-The selection is included in presets, synchronization and backups. Choosing the
-original folder icon restores its bookmark previews and cover image.
-
-For the normal bookmark caption, **Style → Icon → Position** places the icon
-and name at the bottom left or bottom right. The right position puts the name
-before the icon. This appearance choice is included in presets and backups.
-
-Edit mode exposes a direct pencil button on each bookmark. A middle click opens
-the same editor without opening the bookmark in a tab. A short primary click
-toggles selection, while holding the primary button starts dragging instead.
-Selected bookmarks can be styled, moved to another workspace, duplicated or
-deleted from the bulk toolbar.
-
-Bookmarks and folders have eight resize handles. Drag a handle for continuous
-resizing, click it to grow one grid cell in that direction, or `Shift + click`
-to shrink. Invalid resize attempts restore the complete rectangle that existed
-before the gesture.
-
-**Settings → General → Window resizing behavior → Keep bookmark size** keeps
-the larger grid available in smaller windows. Each workspace remembers its
-horizontal and vertical scroll position on this device. These positions are
-excluded from Chrome Sync and backups; a workspace without a saved position
-starts centered.
-Resizing keeps the visible center anchored. Workspace changes fade in place
-after restoring their saved view, without scaling the grid.
-
-**Settings → Bookmarks → Drag behavior** controls occupied-cell handling:
-
-* **None** (default) keeps other items still. It only accepts free cells;
-  occupied targets return the dragged item to its source on release.
-* **Relocation** moves blockers into the vacated area or nearest free
-  space.
-* **Sequence** shifts the bookmark chain toward an available gap. This mode is
-  experimental and may contain minor edge-case bugs.
-
-A bookmark never displaces a folder: dropping it onto a folder adds it to that
-folder. Folders themselves use the same smart drag and resize system as other
-grid items.
-
-## Debug console
-
-The default in `src/shared/diagnostics/debug.js` is disabled. Open the DevTools console
-of a NewDeskTab tab and run `NewDeskTabDebug.toggle()` to enable live diagnostics
-without reloading. Run it again to disable them. Filter by `[NewDeskTab Debug]`
-to find the output. Startup prints a short activation hint. Enabling Debug lists
-the available commands and their purpose; run `NewDeskTabDebug.report()` when you
-want the report.
-
-Messages use colored labels, grouped details and the browser's local time as
-`HH:mm:ss`. The history table also shows when each operation started; elapsed
-durations remain in milliseconds.
-All groups start collapsed and can be expanded when needed.
-
-The report includes the extension version, active storage mode, Sync
-support, local/sync quota usage, item counts and startup timings. Bookmark
-creation, editing, deletion, duplication and state changes report preparation,
-queue wait and storage-write durations in milliseconds. Grid rendering is
-reported separately; startup readiness does not wait for remote images, and
-Sync timings measure browser storage writes rather than remote propagation.
-
-```js
-NewDeskTabDebug.toggle()       // Toggle live operation logging; returns true/false
-NewDeskTabDebug.enabled        // Read the current state
-await NewDeskTabDebug.report() // Fresh general information and storage usage
-NewDeskTabDebug.history()      // Last 100 completed operations and their phases
-NewDeskTabDebug.clear()        // Clear console + history and confirm the result
-```
-
-The commands remain available while Debug is off. Initial load metrics are
-retained for the report, but operations are only recorded while Debug is on.
-
-Debug also measures editor and modal actions, folder and recycle-bin rendering,
-search, persisted commands and grid drag preparation. A repeatable UI benchmark
-measures thirteen operations using isolated browser profiles with 60 and 1,200
-synthetic bookmarks, an 18-item folder, a 60-item recycle bin and CPU throttling:
-
-```sh
-npm run benchmark:ui -- dist/ui-performance.json
-```
-
-See [UI performance measurements](docs/benchmarks/UI_PERFORMANCE.md) for the
-method, before/after results, and how to check an affected Mac directly.
-The [action audit procedure](docs/benchmarks/ACTION_AUDIT.md) explains how to
-collect timings and observed JS/CSS coverage across the E2E suite and review
-source-cleanup candidates. Profiling tools can subscribe beyond the bounded
-history while Debug is enabled:
-
-```js
-const stop = NewDeskTabDebug.subscribe(record => console.log(record));
-// Reproduce the actions to measure, then detach the listener.
-stop();
-```
-
-Disabling keeps the existing history; clearing also discards pending traces
-and reports without disabling Debug. The toggle applies to the current tab
-and resets to the configured default on reload.
-
-## Architecture
-
-NewDeskTab uses vanilla JavaScript modules with explicit architectural boundaries:
-
-```text
-Application composition
-        ↓
-Feature actions and adapters → Pure domain models
-        ↓                         ↓
-Application state/schema → Platform and shared mechanisms
-        ↓
-UI controllers and reusable views
-```
-
-Important modules:
-
-```text
-src/app/bootstrap.js                   application startup and dependency wiring
-src/app/appController.js               store-to-UI effect coordination
-src/app/applicationDiagnostics.js      application debug console and reports
-src/app/appStateChanges.js             pure state-transition classification
-src/app/registerGridItemTypes.js       bundled grid-item composition
-src/domain/bookmarks/                  bookmark model and defaults
-src/domain/folders/                    folder model and internal layout
-src/domain/recycle-bin/                pure trash and restoration rules
-src/domain/settings/                   portable preferences and grid-interaction modes
-src/domain/workspaces/workspaceModel.js workspace identity and navigation
-
-src/features/bookmarks/                  bookmark commands, cards and editor UI
-src/features/folders/                     folder commands, cards and modal UI
-src/features/grid/                        grid rendering, layout, selection and interactions
-src/features/history/                     global undo/redo UI coordination
-src/features/keyboard/                    runtime shortcut coordination
-src/features/launcher/                    expandable edge creation dock
-src/features/quick-save/                  toolbar popup placement and save flow
-src/features/recycle-bin/                 recycle-bin actions and UI
-src/features/search/                      global and compact-list search UI
-src/features/settings/                    settings actions, draft and modal UI
-src/features/workspaces/                  workspace actions, selectors and toolbar
-
-src/state/appStore.js           live state, subscriptions and persistence queue
-src/state/gridHistory.js        bounded grid undo/redo snapshots
-src/state/stateChangeDescription.js safe diagnostic change labels
-src/platform/browser/           browser capabilities and extension metadata
-src/platform/images/            local image/video storage and browser processing
-src/platform/i18n/              locale resolution and translation runtime
-src/platform/storage/           schema, Chrome persistence and device data
-src/platform/sync/              versioned, quota-safe sync transport
-src/shared/data/mergeChanges.js concurrent persisted-data reconciliation
-src/shared/diagnostics/         bounded reusable console tracing
-src/shared/grid/                generic placement, resize, movement and keyboard policies
-src/shared/keyboard/            shortcut normalization and event matching
-src/shared/ui/                  reusable modal, tabs, notices, image and visual primitives
-src/widgets/widgetModel.js      generic persisted widget envelope
-src/widgets/widgetRegistry.js   bundled-widget lifecycle and GridItem adapter
-src/widgets/widgetCatalog.js    generic picker for creating bundled widgets
-src/widgets/widgetActions.js    generic widget lifecycle commands
-src/widgets/builtin/index.js    enabled bundled-widget catalog
-src/widgets/builtin/clock/      first bundled visible widget
-src/styles/main.css             single global CSS entry and composition root
-
-```
-
-Feature and shared-component styles are colocated beside the JavaScript that
-owns their DOM. `src/styles/` contains only document-wide foundations; the old
-horizontal `src/css/` directory and the temporary `src/js/` wrapper have been
-retired.
-
-The bookmark panel does not import the store, calculate grid placement or
-perform persistence. Controllers decide what saving means. See
-[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the complete boundary guide or
-the Spanish [project guide](docs/GUIA_DEL_PROYECTO.md) for a detailed walkthrough
-of the runtime, modules and extension points.
-
-## Local and synchronized storage
-
-NewDeskTab starts in **Local** mode. In Google Chrome, **Settings → Sync** offers:
-
-* **Only on this device** — data uses `chrome.storage.local`.
-* **Synchronized** — data uses the browser-managed `chrome.storage.sync` area.
-
-Synchronization is currently enabled only in branded Google Chrome, where it
-follows the Chrome profile / Google Account configuration. Brave and other
-Chromium browsers remain fully usable in Local mode, but the synchronized
-option is disabled because cross-device propagation has not been reliable; see
-[issue #1](https://github.com/Alextc35/newdesktab/issues/1). NewDeskTab does not
-operate an OAuth client, account system or server and cannot access synchronized
-user data.
-
-When Sync is enabled for the first time, local data is uploaded if the profile
-does not already contain NewDeskTab data. Existing synchronized data wins to avoid
-accidental overwrites. Returning to Local mode creates a local copy and leaves
-the synchronized copy untouched.
-
-If an older NewDeskTab installation encounters synchronized data written by a
-newer schema or sync format, startup remains usable: that device automatically
-returns to its compatible Local data, leaves the cloud payload untouched and
-locks the Sync option with an update notice. The lock is device-specific and
-disappears after installing a compatible version (or explicitly deleting the
-synchronized NewDeskTab data).
-
-Chrome's sync quotas are handled by splitting the versioned payload into safe
-chunks. NewDeskTab reports quota/persistence errors and shows the current save
-status in Settings. The Sync panel shows live used, total and available capacity
-for the currently selected mode, reports the latest synchronized update and can
-delete all synchronized NewDeskTab data after confirmation. Deleting sync data first
-keeps the working data locally when necessary. An open NewDeskTab page also shows
-a flash message when its data is updated by another synchronized device; writes
-made on the current device do not trigger that message locally.
-
-In **Settings → Theme**, the image or video URL appears only in Sync mode and
-provides a shared fallback. **My own wallpapers** is a device-only collection of
-URLs and local image or MP4/WebM/Ogg video files. You can reorder them, choose
-a color behind transparent media, preview each one and set a rotation interval
-for this device. The fallback appears only in Sync mode when no personal
-wallpaper is available; it does not join the rotation. The first wallpaper stays
-fixed by default; short rotation presets can be enabled when wanted.
-Previews use the desktop's aspect
-ratio and cover crop. Videos play muted and loop. Local video files can be up
-to 200 MB and are stored separately from Chrome Sync. Existing shared
-wallpaper lists are copied once into each device's personal collection when
-upgrading, then subsequent edits stay independent.
-
-Unavailable local-image references are removed when importing or exporting data.
-Complete backups restore their included images before checking references;
-available files and alternative URLs are retained. On Sync, missing device
-selections are cleared only locally. Personal image wallpapers with neither
-a file nor a URL are removed from this device's collection.
-
-> Cross-device sync requires the same extension ID on every installation. A
-> Chrome Web Store release provides this automatically. Development installs
-> need a stable manifest key or consistent packaging workflow.
-
-## Keyboard and pointer shortcuts
-
-* `E` toggles the main edit mode; inside an open folder it toggles that
-  folder's edit controls and reordering.
-* `B` opens the create-bookmark panel.
-* `F` opens the create-folder dialog.
-* `W` opens the widget catalog.
-* `S` opens Settings.
-* `Ctrl` plus the configured Settings shortcut (`Ctrl + S` by default) opens the current workspace's settings.
-* `/` opens global search.
-* `Middle click` opens that bookmark's editor while editing the grid.
-* `Ctrl + ↑/↓` cycles through workspaces.
-* `Ctrl/Cmd + Z` undoes the latest workspace operation or the pending draft change inside an editor.
-* `Ctrl/Cmd + Shift + Z` redoes it.
-
-Editors also provide small undo/redo arrows beside their title, with a brief
-notification after each action. Their history starts fresh when reopened;
-typing fields keep the browser's native keyboard undo.
-
-The first five shortcuts are configurable under **Settings → Keyboard
-shortcuts**. They are part of the versioned settings payload, so custom values
-are included in complete backups and follow the user between Chrome profiles or
-devices when Sync is enabled.
-
-**Settings → General → Panels** independently controls the left action panel and
-the bottom workspace panel. Hiding either panel keeps its keyboard shortcuts
-available. Keep a Settings shortcut assigned to reopen Settings when the left
-panel is hidden.
-
-Press `Tab` while the page is focused to enter keyboard grid navigation; press
-`Tab` again to leave it. The first visible top-level item receives focus and
-an informational flash confirms both mode changes. `↑/↓/←/→` moves to the
-nearest bookmark, folder or recycle bin in that direction while keeping the
-remembered row or column used to enter resized cards. Horizontal arrows keep
-the closest item on that row; with at most one empty cell, a diagonal candidate
-is ignored, while two or more empty cells allow the nearest diagonal route.
-Vertical arrows stay in the remembered column and do nothing when that lane is
-empty. While this navigation is active, `Enter` opens the focused bookmark,
-folder or recycle bin outside edit mode. In edit mode, `Enter` opens the
-focused bookmark, folder or recycle bin editor when there is
-no selection or when that item is the sole selected item; `S` toggles the
-focused bookmark or folder's selection.
-Opening a folder, an editor or the recycle bin keeps Tab navigation active and
-returns focus to the same card when the modal closes; only opening a bookmark
-URL leaves the page and ends the mode.
-The recycle bin is excluded from `S` selection.
-When reversing the last arrow movement, navigation returns to the item from
-which that movement started before looking for another candidate.
-
-Outside keyboard grid navigation, `↑/↓/←/→` moves exactly one selected
-top-level bookmark while editing. A bookmark that is already selected remains
-stationary while `Tab` navigation is active and becomes movable again after
-leaving that mode. Arrow movement follows the configured drag behavior. In None mode it skips
-occupied cells until the next free rectangle. Relocation and Sequence exchange
-bookmarks one step at a time and jump over the complete rectangle of a folder
-without moving it. Arrow shortcuts are ignored with zero or multiple
-selections, while typing, and while a modal is open.
-
-Selection uses a short primary click. Holding the primary button starts a drag
-and therefore does not alter selection.
-
-Workspaces maintain independent layouts. Folders cannot cross or nest between
-workspaces. Search covers every workspace and includes the containing folder in
-each result; moving selected bookmarks finds free target cells before making
-changes.
-
-## Development and tests
-
-Install exact development dependencies and run the standard quality gate:
-
-```sh
-npm ci
-npm run check
-```
-
-Run browser journeys:
-
-```sh
-npx playwright install chromium
-npm run test:e2e
-```
-
-The unpacked-extension smoke test uses Playwright Chromium and a fresh temporary
-profile. It checks new-tab replacement, popup persistence and reload:
-
-```sh
-npm run test:extension
-```
-
-You can override the browser executable or test an extracted release ZIP:
-
-```sh
-NEWDESKTAB_BROWSER_PATH="/path/to/browser" npm run test:extension
-NEWDESKTAB_EXTENSION_PATH="/path/to/extracted-release" npm run test:extension
-```
-
-For installed Google Chrome 137 or newer, set `NEWDESKTAB_EXTENSION_CDP=1`
-alongside `NEWDESKTAB_BROWSER_PATH`. The smoke test then loads the unpacked
-extension through DevTools in its fresh temporary profile. Chromium, Chrome for
-Testing and Brave use the default extension loading path.
-
-Create the Store ZIP with `npm run package:store` (Python 3 required). It includes
-runtime code, locales, icons and license, and excludes development dependencies,
-tests and demo media.
-
-Generate the Chrome Web Store screenshots and small promotional tile
-with `npm run assets:store`. The versioned files are written to `assets/store/`.
-The screenshots cover the workspace, custom folder images, Settings and
-Information. Add `-- --screens-only` to keep the existing brand icons, or
-`-- --main-only` to refresh just the workspace overview.
-The public [privacy policy](PRIVACY.md) is included in the release ZIP and can be
-used as the policy URL from the repository's public GitHub page.
-See the complete [Chrome Web Store submission guide](docs/CHROME_WEB_STORE.md)
-for listing copy, privacy answers and the release checklist.
-
-Pull requests run lint, Node/Vitest tests and Playwright journeys through GitHub
-Actions. Read [CONTRIBUTING.md](CONTRIBUTING.md) before structural changes.
-
-## Languages
-
-The interface ships with 52 offline locales in `src/lang/`, including English
-(`en`), Spanish from Spain (`es`), Latin American Spanish (`es_419`) and Brazilian
-Portuguese (`pt_BR`). The language picker supports native names and search.
-
-## Roadmap
-
-* Revision and conflict recovery for simultaneous edits across devices
-* Shareable preset packs
-* More import sources
-* Chrome Web Store release and feedback-driven improvements
-
-## Privacy
-
-See the complete [NewDeskTab Privacy Policy](PRIVACY.md).
-
-* No tracking or analytics
-* No NewDeskTab-operated backend
-* Local mode saves workspace data inside the browser profile
-* Sync mode delegates storage and transport to the browser
-* The developer cannot access synchronized data
-* Displayed favicons request site origins from Google's favicon service and retry parent domains when an icon is missing
-* Remote images load from their hosts, including the initial example image
-* Uploaded images and videos stay on your device. Complete backups include
-  referenced local media and their filenames so another profile can restore them.
-  Backups containing local videos use ZIP; other backups use JSON. Older JSON
-  backups with embedded videos remain supported.
-
-Changes from tabs on the same device are combined before saving. This does not
-provide a distributed lock or guaranteed conflict recovery across devices.
-
-## License
-
-NewDeskTab is released under the [MIT License](LICENSE).
+2. Open a terminal in the repository folder and generate the extension ZIP:
+
+   ```sh
+   npm run package:store
+   ```
+
+   If your system uses `python` instead of `python3`, run
+   `python scripts/package-extension.py` instead. Installing development
+   dependencies with `npm ci` is not required for packaging.
+
+3. Extract the generated `dist/newdesktab-<version>.zip` into a folder you will
+   keep on your computer.
+4. Open `chrome://extensions` in Chrome or `brave://extensions` in Brave.
+5. Turn on **Developer mode**, choose **Load unpacked**, and select the
+   **extracted folder containing `manifest.json`**.
+6. Open a new tab. Follow the welcome guide, or press **B** to add your first bookmark.
+
+**A few useful defaults:** `E` to edit · `B` to add a bookmark · `S` for settings ·
+`/` to search · `Ctrl + ↑ / ↓` to switch workspaces.
+The [user guide](docs/guide/USER_GUIDE.md) covers customization, shortcuts and backups.
+
+## Your data, your choice
+
+New DeskTab starts in **Local mode**, saving your workspace in your browser profile.
+It has no New DeskTab account, developer-operated backend or analytics.
+
+Optional **Chrome Sync** can share bookmark data and settings through your Google
+Chrome profile. Brave uses Local mode. Uploaded images and videos stay on the
+device; complete backups can carry referenced local media to another profile.
+
+Website icons are requested from Google's favicon service, and remote images or
+videos load from their hosts. Read the [privacy policy](PRIVACY.md) for the full
+details on storage, network requests and exports.
+
+## Explore the project
+
+| I want to… | Start here |
+| :--- | :--- |
+| Learn the controls and organize my space | [User guide](docs/guide/USER_GUIDE.md) |
+| Find technical documentation | [Documentation index](docs/README.md) |
+| Run checks or work on the extension | [Development guide](docs/development/DEVELOPMENT.md) · [Contributing](CONTRIBUTING.md) |
+| See what changed | [Changelog](CHANGELOG.md) |
+| Report a problem or suggest an idea | [GitHub issues](https://github.com/Alextc35/newdesktab/issues) |
+
+<p align="center">
+  Made by <a href="https://github.com/Alextc35">Alextc35</a> &nbsp;·&nbsp;
+  Open source under the <a href="LICENSE">MIT License</a>
+</p>

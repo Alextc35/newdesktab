@@ -1,5 +1,7 @@
 # Chrome Web Store submission
 
+[Documentation index](../README.md) · [Development](../development/DEVELOPMENT.md) · [Release review](RELEASE_REVIEW.md)
+
 This file is the source of truth for the NewDeskTab listing and privacy answers.
 Review it against the release ZIP before every submission.
 
@@ -44,8 +46,9 @@ See [RELEASE_NOTES.md](RELEASE_NOTES.md) when preparing the notes for a new vers
 > with local suggestions for common uses. Reuse them in presets and your default bookmark style.
 >
 > Data is stored locally by default. Optional Chrome Sync uses browser-managed
-> storage so compatible Chrome profiles can share bookmark data and settings.
-> Images uploaded from your device remain local to that browser profile. Complete
+> storage so Google Chrome profiles can share bookmark data and settings. Brave
+> uses Local mode. Images and videos uploaded from your device remain local to
+> that browser profile. Complete
 > backups you explicitly export include optimized copies of referenced local images
 > and the referenced local video files.
 >
@@ -86,8 +89,8 @@ See [RELEASE_NOTES.md](RELEASE_NOTES.md) when preparing the notes for a new vers
 ### Remote code
 
 Select **No**. All executable JavaScript and CSS ships inside the extension ZIP.
-Remote favicon and background-image responses are displayed as images and are
-not executed as code.
+Remote favicons and background images or videos are displayed as media and are
+not executed as extension code.
 
 ### Data handling checklist
 
@@ -97,7 +100,9 @@ not executed as code.
   profile. Complete backups explicitly exported by the user include referenced files.
 - When a favicon is shown, the bookmark origin may be requested from Google's
   `t3.gstatic.com` favicon service as documented in the privacy policy.
-- User-configured remote images are requested directly from their image hosts.
+- User-configured remote images and videos are requested directly from their hosts.
+- Personal wallpaper URLs, ordering and rotation timing stay on this device;
+  the separate fallback wallpaper URL can be shared through Chrome Sync.
 - NewDeskTab does not read general browsing history, website page contents,
   passwords, authentication data, personal communications or location.
 - NewDeskTab has no developer-operated data collection, analytics or advertising.

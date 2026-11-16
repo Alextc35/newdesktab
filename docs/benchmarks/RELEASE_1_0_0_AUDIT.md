@@ -1,66 +1,69 @@
-# Informe final de auditoría — New DeskTab 1.0.0
+# Historical release audit — New DeskTab 1.0.0
 
-Finalizada el 14 de octubre de 2026 en Windows.
+[Documentation index](../README.md) · [Audit procedure](ACTION_AUDIT.md) · [Release review](../releases/RELEASE_REVIEW.md)
 
-La validación automatizada termina en verde: **283 unitarios, 76 tests de DOM y
-338 E2E**, con lint correcto. La suite completa se ejecutó con un worker, sin
-reintentos ni casos omitidos. El ZIP se verificó byte a byte y se probó como
-extensión real en Chromium, Google Chrome y Brave, con perfiles nuevos.
+This report records the audit completed on **14 October 2026 on Windows**.
+Its counts, package identity and measurements describe that snapshot, not the
+current checkout. The committed
+[structured results](RELEASE_1_0_0_RESULTS.json) preserve the summary evidence.
 
-## Rendimiento medido y mejoras
+The recorded automated validation passed: **283 unit tests, 76 DOM tests and
+338 E2E tests**, with lint passing. The complete suite used one worker without
+retries or skipped cases. The ZIP was checked byte for byte and smoke-tested as
+an installed extension in Chromium, Google Chrome and Brave with fresh profiles.
 
-La apertura de la papelera era el cuello de botella principal. Cada fila hacía
-una copia de toda la biblioteca para consultar la retención y creaba otro
-formateador de fecha. Ahora se lee una sola instantánea para construir la lista,
-se comparte la retención entre sus filas y se reutiliza el formateador por idioma.
-El recorrido de apertura hace dos copias aisladas en total — comprobación de
-caducidad y render — en lugar de una por fila.
+## Measured performance and changes
 
-Con 1.200 favoritos más 18 dentro de una carpeta y 60 elementos en papelera,
-la mediana de apertura pasa de **987.45 a 49.60 ms (95.0% menos)**
-con CPU limitada a 4×. Las carpetas y la papelera conservan sus nodos, selección
-y foco ante cambios de UI que no afectan a sus datos. Las pruebas comprueban
-este comportamiento y evitan que vuelva la copia por fila.
+Opening the recycle bin was the main bottleneck. Each row copied the entire
+library to read retention settings and created another date formatter. The
+change used a single snapshot to build the list, shared retention across rows
+and reused a formatter per language. Opening the bin made two isolated copies
+in total—expiration checking and rendering—instead of one per row.
 
-### Benchmark controlado
+With 1,200 bookmarks, 18 additional bookmarks in a folder and 60 recycle-bin
+entries, median opening time fell from **987.45 to 49.60 ms (95.0% lower)**
+under 4× CPU throttling. Folder and recycle-bin views retained their nodes,
+selection and focus after UI changes unrelated to their data. Regression tests
+checked that behavior and the removal of per-row state copies.
 
-Chromium 151.0.7922.34, Windows, 1440 × 900, medios externos bloqueados,
-Debug activo, dos calentamientos y seis muestras por interacción. Ambos perfiles
-tienen 60 favoritos visibles, una carpeta con 18 favoritos y una papelera con
-60 elementos; la biblioteca base tiene 60 o 1.200 favoritos.
+### Controlled benchmark
 
-Medianas de **JavaScript síncrono**, en milisegundos. La respuesta hasta dos
-cuadros está separada en los JSON del benchmark; no es el tiempo de propagación
-de Sync ni la duración de una descarga.
+Chromium 151.0.7922.34 on Windows, 1440 × 900 viewport, external media blocked,
+Debug enabled, two warm-up runs and six samples per interaction. Both profiles
+had 60 visible bookmarks, a folder with 18 bookmarks and 60 recycle-bin entries;
+the base library had 60 or 1,200 bookmarks.
 
-| Acción | Biblioteca 60, CPU 4× | Biblioteca 1.200, CPU 4× | Biblioteca 1.200, CPU normal |
+Values are medians of **synchronous JavaScript work**, in milliseconds. Time
+through two animation frames is recorded separately in the benchmark JSON;
+these values do not measure Sync propagation or download duration.
+
+| Action | Library 60, CPU 4× | Library 1,200, CPU 4× | Library 1,200, normal CPU |
 | --- | ---: | ---: | ---: |
-| Abrir ajustes | 10.80 | 10.65 | 1.55 |
-| Abrir editor de favorito | 32.35 | 45.30 | 7.35 |
-| Editar nombre | 9.75 | 5.95 | 1.40 |
-| Reconstruir grilla | 27.55 | 42.00 | 7.05 |
-| Redimensionar grilla | 4.30 | 19.10 | 3.10 |
-| Abrir carpeta con 18 favoritos | 67.25 | 97.85 | 17.70 |
-| Abrir editor de carpeta | 15.30 | 31.00 | 7.45 |
-| Abrir papelera con 60 elementos | 27.85 | 49.60 | 10.30 |
-| Abrir editor de papelera | 13.90 | 28.50 | 5.35 |
-| Abrir búsqueda | 7.25 | 17.20 | 4.15 |
-| Filtrar búsqueda | 4.15 | 17.60 | 2.85 |
-| Abrir catálogo de widgets | 3.10 | 3.05 | 0.60 |
-| Abrir creación del reloj | 4.25 | 4.30 | 0.85 |
+| Open settings | 10.80 | 10.65 | 1.55 |
+| Open bookmark editor | 32.35 | 45.30 | 7.35 |
+| Edit name | 9.75 | 5.95 | 1.40 |
+| Rebuild grid | 27.55 | 42.00 | 7.05 |
+| Resize grid | 4.30 | 19.10 | 3.10 |
+| Open folder with 18 bookmarks | 67.25 | 97.85 | 17.70 |
+| Open folder editor | 15.30 | 31.00 | 7.45 |
+| Open recycle bin with 60 entries | 27.85 | 49.60 | 10.30 |
+| Open recycle-bin editor | 13.90 | 28.50 | 5.35 |
+| Open search | 7.25 | 17.20 | 4.15 |
+| Filter search | 4.15 | 17.60 | 2.85 |
+| Open widget catalog | 3.10 | 3.05 | 0.60 |
+| Open clock creation | 4.25 | 4.30 | 0.85 |
 
-Solo se atribuye una mejora porcentual al cuello de botella corregido. Las
-variaciones pequeñas del resto de acciones no se presentan como optimizaciones.
+Only the corrected bottleneck is assigned an improvement percentage. Small
+variations in other actions are not presented as optimizations.
 
-### Tiempos durante todos los recorridos E2E
+### Timings across the complete E2E journeys
 
-Se recogieron **2707 registros de Debug**, agrupados en
-70 operaciones/contextos, y **8051 respuestas visuales**
-de 614 controles/tipos de evento. Los comandos de
-persistencia incluyen preparación, cola, escritura y notificación; la preparación
-genérica de un modal se mide separadamente del editor completo.
+The audit collected **2,707 Debug records**, grouped into 70 operations/contexts,
+and **8,051 visual responses** across 614 controls/event types. Persisted commands
+include preparation, queue wait, writing and notification; generic modal
+preparation is measured separately from the complete editor.
 
-| Operación | Muestras correctas | Mediana ms | P95 ms |
+| Operation | Successful samples | Median ms | P95 ms |
 | --- | ---: | ---: | ---: |
 | Create bookmark | 67 | 12 | 30.1 |
 | Create folder | 77 | 12.7 | 24.5 |
@@ -75,74 +78,67 @@ genérica de un modal se mide separadamente del editor completo.
 | Search bookmarks | 4 | 0.2 | 0.4 |
 | Switch workspace | 6 | 4.05 | 5.8 |
 
-Los E2E usan diferentes bibliotecas e incluyen fallos, retardos y relojes simulados.
-Estos percentiles describen los recorridos de prueba. La comparación de velocidad
-se apoya en el benchmark controlado. Los registros de error de Debug aparecen
-en pruebas que comprueban fallos y recuperación, y se cuentan separadamente del
-resultado E2E.
+The E2E journeys use different libraries and include simulated failures, delays
+and clocks. Their percentiles describe those test journeys; performance
+comparisons rely on the controlled benchmark. Debug error records from failure
+and recovery tests are counted separately from E2E results.
 
-### Backups: duración asíncrona completa
+### Backups: complete asynchronous duration
 
-Se ejecutaron las acciones reales de exportación e importación con un perfil
-persistente de Chromium nuevo para cada tamaño, a velocidad normal de CPU.
-Los vídeos tienen bytes sintéticos con MIME WebM. La restauración verifica el
-tamaño de cada archivo, sus bytes iniciales/finales y la disponibilidad de su
-URL local en IndexedDB. Se mide la generación del Blob y la restauración; la
-descarga a disco y la reproducción del vídeo quedan fuera.
+The real export/import actions ran at normal CPU speed in a fresh persistent
+Chromium profile for each size. Video files contained synthetic bytes with a
+WebM MIME type. Restoration checked each file's size, boundary bytes and local
+URL availability in IndexedDB. Timings cover download Blob generation and
+restoration, excluding disk download and video playback.
 
-Una ejecución por escenario; no son medianas ni límites garantizados.
+There was one run per scenario; these are not medians or guaranteed limits.
 
-| Vídeos | Exportación ms | Importación ms | ZIP MiB |
+| Videos | Export ms | Import ms | ZIP MiB |
 | --- | ---: | ---: | ---: |
 | 1 × 10 MiB | 69.60 | 72.40 | 10.00 |
 | 1 × 50 MiB | 250.10 | 263.60 | 50.00 |
 | 1 × 200 MiB | 804.90 | 1064.40 | 200.00 |
 | 2 × 200 MiB | 1538.50 | 2946.80 | 400.00 |
 
-## Cobertura y limpieza
+## Coverage and cleanup at the audit date
 
-- **199 módulos JS y 47 hojas CSS** conectados a sus
-  entradas. No se detectan módulos huérfanos ni clases o exportaciones pendientes
-  de justificación en el análisis estático.
-- Se eliminaron **12 funciones o constantes antiguas**. Duplicar, mover y eliminar
-  se prueban ahora mediante las acciones que utiliza la interfaz, compartidas por
-  favoritos, carpetas y widgets.
-- Las ocho clases CSS generadas dinámicamente tienen referencias verificadas.
-  Se retiraron las reglas, controles y traducciones que ocultaban la silueta de
-  las carpetas, comportamiento que ya no se ofrece.
-- Se conservaron el registro público de widgets y el exportador compatible con
-  backups JSON de vídeos antiguos, con sus pruebas. La cobertura no se utiliza
-  por sí sola para borrar APIs, rutas de error o reglas de accesibilidad.
-- En las páginas principales de los E2E se observaron
-  **82.42% de funciones V8** y
-  **90.64% del texto CSS cubierto**.
-  No son porcentajes de líneas o ramas ni una garantía sobre estados no recorridos.
-  Al excluir las dependencias vendorizadas, el porcentaje de funciones V8
-  observadas es **90.84%**
-  en los módulos propios cargados por esas páginas. Gran parte de las funciones
-  restantes del total pertenece a opciones de la librería ZIP; no se borran por
-  no aparecer en un recorrido.
-- La ejecución adicional de cobertura unitaria registra, en los
-  **77 módulos de fuente cargados por Node**, un
-  **91.45% de líneas**, un
-  **76.39% de ramas** y un
-  **74.54% de funciones**. Esta métrica excluye
-  DOM/E2E y módulos no cargados; no se suma a la cobertura de Chromium ni se
-  presenta como cobertura completa de la aplicación.
-- `npm audit`: **cero vulnerabilidades conocidas** en dependencias de producción
-  y desarrollo.
+- **199 JavaScript modules and 47 stylesheets** were connected to their entries.
+  The static analysis found no orphan modules or classes/exports awaiting
+  justification in that snapshot.
+- **12 older functions or constants** were removed. Duplication, movement and
+  deletion were tested through the same actions used by the interface and
+  shared by bookmarks, folders and widgets.
+- Eight dynamically generated CSS classes had reviewed references. Rules,
+  controls and translations for hiding the folder silhouette were removed
+  because that behavior was no longer offered.
+- The public widget registry API and compatible legacy JSON video-backup
+  exporter were retained with their tests. Coverage alone was not used to
+  remove APIs, error paths or accessibility rules.
+- Primary E2E pages exercised **82.42% of observed V8 functions** and
+  **90.64% of CSS source text**. These are not line or branch percentages,
+  or guarantees about unvisited states. Excluding vendored dependencies,
+  exercised V8 functions reached **90.84%** in application modules loaded by
+  those pages. Much of the remaining total belonged to ZIP-library options;
+  absence from a journey was not grounds for removal.
+- A separate unit-coverage run reported **91.45% of lines**, **76.39% of branches**
+  and **74.54% of functions** across the **77 source modules loaded by Node**.
+  It excluded DOM/E2E execution and unloaded modules. It is not combined with
+  Chromium coverage or presented as whole-application coverage.
+- The recorded `npm audit` result contained **zero known vulnerabilities** in
+  production and development dependencies. This is a dated result; rerun the
+  audit to assess current dependency advisories.
 
-Se revisaron crear/editar, presets, imágenes locales y remotas, color e inversión,
-historial, selección simple y múltiple, arrastre y resize con todos sus modos,
-tiradores y zonas de papelera, carpetas y su contenido, restauración y eliminación,
-espacios de trabajo, reloj, búsquedas, ajustes, idiomas, atajos, Sync y errores,
-backups JSON/ZIP, popup, concurrencia, guía, manual y consejos diarios.
+The audit covered creation/editing, presets, local and remote images, color and
+inversion, history, single/multiple selection, all drag and resize modes, handles
+and recycle-bin drop targets, folders and contents, restoration/deletion,
+workspaces, clock, search, settings, languages, shortcuts, Sync failures,
+JSON/ZIP backups, popup, concurrency, welcome guide, manual and daily tips.
 
-### Inventario E2E
+### Historical E2E inventory
 
-La suite completa incluye los tres nuevos recorridos de capacidad.
+The complete suite included three capacity journeys added for this audit.
 
-| Archivo de recorridos | Casos correctos |
+| Journey file | Passed cases |
 | --- | ---: |
 | backupMedia.spec.js | 10 |
 | behaviorPreviews.spec.js | 8 |
@@ -180,78 +176,82 @@ La suite completa incluye los tres nuevos recorridos de capacidad.
 | themeWallpapers.spec.js | 13 |
 | uiPerformance.spec.js | 4 |
 
-## Correcciones de interfaz verificadas y commits separados
+## Verified interface fixes and separate commits
 
-- `769b828` — SVGs de la lista y miniaturas conservan el color guardado.
-- `1f38afb` — color independiente del SVG, debajo del selector; oculto para el
-  logo oficial. Se conserva al alternar iconos, admite deshacer/rehacer y se guarda.
-- `48350fd` — silueta de carpeta siempre visible; «Ninguno» vacía el símbolo
-  interior. Los controles de inversión se ocultan cuando no tienen contenido.
-- `61f94fd` — consejos diarios requieren Guardar; Cancelar descarta el cambio.
-  Un fallo de escritura conserva el borrador y permite reintentar.
+- `769b828`: list SVGs and thumbnails retained the saved color.
+- `1f38afb`: independent SVG color below the selector, hidden for the official
+  logo; preserved while switching icons, included in undo/redo and saved.
+- `48350fd`: folder silhouette always visible; “None” cleared the inner symbol.
+  Inversion controls were hidden when they had no applicable content.
+- `61f94fd`: daily-tip changes required Save; Cancel discarded the change.
+  A write failure retained the draft and allowed retry.
 
-La suite detectó una interrupción del foco al finalizar la animación del selector
-de iconos. Se corrigió para respetar una elección de teclado o un foco posterior,
-con una prueba que controla la animación y reproduce esa condición.
+The suite found a focus interruption when the icon picker's animation ended.
+The fix respected a keyboard selection or subsequently moved focus, with a
+regression controlling the animation and reproducing that condition.
 
-También se corrigió un desplazamiento horizontal de 2,27 px en carpetas sin
-nombre dentro de celdas estrechas: los márgenes automáticos impedían centrar
-el SVG cuando superaba el ancho interior. La prueba espera la nueva anchura
-de la celda y comprueba un desfase menor de 0,5 px en tarjetas y previews.
+Another fix corrected a 2.27 px horizontal offset in unnamed folders inside
+narrow cells: automatic margins prevented centering when the SVG exceeded the
+inner width. The test waited for the new cell width and checked an offset below
+0.5 px in cards and previews.
 
-La revisión de cobertura añadió dos recorridos para el botón real de borrar
-todos los datos en Ajustes. Comprueban cancelar sin cambios, confirmar el borrado
-de favoritos, carpetas, widgets, papelera y archivos locales, persistencia tras
-recarga, conservación de los datos remotos y reintento tras un fallo de escritura.
+Coverage review added two journeys for the actual Delete all local data button
+in Settings. They checked cancellation without changes, confirmed removal of
+bookmarks, folders, widgets, trash and local files, persistence after reload,
+preservation of remote data, and retry after a write failure.
 
-### Límites de espacio y avisos
+### Capacity limits and notices
 
-- La grilla tiene 12 × 6 celdas. En una grilla completamente ocupada se
-  probaron arrastres hacia los cuatro límites exteriores e intentos de ampliar
-  el item de la última celda: posiciones y tamaños guardados permanecen dentro
-  de los límites. Restaurar sin hueco conserva el item en papelera y avisa.
-- Una carpeta con 17 favoritos acepta el número 18 con su flash de éxito.
-  El intento de añadir el número 19 muestra «This folder already has 18 bookmarks»
-  y conserva el favorito en su posición; la carpeta mantiene 18 tras recargar.
-  Los backups antiguos con desbordamiento conservan su contenido accesible;
-  no se elimina contenido previo para imponer el límite de nuevas altas.
-- La papelera no tiene límite de 18 ni de 72 entradas. Se comprobó una lista
-  inicial de 250 entradas que recibe otro favorito y una carpeta con sus 18
-  favoritos: conserva 252 entradas, el contenido de la carpeta y los flashes
-  de éxito, tras recarga. Los fallos de persistencia tienen aviso flash y
-  reintento; no se presentan como una eliminación completada.
+- The tested grid had 12 × 6 cells. A fully occupied grid was tested with drags
+  toward all four outer boundaries and attempts to enlarge the last-cell item.
+  Saved positions and sizes remained within bounds. Restoration without free
+  space kept the item in the recycle bin and displayed a notice.
+- A folder with 17 bookmarks accepted its eighteenth with a success message.
+  Adding a nineteenth showed “This folder already has 18 bookmarks” and kept
+  the bookmark at its previous position; the folder retained 18 after reload.
+  Older backups with overflowing folders kept their existing content
+  accessible; the new-item limit did not delete existing entries.
+- The recycle bin had no limit of 18 or 72 entries. A list starting with
+  250 entries received another bookmark and a folder containing 18 bookmarks.
+  After reload, it retained 252 entries, the folder contents and success
+  feedback. Persistence failures displayed a flash and retry option rather
+  than being reported as completed deletion.
 
-El caso de restauración con grilla llena descubrió y corrigió un falso error
-de persistencia: una operación sin cambios sobre datos ya cargados no necesita
-una escritura. El comando puede aceptar el estado `idle` después de hidratar;
-los guardados normales siguen exigiendo `saved`, y los errores siguen rechazándose
-incluso cuando se permite un comando sin cambios. Lo comprueban una regresión
-unitaria, la prueba de grilla llena y los recorridos de fallos/reintentos.
+The full-grid restoration case uncovered a false persistence error: an unchanged
+operation on already loaded data needs no write. The command could accept
+`idle` after hydration; normal saves still required `saved`, and errors were
+still rejected even when an unchanged command was allowed. A unit regression,
+the full-grid test and failure/retry journeys checked this behavior.
 
-## Artefacto validado
+## Package validated at the audit date
 
-- Archivo: `dist/newdesktab-1.0.0.zip`.
-- Contenido: **291 archivos**, **2,514,068 bytes**.
+- File: `dist/newdesktab-1.0.0.zip`.
+- Contents: **291 files**, **2,514,068 bytes**.
 - SHA-256: `e9172d4298365fbbaced16fbaebad1bbdd20c0c9420e6aeafbfe63f43b49a995`.
-- La extracción se comprobó contra los archivos actuales del proyecto.
-- Smoke real: nueva pestaña, guardado en popup, recarga, atajos y backup ZIP
-  con vídeo en los tres navegadores. Chrome instalado: 155.0.8059.40;
-  Brave instalado: 155.1.97.56.
+- Extraction matched the source snapshot used by that audit.
+- Installed-extension smoke checks covered new-tab replacement, popup saving,
+  reload, shortcuts and a video ZIP backup in all three browsers.
+  Installed Google Chrome: 155.0.8059.40; installed Brave: 155.1.97.56.
 
-## Evidencia y alcance
+This package identity is historical. Rebuilding the same extension version after
+source changes can produce a different file count, size or hash.
 
-Los resultados completos están en `dist/release-audit/`: `final-check.log`,
-`final-unit-coverage.log`, `final-unit-coverage.lcov`, `final-capacity.log`,
-`final-e2e.log`, `final-actions-summary.json`, `final-actions-summary.md`,
+## Evidence and scope
+
+The original local evidence was written under the ignored `dist/release-audit/`
+directory: `final-check.log`, `final-unit-coverage.log`,
+`final-unit-coverage.lcov`, `final-capacity.log`, `final-e2e.log`,
+`final-actions-summary.json`, `final-actions-summary.md`,
 `final-actions-summary-ui-responses.csv`, `final-cleanup-source-after.json`,
 `final-ui-before.json`, `final-ui-final.json`, `final-ui-normal.json`,
 `final-backup-performance.json`, `final-backup-multiple.json`,
-`final-npm-audit.json`, `final-package.json` y `final-extension-*.log`.
-Los registros de la suite completa están en `final-actions-v7/`. La evidencia resumida
-también se conserva en [RELEASE_1_0_0_RESULTS.json](RELEASE_1_0_0_RESULTS.json).
+`final-npm-audit.json`, `final-package.json` and `final-extension-*.log`.
+The complete suite's audit records were in `final-actions-v7/`. These ignored
+files are not distributed with a fresh checkout. The committed summary is
+[RELEASE_1_0_0_RESULTS.json](RELEASE_1_0_0_RESULTS.json).
 
-El procedimiento para repetirlo está en [ACTION_AUDIT.md](ACTION_AUDIT.md).
-Las pruebas son de Windows/Chromium y navegadores instalados con perfiles
-aislados. No se ha medido un Mac físico ni la propagación real de Sync entre
-dispositivos. Una release con pruebas verdes no equivale a una garantía de
-ausencia de errores en cualquier combinación de equipo, datos y red.
+Follow [ACTION_AUDIT.md](ACTION_AUDIT.md) to collect new evidence. These results
+used Windows/Chromium and installed browsers with isolated profiles. They did
+not measure physical Mac hardware or real cross-device Sync propagation. A
+passing release suite is not a guarantee of correct behavior across every
+combination of hardware, data and network.

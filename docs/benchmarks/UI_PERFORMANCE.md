@@ -1,7 +1,11 @@
 # UI performance — release 1.0.0
 
-Measured on 13 October 2026, comparing commit `5e5e134` with the optimizations
-subsequently committed as `9ef0dcc` for the 1.0.0 release.
+[Documentation index](../README.md) · [Development](../development/DEVELOPMENT.md) · [Action audit](ACTION_AUDIT.md)
+
+This historical report records measurements from 13 October 2026, comparing
+commit `5e5e134` with the optimizations subsequently committed as `9ef0dcc`
+for the 1.0.0 release. It describes that comparison rather than the current
+checkout's performance or validation status.
 
 ## Method
 
@@ -25,12 +29,18 @@ For settings, the median time through two frames decreased from 219.05 to
 from 113.0 to 50.8 ms; this is an individual diagnostic sample, not a median or
 an end-to-end drag benchmark. Results vary by hardware and browser.
 
-Raw measurements are saved in the ignored `dist/release-audit/` directory:
+The raw measurements were saved in the ignored `dist/release-audit/` directory:
 `ui-performance-before.json`, `ui-performance-after.json` and
 `ui-performance-final.json`. The last sample preceded the additional removal of
 full-state copies from folder/bin previews and unnecessary workspace-menu
 rebuilds. Those changes are verified functionally rather than assigned another
 speedup percentage.
+
+These ignored files are not included in a fresh checkout, so the exact original
+samples behind this table cannot be independently checked from the versioned
+files alone. Use the procedure below to collect new results. The later
+[14 October audit](RELEASE_1_0_0_AUDIT.md) has a committed structured summary
+for its separate measurements.
 
 ## Changes
 
@@ -42,7 +52,7 @@ speedup percentage.
 - Load the icon palette when it is opened. Cache normalized search terms and
   SVG templates, keeping independent SVG nodes and the existing artwork-centering
   calculation. Selection, recommendations and labels update when needed.
-- Read storage quotas and Sync metadata when the Storage tab is visible,
+- Read storage quotas and Sync metadata when the Sync section is visible,
   including keyboard activation and restored settings dialogs. Closed settings
   no longer calculate full-library breakdowns after every save.
 - Use the store's current read-only bookmark references and trash count for
@@ -52,7 +62,7 @@ speedup percentage.
   editor and preparing a grid drag. Runtime persistence and its error handling
   remain in place.
 
-## Reproduce and check the Mac
+## Repeat the benchmark and check other hardware
 
 ```sh
 npm run benchmark:ui -- dist/ui-performance.json
@@ -62,23 +72,25 @@ The benchmark starts its own loopback server and isolated browser profiles.
 It does not read or change a personal browser profile. CPU throttling defaults
 to 4×; set `NEWDESKTAB_BENCHMARK_CPU=1` for normal CPU speed.
 
-These measurements are not from the user's Mac. For that device, open DevTools
-in an updated New DeskTab tab, run `NewDeskTabDebug.toggle()`, reproduce opening
+These Windows measurements do not establish performance on other hardware.
+On the target device, open DevTools in an updated New DeskTab tab, run
+`NewDeskTabDebug.toggle()`, reproduce opening
 settings, editing and dragging, then inspect `NewDeskTabDebug.history()` and
 `await NewDeskTabDebug.report()`. The history is limited to 100 operations and
 includes preparation, persistence and grid-render timings. Disable debug after
 capturing the comparison to measure everyday operation without live logging.
 
-## Validation of the performance change
+## Recorded validation of the performance change
 
-- ESLint, 278 unit tests and 72 DOM tests pass.
-- All 303 E2E scenarios pass in the complete suite, without retries or skips.
-- The benchmark CLI completes both datasets at normal CPU speed without page
+- ESLint, 278 unit tests and 72 DOM tests passed.
+- All 303 E2E scenarios passed in the complete suite, without retries or skips.
+- The benchmark CLI completed both datasets at normal CPU speed without page
   errors. The throttled comparison above remains the before/after evidence.
-- The 1.0.0 ZIP is checked against every runtime source file and passes the
+- The 1.0.0 ZIP was checked against every runtime source file and passed the
   installed-extension smoke test in Chromium, Google Chrome and Brave.
-- Dependency audit reports zero vulnerabilities.
+- The dependency audit reported zero known vulnerabilities at that date.
 
 These checks preceded commit `9ef0dcc`. Subsequent UI changes have separate
-validation reports in `dist/release-audit/`; the measurements above remain the
-historical performance comparison.
+validation reports; the measurements above remain the historical performance
+comparison. Rerun the current quality gate and dependency audit before relying
+on present-day test status or vulnerability information.
