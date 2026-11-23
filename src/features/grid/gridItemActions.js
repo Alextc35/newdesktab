@@ -4,6 +4,7 @@ import {
   normalizeBookmark
 } from '../../domain/bookmarks/bookmarkModel.js';
 import { DEFAULT_FOLDER_STYLE } from '../../domain/folders/folderDefaults.js';
+import { getFolderRoots, getFolderTreeIds } from '../../domain/folders/folderTree.js';
 import { resolveWorkspaceId } from '../../domain/workspaces/workspaceModel.js';
 import { findFirstFreeSlot } from '../../shared/grid/gridPlacement.js';
 import { clearBookmarkHistory, getState, setState } from '../../state/appStore.js';
@@ -103,22 +104,23 @@ export function duplicateGridItems(selectedItems, {
 } = {}) {
   const { bookmarkIds, folderIds } = selectedSets(selectedItems);
   const { data } = getState();
+  const foldersById = new Map(data.folders.map(folder => [folder.id, folder]));
+  const selectedTreeIds = getFolderTreeIds(data.folders, folderIds);
   const selectedFolderChildIds = new Set(data.bookmarks
-    .filter(bookmark => folderIds.has(bookmark.folderId))
+    .filter(bookmark => selectedTreeIds.has(bookmark.folderId))
     .map(bookmark => bookmark.id));
   const sources = [
     ...data.bookmarks
       .filter(bookmark => bookmarkIds.has(bookmark.id) && !selectedFolderChildIds.has(bookmark.id))
       .map(item => ({ kind: 'bookmark', item })),
-    ...data.folders
-      .filter(folder => folderIds.has(folder.id))
+    ...getFolderRoots(data.folders, folderIds)
       .map(item => ({ kind: 'folder', item }))
   ].sort(compareGridSources);
   if (!sources.length) return { duplicates: [], skipped: 0 };
 
   const occupied = [
     ...data.bookmarks.filter(bookmark => !bookmark.folderId),
-    ...data.folders,
+    ...data.folders.filter(folder => !folder.parentId),
     ...(data.widgets ?? []),
     ...(data.settings.showRecycleBin ? [data.recycleBin] : [])
   ];
@@ -151,10 +153,22 @@ export function duplicateGridItems(selectedItems, {
     }
 
     const duplicate = createFolderDuplicate(source.item, position, nameSuffix);
+    duplicate.parentId = null;
+    const treeIds = getFolderTreeIds(data.folders, [source.item.id]);
+    const folderCopies = new Map([[source.item.id, duplicate]]);
+    for (const child of data.folders.filter(folder => treeIds.has(folder.id) && folder.id !== source.item.id)) {
+      folderCopies.set(child.id, createFolderDuplicate(child, { gx: child.gx, gy: child.gy }, nameSuffix));
+    }
+    for (const [originalId, copy] of folderCopies) {
+      if (originalId === source.item.id) continue;
+      const original = foldersById.get(originalId);
+      copy.name = original.name;
+      copy.parentId = folderCopies.get(original.parentId).id;
+    }
     const children = data.bookmarks
-      .filter(bookmark => bookmark.folderId === source.item.id)
-      .map(bookmark => createFolderChildDuplicate(bookmark, duplicate));
-    duplicateFolders.push(duplicate);
+      .filter(bookmark => treeIds.has(bookmark.folderId))
+      .map(bookmark => createFolderChildDuplicate(bookmark, folderCopies.get(bookmark.folderId)));
+    duplicateFolders.push(...folderCopies.values());
     duplicateBookmarks.push(...children);
     duplicates.push({ kind: 'folder', item: duplicate });
     occupied.push(duplicate);
@@ -179,8 +193,9 @@ export function moveGridItemsToWorkspace(selectedItems, workspaceId, { columns, 
     getWorkspaces(data),
     workspaceId
   );
+  const selectedTreeIds = getFolderTreeIds(data.folders, folderIds);
   const selectedFolderChildIds = new Set(data.bookmarks
-    .filter(bookmark => folderIds.has(bookmark.folderId))
+    .filter(bookmark => selectedTreeIds.has(bookmark.folderId))
     .map(bookmark => bookmark.id));
   const sources = [
     ...data.bookmarks
@@ -190,10 +205,9 @@ export function moveGridItemsToWorkspace(selectedItems, workspaceId, { columns, 
         && (bookmark.groupId ?? null) !== normalizedGroupId
       ))
       .map(item => ({ kind: 'bookmark', item })),
-    ...data.folders
+    ...getFolderRoots(data.folders, folderIds)
       .filter(folder => (
-        folderIds.has(folder.id)
-        && (folder.groupId ?? null) !== normalizedGroupId
+        (folder.groupId ?? null) !== normalizedGroupId
       ))
       .map(item => ({ kind: 'folder', item })),
     ...(data.widgets ?? [])
@@ -229,10 +243,13 @@ export function moveGridItemsToWorkspace(selectedItems, workspaceId, { columns, 
       ...position,
       groupId: normalizedGroupId,
       ...(source.kind === 'bookmark' ? { folderId: null } : {}),
+      ...(source.kind === 'folder' ? { parentId: null } : {}),
       updatedAt: now
     };
     replacements.set(`${source.kind}:${source.item.id}`, replacement);
-    if (source.kind === 'folder') movedFolderIds.add(source.item.id);
+    if (source.kind === 'folder') {
+      for (const id of getFolderTreeIds(data.folders, [source.item.id])) movedFolderIds.add(id);
+    }
     occupied.push(replacement);
     moved += 1;
   }
@@ -245,7 +262,8 @@ export function moveGridItemsToWorkspace(selectedItems, workspaceId, { columns, 
       return { ...bookmark, groupId: normalizedGroupId, updatedAt: now };
     });
     const folders = data.folders.map(folder => (
-      replacements.get(`folder:${folder.id}`) ?? folder
+      replacements.get(`folder:${folder.id}`)
+      ?? (movedFolderIds.has(folder.id) ? { ...folder, groupId: normalizedGroupId, updatedAt: now } : folder)
     ));
     const widgets = (data.widgets ?? []).map(widget => (
       replacements.get(`widget:${widget.id}`) ?? widget
@@ -282,11 +300,12 @@ export function permanentlyDeleteGridItem(kind, itemId) {
     return { deleted: false, bookmarkCount: 0 };
   }
 
-  const bookmarkCount = data.bookmarks.filter(bookmark => bookmark.folderId === itemId).length;
+  const treeIds = getFolderTreeIds(data.folders, [itemId]);
+  const bookmarkCount = data.bookmarks.filter(bookmark => treeIds.has(bookmark.folderId)).length;
   setState({
     data: {
-      bookmarks: data.bookmarks.filter(bookmark => bookmark.folderId !== itemId),
-      folders: data.folders.filter(folder => folder.id !== itemId)
+      bookmarks: data.bookmarks.filter(bookmark => !treeIds.has(bookmark.folderId)),
+      folders: data.folders.filter(folder => !treeIds.has(folder.id))
     }
   }, { recordHistory: false });
   clearBookmarkHistory();

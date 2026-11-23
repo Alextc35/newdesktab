@@ -323,14 +323,14 @@
       "question": "Hoe groepeer ik bladwijzers in mappen?",
       "searchTerms": "map aanmaken; groepsbladwijzers; favorieten organiseren; verwijderen uit map; map hernoemen",
       "title": "Organiseer met mappen",
-      "summary": "Verzamel maximaal 18 bladwijzers in één map.",
+      "summary": "Verzamel bladwijzers en submappen op één plek.",
       "steps": [
         "Kies + → Map in het linkermenu en geef deze een naam.",
         "Sleep in de bewerkingsmodus bladwijzers ernaartoe om ze erin te plaatsen. Open de map om het raster te bekijken.",
         "Gebruik de bewerkingsmodus van de map om de bladwijzers te ordenen. Klik op de naam om de naam te wijzigen en op het pictogram om het uiterlijk aan te passen."
       ],
       "note": "Het verwijderen van een map heeft ook gevolgen voor de bladwijzers. Controleer de bevestiging voordat u verdergaat; de prullenbak kan verwijderde items herstellen.",
-      "tip": "Een map kan maximaal 18 bladwijzers bevatten. Schakel bewerken in en sleep een kaart naar de map om deze toe te voegen."
+      "tip": "Mappen ondersteunen grote collecties met zoeken en pagina's. Schakel bewerken in en sleep een kaart naar een map om deze toe te voegen."
     },
     "workspaces": {
       "question": "Hoe houd ik persoonlijke en werkpagina's gescheiden?",

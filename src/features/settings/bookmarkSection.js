@@ -3,6 +3,7 @@ import { openBookmarkPresetEditor } from '../bookmarks/bookmarkModal.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { deleteAllBookmarks } from '../bookmarks/bookmarkDestructiveActions.js';
 import { initImportExportButtons } from '../bookmarks/bookmarkImportExport.js';
+import { initBrowserBookmarkImportSettings } from '../bookmarks/browserBookmarkImportUI.js';
 import { getState } from '../../state/appStore.js';
 import {
   commitDraftBookmarkDefault,
@@ -50,6 +51,7 @@ export function initBookmarkSection({ onRequestSaveStateUpdate }) {
   collapseBehaviorSections();
 
   initImportExportButtons(exportBtn, importInput);
+  initBrowserBookmarkImportSettings();
 
   bookmarkConfigureBtn.addEventListener('click', () => {
     openBookmarkPresetEditor(getDraftBookmarkDefault(), {

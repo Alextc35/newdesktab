@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "निवडलेले बुकमार्क आणि फोल्डर Main मध्ये आयात करायचे?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "तुमची निवड तुमच्या वर्तमान बुकमार्क्सच्या बाजूने मुख्य मध्ये आयात करा. बुकमार्क बार थेट डेस्कटॉपवर दिसतो; इतर बुकमार्क त्यांचे फोल्डर ठेवतात.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Chrome किंवा निर्यात केलेल्या HTML फाइलमधून बुकमार्क आणि फोल्डर निवडा आणि त्यांना मुख्य मध्ये आयात करा.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "आयटम पहा आणि निवडा",
+    "hideItems": "आढळलेले आयटम लपवा",
+    "selectAll": "सर्व निवडा",
+    "selectNone": "सर्वांची निवड रद्द करा",
+    "searchItems": "सापडलेले बुकमार्क शोधा",
+    "selectedItems": "{{count}} बुकमार्क आणि {{folders}} फोल्डर निवडले.",
+    "expandFolder": "विस्तृत करा किंवा संकुचित करा {{name}}",
+    "unnamedFolder": "अनामित फोल्डर",
+    "noMatches": "कोणतेही जुळणारे आयटम नाहीत.",
+    "showMore": "अधिक दाखवा",
+    "loadingItems": "बुकमार्क वाचत आहे...",
+    "emptyFolder": "रिकामे",
+    "mainFull": "या बुकमार्कसाठी मेनमध्ये मोकळी जागा नाही. एक ग्रिड सेल मोकळा करा आणि पुन्हा प्रयत्न करा."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "तुमचे Chrome बुकमार्क, घरी New DeskTab मध्ये",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "फोल्डरमध्ये आता शोध, संक्षिप्त पृष्ठे आणि ब्रेडक्रंब नेव्हिगेशनसह मोठे संग्रह आहेत. तुमचे विद्यमान बुकमार्क जागेवरच राहतात आणि संपूर्ण फोल्डर ट्री हलवता येतात, डुप्लिकेट करता येतात आणि रीसायकल बिनमधून पुनर्प्राप्त करता येतात."
+    },
     "settingsTitle": "प्रकाशन नोट्स",
     "settingsDescription": "काय बदलले आणि प्रत्येक अद्यतनामागील कथा.",
     "open": "नोट्स वाचा",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "कमी गोंधळ. अधिक ऑर्डर.",
-        "body": "+ वरून [[folders|फोल्डर]] तयार करा आणि संपादन मोडमध्ये बुकमार्क ड्रॅग करा. हे 18 बुकमार्कसाठी खोली असलेल्या स्वच्छ ग्रिडमध्ये उघडते.",
+        "body": "+ वरून एक [[folders|folder]] तयार करा आणि बुकमार्क त्यामध्ये संपादन मोडमध्ये ड्रॅग करा. मोठ्या फोल्डर्समध्ये शोध आणि पृष्ठे असतात आणि आयात केलेले सबफोल्डर त्यांची रचना ठेवतात.",
         "hint": "वेगळे काम आणि खेळण्यासाठी [[workspaces|कार्यक्षेत्र बार]] मध्ये + वापरा. [[search|भिंग]] फोल्डरमध्ये देखील शोधते."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "कॉपी"
   },
   "folder": {
+    "navigation": "फोल्डर नेव्हिगेशन",
+    "back": "मागे",
+    "page": "{{pages}} मधील पृष्ठ {{page}}",
+    "nextPage": "पुढे",
+    "previousPage": "मागील",
+    "searchEmpty": "कोणतेही जुळणारे आयटम नाहीत",
+    "search": "हे फोल्डर शोधा",
+    "contentsCount": "{{count}} आयटम",
     "create": "फोल्डर तयार करा",
     "createPrompt": "नवीन फोल्डरला नाव द्या",
     "namePlaceholder": "साधने, प्रेरणा...",

@@ -10,6 +10,7 @@ import {
   getWorkspaces
 } from '../workspaces/workspaceSelectors.js';
 import { getState, subscribe } from '../../state/appStore.js';
+import { getFolderTreeIds } from '../../domain/folders/folderTree.js';
 import { gridItemRegistry } from '../../shared/grid/gridItemRegistry.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
@@ -111,7 +112,7 @@ export function initGridBulkActions() {
     currentState = state;
     pruneGridItemSelection({
       bookmarkIds: state.data.bookmarks.map(bookmark => bookmark.id),
-      folderIds: state.data.folders.map(folder => folder.id),
+      folderIds: state.data.folders.filter(folder => !folder.parentId).map(folder => folder.id),
       widgetIds: state.data.widgets.map(widget => widget.id)
     });
     groupSelect.replaceChildren(new Option(
@@ -163,7 +164,8 @@ function getDeleteConfirmation(items, state) {
       ? data.folders.find(item => item.id === selected.id)
       : null;
     if (folder) {
-      const count = data.bookmarks.filter(bookmark => bookmark.folderId === folder.id).length;
+      const treeIds = getFolderTreeIds(data.folders, [folder.id]);
+      const count = data.bookmarks.filter(bookmark => treeIds.has(bookmark.folderId)).length;
       return t('folder.confirmDelete', { name: folder.name, count });
     }
     const widget = selected.kind === 'widget'

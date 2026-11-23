@@ -12,7 +12,7 @@ export function placeConcurrentAdditions(base, latest, data) {
     ...latest.widgets
   ].map(item => item.id));
   const items = [
-    ...data.folders,
+    ...data.folders.filter(folder => !folder.parentId),
     ...data.widgets,
     ...data.bookmarks.filter(bookmark => !bookmark.folderId)
   ];

@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "将选定的书签和文件夹导入到 Main 中？",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "将您的选择与当前书签一起导入到 Main 中。书签栏直接出现在桌面上；其他书签保留其文件夹。",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "从 Chrome 或导出的 HTML 文件中选择书签和文件夹，并将其导入到 Main 中。",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "查看并选择项目",
+    "hideItems": "隐藏检测到的项目",
+    "selectAll": "选择全部",
+    "selectNone": "取消全选",
+    "searchItems": "搜索检测到的书签",
+    "selectedItems": "已选择 {{count}} 书签和 {{folders}} 文件夹。",
+    "expandFolder": "展开或折叠 {{name}}",
+    "unnamedFolder": "未命名文件夹",
+    "noMatches": "没有匹配的项目。",
+    "showMore": "显示更多",
+    "loadingItems": "正在阅读书签...",
+    "emptyFolder": "空",
+    "mainFull": "Main 没有可用空间来容纳这些书签。释放一个网格单元并重试。"
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "您的 Chrome 书签，尽在 New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "文件夹现在包含更大的集合，具有搜索、紧凑页面和面包屑导航功能。您现有的书签保留在原位，并且可以移动、复制完整的文件夹树并从回收站恢复。"
+    },
     "settingsTitle": "发行说明",
     "settingsDescription": "发生了什么变化以及每次更新背后的故事。",
     "open": "阅读笔记",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "减少混乱。更多订单。",
-        "body": "从 + 创建一个 [[folders|文件夹]] 并在编辑模式下将书签拖入其中。它以干净的网格形式打开，最多可容纳 18 个书签。",
+        "body": "从 + 创建一个 [[folders|folder]] 并在编辑模式下将书签拖入其中。大文件夹具有搜索和页面，导入的子文件夹保留其结构。",
         "hint": "使用 [[workspaces|工作区栏]] 中的 + 来分隔工作和娱乐。 [[search|放大镜]] 还会在文件夹内搜索。"
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "复制"
   },
   "folder": {
+    "navigation": "文件夹导航",
+    "back": "返回",
+    "page": "{{pages}} 的 {{page}} 页",
+    "nextPage": "下一步",
+    "previousPage": "上一页",
+    "searchEmpty": "没有匹配的项目",
+    "search": "搜索该文件夹",
+    "contentsCount": "{{count}} 项目",
     "create": "创建文件夹",
     "createPrompt": "命名新文件夹",
     "namePlaceholder": "工具、灵感……",

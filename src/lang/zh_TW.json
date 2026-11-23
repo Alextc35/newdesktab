@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Import the selected bookmarks and folders into Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "將您的選擇與目前書籤一起匯入 Main 中。書籤列直接出現在桌面上；其他書籤保留其資料夾。",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "從 Chrome 或匯出的 HTML 檔案中選擇書籤和資料夾，並將其匯入到 Main 中。",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "查看並選擇項目",
+    "hideItems": "隱藏偵測到的項目",
+    "selectAll": "選擇全部",
+    "selectNone": "取消全選",
+    "searchItems": "搜尋偵測到的書籤",
+    "selectedItems": "已選擇 {{count}} 書籤和 {{folders}} 資料夾。",
+    "expandFolder": "展開或折疊 {{name}}",
+    "unnamedFolder": "未命名資料夾",
+    "noMatches": "沒有符合的項目。",
+    "showMore": "顯示更多",
+    "loadingItems": "正在閱讀書籤...",
+    "emptyFolder": "空",
+    "mainFull": "Main 没有可用空间来容纳这些书签。释放一个网格单元并重试。"
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "您的 Chrome 書籤，盡在 New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "資料夾現在包含更大的集合，具有搜尋、緊湊頁面和麵包屑導航功能。您現有的書籤保留在原位，並且可以移動、複製完整的資料夾樹並從回收站恢復。"
+    },
     "settingsTitle": "發行說明",
     "settingsDescription": "發生了什麼變化以及每次更新背後的故事。",
     "open": "閱讀筆記",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "減少混亂。更多訂單。",
-        "body": "從 + 建立一個 [[folders|資料夾]] 並在編輯模式下將書籤拖曳到其中。它以乾淨的網格形式打開，最多可容納 18 個書籤。",
+        "body": "從 + 建立一個 [[folders|folder]] 並在編輯模式下將書籤拖曳到其中。大資料夾具有搜尋和頁面，導入的子資料夾保留其結構。",
         "hint": "使用 [[workspaces|工作區欄]] 中的 + 來分隔工作和娛樂。 [[search|放大鏡]] 也會在資料夾內搜尋。"
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "複製"
   },
   "folder": {
+    "navigation": "資料夾導航",
+    "back": "返回",
+    "page": "{{pages}} 的 {{page}} 頁",
+    "nextPage": "下一步",
+    "previousPage": "上一頁",
+    "searchEmpty": "沒有匹配的項目",
+    "search": "搜尋該資料夾",
+    "contentsCount": "{{count}} 項目",
     "create": "建立資料夾",
     "createPrompt": "命名新資料夾",
     "namePlaceholder": "工具、靈感…",

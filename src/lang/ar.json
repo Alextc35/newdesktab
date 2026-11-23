@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "هل تريد استيراد الإشارات المرجعية والمجلدات المحددة إلى Main؟",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "قم باستيراد اختيارك إلى الصفحة الرئيسية إلى جانب إشاراتك المرجعية الحالية. يظهر شريط الإشارات المرجعية مباشرة على سطح المكتب؛ الإشارات المرجعية الأخرى تحتفظ بمجلداتها.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "اختر الإشارات المرجعية والمجلدات من Chrome أو ملف HTML المُصدَّر واستوردها إلى الملف الرئيسي.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "عرض واختيار العناصر",
+    "hideItems": "إخفاء العناصر المكتشفة",
+    "selectAll": "حدد الكل",
+    "selectNone": "قم بإلغاء تحديد الكل",
+    "searchItems": "البحث في الإشارات المرجعية المكتشفة",
+    "selectedItems": "تم تحديد {{count}} الإشارات المرجعية والمجلدات {{folders}}.",
+    "expandFolder": "توسيع أو طي {{name}}",
+    "unnamedFolder": "مجلد بدون اسم",
+    "noMatches": "لا توجد عناصر مطابقة.",
+    "showMore": "عرض المزيد",
+    "loadingItems": "قراءة الإشارات المرجعية...",
+    "emptyFolder": "فارغ",
+    "mainFull": "لا يحتوي Main على مساحة خالية لهذه الإشارات المرجعية. قم بتحرير خلية شبكية واحدة وحاول مرة أخرى."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "إشارات Chrome المرجعية، في المنزل في New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "تحتوي المجلدات الآن على مجموعات أكبر، مع البحث والصفحات المدمجة والتنقل التفصيلي. تظل إشاراتك المرجعية الموجودة في مكانها، ويمكن نقل أشجار المجلدات الكاملة وتكرارها واستعادتها من سلة المحذوفات."
+    },
     "settingsTitle": "ملاحظات الإصدار",
     "settingsDescription": "ما الذي تغير والقصة وراء كل تحديث.",
     "open": "قراءة الملاحظات",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "فوضى أقل. المزيد من النظام.",
-        "body": "قم بإنشاء [[folders|المجلد]] من + واسحب الإشارات المرجعية إليها في وضع التحرير. يتم فتحه في شبكة نظيفة مع مساحة تتسع لما يصل إلى 18 إشارة مرجعية.",
+        "body": "قم بإنشاء [[folders|folder]] من + واسحب الإشارات المرجعية إليها في وضع التحرير. تحتوي المجلدات الكبيرة على بحث وصفحات، وتحتفظ المجلدات الفرعية المستوردة ببنيتها.",
         "hint": "استخدم علامة + في [[workspaces|شريط مساحة العمل]] للفصل بين العمل واللعب. يبحث [[search|عدسة مكبرة]] أيضًا داخل المجلدات."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "نسخة"
   },
   "folder": {
+    "navigation": "التنقل في المجلد",
+    "back": "العودة",
+    "page": "صفحة {{page}} من {{pages}}",
+    "nextPage": "التالي",
+    "previousPage": "السابق",
+    "searchEmpty": "لا توجد عناصر مطابقة",
+    "search": "ابحث في هذا المجلد",
+    "contentsCount": "عناصر {{count}}",
     "create": "إنشاء مجلد",
     "createPrompt": "قم بتسمية المجلد الجديد",
     "namePlaceholder": "الأدوات والإلهام...",

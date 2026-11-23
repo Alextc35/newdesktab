@@ -33,6 +33,13 @@ test('every selectable language ships a complete interface, manual and Chrome lo
     }
   }
   for (const code of SUPPORTED_LANGUAGES) {
+    const dictionary = read(`src/lang/${code}.json`);
+    for (const key of ['contentsCount', 'search', 'searchEmpty', 'previousPage', 'nextPage', 'page', 'back', 'navigation']) {
+      assert.equal(typeof dictionary.folder[key], 'string', `${code}: folder.${key}`);
+    }
+    for (const key of ['chooseItems', 'hideItems', 'selectAll', 'selectNone', 'searchItems', 'selectedItems', 'emptyFolder', 'mainFull']) {
+      assert.equal(typeof dictionary.browserImport[key], 'string', `${code}: browserImport.${key}`);
+    }
     const metadata = read(`_locales/${code}/messages.json`);
     assert.equal(metadata.extensionName.message, 'New DeskTab');
     assert.ok(metadata.extensionDescription.message.trim(), `${code}: empty Store description`);

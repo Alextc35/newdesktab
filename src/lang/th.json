@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "นำเข้าบุ๊กมาร์กและโฟลเดอร์ที่เลือกไปยัง Main หรือไม่",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "นำเข้าสิ่งที่คุณเลือกไปที่หน้าหลักควบคู่ไปกับบุ๊กมาร์กปัจจุบันของคุณ แถบบุ๊กมาร์กจะปรากฏบนเดสก์ท็อปโดยตรง บุ๊กมาร์กอื่นๆ จะเก็บโฟลเดอร์ไว้",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "เลือกบุ๊กมาร์กและโฟลเดอร์จาก Chrome หรือไฟล์ HTML ที่ส่งออกแล้วนำเข้าไปยัง Main",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "ดูและเลือกรายการ",
+    "hideItems": "ซ่อนรายการที่ตรวจพบ",
+    "selectAll": "เลือกทั้งหมด",
+    "selectNone": "ยกเลิกการเลือกทั้งหมด",
+    "searchItems": "ค้นหาบุ๊กมาร์กที่ตรวจพบ",
+    "selectedItems": "เลือกบุ๊กมาร์ก {{count}} และโฟลเดอร์ {{folders}} แล้ว",
+    "expandFolder": "ขยายหรือยุบ {{name}}",
+    "unnamedFolder": "โฟลเดอร์ที่ไม่มีชื่อ",
+    "noMatches": "ไม่มีรายการที่ตรงกัน",
+    "showMore": "แสดงเพิ่มเติม",
+    "loadingItems": "กำลังอ่านบุ๊กมาร์ก...",
+    "emptyFolder": "ว่างเปล่า",
+    "mainFull": "Main ไม่มีพื้นที่ว่างสำหรับบุ๊กมาร์กเหล่านี้ ฟรีเซลล์กริดหนึ่งเซลล์แล้วลองอีกครั้ง"
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "บุ๊กมาร์ก Chrome ของคุณที่บ้านใน New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "ขณะนี้โฟลเดอร์มีคอลเลกชันที่ใหญ่ขึ้น พร้อมด้วยการค้นหา หน้าย่อ และการนำทาง breadcrumb บุ๊กมาร์กที่มีอยู่ของคุณยังคงอยู่และสามารถย้าย ทำซ้ำ และกู้คืนแผนผังโฟลเดอร์ทั้งหมดได้จากถังรีไซเคิล"
+    },
     "settingsTitle": "บันทึกประจำรุ่น",
     "settingsDescription": "สิ่งที่เปลี่ยนแปลงไปและเรื่องราวเบื้องหลังการอัปเดตแต่ละครั้ง",
     "open": "อ่านบันทึก",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "ความยุ่งเหยิงน้อยลง สั่งเพิ่มเติม.",
-        "body": "สร้าง [[folders|โฟลเดอร์]] จาก + และลากบุ๊กมาร์กไปไว้ในโหมดแก้ไข โดยจะเปิดเป็นตารางสะอาดตาพร้อมพื้นที่สำหรับคั่นหน้าได้ถึง 18 รายการ",
+        "body": "สร้าง [[folders|folder]] จาก + และลากบุ๊กมาร์กไปไว้ในโหมดแก้ไข โฟลเดอร์ขนาดใหญ่มีการค้นหาและเพจ และโฟลเดอร์ย่อยที่นำเข้าจะคงโครงสร้างไว้",
         "hint": "ใช้เครื่องหมาย + ใน [[workspaces|แถบพื้นที่ทำงาน]] เพื่อแยกงานและการเล่น [[search|แว่นขยาย]] ยังค้นหาภายในโฟลเดอร์ด้วย"
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "คัดลอก"
   },
   "folder": {
+    "navigation": "การนำทางโฟลเดอร์",
+    "back": "กลับ",
+    "page": "หน้า {{page}} ของ {{pages}}",
+    "nextPage": "ถัดไป",
+    "previousPage": "ก่อนหน้า",
+    "searchEmpty": "ไม่มีรายการที่ตรงกัน",
+    "search": "ค้นหาโฟลเดอร์นี้",
+    "contentsCount": "รายการ {{count}}",
     "create": "สร้างโฟลเดอร์",
     "createPrompt": "ตั้งชื่อโฟลเดอร์ใหม่",
     "namePlaceholder": "เครื่องมือ แรงบันดาลใจ...",

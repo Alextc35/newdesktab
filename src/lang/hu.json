@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Importálja a kiválasztott könyvjelzőket és mappákat a Main mappába?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importálja a kiválasztottat a Főoldalra az aktuális könyvjelzői mellé. A könyvjelzősáv közvetlenül az asztalon jelenik meg; más könyvjelzők megtartják a mappáikat.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Válasszon könyvjelzőket és mappákat a Chrome-ból vagy egy exportált HTML-fájlból, és importálja őket a Mainba.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Elemek megtekintése és kiválasztása",
+    "hideItems": "Az észlelt elemek elrejtése",
+    "selectAll": "Válassza ki az összeset",
+    "selectNone": "Törölje az összes kijelölését",
+    "searchItems": "Keresés az észlelt könyvjelzők között",
+    "selectedItems": "{{count}} könyvjelző és {{folders}} mappa kiválasztva.",
+    "expandFolder": "Kibontás vagy összecsukás {{name}}",
+    "unnamedFolder": "Névtelen mappa",
+    "noMatches": "Nincsenek megfelelő elemek.",
+    "showMore": "Mutass többet",
+    "loadingItems": "Könyvjelzők olvasása…",
+    "emptyFolder": "Üres",
+    "mainFull": "A Mainban nincs szabad hely ezeknek a könyvjelzőknek. Szabadítson fel egy rácscellát, és próbálja újra."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Chrome-könyvjelzői otthon az New DeskTab-ban",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "A mappák mostantól nagyobb gyűjteményeket tartalmaznak kereséssel, kompakt oldalakkal és navigációs navigációval. Meglévő könyvjelzői a helyükön maradnak, a teljes mappafák pedig áthelyezhetők, sokszorosíthatók és visszaállíthatók a lomtárból."
+    },
     "settingsTitle": "Kiadási megjegyzések",
     "settingsDescription": "Mi változott, és az egyes frissítések mögött meghúzódó történet.",
     "open": "Olvassa el a jegyzeteket",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Kevesebb rendetlenség. Több rendelés.",
-        "body": "Hozzon létre egy [[folders|mappát]] elemet a + elemből, és húzza bele a könyvjelzőket szerkesztési módban. Tiszta rácsban nyílik, ahol akár 18 könyvjelző is elfér.",
+        "body": "Hozzon létre egy [[folders|folder]]-t a + jelből, és húzza bele a könyvjelzőket szerkesztés módban. A nagy mappákban keresés és oldalak találhatók, az importált almappák pedig megtartják szerkezetüket.",
         "hint": "Használja a + jelet a [[workspaces|munkaterület bár]] mezőben a munka és a játék szétválasztásához. A [[search|nagyító]] mappákban is keres."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "másolat"
   },
   "folder": {
+    "navigation": "Mappa navigáció",
+    "back": "Vissza",
+    "page": "Az {{pages}} {{page}} oldala",
+    "nextPage": "Következő",
+    "previousPage": "Előző",
+    "searchEmpty": "No matching items",
+    "search": "Search this folder",
+    "contentsCount": "{{count}} tételek",
     "create": "Mappa létrehozása",
     "createPrompt": "Nevezze el az új mappát",
     "namePlaceholder": "Eszközök, inspiráció…",

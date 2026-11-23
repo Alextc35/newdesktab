@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Importare i segnalibri e le cartelle selezionati in Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importa la tua selezione in Principale insieme ai tuoi segnalibri attuali. La barra dei preferiti appare direttamente sul desktop; gli altri segnalibri mantengono le proprie cartelle.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Scegli segnalibri e cartelle da Chrome o da un file HTML esportato e importali in Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Visualizza e seleziona gli elementi",
+    "hideItems": "Nascondi gli elementi rilevati",
+    "selectAll": "Seleziona tutto",
+    "selectNone": "Deseleziona tutto",
+    "searchItems": "Cerca i segnalibri rilevati",
+    "selectedItems": "Preferiti {{count}} e cartelle {{folders}} selezionati.",
+    "expandFolder": "Espandi o comprimi {{name}}",
+    "unnamedFolder": "Cartella senza nome",
+    "noMatches": "Nessun articolo corrispondente.",
+    "showMore": "Mostra di più",
+    "loadingItems": "Lettura dei segnalibri...",
+    "emptyFolder": "Vuoto",
+    "mainFull": "Main non ha spazio libero per questi segnalibri. Liberare una cella della griglia e riprovare."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "I tuoi segnalibri di Chrome, a casa in New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Le cartelle ora contengono raccolte più grandi, con ricerca, pagine compatte e navigazione breadcrumb. I tuoi segnalibri esistenti rimangono al loro posto e gli alberi di cartelle completi possono essere spostati, duplicati e recuperati dal cestino."
+    },
     "settingsTitle": "Note sulla versione",
     "settingsDescription": "Cosa è cambiato e la storia dietro ogni aggiornamento.",
     "open": "Leggi le note",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Meno disordine. Più ordine.",
-        "body": "Crea un [[folders|cartella]] da + e trascina i segnalibri al suo interno in modalità di modifica. Si apre in una griglia pulita con spazio per un massimo di 18 segnalibri.",
+        "body": "Crea un [[folders|folder]] da + e trascina i segnalibri al suo interno in modalità di modifica. Le cartelle di grandi dimensioni dispongono di pagine e ricerche e le sottocartelle importate mantengono la loro struttura.",
         "hint": "Usa il + in [[workspaces|barra dell'area di lavoro]] per separare lavoro e divertimento. [[search|lente d'ingrandimento]] effettua ricerche anche all'interno delle cartelle."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "copia"
   },
   "folder": {
+    "navigation": "Navigazione delle cartelle",
+    "back": "Indietro",
+    "page": "Pagina {{page}} di {{pages}}",
+    "nextPage": "Avanti",
+    "previousPage": "Precedente",
+    "searchEmpty": "Nessun articolo corrispondente",
+    "search": "Cerca in questa cartella",
+    "contentsCount": "Articoli {{count}}",
     "create": "Crea cartella",
     "createPrompt": "Assegna un nome alla nuova cartella",
     "namePlaceholder": "Strumenti, ispirazione...",

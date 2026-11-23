@@ -765,16 +765,19 @@ folders start at `1 × 1`. Bookmark membership is represented by nullable
 The schema and commands enforce these rules:
 
 * A folder and its bookmarks always belong to the same workspace.
-* Folders cannot contain other folders.
+* Folders can contain subfolders through `parentId`; cycles and cross-workspace
+  references are repaired during normalization.
 * A contained bookmark does not reserve grid space.
 * A top-level folder reserves its complete `w × h` rectangle.
-* New folder membership is capped at 18 bookmarks in a fixed 3-row ×
-  6-column grid. Legacy overflow remains accessible in scrollable extra rows.
+* Folder membership has no fixed item cap. The 3-row × 6-column editing grid is
+  used for small collections; larger folders and subfolder navigation use search
+  and compact pages of 54 items, limiting DOM work independently of collection size.
 * Contained bookmarks occupy one local cell while preserving their main-grid
   `w × h` size for a later removal.
 * Moving onto an occupied local cell swaps both bookmark positions atomically.
 * Removing a bookmark requires a free area matching its saved `w × h` size.
-* Deleting a folder deletes its contained bookmarks in the same state change.
+* Deleting a folder retains its complete descendant tree as one recoverable
+  recycle-bin entry in the same state change.
 * Deleting a workspace deletes its folders and all bookmarks in that workspace.
 
 ## Bookmark editor

@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Импортировать выбранные закладки и папки в Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Импортируйте свой выбор в Main вместе с текущими закладками. Панель закладок появляется прямо на рабочем столе; другие закладки сохраняют свои папки.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Выберите закладки и папки из Chrome или экспортированного HTML-файла и импортируйте их в Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Просмотр и выбор элементов",
+    "hideItems": "Скрыть обнаруженные элементы",
+    "selectAll": "Выбрать все",
+    "selectNone": "Отменить выбор всех",
+    "searchItems": "Поиск обнаруженных закладок",
+    "selectedItems": "Выбрано {{count}} закладок и {{folders}} папок.",
+    "expandFolder": "Развернуть или свернуть {{name}}",
+    "unnamedFolder": "Безымянная папка",
+    "noMatches": "Нет подходящих предметов.",
+    "showMore": "Показать больше",
+    "loadingItems": "Чтение закладок…",
+    "emptyFolder": "Пустой",
+    "mainFull": "На Main нет свободного места для этих закладок. Освободите одну ячейку сетки и повторите попытку."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Ваши закладки Chrome дома в New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Папки теперь содержат более крупные коллекции с поиском, компактными страницами и навигационной цепочкой. Существующие закладки остаются на месте, а целые деревья папок можно перемещать, дублировать и восстанавливать из корзины."
+    },
     "settingsTitle": "Примечания к выпуску",
     "settingsDescription": "Что изменилось и история каждого обновления.",
     "open": "Читать заметки",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Меньше беспорядка. Больше порядка.",
-        "body": "Создайте [[folders|папка]] из + и перетащите в него закладки в режиме редактирования. Он открывается в чистой сетке, в которой можно разместить до 18 закладок.",
+        "body": "Создайте [[folders|folder]] из + и перетащите в него закладки в режиме редактирования. В больших папках есть поиск и страницы, а импортированные подпапки сохраняют свою структуру.",
         "hint": "Используйте + в [[workspaces|панель рабочей области]], чтобы разделить работу и игру. [[search|увеличительное стекло]] также выполняет поиск внутри папок."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "копировать"
   },
   "folder": {
+    "navigation": "Навигация по папкам",
+    "back": "Назад",
+    "page": "Страница {{page}} из {{pages}}",
+    "nextPage": "Далее",
+    "previousPage": "Предыдущий",
+    "searchEmpty": "Нет подходящих товаров",
+    "search": "Искать в этой папке",
+    "contentsCount": "{{count}} предметы",
     "create": "Создать папку",
     "createPrompt": "Назовите новую папку",
     "namePlaceholder": "Инструменты, вдохновение…",

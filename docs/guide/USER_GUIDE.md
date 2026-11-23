@@ -145,7 +145,13 @@ These scroll positions stay on the device and are excluded from Sync and backups
 
 Press `F` or use the add menu to create a folder. Folder cards start at one grid
 cell and can be resized and styled independently. Opening a folder provides a
-link view and an editable **3-row × 6-column grid**, holding up to **18 bookmarks**.
+link view and an editable **3-row × 6-column grid** for small collections.
+Folders have no fixed item-count limit. Larger collections use compact pages
+of 54 items, with folder search and previous/next controls to keep navigation fast.
+Open subfolders and use the breadcrumb to return to an ancestor.
+In list editing mode, select a row and use **Move up** or **Move down** to change
+its order. `Alt + ↑ / ↓` also moves the focused row. Edit, delete and move-out
+actions stay aligned at the right of each row.
 
 A bookmark inside a folder keeps its saved appearance and main-grid dimensions,
 but occupies one compact cell inside the folder. Its local order is remembered
@@ -154,9 +160,9 @@ Sequence behavior also applies inside folders.
 
 Dragging a bookmark onto a folder uses its first free internal cell. Taking it
 out finds a free area in the main grid large enough for its saved dimensions.
-Folders cannot be nested. Moving a folder to another workspace keeps its
-bookmarks with it. Deleting a folder asks for confirmation and sends the folder
-and its bookmarks to the recycle bin together, unless permanent deletion is
+Imported folders can contain subfolders. Moving a folder to another workspace keeps its
+complete subtree with it. Deleting a folder asks for confirmation and sends the folder
+and all its contents to the recycle bin together, unless permanent deletion is
 explicitly selected.
 
 ### Workspaces
@@ -326,8 +332,30 @@ New DeskTab supports two different exports from Settings:
 
 | Export | Best for |
 | --- | --- |
-| **Export bookmarks** | A New DeskTab JSON file containing bookmarks and folders. This is not an import/export of the browser's native bookmark library or HTML format. |
+| **Export bookmarks** | A New DeskTab JSON file containing bookmarks, nested folders and their appearance. |
 | **Export backup** | A complete workspace and settings backup with the referenced local media needed to restore it. |
+
+**Settings → Bookmarks** also offers **Import from Google Chrome** and
+**Import HTML file**. Chrome's Bookmark Manager can export an HTML bookmark file.
+Use **View and select items** to expand the detected tree, choose individual
+links or complete folders, search, or select/deselect everything. Empty folders
+have a visible **Empty** badge and start unchecked. You can include them explicitly.
+Import adds the selection to **Main**, alongside
+existing New DeskTab bookmarks, without changing Chrome's originals.
+Chrome's bookmarks-bar contents appear directly on the desktop. Other populated
+browser buckets remain folders; when only one flat bucket has links, those links
+also appear directly. User folders keep their names, nesting and order. Empty
+browser buckets are omitted. A container is used only when the root collection
+does not fit the remaining desktop cells. Free a cell and retry if Main is full.
+Repeating the same import avoids duplicating the imported records.
+The standard confirmation appears before writing the selected data. On success,
+the import dialog closes automatically and a flash reports the saved result.
+Unsupported link protocols are skipped and reported. Large collections may
+exceed Chrome Sync's storage allowance; switch DeskTab to Local mode and retry.
+
+On a new profile, after the welcome guide finishes or is skipped, DeskTab checks
+for native Chrome bookmarks and offers the same import if any are found. You can
+choose **Not now** and import later in Settings.
 
 Complete backups without local videos use **JSON**. Those containing local
 videos use **ZIP**, with configuration and separate binary video files. Older

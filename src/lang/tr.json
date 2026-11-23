@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Seçilen yer imleri ve klasörler Main içine aktarılsın mı?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Seçiminizi mevcut yer imlerinizin yanında Ana'ya aktarın. Yer imleri çubuğu doğrudan masaüstünde görünür; diğer yer imleri klasörlerini korur.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Chrome'dan veya dışa aktarılan bir HTML dosyasından yer işaretlerini ve klasörleri seçin ve bunları Ana'ya aktarın.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Öğeleri görüntüleyin ve seçin",
+    "hideItems": "Algılanan öğeleri gizle",
+    "selectAll": "Tümünü seç",
+    "selectNone": "Tümünün seçimini kaldır",
+    "searchItems": "Algılanan yer işaretlerini ara",
+    "selectedItems": "{{count}} yer imleri ve {{folders}} klasörler seçildi.",
+    "expandFolder": "{{name}} genişletin veya daraltın",
+    "unnamedFolder": "Adsız klasör",
+    "noMatches": "Eşleşen öğe yok.",
+    "showMore": "Daha fazlasını göster",
+    "loadingItems": "Yer imleri okunuyor…",
+    "emptyFolder": "Boş",
+    "mainFull": "Main'de bu yer imleri için boş alan yok. Bir ızgara hücresini serbest bırakın ve tekrar deneyin."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Chrome yer işaretleriniz New DeskTab'da evinizde",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Klasörler artık arama, kompakt sayfalar ve kırıntı navigasyonu ile daha büyük koleksiyonları barındırıyor. Mevcut yer işaretleriniz yerinde kalır ve klasör ağaçlarının tamamı taşınabilir, çoğaltılabilir ve geri dönüşüm kutusundan kurtarılabilir."
+    },
     "settingsTitle": "Sürüm notları",
     "settingsDescription": "Neler değişti ve her güncellemenin arkasındaki hikaye.",
     "open": "Notları oku",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Daha az dağınıklık. Daha fazla sipariş.",
-        "body": "+'dan bir [[folders|klasör]] oluşturun ve düzenleme modunda yer imlerini buna sürükleyin. 18'e kadar yer imine yer veren temiz bir ızgarada açılır.",
+        "body": "+'dan bir [[folders|folder]] oluşturun ve düzenleme modunda yer imlerini buna sürükleyin. Büyük klasörlerde arama ve sayfalar bulunur ve içe aktarılan alt klasörler yapılarını korur.",
         "hint": "İş ve eğlenceyi ayırmak için [[workspaces|çalışma alanı çubuğu]] içindeki + işaretini kullanın. [[search|büyüteç]] ayrıca klasörlerin içinde de arama yapar."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopyala"
   },
   "folder": {
+    "navigation": "Klasörde gezinme",
+    "back": "Geri",
+    "page": "{{pages}}'nun {{page}} sayfası",
+    "nextPage": "Sonraki",
+    "previousPage": "Önceki",
+    "searchEmpty": "Eşleşen öğe yok",
+    "search": "Bu klasörü ara",
+    "contentsCount": "{{count}} öğeleri",
     "create": "Klasör oluştur",
     "createPrompt": "Yeni klasöre ad verin",
     "namePlaceholder": "Araçlar, ilham…",

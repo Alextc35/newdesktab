@@ -323,14 +323,14 @@
       "question": "Yer işaretlerini klasörler halinde nasıl gruplayabilirim?",
       "searchTerms": "klasör oluştur; grup yer imleri; favorileri organize et; klasörden kaldır; klasörü yeniden adlandır",
       "title": "Klasörlerle düzenleme",
-      "summary": "Tek bir klasörde 18'e kadar yer imini toplayın.",
+      "summary": "Yer işaretlerini ve alt klasörleri tek bir yerde toplayın.",
       "steps": [
         "Soldaki menüden + → Klasör'ü seçin ve ona bir ad verin.",
         "Düzenleme modunda, yer imlerini içine yerleştirmek için üzerine sürükleyin. Izgarasını görmek için klasörü açın.",
         "Yer imlerini düzenlemek için klasörün düzenleme modunu kullanın. Yeniden adlandırmak için adına, görünümünü özelleştirmek için simgesine tıklayın."
       ],
       "note": "Bir klasörün silinmesi yer imlerini de etkiler. Devam etmeden önce onayı inceleyin; geri dönüşüm kutusu silinen öğeleri geri yükleyebilir.",
-      "tip": "Bir klasörde en fazla 18 yer imi bulunur. Düzenlemeyi açın ve eklemek için bir kartı klasöre sürükleyin."
+      "tip": "Klasörler, arama ve sayfalar içeren büyük koleksiyonları destekler. Düzenlemeyi açın ve eklemek için bir kartı bir klasöre sürükleyin."
     },
     "workspaces": {
       "question": "Kişisel ve çalışma sayfalarını nasıl ayrı tutabilirim?",

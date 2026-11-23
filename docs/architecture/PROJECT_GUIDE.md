@@ -248,8 +248,9 @@ choice as optional `devicePreferences.dailyTipsEnabled` metadata. It stays out
 of Sync and application data; older backups retain the current choice. Tip
 history and the last offered day remain on the device and outside backups.
 
-Public release 1.0.0 uses `schemaVersion: 1`. The development schemas 2–21 were
-discarded before publication and are not migrated. New profiles start with empty
+Public release 1.1.0 uses `schemaVersion: 2`, with nested folders and recycled
+folder trees. Public schema 1 migrates on load; pre-release development snapshots
+are unsupported. New profiles start with empty
 bookmark, folder and widget collections. Future versioned schemas are rejected
 or handled by the Sync compatibility fallback rather than silently overwritten.
 
@@ -259,10 +260,11 @@ A bookmark owns identity, URL, appearance, workspace and a grid rectangle.
 `folderId` represents folder membership. A contained bookmark keeps its saved
 main-grid dimensions but does not reserve space in the top-level grid.
 
-Folders are independent `data.folders` entities. They cannot contain folders,
-and their bookmarks must belong to the same workspace. The ordinary contents
-grid has six columns and three rows, for 18 bookmarks. Legacy overflow remains
-accessible through additional scrollable rows.
+Folders are independent `data.folders` entities. Their optional `parentId`
+preserves subfolders; every descendant belongs to the same workspace. Only root
+folders reserve desktop cells. Small collections use a six-column, three-row
+editing grid. Larger collections and folders containing subfolders use a compact
+list with search and pages of at most 54 items. Membership has no fixed count cap.
 
 Appearance presets contain visual fields only. They never carry identity,
 URL, timestamps, membership or placement.

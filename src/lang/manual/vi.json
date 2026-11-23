@@ -323,14 +323,14 @@
       "question": "Làm cách nào để nhóm dấu trang vào các thư mục?",
       "searchTerms": "tạo thư mục; dấu trang nhóm; sắp xếp các mục yêu thích; xóa khỏi thư mục; đổi tên thư mục",
       "title": "Sắp xếp với các thư mục",
-      "summary": "Tập hợp tối đa 18 dấu trang trong một thư mục.",
+      "summary": "Thu thập dấu trang và thư mục con ở một nơi.",
       "steps": [
         "Chọn + → Thư mục ở menu bên trái và đặt tên cho nó.",
         "Ở chế độ chỉnh sửa, hãy kéo dấu trang vào đó để đặt chúng vào trong. Mở thư mục để xem lưới của nó.",
         "Sử dụng chế độ chỉnh sửa của thư mục để sắp xếp dấu trang của nó. Nhấp vào tên của nó để đổi tên và biểu tượng của nó để tùy chỉnh giao diện của nó."
       ],
       "note": "Việc xóa một thư mục cũng ảnh hưởng đến dấu trang của nó. Xem lại xác nhận trước khi tiếp tục; thùng rác có thể khôi phục các mục đã xóa.",
-      "tip": "Một thư mục chứa tối đa 18 dấu trang. Bật chỉnh sửa và kéo thẻ vào thư mục để thêm thẻ."
+      "tip": "Các thư mục hỗ trợ các bộ sưu tập lớn với tính năng tìm kiếm và trang. Bật chỉnh sửa và kéo thẻ vào thư mục để thêm thẻ đó."
     },
     "workspaces": {
       "question": "Làm cách nào để tách biệt trang cá nhân và trang công việc?",

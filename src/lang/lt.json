@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Importuoti pasirinktas žymes ir aplankus į Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importuokite pasirinkimą į pagrindinį kartu su dabartinėmis žymėmis. Žymių juosta rodoma tiesiai darbalaukyje; kitos žymės išsaugo savo aplankus.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Pasirinkite žymes ir aplankus iš „Chrome“ arba eksportuoto HTML failo ir importuokite juos į pagrindinį.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Peržiūrėkite ir pasirinkite elementus",
+    "hideItems": "Slėpti aptiktus elementus",
+    "selectAll": "Pasirinkite viską",
+    "selectNone": "Panaikinkite visų pasirinkimą",
+    "searchItems": "Ieškoti aptiktų žymių",
+    "selectedItems": "Pasirinkta {{count}} žymių ir {{folders}} aplankų.",
+    "expandFolder": "Išskleisti arba sutraukti {{name}}",
+    "unnamedFolder": "Aplankas be pavadinimo",
+    "noMatches": "Nėra atitinkančių elementų.",
+    "showMore": "Rodyti daugiau",
+    "loadingItems": "Skaitomos žymės…",
+    "emptyFolder": "Tuščia",
+    "mainFull": "Pagrindinėje šioms žymėms nėra laisvos vietos. Atlaisvinkite vieną tinklelio langelį ir bandykite dar kartą."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Jūsų „Chrome“ žymės namuose New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Dabar aplankuose yra didesnės kolekcijos su paieška, kompaktiškais puslapiais ir naršymo keliu. Jūsų esamos žymės lieka vietoje, o visus aplankų medžius galima perkelti, kopijuoti ir atkurti iš šiukšliadėžės."
+    },
     "settingsTitle": "Išleidimo pastabos",
     "settingsDescription": "Kas pasikeitė ir kiekvieno atnaujinimo istorija.",
     "open": "Skaityti pastabas",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Mažiau netvarkos. Daugiau tvarkos.",
-        "body": "Sukurkite [[folders|aplanką]] iš + ir vilkite žymes į jį redagavimo režimu. Jis atsidaro švariame tinklelyje, kuriame telpa iki 18 žymių.",
+        "body": "Sukurkite [[folders|folder]] iš + ir vilkite žymes į jį redagavimo režimu. Dideliuose aplankuose yra paieška ir puslapiai, o importuoti poaplankiai išlaiko savo struktūrą.",
         "hint": "Naudokite + esantį [[workspaces|darbo vietos juosta]], kad atskirtumėte darbą ir žaidimą. [[search|padidinamąjį stiklą]] taip pat ieško aplankuose."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopija"
   },
   "folder": {
+    "navigation": "Aplanko naršymas",
+    "back": "Atgal",
+    "page": "{{pages}} puslapis {{page}}",
+    "nextPage": "Kitas",
+    "previousPage": "Ankstesnis",
+    "searchEmpty": "Nėra atitinkančių elementų",
+    "search": "Ieškoti šiame aplanke",
+    "contentsCount": "{{count}} elementai",
     "create": "Sukurti aplanką",
     "createPrompt": "Pavadinkite naują aplanką",
     "namePlaceholder": "Įrankiai, įkvėpimas…",

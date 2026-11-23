@@ -8,11 +8,14 @@ installation. The 1.0.0 entry contains the author's story and thanks, six featur
 highlights, and a note that the clock widget is still in development.
 The 1.0.1 entry explains that JSON and ZIP backups preserve the daily-tip
 preference and that each tip has a discreet button to turn off future tips.
+Version 1.1.0 adds native Chrome and HTML bookmark import, nested folders, and
+searchable, paged navigation for large folders without the previous 18-item cap.
 
 ## Arrival and history
 
 - A new profile sees release notes before the welcome guide.
 - Closing the notes offers the guide if this profile has not completed or skipped it.
+- After the first guide, profiles with Chrome bookmarks receive an import offer.
 - An enabled daily tip follows those dialogs when a tip is due. It stays at the
   bottom right. Its reading timer pauses for hover, focus, another open dialog,
   or a hidden tab.
@@ -55,7 +58,7 @@ eligible moment. Failed writes do not count as successfully recorded offers.
 This marker is excluded from Chrome Sync and workspace backups. Importing a
 backup, deleting workspace data or consulting history manually does not re-offer
 an already recorded release. Downgrading does not repeat it either. The marker
-is independent of the workspace data schema, currently version 1.
+is independent of the workspace data schema, currently version 2.
 
 The notes and their translations ship inside the extension package. Displaying
 them does not require an external service or additional permissions.

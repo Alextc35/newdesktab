@@ -323,14 +323,14 @@
       "question": "Cum grupez marcajele în dosare?",
       "searchTerms": "crearea unui folder; marcaje de grup; organizați favoritele; eliminați din folder; redenumiți folderul",
       "title": "Organizați cu dosare",
-      "summary": "Adunați până la 18 marcaje într-un singur dosar.",
+      "summary": "Adunați marcaje și subdosare într-un singur loc.",
       "steps": [
         "Alegeți + → Folder din meniul din stânga și dați-i un nume.",
         "În modul de editare, trageți marcajele pe el pentru a le pune înăuntru. Deschideți folderul pentru a-i vedea grila.",
         "Utilizați modul de editare al folderului pentru a-i aranja marcajele. Faceți clic pe numele acestuia pentru a-l redenumi și pe pictograma pentru a-i personaliza aspectul."
       ],
       "note": "Ștergerea unui folder afectează și marcajele acestuia. Examinați confirmarea înainte de a continua; coșul de reciclare poate restaura elementele șterse.",
-      "tip": "Un folder conține până la 18 marcaje. Activați editarea și trageți un card în dosar pentru a-l adăuga."
+      "tip": "Folderele acceptă colecții mari cu căutare și pagini. Activați editarea și trageți un card într-un dosar pentru a-l adăuga."
     },
     "workspaces": {
       "question": "Cum păstrez paginile personale și cele de lucru separate?",

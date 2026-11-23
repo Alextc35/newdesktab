@@ -3,9 +3,9 @@ import { GRID_COLS, GRID_ROWS } from '../../shared/grid/gridGeometry.js';
 import {
   cellKey,
   createFolderBookmarkLayout,
-  FOLDER_GRID_CAPACITY,
   findFirstFreeFolderCell
 } from '../folders/folderGrid.js';
+import { getFolderRoots, getFolderTreeIds } from '../folders/folderTree.js';
 import { findFirstFreeSlot, isAreaFree } from '../../shared/grid/gridPlacement.js';
 import { resolveWorkspaceId } from '../workspaces/workspaceModel.js';
 import {
@@ -27,13 +27,14 @@ export function createBookmarkTrashEntry(bookmark, { id, deletedAt }) {
 }
 
 /** Creates one atomic trash entry for a folder and all of its contents. */
-export function createFolderTrashEntry(folder, bookmarks, { id, deletedAt }) {
+export function createFolderTrashEntry(folder, bookmarks, { id, deletedAt, folders = [] }) {
   return {
     id,
     type: 'folder',
     deletedAt,
     folder: structuredClone(folder),
-    bookmarks: structuredClone(bookmarks)
+    bookmarks: structuredClone(bookmarks),
+    ...(folders.length ? { folders: structuredClone(folders) } : {})
   };
 }
 
@@ -45,11 +46,14 @@ export function createCollectionTrashEntries(
 ) {
   const folderIds = new Set(folders.map(folder => folder.id));
   return [
-    ...folders.map(folder => createFolderTrashEntry(
-      folder,
-      bookmarks.filter(bookmark => bookmark.folderId === folder.id),
-      { id: createId(), deletedAt }
-    )),
+    ...getFolderRoots(folders).map(folder => {
+      const treeIds = getFolderTreeIds(folders, [folder.id]);
+      return createFolderTrashEntry(
+        folder,
+        bookmarks.filter(bookmark => treeIds.has(bookmark.folderId)),
+        { id: createId(), deletedAt, folders: folders.filter(child => child.id !== folder.id && treeIds.has(child.id)) }
+      );
+    }),
     ...bookmarks
       .filter(bookmark => !folderIds.has(bookmark.folderId))
       .map(bookmark => createBookmarkTrashEntry(bookmark, {
@@ -171,46 +175,61 @@ export function findRecycleBinPlacement(data, recycleBin) {
 
 function restoreFolderEntry(entry, context) {
   const { data, bookmarks, folders, now, createId } = context;
+  const parent = folders.find(folder => folder.id === entry.folder.parentId);
   const validGroupId = resolveWorkspaceId(
     data.settings.bookmarkGroups,
-    entry.folder.groupId
+    parent ? parent.groupId : entry.folder.groupId
   );
+  const usedIds = new Set([...folders, ...bookmarks, ...(data.widgets ?? []), data.recycleBin].filter(Boolean).map(item => item.id));
   const folderId = uniqueId(
     entry.folder.id,
-    new Set(folders.map(folder => folder.id)),
+    usedIds,
     createId
   );
+  usedIds.add(folderId);
   const candidate = {
     ...structuredClone(entry.folder),
     id: folderId,
+    parentId: parent?.id ?? null,
     groupId: validGroupId,
     updatedAt: now()
   };
-  const position = findRestorePosition(candidate, occupiedGridItems(
-    { ...data, bookmarks, folders },
-    validGroupId
-  ));
+  const position = parent
+    ? findFolderRestorePosition(parent.id, bookmarks, folders)
+    : findRestorePosition(candidate, occupiedGridItems({ ...data, bookmarks, folders }, validGroupId));
   if (!position) return null;
 
   const folder = { ...candidate, ...position };
-  const bookmarkIds = new Set(bookmarks.map(bookmark => bookmark.id));
+  const folderIdMap = new Map([[entry.folder.id, folderId]]);
+  for (const descendant of entry.folders ?? []) {
+    const id = uniqueId(descendant.id, usedIds, createId);
+    usedIds.add(id);
+    folderIdMap.set(descendant.id, id);
+  }
+  const descendants = (entry.folders ?? []).map(descendant => ({
+    ...structuredClone(descendant),
+    id: folderIdMap.get(descendant.id),
+    parentId: folderIdMap.get(descendant.parentId) ?? folderId,
+    groupId: validGroupId,
+    updatedAt: now()
+  }));
   const children = entry.bookmarks.map(bookmark => {
-    const id = uniqueId(bookmark.id, bookmarkIds, createId);
-    bookmarkIds.add(id);
+    const id = uniqueId(bookmark.id, usedIds, createId);
+    usedIds.add(id);
     return {
       ...structuredClone(bookmark),
       id,
-      folderId,
+      folderId: folderIdMap.get(bookmark.folderId) ?? folderId,
       groupId: validGroupId,
       updatedAt: now()
     };
   });
-  return { bookmarks: [...bookmarks, ...children], folders: [...folders, folder] };
+  return { bookmarks: [...bookmarks, ...children], folders: [...folders, folder, ...descendants] };
 }
 
 function restoreBookmarkEntry(entry, context) {
   const { data, bookmarks, folders, now, createId } = context;
-  const bookmarkIds = new Set(bookmarks.map(bookmark => bookmark.id));
+  const bookmarkIds = new Set([...bookmarks, ...folders, ...(data.widgets ?? []), data.recycleBin].filter(Boolean).map(item => item.id));
   const id = uniqueId(entry.bookmark.id, bookmarkIds, createId);
   const original = {
     ...structuredClone(entry.bookmark),
@@ -220,23 +239,16 @@ function restoreBookmarkEntry(entry, context) {
   const folder = folders.find(item => item.id === original.folderId);
 
   if (folder) {
-    const contents = bookmarks.filter(bookmark => bookmark.folderId === folder.id);
-    if (contents.length < FOLDER_GRID_CAPACITY) {
-      const layout = createFolderBookmarkLayout(contents);
-      const occupied = new Set(Array.from(layout.values(), position => (
-        cellKey(position.gx, position.gy)
-      )));
-      const position = findFirstFreeFolderCell(occupied);
-      if (position) {
-        return {
-          bookmarks: [...bookmarks, {
-            ...original,
-            ...position,
-            folderId: folder.id,
-            groupId: folder.groupId
-          }]
-        };
-      }
+    const position = findFolderRestorePosition(folder.id, bookmarks, folders);
+    if (position) {
+      return {
+        bookmarks: [...bookmarks, {
+          ...original,
+          ...position,
+          folderId: folder.id,
+          groupId: folder.groupId
+        }]
+      };
     }
   }
 
@@ -272,13 +284,24 @@ function occupiedGridItems(data, groupId) {
       !bookmark.folderId && (bookmark.groupId ?? null) === normalizedGroupId
     )),
     ...data.folders.filter(folder => (
-      (folder.groupId ?? null) === normalizedGroupId
-    ))
+      !folder.parentId && (folder.groupId ?? null) === normalizedGroupId
+    )),
+    ...(data.widgets ?? []).filter(widget => (widget.groupId ?? null) === normalizedGroupId)
   ];
   if (normalizedGroupId === null && data.settings.showRecycleBin) {
     items.push(data.recycleBin);
   }
   return items;
+}
+
+function findFolderRestorePosition(folderId, bookmarks, folders) {
+  const contents = [
+    ...bookmarks.filter(bookmark => bookmark.folderId === folderId),
+    ...folders.filter(folder => folder.parentId === folderId)
+  ];
+  const layout = createFolderBookmarkLayout(contents);
+  const occupied = new Set(Array.from(layout.values(), position => cellKey(position.gx, position.gy)));
+  return findFirstFreeFolderCell(occupied);
 }
 
 function uniqueId(preferred, used, createId) {

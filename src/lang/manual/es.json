@@ -262,10 +262,10 @@
     },
     "folders": {
       "question": "¿Cómo agrupo mis favoritos en carpetas?", "searchTerms": "crear carpeta; agrupar favoritos; organizar marcadores; sacar de carpeta; renombrar carpeta",
-      "title": "Organizar en carpetas", "summary": "Reúne hasta 18 favoritos en una misma carpeta.",
+      "title": "Organizar en carpetas", "summary": "Reúne favoritos y subcarpetas en un mismo lugar.",
       "steps": ["Elige + → Carpeta en el menú izquierdo y dale un nombre.", "En modo edición, arrastra favoritos sobre ella para guardarlos dentro. Abre la carpeta para ver su cuadrícula.", "Usa la edición de la carpeta para ordenar sus favoritos. Pulsa su nombre para renombrarla y su icono para personalizar el aspecto."],
       "note": "Eliminar una carpeta afecta también a sus favoritos. Revisa la confirmación antes de continuar; la papelera permite recuperar los elementos eliminados.",
-      "tip": "Una carpeta guarda hasta 18 favoritos. Activa la edición y arrastra una tarjeta sobre la carpeta para añadirla."
+      "tip": "Las carpetas admiten colecciones grandes con búsqueda y páginas. Activa la edición y arrastra una tarjeta sobre una carpeta para añadirla."
     },
     "workspaces": {
       "question": "¿Cómo separo mi espacio personal del trabajo?", "searchTerms": "personal trabajo; crear espacio; cambiar espacio; escritorios; workspace",

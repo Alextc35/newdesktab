@@ -76,6 +76,7 @@ export function migratePersistedData(input, { useDefaultsWhenEmpty = true } = {}
       now,
       workspaceIds
     }));
+  normalizeFolderHierarchy(folders);
   const folderById = new Map(folders.map(folder => [folder.id, folder]));
   const bookmarks = rawBookmarks
     .filter(bookmark => bookmark && typeof bookmark === 'object')
@@ -174,6 +175,16 @@ function normalizeTrashEntries(value, { now, workspaceIds }) {
         now,
         workspaceIds
       });
+      const nestedFolders = (Array.isArray(entry.folders) ? entry.folders : [])
+        .filter(item => item && typeof item === 'object')
+        .map((item, index) => normalizeBookmarkFolder({ ...item, groupId: folder.groupId }, {
+          index, now, workspaceIds
+        }));
+      const parentId = folder.parentId;
+      folder.parentId = null;
+      normalizeFolderHierarchy([folder, ...nestedFolders]);
+      folder.parentId = parentId;
+      const folderIds = new Set([folder.id, ...nestedFolders.map(item => item.id)]);
       const bookmarks = (Array.isArray(entry.bookmarks) ? entry.bookmarks : [])
         .filter(bookmark => bookmark && typeof bookmark === 'object')
         .map((bookmark, bookmarkIndex) => {
@@ -182,11 +193,12 @@ function normalizeTrashEntries(value, { now, workspaceIds }) {
             touchUpdatedAt: false,
             idFactory: () => `trashed-folder-bookmark-${now}-${entryIndex}-${bookmarkIndex}`
           });
-          normalized.folderId = folder.id;
+          normalized.folderId = folderIds.has(normalized.folderId) ? normalized.folderId : folder.id;
           normalized.groupId = folder.groupId;
           return normalized;
         });
-      return [{ id, type: 'folder', deletedAt, folder, bookmarks }];
+      return [{ id, type: 'folder', deletedAt, folder, bookmarks,
+        ...(nestedFolders.length ? { folders: nestedFolders } : {}) }];
     }
 
     return [];
@@ -231,9 +243,39 @@ function normalizeBookmarkFolder(folder, { index, now, workspaceIds }) {
     w: normalizeGridSize(folder.w),
     h: normalizeGridSize(folder.h),
     groupId,
+    parentId: typeof folder.parentId === 'string' && folder.parentId.trim()
+      ? folder.parentId : null,
     createdAt: normalizeTimestamp(folder.createdAt, now),
     updatedAt: normalizeTimestamp(folder.updatedAt, now)
   };
+}
+
+/** Repairs missing/cross-workspace parents and cycles in legacy/imported data. */
+function normalizeFolderHierarchy(folders) {
+  const byId = new Map(folders.map(folder => [folder.id, folder]));
+  for (const folder of folders) {
+    const parent = byId.get(folder.parentId);
+    if (!parent || parent.id === folder.id || parent.groupId !== folder.groupId) {
+      folder.parentId = null;
+    }
+  }
+  const settled = new Set();
+  for (const start of folders) {
+    if (settled.has(start.id)) continue;
+    const path = [];
+    const positions = new Map();
+    let folder = start;
+    while (folder && !settled.has(folder.id)) {
+      if (positions.has(folder.id)) {
+        for (const cycleFolder of path.slice(positions.get(folder.id))) cycleFolder.parentId = null;
+        break;
+      }
+      positions.set(folder.id, path.length);
+      path.push(folder);
+      folder = byId.get(folder.parentId);
+    }
+    for (const item of path) settled.add(item.id);
+  }
 }
 
 function normalizeGridValue(value) {
@@ -405,7 +447,10 @@ function validateImportedData(value) {
   for (const entry of value.trash ?? []) {
     if (entry.type === 'bookmark' && isRecord(entry.bookmark)) continue;
     if (entry.type !== 'folder' || !isRecord(entry.folder)) throw invalidBackup();
-    validateImportedRecords(entry.bookmarks);
+    const treeIds = new Set();
+    validateImportedRecords([entry.folder], treeIds);
+    validateImportedRecords(entry.folders, treeIds);
+    validateImportedRecords(entry.bookmarks, treeIds);
   }
 }
 

@@ -9,7 +9,7 @@ test('manifest uses the expected minimal Manifest V3 surface', () => {
   assert.equal(manifest.manifest_version, 3);
   assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
   assert.equal(manifest.minimum_chrome_version, '123');
-  assert.deepEqual(manifest.permissions, ['storage', 'activeTab']);
+  assert.deepEqual(manifest.permissions, ['storage', 'unlimitedStorage', 'activeTab', 'bookmarks']);
   assert.deepEqual(manifest.host_permissions, ['https://t3.gstatic.com/*']);
   assert.equal(Object.hasOwn(manifest, 'web_accessible_resources'), false);
   assert.equal(Object.hasOwn(manifest, 'web_accesible_resources'), false);

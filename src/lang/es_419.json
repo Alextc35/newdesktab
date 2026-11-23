@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "¿Importar los favoritos y las carpetas seleccionados en Main?",
+    "title": "Tus favoritos, ahora en New DeskTab",
+    "detected": "Hemos detectado {{count}} favoritos y {{folders}} carpetas en Google Chrome.",
+    "htmlDescription": "Importar los favoritos de {{filename}}.",
+    "description": "Importa tu selección en Main junto a tus favoritos actuales. La barra de marcadores aparece directamente en el escritorio; los demás favoritos conservan sus carpetas.",
+    "import": "Importar favoritos",
+    "notNow": "Ahora no",
+    "cancel": "Cancelar",
+    "done": "Listo",
+    "importing": "Importando favoritos…",
+    "success": "Se han importado {{count}} favoritos y {{folders}} carpetas.",
+    "empty": "No se han encontrado favoritos para importar.",
+    "error": "No se han podido importar tus favoritos. Reinténtalo o elige otro archivo.",
+    "quotaError": "Estos favoritos superan el espacio de Chrome Sync. Cambia al modo Local en los ajustes generales y vuelve a intentarlo.",
+    "unavailable": "La importación directa desde Chrome no está disponible. Puedes importar un archivo HTML de favoritos.",
+    "chromeButton": "Importar desde Google Chrome",
+    "htmlButton": "Importar archivo HTML",
+    "settingsTitle": "Trae los favoritos de tu navegador",
+    "settingsDescription": "Elige favoritos y carpetas de Chrome o de un archivo HTML exportado e impórtalos en Main.",
+    "skipped": "Se han omitido {{count}} enlaces no compatibles.",
+    "duplicates": "{{count}} favoritos ya estaban importados.",
+    "retry": "Reintentar",
+    "detecting": "Buscando favoritos de Chrome…",
+    "workspaceName": "Favoritos importados",
+    "chooseItems": "Ver y seleccionar elementos",
+    "hideItems": "Ocultar elementos detectados",
+    "selectAll": "Seleccionar todo",
+    "selectNone": "Desmarcar todo",
+    "searchItems": "Buscar favoritos detectados",
+    "selectedItems": "{{count}} favoritos y {{folders}} carpetas seleccionados.",
+    "expandFolder": "Desplegar o contraer {{name}}",
+    "unnamedFolder": "Carpeta sin nombre",
+    "noMatches": "No hay elementos coincidentes.",
+    "showMore": "Mostrar más",
+    "loadingItems": "Leyendo favoritos…",
+    "emptyFolder": "Vacía",
+    "mainFull": "Main no tiene espacio libre para estos favoritos. Libera una casilla del escritorio y vuelve a intentarlo."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Tus favoritos de Chrome, en New DeskTab",
+      "import": "Importa tu selección en Main junto a tus favoritos actuales. La barra de marcadores aparece directamente en el escritorio; los demás favoritos conservan sus carpetas.",
+      "folders": "Las carpetas admiten colecciones grandes, con búsqueda, páginas compactas y navegación por la ruta. Tus favoritos actuales se mantienen y puedes mover, duplicar y recuperar árboles completos de carpetas desde la papelera."
+    },
     "settingsTitle": "Notas de versión",
     "settingsDescription": "Las novedades y la historia de cada actualización.",
     "open": "Ver notas",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Menos ruido. Más orden.",
-        "body": "Crea una [[folders|carpeta]] desde + y arrastra marcadores dentro en modo edición. Se abrirá en una cuadrícula limpia con hasta 18 marcadores.",
+        "body": "Crea una [[folders|carpeta]] desde + y arrastra favoritos dentro en modo edición. Las carpetas grandes tienen búsqueda y páginas, y las subcarpetas importadas conservan su estructura.",
         "hint": "Usa el + de la [[workspaces|barra de espacios]] para separar trabajo y ocio. La [[search|lupa]] busca también dentro de las carpetas."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "copia"
   },
   "folder": {
+    "navigation": "Navegación de carpetas",
+    "back": "Volver",
+    "page": "Página {{page}} de {{pages}}",
+    "nextPage": "Siguiente",
+    "previousPage": "Anterior",
+    "searchEmpty": "No hay elementos coincidentes",
+    "search": "Buscar en esta carpeta",
+    "contentsCount": "{{count}} elementos",
     "create": "Crear carpeta",
     "createPrompt": "Ponle nombre a la nueva carpeta",
     "namePlaceholder": "Herramientas, inspiración…",

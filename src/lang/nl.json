@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "De geselecteerde bladwijzers en mappen importeren in Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importeer uw selectie in Main naast uw huidige bladwijzers. De bladwijzerbalk verschijnt direct op het bureaublad; andere bladwijzers behouden hun mappen.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Kies bladwijzers en mappen uit Chrome of een geëxporteerd HTML-bestand en importeer ze in Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Bekijk en selecteer artikelen",
+    "hideItems": "Gedetecteerde items verbergen",
+    "selectAll": "Selecteer alles",
+    "selectNone": "Deselecteer alles",
+    "searchItems": "Zoek naar gedetecteerde bladwijzers",
+    "selectedItems": "{{count}} bladwijzers en {{folders}} mappen geselecteerd.",
+    "expandFolder": "Uitvouwen of samenvouwen {{name}}",
+    "unnamedFolder": "Naamloze map",
+    "noMatches": "Geen overeenkomende artikelen.",
+    "showMore": "Laat meer zien",
+    "loadingItems": "Bladwijzers lezen…",
+    "emptyFolder": "Leeg",
+    "mainFull": "Main heeft geen vrije ruimte voor deze bladwijzers. Maak één rastercel vrij en probeer het opnieuw."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Uw Chrome-bladwijzers, thuis in New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Mappen bevatten nu grotere collecties, met zoekmogelijkheden, compacte pagina's en broodkruimelnavigatie. Uw bestaande bladwijzers blijven op hun plaats en volledige mapbomen kunnen worden verplaatst, gedupliceerd en teruggevonden uit de prullenbak."
+    },
     "settingsTitle": "Release-opmerkingen",
     "settingsDescription": "Wat er is veranderd en het verhaal achter elke update.",
     "open": "Lees notities",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Minder rommel. Meer orde.",
-        "body": "Maak een [[folders|map]] van + en sleep er bladwijzers naartoe in de bewerkingsmodus. Het opent in een overzichtelijk raster met ruimte voor maximaal 18 bladwijzers.",
+        "body": "Maak een [[folders|folder]] van + en sleep er bladwijzers naartoe in de bewerkingsmodus. Grote mappen hebben een zoekfunctie en pagina's, en geïmporteerde submappen behouden hun structuur.",
         "hint": "Gebruik de + in [[workspaces|werkruimtebalk]] om werk en ontspanning te scheiden. De [[search|vergrootglas]] zoekt ook in mappen."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopiëren"
   },
   "folder": {
+    "navigation": "Mapnavigatie",
+    "back": "Terug",
+    "page": "Pagina {{page}} van {{pages}}",
+    "nextPage": "Volgende",
+    "previousPage": "Vorige",
+    "searchEmpty": "Geen overeenkomende artikelen",
+    "search": "Zoek in deze map",
+    "contentsCount": "{{count}}-artikelen",
     "create": "Map maken",
     "createPrompt": "Geef de nieuwe map een naam",
     "namePlaceholder": "Hulpmiddelen, inspiratie…",

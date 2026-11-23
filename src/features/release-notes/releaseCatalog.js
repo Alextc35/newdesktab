@@ -2,6 +2,12 @@ import { compareVersions } from '../../shared/data/compareVersions.js';
 
 /** Add a localized entry here whenever the extension manifest version changes. */
 export const RELEASE_NOTES = [{
+  version: '1.1.0',
+  date: '2026-11-23',
+  translation: 'releaseNotes.v1_1_0',
+  paragraphs: ['import', 'folders'],
+  highlights: []
+}, {
   version: '1.0.1',
   date: '2026-11-23',
   translation: 'releaseNotes.v1_0_1',

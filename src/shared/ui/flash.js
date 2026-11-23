@@ -12,9 +12,10 @@ const flashContainer = document.getElementById('flash-container');
  * @param {string} message - Translation key for the message.
  * @param {'info'|'success'|'error'} [type='info'] - Visual type of the flash message.
  * @param {number} [duration=3000] - Time in milliseconds before the message disappears.
+ * @param {Object<string, string|number>} [params={}] - Translation variables.
  * @returns {void}
  */
-export function flash(message, type = 'info', duration = 3000) {
+export function flash(message, type = 'info', duration = 3000, params = {}) {
   if (!flashContainer) return;
 
   while (flashContainer.children.length >= MAX_FLASHES) {
@@ -23,7 +24,7 @@ export function flash(message, type = 'info', duration = 3000) {
 
   const flashMessage = document.createElement('div');
   flashMessage.className = `flash-message flash-${type}`;
-  flashMessage.textContent = t(message);
+  flashMessage.textContent = t(message, params);
 
   flashContainer.appendChild(flashMessage);
 
@@ -40,24 +41,27 @@ export function flash(message, type = 'info', duration = 3000) {
  *
  * @param {string} msg - Translation key for the message.
  * @param {number} [duration] - Optional duration in milliseconds.
+ * @param {Object<string, string|number>} [params] - Translation variables.
  * @returns {void}
  */
-export function flashSuccess(msg, duration) { flash(msg, 'success', duration); }
+export function flashSuccess(msg, duration, params) { flash(msg, 'success', duration, params); }
 
 /**
  * Displays an error flash notification.
  *
  * @param {string} msg - Translation key for the message.
  * @param {number} [duration] - Optional duration in milliseconds.
+ * @param {Object<string, string|number>} [params] - Translation variables.
  * @returns {void}
  */
-export function flashError(msg, duration) { flash(msg, 'error', duration); }
+export function flashError(msg, duration, params) { flash(msg, 'error', duration, params); }
 
 /**
  * Displays an informational flash notification.
  *
  * @param {string} msg - Translation key for the message.
  * @param {number} [duration] - Optional duration in milliseconds.
+ * @param {Object<string, string|number>} [params] - Translation variables.
  * @returns {void}
  */
-export function flashInfo(msg, duration) { flash(msg, 'info', duration); }
+export function flashInfo(msg, duration, params) { flash(msg, 'info', duration, params); }

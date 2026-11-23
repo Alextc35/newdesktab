@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Uvesti odabrane oznake i mape u Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Uvezite svoj odabir u Main zajedno s trenutnim oznakama. Traka oznaka pojavljuje se izravno na radnoj površini; druge oznake čuvaju svoje mape.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Odaberite oznake i mape iz Chromea ili izvezene HTML datoteke i uvezite ih u Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Pregledajte i odaberite stavke",
+    "hideItems": "Sakrij otkrivene stavke",
+    "selectAll": "Odaberite sve",
+    "selectNone": "Poništi odabir svih",
+    "searchItems": "Pretraživanje otkrivenih oznaka",
+    "selectedItems": "{{count}} oznaka i {{folders}} odabranih mapa.",
+    "expandFolder": "Proširi ili sažmi {{name}}",
+    "unnamedFolder": "Neimenovana mapa",
+    "noMatches": "Nema podudarnih stavki.",
+    "showMore": "Prikaži više",
+    "loadingItems": "Čitanje oznaka...",
+    "emptyFolder": "Prazna",
+    "mainFull": "Glavni nema slobodnog prostora za ove oznake. Oslobodite jednu ćeliju mreže i pokušajte ponovno."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Vaše Chrome oznake, kod kuće u New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Mape sada sadrže veće zbirke, s pretraživanjem, kompaktnim stranicama i navigacijom putem puta. Vaše postojeće knjižne oznake ostaju na mjestu, a kompletna stabla mapa mogu se premjestiti, duplicirati i vratiti iz koša za smeće."
+    },
     "settingsTitle": "Napomene o izdanju",
     "settingsDescription": "Što se promijenilo i priča iza svakog ažuriranja.",
     "open": "Čitajte bilješke",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Manje nereda. Više reda.",
-        "body": "Stvorite [[folders|mapa]] iz + i povucite oznake u njega u načinu uređivanja. Otvara se u čistoj mreži s prostorom za do 18 knjižnih oznaka.",
+        "body": "Stvorite [[folders|folder]] od + i povucite oznake u njega u načinu uređivanja. Velike mape imaju pretraživanje i stranice, a uvezene podmape zadržavaju svoju strukturu.",
         "hint": "Upotrijebite + u [[workspaces|traka radnog prostora]] za odvajanje posla od zabave. [[search|povećalo]] također pretražuje unutar mapa."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopija"
   },
   "folder": {
+    "navigation": "Folder navigation",
+    "back": "natrag",
+    "page": "Stranica {{page}} od {{pages}}",
+    "nextPage": "Dalje",
+    "previousPage": "Prethodno",
+    "searchEmpty": "No matching items",
+    "search": "Search this folder",
+    "contentsCount": "{{count}} stavke",
     "create": "Stvori mapu",
     "createPrompt": "Imenujte novu mapu",
     "namePlaceholder": "Alati, inspiracija…",

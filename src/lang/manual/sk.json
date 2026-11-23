@@ -323,14 +323,14 @@
       "question": "Ako môžem zoskupiť záložky do priečinkov?",
       "searchTerms": "vytvoriť priečinok; skupinové záložky; organizovať obľúbené položky; odstrániť z priečinka; premenovať priečinok",
       "title": "Usporiadajte pomocou priečinkov",
-      "summary": "Zhromaždite až 18 záložiek do jedného priečinka.",
+      "summary": "Zhromažďujte záložky a podpriečinky na jednom mieste.",
       "steps": [
         "V ľavom menu vyberte + → Priečinok a pomenujte ho.",
         "V režime úprav naň presuňte záložky, aby ste ich umiestnili dovnútra. Otvorte priečinok, aby ste videli jeho mriežku.",
         "Použite režim úprav priečinka na usporiadanie jeho záložiek. Kliknutím na jeho názov ho premenujete a kliknutím na jeho ikonu prispôsobíte jeho vzhľad."
       ],
       "note": "Odstránenie priečinka ovplyvní aj jeho záložky. Pred pokračovaním skontrolujte potvrdenie; kôš môže obnoviť odstránené položky.",
-      "tip": "Priečinok obsahuje až 18 záložiek. Zapnite úpravy a presunutím karty do priečinka ju pridajte."
+      "tip": "Priečinky podporujú veľké zbierky s vyhľadávaním a stránkami. Zapnite úpravy a pridajte kartu presunutím do priečinka."
     },
     "workspaces": {
       "question": "Ako udržím osobné a pracovné stránky oddelené?",

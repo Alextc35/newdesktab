@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Importați marcajele și folderele selectate în Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importați selecția dvs. în Main alături de marcajele dvs. actuale. Bara de marcaje apare direct pe desktop; alte marcaje își păstrează folderele.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Alegeți marcaje și foldere din Chrome sau dintr-un fișier HTML exportat și importați-le în Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Vizualizați și selectați articole",
+    "hideItems": "Ascunde elementele detectate",
+    "selectAll": "Selectați toate",
+    "selectNone": "Deselectați toate",
+    "searchItems": "Căutați marcaje detectate",
+    "selectedItems": "{{count}} marcaje și {{folders}} dosare selectate.",
+    "expandFolder": "Extindeți sau restrângeți {{name}}",
+    "unnamedFolder": "Dosar fără nume",
+    "noMatches": "Nu există articole care se potrivesc.",
+    "showMore": "Arată mai multe",
+    "loadingItems": "Se citesc marcaje...",
+    "emptyFolder": "Gol",
+    "mainFull": "Main nu are spațiu liber pentru aceste marcaje. Eliberați o celulă de grilă și încercați din nou."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Marcajele tale Chrome, acasă în New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Folderele dețin acum colecții mai mari, cu căutare, pagini compacte și navigare prin breadcrumb. Marcajele dvs. existente rămân la locul lor, iar arborii completi de foldere pot fi mutați, duplicați și recuperați din coșul de reciclare."
+    },
     "settingsTitle": "Note de lansare",
     "settingsDescription": "Ce s-a schimbat și povestea din spatele fiecărei actualizări.",
     "open": "Citiți notele",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Mai puțină dezordine. Mai multă ordine.",
-        "body": "Creați un [[folders|folder]] din + și trageți marcajele în el în modul de editare. Se deschide într-o grilă curată, cu spațiu pentru până la 18 marcaje.",
+        "body": "Creați un [[folders|folder]] din + și trageți marcajele în el în modul de editare. Dosarele mari au căutare și pagini, iar subfolderele importate își păstrează structura.",
         "hint": "Folosiți + din [[workspaces|bara de spațiu de lucru]] pentru a separa munca de joacă. [[search|lupa]] caută și în dosare."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "copie"
   },
   "folder": {
+    "navigation": "Navigare în foldere",
+    "back": "Înapoi",
+    "page": "Pagina {{page}} din {{pages}}",
+    "nextPage": "În continuare",
+    "previousPage": "Anterior",
+    "searchEmpty": "Nu există articole care se potrivesc",
+    "search": "Căutați acest folder",
+    "contentsCount": "articole {{count}}",
     "create": "Creați folder",
     "createPrompt": "Denumiți noul folder",
     "namePlaceholder": "Instrumente, inspirație...",

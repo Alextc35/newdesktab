@@ -323,14 +323,14 @@
       "question": "Wie gruppiere ich Lesezeichen in Ordnern?",
       "searchTerms": "Ordner erstellen; Gruppenlesezeichen; Favoriten organisieren; aus Ordner entfernen; Ordner umbenennen",
       "title": "Organisieren Sie mit Ordnern",
-      "summary": "Sammeln Sie bis zu 18 Lesezeichen in einem Ordner.",
+      "summary": "Sammeln Sie Lesezeichen und Unterordner an einem Ort.",
       "steps": [
         "Wählen Sie im linken Menü + → Ordner und geben Sie ihm einen Namen.",
         "Ziehen Sie im Bearbeitungsmodus Lesezeichen darauf, um sie darin einzufügen. Öffnen Sie den Ordner, um sein Raster anzuzeigen.",
         "Verwenden Sie den Bearbeitungsmodus des Ordners, um seine Lesezeichen anzuordnen. Klicken Sie auf den Namen, um es umzubenennen, und auf das Symbol, um sein Erscheinungsbild anzupassen."
       ],
       "note": "Das Löschen eines Ordners wirkt sich auch auf dessen Lesezeichen aus. Überprüfen Sie die Bestätigung, bevor Sie fortfahren. Der Papierkorb kann gelöschte Elemente wiederherstellen.",
-      "tip": "Ein Ordner fasst bis zu 18 Lesezeichen. Aktivieren Sie die Bearbeitungsfunktion und ziehen Sie eine Karte auf den Ordner, um sie hinzuzufügen."
+      "tip": "Ordner unterstützen große Sammlungen mit Suche und Seiten. Aktivieren Sie die Bearbeitung und ziehen Sie eine Karte auf einen Ordner, um sie hinzuzufügen."
     },
     "workspaces": {
       "question": "Wie trenne ich persönliche und geschäftliche Seiten?",

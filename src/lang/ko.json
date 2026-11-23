@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "선택한 북마크와 폴더를 Main로 가져오시겠습니까?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "현재 북마크와 함께 선택 항목을 Main으로 가져옵니다. 북마크바는 데스크탑에 직접 나타납니다. 다른 북마크는 폴더를 유지합니다.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Chrome이나 내보낸 HTML 파일에서 북마크와 폴더를 선택하고 Main으로 가져옵니다.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "항목 보기 및 선택",
+    "hideItems": "감지된 항목 숨기기",
+    "selectAll": "모두 선택",
+    "selectNone": "모두 선택 취소",
+    "searchItems": "감지된 북마크 검색",
+    "selectedItems": "{{count}} 북마크 및 {{folders}} 폴더가 선택되었습니다.",
+    "expandFolder": "{{name}} 펼치기 또는 접기",
+    "unnamedFolder": "이름 없는 폴더",
+    "noMatches": "일치하는 항목이 없습니다.",
+    "showMore": "더 보기",
+    "loadingItems": "북마크를 읽는 중…",
+    "emptyFolder": "비어 있음",
+    "mainFull": "Main에는 이러한 책갈피를 위한 여유 공간이 없습니다. 그리드 셀 하나를 비우고 다시 시도하세요."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "New DeskTab에 있는 Chrome 북마크",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "이제 폴더에는 검색, 컴팩트 페이지, 탐색경로 탐색 등을 통해 더 큰 컬렉션이 포함됩니다. 기존 북마크는 그대로 유지되며 전체 폴더 트리를 휴지통에서 이동, 복제 및 복구할 수 있습니다."
+    },
     "settingsTitle": "릴리스 노트",
     "settingsDescription": "변경된 사항과 각 업데이트의 비하인드 스토리.",
     "open": "메모 읽기",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "덜 복잡합니다. 추가 주문.",
-        "body": "+에서 [[folders|폴더]]를 생성하고 편집 모드에서 북마크를 끌어다 놓습니다. 최대 18개의 북마크를 저장할 수 있는 깔끔한 그리드로 열립니다.",
+        "body": "+에서 [[folders|folder]]를 생성하고 편집 모드에서 북마크를 끌어다 놓습니다. 큰 폴더에는 검색 및 페이지가 있으며 가져온 하위 폴더는 구조를 유지합니다.",
         "hint": "일과 놀이를 구분하려면 [[workspaces|작업 공간 바]]에서 +를 사용하세요. [[search|돋보기]]은 폴더 내부도 검색합니다."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "복사"
   },
   "folder": {
+    "navigation": "폴더 탐색",
+    "back": "뒤로",
+    "page": "{{pages}}의 페이지 {{page}}",
+    "nextPage": "다음",
+    "previousPage": "이전",
+    "searchEmpty": "일치하는 항목이 없습니다.",
+    "search": "이 폴더 검색",
+    "contentsCount": "{{count}} 항목",
     "create": "폴더 생성",
     "createPrompt": "새 폴더 이름 지정",
     "namePlaceholder": "도구, 영감…",

@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Importer les favoris et dossiers sélectionnés dans Main ?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importez votre sélection dans Main avec vos favoris actuels. La barre de favoris apparaît directement sur le bureau ; les autres signets conservent leurs dossiers.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Choisissez des favoris et des dossiers dans Chrome ou dans un fichier HTML exporté et importez-les dans Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Afficher et sélectionner des éléments",
+    "hideItems": "Masquer les éléments détectés",
+    "selectAll": "Tout sélectionner",
+    "selectNone": "Tout désélectionner",
+    "searchItems": "Rechercher des favoris détectés",
+    "selectedItems": "{{count}} signets et {{folders}} dossiers sélectionnés.",
+    "expandFolder": "Développer ou réduire {{name}}",
+    "unnamedFolder": "Dossier sans nom",
+    "noMatches": "Aucun élément correspondant.",
+    "showMore": "Afficher plus",
+    "loadingItems": "Lire des signets…",
+    "emptyFolder": "Vide",
+    "mainFull": "Main n'a pas d'espace libre pour ces signets. Libérez une cellule de la grille et réessayez."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Vos favoris Chrome, chez eux dans New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Les dossiers contiennent désormais des collections plus volumineuses, avec recherche, pages compactes et navigation par fil d'Ariane. Vos favoris existants restent en place et les arborescences de dossiers complètes peuvent être déplacées, dupliquées et récupérées depuis la corbeille."
+    },
     "settingsTitle": "Notes de version",
     "settingsDescription": "Ce qui a changé et l'histoire derrière chaque mise à jour.",
     "open": "Lire les notes",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Moins d'encombrement. Plus d'ordre.",
-        "body": "Créez un [[folders|dossier]] à partir de + et faites-y glisser des signets en mode édition. Il s'ouvre sur une grille épurée pouvant accueillir jusqu'à 18 signets.",
+        "body": "Créez un [[folders|folder]] à partir de + et faites-y glisser des signets en mode édition. Les grands dossiers ont une recherche et des pages, et les sous-dossiers importés conservent leur structure.",
         "hint": "Utilisez le + dans le [[workspaces|barre d'espace de travail]] pour séparer le travail et les loisirs. Le [[search|loupe]] recherche également dans les dossiers."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "copie"
   },
   "folder": {
+    "navigation": "Navigation dans les dossiers",
+    "back": "Retour",
+    "page": "Page {{page}} de {{pages}}",
+    "nextPage": "Suivant",
+    "previousPage": "Précédent",
+    "searchEmpty": "Aucun élément correspondant",
+    "search": "Rechercher ce dossier",
+    "contentsCount": "Articles {{count}}",
     "create": "Créer un dossier",
     "createPrompt": "Nommez le nouveau dossier",
     "namePlaceholder": "Outils, inspirations…",

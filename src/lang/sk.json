@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Importovať vybraté záložky a priečinky do Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importujte svoj výber do Main spolu s vašimi aktuálnymi záložkami. Panel so záložkami sa zobrazí priamo na pracovnej ploche; ostatné záložky si ponechajú svoje priečinky.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Vyberte záložky a priečinky z prehliadača Chrome alebo exportovaného súboru HTML a importujte ich do hlavného.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Zobrazte a vyberte položky",
+    "hideItems": "Skryť zistené položky",
+    "selectAll": "Vybrať všetko",
+    "selectNone": "Zrušte výber všetkých",
+    "searchItems": "Vyhľadajte rozpoznané záložky",
+    "selectedItems": "{{count}} vybratých záložiek a {{folders}} priečinkov.",
+    "expandFolder": "Rozbaliť alebo zbaliť {{name}}",
+    "unnamedFolder": "Nepomenovaný priečinok",
+    "noMatches": "Žiadne zodpovedajúce položky.",
+    "showMore": "Ukáž viac",
+    "loadingItems": "Čítanie záložiek…",
+    "emptyFolder": "Prázdny",
+    "mainFull": "Main nemá žiadne voľné miesto pre tieto záložky. Uvoľnite jednu bunku mriežky a skúste to znova."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Vaše záložky Chrome ako doma v New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Priečinky teraz obsahujú väčšie zbierky s vyhľadávaním, kompaktnými stránkami a navigáciou v strúhanke. Vaše existujúce záložky zostanú na svojom mieste a celé stromy priečinkov je možné presúvať, duplikovať a obnovovať z koša."
+    },
     "settingsTitle": "Poznámky k vydaniu",
     "settingsDescription": "Čo sa zmenilo a príbeh každej aktualizácie.",
     "open": "Prečítajte si poznámky",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Menej neporiadku. Viac poriadku.",
-        "body": "Vytvorte [[folders|priečinok]] z + a presuňte doň záložky v režime úprav. Otvára sa v čistej mriežke s priestorom až pre 18 záložiek.",
+        "body": "Vytvorte [[folders|folder]] z + a presuňte doň záložky v režime úprav. Veľké priečinky majú vyhľadávanie a stránky a importované podpriečinky si zachovávajú svoju štruktúru.",
         "hint": "Pomocou + v [[workspaces|lišta pracovného priestoru]] oddeľte prácu a zábavu. [[search|zväčšovacie sklo]] vyhľadáva aj v priečinkoch."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopírovať"
   },
   "folder": {
+    "navigation": "Navigácia v priečinkoch",
+    "back": "Späť",
+    "page": "Strana {{page}} z {{pages}}",
+    "nextPage": "Ďalej",
+    "previousPage": "Predchádzajúce",
+    "searchEmpty": "Žiadne zodpovedajúce položky",
+    "search": "Vyhľadajte tento priečinok",
+    "contentsCount": "{{count}} položky",
     "create": "Vytvorte priečinok",
     "createPrompt": "Pomenujte nový priečinok",
     "namePlaceholder": "Nástroje, inšpirácia…",

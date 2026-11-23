@@ -118,6 +118,9 @@ test('URLs are normalized and unsupported protocols are rejected', () => {
   assert.equal(normalizeBookmarkUrl('chrome://extensions'), 'chrome://extensions');
 
   assert.equal(validateBookmarkDraft({ name: 'Valid', url: 'example.com' }).isValid, true);
+  for (const url of ['file:///C:/notes.html', 'mailto:hello@example.test', 'ftp://example.test', 'chrome-extension://abc/page.html']) {
+    assert.equal(validateBookmarkDraft({ name: 'Imported link', url }).isValid, true);
+  }
   assert.equal(validateBookmarkDraft({ name: '', url: 'example.com' }).errors.name, 'required');
   assert.equal(
     validateBookmarkDraft({ name: 'Unsafe', url: 'javascript:alert(1)' }).errors.url,

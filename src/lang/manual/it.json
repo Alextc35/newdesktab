@@ -323,14 +323,14 @@
       "question": "Come posso raggruppare i segnalibri in cartelle?",
       "searchTerms": "creare cartella; segnalibri di gruppo; organizzare i preferiti; rimuovere dalla cartella; rinominare la cartella",
       "title": "Organizza con cartelle",
-      "summary": "Raccogli fino a 18 segnalibri in una cartella.",
+      "summary": "Raccogli segnalibri e sottocartelle in un unico posto.",
       "steps": [
         "Scegli + → Cartella nel menu a sinistra e dagli un nome.",
         "In modalità modifica, trascina i segnalibri su di esso per inserirli. Apri la cartella per vederne la griglia.",
         "Utilizza la modalità di modifica della cartella per organizzare i suoi segnalibri. Fare clic sul suo nome per rinominarlo e sulla sua icona per personalizzarne l'aspetto."
       ],
       "note": "L'eliminazione di una cartella influisce anche sui suoi segnalibri. Rivedere la conferma prima di continuare; il cestino può ripristinare gli elementi eliminati.",
-      "tip": "Una cartella può contenere fino a 18 segnalibri. Attiva la modifica e trascina una scheda nella cartella per aggiungerla."
+      "tip": "Le cartelle supportano raccolte di grandi dimensioni con ricerca e pagine. Attiva la modifica e trascina una scheda su una cartella per aggiungerla."
     },
     "workspaces": {
       "question": "Come faccio a tenere separate le pagine personali e di lavoro?",

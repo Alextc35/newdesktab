@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Tuodaanko valitut kirjanmerkit ja kansiot kansioon Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Tuo valintasi Main-sivulle nykyisten kirjanmerkkiesi rinnalle. Kirjanmerkkipalkki näkyy suoraan työpöydällä; muut kirjanmerkit säilyttävät kansiot.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Valitse kirjanmerkit ja kansiot Chromesta tai viedystä HTML-tiedostosta ja tuo ne Main-sivulle.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Tarkastele ja valitse kohteita",
+    "hideItems": "Piilota havaitut kohteet",
+    "selectAll": "Valitse kaikki",
+    "selectNone": "Poista kaikki valinnat",
+    "searchItems": "Hae havaittuja kirjanmerkkejä",
+    "selectedItems": "{{count}} kirjanmerkkiä ja {{folders}} kansiota valittu.",
+    "expandFolder": "Laajenna tai tiivistä {{name}}",
+    "unnamedFolder": "Nimetön kansio",
+    "noMatches": "Ei vastaavia kohteita.",
+    "showMore": "Näytä lisää",
+    "loadingItems": "Luetaan kirjanmerkkejä…",
+    "emptyFolder": "Tyhjä",
+    "mainFull": "Mainilla ei ole vapaata tilaa näille kirjanmerkeille. Vapauta yksi ruudukon solu ja yritä uudelleen."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Chrome-kirjanmerkkisi kotona New DeskTab:ssa",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Kansioissa on nyt suurempia kokoelmia, joissa on haku, kompaktit sivut ja navigointipolku. Nykyiset kirjanmerkkisi pysyvät paikoillaan, ja kokonaisia ​​kansiopuita voidaan siirtää, monistaa ja palauttaa roskakorista."
+    },
     "settingsTitle": "Julkaisutiedot",
     "settingsDescription": "Mikä muuttui ja tarina jokaisen päivityksen takana.",
     "open": "Lue muistiinpanoja",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Vähemmän sotkua. Lisää tilausta.",
-        "body": "Luo [[folders|kansio]] +-kohdasta ja vedä kirjanmerkit siihen muokkaustilassa. Se avautuu puhtaaseen ruudukkoon, jossa on tilaa jopa 18 kirjanmerkille.",
+        "body": "Luo [[folders|folder]] +:sta ja vedä siihen kirjanmerkit muokkaustilassa. Suurissa kansioissa on haku ja sivut, ja tuodut alikansiot säilyttävät rakenteensa.",
         "hint": "Käytä +-merkkiä kohdassa [[workspaces|työtilan baari]] erottaaksesi työn ja leikin. [[search|suurennuslasi]] hakee myös kansioiden sisältä."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopioida"
   },
   "folder": {
+    "navigation": "Kansion navigointi",
+    "back": "Takaisin",
+    "page": "{{pages}}:n sivu {{page}}",
+    "nextPage": "Seuraavaksi",
+    "previousPage": "Edellinen",
+    "searchEmpty": "Ei vastaavia kohteita",
+    "search": "Hae tästä kansiosta",
+    "contentsCount": "{{count}} tuotteet",
     "create": "Luo kansio",
     "createPrompt": "Nimeä uusi kansio",
     "namePlaceholder": "Työkaluja, inspiraatiota…",

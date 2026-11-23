@@ -1,6 +1,5 @@
 import { DEFAULT_BOOKMARK_STYLE } from '../../domain/bookmarks/bookmarkDefaults.js';
 import { DEFAULT_FOLDER_STYLE } from '../../domain/folders/folderDefaults.js';
-import { FOLDER_GRID_CAPACITY } from '../../domain/folders/folderGrid.js';
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
 import { createEditIndicatorSvg } from '../../shared/ui/svgIcons.js';
 import { createBookmarkElement } from '../bookmarks/bookmarkCard.js';
@@ -53,8 +52,8 @@ export function initOnboardingFolderPreview(root, samples) {
   }
   root.append(backdrop, panel);
   const updateSummary = () => {
-    panel.querySelector('.onboarding-demo-folder-summary').textContent = t('folder.summary', {
-      count: samples.length, capacity: FOLDER_GRID_CAPACITY
+    panel.querySelector('.onboarding-demo-folder-summary').textContent = t('folder.contentsCount', {
+      count: samples.length
     });
   };
   updateSummary();

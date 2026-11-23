@@ -323,14 +323,14 @@
       "question": "Kako mogu grupirati oznake u mape?",
       "searchTerms": "stvoriti mapu; grupne knjižne oznake; organizirati favorite; ukloniti iz mape; preimenuj mapu",
       "title": "Organizirajte pomoću mapa",
-      "summary": "Skupite do 18 oznaka u jednoj mapi.",
+      "summary": "Skupite oznake i podmape na jednom mjestu.",
       "steps": [
         "Odaberite + → Mapa u lijevom izborniku i dodijelite joj naziv.",
         "U načinu za uređivanje, povucite oznake na nju da biste ih stavili unutra. Otvorite mapu da vidite njezinu mrežu.",
         "Upotrijebite način uređivanja mape da rasporedite njezine oznake. Pritisnite njegovo ime da biste ga preimenovali i njegovu ikonu da biste prilagodili njegov izgled."
       ],
       "note": "Brisanje mape također utječe na njezine oznake. Pregledajte potvrdu prije nastavka; koš za smeće može vratiti izbrisane stavke.",
-      "tip": "Mapa sadrži do 18 oznaka. Uključite uređivanje i povucite karticu u mapu da biste je dodali."
+      "tip": "Mape podržavaju velike zbirke s pretraživanjem i stranicama. Uključite uređivanje i povucite karticu u mapu da biste je dodali."
     },
     "workspaces": {
       "question": "Kako mogu odvojiti osobne i poslovne stranice?",

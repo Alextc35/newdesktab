@@ -724,6 +724,175 @@
   flex: 1;
 }
 
+.folder-breadcrumbs {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 4px;
+  padding: 0 0 10px;
+  overflow-x: auto;
+}
+
+.folder-breadcrumbs button,
+.folder-pagination button {
+  padding: 6px 10px;
+  border: 1px solid var(--folder-control-border);
+  border-radius: 8px;
+  background: var(--folder-control-background);
+  color: var(--folder-control-text);
+  font: inherit;
+  font-size: .75rem;
+  cursor: pointer;
+}
+
+.folder-breadcrumbs button {
+  flex: 0 0 auto;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.folder-breadcrumbs button[aria-current] {
+  background: var(--folder-control-active);
+}
+
+.folder-breadcrumbs button:hover,
+.folder-pagination button:not(:disabled):hover {
+  background: var(--folder-control-hover);
+}
+
+.folder-search { flex: 0 0 auto; }
+
+.folder-search input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--folder-control-border);
+  border-radius: 10px;
+  background: var(--folder-control-background);
+  color: var(--folder-control-text);
+  font: inherit;
+  font-size: .8rem;
+}
+
+.folder-search input:focus-visible,
+.folder-breadcrumbs button:focus-visible,
+.folder-pagination button:focus-visible {
+  outline: 2px solid var(--folder-contents-text);
+  outline-offset: 2px;
+}
+
+.folder-pagination {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  gap: 12px;
+  font-size: .75rem;
+}
+
+.folder-pagination button:disabled { opacity: .45; cursor: default; }
+
+.modal-folder.has-compact-contents .folder-grid-shell {
+  display: block;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+#folder-modal-items.is-list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  border: 0;
+  background: none;
+  overflow: visible;
+}
+
+#folder-modal-items .bookmark-list-item {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  flex-direction: row;
+}
+
+#folder-modal-items .bookmark-list-link { min-width: 0; flex: 1; width: auto; }
+
+#folder-modal-items .bookmark-list-item > .folder-bookmark-actions {
+  position: static;
+  flex: 0 0 auto;
+  inset: auto;
+  width: auto;
+  margin: 0;
+  transform: none;
+  align-self: center;
+  align-items: center;
+  gap: 6px;
+  padding-inline-end: 10px;
+}
+
+#folder-modal-items .bookmark-list-item > .folder-bookmark-actions .item-action-button {
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+}
+
+#folder-modal.is-folder-editing .bookmark-list-arrow { display: none; }
+
+.folder-row-select {
+  width: 17px;
+  height: 17px;
+  margin-inline: 12px 0;
+  flex: 0 0 17px;
+  accent-color: var(--folder-contents-text);
+  cursor: pointer;
+}
+
+#folder-modal-items .is-folder-row-selected {
+  outline: 2px solid var(--folder-contents-text);
+  outline-offset: -2px;
+}
+
+.folder-reorder-toolbar {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.folder-reorder-toolbar > span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.folder-reorder-toolbar button {
+  padding: 7px 10px;
+  border: 1px solid var(--folder-control-border);
+  border-radius: 8px;
+  background: var(--folder-control-background);
+  color: var(--folder-control-text);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.folder-reorder-toolbar button:disabled { opacity: .4; cursor: default; }
+.folder-reorder-toolbar[hidden] { display: none; }
+
+.folder-search-empty {
+  padding: 24px 12px;
+  color: var(--folder-contents-muted);
+  text-align: center;
+}
+
 .folder-modal-grid {
   /* Saved cells use physical left-to-right coordinates in every UI language. */
   direction: ltr;

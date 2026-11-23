@@ -125,7 +125,7 @@ function renderFolders() {
   for (const folder of getQuickSaveFolders(data, groupId)) {
     const option = document.createElement('option');
     option.value = folder.id;
-    option.textContent = folder.name;
+    option.textContent = folder.path || folder.name;
     folderSelect.append(option);
   }
 }
@@ -147,11 +147,11 @@ function renderMatch() {
     && (bookmark.folderId ?? null) === selectedFolderId
   )) ?? matches[0];
   const workspace = getQuickSaveWorkspaces(data).find(item => item.id === (match.groupId ?? null));
-  const folder = data.folders.find(item => item.id === match.folderId);
+  const folder = getQuickSaveFolders(data, match.groupId ?? null).find(item => item.id === match.folderId);
   const location = [
     !workspace ? t('quickSave.mainWorkspace')
       : workspace.id === null ? workspace.name || t('quickSave.mainWorkspace') : workspace.name,
-    folder?.name
+    folder?.path || folder?.name
   ].filter(Boolean).join(' › ');
   const others = matches.length - 1;
   matchDetail.textContent = t(others ? 'quickSave.savedInMore' : 'quickSave.savedIn', {

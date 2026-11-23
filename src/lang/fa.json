@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "نشانک‌ها و پوشه‌های انتخابی به Main وارد شوند؟",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "انتخاب خود را در کنار نشانک های فعلی خود به Main وارد کنید. نوار نشانک ها مستقیماً روی دسکتاپ ظاهر می شود. سایر نشانک ها پوشه های خود را حفظ می کنند.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "نشانک‌ها و پوشه‌ها را از Chrome یا یک فایل HTML صادر شده انتخاب کنید و آنها را به Main وارد کنید.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "مشاهده و انتخاب موارد",
+    "hideItems": "موارد شناسایی شده را پنهان کنید",
+    "selectAll": "همه را انتخاب کنید",
+    "selectNone": "همه را لغو انتخاب کنید",
+    "searchItems": "جستجوی نشانک های شناسایی شده",
+    "selectedItems": "نشانک های {{count}} و پوشه های {{folders}} انتخاب شدند.",
+    "expandFolder": "بزرگ کردن یا کوچک کردن {{name}}",
+    "unnamedFolder": "پوشه بدون نام",
+    "noMatches": "هیچ مورد منطبقی وجود ندارد.",
+    "showMore": "نمایش بیشتر",
+    "loadingItems": "خواندن نشانک‌ها…",
+    "emptyFolder": "خالی",
+    "mainFull": "Main فضای خالی برای این نشانک ها ندارد. یک سلول شبکه را آزاد کنید و دوباره امتحان کنید."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "نشانک‌های Chrome شما، در خانه در New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "پوشه‌ها اکنون مجموعه‌های بزرگ‌تری با جستجو، صفحات فشرده و ناوبری خرده نان در خود دارند. نشانک‌های موجود شما در جای خود باقی می‌مانند و درختان پوشه کامل را می‌توان منتقل کرد، کپی کرد و از سطل بازیافت بازیابی کرد."
+    },
     "settingsTitle": "یادداشت‌های انتشار",
     "settingsDescription": "چه چیزی تغییر کرد و داستان پشت هر به روز رسانی.",
     "open": "یادداشت ها را بخوانید",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "شلوغی کمتر. سفارش بیشتر",
-        "body": "یک [[folders|پوشه]] از + ایجاد کنید و نشانک ها را در حالت ویرایش به آن بکشید. در یک شبکه تمیز با فضایی برای حداکثر 18 نشانک باز می شود.",
+        "body": "یک [[folders|folder]] از + ایجاد کنید و نشانک ها را در حالت ویرایش به داخل آن بکشید. پوشه های بزرگ دارای جستجو و صفحات هستند و زیرپوشه های وارد شده ساختار خود را حفظ می کنند.",
         "hint": "برای جدا کردن کار و بازی از + در [[workspaces|نوار فضای کاری]] استفاده کنید. [[search|ذره بین]] داخل پوشه ها را نیز جستجو می کند."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "کپی کنید"
   },
   "folder": {
+    "navigation": "پیمایش پوشه",
+    "back": "برگشت",
+    "page": "صفحه {{page}} از {{pages}}",
+    "nextPage": "بعدی",
+    "previousPage": "قبلی",
+    "searchEmpty": "هیچ مورد منطبقی وجود ندارد",
+    "search": "این پوشه را جستجو کنید",
+    "contentsCount": "اقلام {{count}}",
     "create": "پوشه ایجاد کنید",
     "createPrompt": "پوشه جدید را نامگذاری کنید",
     "namePlaceholder": "ابزار، الهام…",

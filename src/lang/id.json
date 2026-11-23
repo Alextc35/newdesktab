@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Impor bookmark dan folder yang dipilih ke Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Impor pilihan Anda ke Utama bersama bookmark Anda saat ini. Bilah bookmark muncul langsung di desktop; bookmark lain menyimpan foldernya.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Pilih bookmark dan folder dari Chrome atau file HTML yang diekspor dan impor ke Utama.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Lihat dan pilih item",
+    "hideItems": "Sembunyikan item yang terdeteksi",
+    "selectAll": "Pilih semua",
+    "selectNone": "Batalkan pilihan semua",
+    "searchItems": "Cari bookmark yang terdeteksi",
+    "selectedItems": "{{count}} bookmark dan {{folders}} folder dipilih.",
+    "expandFolder": "Perluas atau ciutkan {{name}}",
+    "unnamedFolder": "Folder tanpa nama",
+    "noMatches": "Tidak ada item yang cocok.",
+    "showMore": "Tampilkan lebih banyak",
+    "loadingItems": "Membaca bookmark…",
+    "emptyFolder": "Kosong",
+    "mainFull": "Main tidak memiliki ruang kosong untuk bookmark ini. Bebaskan satu sel kisi dan coba lagi."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Bookmark Chrome Anda, di rumah di New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Folder kini menampung koleksi yang lebih besar, dengan pencarian, halaman ringkas, dan navigasi runut tautan. Bookmark Anda yang ada tetap di tempatnya, dan pohon folder lengkap dapat dipindahkan, diduplikasi, dan dipulihkan dari keranjang sampah."
+    },
     "settingsTitle": "Catatan rilis",
     "settingsDescription": "Apa yang berubah dan cerita di balik setiap pembaruan.",
     "open": "Baca catatan",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Lebih sedikit kekacauan. Lebih banyak pesanan.",
-        "body": "Buat [[folders|folder]] dari + dan seret bookmark ke dalamnya dalam mode edit. Ini terbuka dalam kotak bersih dengan ruang hingga 18 penanda.",
+        "body": "Buat [[folders|folder]] dari + dan seret bookmark ke dalamnya dalam mode edit. Folder besar memiliki pencarian dan halaman, dan subfolder yang diimpor mempertahankan strukturnya.",
         "hint": "Gunakan tanda + di [[workspaces|bilah ruang kerja]] untuk memisahkan pekerjaan dan permainan. [[search|kaca pembesar]] juga mencari di dalam folder."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "salin"
   },
   "folder": {
+    "navigation": "Navigasi folder",
+    "back": "Kembali",
+    "page": "Halaman {{page}} dari {{pages}}",
+    "nextPage": "Selanjutnya",
+    "previousPage": "Sebelumnya",
+    "searchEmpty": "Tidak ada item yang cocok",
+    "search": "Cari folder ini",
+    "contentsCount": "item {{count}}",
     "create": "Buat folder",
     "createPrompt": "Beri nama folder baru",
     "namePlaceholder": "Alat, inspirasi…",

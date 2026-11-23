@@ -323,14 +323,14 @@
       "question": "Jak mohu seskupit záložky do složek?",
       "searchTerms": "vytvořit složku; skupinové záložky; organizovat oblíbené položky; odstranit ze složky; přejmenovat složku",
       "title": "Uspořádejte pomocí složek",
-      "summary": "Shromážděte až 18 záložek do jedné složky.",
+      "summary": "Shromážděte záložky a podsložky na jednom místě.",
       "steps": [
         "V levém menu vyberte + → Složka a pojmenujte ji.",
         "V režimu úprav na něj přetáhněte záložky a vložte je dovnitř. Otevřete složku a zobrazte její mřížku.",
         "K uspořádání záložek složky použijte režim úprav. Kliknutím na jeho název jej přejmenujete a kliknutím na jeho ikonu přizpůsobíte jeho vzhled."
       ],
       "note": "Smazání složky ovlivní i její záložky. Než budete pokračovat, zkontrolujte potvrzení; koš může obnovit smazané položky.",
-      "tip": "Složka pojme až 18 záložek. Zapněte úpravy a přetažením karty do složky ji přidejte."
+      "tip": "Složky podporují velké kolekce s vyhledáváním a stránkami. Zapněte úpravy a přidejte kartu přetažením do složky."
     },
     "workspaces": {
       "question": "Jak udržím osobní a pracovní stránky oddělené?",

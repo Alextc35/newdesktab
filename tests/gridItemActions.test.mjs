@@ -251,3 +251,37 @@ test('permanently deletes live bookmarks, complete folders and widgets without u
   assert.deepEqual(getState().data.widgets, []);
   assert.equal(await undoBookmarks(), false);
 });
+
+test('duplicates and moves a nested folder as one complete tree', async () => {
+  await seed();
+  await setState({ data: {
+    folders: [...getState().data.folders, folder('nested', { parentId: 'folder', gx: 0 })],
+    bookmarks: [...getState().data.bookmarks, bookmark('deep', { folderId: 'nested' })]
+  } });
+
+  const result = duplicateGridItems([{ kind: 'folder', id: 'folder' }], { columns: 6, rows: 4 });
+  assert.equal(result.duplicates.length, 1);
+  const rootCopy = result.duplicates[0].item;
+  const childCopy = getState().data.folders.find(item => item.parentId === rootCopy.id);
+  assert.ok(childCopy);
+  assert.equal(childCopy.name, 'nested');
+  assert.equal(getState().data.bookmarks.find(item => item.folderId === childCopy.id).url, 'https://deep.test');
+
+  assert.deepEqual(moveGridItemsToWorkspace([{ kind: 'folder', id: rootCopy.id }], 'work', {
+    columns: 6, rows: 4
+  }), { moved: 1, skipped: 0 });
+  assert.equal(getState().data.folders.find(item => item.id === childCopy.id).groupId, 'work');
+  assert.equal(getState().data.bookmarks.find(item => item.folderId === childCopy.id).groupId, 'work');
+  assert.equal(getState().data.folders.find(item => item.id === 'nested').groupId, null);
+});
+
+test('permanent deletion removes nested descendants and their links', async () => {
+  await seed();
+  await setState({ data: {
+    folders: [...getState().data.folders, folder('nested', { parentId: 'folder' })],
+    bookmarks: [...getState().data.bookmarks, bookmark('deep', { folderId: 'nested' })]
+  } });
+  assert.deepEqual(permanentlyDeleteGridItem('folder', 'folder'), { deleted: true, bookmarkCount: 2 });
+  assert.deepEqual(getState().data.folders, []);
+  assert.deepEqual(getState().data.bookmarks.map(item => item.id), ['top']);
+});

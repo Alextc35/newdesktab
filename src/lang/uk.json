@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Імпортувати вибрані закладки та папки в Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Імпортуйте свій вибір у головну сторінку разом із поточними закладками. Панель закладок з'являється безпосередньо на робочому столі; інші закладки зберігають свої папки.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Виберіть закладки та папки з Chrome або експортованого файлу HTML та імпортуйте їх у Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Перегляньте та виберіть елементи",
+    "hideItems": "Приховати виявлені елементи",
+    "selectAll": "Вибрати все",
+    "selectNone": "Зняти вибір із усіх",
+    "searchItems": "Пошук у виявлених закладках",
+    "selectedItems": "Вибрано {{count}} закладок і {{folders}} папок.",
+    "expandFolder": "Розгорнути або згорнути {{name}}",
+    "unnamedFolder": "Папка без назви",
+    "noMatches": "Немає відповідних елементів.",
+    "showMore": "Показати більше",
+    "loadingItems": "Читання закладок…",
+    "emptyFolder": "Порожній",
+    "mainFull": "На головному немає вільного місця для цих закладок. Звільніть одну клітинку сітки та повторіть спробу."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Ваші закладки Chrome, вдома в New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Папки тепер містять більші колекції з пошуком, компактними сторінками та навігацією. Ваші існуючі закладки залишаються на місці, а цілі дерева папок можна переміщувати, дублювати та відновлювати з кошика."
+    },
     "settingsTitle": "Примітки до випуску",
     "settingsDescription": "Що змінилося та історія кожного оновлення.",
     "open": "Читати ноти",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Менше безладу. Більше порядку.",
-        "body": "Створіть [[folders|папку]] із + і перетягніть туди закладки в режимі редагування. Він відкривається у вигляді чистої сітки з місцем для 18 закладок.",
+        "body": "Створіть [[folders|folder]] із + і перетягніть туди закладки в режимі редагування. Великі папки мають пошук і сторінки, а імпортовані вкладені папки зберігають свою структуру.",
         "hint": "Використовуйте + у [[workspaces|панель робочої області]], щоб розділити роботу та розваги. [[search|збільшувальне скло]] також здійснює пошук у папках."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "копія"
   },
   "folder": {
+    "navigation": "Навігація по папках",
+    "back": "Назад",
+    "page": "Сторінка {{page}} з {{pages}}",
+    "nextPage": "Далі",
+    "previousPage": "Попередній",
+    "searchEmpty": "Немає відповідних елементів",
+    "search": "Пошук у цій папці",
+    "contentsCount": "предмети {{count}}",
     "create": "Створити папку",
     "createPrompt": "Назвіть нову папку",
     "namePlaceholder": "Інструменти, натхнення…",

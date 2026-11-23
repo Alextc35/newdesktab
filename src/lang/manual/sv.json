@@ -323,14 +323,14 @@
       "question": "Hur grupperar jag bokmärken i mappar?",
       "searchTerms": "skapa mapp; gruppbokmärken; organisera favoriter; ta bort från mappen; byt namn på mapp",
       "title": "Organisera med mappar",
-      "summary": "Samla upp till 18 bokmärken i en mapp.",
+      "summary": "Samla bokmärken och undermappar på ett ställe.",
       "steps": [
         "Välj + → Mapp i menyn till vänster och ge den ett namn.",
         "I redigeringsläge, dra bokmärken till den för att sätta in dem. Öppna mappen för att se dess rutnät.",
         "Använd mappens redigeringsläge för att ordna dess bokmärken. Klicka på dess namn för att byta namn på den och på dess ikon för att anpassa dess utseende."
       ],
       "note": "Att ta bort en mapp påverkar också dess bokmärken. Granska bekräftelsen innan du fortsätter; papperskorgen kan återställa raderade föremål.",
-      "tip": "En mapp rymmer upp till 18 bokmärken. Slå på redigering och dra ett kort till mappen för att lägga till det."
+      "tip": "Mappar stöder stora samlingar med sökning och sidor. Slå på redigering och dra ett kort till en mapp för att lägga till det."
     },
     "workspaces": {
       "question": "Hur håller jag personliga och arbetssidor åtskilda?",

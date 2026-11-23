@@ -37,6 +37,7 @@ function imageSlots(data) {
     ...(data.trash ?? []).flatMap(entry => entry.type === 'folder'
       ? [
         [`trash:${entry.id}:folder`, entry.folder],
+        ...(entry.folders ?? []).map(item => [`trash:${entry.id}:folder:${item.id}`, item]),
         ...entry.bookmarks.map(item => [`trash:${entry.id}:bookmark:${item.id}`, item])
       ]
       : [[`trash:${entry.id}:bookmark:${entry.bookmark.id}`, entry.bookmark]]),

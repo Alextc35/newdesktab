@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Importar os marcadores e pastas selecionados para Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importe sua seleção para Principal junto com seus favoritos atuais. A barra de favoritos aparece diretamente na área de trabalho; outros marcadores mantêm suas pastas.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Escolha favoritos e pastas do Chrome ou de um arquivo HTML exportado e importe-os para o Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Visualizar e selecionar itens",
+    "hideItems": "Ocultar itens detectados",
+    "selectAll": "Selecionar tudo",
+    "selectNone": "Desmarcar tudo",
+    "searchItems": "Pesquisar favoritos detectados",
+    "selectedItems": "{{count}} marcadores e {{folders}} pastas selecionadas.",
+    "expandFolder": "Expandir ou recolher {{name}}",
+    "unnamedFolder": "Pasta sem nome",
+    "noMatches": "Nenhum item correspondente.",
+    "showMore": "Mostrar mais",
+    "loadingItems": "Lendo marcadores…",
+    "emptyFolder": "Vazio",
+    "mainFull": "Main não tem espaço livre para esses marcadores. Libere uma célula da grade e tente novamente."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Seus favoritos do Chrome, em casa em New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "As pastas agora contêm coleções maiores, com pesquisa, páginas compactas e navegação estrutural. Seus marcadores existentes permanecem no lugar e árvores de pastas completas podem ser movidas, duplicadas e recuperadas da lixeira."
+    },
     "settingsTitle": "Notas de versão",
     "settingsDescription": "O que mudou e a história por trás de cada atualização.",
     "open": "Ler notas",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Menos desordem. Mais ordem.",
-        "body": "Crie um [[folders|pasta]] de + e arraste os marcadores para ele no modo de edição. Ele abre em uma grade limpa com espaço para até 18 marcadores.",
+        "body": "Crie um [[folders|folder]] de + e arraste os favoritos para ele no modo de edição. Pastas grandes possuem pesquisas e páginas, e subpastas importadas mantêm sua estrutura.",
         "hint": "Use o + em [[workspaces|barra da área de trabalho]] para separar trabalho e diversão. O [[search|lupa]] também pesquisa dentro de pastas."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "copiar"
   },
   "folder": {
+    "navigation": "Navegação de pastas",
+    "back": "Voltar",
+    "page": "Página {{page}} de {{pages}}",
+    "nextPage": "Próximo",
+    "previousPage": "Anterior",
+    "searchEmpty": "Nenhum item correspondente",
+    "search": "Pesquisar esta pasta",
+    "contentsCount": "Itens {{count}}",
     "create": "Criar pasta",
     "createPrompt": "Nomeie a nova pasta",
     "namePlaceholder": "Ferramentas, inspiração…",

@@ -49,7 +49,7 @@ try {
   assert.deepEqual(await page.evaluate(async () => ({
     live: (await import('./state/appStore.js')).getState().data.schemaVersion,
     saved: (await chrome.storage.local.get('schemaVersion')).schemaVersion
-  })), { live: 1, saved: 1 });
+  })), { live: 2, saved: 2 });
   try {
     assert.equal(await page.locator('#bookmark-container .bookmark').count(), 0);
   } catch (error) {

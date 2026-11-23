@@ -323,14 +323,14 @@
       "question": "Bagaimanakah cara saya mengumpulkan penanda halaman ke dalam folder?",
       "searchTerms": "buat folder; penanda buku kumpulan; mengatur kegemaran; keluarkan daripada folder; menamakan semula folder",
       "title": "Susun dengan folder",
-      "summary": "Kumpulkan sehingga 18 penanda halaman dalam satu folder.",
+      "summary": "Kumpulkan penanda halaman dan subfolder di satu tempat.",
       "steps": [
         "Pilih + → Folder dalam menu kiri dan beri nama.",
         "Dalam mod edit, seret penanda halaman ke atasnya untuk meletakkannya di dalam. Buka folder untuk melihat gridnya.",
         "Gunakan mod edit folder untuk mengatur penanda halamannya. Klik namanya untuk menamakan semula dan ikonnya untuk menyesuaikan penampilannya."
       ],
       "note": "Memadamkan folder juga mempengaruhi penanda halamannya. Semak pengesahan sebelum meneruskan; tong kitar semula boleh memulihkan item yang dipadam.",
-      "tip": "Satu folder memuatkan sehingga 18 penanda halaman. Hidupkan pengeditan dan seret kad ke folder untuk menambahkannya."
+      "tip": "Folder menyokong koleksi besar dengan carian dan halaman. Hidupkan pengeditan dan seret kad ke folder untuk menambahkannya."
     },
     "workspaces": {
       "question": "Bagaimanakah cara saya memisahkan halaman peribadi dan halaman kerja?",

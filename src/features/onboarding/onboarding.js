@@ -5,6 +5,8 @@ import { ensurePanelFits, isListView } from '../../shared/ui/viewportMode.js';
 import { flashInfo } from '../../shared/ui/flash.js';
 import { initOnboardingPreview } from './onboardingPreview.js';
 import { renderLinkedManualText } from '../help/linkedManualText.js';
+import { detectChromeBookmarks } from '../bookmarks/browserBookmarkImport.js';
+import { offerWelcomeBookmarkImport } from '../bookmarks/browserBookmarkImportUI.js';
 
 const STEPS = ['start', 'edit', 'organize', 'style', 'ready'];
 
@@ -23,6 +25,7 @@ export function initOnboarding({ onAddBookmark, onOpenManual }) {
   const preview = initOnboardingPreview(modal.querySelector('.onboarding-demo'));
   let step = 0;
   let replay = false;
+  let welcomeImportDetection = null;
 
   registerModal({ id: 'onboarding', element: modal, initialFocus: next,
     closeOnOverlay: false, requiresWideViewport: true });
@@ -46,12 +49,15 @@ export function initOnboarding({ onAddBookmark, onOpenManual }) {
     dots.forEach((dot, index) => dot.classList.toggle('is-current', index === step));
   }
 
-  function finish(status, addBookmark = false) {
+  async function finish(status, addBookmark = false) {
+    const detection = !replay ? welcomeImportDetection : null;
+    welcomeImportDetection = null;
     closeModal('onboarding');
     void recordOnboarding(status).catch(error => {
       console.warn('[NewDeskTab] Could not save the welcome preference:', error);
     });
-    if (addBookmark) onAddBookmark();
+    const imported = detection ? await offerWelcomeBookmarkImport(detection) : false;
+    if (addBookmark && !imported) onAddBookmark();
   }
 
   function open({ repeat = false } = {}) {
@@ -117,6 +123,11 @@ export function initOnboarding({ onAddBookmark, onOpenManual }) {
       } while (!claimed && !available());
       if (!claimed) return;
       await waitForAvailable();
+      // Detection never opens a dialog until the first guide is finished.
+      welcomeImportDetection = detectChromeBookmarks().catch(error => {
+        console.warn('[NewDeskTab] Could not detect welcome bookmarks:', error);
+        return null;
+      });
       open();
     } catch (error) {
       // Optional help must never prevent the workspace from loading.

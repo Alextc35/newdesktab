@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "ಆಯ್ಕೆಮಾಡಿದ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು ಮತ್ತು ಫೋಲ್ಡರ್‌ಗಳನ್ನು Main ಗೆ ಆಮದು ಮಾಡಿಕೊಳ್ಳುವುದೇ?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳ ಜೊತೆಗೆ ನಿಮ್ಮ ಆಯ್ಕೆಯನ್ನು ಮುಖ್ಯಕ್ಕೆ ಆಮದು ಮಾಡಿಕೊಳ್ಳಿ. ಬುಕ್ಮಾರ್ಕ್ ಬಾರ್ ನೇರವಾಗಿ ಡೆಸ್ಕ್ಟಾಪ್ನಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ; ಇತರ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು ತಮ್ಮ ಫೋಲ್ಡರ್‌ಗಳನ್ನು ಇಟ್ಟುಕೊಳ್ಳುತ್ತವೆ.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Chrome ಅಥವಾ ರಫ್ತು ಮಾಡಿದ HTML ಫೈಲ್‌ನಿಂದ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು ಮತ್ತು ಫೋಲ್ಡರ್‌ಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ ಮತ್ತು ಅವುಗಳನ್ನು ಮುಖ್ಯಕ್ಕೆ ಆಮದು ಮಾಡಿ.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "ಐಟಂಗಳನ್ನು ವೀಕ್ಷಿಸಿ ಮತ್ತು ಆಯ್ಕೆಮಾಡಿ",
+    "hideItems": "ಪತ್ತೆಯಾದ ಐಟಂಗಳನ್ನು ಮರೆಮಾಡಿ",
+    "selectAll": "ಎಲ್ಲವನ್ನೂ ಆಯ್ಕೆಮಾಡಿ",
+    "selectNone": "ಎಲ್ಲವನ್ನೂ ಆಯ್ಕೆ ರದ್ದುಮಾಡಿ",
+    "searchItems": "ಪತ್ತೆಯಾದ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳನ್ನು ಹುಡುಕಿ",
+    "selectedItems": "{{count}} ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು ಮತ್ತು {{folders}} ಫೋಲ್ಡರ್‌ಗಳನ್ನು ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ.",
+    "expandFolder": "{{name}} ವಿಸ್ತರಿಸಿ ಅಥವಾ ಕುಗ್ಗಿಸಿ",
+    "unnamedFolder": "ಹೆಸರಿಸದ ಫೋಲ್ಡರ್",
+    "noMatches": "ಯಾವುದೇ ಹೊಂದಾಣಿಕೆಯ ಐಟಂಗಳಿಲ್ಲ.",
+    "showMore": "ಇನ್ನಷ್ಟು ತೋರಿಸು",
+    "loadingItems": "ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳನ್ನು ಓದಲಾಗುತ್ತಿದೆ...",
+    "emptyFolder": "ಖಾಲಿ",
+    "mainFull": "Main ಈ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳಿಗೆ ಯಾವುದೇ ಮುಕ್ತ ಸ್ಥಳವನ್ನು ಹೊಂದಿಲ್ಲ. ಒಂದು ಗ್ರಿಡ್ ಸೆಲ್ ಅನ್ನು ಮುಕ್ತಗೊಳಿಸಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "New DeskTab ನಲ್ಲಿ ಮನೆಯಲ್ಲಿ ನಿಮ್ಮ Chrome ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "ಫೋಲ್ಡರ್‌ಗಳು ಈಗ ಹುಡುಕಾಟ, ಕಾಂಪ್ಯಾಕ್ಟ್ ಪುಟಗಳು ಮತ್ತು ಬ್ರೆಡ್‌ಕ್ರಂಬ್ ನ್ಯಾವಿಗೇಶನ್‌ನೊಂದಿಗೆ ದೊಡ್ಡ ಸಂಗ್ರಹಗಳನ್ನು ಹೊಂದಿವೆ. ನಿಮ್ಮ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು ಸ್ಥಳದಲ್ಲಿಯೇ ಇರುತ್ತವೆ ಮತ್ತು ಸಂಪೂರ್ಣ ಫೋಲ್ಡರ್ ಮರಗಳನ್ನು ಸರಿಸಬಹುದು, ನಕಲು ಮಾಡಬಹುದು ಮತ್ತು ಮರುಬಳಕೆ ಬಿನ್‌ನಿಂದ ಮರುಪಡೆಯಬಹುದು."
+    },
     "settingsTitle": "ಬಿಡುಗಡೆ ಟಿಪ್ಪಣಿಗಳು",
     "settingsDescription": "ಏನು ಬದಲಾಗಿದೆ ಮತ್ತು ಪ್ರತಿ ನವೀಕರಣದ ಹಿಂದಿನ ಕಥೆ.",
     "open": "ಟಿಪ್ಪಣಿಗಳನ್ನು ಓದಿ",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "ಕಡಿಮೆ ಅಸ್ತವ್ಯಸ್ತತೆ. ಹೆಚ್ಚಿನ ಆದೇಶ.",
-        "body": "+ ನಿಂದ [[folders|ಫೋಲ್ಡರ್]] ಅನ್ನು ರಚಿಸಿ ಮತ್ತು ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳನ್ನು ಎಡಿಟ್ ಮೋಡ್‌ನಲ್ಲಿ ಎಳೆಯಿರಿ. ಇದು 18 ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳಿಗೆ ಸ್ಥಳಾವಕಾಶದೊಂದಿಗೆ ಕ್ಲೀನ್ ಗ್ರಿಡ್‌ನಲ್ಲಿ ತೆರೆಯುತ್ತದೆ.",
+        "body": "+ ನಿಂದ [[folders|folder]] ಅನ್ನು ರಚಿಸಿ ಮತ್ತು ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳನ್ನು ಎಡಿಟ್ ಮೋಡ್‌ನಲ್ಲಿ ಎಳೆಯಿರಿ. ದೊಡ್ಡ ಫೋಲ್ಡರ್‌ಗಳು ಹುಡುಕಾಟ ಮತ್ತು ಪುಟಗಳನ್ನು ಹೊಂದಿವೆ, ಮತ್ತು ಆಮದು ಮಾಡಿದ ಉಪಫೋಲ್ಡರ್‌ಗಳು ಅವುಗಳ ರಚನೆಯನ್ನು ಉಳಿಸಿಕೊಳ್ಳುತ್ತವೆ.",
         "hint": "ಕೆಲಸ ಮತ್ತು ಆಡಲು ಪ್ರತ್ಯೇಕಿಸಲು [[workspaces|ಕಾರ್ಯಸ್ಥಳ ಬಾರ್]] ನಲ್ಲಿ + ಅನ್ನು ಬಳಸಿ. [[search|ಭೂತಗನ್ನಡಿ]] ಫೋಲ್ಡರ್‌ಗಳ ಒಳಗೂ ಹುಡುಕುತ್ತದೆ."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "ನಕಲು"
   },
   "folder": {
+    "navigation": "ಫೋಲ್ಡರ್ ನ್ಯಾವಿಗೇಷನ್",
+    "back": "ಹಿಂದೆ",
+    "page": "{{pages}} ನ ಪುಟ {{page}}",
+    "nextPage": "ಮುಂದೆ",
+    "previousPage": "ಹಿಂದಿನ",
+    "searchEmpty": "ಯಾವುದೇ ಹೊಂದಾಣಿಕೆಯ ಐಟಂಗಳಿಲ್ಲ",
+    "search": "ಈ ಫೋಲ್ಡರ್ ಅನ್ನು ಹುಡುಕಿ",
+    "contentsCount": "{{count}} ಐಟಂಗಳು",
     "create": "ಫೋಲ್ಡರ್ ರಚಿಸಿ",
     "createPrompt": "ಹೊಸ ಫೋಲ್ಡರ್ ಅನ್ನು ಹೆಸರಿಸಿ",
     "namePlaceholder": "ಪರಿಕರಗಳು, ಸ್ಫೂರ್ತಿ...",

@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Die ausgewählten Lesezeichen und Ordner in Main importieren?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importieren Sie Ihre Auswahl zusammen mit Ihren aktuellen Lesezeichen in Main. Die Lesezeichenleiste erscheint direkt auf dem Desktop; Andere Lesezeichen behalten ihre Ordner.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Wählen Sie Lesezeichen und Ordner aus Chrome oder einer exportierten HTML-Datei aus und importieren Sie sie in Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Elemente anzeigen und auswählen",
+    "hideItems": "Erkannte Elemente ausblenden",
+    "selectAll": "Alles auswählen",
+    "selectNone": "Alle abwählen",
+    "searchItems": "Durchsuchen Sie erkannte Lesezeichen",
+    "selectedItems": "{{count}} Lesezeichen und {{folders}} Ordner ausgewählt.",
+    "expandFolder": "Erweitern oder reduzieren Sie {{name}}",
+    "unnamedFolder": "Unbenannter Ordner",
+    "noMatches": "Keine passenden Artikel.",
+    "showMore": "Mehr anzeigen",
+    "loadingItems": "Lesezeichen lesen…",
+    "emptyFolder": "Leer",
+    "mainFull": "Main verfügt über keinen freien Speicherplatz für diese Lesezeichen. Geben Sie eine Gitterzelle frei und versuchen Sie es erneut."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Ihre Chrome-Lesezeichen, zu Hause im New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Ordner enthalten jetzt größere Sammlungen mit Suche, kompakten Seiten und Breadcrumb-Navigation. Ihre vorhandenen Lesezeichen bleiben erhalten und vollständige Ordnerbäume können verschoben, dupliziert und aus dem Papierkorb wiederhergestellt werden."
+    },
     "settingsTitle": "Versionshinweise",
     "settingsDescription": "Was sich geändert hat und die Geschichte hinter jedem Update.",
     "open": "Notizen lesen",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Weniger Unordnung. Mehr Ordnung.",
-        "body": "Erstellen Sie einen [[folders|Ordner]] aus + und ziehen Sie im Bearbeitungsmodus Lesezeichen hinein. Es öffnet sich in einem übersichtlichen Raster und bietet Platz für bis zu 18 Lesezeichen.",
+        "body": "Erstellen Sie ein [[folders|folder]] aus + und ziehen Sie im Bearbeitungsmodus Lesezeichen hinein. Große Ordner verfügen über eine Suche und Seiten, und importierte Unterordner behalten ihre Struktur.",
         "hint": "Verwenden Sie das + im [[workspaces|Arbeitsbereichsleiste]], um Arbeit und Freizeit zu trennen. Der [[search|Lupe]] durchsucht auch innerhalb von Ordnern."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopieren"
   },
   "folder": {
+    "navigation": "Ordnernavigation",
+    "back": "Zurück",
+    "page": "Seite {{page}} von {{pages}}",
+    "nextPage": "Als nächstes",
+    "previousPage": "Zurück",
+    "searchEmpty": "Keine passenden Artikel",
+    "search": "Durchsuchen Sie diesen Ordner",
+    "contentsCount": "{{count}} Artikel",
     "create": "Ordner erstellen",
     "createPrompt": "Benennen Sie den neuen Ordner",
     "namePlaceholder": "Werkzeuge, Inspiration…",

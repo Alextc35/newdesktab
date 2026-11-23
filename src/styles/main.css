@@ -18,6 +18,7 @@
 @import '../shared/ui/colorPicker.css';
 @import '../features/grid/gridMotion.css';
 @import '../features/bookmarks/bookmarkPreview.css';
+@import '../features/bookmarks/browserBookmarkImport.css';
 @import '../shared/ui/modal.css';
 @import '../shared/ui/flash.css';
 

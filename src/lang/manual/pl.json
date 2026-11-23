@@ -323,14 +323,14 @@
       "question": "Jak pogrupować zakładki w foldery?",
       "searchTerms": "utwórz folder; zakładki grupowe; organizuj ulubione; usuń z folderu; zmień nazwę folderu",
       "title": "Porządkuj za pomocą folderów",
-      "summary": "Zbierz do 18 zakładek w jednym folderze.",
+      "summary": "Zbierz zakładki i podfoldery w jednym miejscu.",
       "steps": [
         "Wybierz + → Folder z lewego menu i nadaj mu nazwę.",
         "W trybie edycji przeciągnij na niego zakładki, aby umieścić je w środku. Otwórz folder, aby zobaczyć jego siatkę.",
         "Użyj trybu edycji folderu, aby uporządkować jego zakładki. Kliknij jego nazwę, aby zmienić nazwę, oraz ikonę, aby dostosować jej wygląd."
       ],
       "note": "Usunięcie folderu wpływa również na jego zakładki. Przed kontynuowaniem przejrzyj potwierdzenie; kosz może przywrócić usunięte elementy.",
-      "tip": "W folderze mieści się do 18 zakładek. Włącz edycję i przeciągnij kartę do folderu, aby ją dodać."
+      "tip": "Foldery obsługują duże kolekcje z wyszukiwaniem i stronami. Włącz edycję i przeciągnij kartę do folderu, aby ją dodać."
     },
     "workspaces": {
       "question": "Jak oddzielić strony osobiste od służbowych?",

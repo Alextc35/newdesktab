@@ -11,6 +11,7 @@ import {
 import { getGridItemsInGroup } from '../grid/gridSelectors.js';
 import { findFirstFreeSlot } from '../../shared/grid/gridPlacement.js';
 import { GRID_COLS, GRID_ROWS } from '../../shared/grid/gridGeometry.js';
+import { getFolderPaths } from '../../domain/folders/folderContents.js';
 import { getActiveWorkspaceId, getWorkspaces } from '../workspaces/workspaceSelectors.js';
 
 /** The popup only saves ordinary web pages, never extension or browser UI URLs. */
@@ -30,7 +31,9 @@ export function getQuickSaveWorkspaces(data) {
 }
 
 export function getQuickSaveFolders(data, groupId) {
-  return data.folders.filter(folder => (folder.groupId ?? null) === groupId);
+  const folders = data.folders.filter(folder => (folder.groupId ?? null) === groupId);
+  const paths = getFolderPaths(folders);
+  return folders.map(folder => ({ ...folder, path: paths.get(folder.id) }));
 }
 
 const TRACKING_PARAMS = new Set([
@@ -105,7 +108,10 @@ export function prepareQuickBookmark(data, {
 
   let position;
   if (folder) {
-    const contents = data.bookmarks.filter(bookmark => bookmark.folderId === folderId);
+    const contents = [
+      ...data.bookmarks.filter(bookmark => bookmark.folderId === folderId),
+      ...data.folders.filter(folder => folder.parentId === folderId)
+    ];
     const layout = createFolderBookmarkLayout(contents);
     const occupied = new Set(Array.from(
       layout.values(), cell => cellKey(cell.gx, cell.gy)

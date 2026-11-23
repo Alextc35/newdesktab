@@ -323,14 +323,14 @@
       "question": "Kā grupēt grāmatzīmes mapēs?",
       "searchTerms": "izveidot mapi; grupu grāmatzīmes; organizēt izlasi; noņemt no mapes; pārdēvēt mapi",
       "title": "Kārtojiet ar mapēm",
-      "summary": "Apkopojiet līdz 18 grāmatzīmēm vienā mapē.",
+      "summary": "Apkopojiet grāmatzīmes un apakšmapes vienuviet.",
       "steps": [
         "Kreisajā izvēlnē izvēlieties + → Mape un piešķiriet tai nosaukumu.",
         "Rediģēšanas režīmā velciet uz tā grāmatzīmes, lai tās ievietotu. Atveriet mapi, lai redzētu tās režģi.",
         "Izmantojiet mapes rediģēšanas režīmu, lai sakārtotu tās grāmatzīmes. Noklikšķiniet uz tā nosaukuma, lai to pārdēvētu, un uz ikonas, lai pielāgotu tā izskatu."
       ],
       "note": "Mapes dzēšana ietekmē arī tās grāmatzīmes. Pirms turpināt, pārskatiet apstiprinājumu; atkritne var atjaunot izdzēstos vienumus.",
-      "tip": "Mapē ir līdz 18 grāmatzīmēm. Ieslēdziet rediģēšanu un velciet karti uz mapi, lai to pievienotu."
+      "tip": "Mapes atbalsta lielas kolekcijas ar meklēšanu un lapām. Ieslēdziet rediģēšanu un velciet karti uz mapi, lai to pievienotu."
     },
     "workspaces": {
       "question": "Kā nodalīt personīgās un darba lapas?",

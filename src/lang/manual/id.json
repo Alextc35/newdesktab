@@ -323,14 +323,14 @@
       "question": "Bagaimana cara mengelompokkan bookmark ke dalam folder?",
       "searchTerms": "membuat folder; penanda grup; mengatur favorit; hapus dari folder; ganti nama folder",
       "title": "Atur dengan folder",
-      "summary": "Kumpulkan hingga 18 bookmark dalam satu folder.",
+      "summary": "Kumpulkan bookmark dan subfolder di satu tempat.",
       "steps": [
         "Pilih + → Folder di menu sebelah kiri dan beri nama.",
         "Dalam mode edit, seret penanda ke dalamnya untuk memasukkannya ke dalam. Buka folder untuk melihat kisi-kisinya.",
         "Gunakan mode edit folder untuk mengatur penandanya. Klik namanya untuk mengganti namanya dan ikonnya untuk menyesuaikan tampilannya."
       ],
       "note": "Menghapus folder juga mempengaruhi bookmarknya. Tinjau konfirmasi sebelum melanjutkan; recycle bin dapat mengembalikan item yang terhapus.",
-      "tip": "Sebuah folder menampung hingga 18 bookmark. Aktifkan pengeditan dan seret kartu ke folder untuk menambahkannya."
+      "tip": "Folder mendukung koleksi besar dengan pencarian dan halaman. Aktifkan pengeditan dan seret kartu ke folder untuk menambahkannya."
     },
     "workspaces": {
       "question": "Bagaimana cara memisahkan halaman pribadi dan halaman kerja?",

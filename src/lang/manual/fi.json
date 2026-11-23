@@ -323,14 +323,14 @@
       "question": "Kuinka ryhmittelen kirjanmerkit kansioihin?",
       "searchTerms": "luo kansio; ryhmän kirjanmerkit; järjestää suosikkeja; poista kansiosta; nimeä kansio uudelleen",
       "title": "Järjestä kansioiden avulla",
-      "summary": "Kerää jopa 18 kirjanmerkkiä yhteen kansioon.",
+      "summary": "Kerää kirjanmerkit ja alikansiot yhteen paikkaan.",
       "steps": [
         "Valitse vasemmasta valikosta + → Kansio ja anna sille nimi.",
         "Muokkaustilassa vedä siihen kirjanmerkkejä, jotta ne siirretään sisään. Avaa kansio nähdäksesi sen ruudukon.",
         "Käytä kansion muokkaustilaa sen kirjanmerkkien järjestämiseen. Napsauta sen nimeä nimetäksesi sen uudelleen ja sen kuvaketta muokataksesi sen ulkoasua."
       ],
       "note": "Kansion poistaminen vaikuttaa myös sen kirjanmerkkeihin. Tarkista vahvistus ennen kuin jatkat; roskakori voi palauttaa poistetut kohteet.",
-      "tip": "Kansiossa on enintään 18 kirjanmerkkiä. Ota muokkaus käyttöön ja lisää se vetämällä kortti kansioon."
+      "tip": "Kansiot tukevat suuria kokoelmia haun ja sivujen avulla. Ota muokkaus käyttöön ja lisää se vetämällä kortti kansioon."
     },
     "workspaces": {
       "question": "Kuinka pidän henkilökohtaiset ja työsivut erillään?",

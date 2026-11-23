@@ -323,14 +323,14 @@
       "question": "Paano ko ipangkat ang mga bookmark sa mga folder?",
       "searchTerms": "lumikha ng folder; mga bookmark ng pangkat; ayusin ang mga paborito; alisin mula sa folder; palitan ang pangalan ng folder",
       "title": "Ayusin gamit ang mga folder",
-      "summary": "Magtipon ng hanggang 18 bookmark sa isang folder.",
+      "summary": "Magtipon ng mga bookmark at subfolder sa isang lugar.",
       "steps": [
         "Piliin ang + → Folder sa kaliwang menu at bigyan ito ng pangalan.",
         "Sa edit mode, i-drag ang mga bookmark dito para ilagay ang mga ito sa loob. Buksan ang folder upang makita ang grid nito.",
         "Gamitin ang edit mode ng folder upang ayusin ang mga bookmark nito. I-click ang pangalan nito para palitan ang pangalan nito at ang icon nito para i-customize ang hitsura nito."
       ],
       "note": "Ang pagtanggal ng folder ay nakakaapekto rin sa mga bookmark nito. Suriin ang kumpirmasyon bago magpatuloy; maaaring ibalik ng recycle bin ang mga tinanggal na item.",
-      "tip": "Ang isang folder ay nagtataglay ng hanggang 18 bookmark. I-on ang pag-edit at mag-drag ng card papunta sa folder para idagdag ito."
+      "tip": "Sinusuportahan ng mga folder ang malalaking koleksyon na may paghahanap at mga pahina. I-on ang pag-edit at i-drag ang isang card papunta sa isang folder upang idagdag ito."
     },
     "workspaces": {
       "question": "Paano ko papanatilihing hiwalay ang personal at work page?",

@@ -37,6 +37,7 @@ const {
   BOOKMARK_FOLDER_NAME_MAX_LENGTH,
   createBookmarkFolder,
   removeBookmarkFromFolder,
+  removeFolderFromParent,
   renameBookmarkFolder,
   updateBookmarkFolder,
   updateFolderBookmarkPositions
@@ -331,7 +332,7 @@ test('commits a multi-bookmark folder sequence in one validated layout', async (
   ]), []);
 });
 
-test('does not add more than 18 bookmarks to one folder', async () => {
+test('adds bookmarks beyond the initial 18 visible cells without losing existing contents', async () => {
   const contents = Array.from({ length: FOLDER_GRID_CAPACITY }, (_, index) => ({
     id: `inside-${index}`,
     name: `Inside ${index}`,
@@ -352,9 +353,45 @@ test('does not add more than 18 bookmarks to one folder', async () => {
     }
   });
 
-  assert.equal(addBookmarkToFolder('outside', 'folder'), null);
+  const added = addBookmarkToFolder('outside', 'folder');
+  assert.deepEqual({ gx: added.gx, gy: added.gy }, { gx: 0, gy: 3 });
   assert.equal(
     getState().data.bookmarks.find(bookmark => bookmark.id === 'outside').folderId,
-    null
+    'folder'
   );
+  assert.equal(getState().data.bookmarks.filter(bookmark => bookmark.folderId === 'folder').length, 19);
+});
+
+test('nested folders reserve their parent cells and never reserve desktop cells', async () => {
+  await setState({ data: {
+    bookmarks: [{ id: 'outside-nested', name: 'Outside', groupId: null, folderId: null, gx: 1, gy: 0, w: 1, h: 1 }],
+    folders: [
+      { id: 'root-nested', name: 'Root', parentId: null, groupId: null, gx: 0, gy: 0, w: 1, h: 1 },
+      { id: 'child-nested', name: 'Child', parentId: 'root-nested', groupId: null, gx: 0, gy: 0, w: 1, h: 1 }
+    ],
+    settings: { ...getState().data.settings, showRecycleBin: false }
+  } });
+  const added = addBookmarkToFolder('outside-nested', 'root-nested');
+  assert.deepEqual({ gx: added.gx, gy: added.gy }, { gx: 1, gy: 0 });
+  assert.deepEqual(updateFolderBookmarkPositions('root-nested', [{ id: added.id, gx: 0, gy: 0 }]), []);
+  const root = createBookmarkFolder('Desktop', { columns: 2, rows: 1 });
+  assert.deepEqual({ gx: root.gx, gy: root.gy }, { gx: 1, gy: 0 });
+});
+
+test('returning a nested folder to the desktop keeps all descendants attached', async () => {
+  await setState({ data: {
+    bookmarks: [{ id: 'deep-bookmark', folderId: 'deep-child', groupId: null }],
+    folders: [
+      { id: 'outer', name: 'Outer', parentId: null, groupId: null, gx: 0, gy: 0, w: 1, h: 1 },
+      { id: 'inner', name: 'Inner', parentId: 'outer', groupId: null, gx: 0, gy: 0, w: 1, h: 1 },
+      { id: 'deep-child', name: 'Deep', parentId: 'inner', groupId: null, gx: 0, gy: 0, w: 1, h: 1 }
+    ],
+    settings: { ...getState().data.settings, showRecycleBin: false }
+  } });
+  const result = removeFolderFromParent('inner', { columns: 2, rows: 1 });
+  assert.equal(result.reason, null);
+  assert.equal(result.folder.parentId, null);
+  assert.deepEqual({ gx: result.folder.gx, gy: result.folder.gy }, { gx: 1, gy: 0 });
+  assert.equal(getState().data.folders.find(folder => folder.id === 'deep-child').parentId, 'inner');
+  assert.equal(getState().data.bookmarks[0].folderId, 'deep-child');
 });

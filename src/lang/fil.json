@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "I-import ang mga napiling bookmark at folder sa Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "I-import ang iyong pinili sa Main kasama ng iyong kasalukuyang mga bookmark. Ang bookmarks bar ay direktang lumilitaw sa desktop; pinapanatili ng ibang mga bookmark ang kanilang mga folder.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Pumili ng mga bookmark at folder mula sa Chrome o isang na-export na HTML file at i-import ang mga ito sa Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Tingnan at pumili ng mga item",
+    "hideItems": "Itago ang mga nakitang item",
+    "selectAll": "Piliin lahat",
+    "selectNone": "Alisin sa pagkakapili ang lahat",
+    "searchItems": "Maghanap ng mga nakitang bookmark",
+    "selectedItems": "{{count}} bookmark at {{folders}} folder ang napili.",
+    "expandFolder": "Palawakin o i-collapse {{name}}",
+    "unnamedFolder": "Hindi pinangalanang folder",
+    "noMatches": "Walang tugmang item.",
+    "showMore": "Magpakita ng higit pa",
+    "loadingItems": "Nagbabasa ng mga bookmark…",
+    "emptyFolder": "Walang laman",
+    "mainFull": "Ang Main ay walang libreng espasyo para sa mga bookmark na ito. Magbakante ng isang grid cell at subukang muli."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Ang iyong mga bookmark sa Chrome, sa bahay sa New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "May hawak na ngayon ang mga folder ng mas malalaking koleksyon, na may paghahanap, mga compact na page at breadcrumb navigation. Ang iyong mga umiiral na bookmark ay mananatili sa lugar, at ang kumpletong mga puno ng folder ay maaaring ilipat, madoble at mabawi mula sa recycle bin."
+    },
     "settingsTitle": "Mga tala sa paglabas",
     "settingsDescription": "Ano ang nagbago at ang kuwento sa likod ng bawat update.",
     "open": "Basahin ang mga tala",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Mas kaunting kalat. Marami pang order.",
-        "body": "Lumikha ng [[folders|folder]] mula sa + at i-drag ang mga bookmark dito sa mode ng pag-edit. Nagbubukas ito sa isang malinis na grid na may puwang para sa hanggang 18 bookmark.",
+        "body": "Gumawa ng [[folders|folder]] mula sa + at i-drag ang mga bookmark dito sa mode ng pag-edit. Ang malalaking folder ay may paghahanap at mga pahina, at pinapanatili ng mga na-import na subfolder ang kanilang istraktura.",
         "hint": "Gamitin ang + sa [[workspaces|workspace bar]] para paghiwalayin ang trabaho at laro. Ang [[search|magnifying glass]] ay naghahanap din sa loob ng mga folder."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopyahin"
   },
   "folder": {
+    "navigation": "Pag-navigate sa folder",
+    "back": "Bumalik",
+    "page": "Pahina {{page}} ng {{pages}}",
+    "nextPage": "Susunod",
+    "previousPage": "Nakaraang",
+    "searchEmpty": "Walang tugmang item",
+    "search": "Hanapin ang folder na ito",
+    "contentsCount": "{{count}} item",
     "create": "Lumikha ng folder",
     "createPrompt": "Pangalanan ang bagong folder",
     "namePlaceholder": "Mga tool, inspirasyon...",

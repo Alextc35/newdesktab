@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Uvoziti izbrane zaznamke in mape v Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Uvozite svoj izbor v Main poleg trenutnih zaznamkov. Vrstica z zaznamki se prikaže neposredno na namizju; drugi zaznamki hranijo svoje mape.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Izberite zaznamke in mape iz Chroma ali izvožene datoteke HTML in jih uvozite v Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Oglejte si in izberite elemente",
+    "hideItems": "Skrij zaznane elemente",
+    "selectAll": "Izberite vse",
+    "selectNone": "Počisti vse",
+    "searchItems": "Iskanje zaznanih zaznamkov",
+    "selectedItems": "{{count}} izbranih zaznamkov in {{folders}} map.",
+    "expandFolder": "Razširi ali strni {{name}}",
+    "unnamedFolder": "Neimenovana mapa",
+    "noMatches": "Ni ustreznih predmetov.",
+    "showMore": "Pokaži več",
+    "loadingItems": "Branje zaznamkov ...",
+    "emptyFolder": "prazno",
+    "mainFull": "Glavni nima prostora za te zaznamke. Sprostite eno mrežno celico in poskusite znova."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Vaši zaznamki v Chromu, doma v New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Mape zdaj vsebujejo večje zbirke z iskanjem, kompaktnimi stranmi in navigacijo po poti. Vaši obstoječi zaznamki ostanejo na mestu, celotna drevesa map pa lahko premaknete, podvojite in obnovite iz koša."
+    },
     "settingsTitle": "Opombe ob izdaji",
     "settingsDescription": "Kaj se je spremenilo in zgodba za vsako posodobitvijo.",
     "open": "Preberi opombe",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Manj nereda. Več reda.",
-        "body": "Ustvarite [[folders|mapo]] iz + in povlecite zaznamke vanj v načinu urejanja. Odpre se v čisti mreži s prostorom za do 18 zaznamkov.",
+        "body": "Ustvarite [[folders|folder]] iz + in povlecite zaznamke vanj v načinu urejanja. Velike mape imajo iskanje in strani, uvožene podmape pa ohranjajo svojo strukturo.",
         "hint": "Uporabite + v [[workspaces|vrstica delovnega prostora]], da ločite delo in igro. [[search|povečevalno steklo]] išče tudi znotraj map."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopija"
   },
   "folder": {
+    "navigation": "Krmarjenje po mapah",
+    "back": "Nazaj",
+    "page": "Stran {{page}} od {{pages}}",
+    "nextPage": "Naprej",
+    "previousPage": "Prejšnja",
+    "searchEmpty": "Ni ustreznih predmetov",
+    "search": "Poiščite to mapo",
+    "contentsCount": "predmetov {{count}}",
     "create": "Ustvari mapo",
     "createPrompt": "Poimenujte novo mapo",
     "namePlaceholder": "Orodja, navdih …",

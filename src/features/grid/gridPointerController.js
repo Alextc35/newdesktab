@@ -4,10 +4,9 @@ import {
 } from '../folders/folderActions.js';
 import { permanentlyDeleteGridItem } from './gridItemActions.js';
 import { GRID_COLS, GRID_ROWS } from '../../shared/grid/gridGeometry.js';
-import { FOLDER_GRID_CAPACITY } from '../../domain/folders/folderGrid.js';
 import { gridItemRegistry } from '../../shared/grid/gridItemRegistry.js';
 import { getState } from '../../state/appStore.js';
-import { flashError, flashSuccess } from '../../shared/ui/flash.js';
+import { flashSuccess } from '../../shared/ui/flash.js';
 import { runPersistedAction } from '../persistence/persistedAction.js';
 import { toggleGridItemSelection } from './gridSelection.js';
 import { RESIZE_DIRECTIONS } from '../../shared/grid/resizeGeometry.js';
@@ -262,9 +261,6 @@ export function addGridItemPointerControls(container, div, item, {
 
     if (folderTarget) {
       const targetId = folderTarget.dataset.folderId;
-      const targetIsFull = getState().data.bookmarks.filter(
-        bookmark => bookmark.folderId === targetId
-      ).length >= FOLDER_GRID_CAPACITY;
       setFolderTarget(null);
       restoreSmartDragPreview(container, dragSession);
       dragSession = null;
@@ -272,7 +268,6 @@ export function addGridItemPointerControls(container, div, item, {
         if (added) flashSuccess('flash.folder.bookmarkAdded');
         else {
           restoreCancelledGridDrop(div);
-          if (targetIsFull) flashError('flash.folder.folderFull');
         }
       });
       return;

@@ -323,14 +323,14 @@
       "question": "Kuidas järjehoidjaid kaustadesse grupeerida?",
       "searchTerms": "luua kaust; rühma järjehoidjad; korraldada lemmikud; eemalda kaustast; kaust ümber nimetada",
       "title": "Korraldage kaustadega",
-      "summary": "Koguge ühte kausta kuni 18 järjehoidjat.",
+      "summary": "Koguge järjehoidjad ja alamkaustad ühte kohta.",
       "steps": [
         "Valige vasakpoolsest menüüst + → Kaust ja andke sellele nimi.",
         "Redigeerimisrežiimis lohistage järjehoidjad sellele, et need sisse panna. Avage kaust, et näha selle võrgustikku.",
         "Kasutage kausta redigeerimisrežiimi selle järjehoidjate korraldamiseks. Selle ümbernimetamiseks klõpsake selle nimel ja välimuse kohandamiseks ikooni."
       ],
       "note": "Kausta kustutamine mõjutab ka selle järjehoidjaid. Enne jätkamist vaadake kinnitus üle; prügikast saab kustutatud üksusi taastada.",
-      "tip": "Kaustas on kuni 18 järjehoidjat. Lülitage redigeerimine sisse ja lohistage kaart selle lisamiseks kausta."
+      "tip": "Kaustad toetavad suuri kogusid otsingu ja lehtedega. Lülitage redigeerimine sisse ja lohistage kaart selle lisamiseks kausta."
     },
     "workspaces": {
       "question": "Kuidas isiklikku ja töölehte lahus hoida?",

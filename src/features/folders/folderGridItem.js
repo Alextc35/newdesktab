@@ -23,7 +23,7 @@ export const folderGridItem = Object.freeze({
       bookmarksByFolderId.set(bookmark.folderId, contents);
     }
     return state.data.folders
-      .filter(folder => (folder.groupId ?? null) === getActiveWorkspaceId(state.data))
+      .filter(folder => !folder.parentId && (folder.groupId ?? null) === getActiveWorkspaceId(state.data))
       .map(item => ({ item, bookmarks: bookmarksByFolderId.get(item.id) ?? [] }));
   },
   render({ view, container, item, bookmarks, state }) {

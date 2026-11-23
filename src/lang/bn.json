@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "নির্বাচিত বুকমার্ক এবং ফোল্ডারগুলিকে Main এ আমদানি করবেন?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "আপনার বর্তমান বুকমার্কের পাশাপাশি আপনার নির্বাচনকে প্রধানে আমদানি করুন। বুকমার্ক বার সরাসরি ডেস্কটপে উপস্থিত হয়; অন্যান্য বুকমার্ক তাদের ফোল্ডার রাখে।",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "ক্রোম বা রপ্তানি করা এইচটিএমএল ফাইল থেকে বুকমার্ক এবং ফোল্ডারগুলি চয়ন করুন এবং সেগুলিকে মূলে আমদানি করুন৷",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "দেখুন এবং আইটেম নির্বাচন করুন",
+    "hideItems": "সনাক্ত করা আইটেম লুকান",
+    "selectAll": "সব নির্বাচন করুন",
+    "selectNone": "সব বাদ দিন",
+    "searchItems": "সনাক্ত করা বুকমার্ক অনুসন্ধান করুন",
+    "selectedItems": "{{count}} বুকমার্ক এবং {{folders}} ফোল্ডার নির্বাচন করা হয়েছে৷",
+    "expandFolder": "প্রসারিত বা সঙ্কুচিত {{name}}",
+    "unnamedFolder": "নামহীন ফোল্ডার",
+    "noMatches": "কোন মিল আইটেম.",
+    "showMore": "আরও দেখান",
+    "loadingItems": "বুকমার্ক পড়া হচ্ছে...",
+    "emptyFolder": "খালি",
+    "mainFull": "প্রধান এই বুকমার্কের জন্য কোন ফাঁকা স্থান নেই. একটি গ্রিড সেল খালি করুন এবং আবার চেষ্টা করুন।"
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "আপনার Chrome বুকমার্ক, New DeskTab এ বাড়িতে",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "ফোল্ডারগুলি এখন অনুসন্ধান, কমপ্যাক্ট পৃষ্ঠা এবং ব্রেডক্রাম্ব নেভিগেশন সহ আরও বড় সংগ্রহগুলি ধারণ করে৷ আপনার বিদ্যমান বুকমার্কগুলি যথাস্থানে থাকবে এবং সম্পূর্ণ ফোল্ডার ট্রিগুলি সরানো, নকল করা এবং রিসাইকেল বিন থেকে পুনরুদ্ধার করা যেতে পারে।"
+    },
     "settingsTitle": "রিলিজ নোট",
     "settingsDescription": "কি পরিবর্তন এবং প্রতিটি আপডেট পিছনে গল্প.",
     "open": "নোট পড়ুন",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "কম বিশৃঙ্খলা। আরও অর্ডার।",
-        "body": "+ থেকে একটি [[folders|ফোল্ডার]] তৈরি করুন এবং সম্পাদনা মোডে বুকমার্কগুলি টেনে আনুন৷ এটি 18টি বুকমার্ক পর্যন্ত রুম সহ একটি পরিষ্কার গ্রিডে খোলে৷",
+        "body": "+ থেকে একটি [[folders|folder]] তৈরি করুন এবং সম্পাদনা মোডে বুকমার্কগুলি টেনে আনুন৷ বড় ফোল্ডারগুলিতে অনুসন্ধান এবং পৃষ্ঠা থাকে এবং আমদানি করা সাবফোল্ডারগুলি তাদের গঠন রাখে।",
         "hint": "কাজ এবং খেলা আলাদা করতে [[workspaces|কর্মক্ষেত্র বার]]-এ + ব্যবহার করুন। [[search|ম্যাগনিফাইং গ্লাস]] ফোল্ডারগুলির ভিতরেও অনুসন্ধান করে।"
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "অনুলিপি"
   },
   "folder": {
+    "navigation": "ফোল্ডার নেভিগেশন",
+    "back": "ফিরে",
+    "page": "{{pages}} এর {{page}} পৃষ্ঠা",
+    "nextPage": "পরবর্তী",
+    "previousPage": "আগের",
+    "searchEmpty": "কোন মিল আইটেম",
+    "search": "এই ফোল্ডারটি অনুসন্ধান করুন",
+    "contentsCount": "{{count}} আইটেম",
     "create": "ফোল্ডার তৈরি করুন",
     "createPrompt": "নতুন ফোল্ডারের নাম দিন",
     "namePlaceholder": "সরঞ্জাম, অনুপ্রেরণা...",

@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Импортиране на избраните отметки и папки в Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Импортирайте избора си в Main заедно с текущите си отметки. Лентата с отметки се появява директно на работния плот; други отметки запазват своите папки.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Изберете отметки и папки от Chrome или експортиран HTML файл и ги импортирайте в Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Вижте и изберете елементи",
+    "hideItems": "Скриване на откритите елементи",
+    "selectAll": "Изберете всички",
+    "selectNone": "Демаркирайте всички",
+    "searchItems": "Търсете открити отметки",
+    "selectedItems": "Избрани са {{count}} отметки и {{folders}} папки.",
+    "expandFolder": "Разгъване или свиване {{name}}",
+    "unnamedFolder": "Папка без име",
+    "noMatches": "Няма съответстващи елементи.",
+    "showMore": "Покажи повече",
+    "loadingItems": "Четене на отметки...",
+    "emptyFolder": "празна",
+    "mainFull": "Основният няма свободно място за тези отметки. Освободете една клетка от мрежата и опитайте отново."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Вашите отметки в Chrome, у дома в New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Папките вече съдържат по-големи колекции, с търсене, компактни страници и навигация чрез навигация. Вашите съществуващи отметки остават на мястото си и пълните дървета на папките могат да бъдат преместени, дублирани и възстановени от кошчето."
+    },
     "settingsTitle": "Бележки по изданието",
     "settingsDescription": "Какво се промени и историята зад всяка актуализация.",
     "open": "Четете бележки",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "По-малко безпорядък. Повече ред.",
-        "body": "Създайте [[folders|папка]] от + и плъзнете отметки в него в режим на редактиране. Отваря се в чиста мрежа с място за до 18 отметки.",
+        "body": "Създайте [[folders|folder]] от + и плъзнете отметки в него в режим на редактиране. Големите папки имат търсене и страници, а импортираните подпапки запазват структурата си.",
         "hint": "Използвайте + в [[workspaces|лента на работното пространство]], за да разделите работата и играта. [[search|лупа]] също търси в папки."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "копие"
   },
   "folder": {
+    "navigation": "Навигация по папки",
+    "back": "Назад",
+    "page": "Страница {{page}} от {{pages}}",
+    "nextPage": "Следваща",
+    "previousPage": "Предишен",
+    "searchEmpty": "Няма съответстващи елементи",
+    "search": "Търсене в тази папка",
+    "contentsCount": "{{count}} артикули",
     "create": "Създаване на папка",
     "createPrompt": "Дайте име на новата папка",
     "namePlaceholder": "Инструменти, вдъхновение...",

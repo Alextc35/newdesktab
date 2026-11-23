@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Vai importēt atlasītās grāmatzīmes un mapes mapē Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importējiet savu atlasi mapē Galvenā kopā ar pašreizējām grāmatzīmēm. Grāmatzīmju josla tiek parādīta tieši uz darbvirsmas; citas grāmatzīmes saglabā savas mapes.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Izvēlieties grāmatzīmes un mapes no pārlūka Chrome vai eksportēta HTML faila un importējiet tās galvenajā.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Skatiet un atlasiet vienumus",
+    "hideItems": "Slēpt atrastos vienumus",
+    "selectAll": "Atlasiet visu",
+    "selectNone": "Noņemiet visu atlasi",
+    "searchItems": "Meklēt atrastās grāmatzīmes",
+    "selectedItems": "Atlasītas {{count}} grāmatzīmes un {{folders}} mapes.",
+    "expandFolder": "Izvērst vai sakļaut {{name}}",
+    "unnamedFolder": "Mape bez nosaukuma",
+    "noMatches": "Nav atbilstošu vienumu.",
+    "showMore": "Rādīt vairāk",
+    "loadingItems": "Notiek grāmatzīmju lasīšana…",
+    "emptyFolder": "Tukšs",
+    "mainFull": "Galvenā nav brīvas vietas šīm grāmatzīmēm. Atbrīvojiet vienu režģa šūnu un mēģiniet vēlreiz."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Jūsu Chrome grāmatzīmes mājās New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Mapēs tagad ir lielākas kolekcijas ar meklēšanu, kompaktām lapām un navigāciju. Jūsu esošās grāmatzīmes paliek vietā, un visus mapju kokus var pārvietot, dublēt un atgūt no atkritnes."
+    },
     "settingsTitle": "Piezīmes par laidienu",
     "settingsDescription": "Kas mainījās un katra atjauninājuma stāsts.",
     "open": "Lasīt piezīmes",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Mazāk nekārtības. Vairāk pasūtījuma.",
-        "body": "Izveidojiet [[folders|mapi]] no + un velciet tajā grāmatzīmes rediģēšanas režīmā. Tas atveras tīrā režģī, kurā ir vieta līdz 18 grāmatzīmēm.",
+        "body": "Izveidojiet [[folders|folder]] no + un velciet tajā grāmatzīmes rediģēšanas režīmā. Lielajās mapēs ir meklēšana un lapas, un importētās apakšmapes saglabā savu struktūru.",
         "hint": "Izmantojiet +, kas atrodas [[workspaces|darbvietas josla]], lai atdalītu darbu un spēli. [[search|palielināmais stikls]] meklē arī mapēs."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopiju"
   },
   "folder": {
+    "navigation": "Mapju navigācija",
+    "back": "Atpakaļ",
+    "page": "{{pages}} lapa {{page}}",
+    "nextPage": "Tālāk",
+    "previousPage": "Iepriekšējais",
+    "searchEmpty": "Nav atbilstošu vienumu",
+    "search": "Meklēt šajā mapē",
+    "contentsCount": "{{count}} preces",
     "create": "Izveidot mapi",
     "createPrompt": "Nosauciet jauno mapi",
     "namePlaceholder": "Instrumenti, iedvesma…",

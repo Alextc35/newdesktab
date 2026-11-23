@@ -4,7 +4,6 @@ import { findFirstFreeSlot } from '../../shared/grid/gridPlacement.js';
 import {
   cellKey,
   createFolderBookmarkLayout,
-  FOLDER_GRID_CAPACITY,
   findFirstFreeFolderCell,
   isFolderCell
 } from '../../domain/folders/folderGrid.js';
@@ -19,6 +18,29 @@ import { getGridItemsInGroup } from '../grid/gridSelectors.js';
 import { getActiveWorkspaceId } from '../workspaces/workspaceSelectors.js';
 
 export { BOOKMARK_FOLDER_NAME_MAX_LENGTH };
+
+/** Swaps adjacent list entries in one undoable, persisted change. */
+export function moveFolderEntry(folderId, itemId, direction) {
+  if (![-1, 1].includes(direction)) return { moved: false };
+  const { data } = getState();
+  const entries = [
+    ...data.bookmarks.filter(item => item.folderId === folderId),
+    ...data.folders.filter(item => item.parentId === folderId)
+  ];
+  const layout = createFolderBookmarkLayout(entries);
+  entries.sort((a, b) => layout.get(a.id).gy - layout.get(b.id).gy || layout.get(a.id).gx - layout.get(b.id).gx);
+  const index = entries.findIndex(item => item.id === itemId);
+  const next = index + direction;
+  if (index < 0 || next < 0 || next >= entries.length) return { moved: false };
+  const positions = new Map([
+    [entries[index].id, layout.get(entries[next].id)],
+    [entries[next].id, layout.get(entries[index].id)]
+  ]);
+  const now = Date.now();
+  const update = item => positions.has(item.id) ? { ...item, ...positions.get(item.id), updatedAt: now } : item;
+  setState({ data: { bookmarks: data.bookmarks.map(update), folders: data.folders.map(update) } });
+  return { moved: true, index: next };
+}
 
 /**
  * Creates a folder in the first free cell of the active workspace.
@@ -50,6 +72,7 @@ export function createBookmarkFolder(name, { columns, rows } = {}, appearance = 
     w: 1,
     h: 1,
     groupId,
+    parentId: null,
     createdAt: now,
     updatedAt: now
   };
@@ -108,11 +131,13 @@ export function addBookmarkToFolder(bookmarkId, folderId) {
   const { data: { bookmarks, folders } } = getState();
   const folder = folders.find(item => item.id === folderId);
   const bookmark = bookmarks.find(item => item.id === bookmarkId);
-  const contents = bookmarks.filter(item => item.folderId === folderId);
+  const contents = [
+    ...bookmarks.filter(item => item.folderId === folderId && item.id !== bookmarkId),
+    ...folders.filter(item => item.parentId === folderId)
+  ];
   if (
     !folder
     || !bookmark
-    || contents.length >= FOLDER_GRID_CAPACITY
     || (folder.groupId ?? null) !== (bookmark.groupId ?? null)
   ) return null;
 
@@ -150,14 +175,15 @@ export function updateFolderBookmarkPositions(folderId, positions) {
   ]));
   if (!requested.size) return [];
 
-  const { data: { bookmarks } } = getState();
+  const { data: { bookmarks, folders } } = getState();
   const contents = bookmarks.filter(bookmark => bookmark.folderId === folderId);
+  const folderContents = folders.filter(folder => folder.parentId === folderId);
   const contentIds = new Set(contents.map(bookmark => bookmark.id));
   if (Array.from(requested).some(([id, position]) => (
     !contentIds.has(id) || !isFolderCell(position.gx, position.gy)
   ))) return [];
 
-  const layout = createFolderBookmarkLayout(contents);
+  const layout = createFolderBookmarkLayout([...contents, ...folderContents]);
   for (const [id, position] of requested) layout.set(id, position);
 
   const occupied = new Set();
@@ -218,4 +244,18 @@ export function removeBookmarkFromFolder(bookmarkId, { columns, rows } = {}) {
     }
   });
   return { bookmark: restored, reason: null };
+}
+
+/** Returns a nested folder, with its subtree intact, to its workspace desktop. */
+export function removeFolderFromParent(folderId, { columns, rows } = {}) {
+  const { data } = getState();
+  const folder = data.folders.find(item => item.id === folderId);
+  if (!folder?.parentId) return { folder: null, reason: 'not-found' };
+  const position = findFirstFreeSlot(getGridItemsInGroup(data, folder.groupId), {
+    columns, rows, w: folder.w, h: folder.h
+  });
+  if (!position) return { folder: null, reason: 'no-space' };
+  const restored = { ...folder, ...position, parentId: null, updatedAt: Date.now() };
+  setState({ data: { folders: data.folders.map(item => item.id === folderId ? restored : item) } });
+  return { folder: restored, reason: null };
 }

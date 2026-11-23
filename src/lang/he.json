@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "לייבא את הסימניות והתיקיות שנבחרו אל Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "ייבא את הבחירה שלך ל-Main לצד הסימניות הנוכחיות שלך. סרגל הסימניות מופיע ישירות על שולחן העבודה; סימניות אחרות שומרות על התיקיות שלהן.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "בחר סימניות ותיקיות מ-Chrome או מקובץ HTML מיוצא וייבא אותם ל-Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "הצג ובחר פריטים",
+    "hideItems": "הסתר פריטים שזוהו",
+    "selectAll": "בחר הכל",
+    "selectNone": "בטל את הבחירה בכולם",
+    "searchItems": "חפש סימניות שזוהו",
+    "selectedItems": "נבחרו {{count}} סימניות ו{{folders}} תיקיות.",
+    "expandFolder": "הרחב או כווץ {{name}}",
+    "unnamedFolder": "תיקייה ללא שם",
+    "noMatches": "אין פריטים תואמים.",
+    "showMore": "הצג עוד",
+    "loadingItems": "קורא סימניות...",
+    "emptyFolder": "ריק",
+    "mainFull": "ל-Main אין מקום פנוי עבור הסימניות הללו. שחרר תא רשת אחד ונסה שוב."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "הסימניות שלך ב-Chrome, בבית ב-New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "התיקיות מכילות כעת אוספים גדולים יותר, עם חיפוש, דפים קומפקטיים וניווט בפירורי לחם. הסימניות הקיימות שלך נשארות במקומן, וניתן להעביר עצי תיקיות שלמים, לשכפל ולשחזר מסל המיחזור."
+    },
     "settingsTitle": "הערות שחרור",
     "settingsDescription": "מה השתנה והסיפור מאחורי כל עדכון.",
     "open": "קרא הערות",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "פחות בלאגן. יותר סדר.",
-        "body": "צור [[folders|תיקייה]] מ-+ וגרור אליו סימניות במצב עריכה. הוא נפתח ברשת נקייה עם מקום לעד 18 סימניות.",
+        "body": "צור [[folders|folder]] מ-+ וגרור אליו סימניות במצב עריכה. לתיקיות גדולות יש חיפוש ודפים, ותיקיות משנה מיובאות שומרות על המבנה שלהן.",
         "hint": "השתמש ב-+ ב-[[workspaces|בר סביבת עבודה]] כדי להפריד בין עבודה למשחק. ה-[[search|זכוכית מגדלת]] מחפש גם בתוך תיקיות."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "להעתיק"
   },
   "folder": {
+    "navigation": "ניווט בתיקייה",
+    "back": "חזרה",
+    "page": "עמוד {{page}} של {{pages}}",
+    "nextPage": "הבא",
+    "previousPage": "הקודם",
+    "searchEmpty": "אין פריטים תואמים",
+    "search": "חפש בתיקייה זו",
+    "contentsCount": "פריטי {{count}}",
     "create": "צור תיקייה",
     "createPrompt": "תן שם לתיקייה החדשה",
     "namePlaceholder": "כלים, השראה...",

@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "தேர்ந்தெடுக்கப்பட்ட புக்மார்க்குகள் மற்றும் கோப்புறைகளை Main இல் இறக்குமதி செய்யவா?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "உங்கள் தற்போதைய புக்மார்க்குகளுடன் உங்கள் தேர்வை முதன்மையில் இறக்குமதி செய்யவும். புக்மார்க்குகள் பட்டி நேரடியாக டெஸ்க்டாப்பில் தோன்றும்; மற்ற புக்மார்க்குகள் தங்கள் கோப்புறைகளை வைத்திருக்கும்.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Chrome அல்லது ஏற்றுமதி செய்யப்பட்ட HTML கோப்பிலிருந்து புக்மார்க்குகள் மற்றும் கோப்புறைகளைத் தேர்ந்தெடுத்து அவற்றை முதன்மையில் இறக்குமதி செய்யவும்.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "பொருட்களைப் பார்த்து தேர்ந்தெடுக்கவும்",
+    "hideItems": "கண்டறியப்பட்ட பொருட்களை மறை",
+    "selectAll": "அனைத்தையும் தேர்ந்தெடுக்கவும்",
+    "selectNone": "அனைத்தையும் தேர்வுநீக்கவும்",
+    "searchItems": "கண்டுபிடிக்கப்பட்ட புக்மார்க்குகளைத் தேடுங்கள்",
+    "selectedItems": "{{count}} புக்மார்க்குகள் மற்றும் {{folders}} கோப்புறைகள் தேர்ந்தெடுக்கப்பட்டன.",
+    "expandFolder": "{{name}} விரிவாக்கு அல்லது சுருக்கவும்",
+    "unnamedFolder": "பெயரிடப்படாத கோப்புறை",
+    "noMatches": "பொருந்தக்கூடிய உருப்படிகள் இல்லை.",
+    "showMore": "மேலும் காட்டு",
+    "loadingItems": "புக்மார்க்குகளைப் படிக்கிறது…",
+    "emptyFolder": "காலி",
+    "mainFull": "மெயின் இந்த புக்மார்க்குகளுக்கு இலவச இடம் இல்லை. ஒரு கட்ட கலத்தை விடுவித்து மீண்டும் முயலவும்."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "New DeskTab இல் உங்கள் Chrome புக்மார்க்குகள்",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "கோப்புறைகள் இப்போது தேடல், சிறிய பக்கங்கள் மற்றும் பிரட்க்ரம்ப் வழிசெலுத்தல் ஆகியவற்றுடன் பெரிய சேகரிப்புகளை வைத்திருக்கின்றன. ஏற்கனவே உள்ள புக்மார்க்குகள் அப்படியே இருக்கும், மேலும் முழுமையான கோப்புறை மரங்களை மறுசுழற்சி தொட்டியில் இருந்து நகர்த்தலாம், நகலெடுக்கலாம் மற்றும் மீட்டெடுக்கலாம்."
+    },
     "settingsTitle": "வெளியீட்டுக் குறிப்புகள்",
     "settingsDescription": "என்ன மாறிவிட்டது மற்றும் ஒவ்வொரு புதுப்பிப்பின் பின்னணியில் உள்ள கதை.",
     "open": "குறிப்புகளைப் படிக்கவும்",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "குறைவான ஒழுங்கீனம். மேலும் ஆர்டர்.",
-        "body": "+ இலிருந்து [[folders|கோப்புறை]] ஐ உருவாக்கி, அதில் புக்மார்க்குகளை எடிட் முறையில் இழுக்கவும். இது 18 புக்மார்க்குகளுக்கான அறையுடன் சுத்தமான கட்டத்தில் திறக்கும்.",
+        "body": "+ இலிருந்து [[folders|folder]] ஐ உருவாக்கி, அதில் புக்மார்க்குகளை எடிட் முறையில் இழுக்கவும். பெரிய கோப்புறைகளில் தேடல் மற்றும் பக்கங்கள் உள்ளன, மேலும் இறக்குமதி செய்யப்பட்ட துணை கோப்புறைகள் அவற்றின் கட்டமைப்பை வைத்திருக்கின்றன.",
         "hint": "வேலையைப் பிரிக்கவும் விளையாடவும் [[workspaces|பணியிடப்பட்டி]] இல் உள்ள + ஐப் பயன்படுத்தவும். [[search|பூதக்கண்ணாடி]] கோப்புறைகளுக்குள்ளும் தேடுகிறது."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "நகல்"
   },
   "folder": {
+    "navigation": "கோப்புறை வழிசெலுத்தல்",
+    "back": "மீண்டும்",
+    "page": "{{pages}} இன் {{page}} பக்கம்",
+    "nextPage": "அடுத்து",
+    "previousPage": "முந்தைய",
+    "searchEmpty": "பொருந்தக்கூடிய உருப்படிகள் இல்லை",
+    "search": "இந்தக் கோப்புறையைத் தேடவும்",
+    "contentsCount": "{{count}} உருப்படிகள்",
     "create": "கோப்புறையை உருவாக்கவும்",
     "createPrompt": "புதிய கோப்புறைக்கு பெயரிடவும்",
     "namePlaceholder": "கருவிகள், உத்வேகம்…",

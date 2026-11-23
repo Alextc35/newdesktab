@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "തിരഞ്ഞെടുത്ത ബുക്ക്‌മാർക്കുകളും ഫോൾഡറുകളും Main-ലേക്ക് ഇമ്പോർട്ടുചെയ്യണോ?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "നിങ്ങളുടെ നിലവിലെ ബുക്ക്‌മാർക്കുകൾക്കൊപ്പം മെയിനിലേക്ക് നിങ്ങളുടെ തിരഞ്ഞെടുപ്പ് ഇമ്പോർട്ടുചെയ്യുക. ബുക്ക്മാർക്ക് ബാർ ഡെസ്ക്ടോപ്പിൽ നേരിട്ട് ദൃശ്യമാകുന്നു; മറ്റ് ബുക്ക്മാർക്കുകൾ അവയുടെ ഫോൾഡറുകൾ സൂക്ഷിക്കുന്നു.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Chrome-ൽ നിന്നോ എക്‌സ്‌പോർട്ട് ചെയ്‌ത HTML ഫയലിൽ നിന്നോ ബുക്ക്‌മാർക്കുകളും ഫോൾഡറുകളും തിരഞ്ഞെടുത്ത് അവ മെയിനിലേക്ക് ഇമ്പോർട്ടുചെയ്യുക.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "ഇനങ്ങൾ കാണുക, തിരഞ്ഞെടുക്കുക",
+    "hideItems": "കണ്ടെത്തിയ ഇനങ്ങൾ മറയ്ക്കുക",
+    "selectAll": "എല്ലാം തിരഞ്ഞെടുക്കുക",
+    "selectNone": "എല്ലാം തിരഞ്ഞെടുത്തത് മാറ്റുക",
+    "searchItems": "കണ്ടെത്തിയ ബുക്ക്‌മാർക്കുകൾ തിരയുക",
+    "selectedItems": "{{count}} ബുക്ക്‌മാർക്കുകളും {{folders}} ഫോൾഡറുകളും തിരഞ്ഞെടുത്തു.",
+    "expandFolder": "{{name}} വികസിപ്പിക്കുക അല്ലെങ്കിൽ ചുരുക്കുക",
+    "unnamedFolder": "പേരിടാത്ത ഫോൾഡർ",
+    "noMatches": "പൊരുത്തപ്പെടുന്ന ഇനങ്ങളൊന്നുമില്ല.",
+    "showMore": "കൂടുതൽ കാണിക്കുക",
+    "loadingItems": "ബുക്ക്‌മാർക്കുകൾ വായിക്കുന്നു...",
+    "emptyFolder": "ശൂന്യം",
+    "mainFull": "മെയിനിന് ഈ ബുക്ക്‌മാർക്കുകൾക്ക് ഇടമില്ല. ഒരു ഗ്രിഡ് സെൽ സ്വതന്ത്രമാക്കി വീണ്ടും ശ്രമിക്കുക."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "നിങ്ങളുടെ Chrome ബുക്ക്‌മാർക്കുകൾ, New DeskTab-ൽ വീട്ടിൽ",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "തിരയൽ, ഒതുക്കമുള്ള പേജുകൾ, ബ്രെഡ്ക്രംബ് നാവിഗേഷൻ എന്നിവയ്ക്കൊപ്പം ഫോൾഡറുകൾ ഇപ്പോൾ വലിയ ശേഖരങ്ങൾ സൂക്ഷിക്കുന്നു. നിങ്ങളുടെ നിലവിലുള്ള ബുക്ക്‌മാർക്കുകൾ അതേപടി നിലനിൽക്കും, കൂടാതെ പൂർണ്ണമായ ഫോൾഡർ മരങ്ങൾ റീസൈക്കിൾ ബിന്നിൽ നിന്ന് നീക്കാനും തനിപ്പകർപ്പാക്കാനും വീണ്ടെടുക്കാനും കഴിയും."
+    },
     "settingsTitle": "റിലീസ് കുറിപ്പുകൾ",
     "settingsDescription": "എന്താണ് മാറിയത്, ഓരോ അപ്‌ഡേറ്റിനും പിന്നിലെ കഥ.",
     "open": "കുറിപ്പുകൾ വായിക്കുക",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "കുറവ് അലങ്കോലങ്ങൾ. കൂടുതൽ ഓർഡർ.",
-        "body": "+ എന്നതിൽ നിന്ന് ഒരു [[folders|ഫോൾഡർ]] സൃഷ്‌ടിച്ച് എഡിറ്റ് മോഡിൽ ബുക്ക്‌മാർക്കുകൾ അതിലേക്ക് വലിച്ചിടുക. 18 ബുക്ക്‌മാർക്കുകൾക്കുള്ള ഇടമുള്ള വൃത്തിയുള്ള ഗ്രിഡിൽ ഇത് തുറക്കുന്നു.",
+        "body": "+ എന്നതിൽ നിന്ന് ഒരു [[folders|folder]] സൃഷ്‌ടിച്ച് എഡിറ്റ് മോഡിൽ ബുക്ക്‌മാർക്കുകൾ അതിലേക്ക് വലിച്ചിടുക. വലിയ ഫോൾഡറുകൾക്ക് തിരയലും പേജുകളും ഉണ്ട്, ഇറക്കുമതി ചെയ്ത ഉപഫോൾഡറുകൾ അവയുടെ ഘടന നിലനിർത്തുന്നു.",
         "hint": "വർക്ക് വേർതിരിക്കാനും കളിക്കാനും [[workspaces|വർക്ക്സ്പേസ് ബാർ]] എന്നതിലെ + ഉപയോഗിക്കുക. [[search|ഭൂതക്കണ്ണാടി]] ഫോൾഡറുകൾക്കുള്ളിലും തിരയുന്നു."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "പകർത്തുക"
   },
   "folder": {
+    "navigation": "ഫോൾഡർ നാവിഗേഷൻ",
+    "back": "തിരികെ",
+    "page": "{{pages}}-ൻ്റെ {{page}} പേജ്",
+    "nextPage": "അടുത്തത്",
+    "previousPage": "മുമ്പത്തെ",
+    "searchEmpty": "പൊരുത്തപ്പെടുന്ന ഇനങ്ങളൊന്നുമില്ല",
+    "search": "ഈ ഫോൾഡർ തിരയുക",
+    "contentsCount": "{{count}} ഇനങ്ങൾ",
     "create": "ഫോൾഡർ സൃഷ്ടിക്കുക",
     "createPrompt": "പുതിയ ഫോൾഡറിന് പേര് നൽകുക",
     "namePlaceholder": "ഉപകരണങ്ങൾ, പ്രചോദനം...",

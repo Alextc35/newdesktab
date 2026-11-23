@@ -1,4 +1,5 @@
 import { getState } from '../../state/appStore.js';
+import { getFolderTreeIds } from '../../domain/folders/folderTree.js';
 import { moveBookmarksToRecycleBin, moveFolderToRecycleBin } from '../recycle-bin/recycleBinActions.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
@@ -13,11 +14,12 @@ export async function confirmItemRecycle(kind, id) {
   const { data } = getState();
   const item = data[kind === 'folder' ? 'folders' : 'bookmarks'].find(item => item.id === id);
   if (!item) return;
+  const folderIds = kind === 'folder' ? getFolderTreeIds(data.folders, [id]) : new Set();
   confirming = true;
   try {
     const confirmed = await showAlert(t(kind === 'folder' ? 'folder.confirmDelete' : 'alert.bookmark.confirmDelete', {
       name: item.name,
-      count: data.bookmarks.filter(bookmark => bookmark.folderId === id).length
+      count: data.bookmarks.filter(bookmark => folderIds.has(bookmark.folderId)).length
     }), { type: 'confirm' });
     if (!confirmed) return;
     await runPersistedAction(`quick-delete:${kind}:${id}`, () => kind === 'folder'

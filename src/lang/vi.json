@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Nhập dấu trang và thư mục đã chọn vào Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Nhập lựa chọn của bạn vào Main cùng với các dấu trang hiện tại của bạn. Thanh dấu trang xuất hiện trực tiếp trên màn hình nền; các dấu trang khác giữ lại thư mục của chúng.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Chọn dấu trang và thư mục từ Chrome hoặc tệp HTML đã xuất và nhập chúng vào Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Xem và chọn các mục",
+    "hideItems": "Ẩn các mục được phát hiện",
+    "selectAll": "Chọn tất cả",
+    "selectNone": "Bỏ chọn tất cả",
+    "searchItems": "Tìm kiếm dấu trang được phát hiện",
+    "selectedItems": "Đã chọn {{count}} dấu trang và {{folders}} thư mục.",
+    "expandFolder": "Mở rộng hoặc thu gọn {{name}}",
+    "unnamedFolder": "Thư mục chưa được đặt tên",
+    "noMatches": "Không có mục phù hợp.",
+    "showMore": "Hiển thị thêm",
+    "loadingItems": "Đang đọc dấu trang…",
+    "emptyFolder": "trống",
+    "mainFull": "Main không có không gian trống cho những dấu trang này. Giải phóng một ô lưới và thử lại."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Dấu trang Chrome của bạn ở nhà trong New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Các thư mục hiện chứa các bộ sưu tập lớn hơn, với tính năng tìm kiếm, trang thu gọn và điều hướng theo đường dẫn. Các dấu trang hiện có của bạn vẫn được giữ nguyên và cây thư mục hoàn chỉnh có thể được di chuyển, sao chép và phục hồi từ thùng rác."
+    },
     "settingsTitle": "Ghi chú phát hành",
     "settingsDescription": "Điều gì đã thay đổi và câu chuyện đằng sau mỗi bản cập nhật.",
     "open": "Đọc ghi chú",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Ít lộn xộn hơn. Nhiều trật tự hơn.",
-        "body": "Tạo [[folders|thư mục]] từ + và kéo dấu trang vào đó ở chế độ chỉnh sửa. Nó mở ra trong một lưới sạch có chỗ cho tối đa 18 dấu trang.",
+        "body": "Tạo [[folders|folder]] từ + và kéo dấu trang vào đó ở chế độ chỉnh sửa. Các thư mục lớn có tìm kiếm và các trang, đồng thời các thư mục con đã nhập sẽ giữ nguyên cấu trúc của chúng.",
         "hint": "Sử dụng dấu + trong [[workspaces|thanh không gian làm việc]] để phân tách công việc và giải trí. [[search|kính lúp]] cũng tìm kiếm bên trong các thư mục."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "sao chép"
   },
   "folder": {
+    "navigation": "Điều hướng thư mục",
+    "back": "Quay lại",
+    "page": "Trang {{page}} của {{pages}}",
+    "nextPage": "Tiếp theo",
+    "previousPage": "trước đó",
+    "searchEmpty": "Không có mục phù hợp",
+    "search": "Tìm kiếm thư mục này",
+    "contentsCount": "Vật phẩm {{count}}",
     "create": "Tạo thư mục",
     "createPrompt": "Đặt tên cho thư mục mới",
     "namePlaceholder": "Công cụ, nguồn cảm hứng…",

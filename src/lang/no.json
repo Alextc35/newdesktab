@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Vil du importere de valgte bokmerkene og mappene til Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importer valget ditt til Main ved siden av dine gjeldende bokmerker. Bokmerkelinjen vises direkte på skrivebordet; andre bokmerker beholder sine mapper.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Velg bokmerker og mapper fra Chrome eller en eksportert HTML-fil og importer dem til Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Se og velg elementer",
+    "hideItems": "Skjul oppdagede elementer",
+    "selectAll": "Velg alle",
+    "selectNone": "Fjern markeringen av alle",
+    "searchItems": "Søk oppdagede bokmerker",
+    "selectedItems": "{{count}} bokmerker og {{folders}} mapper er valgt.",
+    "expandFolder": "Utvid eller skjul {{name}}",
+    "unnamedFolder": "Unavngitt mappe",
+    "noMatches": "Ingen samsvarende varer.",
+    "showMore": "Vis mer",
+    "loadingItems": "Leser bokmerker …",
+    "emptyFolder": "Tom",
+    "mainFull": "Main har ikke ledig plass for disse bokmerkene. Frigjør én rutenettcelle og prøv igjen."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Chrome-bokmerkene dine hjemme i New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Mapper har nå større samlinger, med søk, kompakte sider og brødsmule-navigering. Dine eksisterende bokmerker forblir på plass, og komplette mappetrær kan flyttes, dupliseres og gjenvinnes fra papirkurven."
+    },
     "settingsTitle": "Utgivelsesnotater",
     "settingsDescription": "Hva endret seg og historien bak hver oppdatering.",
     "open": "Les notater",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Mindre rot. Mer orden.",
-        "body": "Lag en [[folders|mappe]] fra + og dra bokmerker inn i den i redigeringsmodus. Den åpnes i et rent rutenett med plass til opptil 18 bokmerker.",
+        "body": "Lag en [[folders|folder]] fra + og dra bokmerker inn i den i redigeringsmodus. Store mapper har søk og sider, og importerte undermapper beholder sin struktur.",
         "hint": "Bruk + i [[workspaces|arbeidsområde bar]] for å skille arbeid og lek. [[search|forstørrelsesglass]] søker også i mapper."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopi"
   },
   "folder": {
+    "navigation": "Mappenavigering",
+    "back": "Tilbake",
+    "page": "Side {{page}} av {{pages}}",
+    "nextPage": "Neste",
+    "previousPage": "Forrige",
+    "searchEmpty": "Ingen samsvarende varer",
+    "search": "Søk i denne mappen",
+    "contentsCount": "{{count}} varer",
     "create": "Opprett mappe",
     "createPrompt": "Gi den nye mappen et navn",
     "namePlaceholder": "Verktøy, inspirasjon...",

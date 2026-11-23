@@ -323,14 +323,14 @@
       "question": "Kaip sugrupuoti žymes į aplankus?",
       "searchTerms": "sukurti aplanką; grupės žymės; organizuoti mėgstamiausius; pašalinti iš aplanko; pervardyti aplanką",
       "title": "Tvarkyti su aplankais",
-      "summary": "Surinkite iki 18 žymių viename aplanke.",
+      "summary": "Surinkite žymes ir poaplankius vienoje vietoje.",
       "steps": [
         "Kairiajame meniu pasirinkite + → Aplankas ir suteikite jam pavadinimą.",
         "Redagavimo režimu vilkite žymes ant jos, kad įdėtumėte jas viduje. Atidarykite aplanką, kad pamatytumėte jo tinklelį.",
         "Naudokite aplanko redagavimo režimą, kad sutvarkytumėte jo žymes. Spustelėkite jo pavadinimą, kad pervadintumėte jį, ir piktogramą, kad pritaikytumėte jo išvaizdą."
       ],
       "note": "Aplanko ištrynimas turi įtakos ir jo žymėms. Prieš tęsdami peržiūrėkite patvirtinimą; šiukšliadėžė gali atkurti ištrintus elementus.",
-      "tip": "Aplanke telpa iki 18 žymių. Įjunkite redagavimą ir vilkite kortelę į aplanką, kad ją pridėtumėte."
+      "tip": "Aplankai palaiko dideles kolekcijas su paieška ir puslapiais. Įjunkite redagavimą ir vilkite kortelę į aplanką, kad ją pridėtumėte."
     },
     "workspaces": {
       "question": "Kaip atskirti asmeninius ir darbo puslapius?",

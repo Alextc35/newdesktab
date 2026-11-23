@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "የተመረጡ ዕልባቶችን እና አቃፊዎችን ወደ Main ያስመጡ?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "ከአሁኑ ዕልባቶችዎ ጋር በመሆን ምርጫዎን ወደ ዋና ያስመጡ። የዕልባቶች አሞሌ በቀጥታ በዴስክቶፕ ላይ ይታያል; ሌሎች ዕልባቶች አቃፊዎቻቸውን ያስቀምጣሉ.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "ዕልባቶችን እና አቃፊዎችን ከChrome ወይም ወደ ውጭ የተላከ HTML ፋይል ይምረጡ እና ወደ ዋና ያስመጣቸው።",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "እቃዎችን ይመልከቱ እና ይምረጡ",
+    "hideItems": "የተገኙ ንጥሎችን ደብቅ",
+    "selectAll": "ሁሉንም ይምረጡ",
+    "selectNone": "ሁሉንም አይምረጡ",
+    "searchItems": "የተገኙ ዕልባቶችን ይፈልጉ",
+    "selectedItems": "{{count}} ዕልባቶች እና {{folders}} አቃፊዎች ተመርጠዋል።",
+    "expandFolder": "ዘርጋ ወይም ሰብስብ {{name}}",
+    "unnamedFolder": "ያልተሰየመ አቃፊ",
+    "noMatches": "ምንም ተዛማጅ እቃዎች የሉም።",
+    "showMore": "ተጨማሪ አሳይ",
+    "loadingItems": "ዕልባቶችን በማንበብ…",
+    "emptyFolder": "ባዶ",
+    "mainFull": "ዋናው ለእነዚህ ዕልባቶች ነፃ ቦታ የለውም። አንድ የፍርግርግ ሕዋስ ነጻ ያውጡ እና እንደገና ይሞክሩ።"
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "የእርስዎ Chrome ዕልባቶች፣ ቤት በNew DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "አቃፊዎች አሁን ትላልቅ ስብስቦችን፣ በፍለጋ፣ የታመቁ ገፆች እና የዳቦ ፍርፋሪ አሰሳ ይይዛሉ። ያሉት ዕልባቶችዎ በቦታቸው ይቆያሉ፣ እና የተሟሉ የአቃፊ ዛፎች ከሪሳይክል መጣያ ሊወሰዱ፣ ሊባዙ እና ሊመለሱ ይችላሉ።"
+    },
     "settingsTitle": "የመልቀቂያ ማስታወሻዎች",
     "settingsDescription": "ምን እንደተለወጠ እና ከእያንዳንዱ ዝመና በስተጀርባ ያለው ታሪክ።",
     "open": "ማስታወሻዎችን ያንብቡ",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "ያነሰ ግርግር። ተጨማሪ ትዕዛዝ።",
-        "body": "[[folders|አቃፊ]] ከ+ ይፍጠሩ እና በአርትዖት ሁነታ ውስጥ ዕልባቶችን ይጎትቱት። እስከ 18 ዕልባቶች የሚሆን ክፍል ባለው ንጹህ ፍርግርግ ውስጥ ይከፈታል።",
+        "body": "[[folders|folder]] ከ+ ይፍጠሩ እና በአርትዖት ሁነታ ውስጥ ዕልባቶችን ይጎትቱት። ትላልቅ ማህደሮች ፍለጋ እና ገጾች አሏቸው፣ እና ከውጪ የሚመጡ ንዑስ አቃፊዎች መዋቅራቸውን ይጠብቃሉ።",
         "hint": "በ ውስጥ ያለውን + ተጠቀም[[workspaces|የስራ ቦታ አሞሌ]]ሥራን እና ጨዋታን ለመለየት. የ[[search|አጉሊ መነጽር]]እንዲሁም በአቃፊዎች ውስጥ መፈለግ."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "ቅዳ"
   },
   "folder": {
+    "navigation": "የአቃፊ ዳሰሳ",
+    "back": "ተመለስ",
+    "page": "የ {{pages}} ገጽ {{page}}",
+    "nextPage": "ቀጥሎ",
+    "previousPage": "ቀዳሚ",
+    "searchEmpty": "ምንም ተዛማጅ እቃዎች የሉም",
+    "search": "ይህን አቃፊ ይፈልጉ",
+    "contentsCount": "{{count}} ንጥሎች",
     "create": "አቃፊ ፍጠር",
     "createPrompt": "አዲሱን አቃፊ ይሰይሙ",
     "namePlaceholder": "መሳሪያዎች፣ መነሳሻ…",

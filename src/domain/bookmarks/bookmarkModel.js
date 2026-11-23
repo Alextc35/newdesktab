@@ -40,6 +40,10 @@ const SUPPORTED_URL_PROTOCOLS = new Set([
   'http:',
   'https:',
   'about:',
+  'file:',
+  'ftp:',
+  'mailto:',
+  'chrome-extension:',
   'brave:',
   'chrome:',
   'edge:'

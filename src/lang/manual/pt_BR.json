@@ -259,10 +259,10 @@
     },
     "folders": {
       "question": "Como agrupo favoritos em pastas?", "searchTerms": "criar pasta; agrupar favoritos; organizar marcadores; tirar da pasta; renomear pasta",
-      "title": "Organizar em pastas", "summary": "Reúna até 18 favoritos na mesma pasta.",
+      "title": "Organizar em pastas", "summary": "Reúna marcadores e subpastas em um só lugar.",
       "steps": ["Escolha + → Pasta no menu esquerdo e dê um nome.", "No modo de edição, arraste favoritos sobre ela para colocá-los dentro. Abra a pasta para ver sua grade.", "Use a edição da pasta para ordenar os favoritos. Clique no nome para renomear e no ícone para personalizar a aparência."],
       "note": "Excluir uma pasta afeta também seus favoritos. Confira a confirmação antes de continuar; a lixeira permite recuperar os elementos excluídos.",
-      "tip": "Uma pasta guarda até 18 favoritos. Ative a edição e arraste um cartão sobre a pasta para adicioná-lo."
+      "tip": "As pastas suportam grandes coleções com pesquisas e páginas. Ative a edição e arraste um cartão para uma pasta para adicioná-lo."
     },
     "workspaces": {
       "question": "Como separo meu espaço pessoal do trabalho?", "searchTerms": "pessoal trabalho; criar espaço; trocar espaço; áreas trabalho; workspace",

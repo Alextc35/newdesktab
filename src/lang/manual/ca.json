@@ -323,14 +323,14 @@
       "question": "Com puc agrupar les adreces d'interès en carpetes?",
       "searchTerms": "crear una carpeta; marcadors de grup; organitzar els preferits; eliminar de la carpeta; canviar el nom de la carpeta",
       "title": "Organitzar amb carpetes",
-      "summary": "Reuneix fins a 18 adreces d'interès en una carpeta.",
+      "summary": "Reuneix adreces d'interès i subcarpetes en un sol lloc.",
       "steps": [
         "Trieu + → Carpeta al menú de l'esquerra i doneu-li un nom.",
         "En el mode d'edició, arrossegueu-hi els marcadors per posar-los dins. Obriu la carpeta per veure'n la graella.",
         "Utilitzeu el mode d'edició de la carpeta per organitzar-ne les adreces d'interès. Feu clic al seu nom per canviar-ne el nom i a la seva icona per personalitzar-ne l'aparença."
       ],
       "note": "La supressió d'una carpeta també afecta els seus marcadors. Reviseu la confirmació abans de continuar; la paperera de reciclatge pot restaurar els elements suprimits.",
-      "tip": "Una carpeta conté fins a 18 adreces d'interès. Activeu l'edició i arrossegueu una targeta a la carpeta per afegir-la."
+      "tip": "Les carpetes admeten col·leccions grans amb cerca i pàgines. Activeu l'edició i arrossegueu una targeta a una carpeta per afegir-la."
     },
     "workspaces": {
       "question": "Com puc mantenir les pàgines personals i laborals separades?",

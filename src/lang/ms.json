@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Import penanda halaman dan folder yang dipilih ke dalam Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Import pilihan anda ke Utama bersama penanda halaman semasa anda. Bar penanda halaman muncul terus pada desktop; penanda halaman lain menyimpan folder mereka.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Pilih penanda halaman dan folder daripada Chrome atau fail HTML yang dieksport dan importnya ke dalam Utama.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Lihat dan pilih item",
+    "hideItems": "Sembunyikan item yang dikesan",
+    "selectAll": "Pilih semua",
+    "selectNone": "Nyahpilih semua",
+    "searchItems": "Cari penanda halaman yang dikesan",
+    "selectedItems": "{{count}} penanda halaman dan {{folders}} folder dipilih.",
+    "expandFolder": "Kembangkan atau runtuhkan {{name}}",
+    "unnamedFolder": "Folder tidak bernama",
+    "noMatches": "Tiada item yang sepadan.",
+    "showMore": "Tunjukkan lagi",
+    "loadingItems": "Membaca penanda halaman…",
+    "emptyFolder": "kosong",
+    "mainFull": "Utama tidak mempunyai ruang kosong untuk penanda halaman ini. Kosongkan satu sel grid dan cuba lagi."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Penanda halaman Chrome anda, di rumah dalam New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Folder kini menyimpan koleksi yang lebih besar, dengan carian, halaman padat dan navigasi serbuk roti. Penanda halaman anda yang sedia ada kekal di tempatnya, dan pokok folder yang lengkap boleh dialihkan, pendua dan dipulihkan daripada tong kitar semula."
+    },
     "settingsTitle": "Nota keluaran",
     "settingsDescription": "Apa yang berubah dan cerita di sebalik setiap kemas kini.",
     "open": "Baca nota",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Kurang kekusutan. Lebih banyak pesanan.",
-        "body": "Buat [[folders|folder]] daripada + dan seret penanda halaman ke dalamnya dalam mod edit. Ia dibuka dalam grid bersih dengan ruang sehingga 18 penanda halaman.",
+        "body": "Cipta [[folders|folder]] daripada + dan seret penanda halaman ke dalamnya dalam mod edit. Folder besar mempunyai carian dan halaman, dan subfolder yang diimport mengekalkan strukturnya.",
         "hint": "Gunakan + dalam [[workspaces|bar ruang kerja]] untuk memisahkan kerja dan bermain. [[search|kaca pembesar]] juga mencari di dalam folder."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "salinan"
   },
   "folder": {
+    "navigation": "Navigasi folder",
+    "back": "belakang",
+    "page": "Halaman {{page}} daripada {{pages}}",
+    "nextPage": "Seterusnya",
+    "previousPage": "Sebelumnya",
+    "searchEmpty": "Tiada item yang sepadan",
+    "search": "Cari folder ini",
+    "contentsCount": "{{count}} item",
     "create": "Buat folder",
     "createPrompt": "Namakan folder baharu",
     "namePlaceholder": "Alat, inspirasi…",

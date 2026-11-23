@@ -262,10 +262,10 @@
     },
     "folders": {
       "question": "How do I group bookmarks into folders?", "searchTerms": "create folder; group bookmarks; organize favorites; remove from folder; rename folder",
-      "title": "Organize with folders", "summary": "Gather up to 18 bookmarks in one folder.",
+      "title": "Organize with folders", "summary": "Gather bookmarks and subfolders in one place.",
       "steps": ["Choose + → Folder in the left menu and give it a name.", "In edit mode, drag bookmarks onto it to put them inside. Open the folder to see its grid.", "Use the folder's edit mode to arrange its bookmarks. Click its name to rename it and its icon to customize its appearance."],
       "note": "Deleting a folder affects its bookmarks too. Review the confirmation before continuing; the recycle bin can restore deleted items.",
-      "tip": "A folder holds up to 18 bookmarks. Turn on editing and drag a card onto the folder to add it."
+      "tip": "Folders support large collections with search and pages. Turn on editing and drag a card onto a folder to add it."
     },
     "workspaces": {
       "question": "How do I keep personal and work pages separate?", "searchTerms": "personal work; create workspace; switch workspace; desktops",

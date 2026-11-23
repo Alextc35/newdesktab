@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "選択したブックマークとフォルダーを Main にインポートしますか?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "選択内容を現在のブックマークと一緒に Main にインポートします。ブックマーク バーはデスクトップに直接表示されます。他のブックマークはフォルダーを保持します。",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Chrome またはエクスポートされた HTML ファイルからブックマークとフォルダーを選択し、Main にインポートします。",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "項目の表示と選択",
+    "hideItems": "検出されたアイテムを非表示にする",
+    "selectAll": "すべて選択",
+    "selectNone": "すべての選択を解除します",
+    "searchItems": "検出されたブックマークを検索する",
+    "selectedItems": "{{count}} ブックマークと {{folders}} フォルダーが選択されました。",
+    "expandFolder": "{{name}} を展開または折りたたむ",
+    "unnamedFolder": "名前のないフォルダー",
+    "noMatches": "一致するアイテムはありません。",
+    "showMore": "もっと見る",
+    "loadingItems": "ブックマークを読んでいます…",
+    "emptyFolder": "空の",
+    "mainFull": "Main には、これらのブックマーク用の空きスペースがありません。グリッド セルを 1 つ解放して、再試行してください。"
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Chrome のブックマークを自宅の New DeskTab に保存",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "フォルダーには、検索、コンパクトなページ、ブレッドクラム ナビゲーションを備えた、より大きなコレクションが保持されるようになりました。既存のブックマークはそのまま残り、完全なフォルダー ツリーを移動、複製、ごみ箱から復元できます。"
+    },
     "settingsTitle": "リリースノート",
     "settingsDescription": "変更点と各アップデートの背後にあるストーリー。",
     "open": "メモを読む",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "混乱が少なくなります。さらに注文。",
-        "body": "+ から [[folders|フォルダ]] を作成し、そこにブックマークを編集モードでドラッグします。クリーンなグリッドで開き、最大 18 個のブックマークを保存できるスペースがあります。",
+        "body": "+ から [[folders|folder]] を作成し、編集モードでそこにブックマークをドラッグします。大きなフォルダーには検索とページがあり、インポートされたサブフォルダーはその構造を維持します。",
         "hint": "[[workspaces|ワークスペースバー]] の + を使用して、仕事と遊びを分けます。 [[search|虫眼鏡]] はフォルダー内も検索します。"
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "コピー"
   },
   "folder": {
+    "navigation": "フォルダーのナビゲーション",
+    "back": "戻る",
+    "page": "ページ {{page}} の {{pages}}",
+    "nextPage": "次へ",
+    "previousPage": "前へ",
+    "searchEmpty": "一致するアイテムはありません",
+    "search": "このフォルダを検索",
+    "contentsCount": "{{count}} 商品",
     "create": "フォルダーの作成",
     "createPrompt": "新しいフォルダーに名前を付けます",
     "namePlaceholder": "ツール、インスピレーション…",

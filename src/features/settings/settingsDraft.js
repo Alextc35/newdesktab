@@ -400,6 +400,7 @@ export function hasChanges() {
  * @returns {Settings}
  */
 export function buildNewSettings() {
+  const currentSettings = getSettings();
   return {
     language: draftLanguage,
     interfaceTheme: draftInterfaceTheme,
@@ -414,14 +415,14 @@ export function buildNewSettings() {
     keyboardShortcuts: structuredClone(draftKeyboardShortcuts),
     bookmarkDefault: structuredClone(draftBookmarkDefault),
     bookmarkPresets: structuredClone(draftBookmarkPresets),
-    bookmarkGroups: structuredClone(initialSnapshot?.bookmarkGroups ?? []),
-    mainWorkspace: structuredClone(initialSnapshot?.mainWorkspace ?? {
+    bookmarkGroups: structuredClone(currentSettings.bookmarkGroups ?? []),
+    mainWorkspace: structuredClone(currentSettings.mainWorkspace ?? {
       name: null,
       backgroundImageUrl: null,
       backgroundImageLocal: null,
       backgroundImageSource: 'url',
       backgroundImageUrlLocked: false
     }),
-    activeBookmarkGroupId: initialSnapshot?.activeBookmarkGroupId ?? null
+    activeBookmarkGroupId: currentSettings.activeBookmarkGroupId ?? null
   };
 }

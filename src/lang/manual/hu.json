@@ -323,14 +323,14 @@
       "question": "Hogyan csoportosíthatom a könyvjelzőket mappákba?",
       "searchTerms": "mappa létrehozása; csoportos könyvjelzők; kedvenceket szervezni; távolítsa el a mappából; mappa átnevezése",
       "title": "Rendszerezés mappákkal",
-      "summary": "Akár 18 könyvjelzőt gyűjthet egy mappába.",
+      "summary": "Gyűjtse össze a könyvjelzőket és az almappákat egy helyen.",
       "steps": [
         "Válassza a + → Mappa lehetőséget a bal oldali menüben, és adjon neki nevet.",
         "Szerkesztés módban húzza rá a könyvjelzőket, hogy behelyezze őket. Nyissa meg a mappát a rács megtekintéséhez.",
         "Használja a mappa szerkesztési módját a könyvjelzők elrendezéséhez. Kattintson a nevére az átnevezéshez, az ikonjára pedig a megjelenés testreszabásához."
       ],
       "note": "Egy mappa törlése hatással van a könyvjelzőire is. A folytatás előtt tekintse át a megerősítést; a lomtár vissza tudja állítani a törölt elemeket.",
-      "tip": "Egy mappa legfeljebb 18 könyvjelzőt tartalmazhat. Kapcsolja be a szerkesztést, és a hozzáadáshoz húzzon egy kártyát a mappába."
+      "tip": "A mappák nagy gyűjteményeket támogatnak kereséssel és oldalakkal. Kapcsolja be a szerkesztést, és a hozzáadáshoz húzza a kártyát egy mappába."
     },
     "workspaces": {
       "question": "Hogyan tudom elkülöníteni a személyes és a munkahelyi oldalakat?",

@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "પસંદ કરેલા બુકમાર્ક્સ અને ફોલ્ડર્સને Main માં આયાત કરીએ?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "તમારી પસંદગીને તમારા વર્તમાન બુકમાર્ક્સની સાથે મુખ્યમાં આયાત કરો. બુકમાર્ક્સ બાર સીધા ડેસ્કટોપ પર દેખાય છે; અન્ય બુકમાર્ક્સ તેમના ફોલ્ડર્સ રાખે છે.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "ક્રોમ અથવા નિકાસ કરેલ HTML ફાઇલમાંથી બુકમાર્ક્સ અને ફોલ્ડર્સ પસંદ કરો અને તેમને મુખ્યમાં આયાત કરો.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "વસ્તુઓ જુઓ અને પસંદ કરો",
+    "hideItems": "શોધાયેલ વસ્તુઓ છુપાવો",
+    "selectAll": "બધા પસંદ કરો",
+    "selectNone": "બધાને નાપસંદ કરો",
+    "searchItems": "શોધાયેલ બુકમાર્ક્સ શોધો",
+    "selectedItems": "{{count}} બુકમાર્ક્સ અને {{folders}} ફોલ્ડર્સ પસંદ કર્યા.",
+    "expandFolder": "વિસ્તૃત કરો અથવા સંકુચિત કરો {{name}}",
+    "unnamedFolder": "અનામી ફોલ્ડર",
+    "noMatches": "કોઈ મેળ ખાતી આઇટમ નથી.",
+    "showMore": "વધુ બતાવો",
+    "loadingItems": "બુકમાર્ક્સ વાંચી રહ્યાં છીએ...",
+    "emptyFolder": "ખાલી",
+    "mainFull": "મુખ્ય પાસે આ બુકમાર્ક્સ માટે કોઈ ખાલી જગ્યા નથી. એક ગ્રીડ સેલ ખાલી કરો અને ફરી પ્રયાસ કરો."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "તમારા Chrome બુકમાર્ક્સ, New DeskTab માં ઘરે",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "ફોલ્ડર્સ હવે શોધ, કોમ્પેક્ટ પૃષ્ઠો અને બ્રેડક્રમ્બ નેવિગેશન સાથે મોટા સંગ્રહ ધરાવે છે. તમારા હાલના બુકમાર્ક્સ સ્થાને રહે છે, અને સંપૂર્ણ ફોલ્ડર વૃક્ષોને રિસાયકલ બિનમાંથી ખસેડી, ડુપ્લિકેટ અને પુનઃપ્રાપ્ત કરી શકાય છે."
+    },
     "settingsTitle": "પ્રકાશન નોંધો",
     "settingsDescription": "શું બદલાયું છે અને દરેક અપડેટ પાછળની વાર્તા.",
     "open": "નોંધો વાંચો",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "ઓછી અવ્યવસ્થા. વધુ ઓર્ડર.",
-        "body": "+ માંથી એક [[folders|ફોલ્ડર]] બનાવો અને તેમાં બુકમાર્ક્સને એડિટ મોડમાં ખેંચો. તે 18 બુકમાર્ક્સ સુધીના રૂમ સાથે સ્વચ્છ ગ્રીડમાં ખુલે છે.",
+        "body": "+ થી એક [[folders|folder]] બનાવો અને તેમાં બુકમાર્ક્સને એડિટ મોડમાં ખેંચો. મોટા ફોલ્ડર્સમાં શોધ અને પૃષ્ઠો હોય છે, અને આયાત કરેલા સબફોલ્ડર્સ તેમની રચના રાખે છે.",
         "hint": "અલગ કામ અને રમવા માટે [[workspaces|વર્કસ્પેસ બાર]] માં + નો ઉપયોગ કરો. [[search|બૃહદદર્શક કાચ]] ફોલ્ડર્સની અંદર પણ શોધે છે."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "નકલ"
   },
   "folder": {
+    "navigation": "ફોલ્ડર નેવિગેશન",
+    "back": "પાછળ",
+    "page": "{{pages}} નું પૃષ્ઠ {{page}}",
+    "nextPage": "આગળ",
+    "previousPage": "ગત",
+    "searchEmpty": "કોઈ મેળ ખાતી આઇટમ નથી",
+    "search": "આ ફોલ્ડર શોધો",
+    "contentsCount": "{{count}} આઇટમ્સ",
     "create": "ફોલ્ડર બનાવો",
     "createPrompt": "નવા ફોલ્ડરને નામ આપો",
     "namePlaceholder": "સાધનો, પ્રેરણા...",

@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Importovat vybrané záložky a složky do Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importujte svůj výběr do hlavní vedle vašich aktuálních záložek. Lišta záložek se zobrazí přímo na ploše; ostatní záložky si ponechají své složky.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Vyberte záložky a složky z Chromu nebo exportovaného souboru HTML a importujte je do Hlavního.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Zobrazit a vybrat položky",
+    "hideItems": "Skrýt zjištěné položky",
+    "selectAll": "Vyberte vše",
+    "selectNone": "Zrušte výběr všech",
+    "searchItems": "Hledat zjištěné záložky",
+    "selectedItems": "Vybráno {{count}} záložek a {{folders}} složek.",
+    "expandFolder": "Rozbalit nebo sbalit {{name}}",
+    "unnamedFolder": "Nepojmenovaná složka",
+    "noMatches": "Žádné odpovídající položky.",
+    "showMore": "Zobrazit více",
+    "loadingItems": "Čtení záložek…",
+    "emptyFolder": "Prázdný",
+    "mainFull": "Main nemá pro tyto záložky volné místo. Uvolněte jednu buňku mřížky a zkuste to znovu."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Vaše záložky Chrome jako doma v New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Složky nyní obsahují větší sbírky s vyhledáváním, kompaktními stránkami a drobečkovou navigací. Vaše stávající záložky zůstanou na svém místě a kompletní strom složek lze přesouvat, duplikovat a obnovovat z koše."
+    },
     "settingsTitle": "Poznámky k vydání",
     "settingsDescription": "Co se změnilo a příběh každé aktualizace.",
     "open": "Přečtěte si poznámky",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Méně nepořádku. More order.",
-        "body": "Vytvořte [[folders|složku]] z + a přetáhněte do něj záložky v režimu úprav. Otevírá se v čisté mřížce s místem až pro 18 záložek.",
+        "body": "Vytvořte [[folders|folder]] z + a přetáhněte do něj záložky v režimu úprav. Velké složky mají vyhledávání a stránky a importované podsložky si zachovávají svou strukturu.",
         "hint": "Pomocí + v [[workspaces|lišta pracovní plochy]] oddělte práci a zábavu. [[search|zvětšovací sklo]] také vyhledává uvnitř složek."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopírovat"
   },
   "folder": {
+    "navigation": "Navigace ve složce",
+    "back": "Zpět",
+    "page": "Strana {{page}} z {{pages}}",
+    "nextPage": "Další",
+    "previousPage": "Předchozí",
+    "searchEmpty": "Žádné odpovídající položky",
+    "search": "Prohledejte tuto složku",
+    "contentsCount": "{{count}} položky",
     "create": "Vytvořit složku",
     "createPrompt": "Pojmenujte novou složku",
     "namePlaceholder": "Nástroje, inspirace…",

@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Zaimportować wybrane zakładki i foldery do Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Zaimportuj swój wybór do głównego folderu wraz z bieżącymi zakładkami. Pasek zakładek pojawia się bezpośrednio na pulpicie; inne zakładki zachowują swoje foldery.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Wybierz zakładki i foldery z Chrome lub wyeksportowanego pliku HTML i zaimportuj je do Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Wyświetl i wybierz elementy",
+    "hideItems": "Ukryj wykryte elementy",
+    "selectAll": "Zaznacz wszystko",
+    "selectNone": "Odznacz wszystko",
+    "searchItems": "Wyszukaj wykryte zakładki",
+    "selectedItems": "Wybrano {{count}} zakładek i {{folders}} folderów.",
+    "expandFolder": "Rozwiń lub zwiń {{name}}",
+    "unnamedFolder": "Folder bez nazwy",
+    "noMatches": "Brak pasujących elementów.",
+    "showMore": "Pokaż więcej",
+    "loadingItems": "Czytanie zakładek…",
+    "emptyFolder": "Pusty",
+    "mainFull": "W głównym folderze nie ma wolnego miejsca na te zakładki. Uwolnij jedną komórkę siatki i spróbuj ponownie."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Twoje zakładki Chrome w domu w New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Foldery zawierają teraz większe kolekcje z funkcjami wyszukiwania, kompaktowymi stronami i nawigacją po menu. Twoje istniejące zakładki pozostają na swoim miejscu, a całe drzewa folderów można przenosić, duplikować i odzyskiwać z kosza."
+    },
     "settingsTitle": "Informacje o wersji",
     "settingsDescription": "Co się zmieniło i historia każdej aktualizacji.",
     "open": "Przeczytaj notatki",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Mniej bałaganu. Więcej porządku.",
-        "body": "Utwórz [[folders|folderze]] z + i przeciągnij do niego zakładki w trybie edycji. Otwiera się w czystej siatce z miejscem na maksymalnie 18 zakładek.",
+        "body": "Utwórz [[folders|folder]] z + i przeciągnij do niego zakładki w trybie edycji. Duże foldery zawierają wyszukiwanie i strony, a zaimportowane podfoldery zachowują swoją strukturę.",
         "hint": "Użyj + w [[workspaces|pasek obszaru roboczego]], aby oddzielić pracę od zabawy. [[search|szkło powiększające]] przeszukuje także wnętrza folderów."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopia"
   },
   "folder": {
+    "navigation": "Nawigacja w folderze",
+    "back": "Powrót",
+    "page": "Strona {{page}} z {{pages}}",
+    "nextPage": "Następny",
+    "previousPage": "Poprzedni",
+    "searchEmpty": "Brak pasujących elementów",
+    "search": "Przeszukaj ten folder",
+    "contentsCount": "Elementy {{count}}",
     "create": "Utwórz folder",
     "createPrompt": "Nazwij nowy folder",
     "namePlaceholder": "Narzędzia, inspiracje…",

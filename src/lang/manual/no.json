@@ -323,14 +323,14 @@
       "question": "Hvordan grupperer jeg bokmerker i mapper?",
       "searchTerms": "opprette mappe; gruppe bokmerker; organisere favoritter; fjern fra mappen; gi nytt navn til mappen",
       "title": "Organiser med mapper",
-      "summary": "Samle opptil 18 bokmerker i én mappe.",
+      "summary": "Samle bokmerker og undermapper på ett sted.",
       "steps": [
         "Velg + → Mappe i venstremenyen og gi den et navn.",
         "I redigeringsmodus drar du bokmerker til den for å legge dem inn. Åpne mappen for å se rutenettet.",
         "Bruk mappens redigeringsmodus for å ordne bokmerkene. Klikk på navnet for å gi det nytt navn og ikonet for å tilpasse utseendet."
       ],
       "note": "Sletting av en mappe påvirker også bokmerkene. Se gjennom bekreftelsen før du fortsetter; papirkurven kan gjenopprette slettede elementer.",
-      "tip": "En mappe kan inneholde opptil 18 bokmerker. Slå på redigering og dra et kort til mappen for å legge det til."
+      "tip": "Mapper støtter store samlinger med søk og sider. Slå på redigering og dra et kort til en mappe for å legge det til."
     },
     "workspaces": {
       "question": "Hvordan holder jeg personlige sider og arbeidssider atskilt?",

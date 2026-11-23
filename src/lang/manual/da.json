@@ -323,14 +323,14 @@
       "question": "Hvordan grupperer jeg bogmærker i mapper?",
       "searchTerms": "oprette mappe; gruppebogmærker; organisere favoritter; fjern fra mappe; omdøbe mappe",
       "title": "Organiser med mapper",
-      "summary": "Saml op til 18 bogmærker i én mappe.",
+      "summary": "Saml bogmærker og undermapper på ét sted.",
       "steps": [
         "Vælg + → Mappe i menuen til venstre, og giv den et navn.",
         "I redigeringstilstand skal du trække bogmærker til den for at sætte dem ind. Åbn mappen for at se dens gitter.",
         "Brug mappens redigeringstilstand til at arrangere dens bogmærker. Klik på dens navn for at omdøbe den og dens ikon for at tilpasse dens udseende."
       ],
       "note": "Sletning af en mappe påvirker også dens bogmærker. Gennemgå bekræftelsen, før du fortsætter; papirkurven kan gendanne slettede genstande.",
-      "tip": "En mappe kan indeholde op til 18 bogmærker. Slå redigering til, og træk et kort til mappen for at tilføje det."
+      "tip": "Mapper understøtter store samlinger med søgning og sider. Slå redigering til, og træk et kort til en mappe for at tilføje det."
     },
     "workspaces": {
       "question": "Hvordan holder jeg personlige sider og arbejdssider adskilt?",

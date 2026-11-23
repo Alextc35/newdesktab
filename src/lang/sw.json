@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Je, ungependa kuleta alamisho na folda zilizochaguliwa kwenye Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Ingiza chaguo lako hadi Kuu pamoja na alamisho zako za sasa. Baa ya alamisho inaonekana moja kwa moja kwenye desktop; alamisho zingine huweka folda zao.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Chagua alamisho na folda kutoka Chrome au faili ya HTML iliyohamishwa na uzilete kwenye Kuu.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Tazama na uchague vipengee",
+    "hideItems": "Ficha vitu vilivyotambuliwa",
+    "selectAll": "Chagua zote",
+    "selectNone": "Acha kuchagua zote",
+    "searchItems": "Tafuta alamisho zilizotambuliwa",
+    "selectedItems": "{{count}} alamisho na folda {{folders}} zimechaguliwa.",
+    "expandFolder": "Panua au ukunje {{name}}",
+    "unnamedFolder": "Folda isiyo na jina",
+    "noMatches": "Hakuna vipengee vinavyolingana.",
+    "showMore": "Onyesha zaidi",
+    "loadingItems": "Inasoma alamisho...",
+    "emptyFolder": "Tupu",
+    "mainFull": "Main haina nafasi ya bure ya vialamisho hivi. Bure kisanduku cha gridi moja na ujaribu tena."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Alamisho zako za Chrome, nyumbani katika New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Folda sasa zina mikusanyo mikubwa, yenye utafutaji, kurasa zilizoshikana na urambazaji wa breadcrumb. Alamisho zako zilizopo hukaa mahali pake, na miti kamili ya folda inaweza kuhamishwa, kunakiliwa na kurejeshwa kutoka kwa pipa la kuchakata."
+    },
     "settingsTitle": "Maelezo kuhusu toleo",
     "settingsDescription": "Ni nini kilibadilika na hadithi nyuma ya kila sasisho.",
     "open": "Soma maelezo",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Upungufu mdogo. Agizo zaidi.",
-        "body": "Unda [[folders|folda]] kutoka + na uburute alamisho ndani yake katika hali ya kuhariri. Inafungua katika gridi safi yenye nafasi ya hadi alamisho 18.",
+        "body": "Unda [[folders|folder]] kutoka + na uburute alamisho ndani yake katika hali ya kuhariri. Folda kubwa zina utafutaji na kurasa, na folda ndogo zilizoingizwa huweka muundo wao.",
         "hint": "Tumia + katika [[workspaces|bar ya nafasi ya kazi]] kutenganisha kazi na kucheza. [[search|kioo cha kukuza]] pia hutafuta ndani ya folda."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "nakala"
   },
   "folder": {
+    "navigation": "Urambazaji wa folda",
+    "back": "Nyuma",
+    "page": "Ukurasa wa {{page}} wa {{pages}}",
+    "nextPage": "Inayofuata",
+    "previousPage": "Iliyotangulia",
+    "searchEmpty": "Hakuna vipengee vinavyolingana",
+    "search": "Tafuta folda hii",
+    "contentsCount": "Vipengee vya {{count}}",
     "create": "Unda folda",
     "createPrompt": "Taja folda mpya",
     "namePlaceholder": "Zana, msukumo...",

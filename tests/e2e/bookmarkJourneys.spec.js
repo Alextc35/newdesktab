@@ -2981,7 +2981,7 @@ test('creates a folder, accepts a dragged bookmark and persists its contents', a
 
   await enableFolderEditMode(page);
   await page.getByRole('button', { name: /Move Reading item out of the folder/ }).click();
-  await expect(page.getByText('0 of 18 spaces used')).toBeVisible();
+  await expect(page.locator('#folder-modal-summary')).toHaveText('0 items');
   await page.keyboard.press('Escape');
   await expect(page.getByRole('link', { name: /Reading item/ })).toBeVisible();
 });
@@ -3669,7 +3669,7 @@ test('renames an open folder with one click on its title', async ({ page }) => {
   await expect(title).not.toHaveAttribute('contenteditable');
   await expect(page.locator('#folder-modal-edit-toggle')).toHaveAttribute('aria-pressed', 'false');
   await expect(title).not.toHaveAttribute('role');
-  await expect(title).not.toHaveAttribute('tabindex');
+  await expect(title).toHaveAttribute('tabindex', '-1');
   await title.click();
   await expect(title).toHaveAttribute('contenteditable', 'true');
   await expect(title).toBeFocused();

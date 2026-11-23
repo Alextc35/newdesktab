@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Kas importida valitud järjehoidjad ja kaustad kausta Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importige oma valik koos praeguste järjehoidjatega kausta Main. Järjehoidjariba ilmub otse töölauale; teised järjehoidjad jätavad oma kaustad alles.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Valige Chrome'ist või eksporditud HTML-failist järjehoidjad ja kaustad ning importige need põhikausta.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Vaadake ja valige üksused",
+    "hideItems": "Peida tuvastatud üksused",
+    "selectAll": "Valige kõik",
+    "selectNone": "Tühista kõik valikud",
+    "searchItems": "Otsige tuvastatud järjehoidjaid",
+    "selectedItems": "Valitud on {{count}} järjehoidjat ja {{folders}} kausta.",
+    "expandFolder": "Laienda või ahenda {{name}}",
+    "unnamedFolder": "Nimetu kaust",
+    "noMatches": "Sobivaid üksusi pole.",
+    "showMore": "Näita rohkem",
+    "loadingItems": "Järjehoidjate lugemine…",
+    "emptyFolder": "Tühi",
+    "mainFull": "Mainil pole nende järjehoidjate jaoks vaba ruumi. Vabastage üks ruudustiku lahter ja proovige uuesti."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Teie Chrome'i järjehoidjad New DeskTab-s kodus",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Kaustad sisaldavad nüüd suuremaid kogusid koos otsingu, kompaktsete lehtede ja navigeerimisribaga. Teie olemasolevad järjehoidjad jäävad paigale ning täielikke kaustapuid saab teisaldada, paljundada ja prügikastist taastada."
+    },
     "settingsTitle": "Väljalaskemärkmed",
     "settingsDescription": "Mis muutus ja iga värskenduse lugu.",
     "open": "Loe märkmeid",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Vähem segadust. Rohkem tellimust.",
-        "body": "Looge +-st [[folders|kausta]] ja lohistage redigeerimisrežiimis sinna järjehoidjad. See avaneb puhtas ruudustikus, kus on ruumi kuni 18 järjehoidjale.",
+        "body": "Looge [[folders|folder]] + ja lohistage redigeerimisrežiimis sinna järjehoidjad. Suurtes kaustades on otsing ja lehed ning imporditud alamkaustad säilitavad oma struktuuri.",
         "hint": "Kasutage töö ja mängimise eraldamiseks märgis [[workspaces|tööruumi riba]] olevat +. [[search|luup]] otsib ka kaustadest."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "kopeerida"
   },
   "folder": {
+    "navigation": "Kaustade navigeerimine",
+    "back": "Tagasi",
+    "page": "{{pages}} lehekülg {{page}}",
+    "nextPage": "Edasi",
+    "previousPage": "Eelmine",
+    "searchEmpty": "Sobivaid üksusi pole",
+    "search": "Otsi sellest kaustast",
+    "contentsCount": "{{count}} esemed",
     "create": "Loo kaust",
     "createPrompt": "Nimetage uus kaust",
     "namePlaceholder": "Tööriistad, inspiratsioon…",

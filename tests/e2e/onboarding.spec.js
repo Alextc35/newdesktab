@@ -342,7 +342,7 @@ for (const width of [1280, 720]) {
       await seek(cycle + .22);
       await expect(panel).toHaveCSS('opacity', '1');
       await expect(panel.locator('.onboarding-demo-folder-title')).toHaveText('Media');
-      await expect(panel.locator('.onboarding-demo-folder-summary')).toHaveText('2 of 18 spaces used');
+      await expect(panel.locator('.onboarding-demo-folder-summary')).toHaveText('2 items');
       await expect(edit).toHaveAttribute('aria-pressed', 'false');
       const initial = await item.boundingBox();
       const stationary = await other.boundingBox();
@@ -394,7 +394,7 @@ for (const width of [1280, 720]) {
       .some(animation => animation.id.startsWith('onboarding-folder-')))).toBe(false);
     await page.evaluate(async () => (await import('/src/platform/i18n/i18n.js')).changeLanguage({ language: 'es' }));
     await expect(edit).toHaveText('Editar');
-    await expect(panel.locator('.onboarding-demo-folder-summary')).toHaveText('2 de 18 huecos ocupados');
+    await expect(panel.locator('.onboarding-demo-folder-summary')).toHaveText('2 elementos');
     const entities = await page.evaluate(async () => {
       const { data } = (await import('/src/state/appStore.js')).getState();
       return [data.bookmarks.length, data.folders.length, data.widgets.length];

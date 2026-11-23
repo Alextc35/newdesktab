@@ -130,7 +130,7 @@ test('different pages on one site do not produce misleading saved indicators', (
   assert.deepEqual(getQuickSaveMatches(data, 'chrome://settings'), []);
 });
 
-test('full workspace and folder report no-space instead of overwriting items', () => {
+test('full workspaces report no-space while large folders continue growing without overwriting items', () => {
   const data = fixture();
   data.widgets = [{ id: 'cover', groupId: 'work', gx: 0, gy: 0, w: 12, h: 6 }];
   assert.equal(prepareQuickBookmark(data, {
@@ -145,7 +145,28 @@ test('full workspace and folder report no-space instead of overwriting items', (
     gx: index % 6,
     gy: Math.floor(index / 6)
   }));
+  const result = prepareQuickBookmark(data, {
+    name: 'More room', url: 'https://example.com/new', groupId: 'work', folderId: 'work-folder'
+  });
+  assert.equal(result.reason, null);
+  assert.deepEqual({ gx: result.bookmark.gx, gy: result.bookmark.gy }, { gx: 0, gy: 3 });
+  assert.equal(data.bookmarks.length, 18);
+});
+
+test('nested quick-save destinations show full paths and reserve subfolder cells', () => {
+  const data = fixture();
+  data.folders.push(
+    { id: 'nested', name: 'Articles', parentId: 'work-folder', groupId: 'work', gx: 0, gy: 0, w: 1, h: 1 },
+    { id: 'other-articles', name: 'Articles', parentId: 'main-folder', groupId: null, gx: 0, gy: 0, w: 1, h: 1 }
+  );
+  assert.equal(getQuickSaveFolders(data, 'work').find(folder => folder.id === 'nested').path, 'Reading › Articles');
+  assert.equal(getQuickSaveFolders(data, null).find(folder => folder.id === 'other-articles').path, 'Personal › Articles');
+  const result = prepareQuickBookmark(data, {
+    name: 'Saved', url: 'https://example.com/nested', groupId: 'work', folderId: 'work-folder'
+  });
+  assert.equal(result.reason, null);
+  assert.deepEqual({ gx: result.bookmark.gx, gy: result.bookmark.gy }, { gx: 1, gy: 0 });
   assert.equal(prepareQuickBookmark(data, {
-    name: 'No room', url: 'https://example.com/new', groupId: 'work', folderId: 'work-folder'
-  }).reason, 'no-space');
+    name: 'Nested', url: 'https://example.com/nested', groupId: 'work', folderId: 'nested'
+  }).reason, null);
 });

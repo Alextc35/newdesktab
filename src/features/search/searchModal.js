@@ -4,6 +4,7 @@ import { closeModal, openModal, registerModal } from '../../shared/ui/modalManag
 import { getWorkspaces } from '../workspaces/workspaceSelectors.js';
 import { searchBookmarks } from './searchBookmarks.js';
 import { debug } from '../../shared/diagnostics/debug.js';
+import { getFolderPaths } from '../../domain/folders/folderContents.js';
 
 let initialized = false;
 let input;
@@ -47,7 +48,7 @@ function renderResults() {
     workspace.name
   ]));
   workspaces.set(null, data.settings.mainWorkspace?.name || t('workspace.main'));
-  const folderNames = new Map(folders.map(folder => [folder.id, folder.name]));
+  const folderNames = getFolderPaths(folders);
   const matches = searchBookmarks(bookmarks, input.value);
 
   results.replaceChildren();

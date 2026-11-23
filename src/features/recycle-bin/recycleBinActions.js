@@ -1,6 +1,7 @@
 import '../../types/types.js';
 import { DEFAULT_RECYCLE_BIN } from '../../domain/recycle-bin/recycleBinDefaults.js';
 import { clearBookmarkHistory, getState, setState } from '../../state/appStore.js';
+import { getFolderRoots, getFolderTreeIds } from '../../domain/folders/folderTree.js';
 import { normalizeRecycleBinStyle } from '../../domain/recycle-bin/recycleBinModel.js';
 import { getRecycleBinRetentionMs, normalizeRecycleBinRetentionDays } from '../../domain/settings/recycleBinRetention.js';
 import {
@@ -68,15 +69,17 @@ export function moveFolderToRecycleBin(folderId) {
   const folder = data.folders.find(item => item.id === folderId);
   if (!folder) return { deleted: false, bookmarkCount: 0 };
 
-  const children = data.bookmarks.filter(bookmark => bookmark.folderId === folderId);
+  const treeIds = getFolderTreeIds(data.folders, [folderId]);
+  const children = data.bookmarks.filter(bookmark => treeIds.has(bookmark.folderId));
   const childIds = new Set(children.map(bookmark => bookmark.id));
   setState({
     data: {
       bookmarks: data.bookmarks.filter(bookmark => !childIds.has(bookmark.id)),
-      folders: data.folders.filter(item => item.id !== folderId),
+      folders: data.folders.filter(item => !treeIds.has(item.id)),
       trash: [...data.trash, createFolderTrashEntry(folder, children, {
         id: createTrashId(),
-        deletedAt: Date.now()
+        deletedAt: Date.now(),
+        folders: data.folders.filter(item => item.id !== folderId && treeIds.has(item.id))
       })]
     }
   });
@@ -92,8 +95,8 @@ export function moveGridItemsToRecycleBin({ bookmarkIds = [], folderIds = [] } =
   }
 
   const { data } = getState();
-  const folders = data.folders.filter(folder => requestedFolderIds.has(folder.id));
-  const existingFolderIds = new Set(folders.map(folder => folder.id));
+  const folders = getFolderRoots(data.folders, requestedFolderIds);
+  const existingFolderIds = getFolderTreeIds(data.folders, folders.map(folder => folder.id));
   const folderChildren = data.bookmarks.filter(bookmark => existingFolderIds.has(bookmark.folderId));
   const folderChildIds = new Set(folderChildren.map(bookmark => bookmark.id));
   const bookmarks = data.bookmarks.filter(bookmark => (
@@ -102,11 +105,15 @@ export function moveGridItemsToRecycleBin({ bookmarkIds = [], folderIds = [] } =
   if (!bookmarks.length && !folders.length) return { bookmarks: 0, folders: 0 };
 
   const deletedAt = Date.now();
-  const entries = folders.map(folder => createFolderTrashEntry(
-    folder,
-    folderChildren.filter(bookmark => bookmark.folderId === folder.id),
-    { id: createTrashId(), deletedAt }
-  ));
+  const entries = folders.map(folder => {
+    const treeIds = getFolderTreeIds(data.folders, [folder.id]);
+    return createFolderTrashEntry(
+      folder,
+      folderChildren.filter(bookmark => treeIds.has(bookmark.folderId)),
+      { id: createTrashId(), deletedAt,
+        folders: data.folders.filter(child => child.id !== folder.id && treeIds.has(child.id)) }
+    );
+  });
   entries.push(...bookmarks.map(bookmark => createBookmarkTrashEntry(bookmark, {
     id: createTrashId(),
     deletedAt

@@ -125,3 +125,35 @@ test('restores into a new snapshot and resolves identity and cell collisions', (
   assert.equal(source.bookmarks.length, 1);
   assert.equal(source.trash.length, 1);
 });
+
+test('a nested tree is one trash entry and restores all parent references on identity collisions', () => {
+  const entries = createCollectionTrashEntries(
+    [bookmark('deep', { folderId: 'child' })],
+    [folder('root'), folder('child', { parentId: 'root' })],
+    { deletedAt: 1, createId: () => 'trash-tree' }
+  );
+  assert.equal(entries.length, 1);
+  assert.equal(entries[0].folders[0].id, 'child');
+  assert.equal(entries[0].bookmarks[0].folderId, 'child');
+  let sequence = 0;
+  const result = restoreTrashEntriesInData(data({
+    folders: [folder('root'), folder('child', { gx: 2 })],
+    trash: entries
+  }), ['trash-tree'], { now: () => 99, createId: () => `copy-${++sequence}` });
+  const restoredRoot = result.folders.find(item => item.id === 'copy-1');
+  const restoredChild = result.folders.find(item => item.parentId === restoredRoot.id);
+  assert.equal(restoredChild.id, 'copy-2');
+  assert.equal(result.bookmarks[0].folderId, restoredChild.id);
+  assert.equal(result.restored, 1);
+  assert.deepEqual(result.trash, []);
+});
+
+test('restoring a nested folder rejoins its existing parent without occupying the desktop', () => {
+  const entry = createCollectionTrashEntries([], [folder('child', { parentId: 'parent' })], {
+    deletedAt: 1, createId: () => 'trash-child'
+  })[0];
+  const result = restoreTrashEntriesInData(data({ folders: [folder('parent')], trash: [entry] }),
+    ['trash-child'], { now: () => 99, createId: () => 'unused' });
+  assert.equal(result.folders.find(item => item.id === 'child').parentId, 'parent');
+  assert.equal(result.restored, 1);
+});

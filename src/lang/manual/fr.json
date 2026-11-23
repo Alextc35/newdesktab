@@ -323,14 +323,14 @@
       "question": "Comment regrouper les favoris dans des dossiers ?",
       "searchTerms": "créer un dossier ; signets de groupe ; organiser les favoris ; supprimer du dossier ; renommer le dossier",
       "title": "Organiser avec des dossiers",
-      "summary": "Rassemblez jusqu'à 18 signets dans un seul dossier.",
+      "summary": "Rassemblez les signets et les sous-dossiers en un seul endroit.",
       "steps": [
         "Choisissez + → Dossier dans le menu de gauche et donnez-lui un nom.",
         "En mode édition, faites glisser les signets dessus pour les insérer. Ouvrez le dossier pour voir sa grille.",
         "Utilisez le mode d'édition du dossier pour organiser ses signets. Cliquez sur son nom pour le renommer et sur son icône pour personnaliser son apparence."
       ],
       "note": "La suppression d'un dossier affecte également ses favoris. Vérifiez la confirmation avant de continuer ; la corbeille peut restaurer les éléments supprimés.",
-      "tip": "Un dossier peut contenir jusqu'à 18 signets. Activez l'édition et faites glisser une carte sur le dossier pour l'ajouter."
+      "tip": "Les dossiers prennent en charge de grandes collections avec recherche et pages. Activez l'édition et faites glisser une carte sur un dossier pour l'ajouter."
     },
     "workspaces": {
       "question": "Comment séparer les pages personnelles et professionnelles ?",

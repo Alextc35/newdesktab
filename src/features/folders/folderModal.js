@@ -1,6 +1,8 @@
 import {
   BOOKMARK_FOLDER_NAME_MAX_LENGTH,
+  moveFolderEntry,
   removeBookmarkFromFolder,
+  removeFolderFromParent,
   renameBookmarkFolder,
   updateFolderBookmarkPositions
 } from './folderActions.js';
@@ -11,12 +13,14 @@ import {
   FOLDER_GRID_COLUMNS,
   FOLDER_GRID_ROWS
 } from '../../domain/folders/folderGrid.js';
-import { t } from '../../platform/i18n/i18n.js';
+import { FOLDER_PAGE_SIZE, getFolderAncestors, getFolderContentsPage } from '../../domain/folders/folderContents.js';
+import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
 import { getState, subscribe } from '../../state/appStore.js';
 import { debug } from '../../shared/diagnostics/debug.js';
 import { createItemActionButton } from '../../shared/ui/itemActionButton.js';
 import { calculateSmartDragLayout } from '../../shared/grid/smartDragLayout.js';
 import { createBookmarkListItem } from '../bookmarks/bookmarkListItem.js';
+import { createFolderListItem } from './folderListItem.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
 import { flashInfo, flashSuccess } from '../../shared/ui/flash.js';
 import { runPersistedAction } from '../persistence/persistedAction.js';
@@ -51,7 +55,21 @@ let summary;
 let list;
 let editToggle;
 let customizeButton;
+let navigation;
+let searchInput;
+let searchRow;
+let pagination;
+let previousPage;
+let nextPage;
+let pageLabel;
+let currentPage = 0;
 let folderIsEditing = false;
+let selectedEntryId = null;
+let reorderToolbar;
+let selectedEntryName;
+let moveUpButton;
+let moveDownButton;
+let reorderPending = false;
 let dragSession = null;
 let pendingFolderCommit = null;
 
@@ -62,6 +80,7 @@ export function initFolderModal() {
   modal = document.getElementById('folder-modal');
   modalCard = modal.querySelector('.modal-folder');
   title = document.getElementById('folder-modal-title');
+  title.tabIndex = -1;
   renameActions = document.getElementById('folder-modal-rename-actions');
   renameAccept = document.getElementById('folder-modal-rename-accept');
   renameCancel = document.getElementById('folder-modal-rename-cancel');
@@ -69,6 +88,7 @@ export function initFolderModal() {
   list = document.getElementById('folder-modal-items');
   editToggle = document.getElementById('folder-modal-edit-toggle');
   customizeButton = document.getElementById('folder-modal-customize');
+  initFolderNavigation();
 
   editToggle.addEventListener('click', () => toggleFolderEditMode());
   customizeButton.addEventListener('click', () => {
@@ -141,6 +161,9 @@ export function initFolderModal() {
     if (activeFolderId && (!previous || ['bookmarks', 'folders', 'settings']
       .some(key => state.data[key] !== previous.data[key]))) renderFolderContents();
   });
+  subscribeLanguageChange(() => {
+    if (activeFolderId) renderFolderContents();
+  });
 }
 
 export function openFolderModal(folderId) {
@@ -152,8 +175,12 @@ export function openFolderModal(folderId) {
   if (!folder) return;
 
   activeFolderId = folderId;
+  currentPage = 0;
+  searchInput.value = '';
   folderIsEditing = false;
+  selectedEntryId = null;
   renderFolderContents();
+  list.parentElement.scrollTop = 0;
   openModal('folder', { onCancel: closeFolderModal });
   if (!isListView()) editToggle.focus({ preventScroll: true });
 }
@@ -166,6 +193,96 @@ function closeFolderModal() {
   closeModal('folder');
 }
 
+function initFolderNavigation() {
+  navigation = document.createElement('nav');
+  navigation.className = 'folder-breadcrumbs custom-scrollbar';
+  searchRow = document.createElement('div');
+  searchRow.className = 'folder-search';
+  searchInput = document.createElement('input');
+  searchInput.type = 'search';
+  searchInput.id = 'folder-modal-search';
+  searchInput.addEventListener('input', () => {
+    cancelFolderDrag();
+    currentPage = 0;
+    renderFolderContents();
+    list.parentElement.scrollTop = 0;
+  });
+  searchRow.append(searchInput);
+  const shell = modalCard.querySelector('.folder-grid-shell');
+  shell.classList.add('custom-scrollbar');
+  reorderToolbar = document.createElement('div');
+  reorderToolbar.className = 'folder-reorder-toolbar';
+  reorderToolbar.hidden = true;
+  selectedEntryName = document.createElement('span');
+  moveUpButton = document.createElement('button');
+  moveUpButton.type = 'button';
+  moveUpButton.id = 'folder-move-up';
+  moveDownButton = document.createElement('button');
+  moveDownButton.type = 'button';
+  moveDownButton.id = 'folder-move-down';
+  moveUpButton.addEventListener('click', () => void moveSelectedEntry(-1));
+  moveDownButton.addEventListener('click', () => void moveSelectedEntry(1));
+  reorderToolbar.append(selectedEntryName, moveUpButton, moveDownButton);
+  shell.before(navigation, searchRow, reorderToolbar);
+  pagination = document.createElement('div');
+  pagination.className = 'folder-pagination';
+  previousPage = document.createElement('button');
+  previousPage.type = 'button';
+  previousPage.id = 'folder-modal-previous-page';
+  nextPage = document.createElement('button');
+  nextPage.type = 'button';
+  nextPage.id = 'folder-modal-next-page';
+  pageLabel = document.createElement('span');
+  pageLabel.setAttribute('aria-live', 'polite');
+  const changePage = delta => {
+    cancelFolderDrag();
+    currentPage += delta;
+    renderFolderContents();
+    list.parentElement.scrollTop = 0;
+  };
+  previousPage.addEventListener('click', () => changePage(-1));
+  nextPage.addEventListener('click', () => changePage(1));
+  pagination.append(previousPage, pageLabel, nextPage);
+  shell.after(pagination);
+}
+
+function navigateToFolder(folderId) {
+  finishInlineFolderRename();
+  cancelFolderDrag();
+  activeFolderId = folderId;
+  selectedEntryId = null;
+  currentPage = 0;
+  searchInput.value = '';
+  renderFolderContents();
+  list.parentElement.scrollTop = 0;
+  title.focus({ preventScroll: true });
+}
+
+function renderFolderNavigation(folders, folder) {
+  navigation.setAttribute('aria-label', t('folder.navigation'));
+  const ancestors = getFolderAncestors(folders, folder.id);
+  navigation.hidden = ancestors.length < 2;
+  const elements = [];
+  if (ancestors.length > 1) {
+    const back = document.createElement('button');
+    back.type = 'button';
+    back.className = 'folder-back';
+    back.textContent = `← ${t('folder.back')}`;
+    back.addEventListener('click', () => navigateToFolder(ancestors.at(-2).id));
+    elements.push(back);
+  }
+  for (const ancestor of ancestors) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = ancestor.name;
+    button.title = ancestor.name;
+    if (ancestor.id === folder.id) button.setAttribute('aria-current', 'page');
+    button.addEventListener('click', () => navigateToFolder(ancestor.id));
+    elements.push(button);
+  }
+  navigation.replaceChildren(...elements);
+}
+
 function toggleFolderEditMode() {
   if (!folderIsEditing && !ensurePanelFits()) return;
   setFolderEditMode(!folderIsEditing, { announce: true });
@@ -176,6 +293,7 @@ function setFolderEditMode(isEditing, { announce = false } = {}) {
   if (!isEditing) cancelFolderDrag();
 
   folderIsEditing = isEditing;
+  if (!isEditing) selectedEntryId = null;
   renderFolderContents();
 
   if (announce) {
@@ -207,8 +325,23 @@ function renderFolderContents() {
 
   const trace = debug.start('Render folder contents');
   const contents = bookmarks.filter(bookmark => bookmark.folderId === folder.id);
-  const layout = createFolderBookmarkLayout(contents);
+  const page = getFolderContentsPage({ bookmarks, folders }, folder.id, {
+    query: searchInput.value, page: currentPage
+  });
+  currentPage = page.page;
+  const layout = page.layout;
   const listView = isListView();
+  const compact = listView || page.hasSubfolders || page.totalCount > FOLDER_GRID_CAPACITY
+    || Boolean(searchInput.value) || [...layout.values()].some(position => position.gy >= FOLDER_GRID_ROWS);
+  const ordered = compact && folderIsEditing
+    ? getFolderContentsPage({ bookmarks, folders }, folder.id, { pageSize: Number.MAX_SAFE_INTEGER }).entries : [];
+  const selectedIndex = ordered.findIndex(entry => entry.item.id === selectedEntryId);
+  reorderToolbar.hidden = !compact || !folderIsEditing || selectedIndex < 0;
+  selectedEntryName.textContent = selectedIndex < 0 ? '' : ordered[selectedIndex].item.name;
+  moveUpButton.textContent = `↑ ${t('settingsModal.theme.moveUp')}`;
+  moveDownButton.textContent = `↓ ${t('settingsModal.theme.moveDown')}`;
+  moveUpButton.disabled = reorderPending || selectedIndex <= 0;
+  moveDownButton.disabled = reorderPending || selectedIndex < 0 || selectedIndex >= ordered.length - 1;
   syncFolderEditUI(listView);
   applyFolderContentsAppearance(modalCard, folder);
   // The edit action keeps its glyph even when the launcher artwork is hidden.
@@ -220,23 +353,32 @@ function renderFolderContents() {
   applyFolderAppearance(customizeButton, customizeAppearance);
   if (!title.isContentEditable) title.textContent = folder.name;
   title.setAttribute('title', t('folder.actions.rename'));
-  summary.textContent = t('folder.summary', {
-    count: contents.length,
-    capacity: FOLDER_GRID_CAPACITY
-  });
+  summary.textContent = t('folder.contentsCount', { count: page.totalCount });
+  renderFolderNavigation(folders, folder);
+  searchRow.hidden = page.totalCount <= FOLDER_GRID_CAPACITY && !page.hasSubfolders && !searchInput.value;
+  searchInput.placeholder = t('folder.search');
+  searchInput.setAttribute('aria-label', t('folder.search'));
+  pagination.hidden = page.pages <= 1;
+  previousPage.textContent = t('folder.previousPage');
+  previousPage.disabled = page.page === 0;
+  nextPage.textContent = t('folder.nextPage');
+  nextPage.disabled = page.page === page.pages - 1;
+  pageLabel.textContent = t('folder.page', { page: page.page + 1, pages: page.pages });
   list.replaceChildren();
   list.classList.remove('is-folder-grid-settling', 'is-folder-grid-exit-target');
-  modalCard.classList.toggle('is-empty-list', listView && contents.length === 0);
-  list.classList.toggle('is-list-view', listView);
+  modalCard.classList.toggle('is-empty-list', listView && page.totalCount === 0);
+  modalCard.classList.toggle('has-compact-contents', compact);
+  list.classList.toggle('is-list-view', compact);
 
-  if (listView) {
-    const ordered = [...contents].sort((a, b) => {
-      const first = layout.get(a.id);
-      const second = layout.get(b.id);
-      return first.gy - second.gy || first.gx - second.gx;
-    });
-    list.replaceChildren(...ordered.map(bookmark => createBookmarkListItem(bookmark)));
-    trace.end({ bookmarks: contents.length, listView });
+  if (compact) {
+    list.replaceChildren(...page.entries.map(createCompactFolderEntry));
+    if (!page.matchCount && searchInput.value) {
+      const empty = document.createElement('p');
+      empty.className = 'folder-search-empty';
+      empty.textContent = t('folder.searchEmpty');
+      list.append(empty);
+    }
+    trace.end({ bookmarks: page.totalCount, rendered: page.entries.length, listView: true });
     return;
   }
 
@@ -245,6 +387,93 @@ function renderFolderContents() {
     return position ? [createFolderBookmarkItem(bookmark, position)] : [];
   }));
   trace.end({ bookmarks: contents.length, listView });
+}
+
+function createCompactFolderEntry({ kind, item }) {
+  const row = kind === 'folder'
+    ? createFolderListItem({ ...item, showName: true }, { onOpen: () => navigateToFolder(item.id) })
+    : createBookmarkListItem(item);
+  if (!folderIsEditing) return row;
+  row.classList.toggle('is-folder-row-selected', selectedEntryId === item.id);
+  const select = document.createElement('input');
+  select.type = 'checkbox';
+  select.className = 'folder-row-select';
+  select.setAttribute('aria-label', item.name);
+  select.checked = selectedEntryId === item.id;
+  select.addEventListener('change', () => {
+    selectedEntryId = select.checked ? item.id : null;
+    renderFolderContents();
+    focusSelectedRow();
+  });
+  row.prepend(select);
+  row.addEventListener('click', event => {
+    if (event.target.closest('button, input, .folder-bookmark-actions')) return;
+    event.preventDefault();
+    selectedEntryId = item.id;
+    renderFolderContents();
+    focusSelectedRow();
+  });
+  row.addEventListener('keydown', event => {
+    if (!event.altKey || !['ArrowUp', 'ArrowDown'].includes(event.key)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    selectedEntryId = item.id;
+    void moveSelectedEntry(event.key === 'ArrowUp' ? -1 : 1);
+  });
+  const actions = document.createElement('span');
+  actions.className = 'folder-bookmark-actions';
+  const edit = createItemActionButton('✎', 'edit', 'is-dark', () => {
+    if (kind === 'folder') openFolderEditor(item.id);
+    else openEditBookmark(item.id);
+  });
+  edit.setAttribute('aria-label', t('folder.actions.editBookmark', { name: item.name }));
+  const remove = createItemActionButton('↗', 'remove', 'is-dark', async () => {
+    if (kind === 'bookmark') await moveBookmarkToGrid(item.id);
+    else await runPersistedAction(`folder-exit:${item.id}`, () => removeFolderFromParent(item.id, {
+      columns: getMaxVisibleCols(), rows: getMaxVisibleRows()
+    }), result => {
+      if (result.reason === 'no-space') void showAlert(t('folder.removeNoSpace'), { type: 'info' });
+    });
+  });
+  remove.setAttribute('aria-label', t('folder.actions.removeBookmark', { name: item.name }));
+  const deleteButton = createItemActionButton('🗑', 'delete', 'is-dark', async () => {
+    await confirmItemRecycle(kind, item.id);
+  });
+  deleteButton.classList.add('folder-item-delete');
+  deleteButton.setAttribute('aria-label', t('folder.actions.deleteBookmark', { name: item.name }));
+  actions.append(edit, deleteButton, remove);
+  for (const button of actions.children) button.title = button.getAttribute('aria-label');
+  row.append(actions);
+  return row;
+}
+
+function focusSelectedRow() {
+  const row = Array.from(list.children).find(element => (
+    (element.dataset.bookmarkId ?? element.dataset.folderId) === selectedEntryId
+  ));
+  row?.querySelector('.folder-row-select')?.focus({ preventScroll: true });
+  return row;
+}
+
+async function moveSelectedEntry(direction) {
+  if (!selectedEntryId || !folderIsEditing || reorderPending) return;
+  reorderPending = true;
+  moveUpButton.disabled = moveDownButton.disabled = true;
+  try {
+    await runPersistedAction(`folder-order:${activeFolderId}`, () => moveFolderEntry(
+      activeFolderId, selectedEntryId, direction
+    ), result => {
+      if (!result.moved) return;
+      searchInput.value = '';
+      currentPage = Math.floor(result.index / FOLDER_PAGE_SIZE);
+    });
+  } finally {
+    reorderPending = false;
+    if (activeFolderId) {
+      renderFolderContents();
+      focusSelectedRow()?.scrollIntoView?.({ block: 'nearest', behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+    }
+  }
 }
 
 function startInlineFolderRename(event) {

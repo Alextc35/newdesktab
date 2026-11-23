@@ -66,6 +66,7 @@
  * @property {number} w
  * @property {number} h
  * @property {string|null} groupId
+ * @property {string|null} parentId Null places the folder on its workspace desktop.
  * @property {boolean} noBackground
  * @property {string} backgroundColor
  * @property {string|null} outerBackgroundColor Null keeps the automatic tile gradient.
@@ -185,6 +186,7 @@
  * @property {'folder'} type
  * @property {number} deletedAt
  * @property {BookmarkFolder} folder
+ * @property {BookmarkFolder[]} [folders] Descendant folders retained with the root.
  * @property {Bookmark[]} bookmarks
  */
 

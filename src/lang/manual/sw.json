@@ -323,14 +323,14 @@
       "question": "Ninawezaje kuweka alamisho kwenye folda?",
       "searchTerms": "kuunda folda; alamisho za kikundi; panga vipendwa; ondoa kwenye folda; badilisha jina la folda",
       "title": "Panga na folda",
-      "summary": "Kusanya hadi alamisho 18 kwenye folda moja.",
+      "summary": "Kusanya alamisho na folda ndogo katika sehemu moja.",
       "steps": [
         "Chagua + → Folda kwenye menyu ya kushoto na uipe jina.",
         "Katika hali ya kuhariri, buruta alamisho ndani yake ili kuziweka ndani. Fungua folda ili kuona gridi yake.",
         "Tumia hali ya kuhariri ya folda ili kupanga vialamisho vyake. Bofya jina lake ili uipe jina jipya na ikoni yake ili kubinafsisha mwonekano wake."
       ],
       "note": "Kufuta folda huathiri alamisho zake pia. Kagua uthibitisho kabla ya kuendelea; pipa la kuchakata linaweza kurejesha vitu vilivyofutwa.",
-      "tip": "Folda ina hadi alamisho 18. Washa kuhariri na uburute kadi kwenye folda ili kuiongeza."
+      "tip": "Folda zinaauni mikusanyiko mikubwa kwa utafutaji na kurasa. Washa kuhariri na uburute kadi kwenye folda ili kuiongeza."
     },
     "workspaces": {
       "question": "Je, ninatengaje kurasa za kibinafsi na za kazi?",

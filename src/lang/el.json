@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Εισαγωγή των επιλεγμένων σελιδοδεικτών και φακέλων στο Main;",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Εισαγάγετε την επιλογή σας στο Main μαζί με τους τρέχοντες σελιδοδείκτες σας. Η γραμμή σελιδοδεικτών εμφανίζεται απευθείας στην επιφάνεια εργασίας. άλλοι σελιδοδείκτες διατηρούν τους φακέλους τους.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Επιλέξτε σελιδοδείκτες και φακέλους από το Chrome ή ένα εξαγόμενο αρχείο HTML και εισαγάγετε τους στο Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Προβολή και επιλογή στοιχείων",
+    "hideItems": "Απόκρυψη στοιχείων που εντοπίστηκαν",
+    "selectAll": "Επιλέξτε όλα",
+    "selectNone": "Αποεπιλογή όλων",
+    "searchItems": "Αναζήτηση σελιδοδεικτών που εντοπίστηκαν",
+    "selectedItems": "Επιλέχθηκαν {{count}} σελιδοδείκτες και {{folders}} φάκελοι.",
+    "expandFolder": "Ανάπτυξη ή σύμπτυξη {{name}}",
+    "unnamedFolder": "Φάκελος χωρίς όνομα",
+    "noMatches": "Δεν υπάρχουν στοιχεία που να ταιριάζουν.",
+    "showMore": "Εμφάνιση περισσότερων",
+    "loadingItems": "Ανάγνωση σελιδοδεικτών…",
+    "emptyFolder": "Άδειο",
+    "mainFull": "Το Main δεν έχει ελεύθερο χώρο για αυτούς τους σελιδοδείκτες. Ελευθερώστε ένα κελί πλέγματος και δοκιμάστε ξανά."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Οι σελιδοδείκτες σας στο Chrome, στο σπίτι στο New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Οι φάκελοι διαθέτουν πλέον μεγαλύτερες συλλογές, με αναζήτηση, συμπαγείς σελίδες και πλοήγηση με ψίχουλα. Οι υπάρχοντες σελιδοδείκτες σας παραμένουν στη θέση τους και ολόκληρα δέντρα φακέλων μπορούν να μετακινηθούν, να αντιγραφούν και να ανακτηθούν από τον κάδο ανακύκλωσης."
+    },
     "settingsTitle": "Σημειώσεις έκδοσης",
     "settingsDescription": "Τι άλλαξε και η ιστορία πίσω από κάθε ενημέρωση.",
     "open": "Διαβάστε σημειώσεις",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Λιγότερη ακαταστασία. Περισσότερη παραγγελία.",
-        "body": "Δημιουργήστε ένα [[folders|φάκελο]] από το + και σύρετε τους σελιδοδείκτες σε αυτό σε λειτουργία επεξεργασίας. Ανοίγει σε ένα καθαρό πλέγμα με χώρο για έως και 18 σελιδοδείκτες.",
+        "body": "Δημιουργήστε ένα [[folders|folder]] από το + και σύρετε τους σελιδοδείκτες σε αυτό σε λειτουργία επεξεργασίας. Οι μεγάλοι φάκελοι έχουν αναζήτηση και σελίδες και οι εισαγόμενοι υποφάκελοι διατηρούν τη δομή τους.",
         "hint": "Χρησιμοποιήστε το + στο [[workspaces|γραμμή χώρου εργασίας]] για να διαχωρίσετε την εργασία και το παιχνίδι. Το [[search|μεγεθυντικός φακός]] αναζητά επίσης μέσα σε φακέλους."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "αντίγραφο"
   },
   "folder": {
+    "navigation": "Πλοήγηση φακέλων",
+    "back": "Πίσω",
+    "page": "Σελίδα {{page}} από {{pages}}",
+    "nextPage": "Επόμενο",
+    "previousPage": "Προηγούμενο",
+    "searchEmpty": "Δεν υπάρχουν στοιχεία που να ταιριάζουν",
+    "search": "Αναζήτηση σε αυτόν τον φάκελο",
+    "contentsCount": "{{count}} αντικείμενα",
     "create": "Δημιουργία φακέλου",
     "createPrompt": "Ονομάστε το νέο φάκελο",
     "namePlaceholder": "Εργαλεία, έμπνευση…",

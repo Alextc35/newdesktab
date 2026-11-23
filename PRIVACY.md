@@ -1,6 +1,6 @@
 # NewDeskTab Privacy Policy
 
-Last updated: October 12, 2026
+Last updated: November 23, 2026
 
 NewDeskTab replaces the browser's new tab page with a customizable bookmark
 workspace. It does not require a NewDeskTab account or use a NewDeskTab-operated
@@ -18,12 +18,24 @@ from your device are stored in the browser's local IndexedDB with their filename
 
 NewDeskTab uses this information to display, edit, search, save and restore your
 workspace. It requests the `storage` permission for this purpose. It does not
-read your general browsing history, browser bookmark library, passwords or
+use a fixed bookmark-count limit. The `unlimitedStorage` permission lets large
+local collections exceed Chrome's default extension storage quota, subject to
+available disk space. It does not increase Chrome Sync's storage allowance.
+NewDeskTab does not
+read your general browsing history, passwords or
 other websites' page contents. Its search operates on your NewDeskTab bookmarks.
 
 When you click the extension's toolbar button, the `activeTab` permission allows
 the quick-save popup to read that active tab's title and URL so you can save it
 as a bookmark. It does not read the page's contents or close the source tab.
+
+The `bookmarks` permission lets NewDeskTab detect your native Chrome bookmarks
+after the first welcome guide and offer to import them. You can also start an
+import from Settings or select an exported HTML bookmark file. Native titles,
+URLs, folders and their order are read locally. Import copies your selected
+collection into NewDeskTab; it does not change or delete your native bookmarks.
+The developer does not receive the native bookmark tree. Imported records use
+the same Local or optional Sync storage as your other NewDeskTab bookmarks.
 
 ## Local storage and optional synchronization
 

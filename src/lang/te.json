@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "ఎంచుకున్న బుక్‌మార్క్‌లు మరియు ఫోల్డర్‌లను Mainలోకి దిగుమతి చేయాలా?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "మీ ప్రస్తుత బుక్‌మార్క్‌లతో పాటు మీ ఎంపికను మెయిన్‌లోకి దిగుమతి చేయండి. బుక్‌మార్క్‌ల బార్ నేరుగా డెస్క్‌టాప్‌లో కనిపిస్తుంది; ఇతర బుక్‌మార్క్‌లు వాటి ఫోల్డర్‌లను ఉంచుతాయి.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Chrome లేదా ఎగుమతి చేసిన HTML ఫైల్ నుండి బుక్‌మార్క్‌లు మరియు ఫోల్డర్‌లను ఎంచుకోండి మరియు వాటిని మెయిన్‌లోకి దిగుమతి చేయండి.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "అంశాలను వీక్షించండి మరియు ఎంచుకోండి",
+    "hideItems": "గుర్తించిన అంశాలను దాచండి",
+    "selectAll": "అన్నింటినీ ఎంచుకోండి",
+    "selectNone": "అన్నీ ఎంపికను తీసివేయండి",
+    "searchItems": "గుర్తించబడిన బుక్‌మార్క్‌లను శోధించండి",
+    "selectedItems": "{{count}} బుక్‌మార్క్‌లు మరియు {{folders}} ఫోల్డర్‌లు ఎంచుకోబడ్డాయి.",
+    "expandFolder": "{{name}} విస్తరించు లేదా కుదించు",
+    "unnamedFolder": "పేరులేని ఫోల్డర్",
+    "noMatches": "సరిపోలే అంశాలు లేవు.",
+    "showMore": "మరింత చూపించు",
+    "loadingItems": "బుక్‌మార్క్‌లను చదువుతోంది...",
+    "emptyFolder": "ఖాళీ",
+    "mainFull": "ప్రధాన ఈ బుక్‌మార్క్‌ల కోసం ఖాళీ స్థలం లేదు. ఒక గ్రిడ్ సెల్‌ను ఖాళీ చేసి, మళ్లీ ప్రయత్నించండి."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "New DeskTabలో ఇంట్లో మీ Chrome బుక్‌మార్క్‌లు",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "ఫోల్డర్‌లు ఇప్పుడు శోధన, కాంపాక్ట్ పేజీలు మరియు బ్రెడ్‌క్రంబ్ నావిగేషన్‌తో పెద్ద సేకరణలను కలిగి ఉంటాయి. మీ ప్రస్తుత బుక్‌మార్క్‌లు అలాగే ఉంటాయి మరియు రీసైకిల్ బిన్ నుండి పూర్తి ఫోల్డర్ ట్రీలను తరలించవచ్చు, నకిలీ చేయవచ్చు మరియు తిరిగి పొందవచ్చు."
+    },
     "settingsTitle": "విడుదల గమనికలు",
     "settingsDescription": "ఏమి మారింది మరియు ప్రతి నవీకరణ వెనుక కథ.",
     "open": "గమనికలను చదవండి",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "తక్కువ అయోమయ. మరింత ఆర్డర్.",
-        "body": "+ నుండి [[folders|ఫోల్డర్]]ని సృష్టించండి మరియు సవరణ మోడ్‌లో బుక్‌మార్క్‌లను దానిలోకి లాగండి. ఇది 18 బుక్‌మార్క్‌ల వరకు గదితో క్లీన్ గ్రిడ్‌లో తెరవబడుతుంది.",
+        "body": "+ నుండి [[folders|folder]]ని సృష్టించండి మరియు సవరణ మోడ్‌లో బుక్‌మార్క్‌లను లాగండి. పెద్ద ఫోల్డర్‌లు శోధన మరియు పేజీలను కలిగి ఉంటాయి మరియు దిగుమతి చేయబడిన సబ్‌ఫోల్డర్‌లు వాటి నిర్మాణాన్ని ఉంచుతాయి.",
         "hint": "పనిని వేరు చేయడానికి మరియు ఆడటానికి [[workspaces|కార్యస్థలం బార్]]లో +ని ఉపయోగించండి. [[search|భూతద్దం]] ఫోల్డర్‌లలో కూడా శోధిస్తుంది."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "కాపీ"
   },
   "folder": {
+    "navigation": "ఫోల్డర్ నావిగేషన్",
+    "back": "వెనుకకు",
+    "page": "{{pages}} యొక్క పేజీ {{page}}",
+    "nextPage": "తదుపరి",
+    "previousPage": "మునుపటి",
+    "searchEmpty": "సరిపోలే అంశాలు లేవు",
+    "search": "ఈ ఫోల్డర్‌ను శోధించండి",
+    "contentsCount": "{{count}} అంశాలు",
     "create": "ఫోల్డర్‌ని సృష్టించండి",
     "createPrompt": "కొత్త ఫోల్డర్‌కు పేరు పెట్టండి",
     "namePlaceholder": "సాధనాలు, ప్రేరణ…",

@@ -5,15 +5,17 @@
 This file is the source of truth for the NewDeskTab listing and privacy answers.
 Review it against the release ZIP before every submission.
 
-Release target: `1.0.1`. Minimum browser engine: Chrome/Chromium `123`.
+Release target: `1.1.0`. Minimum browser engine: Chrome/Chromium `123`.
 
-Public data schema: `1`. The development schemas 2–21 were discarded before
-the first release and are not imported or migrated. For first-use testing,
+Public data schema: `2`, adding nested folders and recoverable folder trees.
+Public schema `1` is migrated on load. Pre-release development snapshots are not
+supported migration sources. For first-use testing,
 load the extracted ZIP in a new browser profile with empty extension storage
 and Sync disabled. An existing development profile is not a clean install.
 
-The first arrival shows local release notes, then the optional guide, then the
-daily tip when enabled. These helpers stay hidden in list mode (600px or less).
+The first arrival shows local release notes, then the optional guide, then an
+import offer if native Chrome bookmarks exist, followed by the daily tip when
+enabled. The notes and guide stay hidden in list mode (600px or less).
 The release history is available from Information. Help contains the manual,
 quick guide and daily-tip preference.
 See [RELEASE_NOTES.md](RELEASE_NOTES.md) when preparing the notes for a new version.
@@ -77,6 +79,21 @@ See [RELEASE_NOTES.md](RELEASE_NOTES.md) when preparing the notes for a new vers
 > When the user clicks the extension's toolbar button, the quick-save popup reads
 > that active tab's title and URL to prefill a bookmark. It does not read page
 > contents, access general browsing history or close the source tab.
+
+### Permission justification: bookmarks
+
+> Read the native Chrome bookmark tree to detect existing bookmarks after the
+> first welcome guide and offer an import. Explicit imports are also available
+> in Settings. Imported names, URLs, folders and their order are copied into a
+> Main workspace alongside existing bookmarks. Users can select individual
+> links or folders before importing. Native bookmarks are never edited or deleted.
+
+### Permission justification: unlimitedStorage
+
+> Large bookmark libraries can exceed the default extension local-storage
+> allowance. This permission lets imported collections and their local workspace
+> data grow with available disk space. It does not raise Chrome Sync quotas or
+> grant access to other applications' data.
 
 ### Host permission justification: https://t3.gstatic.com/*
 

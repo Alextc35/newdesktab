@@ -323,14 +323,14 @@
       "question": "Kako združim zaznamke v mape?",
       "searchTerms": "ustvari mapo; skupinski zaznamki; organizirati priljubljene; odstrani iz mape; preimenuj mapo",
       "title": "Organizirajte z mapami",
-      "summary": "Zberite do 18 zaznamkov v eno mapo.",
+      "summary": "Zberite zaznamke in podmape na enem mestu.",
       "steps": [
         "V levem meniju izberite + → Mapa in jo poimenujte.",
         "V načinu urejanja povlecite zaznamke nanj, da jih postavite notri. Odprite mapo, da vidite njeno mrežo.",
         "Uporabite način urejanja mape, da uredite njene zaznamke. Kliknite njegovo ime, da ga preimenujete, in njegovo ikono, da prilagodite njegov videz."
       ],
       "note": "Brisanje mape vpliva tudi na njene zaznamke. Pred nadaljevanjem preglejte potrditev; koš lahko obnovi izbrisane elemente.",
-      "tip": "Mapa vsebuje do 18 zaznamkov. Vklopite urejanje in povlecite kartico v mapo, da jo dodate."
+      "tip": "Mape podpirajo velike zbirke z iskanjem in stranmi. Vklopite urejanje in povlecite kartico v mapo, da jo dodate."
     },
     "workspaces": {
       "question": "Kako naj ločim osebne in službene strani?",

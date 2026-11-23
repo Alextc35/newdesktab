@@ -334,6 +334,42 @@
     </div>
   </div>
 
+  <div id="browser-bookmark-import-modal" class="modal">
+    <div class="modal-overlay"></div>
+    <section class="modal-card browser-bookmark-import-card custom-scrollbar">
+      <svg class="browser-bookmark-import-mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 8h24v32L24 32l-12 8V8Z"/>
+        <path d="M24 13v13m-5-5 5 5 5-5"/>
+      </svg>
+      <h2 data-i18n="browserImport.title">Your bookmarks, now in New DeskTab</h2>
+      <p id="browser-bookmark-import-description"></p>
+      <p id="browser-bookmark-import-details"></p>
+      <button id="browser-bookmark-import-preview" class="btn btn-secondary" type="button"
+        aria-expanded="false" aria-controls="browser-bookmark-import-selection"
+        data-i18n="browserImport.chooseItems">Ver y seleccionar elementos</button>
+      <section id="browser-bookmark-import-selection" class="browser-import-selection" hidden>
+        <div class="browser-import-selection-toolbar">
+          <button id="browser-bookmark-import-select-all" class="btn btn-secondary" type="button"
+            data-i18n="browserImport.selectAll">Seleccionar todo</button>
+          <button id="browser-bookmark-import-select-none" class="btn btn-secondary" type="button"
+            data-i18n="browserImport.selectNone">Desmarcar todo</button>
+        </div>
+        <input id="browser-bookmark-import-search" type="search"
+          data-i18n="browserImport.searchItems" data-i18n-aria-label="browserImport.searchItems"
+          placeholder="Buscar elementos detectados">
+        <p id="browser-bookmark-import-selected-count" role="status" aria-live="polite"></p>
+        <ul id="browser-bookmark-import-tree" class="browser-import-tree custom-scrollbar"></ul>
+        <button id="browser-bookmark-import-show-more" class="btn btn-secondary" type="button"
+          data-i18n="browserImport.showMore" hidden>Mostrar más</button>
+      </section>
+      <p id="browser-bookmark-import-status" class="browser-bookmark-import-status" role="status" aria-live="polite" hidden></p>
+      <div class="browser-bookmark-import-actions">
+        <button id="browser-bookmark-import-cancel" class="btn btn-secondary" type="button">Not now</button>
+        <button id="browser-bookmark-import-confirm" class="btn btn-primary" type="button">Import bookmarks</button>
+      </div>
+    </section>
+  </div>
+
   <div id="search-modal" class="modal">
     <div class="modal-overlay"></div>
     <div class="modal-card modal-search">
@@ -388,7 +424,7 @@
           type="button" aria-pressed="false"
           data-i18n="folder.editMode.enable">Edit</button>
       </header>
-      <div class="folder-grid-shell">
+      <div class="folder-grid-shell custom-scrollbar">
         <div id="folder-modal-items" class="folder-modal-grid custom-scrollbar" role="list"
           aria-label="Folder bookmarks" data-i18n-aria-label="folder.gridLabel"></div>
       </div>
@@ -1452,6 +1488,18 @@
                   </div>
                 </div>
               </div>
+            </section>
+            <section class="browser-bookmark-import-settings" aria-labelledby="browser-bookmark-import-settings-title">
+              <h3 id="browser-bookmark-import-settings-title" data-i18n="browserImport.settingsTitle">Bring your browser bookmarks</h3>
+              <p data-i18n="browserImport.settingsDescription">Choose bookmarks and folders from Chrome or an exported HTML file and import them into Main.</p>
+              <div class="settings-bookmark-actions">
+                <button id="import-chrome-bookmarks" class="btn btn-info" type="button"
+                  data-i18n="browserImport.chromeButton">Import from Google Chrome</button>
+                <button id="import-html-bookmarks" class="btn btn-secondary" type="button"
+                  data-i18n="browserImport.htmlButton">Import HTML file</button>
+                <input id="import-html-bookmarks-input" class="is-hidden" type="file" accept="text/html,.html,.htm">
+              </div>
+              <p id="browser-bookmark-import-settings-status" role="status" aria-live="polite" hidden></p>
             </section>
             <div class="settings-bookmark-actions">
               <button id="export-btn"

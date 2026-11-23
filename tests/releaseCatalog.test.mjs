@@ -42,7 +42,8 @@ test('every shipped release has an entry and translated paragraphs and highlight
 });
 
 test('history excludes future notes and a missing entry still describes the installed version', () => {
-  assert.deepEqual(getReleaseNotes('1.0.1'), RELEASE_NOTES);
+  assert.deepEqual(getReleaseNotes('1.1.0'), RELEASE_NOTES);
+  assert.deepEqual(getReleaseNotes('1.0.1').map(entry => entry.version), ['1.0.1', '1.0.0']);
   assert.deepEqual(getReleaseNotes('1.0.0').map(entry => entry.version), ['1.0.0']);
   const newer = getReleaseNotes('1.0.2');
   assert.equal(newer[0].version, '1.0.2');

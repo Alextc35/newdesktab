@@ -1,5 +1,49 @@
 {
+  "browserImport": {
+    "confirmImport": "Voleu importar les adreces d'interès i les carpetes seleccionades a Main?",
+    "title": "Your bookmarks, now in New DeskTab",
+    "detected": "We found {{count}} bookmarks and {{folders}} folders in Google Chrome.",
+    "htmlDescription": "Import bookmarks from {{filename}}.",
+    "description": "Importeu la vostra selecció a Main juntament amb les vostres adreces d'interès actuals. La barra d'adreces d'interès apareix directament a l'escriptori; altres adreces d'interès conserven les seves carpetes.",
+    "import": "Import bookmarks",
+    "notNow": "Not now",
+    "cancel": "Cancel",
+    "done": "Done",
+    "importing": "Importing bookmarks…",
+    "success": "{{count}} bookmarks and {{folders}} folders imported.",
+    "empty": "No bookmarks were found to import.",
+    "error": "Could not import your bookmarks. Try again or choose another file.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
+    "chromeButton": "Import from Google Chrome",
+    "htmlButton": "Import HTML file",
+    "settingsTitle": "Bring your browser bookmarks",
+    "settingsDescription": "Trieu adreces d'interès i carpetes de Chrome o d'un fitxer HTML exportat i importeu-los a Main.",
+    "skipped": "{{count}} unsupported links were skipped.",
+    "duplicates": "{{count}} bookmarks were already imported.",
+    "retry": "Try again",
+    "detecting": "Looking for Chrome bookmarks…",
+    "workspaceName": "Imported bookmarks",
+    "chooseItems": "Veure i seleccionar elements",
+    "hideItems": "Amaga els elements detectats",
+    "selectAll": "Seleccioneu-ho tot",
+    "selectNone": "Desseleccioneu-ho tot",
+    "searchItems": "Cerca a favorits detectats",
+    "selectedItems": "{{count}} adreces d'interès i {{folders}} carpetes seleccionades.",
+    "expandFolder": "Amplia o replega {{name}}",
+    "unnamedFolder": "Carpeta sense nom",
+    "noMatches": "No hi ha elements coincidents.",
+    "showMore": "Mostra'n més",
+    "loadingItems": "S'estan llegint els marcadors...",
+    "emptyFolder": "Buit",
+    "mainFull": "Main no té espai lliure per a aquestes adreces d'interès. Allibera una cel·la de quadrícula i torna-ho a provar."
+  },
   "releaseNotes": {
+    "v1_1_0": {
+      "title": "Les vostres adreces d'interès de Chrome, a casa a New DeskTab",
+      "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",
+      "folders": "Ara les carpetes contenen col·leccions més grans, amb cerca, pàgines compactes i navegació per navegació. Les vostres adreces d'interès existents es mantenen al seu lloc i els arbres de carpetes complets es poden moure, duplicar i recuperar de la paperera de reciclatge."
+    },
     "settingsTitle": "Notes de llançament",
     "settingsDescription": "Què va canviar i la història darrere de cada actualització.",
     "open": "Llegeix les notes",
@@ -65,7 +109,7 @@
       },
       "organize": {
         "title": "Menys desordre. Més ordre.",
-        "body": "Creeu un [[folders|carpeta]] des de + i arrossegueu-hi els marcadors en mode d'edició. S'obre en una graella neta amb espai per a fins a 18 adreces d'interès.",
+        "body": "Creeu un [[folders|folder]] des de + i arrossegueu-hi els marcadors en mode d'edició. Les carpetes grans tenen cerca i pàgines, i les subcarpetes importades mantenen la seva estructura.",
         "hint": "Utilitza el signe + a [[workspaces|barra d'espai de treball]] per separar la feina i el joc. El [[search|lupa]] també cerca dins de les carpetes."
       },
       "style": {
@@ -549,6 +593,14 @@
     "copySuffix": "còpia"
   },
   "folder": {
+    "navigation": "Navegació per carpetes",
+    "back": "Enrere",
+    "page": "Pàgina {{page}} de {{pages}}",
+    "nextPage": "A continuació",
+    "previousPage": "Anterior",
+    "searchEmpty": "No hi ha elements coincidents",
+    "search": "Cerca en aquesta carpeta",
+    "contentsCount": "Elements {{count}}",
     "create": "Crea una carpeta",
     "createPrompt": "Anomena la carpeta nova",
     "namePlaceholder": "Eines, inspiració...",

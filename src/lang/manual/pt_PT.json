@@ -323,14 +323,14 @@
       "question": "Como agrupo marcadores em pastas?",
       "searchTerms": "criar pasta; marcadores de grupo; organizar favoritos; remova da pasta; renomear pasta",
       "title": "Organize com pastas",
-      "summary": "Reúna até 18 marcadores em uma pasta.",
+      "summary": "Reúna marcadores e subpastas em um só lugar.",
       "steps": [
         "Escolha + → Pasta no menu esquerdo e dê um nome a ela.",
         "No modo de edição, arraste os favoritos para colocá-los dentro. Abra a pasta para ver sua grade.",
         "Use o modo de edição da pasta para organizar seus marcadores. Clique em seu nome para renomeá-lo e em seu ícone para personalizar sua aparência."
       ],
       "note": "A exclusão de uma pasta também afeta seus favoritos. Revise a confirmação antes de continuar; a lixeira pode restaurar itens excluídos.",
-      "tip": "Uma pasta contém até 18 marcadores. Ative a edição e arraste um cartão para a pasta para adicioná-lo."
+      "tip": "As pastas suportam grandes coleções com pesquisas e páginas. Ative a edição e arraste um cartão para uma pasta para adicioná-lo."
     },
     "workspaces": {
       "question": "Como mantenho as páginas pessoais e de trabalho separadas?",
