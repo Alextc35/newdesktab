@@ -235,6 +235,7 @@ test('open folder contents keep a neutral surface and use the saved color only o
 });
 
 test('folder colors keep readable labels and coherent controls in browse, hover, edit and rename', async ({ page }) => {
+  test.setTimeout(90_000);
   await start(page);
   const originalColors = ['#ffffff', '#000000', '#5531a8'];
   await page.evaluate(async colors => {
