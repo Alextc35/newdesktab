@@ -20,9 +20,16 @@
   <a href="https://github.com/Alextc35/newdesktab/issues">Feedback &amp; support</a>
 </p>
 
-[![Example New DeskTab workspace with colorful website shortcuts, folders and a clock on a space background](assets/store/screenshot-1280x800.png)](assets/store/screenshot-1280x800.png)
+<p align="center">
+  <a href="assets/promo/newdesktab-promo-1080p.mp4">
+    <img src="assets/promo/newdesktab-promo-poster.jpg" width="100%" alt="Watch New DeskTab: Your browser. Your space. — a 56-second product film">
+  </a>
+</p>
 
-<p align="center"><sub>An example workspace. Each bookmark card opens a website you choose.</sub></p>
+<p align="center">
+  <a href="assets/promo/newdesktab-promo-1080p.mp4"><strong>▶ Watch the product film</strong></a><br>
+  <sub>Your browser. Your space. &nbsp;·&nbsp; 56 seconds &nbsp;·&nbsp; 1080p</sub>
+</p>
 
 ## A home for the things you open every day
 
@@ -87,22 +94,27 @@ a generated extension ZIP, start at step 3.
    git clone https://github.com/Alextc35/newdesktab.git
    ```
 
-2. Open a terminal in the repository folder and generate the extension ZIP:
+2. Open a terminal in the repository folder and generate the developer ZIP:
 
    ```sh
-   npm run package:store
+   npm run package:dev
    ```
 
    If your system uses `python` instead of `python3`, run
-   `python scripts/package-extension.py` instead. Installing development
+   `python scripts/package-extension.py --target dev` instead. Installing development
    dependencies with `npm ci` is not required for packaging.
 
-3. Extract the generated `dist/newdesktab-<version>.zip` into a folder you will
+3. Extract the generated `dist/newdesktab-<version>-dev.zip` into a folder you will
    keep on your computer.
 4. Open `chrome://extensions` in Chrome or `brave://extensions` in Brave.
 5. Turn on **Developer mode**, choose **Load unpacked**, and select the
    **extracted folder containing `manifest.json`**.
 6. Open a new tab. Follow the welcome guide, or press **B** to add your first bookmark.
+
+The developer ZIP preserves the source manifest's public `key` for a stable
+unpacked extension ID. For Chrome Web Store submission, use `npm run package:store`:
+it creates `dist/newdesktab-<version>.zip` without that field. `npm run package:all`
+generates both ZIPs and SHA-256 checksums without changing the source manifest.
 
 **A few useful defaults:** `E` to edit · `B` to add a bookmark · `S` for settings ·
 `/` to search · `Ctrl + ↑ / ↓` to switch workspaces.

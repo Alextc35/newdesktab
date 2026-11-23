@@ -1,0 +1,6 @@
+node_modules/
+.cache/
+.capture-profile/
+public/captures/_raw/
+public/captures/capture-error.png
+output/

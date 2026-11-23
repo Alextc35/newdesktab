@@ -9,6 +9,7 @@
     "test:dom": "vitest run",
     "test:e2e": "playwright test",
     "test:extension": "node tests/extension-smoke.mjs",
+    "test:packaging": "python3 -m unittest discover -s tests -p package_extension_test.py",
     "benchmark:ui": "node scripts/benchmark-ui.mjs",
     "audit:source": "node scripts/audit-source.mjs",
     "audit:actions": "node scripts/report-action-audit.mjs",
@@ -16,6 +17,8 @@
     "vendor:zip": "node scripts/vendor-backup-zip.mjs",
     "vendor:domains": "node scripts/vendor-domain-parser.mjs",
     "package:store": "python3 scripts/package-extension.py",
+    "package:dev": "python3 scripts/package-extension.py --target dev",
+    "package:all": "python3 scripts/package-extension.py --target all",
     "lint": "eslint .",
     "check": "npm run lint && npm test"
   },

@@ -1,0 +1,14 @@
+{
+  "main": {
+    "duration": 56,
+    "score": "score.wav",
+    "clicks": [14.1, 18.4, 23.3, 26.5, 32.3, 33.8, 38.45],
+    "clickVolume": 0.26
+  },
+  "vertical": {
+    "duration": 26,
+    "score": "score-vertical.wav",
+    "clicks": [4.1, 10.0, 15.3, 16.8],
+    "clickVolume": 0.22
+  }
+}

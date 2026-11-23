@@ -32,8 +32,47 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
-      - run: npm run package:store
-      - run: python3 -m zipfile -e dist/newdesktab-*.zip dist/unpacked
+      - run: npm run test:packaging
+      - run: npm run package:all
+      - name: Extract Store and development packages
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from zipfile import ZipFile
+          version = json.loads(Path('manifest.json').read_text())['version']
+          for suffix, target in [('', 'dist/unpacked-store'), ('-dev', 'dist/unpacked-dev')]:
+              with ZipFile(f'dist/newdesktab-{version}{suffix}.zip') as archive:
+                  archive.extractall(target)
+          PY
       - run: npm run test:extension
         env:
-          NEWDESKTAB_EXTENSION_PATH: dist/unpacked
+          NEWDESKTAB_EXTENSION_PATH: dist/unpacked-store
+      - run: npm run test:extension
+        env:
+          NEWDESKTAB_EXTENSION_PATH: dist/unpacked-dev
+
+  promo-video:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: promo-video
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: promo-video/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm audit --audit-level=high
+      - run: npx playwright install --with-deps chromium
+      - name: Render a landscape interaction frame
+        run: npm run stills
+        env:
+          QA_TIMES: '15.3'
+      - name: Render a vertical folder frame
+        run: node scripts/render.mjs --vertical --stills
+        env:
+          QA_TIMES: '11.5'

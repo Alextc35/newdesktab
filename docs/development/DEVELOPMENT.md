@@ -35,6 +35,7 @@ define the boundaries that new dependencies must respect.
 | `npm run check` | ESLint and `npm test`. |
 | `npm run test:e2e` | Playwright user journeys with the local test server. |
 | `npm run test:extension` | A real extension in a fresh temporary browser profile. |
+| `npm run test:packaging` | Store/developer ZIP contents, identity fields, checksums and source preservation; requires Python. |
 
 Install Chromium before running browser tests:
 
@@ -151,18 +152,31 @@ methods and format comparison are described in [Media backups](../benchmarks/BAC
 
 ```sh
 npm run package:store
+npm run package:dev
+# Or generate both:
+npm run package:all
 ```
 
 Packaging requires Python 3.9 or newer. The npm command invokes `python3`.
 If that alias is unavailable, use `python scripts/package-extension.py` or
-`py scripts/package-extension.py` with a compatible interpreter. The Python
+`py scripts/package-extension.py` with a compatible interpreter. Add `--target dev`
+or `--target all` for those variants. The Python
 script uses only the standard library and already-bundled runtime resources;
 packaging itself does not require `npm ci`.
 
-The output is `dist/newdesktab-<version>.zip` and a `.zip.sha256` checksum file.
-The ZIP includes the manifest, `src/`, `_locales/`, `assets/icons/`, the license
+| Command | Output | Manifest identity |
+| --- | --- | --- |
+| `npm run package:store` | `dist/newdesktab-<version>.zip` | Omits the public `key` field for Store submission. |
+| `npm run package:dev` | `dist/newdesktab-<version>-dev.zip` | Preserves the source public `key` for a stable unpacked ID. |
+| `npm run package:all` | Both ZIPs above | Builds each variant independently. |
+
+Each ZIP has a `.zip.sha256` checksum. The source `manifest.json` is never rewritten.
+Both ZIPs include only the manifest, `src/`, `_locales/`, `assets/icons/`, the license
 and [privacy policy](../../PRIVACY.md). Manifest and package versions must match.
-Development dependencies, documentation, tests and demo media are excluded.
+Development dependencies, documentation, tests, private key files and promo-video
+media are excluded. Packaging validates CRCs, exact entry sets, the canonical
+target manifest and every other file's bytes. Run `npm run test:packaging` for
+the regression checks; it creates temporary artifacts without replacing `dist/`.
 
 Extract the ZIP into a clean directory and run the smoke test with
 `NEWDESKTAB_EXTENSION_PATH` pointing to it before publishing. The

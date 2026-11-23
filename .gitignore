@@ -1,6 +1,9 @@
 node_modules/
+__pycache__/
 coverage/
 test-results/
 playwright-report/
-dist/
+dist/*
+!dist/newdesktab-*.zip
+!dist/newdesktab-*.zip.sha256
 .DS_Store

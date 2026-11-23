@@ -30,11 +30,11 @@ To install a clean extension package:
 
 1. Download and extract the repository, or clone it with
    `git clone https://github.com/Alextc35/newdesktab.git`.
-2. Open a terminal in the repository folder and run `npm run package:store`.
+2. Open a terminal in the repository folder and run `npm run package:dev`.
    This requires Node.js/npm and Python 3.9 or newer. If Python is available as `python`
-   instead of `python3`, use `python scripts/package-extension.py` instead.
+   instead of `python3`, use `python scripts/package-extension.py --target dev` instead.
    The packaging script needs no development dependency installation.
-3. Extract `dist/newdesktab-<version>.zip` into a permanent folder. If you already
+3. Extract `dist/newdesktab-<version>-dev.zip` into a permanent folder. If you already
    have a generated extension ZIP, start with this step.
 4. Open `chrome://extensions` or `brave://extensions`.
 5. Enable **Developer Mode**.
@@ -44,7 +44,9 @@ To install a clean extension package:
 
 Keep the extracted folder in place while the browser uses it. The generated ZIP
 contains the extension files, license and privacy policy; development tools and
-documentation are excluded. Alternatively, you can load the repository folder
+documentation are excluded. The developer ZIP preserves the source's public
+manifest key for a stable unpacked extension ID. The separate Store package
+(`npm run package:store`) omits that field. Alternatively, you can load the repository folder
 directly as the source extension, without packaging or installing dependencies.
 
 Release notes appear once for each new version and browser profile. A new

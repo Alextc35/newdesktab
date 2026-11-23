@@ -149,11 +149,13 @@ Its cropped viewBox leaves only a small transparent margin around the mark.
    Also run it with Chrome for Testing 123 through `NEWDESKTAB_BROWSER_PATH`
    when verifying the declared minimum version.
 3. Run `npm run assets:store` and visually inspect every generated image.
-4. Run `npm run package:store`.
+4. Run `npm run test:packaging`, then `npm run package:store`.
 5. Extract `dist/newdesktab-<version>.zip` into a clean directory.
 6. Run `NEWDESKTAB_EXTENSION_PATH=<clean-directory> npm run test:extension`.
-7. Verify the manifest `key` matches the public key shown by the existing Store
-   item. If this is a new item, decide the permanent extension ID before release.
+7. Verify the packaged Store manifest has no `key` field. The source manifest keeps
+   its public development key unchanged; `npm run package:dev` produces a separate
+   `dist/newdesktab-<version>-dev.zip` that preserves it for unpacked development.
+   When updating an existing Store item, confirm the target item in the dashboard.
 8. Upload the ZIP and the listing images, complete the privacy answers,
    verify contact email and two-step verification, then submit for review.
 

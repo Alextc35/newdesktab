@@ -565,6 +565,9 @@ npm run check          # lint, unit and DOM tests
 npm run test:e2e       # browser journeys
 npm run test:extension # a real unpacked extension in a temporary profile
 npm run package:store  # verified distribution ZIP; requires Python
+npm run package:dev    # developer ZIP with the source public identity key
+npm run package:all    # both ZIP variants and SHA-256 checksums
+npm run test:packaging # verify both variants and unchanged source manifest
 ```
 
 Use unit tests for pure rules and schema/migration behavior, DOM tests for
