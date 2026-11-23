@@ -45,23 +45,25 @@ test.beforeEach(async ({ page }) => {
   await expectAppReady(page);
 });
 
-test('the eighteenth folder bookmark succeeds and the nineteenth stays in place with a full-folder flash', async ({ page }) => {
+test('folder drops accept bookmarks beyond the initial eighteen cells and persist their order', async ({ page }) => {
   await seed(page, 'folder');
   const folder = page.locator('#bookmark-container [data-folder-id="cap-folder"]');
   const box = await folder.boundingBox();
   const destination = { x: box.x + box.width / 2, y: box.y + box.height / 2 };
   await dragTo(page, page.locator('#bookmark-container [data-bookmark-id="candidate-18"]'), destination);
-  await expect(page.locator('.flash-success')).toContainText('Bookmark added to folder');
+  await expect(page.locator('.flash-success').last()).toContainText('Bookmark added to folder');
   await expect.poll(async () => (await data(page)).bookmarks.filter(item => item.folderId === 'cap-folder').length).toBe(18);
   const nineteenth = page.locator('#bookmark-container [data-bookmark-id="candidate-19"]');
-  const previous = (await data(page)).bookmarks.find(item => item.id === 'candidate-19');
   await dragTo(page, nineteenth, destination);
-  await expect(page.locator('.flash-error')).toContainText('This folder already has 18 bookmarks');
-  expect((await data(page)).bookmarks.find(item => item.id === 'candidate-19')).toEqual(previous);
-  expect((await data(page)).bookmarks.filter(item => item.folderId === 'cap-folder')).toHaveLength(18);
+  await expect.poll(async () => (await data(page)).bookmarks.find(item => item.id === 'candidate-19')?.folderId).toBe('cap-folder');
+  await expect(nineteenth).toHaveCount(0);
+  await expect(page.locator('.flash-error')).toHaveCount(0);
+  expect((await data(page)).bookmarks.find(item => item.id === 'candidate-19')).toMatchObject({ gx: 0, gy: 3 });
+  expect((await data(page)).bookmarks.filter(item => item.folderId === 'cap-folder')).toHaveLength(19);
   await page.reload();
   await expectAppReady(page);
-  expect((await data(page)).bookmarks.filter(item => item.folderId === 'cap-folder')).toHaveLength(18);
+  expect((await data(page)).bookmarks.filter(item => item.folderId === 'cap-folder')).toHaveLength(19);
+  expect((await data(page)).bookmarks.find(item => item.id === 'candidate-19')).toMatchObject({ gx: 0, gy: 3 });
 });
 
 test('a full grid cannot drag or resize outside its bounds and unrestorable items remain in trash', async ({ page }) => {

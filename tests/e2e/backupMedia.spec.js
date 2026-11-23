@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { expect, test } from './helpers/test.js';
 import { expectAppReady } from './helpers/appReady.js';
 import { readBackupArchive } from '../../src/platform/backup/backupArchive.js';
+import { DATA_SCHEMA_VERSION } from '../../src/platform/storage/schemaVersion.js';
 
 test.beforeEach(async ({ page }) => {
   await page.route(/^https?:/, route => new URL(route.request().url()).hostname === '127.0.0.1'
@@ -19,7 +20,7 @@ for (const [name, payload] of [
     { id: 'duplicate', name: 'First', url: 'https://first.internal' },
     { id: 'duplicate', name: 'Second', url: 'https://second.internal' }
   ] } }],
-  ['future backup version', { format: 'newdesktab-backup', schemaVersion: 2, data: { bookmarks: [] } }],
+  ['future backup version', { format: 'newdesktab-backup', schemaVersion: DATA_SCHEMA_VERSION + 1, data: { bookmarks: [] } }],
   ['discarded development schema 21', { format: 'newdesktab-backup', schemaVersion: 21, data: { bookmarks: [] } }]
 ]) {
   test(`rejects ${name} without changing stored data or media`, async ({ page }) => {
@@ -50,7 +51,7 @@ test('rejects duplicate IDs and future versions in bookmark-only imports', async
       { id: 'duplicate', name: 'First', url: 'https://first.internal' },
       { id: 'duplicate', name: 'Second', url: 'https://second.internal' }
     ] },
-    { format: 'newdesktab-bookmarks', schemaVersion: 2, bookmarks: [] },
+    { format: 'newdesktab-bookmarks', schemaVersion: DATA_SCHEMA_VERSION + 1, bookmarks: [] },
     { format: 'newdesktab-bookmarks', schemaVersion: 21, bookmarks: [] }
   ]) {
     await page.evaluate(async payload => {
@@ -95,7 +96,7 @@ test('a downloaded complete backup restores local images and videos after deleti
   const bytes = await readFile(await download.path());
   const backup = await readBackupArchive(new Blob([bytes]));
   expect(backup.devicePreferences).toEqual({ dailyTipsEnabled: false });
-  expect(backup.data.schemaVersion).toBe(1);
+  expect(backup.data.schemaVersion).toBe(DATA_SCHEMA_VERSION);
   const imageReference = backup.data.bookmarks[0].backgroundImageLocal;
   const videoReference = backup.data.settings.theme.backgroundMedia[0].local;
   expect(backup.localImages[imageReference].name).toBe('cover.png');
@@ -175,8 +176,8 @@ test('backup export waits for confirmation and video URLs alone keep it in JSON'
   expect(download.suggestedFilename()).toMatch(/\.json$/);
   const payload = JSON.parse(await readFile(await download.path(), 'utf8'));
   expect(payload.format).toBe('newdesktab-backup');
-  expect(payload.schemaVersion).toBe(1);
-  expect(payload.data.schemaVersion).toBe(1);
+  expect(payload.schemaVersion).toBe(DATA_SCHEMA_VERSION);
+  expect(payload.data.schemaVersion).toBe(DATA_SCHEMA_VERSION);
   expect(payload.devicePreferences).toEqual({ dailyTipsEnabled: false });
   expect(payload.data.devicePreferences).toBeUndefined();
   expect(payload.localVideos).toEqual({});
