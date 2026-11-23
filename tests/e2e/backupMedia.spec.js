@@ -13,6 +13,8 @@ test.beforeEach(async ({ page }) => {
 for (const [name, payload] of [
   ['missing data collections', { format: 'newdesktab-backup', data: {} }],
   ['non-object backup data', { format: 'newdesktab-backup', data: 'invalid' }],
+  ['invalid daily-tip preference', { format: 'newdesktab-backup', data: { bookmarks: [] },
+    devicePreferences: { dailyTipsEnabled: 'false' } }],
   ['duplicate bookmark IDs', { format: 'newdesktab-backup', data: { bookmarks: [
     { id: 'duplicate', name: 'First', url: 'https://first.internal' },
     { id: 'duplicate', name: 'Second', url: 'https://second.internal' }
@@ -65,6 +67,7 @@ test('rejects duplicate IDs and future versions in bookmark-only imports', async
 
 test('a downloaded complete backup restores local images and videos after deleting device data', async ({ page }) => {
   await page.evaluate(async () => {
+    await (await import('/src/platform/storage/deviceDailyTips.js')).setDailyTipsEnabled(false);
     const { saveLocalImage } = await import('/src/platform/images/localImages.js');
     const { saveLocalVideo } = await import('/src/platform/images/localVideos.js');
     const { DEFAULT_BOOKMARK } = await import('/src/domain/bookmarks/bookmarkDefaults.js');
@@ -91,6 +94,7 @@ test('a downloaded complete backup restores local images and videos after deleti
   await download.saveAs('test-results/media-backup.zip');
   const bytes = await readFile(await download.path());
   const backup = await readBackupArchive(new Blob([bytes]));
+  expect(backup.devicePreferences).toEqual({ dailyTipsEnabled: false });
   expect(backup.data.schemaVersion).toBe(1);
   const imageReference = backup.data.bookmarks[0].backgroundImageLocal;
   const videoReference = backup.data.settings.theme.backgroundMedia[0].local;
@@ -103,6 +107,7 @@ test('a downloaded complete backup restores local images and videos after deleti
   await expect(page.locator('#settings-modal')).toBeHidden();
 
   await page.evaluate(async () => (await import('/src/state/appStore.js')).clearAllLocalData());
+  await page.evaluate(async () => (await import('/src/platform/storage/deviceDailyTips.js')).setDailyTipsEnabled(true));
   await expect(page.locator('[data-bookmark-id="backup-media"]')).toHaveCount(0);
   // Restore through the real ZIP file picker, confirmation and settings lifecycle.
   await page.evaluate(() => document.getElementById('settings').click());
@@ -113,6 +118,8 @@ test('a downloaded complete backup restores local images and videos after deleti
   await page.reload();
   await expectAppReady(page);
   await expect(page.locator('[data-bookmark-id="backup-media"]')).toBeVisible();
+  expect(await page.evaluate(async () => (await import('/src/platform/storage/deviceDailyTips.js')).areDailyTipsEnabled()))
+    .toBe(false);
   const media = await page.evaluate(async ({ image, video }) => {
     const { getLocalImageName, resolveBackgroundImage } = await import('/src/platform/images/localImages.js');
     const { getLocalVideoName, resolveLocalVideo, exportReferencedLocalVideos } = await import('/src/platform/images/localVideos.js');
@@ -134,6 +141,7 @@ test('a downloaded complete backup restores local images and videos after deleti
 
 test('backup export waits for confirmation and video URLs alone keep it in JSON', async ({ page }) => {
   await page.evaluate(async () => {
+    await (await import('/src/platform/storage/deviceDailyTips.js')).setDailyTipsEnabled(false);
     const { getState, setState } = await import('/src/state/appStore.js');
     await setState({ data: { settings: { ...getState().data.settings, theme: {
       ...getState().data.settings.theme, backgroundDefault: true,
@@ -169,8 +177,40 @@ test('backup export waits for confirmation and video URLs alone keep it in JSON'
   expect(payload.format).toBe('newdesktab-backup');
   expect(payload.schemaVersion).toBe(1);
   expect(payload.data.schemaVersion).toBe(1);
+  expect(payload.devicePreferences).toEqual({ dailyTipsEnabled: false });
+  expect(payload.data.devicePreferences).toBeUndefined();
   expect(payload.localVideos).toEqual({});
   expect(payload.data.settings.theme.backgroundMedia[0].url).toBe('https://video.internal/wallpaper.webm');
+  expect(await page.evaluate(async payload => {
+    const { setDailyTipsEnabled, areDailyTipsEnabled } = await import('/src/platform/storage/deviceDailyTips.js');
+    await setDailyTipsEnabled(true);
+    const imported = await (await import('/src/features/settings/backupActions.js')).importBackup(
+      new File([JSON.stringify(payload)], 'restored.json', { type: 'application/json' }));
+    return { imported, enabled: await areDailyTipsEnabled() };
+  }, payload)).toEqual({ imported: true, enabled: false });
+  await page.reload();
+  await expectAppReady(page);
+  expect(await page.evaluate(async () => (await import('/src/platform/storage/deviceDailyTips.js')).areDailyTipsEnabled()))
+    .toBe(false);
+});
+
+test('older JSON and ZIP backups retain the current daily-tip preference', async ({ page }) => {
+  for (const archive of [false, true]) {
+    for (const enabled of [false, true]) {
+      expect(await page.evaluate(async ({ archive, enabled }) => {
+        const { setDailyTipsEnabled, areDailyTipsEnabled } = await import('/src/platform/storage/deviceDailyTips.js');
+        const { createBackupEnvelope } = await import('/src/platform/storage/dataSchema.js');
+        const { getState } = await import('/src/state/appStore.js');
+        await setDailyTipsEnabled(enabled);
+        const file = archive
+          ? new File([await (await import('/src/platform/backup/backupArchive.js'))
+            .createBackupArchive(getState().data, {}, {})], 'old.zip', { type: 'application/zip' })
+          : new File([JSON.stringify(createBackupEnvelope(getState().data))], 'old.json', { type: 'application/json' });
+        const imported = await (await import('/src/features/settings/backupActions.js')).importBackup(file);
+        return { imported, enabled: await areDailyTipsEnabled() };
+      }, { archive, enabled })).toEqual({ imported: true, enabled });
+    }
+  }
 });
 
 test('legacy JSON backups still restore embedded local videos', async ({ page }) => {

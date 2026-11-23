@@ -12,6 +12,11 @@
       "title": "New DeskTab frissítve",
       "description": "Megvan az új verzió. Bármikor újra megtekintheti a korábbi kiadási megjegyzéseket az Információk részben. Köszönöm, hogy itt vagy."
     },
+    "v1_0_1": {
+      "title": "New DeskTab frissítve",
+      "backup": "A JSON- és ZIP-mentések most már mentik és visszaállítják a napi tippek beállítását. Az ezt a beállítást nem tartalmazó régebbi mentések megtartják a jelenlegi választást.",
+      "tips": "A napi tippeket egy visszafogott gombbal közvetlenül a tippből kapcsolhatod ki."
+    },
     "v1_0_0": {
       "title": "A webhelyek asztala. Végül.",
       "thanks": "Köszönjük, hogy megpróbálta: New DeskTab. Nagyon izgatott vagyok, hogy végre megoszthatom veletek ennek a projektnek az első nyilvános kiadását.",

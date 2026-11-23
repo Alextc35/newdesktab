@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "I-off ang mga pang-araw-araw na tip",
     "eyebrow": "Munting TIP PARA NGAYON",
     "dismiss": "I-dismiss ang tip ngayong araw",
     "read": "Ipakita mo sa akin kung paano",

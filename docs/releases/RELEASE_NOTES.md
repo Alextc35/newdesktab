@@ -6,6 +6,8 @@ The first eligible tab opened with a new version offers its release notes in a
 modal. Each version is offered once per browser profile, including the first
 installation. The 1.0.0 entry contains the author's story and thanks, six feature
 highlights, and a note that the clock widget is still in development.
+The 1.0.1 entry explains that JSON and ZIP backups preserve the daily-tip
+preference and that each tip has a discreet button to turn off future tips.
 
 ## Arrival and history
 
@@ -15,6 +17,8 @@ highlights, and a note that the clock widget is still in development.
   bottom right. Its reading timer pauses for hover, focus, another open dialog,
   or a hidden tab.
 - Each tip displays its topic's SVG and can open the related manual section.
+- A discreet button on each tip disables daily tips immediately. JSON and ZIP
+  backups include this preference; older backups without it keep the current choice.
 - **Settings → Help** contains manual search, common questions, the quick guide,
   and the daily-tip preference.
 - In list mode, at 600 pixels wide or less, release notes, the guide, manual and

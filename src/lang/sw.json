@@ -12,6 +12,11 @@
       "title": "New DeskTab imesasishwa",
       "description": "Una toleo jipya. Unaweza kutembelea tena vidokezo vya toleo la mapema katika Maelezo wakati wowote upendao. Asante kwa kuwa hapa."
     },
+    "v1_0_1": {
+      "title": "New DeskTab imesasishwa",
+      "backup": "Nakala za JSON na ZIP sasa huhifadhi na kurejesha chaguo lako la vidokezo vya kila siku. Nakala za zamani zisizo na mpangilio huu huhifadhi chaguo lako la sasa.",
+      "tips": "Unaweza kuzima vidokezo vya kila siku moja kwa moja kwenye kidokezo kwa kitufe kidogo."
+    },
     "v1_0_0": {
       "title": "Eneo-kazi lako la tovuti. Hatimaye.",
       "thanks": "Asante kwa kujaribu New DeskTab. Nina furaha sana hatimaye kushiriki nawe toleo la kwanza la umma la mradi huu.",

@@ -132,7 +132,10 @@
       }
       // Help journeys opt in to exercise its production lifecycle.
       if (!new URLSearchParams(location.search).has('tips')) {
-        chrome.storage.local.set({ [DEVICE_DAILY_TIPS_KEY]: { day: getLocalDay() } });
+        const stored = await new Promise(resolve => chrome.storage.local.get(DEVICE_DAILY_TIPS_KEY, resolve));
+        chrome.storage.local.set({
+          [DEVICE_DAILY_TIPS_KEY]: { ...stored[DEVICE_DAILY_TIPS_KEY], day: getLocalDay() }
+        });
       }
 
       const browserProfile = new URLSearchParams(location.search).get('browser');

@@ -12,6 +12,11 @@
       "title": "New DeskTab a été mis à jour",
       "description": "Vous avez la nouvelle version. Vous pouvez consulter les notes de version précédentes dans Informations à tout moment. Merci d'être ici."
     },
+    "v1_0_1": {
+      "title": "New DeskTab a été mis à jour",
+      "backup": "Les sauvegardes JSON et ZIP enregistrent et restaurent désormais votre préférence pour les conseils quotidiens. Les anciennes sauvegardes sans ce réglage conservent votre choix actuel.",
+      "tips": "Vous pouvez désactiver les conseils quotidiens directement depuis le conseil grâce à un bouton discret."
+    },
     "v1_0_0": {
       "title": "Votre bureau de sites Web. Enfin.",
       "thanks": "Merci d'avoir essayé New DeskTab. Je suis tellement excité de partager enfin avec vous la première version publique de ce projet.",

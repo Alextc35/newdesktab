@@ -188,6 +188,7 @@
     }
   },
   "daily": {
+    "disable": "Não mostrar dicas diárias",
     "eyebrow": "UMA DICA PARA HOJE", "dismiss": "Fechar a dica de hoje", "read": "Ver como",
     "pace": "Passe o cursor para pausar.", "enabled": "Dicas diárias",
     "description": "Uma dica ao abrir sua primeira aba do dia."
@@ -330,7 +331,7 @@
       "question": "Como faço um backup ou transfiro meus dados?", "searchTerms": "cópia segurança; exportar dados; importar cópia; restaurar backup; outro navegador; transferir dados",
       "title": "Backups e importação", "summary": "Guarde uma cópia do espaço e leve com você.",
       "steps": ["Em Configurações → Geral, exporte um backup completo para preservar os dados e os arquivos locais incluídos no ZIP.", "Para restaurar, importe um backup e confira a confirmação antes de substituir os dados. Backups JSON compatíveis também são aceitos.", "Em Configurações → Favoritos, exporte ou importe apenas favoritos e pastas quando não precisar de uma cópia completa."],
-      "note": "Uma exportação de favoritos não é um backup completo das configurações e mídias locais. Faça uma cópia antes de restaurar ou excluir dados.",
+      "note": "Uma exportação de favoritos não é um backup completo das configurações e mídias locais. Backups completos JSON e ZIP também preservam se as dicas diárias estão ativadas; backups antigos mantêm a escolha atual. Faça uma cópia antes de restaurar ou excluir dados.",
       "tip": "O backup completo de Configurações → Geral inclui arquivos locais em um ZIP. É útil antes de trocar de navegador ou restaurar dados."
     },
     "sync": {
@@ -357,9 +358,9 @@
     "learning": {
       "question": "Como reabro o guia ou desativo as dicas diárias?", "searchTerms": "desativar dicas; desligar ajuda; alerta diário; reabrir guia; manual uso",
       "title": "Aprender no seu ritmo", "summary": "Guia rápido, manual e uma pequena dica diária.",
-      "steps": ["Volte ao guia rápido em Configurações → Ajuda. Os links de cada passo abrem as explicações correspondentes do manual.", "Explore o índice ou busque uma palavra. Os links relacionados de cada seção levam a outras funções.", "Sua primeira nova aba de cada dia mostra uma dica aleatória. Feche ou abra sua explicação; você pode desativar as dicas em Ajuda."],
+      "steps": ["Volte ao guia rápido em Configurações → Ajuda. Os links de cada passo abrem as explicações correspondentes do manual.", "Explore o índice ou busque uma palavra. Os links relacionados de cada seção levam a outras funções.", "Sua primeira nova aba de cada dia mostra uma dica aleatória. Feche ou abra sua explicação. Clique em Não mostrar dicas diárias no cartão para desativá-las imediatamente, ou altere a opção em Ajuda."],
       "note": "As dicas percorrem as seções sem repetir até completar a coleção. Duram 20 segundos e pausam ao passar o cursor ou focar os botões. Seguem o dia local e a preferência deste navegador.",
-      "tip": "O manual está sempre em Configurações → Ajuda. As dicas diárias abrem uma seção e podem ser desativadas ali quando quiser."
+      "tip": "O manual está sempre em Configurações → Ajuda. As dicas diárias abrem uma seção e podem ser desativadas no cartão ou em Ajuda quando quiser."
     }
   }
 }

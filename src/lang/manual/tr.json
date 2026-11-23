@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Günlük ipuçlarını kapat",
     "eyebrow": "BUGÜN İÇİN KÜÇÜK BİR İPUCU",
     "dismiss": "Bugünkü ipucunu reddet",
     "read": "Bana nasıl olduğunu göster",

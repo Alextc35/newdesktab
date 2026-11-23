@@ -268,3 +268,52 @@ test('tips wait for the welcome and can be disabled permanently from Help', asyn
   await help(page);
   await expect(page.locator('#settings-daily-tips')).not.toBeChecked();
 });
+
+test('the daily tip can be turned off directly and reenabled from Help', async ({ page }) => {
+  await start(page, { tips: true });
+  const card = page.locator('#daily-tip');
+  const disable = page.locator('#daily-tip-disable');
+  await expect(card).toBeVisible();
+  await expect(disable).toHaveText('Turn off daily tips');
+  await page.evaluate(async () => (await import('/src/platform/i18n/i18n.js')).changeLanguage({ language: 'es' }));
+  await expect(disable).toHaveText('No mostrar consejos diarios');
+  await disable.focus();
+  await page.keyboard.press('Enter');
+  await expect(card).toBeHidden();
+  expect((await storedTips(page)).enabled).toBe(false);
+  await page.reload();
+  await expectAppReady(page);
+  await page.waitForTimeout(1700);
+  await expect(card).toBeHidden();
+  await help(page);
+  await expect(page.locator('#settings-daily-tips')).not.toBeChecked();
+  await page.locator('#settings-daily-tips').check();
+  await page.locator('#settings-modal-save').click();
+  await expect.poll(async () => (await storedTips(page)).enabled).toBe(true);
+});
+
+test('a failed direct disable keeps the daily tip available for retry', async ({ page }) => {
+  await start(page, { tips: true });
+  const card = page.locator('#daily-tip');
+  const disable = page.locator('#daily-tip-disable');
+  await expect(card).toBeVisible();
+  await page.evaluate(() => {
+    const original = chrome.storage.local.set;
+    chrome.storage.local.set = (items, callback) => {
+      if (items.newdesktabDailyTips) {
+        chrome.storage.local.set = original;
+        chrome.runtime.lastError = { message: 'Simulated daily tip write failure' };
+        callback?.();
+        chrome.runtime.lastError = null;
+      } else original(items, callback);
+    };
+  });
+  await disable.click();
+  await expect(page.locator('.flash-error')).toHaveText('Could not save the latest changes.');
+  await expect(card).toBeVisible();
+  await expect(disable).toBeEnabled();
+  expect((await storedTips(page)).enabled).toBe(true);
+  await disable.click();
+  await expect(card).toBeHidden();
+  expect((await storedTips(page)).enabled).toBe(false);
+});

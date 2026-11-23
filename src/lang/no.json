@@ -12,6 +12,11 @@
       "title": "New DeskTab har blitt oppdatert",
       "description": "Du har den nye versjonen. Du kan gå tilbake til tidligere versjonsnotater i Informasjon når du vil. Takk for at du er her."
     },
+    "v1_0_1": {
+      "title": "New DeskTab har blitt oppdatert",
+      "backup": "JSON- og ZIP-sikkerhetskopier lagrer og gjenoppretter nå innstillingen for daglige tips. Eldre sikkerhetskopier uten denne innstillingen beholder det gjeldende valget ditt.",
+      "tips": "Du kan slå av daglige tips direkte fra tipset med en diskret knapp."
+    },
     "v1_0_0": {
       "title": "Ditt skrivebord med nettsteder. Endelig.",
       "thanks": "Takk for at du prøver New DeskTab. Jeg er så glad for å endelig dele den første offentlige utgivelsen av dette prosjektet med dere.",

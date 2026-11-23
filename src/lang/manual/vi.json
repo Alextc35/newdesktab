@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Tắt mẹo hằng ngày",
     "eyebrow": "MẸO NHỎ CHO HÔM NAY",
     "dismiss": "Loại bỏ mẹo hôm nay",
     "read": "Chỉ cho tôi cách",

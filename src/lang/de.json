@@ -12,6 +12,11 @@
       "title": "New DeskTab wurde aktualisiert",
       "description": "Sie haben die neue Version. Sie können frühere Versionshinweise jederzeit unter „Informationen“ erneut aufrufen. Danke, dass Sie hier sind."
     },
+    "v1_0_1": {
+      "title": "New DeskTab wurde aktualisiert",
+      "backup": "JSON- und ZIP-Sicherungen speichern und übernehmen jetzt die Einstellung für tägliche Tipps. Ältere Sicherungen ohne diese Einstellung behalten deine aktuelle Auswahl bei.",
+      "tips": "Du kannst tägliche Tipps über eine dezente Schaltfläche direkt im Tipp ausschalten."
+    },
     "v1_0_0": {
       "title": "Ihr Desktop mit Websites. Endlich.",
       "thanks": "Vielen Dank, dass Sie New DeskTab ausprobiert haben. Ich freue mich sehr, endlich die erste öffentliche Veröffentlichung dieses Projekts mit Ihnen zu teilen.",

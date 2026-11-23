@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Isključi dnevne savjete",
     "eyebrow": "MALI SAVJET ZA DANAS",
     "dismiss": "Odbacite današnji savjet",
     "read": "Pokaži mi kako",

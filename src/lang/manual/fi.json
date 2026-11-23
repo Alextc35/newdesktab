@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Poista päivittäiset vinkit käytöstä",
     "eyebrow": "PIENI VINKKI TÄNÄÄN",
     "dismiss": "Hylkää tämän päivän vinkki",
     "read": "Näytä minulle miten",

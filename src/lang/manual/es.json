@@ -188,6 +188,7 @@
     }
   },
   "daily": {
+    "disable": "No mostrar consejos diarios",
     "eyebrow": "UN TRUCO PARA HOY",
     "dismiss": "Cerrar el consejo de hoy",
     "read": "Ver cómo",
@@ -333,7 +334,7 @@
       "question": "¿Cómo hago una copia o me llevo mis datos?", "searchTerms": "copia seguridad; exportar datos; importar copia; restaurar backup; otro navegador; transferir datos",
       "title": "Copias e importación", "summary": "Conserva tu espacio y llévalo contigo.",
       "steps": ["En Ajustes → General exporta una copia completa para conservar los datos y los archivos locales incluidos en el respaldo ZIP.", "Para restaurar, importa una copia y revisa la confirmación antes de reemplazar los datos. También se admiten las copias JSON compatibles.", "En Ajustes → Favoritos puedes exportar o importar solo favoritos y carpetas cuando no necesites una copia completa."],
-      "note": "Una exportación de favoritos no sustituye a una copia completa de ajustes y multimedia local. Guarda una copia antes de restaurar o borrar datos.",
+      "note": "Una exportación de favoritos no sustituye a una copia completa de ajustes y multimedia local. Las copias completas JSON y ZIP también conservan si los consejos diarios están activados; las antiguas mantienen la opción actual. Guarda una copia antes de restaurar o borrar datos.",
       "tip": "La copia completa de Ajustes → General incluye los archivos locales en un ZIP. Es útil antes de cambiar de navegador o restaurar datos."
     },
     "sync": {
@@ -360,9 +361,9 @@
     "learning": {
       "question": "¿Cómo vuelvo a la guía o quito los consejos diarios?", "searchTerms": "quitar consejos; desactivar ayudas; alerta diaria; volver guía; manual uso",
       "title": "Aprender a tu ritmo", "summary": "Guía rápida, manual y un pequeño consejo diario.",
-      "steps": ["Vuelve a la guía rápida desde Ajustes → Ayuda. Los enlaces de cada paso abren la explicación correspondiente del manual.", "Explora el índice o busca una palabra en el manual. Al terminar una sección, sus enlaces te llevan a funciones relacionadas.", "La primera vez que abres una pestaña cada día aparece un consejo aleatorio. Puedes cerrarlo o abrir su explicación; en Ayuda puedes desactivar los consejos."],
+      "steps": ["Vuelve a la guía rápida desde Ajustes → Ayuda. Los enlaces de cada paso abren la explicación correspondiente del manual.", "Explora el índice o busca una palabra en el manual. Al terminar una sección, sus enlaces te llevan a funciones relacionadas.", "La primera vez que abres una pestaña cada día aparece un consejo aleatorio. Puedes cerrarlo o abrir su explicación. Pulsa No mostrar consejos diarios en la tarjeta para desactivarlos al instante, o cambia la opción en Ayuda."],
       "note": "Los consejos recorren las secciones sin repetirlas hasta completar la colección. Duran 20 segundos y se pausan al pasar el cursor o enfocar sus botones. Siguen el día local y la preferencia de este navegador.",
-      "tip": "Este manual siempre está en Ajustes → Ayuda. Los consejos diarios te llevan a una sección y se pueden desactivar allí cuando quieras."
+      "tip": "Este manual siempre está en Ajustes → Ayuda. Los consejos diarios te llevan a una sección y se pueden desactivar desde la tarjeta o en Ayuda cuando quieras."
     }
   }
 }

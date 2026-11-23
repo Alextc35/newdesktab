@@ -12,6 +12,11 @@
       "title": "New DeskTab telah diperbarui",
       "description": "Anda memiliki versi baru. Anda dapat mengunjungi kembali catatan rilis sebelumnya di Informasi kapan pun Anda mau. Terima kasih telah berada di sini."
     },
+    "v1_0_1": {
+      "title": "New DeskTab telah diperbarui",
+      "backup": "Cadangan JSON dan ZIP kini menyimpan dan memulihkan preferensi tips harian. Cadangan lama tanpa pengaturan ini mempertahankan pilihan Anda saat ini.",
+      "tips": "Anda dapat mematikan tips harian langsung dari tip menggunakan tombol kecil."
+    },
     "v1_0_0": {
       "title": "Desktop situs web Anda. Akhirnya.",
       "thanks": "Terima kasih telah mencoba New DeskTab. Saya sangat bersemangat untuk akhirnya membagikan rilis publik pertama proyek ini kepada Anda.",

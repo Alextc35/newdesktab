@@ -12,6 +12,11 @@
       "title": "New DeskTab telah dikemas kini",
       "description": "Anda mempunyai versi baharu. Anda boleh menyemak semula nota keluaran awal dalam Maklumat pada bila-bila masa yang anda suka. Terima kasih kerana berada di sini."
     },
+    "v1_0_1": {
+      "title": "New DeskTab telah dikemas kini",
+      "backup": "Sandaran JSON dan ZIP kini menyimpan dan memulihkan pilihan petua harian. Sandaran lama tanpa tetapan ini mengekalkan pilihan semasa anda.",
+      "tips": "Anda boleh mematikan petua harian terus daripada petua dengan butang kecil."
+    },
     "v1_0_0": {
       "title": "Desktop tapak web anda. Akhirnya.",
       "thanks": "Terima kasih kerana mencuba New DeskTab. Saya sangat teruja untuk akhirnya berkongsi keluaran awam pertama projek ini dengan anda.",

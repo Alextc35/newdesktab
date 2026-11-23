@@ -243,6 +243,10 @@ AppState
 The storage layer persists `data`; `ui` is excluded. The synchronized
 representation omits device-only contents such as `trash`, while complete
 backups can include them. The Local/Sync choice is also device-specific.
+Complete JSON and ZIP backup envelopes also carry the device-local daily-tip
+choice as optional `devicePreferences.dailyTipsEnabled` metadata. It stays out
+of Sync and application data; older backups retain the current choice. Tip
+history and the last offered day remain on the device and outside backups.
 
 Public release 1.0.0 uses `schemaVersion: 1`. The development schemas 2–21 were
 discarded before publication and are not migrated. New profiles start with empty

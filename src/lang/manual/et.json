@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Lülita igapäevased nõuanded välja",
     "eyebrow": "VÄIKE NIPP TÄNASEKS",
     "dismiss": "Loobu tänane nõuanne",
     "read": "Näita mulle, kuidas",

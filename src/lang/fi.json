@@ -12,6 +12,11 @@
       "title": "New DeskTab on päivitetty",
       "description": "Sinulla on uusi versio. Voit tarkastella aikaisempia julkaisutietoja kohdassa Tiedot milloin haluat. Kiitos, että olet täällä."
     },
+    "v1_0_1": {
+      "title": "New DeskTab on päivitetty",
+      "backup": "JSON- ja ZIP-varmuuskopiot tallentavat ja palauttavat nyt päivittäisten vinkkien asetuksen. Vanhemmat varmuuskopiot ilman tätä asetusta säilyttävät nykyisen valintasi.",
+      "tips": "Voit poistaa päivittäiset vinkit käytöstä suoraan vinkistä huomaamattomalla painikkeella."
+    },
     "v1_0_0": {
       "title": "Web-sivustojen työpöytäsi. Viimeinkin.",
       "thanks": "Kiitos, että yritit New DeskTab. Olen niin innoissani voidessani vihdoin jakaa kanssasi tämän projektin ensimmäisen julkisen julkaisun.",

@@ -12,6 +12,11 @@
       "title": "New DeskTab s'ha actualitzat",
       "description": "Ja teniu la nova versió. Podeu tornar a consultar les notes de la versió anterior a Informació quan vulgueu. Gràcies per ser aquí."
     },
+    "v1_0_1": {
+      "title": "New DeskTab s'ha actualitzat",
+      "backup": "Les còpies JSON i ZIP ara desen i restauren la preferència dels consells diaris. Les còpies antigues sense aquesta opció mantenen la preferència actual.",
+      "tips": "Pots desactivar els consells diaris directament des del consell amb un botó discret."
+    },
     "v1_0_0": {
       "title": "El vostre escriptori de llocs web. Per fi.",
       "thanks": "Gràcies per provar New DeskTab. Estic molt emocionat de compartir finalment el primer llançament públic d'aquest projecte amb vosaltres.",

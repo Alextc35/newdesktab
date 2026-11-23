@@ -12,6 +12,11 @@
       "title": "New DeskTab a fost actualizat",
       "description": "Ai noua versiune. Puteți revedea notele de lansare anterioare în Informații oricând doriți. Mulțumesc că ești aici."
     },
+    "v1_0_1": {
+      "title": "New DeskTab a fost actualizat",
+      "backup": "Copiile JSON și ZIP salvează și restabilesc acum preferința pentru sfaturile zilnice. Copiile mai vechi fără această setare păstrează alegerea actuală.",
+      "tips": "Poți dezactiva sfaturile zilnice direct din sfat, folosind un buton discret."
+    },
     "v1_0_0": {
       "title": "Desktopul dvs. de site-uri web. În sfârșit.",
       "thanks": "Vă mulțumim că ați încercat New DeskTab. Sunt atât de încântat să vă împărtășesc în sfârșit prima lansare publică a acestui proiect.",

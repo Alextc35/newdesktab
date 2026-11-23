@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Napi tippek kikapcsolása",
     "eyebrow": "EGY KIS TIPP MÁRA",
     "dismiss": "Hagyja el a mai tippet",
     "read": "Mutasd meg, hogyan",

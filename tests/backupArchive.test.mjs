@@ -23,10 +23,13 @@ async function fixture({ payload = manifest(), files = [{ name: 'videos/1.webm',
 }
 
 test('binary ZIP round trip preserves Unicode names and video bytes without base64', async () => {
-  const archive = await createBackupArchive(data, {}, { [reference]: video });
+  const archive = await createBackupArchive(data, {}, { [reference]: video }, {
+    devicePreferences: { dailyTipsEnabled: false }
+  });
   assert.equal(archive.type, 'application/zip');
   assert.equal(await isBackupArchive(archive), true);
   const restored = await readBackupArchive(archive);
+  assert.deepEqual(restored.devicePreferences, { dailyTipsEnabled: false });
   assert.equal(restored.data.settings.theme.backgroundMedia[0].local, reference);
   assert.equal(restored.localVideos[reference].name, video.name);
   assert.equal(restored.localVideos[reference].blob.type, 'video/webm');
@@ -38,6 +41,7 @@ test('binary ZIP round trip preserves Unicode names and video bytes without base
 
 test('recompressed backups remain readable using the native streaming inflater', async () => {
   const restored = await readBackupArchive(await fixture({ level: 6 }));
+  assert.equal(restored.devicePreferences, undefined);
   assert.equal(await restored.localVideos[reference].blob.text(), content);
 });
 
@@ -54,6 +58,7 @@ for (const [name, change] of [
   ['unsafe manifest path', value => { value.videos[reference].path = '../1.webm'; }],
   ['unreferenced metadata', value => { value.videos.unused = descriptor; }],
   ['oversized filename metadata', value => { value.videos[reference].name = 'x'.repeat(1025); }],
+  ['invalid device preference', value => { value.backup.devicePreferences = { dailyTipsEnabled: 'false' }; }],
   ['mixed base64 and binary representations', value => { value.backup.localVideos[reference] = { dataUrl: 'data:video/webm;base64,AA==' }; }]
 ]) {
   test(`rejects ${name} before restoration`, async () => {

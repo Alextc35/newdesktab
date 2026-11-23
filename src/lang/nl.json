@@ -12,6 +12,11 @@
       "title": "New DeskTab is bijgewerkt",
       "description": "Je hebt de nieuwe versie. U kunt eerdere releaseopmerkingen op elk gewenst moment opnieuw bekijken in Informatie. Bedankt dat je hier bent."
     },
+    "v1_0_1": {
+      "title": "New DeskTab is bijgewerkt",
+      "backup": "JSON- en ZIP-back-ups bewaren en herstellen nu je voorkeur voor dagelijkse tips. Oudere back-ups zonder deze instelling behouden je huidige keuze.",
+      "tips": "Je kunt dagelijkse tips met een subtiele knop rechtstreeks vanuit de tip uitschakelen."
+    },
     "v1_0_0": {
       "title": "Uw bureaublad met websites. Eindelijk.",
       "thanks": "Bedankt dat je New DeskTab hebt geprobeerd. Ik ben zo opgewonden om eindelijk de eerste publieke release van dit project met jullie te delen.",

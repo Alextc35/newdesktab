@@ -7,7 +7,7 @@ const readRecord = page => page.evaluate(() => JSON.parse(sessionStorage.getItem
 async function start(page, query = 'fresh=1&release=1&tips=1') {
   await page.route(/^https?:/, route => new URL(route.request().url()).hostname === '127.0.0.1'
     ? route.continue() : route.abort());
-  await page.goto(`/tests/browser-harness.html?${query}`);
+  await page.goto(`/tests/browser-harness.html?version=1.0.0&${query}`);
   await expectAppReady(page);
 }
 
@@ -74,6 +74,8 @@ test('a new patch is offered once, older notes remain readable, and downgrading 
   await expect(notes(page)).toBeVisible();
   await expect(page.locator('#release-notes-version')).toHaveText('v1.0.1');
   await expect(page.locator('#release-notes-title')).toHaveText('New DeskTab has been updated');
+  await expect(page.locator('#release-notes-intro')).toContainText('JSON and ZIP backups');
+  await expect(page.locator('#release-notes-content')).toContainText('directly from the tip');
   await page.locator('#release-notes-continue').click();
   await page.reload();
   await expectAppReady(page);

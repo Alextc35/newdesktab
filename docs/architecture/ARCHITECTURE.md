@@ -869,7 +869,8 @@ the same migration, backup and Sync paths as portable visual preferences.
 The persistence-mode choice, recycle-bin contents, local media, personal
 wallpaper collections, device image selections, scroll positions and introductory
 notice preferences remain device-specific. Complete backups include the supported
-workspace data and referenced media, not every device-only preference.
+workspace data, referenced media and the daily-tip enabled/disabled preference,
+not every device-only preference.
 
 `browserCapabilities.js` currently permits Sync only in Google Chrome. Brave
 and unverified Chromium browsers stay in Local mode because exposing
@@ -896,6 +897,13 @@ manifest uses `newdesktab-backup-zip`, archive version 1. Its `backup` property
 contains the existing JSON envelope and optimized local images; its `videos`
 map links local references to binary `videos/<number>.<extension>` entries,
 MIME types and original filenames. Video URLs alone do not switch the format.
+
+The complete JSON envelope, including the one nested in a ZIP, optionally carries
+`devicePreferences.dailyTipsEnabled`. Import validates this boolean and restores
+it through device-local storage after application-data persistence. Older backups
+without the flag retain the current choice. Daily-tip history and the last offered
+day stay out of backups; neither the flag nor history enters application data or
+Chrome Sync.
 
 `platform/backup/backupArchive.js` owns this container. Videos use ZIP STORE and
 256 KiB streams rather than base64. Blob output is browser managed; no entire
@@ -989,6 +997,8 @@ the manual and daily tips stay hidden, with a flash asking the user to widen the
 window. Pending introductions remain unclaimed and suspended panels resume when
 there is enough space. Arrival follows release notes, the optional guide, then
 the daily tip in the bottom-right corner.
+Its **Turn off daily tips** button immediately saves the device-local preference
+and closes the card; the Help toggle reflects the same value and can re-enable it.
 
 `features/folders/folderAppearance.js` applies saved appearance to cards, artwork,
 previews and open contents without accessing the store. The contents surface is

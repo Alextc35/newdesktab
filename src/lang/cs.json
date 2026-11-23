@@ -12,6 +12,11 @@
       "title": "New DeskTab bylo aktualizováno",
       "description": "Máte novou verzi. Kdykoli budete chtít, můžete se vrátit k dřívějším poznámkám k vydání v části Informace. Díky, že jsi tady."
     },
+    "v1_0_1": {
+      "title": "New DeskTab bylo aktualizováno",
+      "backup": "Zálohy JSON a ZIP nyní ukládají a obnovují nastavení denních tipů. Starší zálohy bez tohoto nastavení zachovají vaši aktuální volbu.",
+      "tips": "Denní tipy můžete vypnout přímo v tipu pomocí nenápadného tlačítka."
+    },
     "v1_0_0": {
       "title": "Vaše pracovní plocha webových stránek. Konečně.",
       "thanks": "Děkujeme, že jste vyzkoušeli New DeskTab. Jsem tak nadšený, že se s vámi konečně mohu podělit o první veřejné vydání tohoto projektu.",

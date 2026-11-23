@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Non mostrare più i consigli giornalieri",
     "eyebrow": "UN PICCOLO CONSIGLIO PER OGGI",
     "dismiss": "Ignora il suggerimento di oggi",
     "read": "Mostrami come",

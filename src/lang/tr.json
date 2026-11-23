@@ -12,6 +12,11 @@
       "title": "New DeskTab güncellendi",
       "description": "Yeni sürüme sahipsiniz. Bilgiler bölümündeki önceki sürüm notlarını istediğiniz zaman yeniden ziyaret edebilirsiniz. Burada olduğunuz için teşekkürler."
     },
+    "v1_0_1": {
+      "title": "New DeskTab güncellendi",
+      "backup": "JSON ve ZIP yedekleri artık günlük ipucu tercihinizi kaydeder ve geri yükler. Bu ayarı içermeyen eski yedekler mevcut seçiminizi korur.",
+      "tips": "Günlük ipuçlarını küçük bir düğmeyle doğrudan ipucunun içinden kapatabilirsiniz."
+    },
     "v1_0_0": {
       "title": "Web sitelerinden oluşan masaüstünüz. Sonunda.",
       "thanks": "New DeskTab'yu denediğiniz için teşekkür ederiz. Nihayet bu projenin halka açık ilk yayınını sizinle paylaşacağım için çok heyecanlıyım.",

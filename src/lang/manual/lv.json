@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Izslēgt ikdienas padomus",
     "eyebrow": "MAZS PADOMS ŠODIENAI",
     "dismiss": "Noraidīt šodienas padomu",
     "read": "Parādi man kā",

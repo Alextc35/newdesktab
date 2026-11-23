@@ -12,6 +12,11 @@
       "title": "New DeskTab buvo atnaujintas",
       "description": "Turite naują versiją. Galite bet kada peržiūrėti ankstesnes leidimo pastabas skiltyje Informacija. Ačiū, kad esate čia."
     },
+    "v1_0_1": {
+      "title": "New DeskTab buvo atnaujintas",
+      "backup": "JSON ir ZIP atsarginės kopijos dabar išsaugo ir atkuria kasdienių patarimų nuostatą. Senesnės kopijos be šio nustatymo išlaiko dabartinį pasirinkimą.",
+      "tips": "Kasdienius patarimus galite išjungti tiesiai iš patarimo naudodami subtilų mygtuką."
+    },
     "v1_0_0": {
       "title": "Jūsų svetainių darbalaukis. Pagaliau.",
       "thanks": "Dėkojame, kad išbandėte New DeskTab. Labai džiaugiuosi galėdamas pagaliau su jumis pasidalinti pirmuoju viešu šio projekto leidimu.",

@@ -12,6 +12,11 @@
       "title": "New DeskTab has been updated",
       "description": "You have the new version. You can revisit earlier release notes in Information whenever you like. Thanks for being here."
     },
+    "v1_0_1": {
+      "title": "New DeskTab has been updated",
+      "backup": "JSON and ZIP backups now save and restore your daily-tip preference. Older backups without this setting keep your current choice.",
+      "tips": "You can turn off daily tips directly from the tip with a discreet button."
+    },
     "v1_0_0": {
       "title": "Your desktop of websites. At last.",
       "thanks": "Thank you for trying New DeskTab. I am so excited to finally share the first public release of this project with you.",

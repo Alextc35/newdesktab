@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Nonaktifkan tips harian",
     "eyebrow": "TIPS SEDIKIT UNTUK HARI INI",
     "dismiss": "Abaikan tip hari ini",
     "read": "Tunjukkan padaku caranya",

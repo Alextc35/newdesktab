@@ -82,15 +82,18 @@ test.beforeEach(async () => {
 test.afterEach(async () => { await context?.close(); });
 
 test('two real extension tabs claim an update only once without synchronizing the seen marker', async () => {
-  const results = await Promise.all(pages.map(page => page.evaluate(async () => {
+  const versionParts = manifest.version.split('.').map(Number);
+  versionParts[versionParts.length - 1]++;
+  const nextVersion = versionParts.join('.');
+  const results = await Promise.all(pages.map(page => page.evaluate(async version => {
     const { claimReleaseNotes } = await import('./platform/storage/deviceReleaseNotes.js');
-    return claimReleaseNotes('1.0.1');
-  })));
+    return claimReleaseNotes(version);
+  }, nextVersion)));
   expect(results.filter(Boolean)).toHaveLength(1);
   for (const page of pages) {
     expect(await page.evaluate(async () => (
       await chrome.storage.local.get('newdesktabReleaseNotes')
-    ).newdesktabReleaseNotes)).toEqual({ version: '1.0.1' });
+    ).newdesktabReleaseNotes)).toEqual({ version: nextVersion });
     expect(await page.evaluate(async () => await chrome.storage.sync.get('newdesktabReleaseNotes'))).toEqual({});
   }
 });

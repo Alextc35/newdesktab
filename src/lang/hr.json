@@ -12,6 +12,11 @@
       "title": "New DeskTab je ažuriran",
       "description": "Imate novu verziju. Možete ponovno pregledati ranije napomene o izdanju u informacijama kad god želite. Hvala što ste ovdje."
     },
+    "v1_0_1": {
+      "title": "New DeskTab je ažuriran",
+      "backup": "JSON i ZIP sigurnosne kopije sada spremaju i vraćaju postavku dnevnih savjeta. Starije kopije bez te postavke zadržavaju vaš trenutačni izbor.",
+      "tips": "Dnevne savjete možete isključiti izravno iz savjeta diskretnim gumbom."
+    },
     "v1_0_0": {
       "title": "Vaša radna površina web stranica. Napokon.",
       "thanks": "Hvala što ste isprobali New DeskTab. Tako sam uzbuđen što konačno s vama mogu podijeliti prvo javno izdanje ovog projekta.",

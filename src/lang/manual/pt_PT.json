@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Não mostrar dicas diárias",
     "eyebrow": "UMA PEQUENA DICA PARA HOJE",
     "dismiss": "Dispense a dica de hoje",
     "read": "Mostre-me como",

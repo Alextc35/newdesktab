@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Wyłącz codzienne wskazówki",
     "eyebrow": "MAŁA WSKAZÓWKA NA DZIŚ",
     "dismiss": "Odrzuć dzisiejszą wskazówkę",
     "read": "Pokaż mi jak",

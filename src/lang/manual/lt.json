@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Išjungti kasdienius patarimus",
     "eyebrow": "MAŽAS PATARIMAS ŠIANDIEN",
     "dismiss": "Atmeskite šios dienos patarimą",
     "read": "Parodyk kaip",

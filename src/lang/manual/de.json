@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Tägliche Tipps deaktivieren",
     "eyebrow": "EIN KLEINER TIPP FÜR HEUTE",
     "dismiss": "Verwerfen Sie den heutigen Tipp",
     "read": "Zeig mir wie",

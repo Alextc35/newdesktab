@@ -333,6 +333,8 @@ Complete backups without local videos use **JSON**. Those containing local
 videos use **ZIP**, with configuration and separate binary video files. Older
 JSON backups with embedded videos remain supported. Referenced local images
 are included as optimized copies, and local media filenames are retained.
+Complete JSON and ZIP backups also preserve whether daily tips are enabled.
+Restoring an older backup without this preference keeps the current choice.
 
 Use **Restore backup** to choose a compatible backup file. Restoration replaces
 the current workspace data and settings after confirmation. Export the current
@@ -366,17 +368,20 @@ cannot be undone. Exported backup files must be deleted separately.
 
 **Settings → Help** contains the searchable manual, common questions, replayable
 welcome guide and daily-tip preference. Tips can open their related manual
-section. **Settings → Information** provides release notes and version history.
+section, and **Turn off daily tips** on the card disables future tips immediately.
+You can enable them again in Help. **Settings → Information** provides release
+notes and version history.
 
 On a new profile, release notes appear before the guide; an enabled daily tip
 follows those dialogs. In compact list mode at 600 pixels wide or less, notes,
 guide, manual and tips are hidden with a brief message. Pending introductory
 notices remain available when the window is enlarged.
 
-Welcome-guide and daily-tip preferences and history, along with the last
-offered release notice, stay in this browser profile. They are excluded from
-workspace backups and Sync, so restoring a workspace does not replay a release
-notice that this profile has already seen.
+The daily-tip preference stays out of Sync, but complete backups preserve its
+enabled/disabled choice. Tip history and the last offered day, welcome-guide
+status and the last offered release notice stay in this browser profile and
+are excluded from backups and Sync. Restoring a workspace does not replay a
+release notice that this profile has already seen.
 
 New DeskTab has no analytics or advertising SDK and no developer-operated
 backend. Local mode describes where workspace data is saved: displaying website

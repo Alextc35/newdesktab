@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Vypnúť denné tipy",
     "eyebrow": "MALÝ TIP NA DNES",
     "dismiss": "Odmietnite dnešný tip",
     "read": "Ukáž mi ako",

@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Izklopi dnevne nasvete",
     "eyebrow": "MAJHEN NAMIG ZA DANES",
     "dismiss": "Zavrzite današnji namig",
     "read": "Pokaži mi, kako",

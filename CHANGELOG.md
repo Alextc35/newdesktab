@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 — 2026-11-23
+
+- Preserve the daily-tip preference when exporting and restoring JSON or ZIP backups.
+- Keep the current daily-tip preference when restoring older backups without that setting.
+- Add a discreet button on each daily tip to turn off future tips immediately.
+
 ## 1.0.0 — 2026-11-16
 
 First stable release of New DeskTab, a customizable new-tab workspace.

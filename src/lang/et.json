@@ -12,6 +12,11 @@
       "title": "New DeskTab on värskendatud",
       "description": "Teil on uus versioon. Saate igal ajal uuesti vaadata varasemaid väljalaskemärkmeid jaotises Teave. Aitäh, et olete siin."
     },
+    "v1_0_1": {
+      "title": "New DeskTab on värskendatud",
+      "backup": "JSON- ja ZIP-varukoopiad salvestavad ja taastavad nüüd igapäevaste nõuannete eelistuse. Vanemad varukoopiad ilma selle seadistuseta säilitavad praeguse valiku.",
+      "tips": "Saad igapäevased nõuanded tagasihoidliku nupu abil otse nõuande juurest välja lülitada."
+    },
     "v1_0_0": {
       "title": "Teie veebisaitide töölaud. Lõpuks ometi.",
       "thanks": "Täname, et proovisite New DeskTab. Mul on nii hea meel, et saan lõpuks teiega jagada selle projekti esimest avalikku väljaannet.",

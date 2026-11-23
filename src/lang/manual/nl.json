@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Dagelijkse tips uitschakelen",
     "eyebrow": "EEN KLEINE TIP VOOR VANDAAG",
     "dismiss": "Negeer de tip van vandaag",
     "read": "Laat me zien hoe",

@@ -29,7 +29,7 @@ export async function areDailyTipsEnabled() {
   return (await read()).enabled;
 }
 
-/** Device preference: excluded from synchronized application data and backups. */
+/** Device preference: backed up explicitly, excluded from synchronized application data. */
 export function setDailyTipsEnabled(enabled) {
   return withLock(async () => {
     const state = await read();

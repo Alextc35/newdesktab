@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Slå daglige tips fra",
     "eyebrow": "ET LILLE TIP TIL I DAG",
     "dismiss": "Afvis dagens tip",
     "read": "Vis mig hvordan",

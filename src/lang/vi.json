@@ -12,6 +12,11 @@
       "title": "New DeskTab đã được cập nhật",
       "description": "Bạn có phiên bản mới. Bạn có thể xem lại ghi chú phát hành trước đó trong Thông tin bất cứ khi nào bạn muốn. Cảm ơn vì đã ở đây."
     },
+    "v1_0_1": {
+      "title": "New DeskTab đã được cập nhật",
+      "backup": "Bản sao lưu JSON và ZIP giờ lưu và khôi phục tùy chọn mẹo hằng ngày. Các bản sao lưu cũ không có cài đặt này sẽ giữ nguyên lựa chọn hiện tại của bạn.",
+      "tips": "Bạn có thể tắt mẹo hằng ngày ngay từ thẻ mẹo bằng một nút nhỏ."
+    },
     "v1_0_0": {
       "title": "Máy tính để bàn của bạn của các trang web. Cuối cùng.",
       "thanks": "Cảm ơn bạn đã thử New DeskTab. Tôi rất vui mừng được chia sẻ bản phát hành công khai đầu tiên của dự án này với bạn.",

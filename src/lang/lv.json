@@ -12,6 +12,11 @@
       "title": "New DeskTab ir atjaunināts",
       "description": "Jums ir jaunā versija. Kad vien vēlaties, varat pārskatīt iepriekšējās piezīmes par laidienu sadaļā Informācija. Paldies, ka esat šeit."
     },
+    "v1_0_1": {
+      "title": "New DeskTab ir atjaunināts",
+      "backup": "JSON un ZIP rezerves kopijas tagad saglabā un atjauno ikdienas padomu iestatījumu. Vecākas kopijas bez šī iestatījuma saglabā pašreizējo izvēli.",
+      "tips": "Ikdienas padomus var izslēgt tieši padomā ar neuzkrītošu pogu."
+    },
     "v1_0_0": {
       "title": "Jūsu vietņu darbvirsma. Beidzot.",
       "thanks": "Paldies, ka izmēģinājāt New DeskTab. Esmu ļoti priecīgs, ka beidzot ar jums varēšu dalīties ar šī projekta pirmo publisko izlaidumu.",

@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Matikan petua harian",
     "eyebrow": "SEDIKIT TIP UNTUK HARI INI",
     "dismiss": "Tolak petua hari ini",
     "read": "Tunjukkan saya bagaimana",

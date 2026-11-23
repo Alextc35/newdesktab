@@ -188,6 +188,7 @@
     }
   },
   "daily": {
+    "disable": "Turn off daily tips",
     "eyebrow": "A LITTLE TIP FOR TODAY",
     "dismiss": "Dismiss today's tip",
     "read": "Show me how",
@@ -333,7 +334,7 @@
       "question": "How do I back up or transfer my data?", "searchTerms": "backup copy; export data; import copy; restore backup; another browser; transfer data",
       "title": "Backups and imports", "summary": "Keep a copy of your space and take it with you.",
       "steps": ["In Settings → General export a full backup to preserve data and the local files included in the ZIP archive.", "To restore, import a backup and review the confirmation before replacing data. Compatible JSON backups are also supported.", "In Settings → Bookmarks you can export or import just bookmarks and folders when you don't need a full backup."],
-      "note": "A bookmark export isn't a full backup of settings and local media. Save a backup before restoring or deleting data.",
+      "note": "A bookmark export isn't a full backup of settings and local media. Complete JSON and ZIP backups also preserve whether daily tips are enabled; older backups keep the current choice. Save a backup before restoring or deleting data.",
       "tip": "A full backup from Settings → General includes local files in a ZIP. It's useful before switching browsers or restoring data."
     },
     "sync": {
@@ -360,9 +361,9 @@
     "learning": {
       "question": "How do I reopen the guide or turn off daily tips?", "searchTerms": "disable tips; turn off help; daily alert; reopen guide; user manual",
       "title": "Learn at your own pace", "summary": "A quick guide, a manual and a little daily tip.",
-      "steps": ["Revisit the quick guide from Settings → Help. Each step links to the corresponding explanations in the manual.", "Explore the index or search for a word. A section's related links take you to other features when you're ready.", "Your first new tab each day shows a random tip. Dismiss it or open its explanation; you can disable tips in Help."],
+      "steps": ["Revisit the quick guide from Settings → Help. Each step links to the corresponding explanations in the manual.", "Explore the index or search for a word. A section's related links take you to other features when you're ready.", "Your first new tab each day shows a random tip. Dismiss it or open its explanation. Turn off daily tips directly on the card, or change the preference in Help."],
       "note": "Tips visit the sections without repeating until the collection is complete. They last 20 seconds and pause while hovering or focusing their buttons. They follow the local day and this browser's preference.",
-      "tip": "This manual is always in Settings → Help. Daily tips open a section, and you can disable them there whenever you like."
+      "tip": "This manual is always in Settings → Help. Daily tips open a section, and you can turn them off on the card or in Help whenever you like."
     }
   }
 }

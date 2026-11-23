@@ -5,7 +5,7 @@
 This file is the source of truth for the NewDeskTab listing and privacy answers.
 Review it against the release ZIP before every submission.
 
-Release target: `1.0.0`. Minimum browser engine: Chrome/Chromium `123`.
+Release target: `1.0.1`. Minimum browser engine: Chrome/Chromium `123`.
 
 Public data schema: `1`. The development schemas 2–21 were discarded before
 the first release and are not imported or migrated. For first-use testing,

@@ -12,6 +12,11 @@
       "title": "New DeskTab ay na-update",
       "description": "Mayroon kang bagong bersyon. Maaari mong muling bisitahin ang mga naunang tala sa paglabas sa Impormasyon kung kailan mo gusto. Salamat sa pagpunta dito."
     },
+    "v1_0_1": {
+      "title": "New DeskTab ay na-update",
+      "backup": "Sine-save at ibinabalik na ngayon ng mga JSON at ZIP backup ang iyong setting para sa mga pang-araw-araw na tip. Pinapanatili ng mas lumang backup na walang setting na ito ang kasalukuyan mong pagpili.",
+      "tips": "Maaari mong i-off ang mga pang-araw-araw na tip mula mismo sa tip gamit ang isang maliit na button."
+    },
     "v1_0_0": {
       "title": "Ang iyong desktop ng mga website. Sa wakas.",
       "thanks": "Salamat sa pagsubok sa New DeskTab. Ako ay nasasabik na sa wakas ay ibahagi sa iyo ang unang pampublikong paglabas ng proyektong ito.",

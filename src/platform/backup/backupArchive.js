@@ -1,6 +1,6 @@
 import { BlobReader, BlobWriter, ZipReader, ZipWriter } from './vendor/zip.js';
 import { collectLocalVideoReferences, MAX_VIDEO_BYTES } from '../images/localVideos.js';
-import { createBackupEnvelope, parseBackupPayload } from '../storage/dataSchema.js';
+import { createBackupEnvelope, parseBackupDevicePreferences, parseBackupPayload } from '../storage/dataSchema.js';
 
 const MANIFEST = 'backup.json';
 const FORMAT = 'newdesktab-backup-zip';
@@ -11,7 +11,7 @@ const VIDEO_EXTENSIONS = new Map([['video/mp4', 'mp4'], ['video/webm', 'webm'], 
 const ZIP_OPTIONS = { useWebWorkers: false, chunkSize: 256 * 1024 };
 
 /** Videos are already compressed: STORE keeps streaming fast and avoids base64. */
-export async function createBackupArchive(data, localImages, localVideos) {
+export async function createBackupArchive(data, localImages, localVideos, { devicePreferences } = {}) {
   const videos = {};
   const files = [];
   for (const reference of collectLocalVideoReferences(data)) {
@@ -25,7 +25,7 @@ export async function createBackupArchive(data, localImages, localVideos) {
   }
   if (files.length + 1 > MAX_ENTRIES) throw invalidArchive();
   const manifest = new Blob([JSON.stringify({
-    format: FORMAT, archiveVersion: VERSION, backup: createBackupEnvelope(data, { localImages }), videos
+    format: FORMAT, archiveVersion: VERSION, backup: createBackupEnvelope(data, { localImages, devicePreferences }), videos
   }, null, 2)], { type: 'application/json' });
   if (manifest.size > MAX_MANIFEST_BYTES) throw invalidArchive();
   const writer = new ZipWriter(new BlobWriter('application/zip'), { ...ZIP_OPTIONS, level: 0 });
@@ -79,7 +79,10 @@ export async function readBackupArchive(file, currentData) {
       localVideos[reference] = { blob: await readEntry(entry, record.type), name: record.name };
     }
     if (usedPaths.size !== entries.size) throw invalidArchive();
-    return { data, localImages: manifest.backup.localImages, localVideos };
+    return {
+      data, localImages: manifest.backup.localImages, localVideos,
+      devicePreferences: parseBackupDevicePreferences(manifest.backup)
+    };
   } finally {
     await reader.close();
   }

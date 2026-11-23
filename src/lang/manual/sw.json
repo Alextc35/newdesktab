@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Zima vidokezo vya kila siku",
     "eyebrow": "DOKEZO KIDOGO KWA LEO",
     "dismiss": "Ondoa kidokezo cha leo",
     "read": "Nionyeshe jinsi gani",

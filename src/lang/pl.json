@@ -12,6 +12,11 @@
       "title": "New DeskTab został zaktualizowany",
       "description": "Masz nową wersję. W dowolnym momencie możesz ponownie przeglądać uwagi do wcześniejszych wersji w sekcji Informacje. Dziękuję, że tu jesteś."
     },
+    "v1_0_1": {
+      "title": "New DeskTab został zaktualizowany",
+      "backup": "Kopie JSON i ZIP zapisują i przywracają teraz ustawienie codziennych wskazówek. Starsze kopie bez tego ustawienia zachowują bieżący wybór.",
+      "tips": "Możesz wyłączyć codzienne wskazówki bezpośrednio na karcie wskazówki za pomocą dyskretnego przycisku."
+    },
     "v1_0_0": {
       "title": "Twój pulpit stron internetowych. W końcu.",
       "thanks": "Dziękujemy za wypróbowanie New DeskTab. Jestem bardzo podekscytowany, że w końcu mogę podzielić się z wami pierwszą publiczną wersją tego projektu.",

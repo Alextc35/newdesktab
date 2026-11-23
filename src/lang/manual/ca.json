@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "No mostris consells diaris",
     "eyebrow": "UN PETIT CONSELL PER AVUI",
     "dismiss": "Descarta el consell d'avui",
     "read": "Mostra'm com",

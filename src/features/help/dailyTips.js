@@ -1,8 +1,8 @@
 import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
-import { areDailyTipsEnabled, claimDailyTip, DEVICE_DAILY_TIPS_KEY } from '../../platform/storage/deviceDailyTips.js';
+import { areDailyTipsEnabled, claimDailyTip, DEVICE_DAILY_TIPS_KEY, setDailyTipsEnabled } from '../../platform/storage/deviceDailyTips.js';
 import { hasOpenModal, subscribeModalChanges } from '../../shared/ui/modalManager.js';
 import { isListView } from '../../shared/ui/viewportMode.js';
-import { flashInfo } from '../../shared/ui/flash.js';
+import { flashError, flashInfo } from '../../shared/ui/flash.js';
 import { MANUAL_TOPICS } from './manualCatalog.js';
 import { createManualIcon } from './manualIcons.js';
 import { createTimedNotice } from './timedNotice.js';
@@ -69,6 +69,23 @@ export function createDailyTips({ card, onOpenManual }) {
     const destination = topic;
     notice.dismiss({ animate: false });
     onOpenManual(destination);
+  }, { signal: events.signal });
+  const disableButton = card.querySelector('#daily-tip-disable');
+  disableButton.addEventListener('click', async () => {
+    if (disableButton.disabled) return;
+    disableButton.disabled = true;
+    try {
+      await setDailyTipsEnabled(false);
+      if (destroyed) return;
+      enabled = false;
+      clearTimeout(timer);
+      notice.dismiss({ animate: false });
+    } catch (error) {
+      console.warn('[HELP] Could not disable daily tips:', error);
+      if (!destroyed) flashError('settingsModal.sync.status.error');
+    } finally {
+      if (!destroyed) disableButton.disabled = false;
+    }
   }, { signal: events.signal });
   document.addEventListener('visibilitychange', schedule, { signal: events.signal });
   window.addEventListener('resize', () => {

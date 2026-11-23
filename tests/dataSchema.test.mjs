@@ -5,6 +5,7 @@ import {
   createBackupEnvelope,
   createBookmarksEnvelope,
   migratePersistedData,
+  parseBackupDevicePreferences,
   parseBackupPayload,
   parseBookmarksPayload
 } from '../src/platform/storage/dataSchema.js';
@@ -248,6 +249,32 @@ test('creates and parses a versioned complete backup', () => {
   assert.equal(envelope.format, 'newdesktab-backup');
   assert.equal(envelope.schemaVersion, DATA_SCHEMA_VERSION);
   assert.deepEqual(restored, data);
+});
+
+test('backs up the explicit daily-tip preference outside synchronized application data', () => {
+  const data = migratePersistedData({ bookmarks: [], settings: DEFAULT_SETTINGS });
+  for (const dailyTipsEnabled of [false, true]) {
+    const envelope = createBackupEnvelope(data, {
+      devicePreferences: { dailyTipsEnabled, day: '2026-11-23', seen: ['folders'] }
+    });
+    assert.deepEqual(envelope.devicePreferences, { dailyTipsEnabled });
+    assert.deepEqual(parseBackupDevicePreferences(envelope), { dailyTipsEnabled });
+    assert.deepEqual(parseBackupPayload(envelope), data);
+    assert.equal(Object.hasOwn(envelope.data, 'devicePreferences'), false);
+  }
+  const legacy = createBackupEnvelope(data);
+  assert.equal(Object.hasOwn(legacy, 'devicePreferences'), false);
+  assert.equal(parseBackupDevicePreferences(legacy), undefined);
+  assert.equal(parseBackupDevicePreferences(createBookmarksEnvelope([])), undefined);
+});
+
+test('rejects malformed device preferences before importing complete backup data', () => {
+  const data = migratePersistedData({ bookmarks: [], settings: DEFAULT_SETTINGS });
+  for (const devicePreferences of [null, [], false, {}, { dailyTipsEnabled: 'false' }, { dailyTipsEnabled: 0 }]) {
+    assert.throws(() => parseBackupPayload({
+      ...createBackupEnvelope(data), devicePreferences
+    }), error => error.code === 'INVALID_BACKUP');
+  }
 });
 
 test('migrates and backs up the generic bundled-widget envelope', () => {

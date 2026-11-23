@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Stäng av dagliga tips",
     "eyebrow": "ETT LITE TIPS FÖR IDAG",
     "dismiss": "Avfärda dagens tips",
     "read": "Visa mig hur",

@@ -1,5 +1,6 @@
 import {
   createBackupEnvelope,
+  parseBackupDevicePreferences,
   parseBackupPayload
 } from '../../platform/storage/dataSchema.js';
 import { getState, setState, requirePersistence } from '../../state/appStore.js';
@@ -18,6 +19,7 @@ import {
   restoreReferencedLocalVideoFiles
 } from '../../platform/images/localVideos.js';
 import { ensureRecycleBinPosition } from '../recycle-bin/recycleBinActions.js';
+import { areDailyTipsEnabled, setDailyTipsEnabled } from '../../platform/storage/deviceDailyTips.js';
 
 let exporting = false;
 
@@ -28,11 +30,12 @@ export async function exportBackup() {
     const data = await cleanMissingLocalImageReferences(getState().data);
     const localImages = await exportReferencedLocalImages(data);
     const localVideos = await getReferencedLocalVideoFiles(data);
+    const devicePreferences = { dailyTipsEnabled: await areDailyTipsEnabled() };
     const filename = `newdesktab-backup-${new Date().toISOString().slice(0, 10)}`;
     if (Object.keys(localVideos).length) {
-      downloadBlob(await createBackupArchive(data, localImages, localVideos), `${filename}.zip`);
+      downloadBlob(await createBackupArchive(data, localImages, localVideos, { devicePreferences }), `${filename}.zip`);
     } else {
-      downloadJson(createBackupEnvelope(data, { localImages }), `${filename}.json`);
+      downloadJson(createBackupEnvelope(data, { localImages, devicePreferences }), `${filename}.json`);
     }
     flashSuccess('flash.backup.exported');
   } catch (error) {
@@ -54,14 +57,17 @@ export async function importBackup(file) {
 
   try {
     let data;
+    let devicePreferences;
     if (await isBackupArchive(file)) {
       const archive = await readBackupArchive(file, getState().data);
       data = archive.data;
+      devicePreferences = archive.devicePreferences;
       await restoreReferencedLocalImages(data, archive.localImages);
       await restoreReferencedLocalVideoFiles(data, archive.localVideos);
     } else {
       const payload = JSON.parse(await file.text());
       data = parseBackupPayload(payload, getState().data);
+      devicePreferences = parseBackupDevicePreferences(payload);
       await restoreReferencedLocalImages(data,
         payload?.format === 'newdesktab-backup' ? payload.localImages : undefined);
       await restoreReferencedLocalVideos(data,
@@ -70,6 +76,7 @@ export async function importBackup(file) {
     data = await cleanMissingLocalImageReferences(data);
     await setState({ data });
     await requirePersistence();
+    if (devicePreferences) await setDailyTipsEnabled(devicePreferences.dailyTipsEnabled);
     ensureRecycleBinPosition();
     flashSuccess('flash.backup.imported');
     return true;

@@ -12,6 +12,11 @@
       "title": "New DeskTab è stato aggiornato",
       "description": "Hai la nuova versione. Puoi rivisitare le note di rilascio precedenti in Informazioni quando vuoi. Grazie per essere qui."
     },
+    "v1_0_1": {
+      "title": "New DeskTab è stato aggiornato",
+      "backup": "I backup JSON e ZIP ora salvano e ripristinano la preferenza per i consigli giornalieri. I backup precedenti senza questa impostazione mantengono la scelta attuale.",
+      "tips": "Puoi disattivare i consigli giornalieri direttamente dal consiglio con un pulsante discreto."
+    },
     "v1_0_0": {
       "title": "Il tuo desktop di siti web. Infine.",
       "thanks": "Grazie per aver provato New DeskTab. Sono così entusiasta di condividere finalmente con voi la prima versione pubblica di questo progetto.",

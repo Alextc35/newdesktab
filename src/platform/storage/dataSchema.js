@@ -268,11 +268,11 @@ function normalizeNamedPresets(value) {
  * Creates the versioned envelope used for complete backups.
  *
  * @param {PersistedData} data
- * @param {{localImages?: Record<string, {dataUrl: string, name?: string}>, localVideos?: Record<string, {dataUrl: string, name?: string}>}} [media]
- * @returns {{format: string, schemaVersion: number, exportedAt: string, data: PersistedData, localImages: Record<string, {dataUrl: string, name?: string}>, localVideos: Record<string, {dataUrl: string, name?: string}>}}
+ * @param {{localImages?: Record<string, {dataUrl: string, name?: string}>, localVideos?: Record<string, {dataUrl: string, name?: string}>, devicePreferences?: {dailyTipsEnabled: boolean}}} [options]
+ * @returns {{format: string, schemaVersion: number, exportedAt: string, data: PersistedData, localImages: Record<string, {dataUrl: string, name?: string}>, localVideos: Record<string, {dataUrl: string, name?: string}>, devicePreferences?: {dailyTipsEnabled: boolean}}}
  */
-export function createBackupEnvelope(data, { localImages = {}, localVideos = {} } = {}) {
-  return {
+export function createBackupEnvelope(data, { localImages = {}, localVideos = {}, devicePreferences } = {}) {
+  const envelope = {
     format: 'newdesktab-backup',
     schemaVersion: DATA_SCHEMA_VERSION,
     exportedAt: new Date().toISOString(),
@@ -280,6 +280,18 @@ export function createBackupEnvelope(data, { localImages = {}, localVideos = {} 
     localImages,
     localVideos
   };
+  if (devicePreferences !== undefined) {
+    envelope.devicePreferences = parseBackupDevicePreferences({ format: envelope.format, devicePreferences });
+  }
+  return envelope;
+}
+
+/** Read only explicit, validated device preferences from complete backups. */
+export function parseBackupDevicePreferences(payload) {
+  if (payload?.format !== 'newdesktab-backup' || payload.devicePreferences === undefined) return undefined;
+  const preferences = payload.devicePreferences;
+  if (!isRecord(preferences) || typeof preferences.dailyTipsEnabled !== 'boolean') throw invalidBackup();
+  return { dailyTipsEnabled: preferences.dailyTipsEnabled };
 }
 
 /**
@@ -325,6 +337,7 @@ export function parseBackupPayload(payload, currentData = createDefaultPersisted
   if (!isRecord(payload)) throw invalidBackup();
   validateImportedVersion(payload.schemaVersion);
   if (payload.format === 'newdesktab-backup') {
+    parseBackupDevicePreferences(payload);
     return migrateImportedData(payload.data);
   }
 

@@ -193,6 +193,7 @@
     }
   },
   "daily": {
+    "disable": "Dezactivează sfaturile zilnice",
     "eyebrow": "UN MIC SFAT PENTRU AZI",
     "dismiss": "Respinge sfatul de astăzi",
     "read": "Arată-mi cum",
