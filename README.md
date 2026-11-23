@@ -21,14 +21,20 @@
 </p>
 
 <p align="center">
-  <a href="assets/promo/newdesktab-promo-1080p.mp4">
-    <img src="assets/promo/newdesktab-promo-poster.jpg" width="100%" alt="Watch New DeskTab: Your browser. Your space. — a 56-second product film">
+  <a href="https://www.youtube.com/watch?v=c87Vxgl1c90">
+    <img
+      src="https://img.youtube.com/vi/c87Vxgl1c90/maxresdefault.jpg"
+      width="100%"
+      alt="Watch New DeskTab promotional video on YouTube"
+    >
   </a>
 </p>
 
 <p align="center">
-  <a href="assets/promo/newdesktab-promo-1080p.mp4"><strong>▶ Watch the product film</strong></a><br>
-  <sub>Your browser. Your space. &nbsp;·&nbsp; 56 seconds &nbsp;·&nbsp; 1080p</sub>
+  <a href="https://www.youtube.com/watch?v=c87Vxgl1c90">
+    <strong>▶ Watch the product film on YouTube</strong>
+  </a><br>
+  <sub>Your browser. Your space. &nbsp;·&nbsp; 56 seconds</sub>
 </p>
 
 ## A home for the things you open every day
