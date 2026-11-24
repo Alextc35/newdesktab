@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Tìm các tùy chọn sao lưu trong Cài đặt → Chung.",
-        "Xuất tải xuống một tệp ZIP có dữ liệu và tệp cục bộ.",
+        "Xuất các bản tải xuống JSON hoặc ZIP khi bao gồm video địa phương.",
         "Nhập yêu cầu xác nhận trước khi thay thế dữ liệu."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Làm cách nào để nhóm dấu trang vào các thư mục?",
-      "searchTerms": "tạo thư mục; dấu trang nhóm; sắp xếp các mục yêu thích; xóa khỏi thư mục; đổi tên thư mục",
+      "searchTerms": "tạo thư mục; dấu trang nhóm; sắp xếp các mục yêu thích; xóa khỏi thư mục; đổi tên thư mục; thư mục con; thư mục lớn; trang; tiến lên; di chuyển xuống; sắp xếp lại hàng",
       "title": "Sắp xếp với các thư mục",
       "summary": "Thu thập dấu trang và thư mục con ở một nơi.",
       "steps": [
-        "Chọn + → Thư mục ở menu bên trái và đặt tên cho nó.",
-        "Ở chế độ chỉnh sửa, hãy kéo dấu trang vào đó để đặt chúng vào trong. Mở thư mục để xem lưới của nó.",
-        "Sử dụng chế độ chỉnh sửa của thư mục để sắp xếp dấu trang của nó. Nhấp vào tên của nó để đổi tên và biểu tượng của nó để tùy chỉnh giao diện của nó."
+        "Chọn + → Thư mục và đặt tên cho nó. Ở chế độ chỉnh sửa, hãy kéo dấu trang vào đó. Các bộ sưu tập nhỏ sử dụng lưới 3 × 6; các bộ sưu tập lớn hoặc lồng nhau sử dụng danh sách có thể tìm kiếm được với các trang gồm 54 mục.",
+        "Mở các thư mục con và sử dụng Quay lại hoặc đường dẫn để quay lại. Trong chế độ chỉnh sửa danh sách, hãy chọn một hàng và sử dụng Di chuyển lên hoặc Di chuyển xuống; Alt + ↑ / ↓ cũng di chuyển hàng được tập trung.",
+        "Các điều khiển chỉnh sửa, xóa và di chuyển xuất hiện ở bên phải mỗi hàng danh sách. Bấm vào tên thư mục để đổi tên hoặc điều khiển giao diện của nó để thay đổi kiểu dáng."
       ],
-      "note": "Việc xóa một thư mục cũng ảnh hưởng đến dấu trang của nó. Xem lại xác nhận trước khi tiếp tục; thùng rác có thể khôi phục các mục đã xóa.",
-      "tip": "Các thư mục hỗ trợ các bộ sưu tập lớn với tính năng tìm kiếm và trang. Bật chỉnh sửa và kéo thẻ vào thư mục để thêm thẻ đó."
+      "note": "Các thư mục không có giới hạn số lượng mục cố định. Thứ tự dấu trang và thư mục con được lưu cùng nhau. Di chuyển, sao chép, xóa hoặc khôi phục một thư mục bao gồm cây con hoàn chỉnh của nó; xem xét xác nhận xóa.",
+      "tip": "Các thư mục lớn có tìm kiếm và các trang gồm 54 mục. Trong chế độ chỉnh sửa danh sách, hãy chọn một hàng và sử dụng Di chuyển lên hoặc Di chuyển xuống hoặc nhấn Alt + ↑ / ↓ trên hàng được đặt tiêu điểm."
     },
     "workspaces": {
       "question": "Làm cách nào để tách biệt trang cá nhân và trang công việc?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Làm cách nào để sao lưu hoặc chuyển dữ liệu của tôi?",
-      "searchTerms": "bản sao lưu; xuất dữ liệu; bản sao nhập khẩu; khôi phục bản sao lưu; trình duyệt khác; truyền dữ liệu",
+      "searchTerms": "bản sao lưu; xuất dữ liệu; bản sao nhập khẩu; khôi phục bản sao lưu; trình duyệt khác; truyền dữ liệu; nhập Chrome dấu trang; HTML dấu trang; thư mục trống; chọn mặt hàng nhập khẩu",
       "title": "Sao lưu và nhập khẩu",
       "summary": "Giữ một bản sao không gian của bạn và mang nó theo bên mình.",
       "steps": [
-        "Trong Cài đặt → Chung xuất bản sao lưu đầy đủ để bảo toàn dữ liệu và các tệp cục bộ có trong kho lưu trữ ZIP.",
-        "Để khôi phục, hãy nhập bản sao lưu và xem lại xác nhận trước khi thay thế dữ liệu. Các bản sao lưu JSON tương thích cũng được hỗ trợ.",
-        "Trong Cài đặt → Dấu trang, bạn chỉ có thể xuất hoặc nhập dấu trang và thư mục khi không cần bản sao lưu đầy đủ."
+        "Trong Cài đặt → chung, xuất bản sao lưu đầy đủ trước khi thay thế dữ liệu hoặc thay đổi trình duyệt. Backup không sử dụng video địa phương JSON; những người có video địa phương sử dụng ZIP. Xem lại xác nhận thay thế trước khi khôi phục.",
+        "Để thêm dấu trang Chrome, hãy sử dụng Cài đặt → Dấu trang → Nhập từ Google Chrome hoặc Nhập tệp HTML. Hướng dẫn chào mừng đầu tiên cũng cung cấp tính năng nhập gốc khi phát hiện dấu trang được hỗ trợ.",
+        "Mở rộng Xem và chọn các mục để chọn liên kết hoặc thư mục, tìm kiếm hoặc chọn/bỏ chọn tất cả. Các thư mục trống bắt đầu được bỏ chọn bằng huy hiệu trống; liên kết hiển thị favicon. Xác nhận Nhập dấu trang: hộp thoại đóng sau khi lưu và đèn flash báo kết quả."
       ],
-      "note": "Xuất dấu trang không phải là bản sao lưu đầy đủ các cài đặt và phương tiện cục bộ. Lưu bản sao lưu trước khi khôi phục hoặc xóa dữ liệu.",
-      "tip": "Bản sao lưu đầy đủ từ Cài đặt → Chung bao gồm các tệp cục bộ trong ZIP. Nó hữu ích trước khi chuyển đổi trình duyệt hoặc khôi phục dữ liệu."
+      "note": "Chrome/HTML nhập thêm vào Chính, duy trì các mục hiện có và thứ tự nguồn. Nội dung trên thanh Dấu trang xuất hiện trực tiếp trên màn hình nền; các nhóm trình duyệt phổ biến khác sẽ giữ các thư mục của chúng, ngoại trừ một nhóm phẳng duy nhất. Cài đặt → Dấu trang cũng nhập và xuất New DeskTab JSON. Xuất dấu trang không bao gồm tất cả cài đặt và phương tiện cục bộ; giữ một bản sao lưu đầy đủ. Bản sao lưu JSON và ZIP đầy đủ sẽ duy trì tùy chọn tiền boa hàng ngày; bản sao lưu cũ hơn mà không có nó giữ nguyên lựa chọn hiện tại.",
+      "tip": "Nhập Chrome dấu trang hoặc tệp HTML từ Cài đặt → Dấu trang và chọn các mục trước. Sử dụng bản sao lưu đầy đủ từ Cài đặt → chung trước khi gỡ cài đặt hoặc thay thế không gian làm việc của bạn."
     },
     "sync": {
       "question": "Làm cách nào để sử dụng cùng một không gian trên một máy tính khác?",
@@ -470,7 +470,7 @@
       "steps": [
         "Đăng nhập và bật đồng bộ hóa tiện ích mở rộng trong hồ sơ Google Chrome của bạn.",
         "Trong Cài đặt → Đồng bộ hóa, chọn Đã đồng bộ hóa và chấp nhận xác nhận. Việc chuyển đổi sẽ có hiệu lực ngay lập tức: các dấu trang và cài đặt đã đồng bộ hóa hiện có sẽ được tải hoặc dữ liệu cục bộ đã lưu của bạn được đồng bộ hóa nếu không có dữ liệu nào tồn tại.",
-        "Sử dụng cùng một hồ sơ trên thiết bị khác. Kiểm tra trạng thái đồng bộ hóa và dung lượng trống trong bảng điều khiển."
+        "Sử dụng cùng cấu hình Google Chrome và tiện ích mở rộng ID trên thiết bị kia. Kiểm tra trạng thái đồng bộ hóa và dung lượng trống trong bảng điều khiển. Giữ một bản sao lưu đầy đủ riêng biệt trước khi gỡ cài đặt."
       ],
       "note": "Các tệp cục bộ, thùng rác và mẹo hàng ngày thuộc về từng thiết bị. Đồng bộ hóa có giới hạn lưu trữ; sử dụng URL thay thế cho hình ảnh và video địa phương. Việc chọn Địa phương cũng yêu cầu xác nhận và có hiệu lực ngay lập tức, giữ cho dữ liệu đã đồng bộ được lưu trữ.",
       "tip": "Đồng bộ hóa chia sẻ không gian của bạn trên các thiết bị nhưng các tệp cục bộ cần có URL thay thế. Xem Cài đặt → Đồng bộ hóa."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Làm cách nào để xóa dữ liệu của tôi hoặc đặt lại cài đặt?",
-      "searchTerms": "xóa dữ liệu; thiết lập lại cài đặt; loại bỏ mọi thứ; bắt đầu lại",
+      "searchTerms": "xóa dữ liệu; thiết lập lại cài đặt; loại bỏ mọi thứ; bắt đầu lại; gỡ cài đặt tiện ích mở rộng; cài đặt lại; cập nhật phần mở rộng; dấu trang bị mất",
       "title": "Lưu và đặt lại",
       "summary": "Hiểu những gì được lưu và những gì mỗi hành động loại bỏ.",
       "steps": [
@@ -498,7 +498,7 @@
         "Nếu thông báo đang chờ lưu xuất hiện, hãy nhấp vào Thử lưu lại và đợi xác nhận trước khi đóng tab.",
         "Trong Cài đặt → Chung, bạn có thể đặt lại cài đặt hoặc xóa tất cả dữ liệu. Đọc xác nhận và xuất bản sao lưu của mọi thứ bạn muốn giữ lại."
       ],
-      "note": "Việc đặt lại cài đặt sẽ giữ lại dấu trang của bạn, kích thước và kiểu dáng của chúng. Xóa tất cả dữ liệu cục bộ sẽ xóa các mục và làm trống thùng rác. Xuất bản sao lưu trước khi xóa: Hoàn tác không thay thế bản sao lưu.",
+      "note": "Việc đặt lại cài đặt sẽ giữ lại dấu trang, kích thước và kiểu dáng. Việc xóa dữ liệu cục bộ hoặc gỡ cài đặt sẽ xóa không gian làm việc, cài đặt, phương tiện và thùng rác cục bộ của cấu hình này. Quá trình cài đặt mới bắt đầu ở chế độ Địa phương mà không tự động khôi phục không gian cũ. Xuất bản sao lưu đầy đủ trước. Đối với các bản cập nhật đã giải nén, hãy thay thế các tệp và sử dụng Tải lại trên chrome://extensions bằng cùng khóa và tiện ích mở rộng ID.",
       "tip": "Nếu bạn thấy thông báo về các thay đổi chưa được lưu, hãy sử dụng Thử lưu lại trước khi đóng tab. Bảo vệ không gian của bạn với một bản sao lưu đầy đủ."
     },
     "learning": {

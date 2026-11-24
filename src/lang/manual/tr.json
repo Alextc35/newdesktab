@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Ayarlar → Genel bölümünde yedekleme seçeneklerini bulun.",
-        "Dışa aktarma, verileri ve yerel dosyaları içeren bir ZIP indirir.",
+        "İndirilenleri JSON veya yerel videolar dahil edildiğinde ZIP olarak dışa aktarın.",
         "İçe aktarma, verileri değiştirmeden önce onay ister."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Yer işaretlerini klasörler halinde nasıl gruplayabilirim?",
-      "searchTerms": "klasör oluştur; grup yer imleri; favorileri organize et; klasörden kaldır; klasörü yeniden adlandır",
+      "searchTerms": "klasör oluştur; grup yer imleri; favorileri organize et; klasörden kaldır; klasörü yeniden adlandırın; alt klasörler; büyük klasörler; sayfalar; yukarı hareket et; aşağı doğru hareket edin; satırları yeniden sırala",
       "title": "Klasörlerle düzenleme",
       "summary": "Yer işaretlerini ve alt klasörleri tek bir yerde toplayın.",
       "steps": [
-        "Soldaki menüden + → Klasör'ü seçin ve ona bir ad verin.",
-        "Düzenleme modunda, yer imlerini içine yerleştirmek için üzerine sürükleyin. Izgarasını görmek için klasörü açın.",
-        "Yer imlerini düzenlemek için klasörün düzenleme modunu kullanın. Yeniden adlandırmak için adına, görünümünü özelleştirmek için simgesine tıklayın."
+        "+ → Klasör'ü seçin ve ona bir ad verin. Düzenleme modunda yer imlerini bunun üzerine sürükleyin. Küçük koleksiyonlar 3 × 6 ızgarasını kullanır; büyük veya iç içe geçmiş koleksiyonlar, 54 öğeden oluşan sayfaları içeren aranabilir listeler kullanır.",
+        "Alt klasörleri açın ve geri dönmek için Geri veya içerik kırıntısını kullanın. Liste düzenleme modunda bir satır seçin ve Yukarı taşı veya Aşağı taşı kullanın; Alt + ↑ / ↓ aynı zamanda odaklanılan satırı da taşır.",
+        "Düzenleme, silme ve taşıma denetimleri her liste satırının sağında görünür. Yeniden adlandırmak için klasör adına veya stilini değiştirmek için görünüm kontrolüne tıklayın."
       ],
-      "note": "Bir klasörün silinmesi yer imlerini de etkiler. Devam etmeden önce onayı inceleyin; geri dönüşüm kutusu silinen öğeleri geri yükleyebilir.",
-      "tip": "Klasörler, arama ve sayfalar içeren büyük koleksiyonları destekler. Düzenlemeyi açın ve eklemek için bir kartı bir klasöre sürükleyin."
+      "note": "Klasörlerin sabit öğe sayısı sınırı yoktur. Yer imi ve alt klasör sırası birlikte kaydedilir. Bir klasörü taşımak, çoğaltmak, silmek veya geri yüklemek, onun alt ağacının tamamını içerir; silme onaylarını inceleyin.",
+      "tip": "Büyük klasörlerde arama ve 54 öğe içeren sayfalar bulunur. Liste düzenleme modunda bir satır seçin ve Yukarı taşı veya Aşağı taşı kullanın veya odaklanılan satırda Alt + ↑ / ↓ tuşuna basın."
     },
     "workspaces": {
       "question": "Kişisel ve çalışma sayfalarını nasıl ayrı tutabilirim?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Verilerimi nasıl yedekleyebilirim veya aktarabilirim?",
-      "searchTerms": "yedek kopya; verileri dışa aktarın; kopyayı içe aktar; yedeklemeyi geri yükle; başka bir tarayıcı; veri aktarımı",
+      "searchTerms": "yedek kopya; verileri dışa aktarın; kopyayı içe aktar; yedeklemeyi geri yükle; başka bir tarayıcı; veri aktarımı; Chrome yer imlerini içe aktarın; HTML yer imleri; boş klasör; içe aktarılan öğeleri seç",
       "title": "Yedeklemeler ve içe aktarmalar",
       "summary": "Alanınızın bir kopyasını saklayın ve yanınızda götürün.",
       "steps": [
-        "Ayarlar → Genel bölümünde, ZIP arşivinde bulunan verileri ve yerel dosyaları korumak için tam bir yedeği dışa aktarın.",
-        "Geri yüklemek için bir yedeği içe aktarın ve verileri değiştirmeden önce onayı inceleyin. Uyumlu JSON yedeklemeleri de desteklenmektedir.",
-        "Ayarlar → Yer İşaretleri'nde, tam bir yedeklemeye ihtiyacınız olmadığında yalnızca yer işaretlerini ve klasörleri dışa veya içe aktarabilirsiniz."
+        "Ayarlar → Genel'de, verileri değiştirmeden veya tarayıcıları değiştirmeden önce tam yedeği dışa aktarın. Yerel videoları olmayan Backup'lar JSON kullanır; yerel videoları olanlar ZIP kullanır. Birini geri yüklemeden önce değiştirme onayını inceleyin.",
+        "Chrome yer imleri eklemek için Ayarlar → Yer imleri → Google Chrome konumundan içe aktar veya HTML dosyasını içe aktar kullanın. İlk hoş geldiniz kılavuzu, desteklenen yer imleri algılandığında yerel içe aktarma olanağı da sunar.",
+        "Bağlantıları veya klasörleri seçmek, aramak veya tümünü seçmek/seçimini kaldırmak için Öğeleri görüntüleyin ve seçin öğesini genişletin. Boş klasörleri, Boş rozetiyle işaretsiz olarak başlar; bağlantılar favicon'ları gösterir. Yer işaretlerini içe aktar onaylayın: Kaydettikten sonra iletişim kutusu kapanır ve flaş sonucu bildirir."
       ],
-      "note": "Yer işaretinin dışa aktarımı, ayarların ve yerel medyanın tam bir yedeği değildir. Verileri geri yüklemeden veya silmeden önce bir yedek kaydedin.",
-      "tip": "Ayarlar → Genel'den tam yedekleme, ZIP'teki yerel dosyaları içerir. Tarayıcıları değiştirmeden veya verileri geri yüklemeden önce kullanışlıdır."
+      "note": "Chrome/HTML içe aktarmaları Ana Sayfa'ya eklenir ve mevcut öğeler ve kaynak sırası korunur. Yer imleri-bar içerikleri doğrudan masaüstüne gider; diğer doldurulmuş tarayıcı grupları, tek düz grup dışında klasörlerini korur. Ayarlar → Yer imleri aynı zamanda New DeskTab JSON'yi de içe ve dışa aktarır. Yer imi dışa aktarımı tüm ayarları ve yerel medyayı içermez; tam bir yedek bulundurun. Tam JSON ve ZIP yedeklemeleri günlük bahşiş tercihini korur; onsuz eski yedeklemeler mevcut seçimi korur.",
+      "tip": "Chrome yer imlerini veya HTML dosyasını Ayarlar → Yer imleri'den içe aktarın ve önce öğeleri seçin. Çalışma alanınızı kaldırmadan veya değiştirmeden önce Ayarlar → Genel adresinden tam yedekleme kullanın."
     },
     "sync": {
       "question": "Aynı alanı başka bir bilgisayarda nasıl kullanırım?",
@@ -470,7 +470,7 @@
       "steps": [
         "Google Chrome profilinizde oturum açın ve uzantı senkronizasyonunu etkinleştirin.",
         "Ayarlar → Senkronizasyon'da Senkronize edildi'yi seçin ve onayı kabul edin. Geçiş hemen etkili olur: mevcut senkronize yer imleri ve ayarlar yüklenir veya kayıtlı yerel verileriniz, mevcut değilse senkronize edilir.",
-        "Diğer cihazda aynı profili kullanın. Paneldeki senkronizasyon durumunu ve kullanılabilir alanı kontrol edin."
+        "Diğer cihazda aynı Google Chrome profilini ve ID uzantısını kullanın. Paneldeki senkronizasyon durumunu ve kullanılabilir alanı kontrol edin. Kaldırmadan önce ayrı bir tam yedekleme tutun."
       ],
       "note": "Yerel dosyalar, geri dönüşüm kutusu ve günlük ipuçları her cihaza aittir. Senkronizasyonun depolama sınırları vardır; yerel resimler ve videolar için alternatif URL'ler kullanın. Yerel seçeneğinin seçilmesi aynı zamanda onay ister ve anında etkili olur, senkronize edilmiş veriler kayıtlı kalır.",
       "tip": "Senkronizasyon, alanınızı cihazlar arasında paylaşır, ancak yerel dosyaların alternatif bir URL'ye ihtiyacı vardır. Bkz. Ayarlar → Senkronizasyon."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Verilerimi nasıl silerim veya ayarları nasıl sıfırlarım?",
-      "searchTerms": "verileri sil; ayarları sıfırla; her şeyi kaldırın; baştan başlamak",
+      "searchTerms": "verileri sil; ayarları sıfırla; her şeyi kaldırın; baştan başla; uzantıyı kaldırın; yeniden yükleyin; uzantıyı güncelle; kayıp yer imleri",
       "title": "Kaydetme ve sıfırlama",
       "summary": "Nelerin kaydedildiğini ve her eylemin neleri kaldırdığını anlayın.",
       "steps": [
@@ -498,7 +498,7 @@
         "Bekleyen kaydetme bildirimi görünürse, Kaydetmeyi yeniden dene'ye tıklayın ve sekmeyi kapatmadan önce onay bekleyin.",
         "Ayarlar → Genel'de ayarları sıfırlayabilir veya tüm verileri silebilirsiniz. Onayı okuyun ve saklamak istediğiniz her şeyin yedeğini dışa aktarın."
       ],
-      "note": "Ayarların sıfırlanması yer işaretlerinizi, boyutlarını ve stillerini korur. Tüm yerel verilerin silinmesi, öğeleri kaldırır ve geri dönüşüm kutusunu boşaltır. Bir yedeği silmeden önce dışa aktarın: Geri alma, yedeğin yerini almaz.",
+      "note": "Ayarların sıfırlanması yer işaretlerini, boyutları ve stilleri korur. Yerel verilerin silinmesi veya yüklemenin kaldırılması, bu profilin yerel çalışma alanını, ayarlarını, medyasını ve çöp kutusunu kaldırır. Eski alanı otomatik olarak geri yüklemeden Yerel modunda yeni bir yükleme başlar. Önce tam yedeği dışa aktarın. Paketlenmemiş güncellemeler için dosyaları değiştirin ve aynı anahtar ve ID uzantısıyla chrome://extensions üzerinde Yeniden Yükleme'yi kullanın.",
       "tip": "Kaydedilmemiş değişiklikler bildirimi görürseniz sekmeyi kapatmadan önce Kaydetmeyi yeniden dene seçeneğini kullanın. Tam yedeklemeyle alanınızı koruyun."
     },
     "learning": {

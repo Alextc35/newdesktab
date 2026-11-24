@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Trova le opzioni di backup in Impostazioni → Generale.",
-        "L'esportazione scarica uno ZIP con dati e file locali.",
+        "Esporta download JSON o ZIP quando sono inclusi video locali.",
         "L'importazione richiede conferma prima di sostituire i dati."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Come posso raggruppare i segnalibri in cartelle?",
-      "searchTerms": "creare cartella; segnalibri di gruppo; organizzare i preferiti; rimuovere dalla cartella; rinominare la cartella",
+      "searchTerms": "creare cartella; segnalibri di gruppo; organizzare i preferiti; rimuovere dalla cartella; rinominare la cartella; sottocartelle; cartelle di grandi dimensioni; pagine; salire; spostarsi verso il basso; riordinare le righe",
       "title": "Organizza con cartelle",
       "summary": "Raccogli segnalibri e sottocartelle in un unico posto.",
       "steps": [
-        "Scegli + → Cartella nel menu a sinistra e dagli un nome.",
-        "In modalità modifica, trascina i segnalibri su di esso per inserirli. Apri la cartella per vederne la griglia.",
-        "Utilizza la modalità di modifica della cartella per organizzare i suoi segnalibri. Fare clic sul suo nome per rinominarlo e sulla sua icona per personalizzarne l'aspetto."
+        "Scegli + → Cartella e dagli un nome. In modalità modifica, trascina i segnalibri su di esso. Le piccole raccolte utilizzano una griglia 3 × 6; le raccolte grandi o nidificate utilizzano elenchi ricercabili con pagine di elementi 54.",
+        "Apri le sottocartelle e utilizza Indietro o il breadcrumb per tornare. Nella modalità di modifica elenco, seleziona una riga e utilizza Vai su o Spostati giù; Alt + ↑ / ↓ sposta anche la riga focalizzata.",
+        "I controlli di modifica, eliminazione e spostamento vengono visualizzati a destra di ciascuna riga dell'elenco. Fare clic sul nome della cartella per rinominarla o sul controllo dell'aspetto per modificarne lo stile."
       ],
-      "note": "L'eliminazione di una cartella influisce anche sui suoi segnalibri. Rivedere la conferma prima di continuare; il cestino può ripristinare gli elementi eliminati.",
-      "tip": "Le cartelle supportano raccolte di grandi dimensioni con ricerca e pagine. Attiva la modifica e trascina una scheda su una cartella per aggiungerla."
+      "note": "Le cartelle non hanno un limite fisso di conteggio degli elementi. L'ordine dei segnalibri e delle sottocartelle viene salvato insieme. Lo spostamento, la duplicazione, l'eliminazione o il ripristino di una cartella include il suo sottoalbero completo; rivedere le conferme di eliminazione.",
+      "tip": "Le cartelle di grandi dimensioni contengono pagine di ricerca e di 54 elementi. Nella modalità di modifica elenco, seleziona una riga e utilizza Vai su o Spostati giù oppure premi Alt + ↑ / ↓ sulla riga evidenziata."
     },
     "workspaces": {
       "question": "Come faccio a tenere separate le pagine personali e di lavoro?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Come posso eseguire il backup o trasferire i miei dati?",
-      "searchTerms": "copia di backup; esportare dati; importare copia; ripristinare il backup; un altro browser; trasferire i dati",
+      "searchTerms": "copia di backup; esportare dati; importare copia; ripristinare il backup; un altro browser; trasferire dati; importa Chrome segnalibri; HTML segnalibri; cartella vuota; seleziona gli elementi importati",
       "title": "Backup e importazioni",
       "summary": "Conserva una copia del tuo spazio e portala con te.",
       "steps": [
-        "In Impostazioni → Generali esporta un backup completo per preservare i dati e i file locali inclusi nell'archivio ZIP.",
-        "Per ripristinare, importa un backup e rivedi la conferma prima di sostituire i dati. Sono supportati anche i backup JSON compatibili.",
-        "In Impostazioni → Segnalibri puoi esportare o importare solo segnalibri e cartelle quando non hai bisogno di un backup completo."
+        "In Impostazioni → Generale, esporta un backup completo prima di sostituire i dati o cambiare browser. Backup senza video locali utilizzano JSON; quelli con video locali usano ZIP. Rivedi la conferma della sostituzione prima di ripristinarne una.",
+        "Per aggiungere segnalibri Chrome, utilizza Impostazioni → Segnalibri → Importa da Google Chrome o Importa file HTML. La prima guida di benvenuto offre anche l'importazione nativa quando vengono rilevati segnalibri supportati.",
+        "Espandi Visualizza e seleziona gli elementi per scegliere collegamenti o cartelle, cercare o selezionare/deselezionare tutto. Le cartelle Vuoto iniziano deselezionate con un badge Vuoto; i collegamenti mostrano le favicon. Conferma Importa segnalibri: la finestra di dialogo si chiude dopo il salvataggio e un flash riporta il risultato."
       ],
-      "note": "L'esportazione dei segnalibri non è un backup completo delle impostazioni e dei supporti locali. Salva un backup prima di ripristinare o eliminare i dati.",
-      "tip": "Un backup completo da Impostazioni → Generale include i file locali in uno ZIP. È utile prima di cambiare browser o ripristinare i dati."
+      "note": "Le importazioni di Chrome/HTML vengono aggiunte a Principale, preservando gli articoli esistenti e l'ordine di origine. I contenuti della Segnalibri-bar vanno direttamente sul desktop; altri bucket del browser popolati mantengono le proprie cartelle, ad eccezione di un unico bucket piatto. Impostazioni → Segnalibri importa ed esporta anche New DeskTab JSON. L'esportazione di un segnalibro non include tutte le impostazioni e i media locali; mantenere un backup completo. I backup completi di JSON e ZIP preservano la preferenza del suggerimento giornaliero; i backup più vecchi senza di esso mantengono la scelta corrente.",
+      "tip": "Importa i segnalibri Chrome o un file HTML da Impostazioni → Segnalibri e scegli prima gli elementi. Utilizza un backup completo da Impostazioni → Generale prima di disinstallare o sostituire lo spazio di lavoro."
     },
     "sync": {
       "question": "Come posso utilizzare lo stesso spazio su un altro computer?",
@@ -470,7 +470,7 @@
       "steps": [
         "Accedi e attiva la sincronizzazione delle estensioni nel tuo profilo Google Chrome.",
         "In Impostazioni → Sincronizzazione scegli Sincronizzato e accetta la conferma. Il passaggio ha effetto immediato: i segnalibri e le impostazioni sincronizzati esistenti vengono caricati oppure i dati locali salvati vengono sincronizzati se non ne esistono.",
-        "Utilizza lo stesso profilo sull'altro dispositivo. Controlla lo stato della sincronizzazione e lo spazio disponibile nel pannello."
+        "Utilizza lo stesso profilo Google Chrome e l'estensione ID sull'altro dispositivo. Controlla lo stato della sincronizzazione e lo spazio disponibile nel pannello. Conservare un backup completo separato prima della disinstallazione."
       ],
       "note": "I file locali, il cestino e i suggerimenti giornalieri appartengono a ciascun dispositivo. La sincronizzazione ha limiti di archiviazione; utilizzare URL alternativi per immagini e video locali. Anche la scelta Locale richiede conferma ed ha effetto immediato, mantenendo memorizzati i dati sincronizzati.",
       "tip": "La sincronizzazione condivide il tuo spazio su più dispositivi, ma i file locali necessitano di un URL alternativo. Vedi Impostazioni → Sincronizzazione."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Come posso eliminare i miei dati o ripristinare le impostazioni?",
-      "searchTerms": "cancellare i dati; ripristinare le impostazioni; rimuovere tutto; ricominciare da capo",
+      "searchTerms": "cancellare i dati; ripristinare le impostazioni; rimuovere tutto; ricominciare; disinstallare l'estensione; reinstallare; aggiornamento estensione; segnalibri perduti",
       "title": "Salvataggio e ripristino",
       "summary": "Comprendi cosa viene salvato e cosa rimuove ogni azione.",
       "steps": [
@@ -498,7 +498,7 @@
         "Se viene visualizzato un avviso di salvataggio in sospeso, fare clic su Riprova a salvare e attendere la conferma prima di chiudere la scheda.",
         "In Impostazioni → Generale è possibile ripristinare le impostazioni o eliminare tutti i dati. Leggi la conferma ed esporta un backup di tutto ciò che desideri conservare."
       ],
-      "note": "Il ripristino delle impostazioni mantiene i tuoi segnalibri, le loro dimensioni e i loro stili. L'eliminazione di tutti i dati locali rimuove gli elementi e svuota il cestino. Esporta un backup prima di eliminarlo: l'annullamento non sostituisce un backup.",
+      "note": "Il ripristino delle impostazioni mantiene segnalibri, dimensioni e stili. L'eliminazione dei dati locali o la disinstallazione rimuove l'area di lavoro locale, le impostazioni, i contenuti multimediali e il cestino di questo profilo. Una nuova installazione viene avviata in modalità Locale senza ripristinare automaticamente il vecchio spazio. Esporta prima un backup completo. Per gli aggiornamenti decompressi, sostituisci i file e utilizza Ricarica su chrome://extensions con la stessa chiave ed estensione ID.",
       "tip": "Se viene visualizzato un avviso di modifiche non salvate, utilizzare Riprova a salvare prima di chiudere la scheda. Proteggi il tuo spazio con un backup completo."
     },
     "learning": {

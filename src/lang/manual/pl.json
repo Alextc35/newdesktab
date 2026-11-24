@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Znajdź opcje tworzenia kopii zapasowych w Ustawieniach → Ogólne.",
-        "Eksportuj pobiera plik ZIP z danymi i plikami lokalnymi.",
+        "Eksportuj pobrane pliki JSON lub ZIP, jeśli uwzględnione są lokalne filmy.",
         "Import wymaga potwierdzenia przed zastąpieniem danych."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Jak pogrupować zakładki w foldery?",
-      "searchTerms": "utwórz folder; zakładki grupowe; organizuj ulubione; usuń z folderu; zmień nazwę folderu",
+      "searchTerms": "utwórz folder; zakładki grupowe; organizuj ulubione; usuń z folderu; zmień nazwę folderu; podfoldery; duże foldery; strony; podnieść; opuszczać; zmienić kolejność wierszy",
       "title": "Porządkuj za pomocą folderów",
       "summary": "Zbierz zakładki i podfoldery w jednym miejscu.",
       "steps": [
-        "Wybierz + → Folder z lewego menu i nadaj mu nazwę.",
-        "W trybie edycji przeciągnij na niego zakładki, aby umieścić je w środku. Otwórz folder, aby zobaczyć jego siatkę.",
-        "Użyj trybu edycji folderu, aby uporządkować jego zakładki. Kliknij jego nazwę, aby zmienić nazwę, oraz ikonę, aby dostosować jej wygląd."
+        "Wybierz + → Folder i nadaj mu nazwę. W trybie edycji przeciągnij na niego zakładki. Małe kolekcje korzystają z siatki 3 × 6; duże lub zagnieżdżone kolekcje korzystają z przeszukiwalnych list zawierających strony zawierające 54 elementów.",
+        "Otwórz podfoldery i użyj Powrót lub bułki tartej, aby wrócić. W trybie edycji listy wybierz wiersz i użyj Przesuń się w górę lub Przesuń w dół; Alt + ↑ / ↓ również przesuwa wybrany wiersz.",
+        "Elementy sterujące edycją, usuwaniem i przenoszeniem pojawiają się po prawej stronie każdego wiersza listy. Kliknij nazwę folderu, aby zmienić jego nazwę, lub element sterujący jego wyglądem, aby zmienić jego styl."
       ],
-      "note": "Usunięcie folderu wpływa również na jego zakładki. Przed kontynuowaniem przejrzyj potwierdzenie; kosz może przywrócić usunięte elementy.",
-      "tip": "Foldery obsługują duże kolekcje z wyszukiwaniem i stronami. Włącz edycję i przeciągnij kartę do folderu, aby ją dodać."
+      "note": "Foldery nie mają stałego limitu liczby elementów. Kolejność zakładek i podfolderów jest zapisywana razem. Przenoszenie, powielanie, usuwanie lub przywracanie folderu obejmuje jego całe poddrzewo; przejrzyj potwierdzenia usunięcia.",
+      "tip": "Duże foldery zawierają wyszukiwanie i strony zawierające 54 elementów. W trybie edycji listy wybierz wiersz i użyj Przesuń się w górę lub Przesuń w dół albo naciśnij Alt + ↑ / ↓ w wybranym wierszu."
     },
     "workspaces": {
       "question": "Jak oddzielić strony osobiste od służbowych?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Jak wykonać kopię zapasową lub przenieść moje dane?",
-      "searchTerms": "kopia zapasowa; eksportuj dane; kopia importu; przywrócić kopię zapasową; inna przeglądarka; przesyłać dane",
+      "searchTerms": "kopia zapasowa; eksportuj dane; kopia importu; przywrócić kopię zapasową; inna przeglądarka; przesyłać dane; importuj Chrome zakładki; HTML zakładki; pusty folder; wybierz importowane elementy",
       "title": "Kopie zapasowe i importy",
       "summary": "Zachowaj kopię swojej przestrzeni i zabierz ją ze sobą.",
       "steps": [
-        "W Ustawieniach → Ogólne wyeksportuj pełną kopię zapasową, aby zachować dane i pliki lokalne zawarte w archiwum ZIP.",
-        "Aby przywrócić, zaimportuj kopię zapasową i przejrzyj potwierdzenie przed wymianą danych. Obsługiwane są także kompatybilne kopie zapasowe JSON.",
-        "W Ustawieniach → Zakładki możesz eksportować lub importować tylko zakładki i foldery, jeśli nie potrzebujesz pełnej kopii zapasowej."
+        "W Ustawienia → Generał wyeksportuj pełną kopię zapasową przed wymianą danych lub zmianą przeglądarki. Backups bez użycia lokalnych filmów wideo JSON; osoby posiadające lokalne filmy wideo używają ZIP. Przed przywróceniem przejrzyj potwierdzenie wymiany.",
+        "Aby dodać zakładki Chrome, użyj Ustawienia → Zakładki → Importuj z Google Chrome lub Zaimportuj plik HTML. Pierwszy przewodnik powitalny oferuje także natywny import w przypadku wykrycia obsługiwanych zakładek.",
+        "Rozwiń Wyświetl i wybierz elementy, aby wybrać łącza lub foldery, wyszukać lub zaznaczyć/odznaczyć wszystko. Pusty foldery zaczynają się od zaznaczenia i mają plakietkę Pusty; linki pokazują ikony ulubionych. Potwierdź Importuj zakładki: okno dialogowe zamyka się po zapisaniu, a flash informuje o wyniku."
       ],
-      "note": "Eksport zakładek nie jest pełną kopią zapasową ustawień i multimediów lokalnych. Zapisz kopię zapasową przed przywróceniem lub usunięciem danych.",
-      "tip": "Pełna kopia zapasowa z poziomu Ustawienia → Ogólne zawiera pliki lokalne w formacie ZIP. Przydaje się przed zmianą przeglądarki lub przywróceniem danych."
+      "note": "Importy Chrome/HTML dodają do Główny, zachowując istniejące elementy i porządek źródłowy. Zawartość paska Zakładki trafia bezpośrednio na pulpit; inne zapełnione segmenty przeglądarki zachowują swoje foldery, z wyjątkiem jedynego płaskiego segmentu. Ustawienia → Zakładki również importuje i eksportuje New DeskTab JSON. Eksport zakładek nie obejmuje wszystkich ustawień i multimediów lokalnych; zachowaj pełną kopię zapasową. Pełne kopie zapasowe JSON i ZIP zachowują preferencje dotyczące codziennych napiwków; starsze kopie zapasowe bez niego zachowują bieżący wybór.",
+      "tip": "Zaimportuj zakładki Chrome lub plik HTML z Ustawienia → Zakładki i najpierw wybierz elementy. Użyj pełnej kopii zapasowej z Ustawienia → Generał przed odinstalowaniem lub wymianą obszaru roboczego."
     },
     "sync": {
       "question": "Jak wykorzystać to samo miejsce na innym komputerze?",
@@ -470,7 +470,7 @@
       "steps": [
         "Zaloguj się i włącz synchronizację rozszerzeń w swoim profilu Google Chrome.",
         "W Ustawieniach → Synchronizacja wybierz Synchronizowane i zaakceptuj potwierdzenie. Zmiana zaczyna obowiązywać natychmiast: istniejące zsynchronizowane zakładki i ustawienia zostaną załadowane lub zapisane dane lokalne zostaną zsynchronizowane, jeśli ich nie ma.",
-        "Użyj tego samego profilu na drugim urządzeniu. Sprawdź status synchronizacji i dostępną przestrzeń w panelu."
+        "Użyj tego samego profilu i rozszerzenia Google Chrome ID na drugim urządzeniu. Sprawdź status synchronizacji i dostępną przestrzeń w panelu. Przed odinstalowaniem wykonaj oddzielną pełną kopię zapasową."
       ],
       "note": "Pliki lokalne, kosz i codzienne napiwki należą do każdego urządzenia. Synchronizacja ma limity miejsca; używaj alternatywnych adresów URL dla lokalnych obrazów i filmów. Wybranie opcji Lokalny również wymaga potwierdzenia i skutkuje natychmiastowo, zachowując zsynchronizowane dane.",
       "tip": "Synchronizacja udostępnia Twoją przestrzeń między urządzeniami, ale pliki lokalne wymagają alternatywnego adresu URL. Zobacz Ustawienia → Synchronizacja."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Jak usunąć swoje dane lub zresetować ustawienia?",
-      "searchTerms": "usunąć dane; zresetuj ustawienia; usuń wszystko; zacznij od nowa",
+      "searchTerms": "usunąć dane; zresetuj ustawienia; usuń wszystko; zacząć od nowa; odinstaluj rozszerzenie; zainstaluj ponownie; aktualizacja rozszerzenia; zgubione zakładki",
       "title": "Zapisywanie i resetowanie",
       "summary": "Zrozum, co jest zapisywane i co usuwa każde działanie.",
       "steps": [
@@ -498,7 +498,7 @@
         "Jeśli pojawi się powiadomienie o oczekującym zapisie, kliknij Ponów próbę zapisu i poczekaj na potwierdzenie przed zamknięciem karty.",
         "W Ustawienia → Ogólne możesz zresetować ustawienia lub usunąć wszystkie dane. Przeczytaj potwierdzenie i wyeksportuj kopię zapasową wszystkiego, co chcesz zachować."
       ],
-      "note": "Zresetowanie ustawień powoduje zachowanie zakładek, ich rozmiarów i stylów. Usunięcie wszystkich danych lokalnych powoduje usunięcie elementów i opróżnienie kosza. Eksportuj kopię zapasową przed usunięciem: Cofnięcie nie zastępuje kopii zapasowej.",
+      "note": "Zresetowanie ustawień powoduje zachowanie zakładek, rozmiarów i stylów. Usunięcie danych lokalnych lub odinstalowanie powoduje usunięcie lokalnego obszaru roboczego, ustawień, multimediów i kosza tego profilu. Nowa instalacja rozpoczyna się w trybie Lokalny bez automatycznego przywracania starego miejsca. Najpierw wyeksportuj pełną kopię zapasową. W przypadku rozpakowanych aktualizacji zamień pliki i użyj opcji Załaduj ponownie na chrome://extensions z tym samym kluczem i rozszerzeniem ID.",
       "tip": "Jeśli zobaczysz powiadomienie o niezapisanych zmianach, użyj opcji Spróbuj zapisać ponownie przed zamknięciem karty. Chroń swoją przestrzeń dzięki pełnej kopii zapasowej."
     },
     "learning": {

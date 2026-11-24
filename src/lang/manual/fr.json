@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Recherchez les options de sauvegarde dans Paramètres → Général.",
-        "L'exportation télécharge un ZIP avec des données et des fichiers locaux.",
+        "Exportez les téléchargements JSON ou ZIP lorsque des vidéos locales sont incluses.",
         "L'importation demande une confirmation avant de remplacer les données."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Comment regrouper les favoris dans des dossiers ?",
-      "searchTerms": "créer un dossier ; signets de groupe ; organiser les favoris ; supprimer du dossier ; renommer le dossier",
+      "searchTerms": "créer un dossier ; signets de groupe ; organiser les favoris ; supprimer du dossier ; renommer le dossier ; sous-dossiers ; gros dossiers; pages ; monter; descendre; réorganiser les lignes",
       "title": "Organiser avec des dossiers",
       "summary": "Rassemblez les signets et les sous-dossiers en un seul endroit.",
       "steps": [
-        "Choisissez + → Dossier dans le menu de gauche et donnez-lui un nom.",
-        "En mode édition, faites glisser les signets dessus pour les insérer. Ouvrez le dossier pour voir sa grille.",
-        "Utilisez le mode d'édition du dossier pour organiser ses signets. Cliquez sur son nom pour le renommer et sur son icône pour personnaliser son apparence."
+        "Choisissez + → Dossier et donnez-lui un nom. En mode édition, faites glisser les signets dessus. Les petites collections utilisent une grille 3 × 6 ; les collections volumineuses ou imbriquées utilisent des listes consultables avec des pages d'éléments 54.",
+        "Ouvrez les sous-dossiers et utilisez Retour ou le fil d'Ariane pour revenir. En mode édition de liste, sélectionnez une ligne et utilisez Monter ou Descendre ; Alt + ↑ / ↓ déplace également la ligne ciblée.",
+        "Les contrôles de modification, de suppression et de déplacement apparaissent à droite de chaque ligne de la liste. Cliquez sur le nom du dossier pour le renommer ou sur son contrôle d'apparence pour modifier son style."
       ],
-      "note": "La suppression d'un dossier affecte également ses favoris. Vérifiez la confirmation avant de continuer ; la corbeille peut restaurer les éléments supprimés.",
-      "tip": "Les dossiers prennent en charge de grandes collections avec recherche et pages. Activez l'édition et faites glisser une carte sur un dossier pour l'ajouter."
+      "note": "Les dossiers n’ont pas de limite fixe de nombre d’éléments. L’ordre des signets et des sous-dossiers est enregistré ensemble. Le déplacement, la duplication, la suppression ou la restauration d'un dossier inclut sa sous-arborescence complète ; examiner les confirmations de suppression.",
+      "tip": "Les dossiers volumineux contiennent des recherches et des pages d'éléments 54. En mode édition de liste, sélectionnez une ligne et utilisez Monter ou Descendre, ou appuyez sur Alt + ↑ / ↓ sur la ligne sélectionnée."
     },
     "workspaces": {
       "question": "Comment séparer les pages personnelles et professionnelles ?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Comment sauvegarder ou transférer mes données ?",
-      "searchTerms": "copie de sauvegarde ; exporter des données ; importer une copie ; restaurer la sauvegarde ; un autre navigateur ; transférer des données",
+      "searchTerms": "copie de sauvegarde ; exporter des données ; importer une copie ; restaurer la sauvegarde ; un autre navigateur ; transférer des données ; importer les signets Chrome ; HTML signets ; dossier vide ; sélectionner les éléments importés",
       "title": "Sauvegardes et importations",
       "summary": "Conservez une copie de votre espace et emportez-la avec vous.",
       "steps": [
-        "Dans Paramètres → Général, exportez une sauvegarde complète pour préserver les données et les fichiers locaux inclus dans l'archive ZIP.",
-        "Pour restaurer, importez une sauvegarde et vérifiez la confirmation avant de remplacer les données. Les sauvegardes JSON compatibles sont également prises en charge.",
-        "Dans Paramètres → Signets, vous pouvez exporter ou importer uniquement des signets et des dossiers lorsque vous n'avez pas besoin d'une sauvegarde complète."
+        "Dans Paramètres → Général, exportez une sauvegarde complète avant de remplacer les données ou de changer de navigateur. Backups sans vidéos locales utilisent JSON ; ceux qui ont des vidéos locales utilisent ZIP. Vérifiez la confirmation de remplacement avant d'en restaurer une.",
+        "Pour ajouter des favoris Chrome, utilisez Paramètres → Signets → Importer depuis Google Chrome ou Importer un fichier HTML. Le premier guide de bienvenue propose également l'importation native lorsque des signets pris en charge sont détectés.",
+        "Développez Afficher et sélectionner des éléments pour choisir des liens ou des dossiers, rechercher ou tout sélectionner/désélectionner. Les dossiers Vide démarrent sans contrôle avec un badge Vide ; les liens affichent des favicons. Confirmez Importer des favoris : la boîte de dialogue se ferme après la sauvegarde et un flash rapporte le résultat."
       ],
-      "note": "Une exportation de favoris n'est pas une sauvegarde complète des paramètres et des médias locaux. Enregistrez une sauvegarde avant de restaurer ou de supprimer des données.",
-      "tip": "Une sauvegarde complète depuis Paramètres → Général inclut les fichiers locaux dans un ZIP. C'est utile avant de changer de navigateur ou de restaurer des données."
+      "note": "Les importations Chrome/HTML s'ajoutent à Principal, en préservant les éléments existants et l'ordre des sources. Le contenu de la barre Signets va directement sur le bureau ; les autres compartiments de navigateur remplis conservent leurs dossiers, à l'exception d'un seul compartiment plat. Paramètres → Signets importe et exporte également New DeskTab JSON. Une exportation de favoris n'inclut pas tous les paramètres et médias locaux ; conserver une sauvegarde complète. Les sauvegardes complètes JSON et ZIP préservent la préférence de pourboire quotidien ; les sauvegardes plus anciennes sans cela conservent le choix actuel.",
+      "tip": "Importez des signets Chrome ou un fichier HTML depuis Paramètres → Signets et choisissez d'abord les éléments. Utilisez une sauvegarde complète de Paramètres → Général avant de désinstaller ou de remplacer votre espace de travail."
     },
     "sync": {
       "question": "Comment utiliser le même espace sur un autre ordinateur ?",
@@ -470,7 +470,7 @@
       "steps": [
         "Connectez-vous et activez la synchronisation des extensions dans votre profil Google Chrome.",
         "Dans Paramètres → Synchronisation, choisissez Synchronisé et acceptez la confirmation. Le changement prend effet immédiatement : les signets et paramètres synchronisés existants sont chargés, ou vos données locales enregistrées sont synchronisées s'il n'en existe pas.",
-        "Utilisez le même profil sur l'autre appareil. Vérifiez l'état de synchronisation et l'espace disponible dans le panneau."
+        "Utilisez le même profil Google Chrome et la même extension ID sur l'autre appareil. Vérifiez l'état de synchronisation et l'espace disponible dans le panneau. Conservez une sauvegarde complète distincte avant de désinstaller."
       ],
       "note": "Les fichiers locaux, la corbeille et les astuces quotidiennes appartiennent à chaque appareil. La synchronisation a des limites de stockage ; utilisez des URL alternatives pour les images et vidéos locales. Choisir Locale demande également une confirmation et prend effet immédiatement, en conservant les données synchronisées stockées.",
       "tip": "La synchronisation partage votre espace sur plusieurs appareils, mais les fichiers locaux nécessitent une URL alternative. Voir Paramètres → Synchronisation."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Comment supprimer mes données ou réinitialiser les paramètres ?",
-      "searchTerms": "supprimer des données ; réinitialiser les paramètres ; supprimez tout ; recommencer",
+      "searchTerms": "supprimer des données ; réinitialiser les paramètres ; supprimez tout ; recommencer ; désinstaller l'extension ; réinstaller ; extension de mise à jour ; signets perdus",
       "title": "Sauvegarde et réinitialisation",
       "summary": "Comprenez ce qui est enregistré et ce que chaque action supprime.",
       "steps": [
@@ -498,7 +498,7 @@
         "Si un avis de sauvegarde en attente apparaît, cliquez sur Réessayer de sauvegarder et attendez la confirmation avant de fermer l'onglet.",
         "Dans Paramètres → Général, vous pouvez réinitialiser les paramètres ou supprimer toutes les données. Lisez la confirmation et exportez une sauvegarde de tout ce que vous souhaitez conserver."
       ],
-      "note": "La réinitialisation des paramètres conserve vos favoris, leurs tailles et leurs styles. La suppression de toutes les données locales supprime les éléments et vide la corbeille. Exporter une sauvegarde avant de la supprimer : Annuler ne remplace pas une sauvegarde.",
+      "note": "La réinitialisation des paramètres conserve les signets, les tailles et les styles. La suppression des données locales ou la désinstallation supprime l'espace de travail local, les paramètres, les médias et la corbeille de ce profil. Une nouvelle installation démarre en mode Locale sans restaurer automatiquement l'ancien espace. Exportez d’abord une sauvegarde complète. Pour les mises à jour décompressées, remplacez les fichiers et utilisez Reload sur chrome://extensions avec la même clé et la même extension ID.",
       "tip": "Si vous voyez un avis de modifications non enregistrées, utilisez Réessayer d’enregistrer avant de fermer l’onglet. Protégez votre espace avec une sauvegarde complète."
     },
     "learning": {

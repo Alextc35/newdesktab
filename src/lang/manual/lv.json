@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Atrodiet dublēšanas opcijas sadaļā Iestatījumi → Vispārīgi.",
-        "Eksportēt lejupielādes ZIP ar datiem un vietējiem failiem.",
+        "Eksportējiet lejupielādes JSON vai ZIP, ja ​​ir iekļauti vietējie videoklipi.",
         "Importēšana prasa apstiprinājumu pirms datu aizstāšanas."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Kā grupēt grāmatzīmes mapēs?",
-      "searchTerms": "izveidot mapi; grupu grāmatzīmes; organizēt izlasi; noņemt no mapes; pārdēvēt mapi",
+      "searchTerms": "izveidot mapi; grupu grāmatzīmes; organizēt izlasi; noņemt no mapes; pārdēvēt mapi; apakšmapes; lielas mapes; lapas; pārvietoties uz augšu; pārvietoties uz leju; pārkārtot rindas",
       "title": "Kārtojiet ar mapēm",
       "summary": "Apkopojiet grāmatzīmes un apakšmapes vienuviet.",
       "steps": [
-        "Kreisajā izvēlnē izvēlieties + → Mape un piešķiriet tai nosaukumu.",
-        "Rediģēšanas režīmā velciet uz tā grāmatzīmes, lai tās ievietotu. Atveriet mapi, lai redzētu tās režģi.",
-        "Izmantojiet mapes rediģēšanas režīmu, lai sakārtotu tās grāmatzīmes. Noklikšķiniet uz tā nosaukuma, lai to pārdēvētu, un uz ikonas, lai pielāgotu tā izskatu."
+        "Izvēlieties + → Mape un piešķiriet tai nosaukumu. Rediģēšanas režīmā velciet uz tā grāmatzīmes. Mazās kolekcijās tiek izmantots režģis 3 × 6; lielas vai ligzdotas kolekcijas izmanto meklējamus sarakstus ar 54 vienumu lapām.",
+        "Atveriet apakšmapes un izmantojiet Atpakaļ vai hierarhisku, lai atgrieztos. Saraksta rediģēšanas režīmā atlasiet rindu un izmantojiet Pārvietojieties uz augšu vai Pārvietojieties uz leju; Alt + ↑ / ↓ arī pārvieto fokusēto rindu.",
+        "Rediģēšanas, dzēšanas un pārvietošanas vadīklas ir redzamas katras saraksta rindas labajā pusē. Noklikšķiniet uz mapes nosaukuma, lai to pārdēvētu, vai tās izskata vadīklas, lai mainītu tās stilu."
       ],
-      "note": "Mapes dzēšana ietekmē arī tās grāmatzīmes. Pirms turpināt, pārskatiet apstiprinājumu; atkritne var atjaunot izdzēstos vienumus.",
-      "tip": "Mapes atbalsta lielas kolekcijas ar meklēšanu un lapām. Ieslēdziet rediģēšanu un velciet karti uz mapi, lai to pievienotu."
+      "note": "Mapēm nav fiksēta vienumu skaita ierobežojuma. Grāmatzīmju un apakšmapes secība tiek saglabāta kopā. Mapes pārvietošana, dublēšana, dzēšana vai atjaunošana ietver visu tās apakškoku; pārskatiet dzēšanas apstiprinājumus.",
+      "tip": "Lielajās mapēs ir meklēšana un 54 vienumu lapas. Saraksta rediģēšanas režīmā atlasiet rindu un izmantojiet Pārvietojieties uz augšu vai Pārvietojieties uz leju, vai nospiediet Alt + ↑ / ↓ fokusētajā rindā."
     },
     "workspaces": {
       "question": "Kā nodalīt personīgās un darba lapas?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Kā dublēt vai pārsūtīt savus datus?",
-      "searchTerms": "rezerves kopija; eksportēt datus; importa kopiju; atjaunot dublējumu; cita pārlūkprogramma; pārsūtīt datus",
+      "searchTerms": "rezerves kopija; eksportēt datus; importa kopiju; atjaunot dublējumu; cita pārlūkprogramma; pārsūtīt datus; importēt Chrome grāmatzīmes; HTML grāmatzīmes; tukša mape; atlasiet importētos vienumus",
       "title": "Dublējumkopijas un importēšana",
       "summary": "Saglabājiet savas vietas kopiju un ņemiet to līdzi.",
       "steps": [
-        "Sadaļā Iestatījumi → Vispārīgi eksportējiet pilnu dublējumu, lai saglabātu datus un ZIP arhīvā iekļautos vietējos failus.",
-        "Lai atjaunotu, importējiet dublējumu un pirms datu aizstāšanas pārskatiet apstiprinājumu. Tiek atbalstīti arī saderīgi JSON dublējumkopijas.",
-        "Sadaļā Iestatījumi → Grāmatzīmes varat eksportēt vai importēt tikai grāmatzīmes un mapes, kad nav nepieciešama pilnīga dublēšana."
+        "Mapē Iestatījumi → Ģenerālis eksportējiet pilnu dublējumu pirms datu aizstāšanas vai pārlūkprogrammu maiņas. Backups bez vietējiem videoklipiem izmanto JSON; tie, kuriem ir vietējie videoklipi, izmanto ZIP. Pirms tā atjaunošanas pārskatiet nomaiņas apstiprinājumu.",
+        "Lai pievienotu Chrome grāmatzīmes, izmantojiet Iestatījumi → Grāmatzīmes → Importēt no Google Chrome vai Importēt HTML failu. Pirmajā sveiciena ceļvedī tiek piedāvāta arī vietējā importēšana, kad tiek noteiktas atbalstītās grāmatzīmes.",
+        "Izvērsiet Skatiet un atlasiet vienumus, lai izvēlētos saites vai mapes, meklētu vai atlasītu visu/noceltu atlasi. Tukšs mapes sākas bez atzīmes ar emblēmu Tukšs; saites parāda faviconus. Apstipriniet Importēt grāmatzīmes: pēc saglabāšanas dialoglodziņš tiek aizvērts un zibspuldze ziņo par rezultātu."
       ],
-      "note": "Grāmatzīmju eksportēšana nav pilnīga iestatījumu un vietējā multivides dublējums. Pirms datu atjaunošanas vai dzēšanas saglabājiet dublējumu.",
-      "tip": "Pilna dublēšana no Iestatījumi → Vispārīgi ietver vietējos failus ZIP. Tas ir noderīgi pirms pārlūkprogrammu maiņas vai datu atjaunošanas."
+      "note": "Chrome/HTML importēšana tiek papildināta ar Galvenā, saglabājot esošās preces un avota secību. Grāmatzīmes-joslas saturs nonāk tieši uz darbvirsmas; citi apdzīvotie pārlūkprogrammas segmenti saglabā savas mapes, izņemot vienīgo plakano segmentu. Iestatījumi → Grāmatzīmes arī importē un eksportē New DeskTab JSON. Grāmatzīmju eksportēšana neietver visus iestatījumus un vietējos medijus; saglabājiet pilnu dublējumu. Pilnas JSON un ZIP dublējumkopijas saglabā ikdienas padomu preferences; vecākas dublējumkopijas bez tā saglabā pašreizējo izvēli.",
+      "tip": "Importējiet Chrome grāmatzīmes vai HTML failu no Iestatījumi → Grāmatzīmes un vispirms izvēlieties vienumus. Pirms darbvietas atinstalēšanas vai nomaiņas izmantojiet pilnu dublējumu no Iestatījumi → Ģenerālis."
     },
     "sync": {
       "question": "Kā izmantot to pašu vietu citā datorā?",
@@ -470,7 +470,7 @@
       "steps": [
         "Pierakstieties un iespējojiet paplašinājumu sinhronizāciju savā Google Chrome profilā.",
         "Sadaļā Iestatījumi → Sinhronizācija izvēlieties Sinhronizēts un apstipriniet apstiprinājumu. Slēdzis stājas spēkā nekavējoties: tiek ielādētas esošās sinhronizētās grāmatzīmes un iestatījumi vai tiek sinhronizēti jūsu saglabātie lokālie dati, ja tādu nav.",
-        "Izmantojiet to pašu profilu otrā ierīcē. Pārbaudiet sinhronizācijas statusu un pieejamo vietu panelī."
+        "Izmantojiet to pašu Google Chrome profilu un paplašinājumu ID citā ierīcē. Pārbaudiet sinhronizācijas statusu un pieejamo vietu panelī. Pirms atinstalēšanas izveidojiet atsevišķu pilnu dublējumu."
       ],
       "note": "Vietējie faili, atkritne un ikdienas padomi pieder katrai ierīcei. Sinhronizācijai ir uzglabāšanas ierobežojumi; izmantojiet alternatīvus vietrāžus URL vietējiem attēliem un videoklipiem. Izvēloties lokālo, tiek prasīts arī apstiprinājums un tas stājas spēkā nekavējoties, saglabājot sinhronizētos datus.",
       "tip": "Sinhronizācija koplieto jūsu vietu dažādās ierīcēs, taču vietējiem failiem ir nepieciešams alternatīvs URL. Skatiet Iestatījumi → Sinhronizācija."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Kā dzēst savus datus vai atiestatīt iestatījumus?",
-      "searchTerms": "dzēst datus; atiestatīt iestatījumus; noņemiet visu; sākt no jauna",
+      "searchTerms": "dzēst datus; atiestatīt iestatījumus; noņemiet visu; sākt no jauna; atinstalēt paplašinājumu; pārinstalēt; atjaunināšanas paplašinājums; pazaudētas grāmatzīmes",
       "title": "Saglabāšana un atiestatīšana",
       "summary": "Izprotiet, kas tiek saglabāts un ko katra darbība noņem.",
       "steps": [
@@ -498,7 +498,7 @@
         "Ja tiek parādīts paziņojums par gaidošo saglabāšanu, noklikšķiniet uz Mēģināt vēlreiz saglabāt un pirms cilnes aizvēršanas gaidiet apstiprinājumu.",
         "Sadaļā Iestatījumi → Vispārīgi varat atiestatīt iestatījumus vai dzēst visus datus. Izlasiet apstiprinājumu un eksportējiet visu, ko vēlaties paturēt, dublējumu."
       ],
-      "note": "Iestatījumu atiestatīšana saglabā jūsu grāmatzīmes, to izmērus un stilus. Dzēšot visus vietējos datus, tiek noņemti vienumi un iztukšota atkritne. Eksportēt dublējumu pirms dzēšanas: atsaukšana neaizstāj dublējumu.",
+      "note": "Atiestatot iestatījumus, tiek saglabātas grāmatzīmes, izmēri un stili. Dzēšot lokālos datus vai atinstalējot, tiek noņemta šī profila lokālā darbvieta, iestatījumi, multivide un atkritne. Jauna instalēšana sākas režīmā Vietējais, automātiski neatjaunojot veco vietu. Vispirms eksportējiet pilnu dublējumu. Lai saņemtu neiesaiņotus atjauninājumus, nomainiet failus un izmantojiet atkārtotu ielādi vietnē chrome://extensions ar to pašu atslēgu un paplašinājumu ID.",
       "tip": "Ja redzat paziņojumu par nesaglabātām izmaiņām, pirms cilnes aizvēršanas izmantojiet Mēģiniet saglabāt vēlreiz. Aizsargājiet savu vietu ar pilnu dublējumu."
     },
     "learning": {

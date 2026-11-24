@@ -8,6 +8,9 @@ state, widget and shared boundaries. The former `ui/`, `core/`, `css/` and `js/`
 transition directories have been retired; every remaining module has an
 explicit tested owner directly under `src/`.
 
+This reference describes release 1.1.0 and public data schema 2. The refactoring
+milestones below are historical records; they do not override current contracts.
+
 ## Direction and dependency rules
 
 ```text
@@ -27,8 +30,9 @@ The intended responsibilities are:
 
 - `app/`: bootstrap and dependency composition. It may register features but
   must not contain bookmark, folder, workspace or recycle-bin rules.
-- `domain/`: deterministic entities, normalization, validation and rules. It
-  must not access the DOM or Chrome APIs.
+- `domain/`: entities, normalization, validation and deterministic rules. It
+  must not access the application DOM or Chrome APIs. The bookmark HTML parser
+  reads an inert document and never attaches imported markup to the application.
 - `features/`: complete user-facing capabilities and their adapters. A feature
   may use domain and shared code and receive platform services through its
   application boundary.
@@ -63,11 +67,15 @@ src/
 ├── domain/
 │   ├── bookmarks/
 │   │   ├── bookmarkDefaults.js
-│   │   └── bookmarkModel.js
+│   │   ├── bookmarkModel.js
+│   │   ├── browserBookmarkImport.js
+│   │   └── browserBookmarkSelection.js
 │   ├── folders/
 │   │   ├── folderDefaults.js
+│   │   ├── folderContents.js
 │   │   ├── folderGrid.js
-│   │   └── folderModel.js
+│   │   ├── folderModel.js
+│   │   └── folderTree.js
 │   ├── recycle-bin/
 │   │   ├── recycleBinDefaults.js
 │   │   ├── recycleBinEntries.js
@@ -112,7 +120,9 @@ src/
 │   │   ├── bookmarkImportExport.js
 │   │   ├── bookmarkListItem.js
 │   │   ├── bookmarkModal.js
-│   │   └── bookmarkPreview.js
+│   │   ├── bookmarkPreview.js
+│   │   ├── browserBookmarkImport.js
+│   │   └── browserBookmarkImportUI.js
 │   ├── folders/
 │   │   ├── folderActions.js
 │   │   ├── folderAppearance.js
@@ -534,8 +544,9 @@ persistence queue. It depends on the facade, but does not know Chrome keys,
 callbacks, quotas, chunks or sync wire format. The facade owns local/sync mode,
 compatibility fallback and Chrome change events. The sync module is pure: it
 encodes and decodes the existing versioned chunk format and can be tested
-without browser globals. Public schema version 1 includes the generic `widgets`
-collection; stored/imported normalization and migrations remain together under
+without browser globals. Public schema 2 retains the generic `widgets`
+collection introduced in schema 1 and adds nested folders and recoverable folder
+trees; stored/imported normalization and migrations remain together under
 `platform/storage`. Visual components continue to call feature actions rather
 than the storage facade directly.
 
@@ -713,13 +724,17 @@ read global state, making them deterministic.
 
 `src/platform/storage/dataSchema.js` is the boundary for stored,
 synchronized and imported data. `schemaVersion` changes only when a persisted
-shape changes; the current value is isolated in `schemaVersion.js`. The first
-public release, 1.0.0, starts at schema 1. Development schemas 2–21 were discarded
-before publication and are not migrated. New profiles start with empty bookmark,
-folder and widget collections. Unversioned input is normalized before entering
-the store; versioned data above the supported schema is rejected.
+shape changes; `schemaVersion.js` currently exports `DATA_SCHEMA_VERSION = 2`.
+Release 1.1.0 migrates public schema 1 data from releases 1.0.0 and 1.0.1, adding
+nullable `BookmarkFolder.parentId` and the descendant `folders` collection in
+`FolderTrashEntry`. Public schema 2 is distinct from the discarded pre-release
+development schema numbers 2–21, which are unsupported snapshots. New profiles
+start with empty bookmark, folder and widget collections. Unversioned input is
+normalized before entering the store; versioned data above the supported schema
+is rejected.
 
-Schema 1 includes folder appearance controls: `outerBackgroundColor` is a nullable
+The current schema retains the folder appearance controls from schema 1:
+`outerBackgroundColor` is a nullable
 hex color, where null retains the automatic tile gradient. `showPreviews` and
 `showName` default to true. The legacy `showFolder` field is normalized to true,
 including imports and restores: the folder silhouette is always visible.
@@ -732,7 +747,7 @@ preference disables interaction animation without hiding the glyph. Its obsolete
 `settings.showRecycleBin` controls workspace visibility. Legacy `showCount`
 values are ignored: item counts appear inside the open folder or recycle bin.
 
-Schema 1 also includes the five configurable keyboard shortcuts under
+It also retains the five configurable keyboard shortcuts under
 `settings.keyboardShortcuts`. Missing, invalid or conflicting values fall back
 to the safe default combinations.
 
@@ -760,14 +775,17 @@ undo, preventing a shortcut from changing where data is stored.
 Folders are independent entities in `data.folders`. They have an id, name,
 workspace, timestamps and a resizable `gx`, `gy`, `w`, `h` grid rectangle. New
 folders start at `1 × 1`. Bookmark membership is represented by nullable
-`bookmark.folderId`.
+`bookmark.folderId`; folder membership uses nullable `folder.parentId`. A null
+parent places the folder on its workspace desktop. `folderTree.js` identifies
+complete descendant trees and roots for commands, while `folderContents.js`
+provides mixed reading order, bounded pages, ancestor navigation and paths.
 
 The schema and commands enforce these rules:
 
 * A folder and its bookmarks always belong to the same workspace.
 * Folders can contain subfolders through `parentId`; cycles and cross-workspace
   references are repaired during normalization.
-* A contained bookmark does not reserve grid space.
+* Contained bookmarks and subfolders do not reserve desktop grid space.
 * A top-level folder reserves its complete `w × h` rectangle.
 * Folder membership has no fixed item cap. The 3-row × 6-column editing grid is
   used for small collections; larger folders and subfolder navigation use search
@@ -777,7 +795,10 @@ The schema and commands enforce these rules:
 * Moving onto an occupied local cell swaps both bookmark positions atomically.
 * Removing a bookmark requires a free area matching its saved `w × h` size.
 * Deleting a folder retains its complete descendant tree as one recoverable
-  recycle-bin entry in the same state change.
+  recycle-bin entry in the same state change: the root is `entry.folder`,
+  descendants are `entry.folders`, and all contained links are `entry.bookmarks`.
+  Duplicate, move and restore commands preserve the tree; copies use new ids
+  and restoration remaps ids that collide with live entities.
 * Deleting a workspace deletes its folders and all bookmarks in that workspace.
 
 ## Bookmark editor
@@ -939,6 +960,75 @@ incoming data instead of replacing them. Save and import controllers call
 `requirePersistence()` before announcing success. Item editors retain failed
 drafts, and create flows reuse the pending record's id when retrying.
 
+## Native and HTML bookmark import
+
+Browser import appends to Main (`groupId: null`) and activates that workspace.
+It is separate from the existing DeskTab bookmark JSON import and complete
+JSON/ZIP restore flows. `features/bookmarks/browserBookmarkImport.js` owns the
+Chrome adapter and persistence transaction:
+
+| Entry point | Contract |
+| --- | --- |
+| `detectChromeBookmarks()` | Reads `chrome.bookmarks.getTree()` and returns `{ available, tree, bookmarkCount, folderCount, skippedCount }`. It never edits Chrome bookmarks. |
+| `importChromeBookmarks({ tree?, workspaceName? })` | Imports a supplied snapshot or detects one first. |
+| `importBrowserBookmarksHtml(fileOrText, { workspaceName? })` | Accepts a selected File or HTML text and parses the Chrome/Netscape bookmark format. |
+| `importBrowserBookmarkTree(tree, { source, workspaceName? })` | Imports a selected tree for source `chrome` or `html`. |
+
+Successful imports return `{ bookmarkCount, folderCount, skippedCount,
+duplicateCount, workspaceId: null }`. `workspaceName` labels an overflow folder;
+it does not create a workspace. The service waits for outstanding writes, runs
+schema normalization and Sync quota preflight, then requires persistence before
+reporting success. A failed write rolls back the imported delta with
+`mergeChanges()`, preserving independent concurrent edits. Both success and
+rollback clear grid history so undo cannot resurrect an intermediate import.
+
+`domain/bookmarks/browserBookmarkImport.js` validates absolute URLs against its
+protocol allowlist, parses HTML with an inert `DOMParser`, and prepares the
+import without mutating existing application data. It copies names, dates,
+links and folder structure; exported HTML is never rendered as app markup.
+The parser accepts omitted closing `DT` tags and recognizes
+`PERSONAL_TOOLBAR_FOLDER` as the bookmarks bar.
+
+Toolbar children appear directly on Main. Empty native browser roots are
+omitted; other nonempty native roots remain folders. If there is no populated
+toolbar and the only populated browser root contains links without subfolders,
+those links are promoted directly to Main. User folders retain their hierarchy
+and mixed bookmark/folder order. Imported folders start with
+`noOuterBackground: true`, leaving their silhouettes visible without an outer
+tile background.
+
+New desktop entries fill free cells left to right, then top to bottom, avoiding
+existing bookmarks, root folders, widgets and the visible recycle bin. Stable
+source identities avoid duplicating unchanged entries and preserve existing
+Main positions and appearance on reimport. Legacy import workspaces are moved
+to Main without deleting unrelated contents. If root entries cannot all fit,
+one overflow folder contains the imported roots. If no cell is available even
+for that folder, `MAIN_WORKSPACE_FULL` aborts preparation before mutation.
+
+`domain/bookmarks/browserBookmarkSelection.js` indexes the detected tree once.
+It exposes creation, subtree/all selection, tri-state checkbox state, selected
+counts and `filterSelectedBrowserBookmarks()`. Empty branches stay visible and
+start unselected; selecting them explicitly, their parent or Select all can
+include them. Filtering retains required ancestors and the original mixed order.
+The nonpersisted `BROWSER_BOOKMARK_SOURCE` symbol carries sibling index and
+occurrence metadata so partial reimports retain stable source identities.
+
+`features/bookmarks/browserBookmarkImportUI.js` shares one dialog between the
+first welcome and Settings. Its expandable preview supports search, selection,
+empty-folder badges, favicon previews and 100-row increments. Import first
+opens the shared confirmation alert. Cancellation retains the selection;
+persisted success closes the dialog and emits translated flashes with imported,
+skipped and duplicate counts. Errors leave the dialog available for retry.
+`shared/ui/flash.js` accepts translation variables through
+`flash(message, type = 'info', duration = 3000, params = {})`; its `flashSuccess`,
+`flashError` and `flashInfo` helpers accept `(message, duration, params)`.
+
+The manifest declares `bookmarks` for native tree access and `unlimitedStorage`
+for large Local collections, alongside `storage` and `activeTab`. It retains the
+favicon host permission `https://t3.gstatic.com/*`. `unlimitedStorage` does not
+raise Chrome Sync's approximately 100 KB total quota; an oversized synchronized
+import fails before committing and asks the user to use Local mode.
+
 ## UI coordination
 
 Modal controllers translate user actions into feature or application-state
@@ -998,8 +1088,11 @@ it never enters application data, Chrome Sync or backups. This optional storage
 read does not block startup. At widths of 600px or less, release notes, the guide,
 the manual and daily tips stay hidden, with a flash asking the user to widen the
 window. Pending introductions remain unclaimed and suspended panels resume when
-there is enough space. Arrival follows release notes, the optional guide, then
-the daily tip in the bottom-right corner.
+there is enough space. Arrival follows release notes and the optional guide.
+Only the first guide starts native bookmark detection; its completion or dismissal
+can offer the import dialog when links are detected. Replaying the guide does
+not offer it again. Daily tips wait until the modal stack is available and appear
+in the bottom-right corner.
 Its **Turn off daily tips** button immediately saves the device-local preference
 and closes the card; the Help toggle reflects the same value and can re-enable it.
 
@@ -1020,11 +1113,18 @@ the darkest light veil or brightest dark veil as their contrast baseline, so any
 wallpaper stays readable. Grid lines remain neutral, decorative and intentionally
 faint within each theme, independently of the saved color or transparency.
 `features/folders/folderCard.js` owns the folder card and previews, while
-`features/folders/folderModal.js` reuses the production bookmark renderer in a
-compact 3 × 6 workspace. The modal starts in a link-only view with no action or
-drag listeners. Its local edit mode, toggled by the header control or the
-configured edit shortcut (`E` by default),
-re-renders controls and enables a pointer controller that previews empty-cell
+`features/folders/folderModal.js` chooses the presentation from the contents.
+Small collections without subfolders use the production bookmark renderer in
+a 3 × 6 editing grid. Larger collections, nested folders, searches and compact
+viewports use a mixed list with at most `FOLDER_PAGE_SIZE = 54` entries per page.
+`getFolderContentsPage()` returns the normalized layout, total and match counts,
+clamped page and page count. Breadcrumbs and Back navigate the same modal;
+the scroll shell and breadcrumbs reuse the shared `custom-scrollbar` styling.
+There is no fixed membership limit.
+
+The modal starts in browsing mode. Its local edit mode, toggled by the header
+control or the configured edit shortcut (`E` by default), re-renders controls.
+In the small grid it enables a pointer controller that previews empty-cell
 moves and occupied-cell displacement through the same
 `calculateSmartDragLayout()` modes as the main grid. Preview positions are
 rendered as smooth transforms from each item's persisted cell; on release the
@@ -1034,6 +1134,14 @@ a source/destination flash. `src/domain/folders/folderGrid.js` owns the pure
 local layout contract and normalizes legacy or colliding positions
 deterministically. Main-grid bookmark drag logic detects folder hit targets and
 delegates membership changes to the folder feature actions.
+In the compact list, edit mode provides row selection and aligned Edit, Delete
+and Move out actions. The selected-row toolbar moves an entry up or down;
+`Alt+ArrowUp` and `Alt+ArrowDown` provide the same action from a focused row.
+`moveFolderEntry(folderId, itemId, direction)` accepts `-1` or `1`, swaps adjacent
+bookmark/subfolder positions in one undoable state change and returns
+`{ moved, index? }`. The UI awaits persistence, disables pending reorder controls,
+clears search and reveals the selected entry's resulting page. Moving a
+subfolder out places its intact tree on the workspace desktop when space allows.
 Clicking the contents title once starts inline renaming in the current surface;
 Enter or the confirmation control saves, and Escape or Cancel restores the name.
 

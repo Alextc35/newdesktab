@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Cerqueu les opcions de còpia de seguretat a Configuració → General.",
-        "Exporta baixa un ZIP amb dades i fitxers locals.",
+        "Exporta les baixades JSON o un ZIP quan s'inclouen vídeos locals.",
         "Importació demana confirmació abans de substituir les dades."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Com puc agrupar les adreces d'interès en carpetes?",
-      "searchTerms": "crear una carpeta; marcadors de grup; organitzar els preferits; eliminar de la carpeta; canviar el nom de la carpeta",
+      "searchTerms": "crear una carpeta; marcadors de grup; organitzar els preferits; eliminar de la carpeta; canviar el nom de la carpeta; subcarpetes; carpetes grans; pàgines; pujar; moure cap avall; reordena les files",
       "title": "Organitzar amb carpetes",
       "summary": "Reuneix adreces d'interès i subcarpetes en un sol lloc.",
       "steps": [
-        "Trieu + → Carpeta al menú de l'esquerra i doneu-li un nom.",
-        "En el mode d'edició, arrossegueu-hi els marcadors per posar-los dins. Obriu la carpeta per veure'n la graella.",
-        "Utilitzeu el mode d'edició de la carpeta per organitzar-ne les adreces d'interès. Feu clic al seu nom per canviar-ne el nom i a la seva icona per personalitzar-ne l'aparença."
+        "Trieu + → Carpeta i doneu-li un nom. En mode d'edició, arrossegueu-hi els marcadors. Les col·leccions petites utilitzen una quadrícula 3 × 6; Les col·leccions grans o imbricades utilitzen llistes de cerca amb pàgines de 54 elements.",
+        "Obriu les subcarpetes i utilitzeu Enrere o la ruta de navegació per tornar. En el mode d'edició de llista, seleccioneu una fila i utilitzeu Mou cap amunt o Mou cap avall; Alt + ↑ / ↓ també mou la fila enfocada.",
+        "Els controls d'edició, supressió i desplaçament apareixen a la dreta de cada fila de la llista. Feu clic al nom de la carpeta per canviar-ne el nom o al seu control d'aparença per canviar-ne l'estil."
       ],
-      "note": "La supressió d'una carpeta també afecta els seus marcadors. Reviseu la confirmació abans de continuar; la paperera de reciclatge pot restaurar els elements suprimits.",
-      "tip": "Les carpetes admeten col·leccions grans amb cerca i pàgines. Activeu l'edició i arrossegueu una targeta a una carpeta per afegir-la."
+      "note": "Les carpetes no tenen un límit fix de recompte d'elements. L'ordre de les adreces d'interès i de les subcarpetes es desa junts. Moure, duplicar, suprimir o restaurar una carpeta inclou el seu subarbre complet; revisa les confirmacions d'eliminació.",
+      "tip": "Les carpetes grans tenen cerca i pàgines de 54 elements. En el mode d'edició de llista, seleccioneu una fila i feu servir Mou cap amunt o Mou cap avall, o premeu Alt + ↑ / ↓ a la fila enfocada."
     },
     "workspaces": {
       "question": "Com puc mantenir les pàgines personals i laborals separades?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Com puc fer una còpia de seguretat o transferir les meves dades?",
-      "searchTerms": "còpia de seguretat; exportar dades; importar còpia; restaurar la còpia de seguretat; un altre navegador; transferir dades",
+      "searchTerms": "còpia de seguretat; exportar dades; importar còpia; restaurar la còpia de seguretat; un altre navegador; transferir dades; importar Chrome adreces d'interès; HTML adreces d'interès; carpeta buida; seleccionar elements importats",
       "title": "Còpies de seguretat i importacions",
       "summary": "Guardeu una còpia del vostre espai i porteu-lo amb vosaltres.",
       "steps": [
-        "A Configuració → General exporteu una còpia de seguretat completa per conservar les dades i els fitxers locals inclosos a l'arxiu ZIP.",
-        "Per restaurar, importeu una còpia de seguretat i reviseu la confirmació abans de substituir les dades. També s'admeten còpies de seguretat JSON compatibles.",
-        "A Configuració → Adreces d'interès podeu exportar o importar només adreces d'interès i carpetes quan no necessiteu una còpia de seguretat completa."
+        "A Configuració → General, exporteu una còpia de seguretat completa abans de substituir les dades o canviar de navegador. Backups sense vídeos locals fan servir JSON; els que tenen vídeos locals fan servir ZIP. Reviseu la confirmació de substitució abans de restaurar-ne una.",
+        "Per afegir adreces d'interès Chrome, utilitzeu Configuració → Adreces d'interès → Importa des de Google Chrome o Importa un fitxer HTML. La primera guia de benvinguda també ofereix la importació nativa quan es detecten adreces d'interès compatibles.",
+        "Amplieu Veure i seleccionar elements per triar enllaços o carpetes, cercar o seleccionar-los/desseleccionar-los tots. Les carpetes Buit comencen sense marcar amb una insígnia Buit; els enllaços mostren favicons. Confirmeu Importa les adreces d'interès: el diàleg es tanca després de desar i un flash informa del resultat."
       ],
-      "note": "Una exportació d'adreces d'interès no és una còpia de seguretat completa de la configuració i dels mitjans locals. Deseu una còpia de seguretat abans de restaurar o suprimir dades.",
-      "tip": "Una còpia de seguretat completa des de Configuració → General inclou fitxers locals en un ZIP. És útil abans de canviar de navegador o restaurar dades."
+      "note": "Les importacions de Chrome/HTML s'afegeixen a Principal, conservant els elements existents i l'ordre d'origen. El contingut de la barra Adreces d'interès va directament a l'escriptori; altres cubs de navegador poblats conserven les seves carpetes, excepte un únic cub pla. Configuració → Adreces d'interès també importa i exporta New DeskTab JSON. Una exportació d'adreces d'interès no inclou tots els paràmetres i els mitjans locals; mantenir una còpia de seguretat completa. Les còpies de seguretat completes JSON i ZIP conserven la preferència de punta diària; les còpies de seguretat més antigues sense conservar l'opció actual.",
+      "tip": "Importeu les adreces d'interès Chrome o un fitxer HTML des de Configuració → Adreces d'interès i trieu primer els elements. Feu servir una còpia de seguretat completa de Configuració → General abans de desinstal·lar o substituir l'espai de treball."
     },
     "sync": {
       "question": "Com puc utilitzar el mateix espai en un altre ordinador?",
@@ -470,7 +470,7 @@
       "steps": [
         "Inicieu la sessió i activeu la sincronització d'extensions al vostre perfil Google Chrome.",
         "A Configuració → Sincronització, trieu Sincronitzat i accepteu la confirmació. El canvi té efecte immediatament: es carreguen les adreces d'interès i la configuració sincronitzades existents, o les dades locals desades es sincronitzen si no n'hi ha cap.",
-        "Utilitzeu el mateix perfil a l'altre dispositiu. Comproveu l'estat de sincronització i l'espai disponible al panell."
+        "Utilitzeu el mateix perfil Google Chrome i l'extensió ID a l'altre dispositiu. Comproveu l'estat de sincronització i l'espai disponible al panell. Manteniu una còpia de seguretat completa per separat abans de desinstal·lar."
       ],
       "note": "Els fitxers locals, la paperera de reciclatge i els consells diaris pertanyen a cada dispositiu. La sincronització té límits d'emmagatzematge; utilitzeu URL alternatius per a imatges i vídeos locals. Si escolliu Local també es demana confirmació i té efecte immediatament, mantenint les dades sincronitzades emmagatzemades.",
       "tip": "La sincronització comparteix el vostre espai entre dispositius, però els fitxers locals necessiten un URL alternatiu. Vegeu Configuració → Sincronització."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Com puc eliminar les meves dades o restablir la configuració?",
-      "searchTerms": "eliminar dades; restablir la configuració; treure-ho tot; començar de nou",
+      "searchTerms": "eliminar dades; restablir la configuració; treure-ho tot; tornar a començar; desinstal·lar l'extensió; reinstal·lar; extensió d'actualització; marcadors perduts",
       "title": "Desa i restabliment",
       "summary": "Entendre què es guarda i què elimina cada acció.",
       "steps": [
@@ -498,7 +498,7 @@
         "Si apareix un avís de desat pendent, feu clic a Torna a provar de desar i espereu la confirmació abans de tancar la pestanya.",
         "A Configuració → General podeu restablir la configuració o suprimir totes les dades. Llegiu la confirmació i exporteu una còpia de seguretat de tot el que vulgueu conservar."
       ],
-      "note": "En restablir la configuració, es mantindran les adreces d'interès, les seves mides i els seus estils. L'eliminació de totes les dades locals elimina els elements i buida la paperera de reciclatge. Exporta una còpia de seguretat abans de suprimir: Desfer no substitueix una còpia de seguretat.",
+      "note": "El restabliment de la configuració manté les adreces d'interès, les mides i els estils. Si suprimeixes les dades locals o desinstal·les, s'eliminen l'espai de treball local, la configuració, el contingut multimèdia i la paperera d'aquest perfil. S'inicia una instal·lació nova en mode Local sense restaurar automàticament l'espai antic. Exporteu primer una còpia de seguretat completa. Per a les actualitzacions descomprimides, substituïu els fitxers i utilitzeu Recarrega a chrome://extensions amb la mateixa clau i extensió ID.",
       "tip": "Si veieu un avís de canvis no desats, utilitzeu Torna a provar desar abans de tancar la pestanya. Protegiu el vostre espai amb una còpia de seguretat completa."
     },
     "learning": {

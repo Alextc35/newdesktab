@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Găsiți opțiunile de rezervă în Setări → general.",
-        "Export descarcă un ZIP cu date și fișiere locale.",
+        "Exportați descărcări JSON sau un ZIP când sunt incluse videoclipurile locale.",
         "Importul solicită confirmarea înainte de a înlocui datele."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Cum grupez marcajele în dosare?",
-      "searchTerms": "crearea unui folder; marcaje de grup; organizați favoritele; eliminați din folder; redenumiți folderul",
+      "searchTerms": "crearea unui folder; marcaje de grup; organizați favoritele; eliminați din folder; redenumiți folderul; subdosare; foldere mari; pagini; muta in sus; muta in jos; reordonează rândurile",
       "title": "Organizați cu dosare",
       "summary": "Adunați marcaje și subdosare într-un singur loc.",
       "steps": [
-        "Alegeți + → Folder din meniul din stânga și dați-i un nume.",
-        "În modul de editare, trageți marcajele pe el pentru a le pune înăuntru. Deschideți folderul pentru a-i vedea grila.",
-        "Utilizați modul de editare al folderului pentru a-i aranja marcajele. Faceți clic pe numele acestuia pentru a-l redenumi și pe pictograma pentru a-i personaliza aspectul."
+        "Alegeți + → Folder și dați-i un nume. În modul de editare, trageți marcajele pe el. Colecțiile mici folosesc o grilă 3 × 6; colecțiile mari sau imbricate folosesc liste care pot fi căutate cu pagini de 54 elemente.",
+        "Deschideți subfolderele și folosiți Înapoi sau breadcrumb pentru a reveni. În modul de editare a listei, selectați un rând și utilizați Mișcă-te în sus sau Deplasați-vă în jos; Alt + ↑ / ↓ mută și rândul focalizat.",
+        "Comenzile de editare, ștergere și mutare apar în partea dreaptă a fiecărui rând de listă. Faceți clic pe numele folderului pentru a-l redenumi sau pe controlul aspectului său pentru a-i schimba stilul."
       ],
-      "note": "Ștergerea unui folder afectează și marcajele acestuia. Examinați confirmarea înainte de a continua; coșul de reciclare poate restaura elementele șterse.",
-      "tip": "Folderele acceptă colecții mari cu căutare și pagini. Activați editarea și trageți un card într-un dosar pentru a-l adăuga."
+      "note": "Dosarele nu au o limită fixă de număr de articole. Ordinea marcajelor și a subdosarelor sunt salvate împreună. Mutarea, duplicarea, ștergerea sau restaurarea unui folder include subarborele complet al acestuia; examinați confirmările de ștergere.",
+      "tip": "Dosarele mari au căutare și pagini cu 54 elemente. În modul de editare a listei, selectați un rând și utilizați Mișcă-te în sus sau Deplasați-vă în jos sau apăsați Alt + ↑ / ↓ pe rândul focalizat."
     },
     "workspaces": {
       "question": "Cum păstrez paginile personale și cele de lucru separate?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Cum fac copii de rezervă sau transfer datele mele?",
-      "searchTerms": "copie de rezervă; exportul de date; copie de import; restaurare backup; alt browser; transfera date",
+      "searchTerms": "copie de rezervă; exportul de date; copie de import; restaurare backup; alt browser; transfer de date; importați Chrome marcaje; HTML marcaje; folder gol; selectați articolele importate",
       "title": "Backup-uri și importuri",
       "summary": "Păstrează o copie a spațiului tău și ia-o cu tine.",
       "steps": [
-        "În Setări → general, exportați o copie de rezervă completă pentru a păstra datele și fișierele locale incluse în arhiva ZIP.",
-        "Pentru a restabili, importați o copie de rezervă și examinați confirmarea înainte de a înlocui datele. Copilurile de rezervă JSON compatibile sunt, de asemenea, acceptate.",
-        "În Setări → Marcaje puteți exporta sau importa doar marcaje și foldere atunci când nu aveți nevoie de o copie de rezervă completă."
+        "În Setări → general, exportați o copie de rezervă completă înainte de a înlocui datele sau de a schimba browserele. Backups fără videoclipuri locale folosesc JSON; cei cu videoclipuri locale folosesc ZIP. Examinați confirmarea înlocuirii înainte de a restaura una.",
+        "Pentru a adăuga marcaje Chrome, utilizați Setări → Marcaje → Importați din Google Chrome sau Importați fișierul HTML. Primul ghid de bun venit oferă și importul nativ atunci când sunt detectate marcaje acceptate.",
+        "Extindeți Vizualizați și selectați articole pentru a alege linkuri sau foldere, căutați sau selectați/deselectați toate. Dosarele Gol încep nebifate cu o insignă Gol; linkurile arată favicon-uri. Confirmați Importați marcaje: dialogul se închide după salvare și un fulger raportează rezultatul."
       ],
-      "note": "Un export de marcaje nu este o copie de rezervă completă a setărilor și media locală. Salvați o copie de rezervă înainte de a restaura sau șterge datele.",
-      "tip": "O copie de rezervă completă din Setări → general include fișiere locale într-un fișier ZIP. Este util înainte de a schimba browserul sau de a restabili datele."
+      "note": "Importurile Chrome/HTML se adaugă la Principal, păstrând articolele existente și ordinea surselor. Conținutul barei Marcaje merge direct pe desktop; alte compartimente de browser populate își păstrează dosarele, cu excepția unui singur compartiment plat. Setări → Marcaje importă și exportă și New DeskTab JSON. Un export de marcaje nu include toate setările și mediile locale; păstrați o copie de rezervă completă. Backup-urile complete JSON și ZIP păstrează preferința de bacșiș zilnic; backup-urile mai vechi fără acesta păstrează alegerea curentă.",
+      "tip": "Importați Chrome marcaje sau un fișier HTML din Setări → Marcaje și alegeți mai întâi elementele. Utilizați o copie de rezervă completă de la Setări → general înainte de a dezinstala sau de a înlocui spațiul de lucru."
     },
     "sync": {
       "question": "Cum folosesc același spațiu pe alt computer?",
@@ -470,7 +470,7 @@
       "steps": [
         "Conectați-vă și activați sincronizarea extensiilor în profilul dvs. Google Chrome.",
         "În Setări → Sincronizare, alegeți Sincronizat și acceptați confirmarea. Comutarea are efect imediat: marcajele și setările sincronizate existente sunt încărcate sau datele dvs. locale salvate sunt sincronizate dacă nu există.",
-        "Utilizați același profil pe celălalt dispozitiv. Verificați starea sincronizării și spațiul disponibil în panou."
+        "Utilizați același profil Google Chrome și extensia ID pe celălalt dispozitiv. Verificați starea sincronizării și spațiul disponibil în panou. Păstrați o copie de rezervă completă separată înainte de dezinstalare."
       ],
       "note": "Fișierele locale, coșul de reciclare și sfaturile zilnice aparțin fiecărui dispozitiv. Sincronizarea are limite de stocare; utilizați adrese URL alternative pentru imagini și videoclipuri locale. Alegerea locală cere și confirmare și intră în vigoare imediat, păstrând datele sincronizate stocate.",
       "tip": "Sincronizarea vă împarte spațiul pe dispozitive, dar fișierele locale au nevoie de o adresă URL alternativă. Consultați Setări → Sincronizare."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Cum îmi șterg datele sau reset setările?",
-      "searchTerms": "stergerea datelor; resetarea setărilor; îndepărtați totul; ia de la capăt",
+      "searchTerms": "stergerea datelor; resetarea setărilor; îndepărtați totul; a începe de la capăt; dezinstalează extensia; reinstala; extensia de actualizare; marcaje pierdute",
       "title": "Salvare și resetare",
       "summary": "Înțelegeți ce este salvat și ce elimină fiecare acțiune.",
       "steps": [
@@ -498,7 +498,7 @@
         "Dacă apare o notificare de salvare în așteptare, faceți clic pe Reîncercați salvarea și așteptați confirmarea înainte de a închide fila.",
         "În Setări → general puteți reseta setările sau ștergeți toate datele. Citiți confirmarea și exportați o copie de rezervă a tot ceea ce doriți să păstrați."
       ],
-      "note": "Resetarea setărilor vă păstrează marcajele, dimensiunile și stilurile lor. Ștergerea tuturor datelor locale elimină articolele și golește coșul de reciclare. Exportați o copie de rezervă înainte de ștergere: Anulare nu înlocuiește o copie de rezervă.",
+      "note": "Resetarea setărilor păstrează marcajele, dimensiunile și stilurile. Ștergerea datelor locale sau dezinstalarea elimină spațiul de lucru local, setările, media și coșul de gunoi al acestui profil. O nouă instalare începe în modul Local fără a restabili automat vechiul spațiu. Exportați mai întâi o copie de rezervă completă. Pentru actualizările despachetate, înlocuiți fișierele și utilizați Reîncărcare pe chrome://extensions cu aceeași cheie și extensie ID.",
       "tip": "Dacă vedeți o notificare de modificări nesalvate, utilizați Reîncercați salvarea înainte de a închide fila. Protejați-vă spațiul cu o copie de rezervă completă."
     },
     "learning": {

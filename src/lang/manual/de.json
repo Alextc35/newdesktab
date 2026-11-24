@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Die Sicherungsoptionen finden Sie unter Einstellungen → Allgemein.",
-        "Beim Exportieren wird eine ZIP-Datei mit Daten und lokalen Dateien heruntergeladen.",
+        "Exportieren Sie Downloads JSON oder einen ZIP, wenn lokale Videos enthalten sind.",
         "Beim Import werden Sie vor dem Ersetzen von Daten um eine Bestätigung gebeten."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Wie gruppiere ich Lesezeichen in Ordnern?",
-      "searchTerms": "Ordner erstellen; Gruppenlesezeichen; Favoriten organisieren; aus Ordner entfernen; Ordner umbenennen",
+      "searchTerms": "Ordner erstellen; Gruppenlesezeichen; Favoriten organisieren; aus Ordner entfernen; Ordner umbenennen; Unterordner; große Ordner; Seiten; nach oben bewegen; nach unten bewegen; Zeilen neu anordnen",
       "title": "Organisieren Sie mit Ordnern",
       "summary": "Sammeln Sie Lesezeichen und Unterordner an einem Ort.",
       "steps": [
-        "Wählen Sie im linken Menü + → Ordner und geben Sie ihm einen Namen.",
-        "Ziehen Sie im Bearbeitungsmodus Lesezeichen darauf, um sie darin einzufügen. Öffnen Sie den Ordner, um sein Raster anzuzeigen.",
-        "Verwenden Sie den Bearbeitungsmodus des Ordners, um seine Lesezeichen anzuordnen. Klicken Sie auf den Namen, um es umzubenennen, und auf das Symbol, um sein Erscheinungsbild anzupassen."
+        "Wählen Sie + → Ordner und geben Sie ihm einen Namen. Ziehen Sie im Bearbeitungsmodus Lesezeichen darauf. Kleine Sammlungen verwenden ein 3 × 6-Raster; Große oder verschachtelte Sammlungen verwenden durchsuchbare Listen mit Seiten mit 54 Elementen.",
+        "Öffnen Sie Unterordner und verwenden Sie Zurück oder den Breadcrumb, um zurückzukehren. Wählen Sie im Listenbearbeitungsmodus eine Zeile aus und verwenden Sie Bewegen Sie sich nach oben oder Bewegen Sie sich nach unten; Alt + ↑ / ↓ verschiebt auch die fokussierte Zeile.",
+        "Rechts neben jeder Listenzeile werden Steuerelemente zum Bearbeiten, Löschen und Verschieben angezeigt. Klicken Sie auf den Ordnernamen, um ihn umzubenennen, oder auf die Darstellungssteuerung, um seinen Stil zu ändern."
       ],
-      "note": "Das Löschen eines Ordners wirkt sich auch auf dessen Lesezeichen aus. Überprüfen Sie die Bestätigung, bevor Sie fortfahren. Der Papierkorb kann gelöschte Elemente wiederherstellen.",
-      "tip": "Ordner unterstützen große Sammlungen mit Suche und Seiten. Aktivieren Sie die Bearbeitung und ziehen Sie eine Karte auf einen Ordner, um sie hinzuzufügen."
+      "note": "Für Ordner gibt es keine feste Begrenzung der Elementanzahl. Die Reihenfolge der Lesezeichen und Unterordner wird zusammen gespeichert. Das Verschieben, Duplizieren, Löschen oder Wiederherstellen eines Ordners umfasst auch seinen gesamten Unterbaum; Überprüfen Sie die Löschbestätigungen.",
+      "tip": "Große Ordner verfügen über Such- und Seiten mit 54 Elementen. Wählen Sie im Listenbearbeitungsmodus eine Zeile aus und verwenden Sie Bewegen Sie sich nach oben oder Bewegen Sie sich nach unten oder drücken Sie Alt + ↑ / ↓ in der fokussierten Zeile."
     },
     "workspaces": {
       "question": "Wie trenne ich persönliche und geschäftliche Seiten?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Wie sichere oder übertrage ich meine Daten?",
-      "searchTerms": "Sicherungskopie; Daten exportieren; Kopie importieren; Sicherung wiederherstellen; ein anderer Browser; Daten übertragen",
+      "searchTerms": "Sicherungskopie; Daten exportieren; Kopie importieren; Sicherung wiederherstellen; ein anderer Browser; Daten übertragen; Chrome Lesezeichen importieren; HTML Lesezeichen; leerer Ordner; Wählen Sie importierte Artikel aus",
       "title": "Backups und Importe",
       "summary": "Behalten Sie eine Kopie Ihres Platzes und nehmen Sie diese mit.",
       "steps": [
-        "Exportieren Sie unter Einstellungen → Allgemein ein vollständiges Backup, um die im ZIP-Archiv enthaltenen Daten und lokalen Dateien zu erhalten.",
-        "Importieren Sie zum Wiederherstellen ein Backup und überprüfen Sie die Bestätigung, bevor Sie Daten ersetzen. Kompatible JSON-Backups werden ebenfalls unterstützt.",
-        "Unter Einstellungen → Lesezeichen können Sie nur Lesezeichen und Ordner exportieren oder importieren, wenn Sie kein vollständiges Backup benötigen."
+        "Exportieren Sie in Einstellungen → Allgemein ein vollständiges Backup, bevor Sie Daten ersetzen oder den Browser wechseln. Backups ohne lokale Videos verwenden JSON; Diejenigen mit lokalen Videos verwenden ZIP. Überprüfen Sie die Ersatzbestätigung, bevor Sie eine wiederherstellen.",
+        "Um Chrome Lesezeichen hinzuzufügen, verwenden Sie Einstellungen → Lesezeichen → Import aus Google Chrome oder HTML-Datei importieren. Der erste Willkommensleitfaden bietet auch den nativen Import, wenn unterstützte Lesezeichen erkannt werden.",
+        "Erweitern Sie Elemente anzeigen und auswählen, um Links oder Ordner auszuwählen, zu suchen oder alle auszuwählen bzw. die Auswahl aufzuheben. Leer-Ordner beginnen ungeprüft mit einem Leer-Badge; Links zeigen Favoriten. Bestätigen Sie Lesezeichen importieren: Der Dialog schließt sich nach dem Speichern und ein Flash meldet das Ergebnis."
       ],
-      "note": "Ein Lesezeichenexport ist keine vollständige Sicherung der Einstellungen und lokalen Medien. Speichern Sie ein Backup, bevor Sie Daten wiederherstellen oder löschen.",
-      "tip": "Eine vollständige Sicherung über Einstellungen → Allgemein umfasst lokale Dateien in einer ZIP-Datei. Dies ist nützlich, bevor Sie den Browser wechseln oder Daten wiederherstellen."
+      "note": "Chrome/HTML-Importe ergänzen Hauptsächlich, wobei vorhandene Elemente und die Quellreihenfolge erhalten bleiben. Lesezeichen-Bar-Inhalte gehen direkt auf den Desktop; Andere bevölkerte Browser-Buckets behalten ihre Ordner, mit Ausnahme eines einzigen flachen Buckets. Einstellungen → Lesezeichen importiert und exportiert auch New DeskTab JSON. Ein Lesezeichenexport umfasst nicht alle Einstellungen und lokalen Medien; Führen Sie ein vollständiges Backup durch. Vollständige Sicherungen von JSON und ZIP behalten die tägliche Trinkgeldpräferenz bei; Ältere Backups ohne diese Option behalten die aktuelle Auswahl.",
+      "tip": "Importieren Sie Chrome-Lesezeichen oder eine HTML-Datei aus Einstellungen → Lesezeichen und wählen Sie zuerst die Elemente aus. Verwenden Sie eine vollständige Sicherung von Einstellungen → Allgemein, bevor Sie Ihren Arbeitsbereich deinstallieren oder ersetzen."
     },
     "sync": {
       "question": "Wie nutze ich denselben Speicherplatz auf einem anderen Computer?",
@@ -470,7 +470,7 @@
       "steps": [
         "Melden Sie sich an und aktivieren Sie die Erweiterungssynchronisierung in Ihrem Google Chrome-Profil.",
         "Wählen Sie unter Einstellungen → Synchronisierung die Option „Synchronisiert“ und akzeptieren Sie die Bestätigung. Der Wechsel wird sofort wirksam: Vorhandene synchronisierte Lesezeichen und Einstellungen werden geladen, oder Ihre gespeicherten lokalen Daten werden synchronisiert, falls keine vorhanden sind.",
-        "Verwenden Sie dasselbe Profil auf dem anderen Gerät. Überprüfen Sie den Synchronisierungsstatus und den verfügbaren Platz im Panel."
+        "Verwenden Sie auf dem anderen Gerät dasselbe Google Chrome-Profil und die gleiche Erweiterung ID. Überprüfen Sie den Synchronisierungsstatus und den verfügbaren Platz im Panel. Erstellen Sie vor der Deinstallation ein separates Voll-Backup."
       ],
       "note": "Zu jedem Gerät gehören lokale Dateien, der Papierkorb und tägliche Tipps. Für die Synchronisierung gelten Speicherbeschränkungen. Verwenden Sie alternative URLs für lokale Bilder und Videos. Die Auswahl von „Lokal“ erfordert ebenfalls eine Bestätigung und wird sofort wirksam, wobei die synchronisierten Daten gespeichert bleiben.",
       "tip": "Durch die Synchronisierung wird Ihr Speicherplatz geräteübergreifend freigegeben, lokale Dateien benötigen jedoch eine alternative URL. Siehe Einstellungen → Synchronisierung."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Wie lösche ich meine Daten oder setze Einstellungen zurück?",
-      "searchTerms": "Daten löschen; Einstellungen zurücksetzen; alles entfernen; von vorne anfangen",
+      "searchTerms": "Daten löschen; Einstellungen zurücksetzen; alles entfernen; von vorne anfangen; Erweiterung deinstallieren; neu installieren; Update-Erweiterung; verlorene Lesezeichen",
       "title": "Speichern und Zurücksetzen",
       "summary": "Verstehen Sie, was gespeichert wird und was jede Aktion entfernt.",
       "steps": [
@@ -498,7 +498,7 @@
         "Wenn eine Benachrichtigung über eine ausstehende Speicherung angezeigt wird, klicken Sie auf „Speichern erneut versuchen“ und warten Sie auf die Bestätigung, bevor Sie die Registerkarte schließen.",
         "Unter Einstellungen → Allgemein können Sie Einstellungen zurücksetzen oder alle Daten löschen. Lesen Sie die Bestätigung und exportieren Sie ein Backup von allem, was Sie behalten möchten."
       ],
-      "note": "Durch das Zurücksetzen der Einstellungen bleiben Ihre Lesezeichen, ihre Größe und ihr Stil erhalten. Durch das Löschen aller lokalen Daten werden die Elemente entfernt und der Papierkorb geleert. Exportieren Sie ein Backup vor dem Löschen: Durch „Rückgängig“ wird ein Backup nicht ersetzt.",
+      "note": "Beim Zurücksetzen der Einstellungen bleiben Lesezeichen, Größen und Stile erhalten. Durch das Löschen lokaler Daten oder die Deinstallation werden der lokale Arbeitsbereich, die Einstellungen, die Medien und der Papierkorb dieses Profils entfernt. Eine Neuinstallation startet im Lokal-Modus, ohne den alten Speicherplatz automatisch wiederherzustellen. Exportieren Sie zunächst ein vollständiges Backup. Ersetzen Sie für entpackte Updates die Dateien und verwenden Sie „Neu laden“ auf chrome://extensions mit demselben Schlüssel und der gleichen Erweiterung ID.",
       "tip": "Wenn Sie einen Hinweis auf nicht gespeicherte Änderungen sehen, verwenden Sie „Speichern erneut versuchen“, bevor Sie die Registerkarte schließen. Schützen Sie Ihren Speicherplatz mit einem vollständigen Backup."
     },
     "learning": {

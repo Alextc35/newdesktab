@@ -48,12 +48,52 @@ npm run test:extension
 The E2E configuration starts the test server at `127.0.0.1:4175`. The browser
 harness simulates Chrome APIs for E2E journeys. The extension smoke test loads
 a real extension and checks the new tab, popup, persistence and reload behavior.
-Generated outputs stay outside source directories, for example in `test-results/`
-and `dist/`.
+Generated outputs stay outside source directories. Keep test reports, temporary
+scripts and screenshots in `test-results/` or the system temporary directory.
+Keep `dist/` limited to the current Store/developer release ZIPs and their
+SHA-256 files; remove translation caches and capture outputs before delivery.
 
 GitHub Actions runs quality checks, a dependency audit, browser journeys,
-packaging and a smoke test of the extracted release package. See
+packaging and smoke tests of both extracted Store and developer packages. See
 [ci.yml](../../.github/workflows/ci.yml).
+
+### Bookmark import, folder trees and schema changes
+
+Release 1.1.0 uses public data schema 2, defined by `DATA_SCHEMA_VERSION` in
+[`schemaVersion.js`](../../src/platform/storage/schemaVersion.js). Public schema 1
+data migrates on load. Use the constant for current-schema fixtures and
+`DATA_SCHEMA_VERSION + 1` for future-schema rejection checks; retain explicit
+older versions only when a test intends to exercise migration. A folder's
+nullable `parentId` represents nesting, and a folder trash entry preserves its
+descendants in `folders` alongside its root and bookmarks.
+
+Relevant focused checks are the browser-import preparation, selection and service
+unit tests, [`folderContents.test.mjs`](../../tests/folderContents.test.mjs),
+[`folderNavigation.test.js`](../../tests/dom/folderNavigation.test.js) and the
+browser-import/selection E2E journeys. The
+[`capacity-limits journey`](../../tests/e2e/capacityLimits.spec.js) verifies that
+a folder can exceed the small grid's 18 visible cells; membership has no fixed
+item cap. Compact contents are bounded to 54 rows per page with search and
+breadcrumb navigation. Preserve the original performance benchmark's 18-item
+folder dataset when comparing its recorded measurements; it is a test fixture,
+not the current capacity limit.
+
+For changes to this flow, verify native detection after the first guide, explicit
+native/HTML import in Settings, initial empty-folder exclusion, partial subtree
+selection, confirmation cancellation and success/error feedback. Check that
+imports append to Main in row order, preserve existing items, keep user
+subfolders and avoid duplicating unchanged source entries. Test compact folder
+edit actions and selected-row reordering as well as small-grid drag behavior.
+Use the real-extension smoke check for manifest or Chrome API changes; E2E
+fixtures simulate native APIs and do not prove access to a real user profile.
+
+The manifest includes `bookmarks` for read-only native import and
+`unlimitedStorage` for large Local collections. Native Chrome bookmarks are never
+changed. Unlimited Local storage does not increase Chrome Sync's approximately
+100 KB total quota; exercise quota preflight and failed-persistence rollback
+when changing import persistence. Reloads and extension updates retain profile
+storage, while uninstalling removes extension-owned local data. Use exported
+backups to validate restoration into a fresh profile.
 
 ### Choose a browser or extension package
 

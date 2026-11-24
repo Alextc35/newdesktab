@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Poiščite možnosti varnostnega kopiranja v Nastavitve → Splošno.",
-        "Export prenese ZIP s podatki in lokalnimi datotekami.",
+        "Izvozi prenose JSON ali ZIP, če so vključeni lokalni videoposnetki.",
         "Uvoz zahteva potrditev pred zamenjavo podatkov."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Kako združim zaznamke v mape?",
-      "searchTerms": "ustvari mapo; skupinski zaznamki; organizirati priljubljene; odstrani iz mape; preimenuj mapo",
+      "searchTerms": "ustvari mapo; skupinski zaznamki; organizirati priljubljene; odstrani iz mape; preimenuj mapo; podmape; velike mape; strani; premakniti navzgor; premakniti navzdol; preuredite vrstice",
       "title": "Organizirajte z mapami",
       "summary": "Zberite zaznamke in podmape na enem mestu.",
       "steps": [
-        "V levem meniju izberite + → Mapa in jo poimenujte.",
-        "V načinu urejanja povlecite zaznamke nanj, da jih postavite notri. Odprite mapo, da vidite njeno mrežo.",
-        "Uporabite način urejanja mape, da uredite njene zaznamke. Kliknite njegovo ime, da ga preimenujete, in njegovo ikono, da prilagodite njegov videz."
+        "Izberite + → Mapa in jo poimenujte. V načinu urejanja povlecite zaznamke nanj. Majhne zbirke uporabljajo mrežo 3 × 6; velike ali ugnezdene zbirke uporabljajo iskalne sezname s stranmi z 54 elementov.",
+        "Odprite podmape in uporabite Nazaj ali drobtinico za vrnitev. V načinu urejanja seznama izberite vrstico in uporabite Premakni se navzgor ali Premakni se navzdol; Alt + ↑ / ↓ premakne tudi izbrano vrstico.",
+        "Kontrolniki za urejanje, brisanje in premikanje se prikažejo na desni strani vsake vrstice seznama. Kliknite ime mape, da jo preimenujete, ali njen nadzor videza, da spremenite njen slog."
       ],
-      "note": "Brisanje mape vpliva tudi na njene zaznamke. Pred nadaljevanjem preglejte potrditev; koš lahko obnovi izbrisane elemente.",
-      "tip": "Mape podpirajo velike zbirke z iskanjem in stranmi. Vklopite urejanje in povlecite kartico v mapo, da jo dodate."
+      "note": "Mape nimajo fiksne omejitve števila elementov. Vrstni red zaznamkov in podmap se shrani skupaj. Premikanje, podvajanje, brisanje ali obnavljanje mape vključuje njeno celotno poddrevo; preglejte potrditve izbrisa.",
+      "tip": "Velike mape imajo iskanje in strani z 54 elementov. V načinu urejanja seznama izberite vrstico in uporabite Premakni se navzgor ali Premakni se navzdol ali pritisnite Alt + ↑ / ↓ v izbrani vrstici."
     },
     "workspaces": {
       "question": "Kako naj ločim osebne in službene strani?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Kako varnostno kopiram ali prenesem svoje podatke?",
-      "searchTerms": "varnostna kopija; izvozni podatki; uvozna kopija; obnovitev varnostne kopije; drug brskalnik; prenos podatkov",
+      "searchTerms": "varnostna kopija; izvozni podatki; uvozna kopija; obnovitev varnostne kopije; drug brskalnik; prenos podatkov; uvozi Chrome zaznamkov; HTML zaznamki; prazna mapa; izberite uvožene elemente",
       "title": "Varnostne kopije in uvozi",
       "summary": "Shranite kopijo svojega prostora in jo vzemite s seboj.",
       "steps": [
-        "V Nastavitve → Splošno izvozite celotno varnostno kopijo, da ohranite podatke in lokalne datoteke, vključene v arhiv ZIP.",
-        "Za obnovitev uvozite varnostno kopijo in pred zamenjavo podatkov preglejte potrditev. Podprte so tudi združljive varnostne kopije JSON.",
-        "V Nastavitve → Zaznamki lahko izvozite ali uvozite samo zaznamke in mape, ko ne potrebujete popolne varnostne kopije."
+        "V nastavitve → Splošno izvozite celotno varnostno kopijo, preden zamenjate podatke ali spremenite brskalnik. Backups brez lokalnih videoposnetkov uporabljajo JSON; tisti z lokalnimi videoposnetki uporabljajo ZIP. Pred obnovitvijo preglejte potrditev zamenjave.",
+        "Če želite dodati Chrome zaznamkov, uporabite nastavitve → Zaznamki → Uvoz iz Google Chrome ali Uvozi datoteko HTML. Prvi pozdravni vodnik ponuja tudi izvorni uvoz, ko so zaznani podprti zaznamki.",
+        "Razširite Oglejte si in izberite elemente, da izberete povezave ali mape, poiščete ali izberete/prekličete izbiro vseh. prazno mape se začnejo neoznačene z značko prazno; povezave prikazujejo priljubljene ikone. Potrdi Uvozi zaznamke: pogovorno okno se po shranjevanju zapre in trenutek sporoči rezultat."
       ],
-      "note": "Izvoz zaznamkov ni popolna varnostna kopija nastavitev in lokalnih medijev. Pred obnovitvijo ali brisanjem podatkov shranite varnostno kopijo.",
-      "tip": "Popolna varnostna kopija iz Nastavitve → Splošno vključuje lokalne datoteke v ZIP. Uporabno je, preden zamenjate brskalnik ali obnovite podatke."
+      "note": "Chrome/HTML uvozi se dodajo v Glavni, pri čemer se ohranijo obstoječi elementi in izvorni vrstni red. Zaznamki-vsebina vrstice gre neposredno na namizje; druga poseljena vedra brskalnika hranijo svoje mape, razen edinega ravnega vedra. nastavitve → Zaznamki uvozi in izvozi tudi New DeskTab JSON. Izvoz zaznamkov ne vključuje vseh nastavitev in lokalnih medijev; naredite popolno varnostno kopijo. Popolne varnostne kopije JSON in ZIP ohranjajo prednost dnevne napitnine; starejše varnostne kopije brez tega ohranijo trenutno izbiro.",
+      "tip": "Uvozite Chrome zaznamkov ali datoteko HTML iz nastavitve → Zaznamki in najprej izberite elemente. Preden odstranite ali zamenjate svoj delovni prostor, uporabite popolno varnostno kopijo iz nastavitve → Splošno."
     },
     "sync": {
       "question": "Kako uporabim isti prostor na drugem računalniku?",
@@ -470,7 +470,7 @@
       "steps": [
         "Prijavite se in omogočite sinhronizacijo razširitev v svojem profilu Google Chrome.",
         "V Nastavitve → Sinhronizacija izberite Sinhronizirano in sprejmite potrditev. Preklop začne veljati takoj: naložijo se obstoječi sinhronizirani zaznamki in nastavitve ali pa se sinhronizirajo vaši shranjeni lokalni podatki, če ne obstajajo.",
-        "Uporabite isti profil v drugi napravi. Preverite stanje sinhronizacije in razpoložljiv prostor na plošči."
+        "Uporabite isti profil Google Chrome in razširitev ID v drugi napravi. Preverite stanje sinhronizacije in razpoložljiv prostor na plošči. Pred odstranitvijo shranite ločeno popolno varnostno kopijo."
       ],
       "note": "Lokalne datoteke, koš in dnevni nasveti pripadajo vsaki napravi. Sinhronizacija ima omejitve prostora za shranjevanje; uporabite alternativne URL-je za lokalne slike in videoposnetke. Izbira Lokalno zahteva tudi potrditev in začne veljati takoj, sinhronizirani podatki pa ostanejo shranjeni.",
       "tip": "Sinhronizacija deli vaš prostor med napravami, vendar lokalne datoteke potrebujejo alternativni URL. Glejte Nastavitve → Sinhronizacija."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Kako izbrišem svoje podatke ali ponastavim nastavitve?",
-      "searchTerms": "brisanje podatkov; ponastavitev nastavitev; odstranite vse; začeti znova",
+      "searchTerms": "brisanje podatkov; ponastavitev nastavitev; odstranite vse; začeti znova; odstranitev razširitve; znova namestiti; posodobitev razširitve; izgubljeni zaznamki",
       "title": "Shranjevanje in ponastavitev",
       "summary": "Razumeti, kaj je shranjeno in kaj vsako dejanje odstrani.",
       "steps": [
@@ -498,7 +498,7 @@
         "Če se prikaže obvestilo o čakajočem shranjevanju, kliknite Poskusi znova shraniti in počakajte na potrditev, preden zaprete zavihek.",
         "V Nastavitve → Splošno lahko ponastavite nastavitve ali izbrišete vse podatke. Preberite potrditev in izvozite varnostno kopijo vsega, kar želite obdržati."
       ],
-      "note": "Ponastavitev nastavitev ohrani vaše zaznamke, njihove velikosti in njihove sloge. Če izbrišete vse lokalne podatke, odstranite elemente in izpraznite koš. Izvoz varnostne kopije pred brisanjem: Razveljavitev ne zamenja varnostne kopije.",
+      "note": "Ponastavitev nastavitev ohrani zaznamke, velikosti in sloge. Če izbrišete lokalne podatke ali odstranitev, odstranite lokalni delovni prostor, nastavitve, predstavnost in smetnjak tega profila. Nova namestitev se začne v načinu Lokalno brez samodejne obnovitve starega prostora. Najprej izvozite celotno varnostno kopijo. Za nepakirane posodobitve zamenjajte datoteke in uporabite Reload na chrome://extensions z istim ključem in končnico ID.",
       "tip": "Če vidite obvestilo o neshranjenih spremembah, uporabite Poskusi znova shraniti, preden zaprete zavihek. Zaščitite svoj prostor s popolno varnostno kopijo."
     },
     "learning": {

@@ -50,9 +50,13 @@ manifest key for a stable unpacked extension ID. The separate Store package
 directly as the source extension, without packaging or installing dependencies.
 
 Release notes appear once for each new version and browser profile. A new
-profile can then follow the optional five-step welcome guide. Start by adding
-a bookmark, enabling edit mode and moving or resizing its card. Changes save
-automatically; check any save-error message before closing the tab.
+profile can then follow the optional five-step welcome guide. After that first
+guide finishes or is skipped, New DeskTab offers to import any supported native
+Chrome bookmarks it detects. Replaying the guide later does not repeat this
+offer; the import remains available in **Settings → Bookmarks**.
+
+Start by adding a bookmark, enabling edit mode and moving or resizing its card.
+Changes save automatically; check any save-error message before closing the tab.
 
 ## Save and edit bookmarks
 
@@ -148,10 +152,13 @@ cell and can be resized and styled independently. Opening a folder provides a
 link view and an editable **3-row × 6-column grid** for small collections.
 Folders have no fixed item-count limit. Larger collections use compact pages
 of 54 items, with folder search and previous/next controls to keep navigation fast.
-Open subfolders and use the breadcrumb to return to an ancestor.
+Folders containing subfolders also use this list view. Open subfolders and use
+**Back** or the breadcrumb to return to an ancestor. Search filters the current
+folder; clear it to return to the complete collection.
 In list editing mode, select a row and use **Move up** or **Move down** to change
 its order. `Alt + ↑ / ↓` also moves the focused row. Edit, delete and move-out
-actions stay aligned at the right of each row.
+actions stay aligned at the right of each row. Bookmark and subfolder order is
+saved together and survives closing the folder or reloading.
 
 A bookmark inside a folder keeps its saved appearance and main-grid dimensions,
 but occupies one compact cell inside the folder. Its local order is remembered
@@ -209,6 +216,7 @@ and synchronized shared settings when Chrome Sync is enabled.
 | `Ctrl` + Settings shortcut — `Ctrl + S` by default | Open the current workspace's settings, unless the configured shortcut already contains `Ctrl` or the resulting combination conflicts with another action. |
 | `/` | Open global bookmark search. |
 | `Ctrl + ↑` / `Ctrl + ↓` | Switch workspace. |
+| `Alt + ↑` / `Alt + ↓` in a folder's list edit mode | Move the focused bookmark or subfolder up / down. |
 | `Ctrl/Cmd + Z` | Undo the latest workspace operation or pending editor change. |
 | `Ctrl/Cmd + Shift + Z` | Redo. |
 | Middle click on a bookmark in edit mode | Open its editor. |
@@ -340,22 +348,32 @@ New DeskTab supports two different exports from Settings:
 Use **View and select items** to expand the detected tree, choose individual
 links or complete folders, search, or select/deselect everything. Empty folders
 have a visible **Empty** badge and start unchecked. You can include them explicitly.
-Import adds the selection to **Main**, alongside
-existing New DeskTab bookmarks, without changing Chrome's originals.
+Folder icons contain an expand arrow when they have children; links show their
+website favicon when available. The tree uses the interface's styled scrollbar
+and can reveal more entries in large collections.
+
+Import adds the selection to **Main**, alongside existing New DeskTab bookmarks,
+regardless of the workspace currently open. Chrome's originals remain unchanged.
 Chrome's bookmarks-bar contents appear directly on the desktop. Other populated
-browser buckets remain folders; when only one flat bucket has links, those links
+browser buckets remain folders. If the bookmarks bar has no selected contents and
+only one other populated bucket contains links without subfolders, those links
 also appear directly. User folders keep their names, nesting and order. Empty
-browser buckets are omitted. A container is used only when the root collection
-does not fit the remaining desktop cells. Free a cell and retry if Main is full.
+browser buckets are omitted. Imported folder cards start without an outer background.
+
+New desktop items fill free cells from left to right, then top to bottom, keeping
+the source order. Existing cards, widgets and the recycle bin keep their places.
+A container is used only when the root collection does not fit the remaining
+desktop cells. Free a cell and retry if Main is full; a failed import leaves the
+existing data unchanged.
 Repeating the same import avoids duplicating the imported records.
 The standard confirmation appears before writing the selected data. On success,
 the import dialog closes automatically and a flash reports the saved result.
 Unsupported link protocols are skipped and reported. Large collections may
 exceed Chrome Sync's storage allowance; switch DeskTab to Local mode and retry.
 
-On a new profile, after the welcome guide finishes or is skipped, DeskTab checks
-for native Chrome bookmarks and offers the same import if any are found. You can
-choose **Not now** and import later in Settings.
+On a new profile, the first welcome guide leads to this same import offer when
+supported Chrome bookmarks are detected. You can choose **Not now** and import
+later in Settings. Replaying the guide does not offer the import again.
 
 Complete backups without local videos use **JSON**. Those containing local
 videos use **ZIP**, with configuration and separate binary video files. Older
@@ -383,6 +401,17 @@ automatically. Available retention periods are 1, 7, 14 or 28 days, or never;
 the default is 28 days. A recycle bin does not replace a backup stored outside
 the browser.
 
+Uninstalling the extension removes its local data from that browser profile,
+including bookmarks, settings, media, trash and the selected storage mode. A fresh
+installation starts in Local mode and does not automatically recover the former
+workspace. Export a complete backup before uninstalling or moving profiles, then
+restore it after installation. Chrome Sync is not a substitute for that backup.
+
+For an unpacked-extension update, replace the files in the existing installation
+folder and use **Reload** on `chrome://extensions`. Keep the same manifest key and
+extension ID. This updates the installation while retaining its stored data;
+uninstalling and reinstalling is unnecessary.
+
 **Settings → Sync → Delete synced data** removes New DeskTab's synchronized
 copy after confirmation, preserving a working local copy first when necessary.
 Switching back to Local alone does not delete that synchronized copy.
@@ -400,8 +429,9 @@ section, and **Turn off daily tips** on the card disables future tips immediatel
 You can enable them again in Help. **Settings → Information** provides release
 notes and version history.
 
-On a new profile, release notes appear before the guide; an enabled daily tip
-follows those dialogs. In compact list mode at 600 pixels wide or less, notes,
+On a new profile, release notes appear before the guide, followed by the detected
+Chrome-bookmark import offer when applicable. An enabled daily tip follows those
+dialogs. In compact list mode at 600 pixels wide or less, notes,
 guide, manual and tips are hidden with a brief message. Pending introductory
 notices remain available when the window is enlarged.
 

@@ -6,6 +6,38 @@ This is a historical record of completed release work. Checked items and test
 counts describe the dated validation below; they do not certify a later checkout.
 Use the [release procedure](CHROME_WEB_STORE.md#release-procedure) for a new build.
 
+## Release 1.1.0 — November 24, 2026
+
+The local validation below covers the 1.1.0 runtime and CI-test alignment at
+`ac5bd8b`, before the subsequent documentation and translation refresh.
+
+- [x] Align backup schema assertions with public schema 2, including rejection
+  of future schemas, and accept more than 18 bookmarks in a folder.
+- [x] Pass ESLint, 352 unit tests and 88 DOM tests (`npm run check`).
+- [x] Pass all 430 Playwright scenarios using bundled Chromium on Windows with
+  `CI=1` and four workers, including backup restoration and folder capacity.
+- [x] Pass two Python packaging tests and the source extension smoke test.
+- [x] Extract and smoke-test both the Store and developer 1.1.0 packages in
+  bundled Chromium, including backup restoration.
+
+These local results do not establish a successful GitHub Actions run, Store
+submission, or a new Chrome 123, Brave or real Chrome Sync verification. Check
+the final commit and final package again using the submission procedure below.
+
+Documentation and localization refresh, also validated on November 24:
+
+- [x] Update the README, changelog, privacy policy, user/developer guides and
+  release procedures for 1.1.0/schema 2 while preserving dated historical reports.
+- [x] Refresh import messages in all 52 interface catalogs and the affected
+  manual passages in all 51 manual files (Latin American Spanish shares Spanish).
+- [x] Pass ESLint, all 352 unit tests and 88 DOM tests again.
+- [x] Pass all 15 Help/language Playwright scenarios in bundled Chromium,
+  including offline loading of every language and manual.
+- [x] Pass both Python packaging tests, regenerate the two 1.1.0 ZIPs and their
+  SHA-256 files, and smoke-test each extracted package in bundled Chromium.
+- [x] Check local documentation links and whitespace; keep only the four current
+  release ZIP/checksum files in `dist/`.
+
 ## Architecture closeout — October 10, 2026
 
 - [x] Confirm persistence for bulk and other destructive operations.

@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Možnosti zálohovania nájdete v Nastavenia → Všeobecné.",
-        "Export stiahne súbor ZIP s údajmi a lokálnymi súbormi.",
+        "Exportujte stiahnuté súbory JSON alebo ZIP, ak sú zahrnuté miestne videá.",
         "Import si pred nahradením údajov vyžiada potvrdenie."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Ako môžem zoskupiť záložky do priečinkov?",
-      "searchTerms": "vytvoriť priečinok; skupinové záložky; organizovať obľúbené položky; odstrániť z priečinka; premenovať priečinok",
+      "searchTerms": "vytvoriť priečinok; skupinové záložky; organizovať obľúbené položky; odstrániť z priečinka; premenovať priečinok; podpriečinky; veľké priečinky; stránky; posunúť sa hore; presunúť sa nadol; zmeniť poradie riadkov",
       "title": "Usporiadajte pomocou priečinkov",
       "summary": "Zhromažďujte záložky a podpriečinky na jednom mieste.",
       "steps": [
-        "V ľavom menu vyberte + → Priečinok a pomenujte ho.",
-        "V režime úprav naň presuňte záložky, aby ste ich umiestnili dovnútra. Otvorte priečinok, aby ste videli jeho mriežku.",
-        "Použite režim úprav priečinka na usporiadanie jeho záložiek. Kliknutím na jeho názov ho premenujete a kliknutím na jeho ikonu prispôsobíte jeho vzhľad."
+        "Vyberte + → Priečinok a pomenujte ho. V režime úprav naň presuňte záložky. Malé zbierky používajú mriežku 3 × 6; veľké alebo vnorené kolekcie používajú vyhľadávateľné zoznamy so stranami 54 položiek.",
+        "Otvorte podpriečinky a na návrat použite Späť alebo strúhanku. V režime úpravy zoznamu vyberte riadok a použite Posunúť sa hore alebo Presuňte sa nadol; Alt + ↑ / ↓ tiež presunie označený riadok.",
+        "Napravo od každého riadka zoznamu sa zobrazia ovládacie prvky na úpravu, odstránenie a presun. Kliknutím na názov priečinka ho premenujete alebo kliknutím na jeho ovládací prvok vzhľadu zmeníte jeho štýl."
       ],
-      "note": "Odstránenie priečinka ovplyvní aj jeho záložky. Pred pokračovaním skontrolujte potvrdenie; kôš môže obnoviť odstránené položky.",
-      "tip": "Priečinky podporujú veľké zbierky s vyhľadávaním a stránkami. Zapnite úpravy a pridajte kartu presunutím do priečinka."
+      "note": "Priečinky nemajú pevný limit počtu položiek. Poradie záložiek a podpriečinkov sa ukladá spolu. Presun, duplikovanie, vymazanie alebo obnovenie priečinka zahŕňa jeho úplný podstrom; skontrolujte potvrdenia o odstránení.",
+      "tip": "Veľké priečinky obsahujú vyhľadávanie a strany 54 položiek. V režime úpravy zoznamu vyberte riadok a použite Posunúť sa hore alebo Presuňte sa nadol, alebo stlačte Alt + ↑ / ↓ na zameranom riadku."
     },
     "workspaces": {
       "question": "Ako udržím osobné a pracovné stránky oddelené?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Ako zálohujem alebo prenesiem svoje dáta?",
-      "searchTerms": "záložná kópia; exportovať údaje; importovať kópiu; obnoviť zálohu; iný prehliadač; prenášať dáta",
+      "searchTerms": "záložná kópia; exportovať údaje; importovať kópiu; obnoviť zálohu; iný prehliadač; prenos dát; importovať záložky Chrome; HTML záložky; prázdny priečinok; vyberte importované položky",
       "title": "Zálohy a importy",
       "summary": "Ponechajte si kópiu svojho priestoru a vezmite si ju so sebou.",
       "steps": [
-        "V časti Nastavenia → Všeobecné exportujte úplnú zálohu, aby ste zachovali údaje a lokálne súbory zahrnuté v archíve ZIP.",
-        "Ak chcete obnoviť, importujte zálohu a pred výmenou údajov skontrolujte potvrdenie. Podporované sú aj kompatibilné zálohy JSON.",
-        "V Nastavenia → Záložky môžete exportovať alebo importovať iba záložky a priečinky, keď nepotrebujete úplnú zálohu."
+        "V Nastavenia → generál exportujte pred výmenou údajov alebo zmenou prehliadača úplnú zálohu. Backups bez miestnych videí používa JSON; používatelia s miestnymi videami používajú ZIP. Pred obnovením si skontrolujte potvrdenie výmeny.",
+        "Ak chcete pridať záložky Chrome, použite Nastavenia → Záložky → Importovať z Google Chrome alebo Importujte súbor HTML. Prvý uvítací sprievodca ponúka aj natívny import pri zistení podporovaných záložiek.",
+        "Rozbaľte Zobrazte a vyberte položky a vyberte odkazy alebo priečinky, vyhľadajte alebo vyberte/zrušte výber všetkých. Priečinky Prázdny začínajú nezačiarknuté s odznakom Prázdny; odkazy zobrazujú obľúbené ikony. Potvrďte Importujte záložky: dialógové okno sa po uložení zatvorí a blesk ohlási výsledok."
       ],
-      "note": "Export záložiek nie je úplnou zálohou nastavení a miestnych médií. Pred obnovením alebo odstránením údajov si uložte zálohu.",
-      "tip": "Úplná záloha z Nastavenia → Všeobecné obsahuje lokálne súbory v ZIP. Je to užitočné pred prepnutím prehliadačov alebo obnovením údajov."
+      "note": "Importy Chrome/HTML sa pridajú do Hlavné, pričom sa zachovajú existujúce položky a zdrojové poradie. Záložky-bar obsah ide priamo na plochu; ostatné vyplnené skupiny prehliadačov si uchovávajú svoje priečinky, s výnimkou jediného plochého vedra. Nastavenia → Záložky tiež importuje a exportuje New DeskTab JSON. Export záložiek nezahŕňa všetky nastavenia a miestne médiá; mať úplnú zálohu. Úplné zálohy JSON a ZIP zachovávajú preferenciu denného sprepitného; staršie zálohy bez toho ponechajú aktuálnu voľbu.",
+      "tip": "Importujte záložky Chrome alebo súbor HTML z Nastavenia → Záložky a najskôr vyberte položky. Pred odinštalovaním alebo výmenou pracovného priestoru použite úplnú zálohu z Nastavenia → generál."
     },
     "sync": {
       "question": "Ako môžem použiť rovnaký priestor na inom počítači?",
@@ -470,7 +470,7 @@
       "steps": [
         "Prihláste sa a povoľte synchronizáciu rozšírení vo svojom profile Google Chrome.",
         "V Nastavenia → Synchronizácia vyberte Synchronizované a potvrďte potvrdenie. Prepnutie sa prejaví okamžite: načítajú sa existujúce synchronizované záložky a nastavenia alebo sa zosynchronizujú vaše uložené lokálne údaje, ak žiadne neexistujú.",
-        "Použite rovnaký profil na druhom zariadení. Skontrolujte stav synchronizácie a dostupné miesto na paneli."
+        "Použite rovnaký profil Google Chrome a rozšírenie ID na druhom zariadení. Skontrolujte stav synchronizácie a dostupné miesto na paneli. Pred odinštalovaním si ponechajte samostatnú plnú zálohu."
       ],
       "note": "Ku každému zariadeniu patria lokálne súbory, kôš a denné tipy. Synchronizácia má limity úložiska; použite alternatívne adresy URL pre miestne obrázky a videá. Voľba Miestne si tiež vyžiada potvrdenie a prejaví sa okamžite, pričom synchronizované údaje zostanú uložené.",
       "tip": "Synchronizácia zdieľa váš priestor medzi zariadeniami, ale lokálne súbory potrebujú alternatívnu adresu URL. See Nastavenia → Synchronizovať."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Ako vymažem svoje údaje alebo obnovím nastavenia?",
-      "searchTerms": "vymazať údaje; obnoviť nastavenia; odstrániť všetko; začať odznova",
+      "searchTerms": "vymazať údaje; obnoviť nastavenia; odstrániť všetko; začať odznova; odinštalovať rozšírenie; preinštalovať; aktualizovať rozšírenie; stratené záložky",
       "title": "Ukladanie a resetovanie",
       "summary": "Pochopte, čo sa uloží a čo každá akcia odstráni.",
       "steps": [
@@ -498,7 +498,7 @@
         "Ak sa zobrazí hlásenie o čakaní na uloženie, kliknite na tlačidlo Opakovať uloženie a pred zatvorením karty počkajte na potvrdenie.",
         "V Nastavenia → Všeobecné môžete obnoviť nastavenia alebo vymazať všetky údaje. Prečítajte si potvrdenie a exportujte zálohu všetkého, čo si chcete ponechať."
       ],
-      "note": "Obnovením nastavení sa zachovajú vaše záložky, ich veľkosti a štýly. Vymazaním všetkých miestnych údajov sa odstránia položky a vyprázdni sa kôš. Exportujte zálohu pred odstránením: Vrátiť späť zálohu nenahradí.",
+      "note": "Obnovením nastavení sa zachovajú záložky, veľkosti a štýly. Odstránením miestnych údajov alebo odinštalovaním sa odstráni miestny pracovný priestor, nastavenia, médiá a kôš tohto profilu. Nová inštalácia sa spustí v režime Miestne bez automatického obnovenia starého priestoru. Najprv exportujte úplnú zálohu. V prípade rozbalených aktualizácií nahraďte súbory a použite možnosť Znova načítať na chrome://extensions s rovnakým kľúčom a príponou ID.",
       "tip": "Ak uvidíte oznámenie o neuložených zmenách, pred zatvorením karty použite možnosť Opakovať uloženie. Chráňte svoj priestor pomocou úplnej zálohy."
     },
     "learning": {

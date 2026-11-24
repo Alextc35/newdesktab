@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Keresse meg a biztonsági mentési beállításokat a Beállítások → Általános menüpontban.",
-        "Az exportálás letölti az adatokat és a helyi fájlokat tartalmazó ZIP-fájlt.",
+        "Letöltések exportálása JSON vagy ZIP, ha helyi videókat is tartalmaz.",
         "Az importálás megerősítést kér az adatok cseréje előtt."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Hogyan csoportosíthatom a könyvjelzőket mappákba?",
-      "searchTerms": "mappa létrehozása; csoportos könyvjelzők; kedvenceket szervezni; távolítsa el a mappából; mappa átnevezése",
+      "searchTerms": "mappa létrehozása; csoportos könyvjelzők; kedvenceket szervezni; távolítsa el a mappából; mappa átnevezése; almappák; nagy mappák; oldalak; feljebb lépni; mozog lefelé; sorok átrendezése",
       "title": "Rendszerezés mappákkal",
       "summary": "Gyűjtse össze a könyvjelzőket és az almappákat egy helyen.",
       "steps": [
-        "Válassza a + → Mappa lehetőséget a bal oldali menüben, és adjon neki nevet.",
-        "Szerkesztés módban húzza rá a könyvjelzőket, hogy behelyezze őket. Nyissa meg a mappát a rács megtekintéséhez.",
-        "Használja a mappa szerkesztési módját a könyvjelzők elrendezéséhez. Kattintson a nevére az átnevezéshez, az ikonjára pedig a megjelenés testreszabásához."
+        "Válassza a + → Mappa lehetőséget, és adjon neki nevet. Szerkesztés módban húzza rá a könyvjelzőket. A kis gyűjtemények 3 × 6 rácsot használnak; a nagy vagy beágyazott gyűjtemények kereshető listákat használnak 54 elemből álló oldalakkal.",
+        "Nyissa meg az almappákat, és használja a Vissza vagy a navigációs útvonalat a visszatéréshez. Listaszerkesztés módban válasszon ki egy sort, és használja a Lépj felfelé vagy Mozgás lefelé; Alt + ↑ / ↓ szintén áthelyezi a fókuszált sort.",
+        "A szerkesztési, törlési és kihelyezési vezérlők az egyes listasorok jobb oldalán jelennek meg. Kattintson a mappa nevére az átnevezéshez, vagy a megjelenés vezérlőelemére a stílus megváltoztatásához."
       ],
-      "note": "Egy mappa törlése hatással van a könyvjelzőire is. A folytatás előtt tekintse át a megerősítést; a lomtár vissza tudja állítani a törölt elemeket.",
-      "tip": "A mappák nagy gyűjteményeket támogatnak kereséssel és oldalakkal. Kapcsolja be a szerkesztést, és a hozzáadáshoz húzza a kártyát egy mappába."
+      "note": "A mappáknak nincs rögzített tételszám-korlátja. A könyvjelzők és az almappák sorrendje együtt kerül mentésre. Egy mappa áthelyezése, sokszorosítása, törlése vagy visszaállítása magában foglalja a teljes részfát; tekintse át a törlési visszaigazolásokat.",
+      "tip": "A nagy mappákban keresés és 54 elem található. Listaszerkesztés módban válasszon ki egy sort, és használja a Lépj felfelé vagy Mozgás lefelé, vagy nyomja meg a Alt + ↑ / ↓ gombot a fókuszált sorban."
     },
     "workspaces": {
       "question": "Hogyan tudom elkülöníteni a személyes és a munkahelyi oldalakat?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Hogyan készíthetek biztonsági másolatot vagy vihetek át adataimat?",
-      "searchTerms": "biztonsági másolat; adatok exportálása; import másolat; biztonsági mentés visszaállítása; egy másik böngésző; adatok átvitele",
+      "searchTerms": "biztonsági másolat; adatok exportálása; import másolat; biztonsági mentés visszaállítása; egy másik böngésző; adatok átvitele; import Chrome könyvjelzőket; HTML könyvjelzők; üres mappa; válassza ki az importált elemeket",
       "title": "Biztonsági mentések és importálások",
       "summary": "Tartsa meg a hely másolatát, és vigye magával.",
       "steps": [
-        "A Beállítások → Általános részben exportáljon egy teljes biztonsági másolatot a ZIP-archívumban lévő adatok és helyi fájlok megőrzéséhez.",
-        "A visszaállításhoz importáljon biztonsági másolatot, és az adatok cseréje előtt tekintse át a megerősítést. A kompatibilis JSON biztonsági mentések is támogatottak.",
-        "A Beállítások → Könyvjelzők menüpontban csak könyvjelzőket és mappákat exportálhat vagy importálhat, ha nincs szüksége teljes biztonsági másolatra."
+        "A Beállítások elemre → tábornok mappában exportáljon egy teljes biztonsági másolatot az adatok cseréje vagy a böngészőváltás előtt. Backups helyi videók nélkül használja JSON; a helyi videókkal rendelkezők ezt használják: ZIP. A visszaállítás előtt tekintse át a csere megerősítését.",
+        "Chrome könyvjelzők hozzáadásához használja a következőt: Beállítások elemre → Könyvjelzők → Importálás innen: Google Chrome vagy HTML fájl importálása. Az első üdvözlő útmutató natív importálást is kínál, ha támogatott könyvjelzőket észlel.",
+        "Bontsa ki a Elemek megtekintése és kiválasztása elemet a hivatkozások vagy mappák kiválasztásához, kereséshez, illetve az összes kijelöléséhez/kijelölés törléséhez. A Üres mappák Üres jelvénnyel kezdődnek. linkek kedvenc ikonokat mutatnak. Erősítse meg Könyvjelzők importálása: a párbeszédpanel bezárul a mentés után, és egy flash jelenti az eredményt."
       ],
-      "note": "A könyvjelző-exportálás nem a beállítások és a helyi média teljes biztonsági másolata. Az adatok visszaállítása vagy törlése előtt készítsen biztonsági másolatot.",
-      "tip": "A Beállítások → Általános menüből készült teljes biztonsági másolat helyi fájlokat tartalmaz ZIP-fájlban. Böngészőváltás vagy adatok visszaállítása előtt hasznos."
+      "note": "Chrome/HTML importálások hozzáadódnak a Fő-hoz, megőrizve a meglévő tételeket és a forrássorrendet. Könyvjelzők-sáv tartalma közvetlenül az asztalra kerül; a többi böngésző tárolóhelye megtartja a mappáit, kivéve az egyetlen lapos tárolót. Beállítások elemre → Könyvjelzők szintén importál és exportál New DeskTab JSON. A könyvjelző-exportálás nem tartalmazza az összes beállítást és a helyi adathordozókat; készítsen teljes biztonsági másolatot. A teljes JSON és ZIP biztonsági mentés megőrzi a napi borravalót; a régebbi mentések enélkül megtartják az aktuális választást.",
+      "tip": "Importáljon Chrome könyvjelzőket vagy egy HTML fájlt innen: Beállítások elemre → Könyvjelzők, és először válassza ki az elemeket. A munkaterület eltávolítása vagy cseréje előtt használjon teljes biztonsági másolatot a következő helyről: Beállítások elemre → tábornok."
     },
     "sync": {
       "question": "Hogyan használhatom ugyanazt a helyet egy másik számítógépen?",
@@ -470,7 +470,7 @@
       "steps": [
         "Jelentkezzen be, és engedélyezze a bővítmények szinkronizálását Google Chrome profiljában.",
         "A Beállítások → Szinkronizálás menüpontban válassza a Szinkronizált lehetőséget, és fogadja el a megerősítést. A váltás azonnal életbe lép: a meglévő szinkronizált könyvjelzők és beállítások betöltődnek, vagy a mentett helyi adatok szinkronizálódnak, ha nincsenek.",
-        "Használja ugyanazt a profilt a másik eszközön. Ellenőrizze a szinkronizálás állapotát és a rendelkezésre álló helyet a panelen."
+        "Használja ugyanazt a Google Chrome profilt és ID bővítményt a másik eszközön. Ellenőrizze a szinkronizálás állapotát és a rendelkezésre álló helyet a panelen. Az eltávolítás előtt készítsen külön teljes biztonsági másolatot."
       ],
       "note": "A helyi fájlok, a lomtár és a napi tippek minden eszközhöz tartoznak. A szinkronizálásnak vannak tárolási korlátai; alternatív URL-eket használjon a helyi képekhez és videókhoz. A Helyi lehetőség választása szintén megerősítést kér, és azonnal hatályba lép, tárolva a szinkronizált adatokat.",
       "tip": "A szinkronizálás megosztja a helyet az eszközök között, de a helyi fájloknak alternatív URL-címre van szükségük. Lásd: Beállítások → Szinkronizálás."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Hogyan törölhetem az adataimat vagy állíthatom vissza a beállításokat?",
-      "searchTerms": "adatok törlése; beállítások visszaállítása; távolítson el mindent; kezdje elölről",
+      "searchTerms": "adatok törlése; beállítások visszaállítása; távolítson el mindent; kezdje elölről; kiterjesztés eltávolítása; telepítse újra; frissítési kiterjesztés; elveszett könyvjelzők",
       "title": "Mentés és visszaállítás",
       "summary": "Értse meg, hogy mi kerül mentésre, és mit távolít el az egyes műveletek.",
       "steps": [
@@ -498,7 +498,7 @@
         "Ha megjelenik egy függőben lévő mentési értesítés, kattintson a Mentés újra gombra, és várja meg a megerősítést, mielőtt bezárja a lapot.",
         "A Beállítások → Általános menüpontban visszaállíthatja a beállításokat, vagy törölheti az összes adatot. Olvassa el a megerősítést, és készítsen biztonsági másolatot mindenről, amelyet meg szeretne tartani."
       ],
-      "note": "A beállítások visszaállítása megőrzi könyvjelzőit, méretét és stílusát. Az összes helyi adat törlésével eltávolítja az elemeket, és kiüríti a lomtárt. Biztonsági másolat exportálása törlés előtt: A visszavonás nem helyettesíti a biztonsági másolatot.",
+      "note": "A beállítások visszaállítása megőrzi a könyvjelzőket, a méreteket és a stílusokat. A helyi adatok törlésével vagy eltávolításával eltávolítja a profil helyi munkaterületét, beállításait, adathordozóit és a kukát. Az új telepítés Helyi módban indul el, a régi terület automatikus visszaállítása nélkül. Először exportáljon egy teljes biztonsági másolatot. Kicsomagolt frissítések esetén cserélje ki a fájlokat, és használja az Újratöltést a chrome://extensions webhelyen ugyanazzal a kulccsal és kiterjesztéssel: ID.",
       "tip": "Ha nem mentett változtatásokról szóló értesítést lát, használja a Mentés újra lehetőséget a lap bezárása előtt. Védje meg a terét teljes biztonsági mentéssel."
     },
     "learning": {

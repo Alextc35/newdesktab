@@ -67,6 +67,11 @@ Save favorite styles as presets and reuse them across your bookmarks.
 
 ## Small details that help every day
 
+- **Bring your Chrome bookmarks.** After the first welcome guide, choose which
+  detected links and folders to import. You can also import from Chrome or an
+  exported bookmark HTML file in Settings. Toolbar items appear directly in Main.
+- **Browse larger collections.** Use nested folders, search, breadcrumbs and
+  compact pages, with editing controls to move entries up or down.
 - **Save the page you are on.** Click the extension icon to add it to a workspace
   or folder. Existing favorites are identified in the popup.
 - **Edit with room to change your mind.** Select several bookmarks, move or style
@@ -115,7 +120,8 @@ a generated extension ZIP, start at step 3.
 4. Open `chrome://extensions` in Chrome or `brave://extensions` in Brave.
 5. Turn on **Developer mode**, choose **Load unpacked**, and select the
    **extracted folder containing `manifest.json`**.
-6. Open a new tab. Follow the welcome guide, or press **B** to add your first bookmark.
+6. Open a new tab. Follow the welcome guide and optionally import your Chrome
+   bookmarks, or press **B** to add your first bookmark.
 
 The developer ZIP preserves the source manifest's public `key` for a stable
 unpacked extension ID. For Chrome Web Store submission, use `npm run package:store`:
@@ -134,6 +140,10 @@ It has no New DeskTab account, developer-operated backend or analytics.
 Optional **Chrome Sync** can share bookmark data and settings through your Google
 Chrome profile. Brave uses Local mode. Uploaded images and videos stay on the
 device; complete backups can carry referenced local media to another profile.
+
+Export a complete backup before changing installations. Uninstalling removes
+the extension's local data. To update an unpacked installation, replace its
+files in the same folder and click **Reload** in the extensions page.
 
 Website icons are requested from Google's favicon service, and remote images or
 videos load from their hosts. Read the [privacy policy](PRIVACY.md) for the full

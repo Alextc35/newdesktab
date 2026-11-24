@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Možnosti zálohování vyhledejte v Nastavení → Obecné.",
-        "Export stáhne ZIP s daty a místními soubory.",
+        "Exportujte stažené JSON nebo ZIP, pokud jsou zahrnuta místní videa.",
         "Import si před nahrazením dat vyžádá potvrzení."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Jak mohu seskupit záložky do složek?",
-      "searchTerms": "vytvořit složku; skupinové záložky; organizovat oblíbené položky; odstranit ze složky; přejmenovat složku",
+      "searchTerms": "vytvořit složku; skupinové záložky; organizovat oblíbené položky; odstranit ze složky; přejmenovat složku; podsložky; velké složky; stránky; posunout se nahoru; pohybovat se dolů; změnit pořadí řádků",
       "title": "Uspořádejte pomocí složek",
       "summary": "Shromážděte záložky a podsložky na jednom místě.",
       "steps": [
-        "V levém menu vyberte + → Složka a pojmenujte ji.",
-        "V režimu úprav na něj přetáhněte záložky a vložte je dovnitř. Otevřete složku a zobrazte její mřížku.",
-        "K uspořádání záložek složky použijte režim úprav. Kliknutím na jeho název jej přejmenujete a kliknutím na jeho ikonu přizpůsobíte jeho vzhled."
+        "Vyberte + → Složka a pojmenujte ji. V režimu úprav na něj přetáhněte záložky. Malé sbírky používají mřížku 3 × 6; velké nebo vnořené kolekce používají prohledávatelné seznamy se stránkami 54 položek.",
+        "Otevřete podsložky a pro návrat použijte Zpět nebo drobenku. V režimu úprav seznamu vyberte řádek a použijte Posuňte se nahoru nebo Posuňte se dolů; Alt + ↑ / ↓ také přesune vybraný řádek.",
+        "Ovládací prvky pro úpravy, odstranění a přesunutí se zobrazí napravo od každého řádku seznamu. Klepněte na název složky, chcete-li ji přejmenovat, nebo na její ovládací prvek vzhledu, chcete-li změnit její styl."
       ],
-      "note": "Smazání složky ovlivní i její záložky. Než budete pokračovat, zkontrolujte potvrzení; koš může obnovit smazané položky.",
-      "tip": "Složky podporují velké kolekce s vyhledáváním a stránkami. Zapněte úpravy a přidejte kartu přetažením do složky."
+      "note": "Složky nemají pevný limit počtu položek. Pořadí záložek a podsložek se uloží společně. Přesouvání, duplikování, mazání nebo obnovování složky zahrnuje její úplný podstrom; zkontrolovat potvrzení o smazání.",
+      "tip": "Velké složky obsahují vyhledávání a stránky 54 položek. V režimu úprav seznamu vyberte řádek a použijte Posuňte se nahoru nebo Posuňte se dolů, nebo stiskněte Alt + ↑ / ↓ na vybraném řádku."
     },
     "workspaces": {
       "question": "Jak udržím osobní a pracovní stránky oddělené?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Jak mohu zálohovat nebo přenést svá data?",
-      "searchTerms": "záložní kopie; exportovat data; importní kopie; obnovit zálohu; jiný prohlížeč; přenášet data",
+      "searchTerms": "záložní kopie; exportovat data; importní kopie; obnovit zálohu; jiný prohlížeč; přenos dat; importovat záložky Chrome; HTML záložky; prázdná složka; vyberte importované položky",
       "title": "Zálohy a importy",
       "summary": "Uschovejte si kopii svého prostoru a vezměte si ji s sebou.",
       "steps": [
-        "V Nastavení → Obecné exportujte úplnou zálohu, abyste zachovali data a místní soubory obsažené v archivu ZIP.",
-        "Chcete-li obnovit, importujte zálohu a před výměnou dat zkontrolujte potvrzení. Podporovány jsou také kompatibilní zálohy JSON.",
-        "V Nastavení → Záložky můžete exportovat nebo importovat pouze záložky a složky, když nepotřebujete úplnou zálohu."
+        "V Nastavení → Generál exportujte úplnou zálohu před výměnou dat nebo změnou prohlížeče. Backups bez místních videí používá JSON; uživatelé s místními videi používají ZIP. Před obnovením zkontrolujte potvrzení výměny.",
+        "Chcete-li přidat záložky Chrome, použijte Nastavení → Záložky → Importovat z Google Chrome nebo Importujte soubor HTML. První uvítací průvodce nabízí také nativní import, když jsou detekovány podporované záložky.",
+        "Rozbalte Zobrazit a vybrat položky a vyberte odkazy nebo složky, prohledejte nebo vyberte/zrušte výběr všech. Složky Prázdný začínají nezaškrtnuté s odznakem Prázdný; odkazy zobrazují oblíbené ikony. Potvrďte Importujte záložky: dialog se po uložení zavře a blesk oznámí výsledek."
       ],
-      "note": "Export záložek není úplnou zálohou nastavení a místních médií. Před obnovením nebo odstraněním dat si uložte zálohu.",
-      "tip": "Úplná záloha z Nastavení → Obecné obsahuje místní soubory ve formátu ZIP. Je to užitečné před přepnutím prohlížeče nebo obnovením dat."
+      "note": "Importy Chrome/HTML se přidají do Hlavní, přičemž se zachovají stávající položky a zdrojová objednávka. Obsah Záložky-bar jde přímo na plochu; ostatní naplněné skupiny prohlížečů si uchovávají své složky, kromě jediného plochého kbelíku. Nastavení → Záložky také importuje a exportuje New DeskTab JSON. Export záložek nezahrnuje všechna nastavení a místní média; ponechat plnou zálohu. Úplné zálohy JSON a ZIP zachovávají preferenci denního spropitného; starší zálohy bez něj zachovávají aktuální výběr.",
+      "tip": "Importujte záložky Chrome nebo soubor HTML z Nastavení → Záložky a nejprve vyberte položky. Před odinstalací nebo výměnou pracovního prostoru použijte úplnou zálohu z Nastavení → Generál."
     },
     "sync": {
       "question": "Jak mohu využít stejný prostor na jiném počítači?",
@@ -470,7 +470,7 @@
       "steps": [
         "Přihlaste se a povolte synchronizaci rozšíření ve svém profilu Google Chrome.",
         "V Nastavení → Synchronizace vyberte Synchronizováno a potvrďte potvrzení. Přepnutí se projeví okamžitě: načtou se stávající synchronizované záložky a nastavení nebo se synchronizují vaše uložená místní data, pokud žádná neexistují.",
-        "Použijte stejný profil na druhém zařízení. Zkontrolujte stav synchronizace a dostupné místo na panelu."
+        "Použijte stejný profil Google Chrome a rozšíření ID na druhém zařízení. Zkontrolujte stav synchronizace a dostupné místo na panelu. Před odinstalací si ponechte samostatnou plnou zálohu."
       ],
       "note": "Ke každému zařízení patří místní soubory, koš a denní tipy. Synchronizace má limity úložiště; použijte alternativní adresy URL pro místní obrázky a videa. Volba Místní také požádá o potvrzení a projeví se okamžitě, přičemž synchronizovaná data zůstanou uložena.",
       "tip": "Synchronizace sdílí váš prostor mezi zařízeními, ale místní soubory potřebují alternativní adresu URL. Viz Nastavení → Synchronizace."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Jak smažu svá data nebo resetuji nastavení?",
-      "searchTerms": "smazat data; resetovat nastavení; odstranit vše; začít znovu",
+      "searchTerms": "smazat data; resetovat nastavení; odstranit vše; začít znovu; odinstalovat rozšíření; přeinstalovat; aktualizovat rozšíření; ztracené záložky",
       "title": "Ukládání a resetování",
       "summary": "Pochopte, co se uloží a co každá akce odstraní.",
       "steps": [
@@ -498,7 +498,7 @@
         "Pokud se zobrazí oznámení o nevyřízeném uložení, klikněte na Opakovat uložení a před zavřením karty počkejte na potvrzení.",
         "V Nastavení → Obecné můžete resetovat nastavení nebo smazat všechna data. Přečtěte si potvrzení a exportujte zálohu všeho, co si chcete ponechat."
       ],
-      "note": "Obnovení nastavení zachová vaše záložky, jejich velikosti a styly. Smazáním všech místních dat odstraníte položky a vyprázdníte koš. Exportujte zálohu před odstraněním: Zpět nenahradí zálohu.",
+      "note": "Obnovení nastavení zachová záložky, velikosti a styly. Smazáním místních dat nebo odinstalací odstraníte místní pracovní prostor, nastavení, média a koš tohoto profilu. Nová instalace se spustí v režimu Místní bez automatického obnovení starého prostoru. Nejprve exportujte úplnou zálohu. Pro rozbalené aktualizace nahraďte soubory a použijte Znovu načíst na chrome://extensions se stejným klíčem a příponou ID.",
       "tip": "Pokud se zobrazí oznámení o neuložených změnách, použijte před zavřením karty Opakovat uložení. Chraňte svůj prostor plnou zálohou."
     },
     "learning": {

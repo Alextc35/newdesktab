@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Hanapin ang mga backup na opsyon sa Mga Setting → Pangkalahatan.",
-        "Ang pag-export ay nagda-download ng ZIP na may data at mga lokal na file.",
+        "I-export ang mga download JSON, o isang ZIP kapag isinama ang mga lokal na video.",
         "Humihingi ng kumpirmasyon ang import bago palitan ang data."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Paano ko ipangkat ang mga bookmark sa mga folder?",
-      "searchTerms": "lumikha ng folder; mga bookmark ng pangkat; ayusin ang mga paborito; alisin mula sa folder; palitan ang pangalan ng folder",
+      "searchTerms": "lumikha ng folder; mga bookmark ng pangkat; ayusin ang mga paborito; alisin mula sa folder; palitan ang pangalan ng folder; mga subfolder; malalaking folder; mga pahina; umakyat; ilipat pababa; muling ayusin ang mga hilera",
       "title": "Ayusin gamit ang mga folder",
       "summary": "Magtipon ng mga bookmark at subfolder sa isang lugar.",
       "steps": [
-        "Piliin ang + → Folder sa kaliwang menu at bigyan ito ng pangalan.",
-        "Sa edit mode, i-drag ang mga bookmark dito para ilagay ang mga ito sa loob. Buksan ang folder upang makita ang grid nito.",
-        "Gamitin ang edit mode ng folder upang ayusin ang mga bookmark nito. I-click ang pangalan nito para palitan ang pangalan nito at ang icon nito para i-customize ang hitsura nito."
+        "Piliin ang + → Folder at bigyan ito ng pangalan. Sa edit mode, i-drag ang mga bookmark papunta dito. Gumagamit ang maliliit na koleksyon ng 3 × 6 grid; ang malalaki o nested na koleksyon ay gumagamit ng mga mahahanap na listahan na may mga pahina ng 54 item.",
+        "Buksan ang mga subfolder at gamitin ang Bumalik o ang breadcrumb upang bumalik. Sa list edit mode, pumili ng row at gamitin ang Umakyat o Ilipat pababa; Alt + ↑ / ↓ din ang gumagalaw sa nakatutok na row.",
+        "Ang mga kontrol sa pag-edit, tanggalin at paglipat-alis ay lilitaw sa kanan ng bawat hilera ng listahan. I-click ang pangalan ng folder upang palitan ang pangalan nito o ang kontrol sa hitsura nito upang baguhin ang istilo nito."
       ],
-      "note": "Ang pagtanggal ng folder ay nakakaapekto rin sa mga bookmark nito. Suriin ang kumpirmasyon bago magpatuloy; maaaring ibalik ng recycle bin ang mga tinanggal na item.",
-      "tip": "Sinusuportahan ng mga folder ang malalaking koleksyon na may paghahanap at mga pahina. I-on ang pag-edit at i-drag ang isang card papunta sa isang folder upang idagdag ito."
+      "note": "Ang mga folder ay walang nakapirming limitasyon sa bilang ng item. Ang pagkakasunud-sunod ng bookmark at subfolder ay nai-save nang magkasama. Kasama sa paglipat, pagdo-duplicate, pagtanggal o pagpapanumbalik ng isang folder ang kumpletong subtree nito; suriin ang mga kumpirmasyon sa pagtanggal.",
+      "tip": "Ang malalaking folder ay may paghahanap at mga pahina ng 54 item. Sa list edit mode, pumili ng row at gamitin ang Umakyat o Ilipat pababa, o pindutin ang Alt + ↑ / ↓ sa nakatutok na row."
     },
     "workspaces": {
       "question": "Paano ko papanatilihing hiwalay ang personal at work page?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Paano ko iba-back up o ililipat ang aking data?",
-      "searchTerms": "backup na kopya; i-export ang data; kopya ng import; ibalik ang backup; isa pang browser; paglipat ng data",
+      "searchTerms": "backup na kopya; i-export ang data; kopya ng import; ibalik ang backup; isa pang browser; paglipat ng data; mag-import ng Chrome na mga bookmark; HTML bookmark; walang laman na folder; pumili ng mga na-import na item",
       "title": "Mga backup at pag-import",
       "summary": "Magtago ng kopya ng iyong espasyo at dalhin ito sa iyo.",
       "steps": [
-        "Sa Mga Setting → Pangkalahatang i-export ang isang buong backup upang mapanatili ang data at ang mga lokal na file na kasama sa ZIP archive.",
-        "Upang i-restore, mag-import ng backup at suriin ang kumpirmasyon bago palitan ang data. Sinusuportahan din ang mga katugmang JSON backup.",
-        "Sa Mga Setting → Mga Bookmark maaari kang mag-export o mag-import lamang ng mga bookmark at folder kapag hindi mo kailangan ng buong backup."
+        "Sa Mga setting → Heneral, mag-export ng buong backup bago palitan ang data o baguhin ang mga browser. Backup na walang lokal na video ay gumagamit ng JSON; ang mga may lokal na video ay gumagamit ng ZIP. Suriin ang pagpapalit na kumpirmasyon bago ibalik ang isa.",
+        "Upang magdagdag ng Chrome bookmark, gumamit ng Mga setting → Mga bookmark → Mag-import mula sa Google Chrome o Mag-import ng HTML file. Ang unang gabay sa pagtanggap ay nag-aalok din ng katutubong pag-import kapag nakita ang mga sinusuportahang bookmark.",
+        "Palawakin ang Tingnan at pumili ng mga item upang pumili ng mga link o folder, maghanap, o piliin/alisin sa pagkakapili ang lahat. Ang Walang laman na mga folder ay nagsimulang walang check na may Walang laman na badge; ang mga link ay nagpapakita ng mga favicon. Kumpirmahin ang Mag-import ng mga bookmark: magsasara ang dialog pagkatapos i-save at isang flash ang nag-uulat ng resulta."
       ],
-      "note": "Ang pag-export ng bookmark ay hindi isang buong backup ng mga setting at lokal na media. Mag-save ng backup bago i-restore o tanggalin ang data.",
-      "tip": "Ang isang buong backup mula sa Mga Setting → Pangkalahatan ay may kasamang mga lokal na file sa isang ZIP. Ito ay kapaki-pakinabang bago lumipat ng mga browser o ibalik ang data."
+      "note": "Chrome/HTML import ay nagdaragdag sa Pangunahing, na pinapanatili ang mga umiiral nang item at source order. Mga bookmark-bar na mga nilalaman ay direktang pumunta sa desktop; pinapanatili ng iba pang mga populated na browser bucket ang kanilang mga folder, maliban sa nag-iisang flat bucket. Mga setting → Mga bookmark ay nag-import at nag-export din ng New DeskTab JSON. Ang pag-export ng bookmark ay hindi kasama ang lahat ng mga setting at lokal na media; panatilihin ang isang buong backup. Ang buong JSON at ZIP backup ay nagpapanatili ng pang-araw-araw na kagustuhan sa tip; ang mga mas lumang backup na wala nito ay panatilihin ang kasalukuyang pagpipilian.",
+      "tip": "Mag-import ng Chrome bookmark o isang HTML file mula sa Mga setting → Mga bookmark at piliin muna ang mga item. Gumamit ng buong backup mula sa Mga setting → Heneral bago i-uninstall o palitan ang iyong workspace."
     },
     "sync": {
       "question": "Paano ko gagamitin ang parehong espasyo sa ibang computer?",
@@ -470,7 +470,7 @@
       "steps": [
         "Mag-sign in at paganahin ang pag-synchronize ng extension sa iyong Google Chrome profile.",
         "Sa Mga Setting → Pag-synchronize piliin ang Naka-sync at tanggapin ang kumpirmasyon. Agad na magkakabisa ang switch: ang mga kasalukuyang naka-synchronize na bookmark at setting ay nilo-load, o ang iyong naka-save na lokal na data ay naka-synchronize kung wala.",
-        "Gamitin ang parehong profile sa kabilang device. Suriin ang katayuan ng pag-synchronize at available na espasyo sa panel."
+        "Gamitin ang parehong Google Chrome profile at extension ID sa kabilang device. Suriin ang katayuan ng pag-synchronize at available na espasyo sa panel. Panatilihin ang isang hiwalay na buong backup bago i-uninstall."
       ],
       "note": "Ang mga lokal na file, ang recycle bin at mga pang-araw-araw na tip ay nabibilang sa bawat device. Ang pag-synchronize ay may mga limitasyon sa imbakan; gumamit ng mga alternatibong URL para sa mga lokal na larawan at video. Ang pagpili sa Lokal ay humihingi din ng kumpirmasyon at magkakabisa kaagad, na pinapanatili ang naka-synchronize na data.",
       "tip": "Ibinabahagi ng pag-synchronize ang iyong espasyo sa mga device, ngunit kailangan ng mga lokal na file ng alternatibong URL. Tingnan ang Mga Setting → Pag-synchronize."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Paano ko tatanggalin ang aking data o i-reset ang mga setting?",
-      "searchTerms": "tanggalin ang data; i-reset ang mga setting; alisin ang lahat; magsimula muli",
+      "searchTerms": "tanggalin ang data; i-reset ang mga setting; alisin ang lahat; magsimula muli; i-uninstall ang extension; muling i-install; i-update ang extension; nawala ang mga bookmark",
       "title": "Pag-save at pag-reset",
       "summary": "Unawain kung ano ang nai-save at kung ano ang aalisin ng bawat aksyon.",
       "steps": [
@@ -498,7 +498,7 @@
         "Kung lumitaw ang isang nakabinbing paunawa, i-click ang Subukang muli ang pag-save at maghintay ng kumpirmasyon bago isara ang tab.",
         "Sa Mga Setting → Pangkalahatan maaari mong i-reset ang mga setting o tanggalin ang lahat ng data. Basahin ang kumpirmasyon at mag-export ng backup ng anumang bagay na gusto mong panatilihin."
       ],
-      "note": "Ang pag-reset ng mga setting ay nagpapanatili sa iyong mga bookmark, kanilang mga laki at kanilang mga estilo. Ang pagtanggal sa lahat ng lokal na data ay nag-aalis ng mga item at naglalabas ng laman sa recycle bin. Mag-export ng backup bago magtanggal: Hindi pinapalitan ng pag-undo ang isang backup.",
+      "note": "Ang pag-reset ng mga setting ay nagpapanatili ng mga bookmark, laki at estilo. Ang pagtanggal ng lokal na data o pag-uninstall ay nag-aalis sa lokal na workspace, mga setting, media at trash ng profile na ito. Magsisimula ang bagong pag-install sa Lokal mode nang hindi awtomatikong nire-restore ang lumang espasyo. Mag-export muna ng buong backup. Para sa mga na-unpack na update, palitan ang mga file at gamitin ang Reload sa chrome://extensions na may parehong key at extension na ID.",
       "tip": "Kung makakita ka ng abiso sa mga hindi na-save na pagbabago, gamitin ang Muling i-save bago isara ang tab. Protektahan ang iyong espasyo gamit ang isang buong backup."
     },
     "learning": {

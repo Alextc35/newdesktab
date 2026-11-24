@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Zoek de back-upopties in Instellingen → Algemeen.",
-        "Exporteren downloadt een ZIP met gegevens en lokale bestanden.",
+        "Exporteer downloads JSON, of een ZIP wanneer lokale video's zijn opgenomen.",
         "Import vraagt om bevestiging voordat gegevens worden vervangen."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Hoe groepeer ik bladwijzers in mappen?",
-      "searchTerms": "map aanmaken; groepsbladwijzers; favorieten organiseren; verwijderen uit map; map hernoemen",
+      "searchTerms": "map aanmaken; groepsbladwijzers; favorieten organiseren; verwijderen uit map; map hernoemen; submappen; grote mappen; pagina's; omhoog gaan; naar beneden gaan; rijen opnieuw rangschikken",
       "title": "Organiseer met mappen",
       "summary": "Verzamel bladwijzers en submappen op één plek.",
       "steps": [
-        "Kies + → Map in het linkermenu en geef deze een naam.",
-        "Sleep in de bewerkingsmodus bladwijzers ernaartoe om ze erin te plaatsen. Open de map om het raster te bekijken.",
-        "Gebruik de bewerkingsmodus van de map om de bladwijzers te ordenen. Klik op de naam om de naam te wijzigen en op het pictogram om het uiterlijk aan te passen."
+        "Kies + → Map en geef deze een naam. Sleep in de bewerkingsmodus bladwijzers ernaartoe. Kleine collecties gebruiken een 3 × 6 raster; grote of geneste collecties gebruiken doorzoekbare lijsten met pagina's met 54 items.",
+        "Open submappen en gebruik Terug of de broodkruimel om terug te keren. Selecteer in de lijstbewerkingsmodus een rij en gebruik Ga omhoog of Ga naar beneden; Alt + ↑ / ↓ verplaatst ook de rij met focus.",
+        "Bedieningselementen voor bewerken, verwijderen en verplaatsen verschijnen rechts van elke lijstrij. Klik op de mapnaam om deze te hernoemen of op het uiterlijkbesturingselement om de stijl te wijzigen."
       ],
-      "note": "Het verwijderen van een map heeft ook gevolgen voor de bladwijzers. Controleer de bevestiging voordat u verdergaat; de prullenbak kan verwijderde items herstellen.",
-      "tip": "Mappen ondersteunen grote collecties met zoeken en pagina's. Schakel bewerken in en sleep een kaart naar een map om deze toe te voegen."
+      "note": "Mappen hebben geen vaste limiet voor het aantal items. De volgorde van bladwijzers en submappen wordt samen opgeslagen. Het verplaatsen, dupliceren, verwijderen of herstellen van een map omvat de volledige subboom; verwijderbevestigingen bekijken.",
+      "tip": "Grote mappen hebben zoek- en pagina's met 54 items. Selecteer in de lijstbewerkingsmodus een rij en gebruik Ga omhoog of Ga naar beneden, of druk op Alt + ↑ / ↓ op de betreffende rij."
     },
     "workspaces": {
       "question": "Hoe houd ik persoonlijke en werkpagina's gescheiden?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Hoe maak ik een back-up van mijn gegevens of draag ik deze over?",
-      "searchTerms": "reservekopie; gegevens exporteren; kopie importeren; back-up herstellen; een andere browser; gegevens overbrengen",
+      "searchTerms": "reservekopie; gegevens exporteren; kopie importeren; back-up herstellen; een andere browser; gegevens overdragen; importeer Chrome bladwijzers; HTML bladwijzers; lege map; selecteer geïmporteerde items",
       "title": "Back-ups en import",
       "summary": "Bewaar een kopie van uw ruimte en neem deze mee.",
       "steps": [
-        "Exporteer in Instellingen → Algemeen een volledige back-up om gegevens en de lokale bestanden in het ZIP-archief te behouden.",
-        "Om te herstellen importeert u een back-up en bekijkt u de bevestiging voordat u gegevens vervangt. Compatibele JSON-back-ups worden ook ondersteund.",
-        "In Instellingen → Bladwijzers kunt u alleen bladwijzers en mappen exporteren of importeren als u geen volledige back-up nodig heeft."
+        "Exporteer in Instellingen → Algemeen een volledige back-up voordat u gegevens vervangt of van browser verandert. Backups zonder lokale video's gebruiken JSON; degenen met lokale video's gebruiken ZIP. Controleer de vervangingsbevestiging voordat u er een herstelt.",
+        "Als u Chrome bladwijzers wilt toevoegen, gebruikt u Instellingen → Bladwijzers → Importeren uit Google Chrome of HTML-bestand importeren. De eerste welkomstgids biedt ook de native import wanneer ondersteunde bladwijzers worden gedetecteerd.",
+        "Vouw Bekijk en selecteer artikelen uit om links of mappen te kiezen, te zoeken of alles te selecteren/deselecteren. Leeg mappen beginnen ongecontroleerd met een Leeg badge; links tonen favicons. Bevestig Bladwijzers importeren: het dialoogvenster sluit na het opslaan en een flits rapporteert het resultaat."
       ],
-      "note": "Een bladwijzerexport is geen volledige back-up van instellingen en lokale media. Sla een back-up op voordat u gegevens herstelt of verwijdert.",
-      "tip": "Een volledige back-up van Instellingen → Algemeen bevat lokale bestanden in een ZIP. Dit is handig voordat u van browser wisselt of gegevens herstelt."
+      "note": "Chrome/HTML importen worden toegevoegd aan Belangrijkste, waarbij bestaande items en bronvolgorde behouden blijven. Bladwijzers-bar inhoud gaat rechtstreeks naar het bureaublad; andere bevolkte browserbuckets behouden hun mappen, behalve een enkele platte bucket. Instellingen → Bladwijzers importeert en exporteert ook New DeskTab JSON. Een bladwijzerexport omvat niet alle instellingen en lokale media; zorg voor een volledige back-up. Volledige JSON en ZIP back-ups behouden de voorkeur voor dagelijkse fooien; oudere back-ups zonder deze behouden de huidige keuze.",
+      "tip": "Importeer Chrome bladwijzers of een HTML bestand uit Instellingen → Bladwijzers en kies eerst de items. Gebruik een volledige back-up van Instellingen → Algemeen voordat u uw werkruimte verwijdert of vervangt."
     },
     "sync": {
       "question": "Hoe gebruik ik dezelfde ruimte op een andere computer?",
@@ -470,7 +470,7 @@
       "steps": [
         "Meld u aan en schakel extensiesynchronisatie in uw Google Chrome profiel in.",
         "In Instellingen → Synchronisatie kies Gesynchroniseerd en accepteer de bevestiging. De overstap wordt onmiddellijk van kracht: bestaande gesynchroniseerde bladwijzers en instellingen worden geladen, of uw opgeslagen lokale gegevens worden gesynchroniseerd als deze niet bestaan.",
-        "Gebruik hetzelfde profiel op het andere apparaat. Controleer de synchronisatiestatus en beschikbare ruimte in het paneel."
+        "Gebruik hetzelfde Google Chrome profiel en dezelfde extensie ID op het andere apparaat. Controleer de synchronisatiestatus en beschikbare ruimte in het paneel. Bewaar een aparte volledige back-up voordat u de installatie ongedaan maakt."
       ],
       "note": "Bij elk apparaat horen lokale bestanden, de prullenbak en dagelijkse tips. Synchronisatie heeft opslaglimieten; gebruik alternatieve URL's voor lokale afbeeldingen en video's. Als u voor Lokaal kiest, wordt ook om bevestiging gevraagd en wordt deze onmiddellijk van kracht, waarbij de gesynchroniseerde gegevens bewaard blijven.",
       "tip": "Synchronisatie deelt uw ruimte op verschillende apparaten, maar lokale bestanden hebben een alternatieve URL nodig. Zie Instellingen → Synchronisatie."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Hoe verwijder ik mijn gegevens of reset ik instellingen?",
-      "searchTerms": "gegevens verwijderen; instellingen resetten; verwijder alles; opnieuw beginnen",
+      "searchTerms": "gegevens verwijderen; instellingen resetten; verwijder alles; opnieuw beginnen; extensie verwijderen; opnieuw installeren; extensie bijwerken; verloren bladwijzers",
       "title": "Opslaan en resetten",
       "summary": "Begrijp wat er wordt opgeslagen en wat elke actie verwijdert.",
       "steps": [
@@ -498,7 +498,7 @@
         "Als er een melding verschijnt dat het bestand in behandeling is, klikt u op Opnieuw opslaan en wacht u op bevestiging voordat u het tabblad sluit.",
         "In Instellingen → Algemeen kunt u instellingen resetten of alle gegevens verwijderen. Lees de bevestiging en exporteer een back-up van alles wat u wilt behouden."
       ],
-      "note": "Als u de instellingen opnieuw instelt, blijven uw bladwijzers, hun afmetingen en hun stijl behouden. Als u alle lokale gegevens verwijdert, worden de items verwijderd en wordt de prullenbak geleegd. Een back-up exporteren voordat u deze verwijdert: Ongedaan maken vervangt een back-up niet.",
+      "note": "Als u de instellingen opnieuw instelt, blijven bladwijzers, formaten en stijlen behouden. Als u lokale gegevens verwijdert of de installatie ongedaan maakt, worden de lokale werkruimte, instellingen, media en prullenbak van dit profiel verwijderd. Een nieuwe installatie start in de modus Lokaal zonder automatisch de oude ruimte te herstellen. Exporteer eerst een volledige back-up. Voor uitgepakte updates vervangt u de bestanden en gebruikt u Opnieuw laden op chrome://extensions met dezelfde sleutel en extensie ID.",
       "tip": "Als u een melding ziet dat de wijzigingen niet zijn opgeslagen, gebruik dan Opnieuw opslaan voordat u het tabblad sluit. Bescherm uw ruimte met een volledige back-up."
     },
     "learning": {

@@ -13,7 +13,7 @@
     "success": "{{count}} bookmarks and {{folders}} folders imported.",
     "empty": "No bookmarks were found to import.",
     "error": "Could not import your bookmarks. Try again or choose another file.",
-    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in General settings, then try again.",
+    "quotaError": "These bookmarks exceed Chrome Sync storage. Switch to Local mode in Settings → Sync, then try again.",
     "unavailable": "Importing directly from Chrome is unavailable. You can import an HTML bookmark file instead.",
     "chromeButton": "Import from Google Chrome",
     "htmlButton": "Import HTML file",
@@ -359,7 +359,6 @@
       "updated": "Folder updated",
       "deleted": "Folder and its bookmarks deleted",
       "bookmarkAdded": "Bookmark added to folder",
-      "folderFull": "This folder already has 18 bookmarks",
       "bookmarkRemoved": "Bookmark moved back to the grid"
     },
     "recycleBin": {

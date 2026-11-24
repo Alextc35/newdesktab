@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Pata chaguo za chelezo katika Mipangilio → Jumla.",
-        "Hamisha hupakua ZIP iliyo na data na faili za ndani.",
+        "Hamisha vipakuliwa JSON, au ZIP wakati video za karibu zinajumuishwa.",
         "Uingizaji huomba uthibitisho kabla ya kubadilisha data."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Ninawezaje kuweka alamisho kwenye folda?",
-      "searchTerms": "kuunda folda; alamisho za kikundi; panga vipendwa; ondoa kwenye folda; badilisha jina la folda",
+      "searchTerms": "kuunda folda; alamisho za kikundi; panga vipendwa; ondoa kwenye folda; badilisha jina la folda; folda ndogo; folda kubwa; kurasa; songa juu; songa chini; panga upya safu",
       "title": "Panga na folda",
       "summary": "Kusanya alamisho na folda ndogo katika sehemu moja.",
       "steps": [
-        "Chagua + → Folda kwenye menyu ya kushoto na uipe jina.",
-        "Katika hali ya kuhariri, buruta alamisho ndani yake ili kuziweka ndani. Fungua folda ili kuona gridi yake.",
-        "Tumia hali ya kuhariri ya folda ili kupanga vialamisho vyake. Bofya jina lake ili uipe jina jipya na ikoni yake ili kubinafsisha mwonekano wake."
+        "Chagua + → Folda na uipe jina. Katika hali ya kuhariri, buruta alamisho ndani yake. Mikusanyiko midogo hutumia gridi ya 3 × 6; mikusanyiko mikubwa au iliyofungiwa hutumia orodha zinazoweza kutafutwa zilizo na kurasa za vipengee 54.",
+        "Fungua folda ndogo na utumie Nyuma au breadcrumb kurejesha. Katika hali ya kuhariri orodha, chagua safu mlalo na utumie Sogeza juu au Sogeza chini; Alt + ↑ / ↓ pia husogeza safu mlalo iliyolengwa.",
+        "Vidhibiti, futa na kusogeza nje vinaonekana upande wa kulia wa kila safu ya orodha. Bofya jina la folda ili uipe jina jipya au udhibiti wake wa kuonekana ili kubadilisha mtindo wake."
       ],
-      "note": "Kufuta folda huathiri alamisho zake pia. Kagua uthibitisho kabla ya kuendelea; pipa la kuchakata linaweza kurejesha vitu vilivyofutwa.",
-      "tip": "Folda zinaauni mikusanyiko mikubwa kwa utafutaji na kurasa. Washa kuhariri na uburute kadi kwenye folda ili kuiongeza."
+      "note": "Folda hazina kikomo kisichobadilika cha kuhesabu bidhaa. Alamisho na agizo la folda ndogo huhifadhiwa pamoja. Kusonga, kurudia, kufuta au kurejesha folda ni pamoja na subtree yake kamili; kagua uthibitisho wa kufutwa.",
+      "tip": "Folda kubwa zina utafutaji na kurasa za vipengee 54. Katika hali ya kuhariri orodha, chagua safu mlalo na utumie Sogeza juu au Sogeza chini, au ubonyeze Alt + ↑ / ↓ kwenye safu mlalo iliyolengwa."
     },
     "workspaces": {
       "question": "Je, ninatengaje kurasa za kibinafsi na za kazi?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Je, ninawezaje kuhifadhi nakala au kuhamisha data yangu?",
-      "searchTerms": "nakala ya chelezo; data ya kuuza nje; kuagiza nakala; kurejesha nakala; kivinjari kingine; kuhamisha data",
+      "searchTerms": "nakala ya chelezo; data ya kuuza nje; kuagiza nakala; kurejesha nakala; kivinjari kingine; kuhamisha data; leta Chrome vialamisho; HTML vialamisho; folda tupu; chagua vitu vilivyoagizwa",
       "title": "Chelezo na uagizaji",
       "summary": "Weka nakala ya nafasi yako na uende nayo.",
       "steps": [
-        "Katika Mipangilio → Kwa ujumla, tuma nakala kamili ili kuhifadhi data na faili za ndani zilizojumuishwa kwenye kumbukumbu ya ZIP.",
-        "Ili kurejesha, leta nakala rudufu na ukague uthibitisho kabla ya kubadilisha data. Hifadhi rudufu zinazooana za JSON pia zinatumika.",
-        "Katika Mipangilio → Alamisho unaweza kuhamisha au kuagiza tu vialamisho na folda wakati hauitaji nakala kamili."
+        "Katika Mipangilio → Mkuu, tuma nakala kamili kabla ya kubadilisha data au kubadilisha vivinjari. Backups bila video za karibu tumia JSON; walio na video za ndani hutumia ZIP. Kagua uthibitisho wa uingizwaji kabla ya kurejesha moja.",
+        "Ili kuongeza Chrome vialamisho, tumia Mipangilio → Alamisho → Leta kutoka Google Chrome au Ingiza faili ya HTML. Mwongozo wa kwanza wa kukaribisha pia hutoa uletaji asili wakati alamisho zinazotumika zinatambuliwa.",
+        "Panua Tazama na uchague vipengee ili kuchagua viungo au folda, kutafuta, au kuchagua/kuondoa zote. Tupu folda huanza bila kuchaguliwa kwa beji Tupu; viungo vinaonyesha favicons. Thibitisha Ingiza alamisho: kidirisha hufungwa baada ya kuhifadhi na mweko huripoti matokeo."
       ],
-      "note": "Uhamishaji wa alamisho sio nakala kamili ya mipangilio na media ya ndani. Hifadhi nakala kabla ya kurejesha au kufuta data.",
-      "tip": "Hifadhi rudufu kamili kutoka kwa Mipangilio → Jumla inajumuisha faili za ndani katika ZIP. Ni muhimu kabla ya kubadili vivinjari au kurejesha data."
+      "note": "Chrome/HTML uagizaji huongeza kwa Kuu, kuhifadhi vipengee vilivyopo na mpangilio wa chanzo. Alamisho-yaliyomo kwenye pau huenda moja kwa moja kwenye eneo-kazi; ndoo zingine za kivinjari zilizo na watu huweka folda zao, isipokuwa ndoo pekee iliyo gorofa. Mipangilio → Alamisho pia huingiza na kuhamisha New DeskTab JSON. Uhamishaji wa alamisho haujumuishi mipangilio yote na midia ya ndani; kuweka chelezo kamili. Nakala kamili JSON na ZIP huhifadhi mapendeleo ya kidokezo cha kila siku; chelezo za zamani bila hiyo huweka chaguo la sasa.",
+      "tip": "Leta Chrome alamisho au faili HTML kutoka Mipangilio → Alamisho na uchague vipengee kwanza. Tumia nakala kamili kutoka Mipangilio → Mkuu kabla ya kusanidua au kubadilisha nafasi yako ya kazi."
     },
     "sync": {
       "question": "Je, ninawezaje kutumia nafasi sawa kwenye kompyuta nyingine?",
@@ -470,7 +470,7 @@
       "steps": [
         "Ingia na uwashe upatanishi wa kiendelezi katika wasifu wako wa Google Chrome.",
         "Katika Mipangilio → Usawazishaji chagua Imesawazishwa na ukubali uthibitisho. Swichi inaanza kutumika mara moja: vialamisho na mipangilio iliyopo iliyosawazishwa imepakiwa, au data yako ya ndani iliyohifadhiwa inasawazishwa ikiwa hakuna.",
-        "Tumia wasifu sawa kwenye kifaa kingine. Angalia hali ya maingiliano na nafasi inayopatikana kwenye paneli."
+        "Tumia wasifu sawa wa Google Chrome na kiendelezi ID kwenye kifaa kingine. Angalia hali ya maingiliano na nafasi inayopatikana kwenye paneli. Weka nakala tofauti kamili kabla ya kusanidua."
       ],
       "note": "Faili za ndani, pipa la kuchakata na vidokezo vya kila siku ni vya kila kifaa. Usawazishaji una vikomo vya kuhifadhi; tumia URL mbadala kwa picha na video za karibu nawe. Kuchagua Karibu Nawe pia huuliza uthibitisho na huanza kutumika mara moja, kuhifadhi data iliyosawazishwa iliyohifadhiwa.",
       "tip": "Usawazishaji hushiriki nafasi yako kwenye vifaa vyote, lakini faili za ndani zinahitaji URL mbadala. Tazama Mipangilio → Usawazishaji."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Je, ninafutaje data yangu au kuweka upya mipangilio?",
-      "searchTerms": "kufuta data; kuweka upya mipangilio; ondoa kila kitu; anza upya",
+      "searchTerms": "kufuta data; kuweka upya mipangilio; ondoa kila kitu; anza tena; kufuta ugani; weka upya; ugani wa sasisho; alamisho zilizopotea",
       "title": "Kuhifadhi na kuweka upya",
       "summary": "Kuelewa ni nini kimehifadhiwa na kila hatua huondoa nini.",
       "steps": [
@@ -498,7 +498,7 @@
         "Iwapo notisi inayosubiri kuhifadhiwa inaonekana, bofya Jaribu tena kuhifadhi na usubiri uthibitisho kabla ya kufunga kichupo.",
         "Katika Mipangilio → Jumla unaweza kuweka upya mipangilio au kufuta data yote. Soma uthibitishaji na uhamishe nakala rudufu ya chochote unachotaka kuhifadhi."
       ],
-      "note": "Kuweka upya mipangilio huweka alamisho zako, saizi zao na mitindo yao. Kufuta data zote za ndani huondoa vipengee na kumwaga pipa la kuchakata tena. Hamisha nakala rudufu kabla ya kufuta: Tendua haichukui nafasi ya hifadhi rudufu.",
+      "note": "Kuweka upya mipangilio huweka vialamisho, saizi na mitindo. Kufuta data ya ndani au kusanidua huondoa nafasi ya kazi ya wasifu huu, mipangilio, midia na tupio. Usakinishaji mpya unaanza katika modi ya Ndani bila kurejesha kiotomatiki nafasi ya zamani. Hamisha nakala rudufu kamili kwanza. Kwa masasisho ambayo hayajapakiwa, badilisha faili na utumie Pakia Upya kwenye chrome://extensions ukitumia ufunguo na kiendelezi sawa ID.",
       "tip": "Ukiona arifa ya mabadiliko ambayo hayajahifadhiwa, tumia Jaribu tena kuhifadhi kabla ya kufunga kichupo. Linda nafasi yako kwa chelezo kamili."
     },
     "learning": {

@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Finn alternativene for sikkerhetskopiering i Innstillinger → Generelt.",
-        "Eksport laster ned en ZIP med data og lokale filer.",
+        "Eksporter nedlastinger JSON, eller en ZIP når lokale videoer er inkludert.",
         "Import ber om bekreftelse før data erstattes."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Hvordan grupperer jeg bokmerker i mapper?",
-      "searchTerms": "opprette mappe; gruppe bokmerker; organisere favoritter; fjern fra mappen; gi nytt navn til mappen",
+      "searchTerms": "opprette mappe; gruppe bokmerker; organisere favoritter; fjern fra mappen; endre navn på mappe; undermapper; store mapper; sider; flytte opp; flytte ned; omorganisere rader",
       "title": "Organiser med mapper",
       "summary": "Samle bokmerker og undermapper på ett sted.",
       "steps": [
-        "Velg + → Mappe i venstremenyen og gi den et navn.",
-        "I redigeringsmodus drar du bokmerker til den for å legge dem inn. Åpne mappen for å se rutenettet.",
-        "Bruk mappens redigeringsmodus for å ordne bokmerkene. Klikk på navnet for å gi det nytt navn og ikonet for å tilpasse utseendet."
+        "Velg + → Mappe og gi den et navn. I redigeringsmodus drar du bokmerker til den. Små samlinger bruker et 3 × 6 rutenett; store eller nestede samlinger bruker søkbare lister med sider med 54 elementer.",
+        "Åpne undermapper og bruk Tilbake eller brødsmulen for å gå tilbake. I listeredigeringsmodus, velg en rad og bruk Flytt opp eller Flytt ned; Alt + ↑ / ↓ flytter også den fokuserte raden.",
+        "Kontroller for redigering, sletting og flytting vises til høyre for hver listerad. Klikk på mappenavnet for å gi den et nytt navn eller på utseendekontrollen for å endre stilen."
       ],
-      "note": "Sletting av en mappe påvirker også bokmerkene. Se gjennom bekreftelsen før du fortsetter; papirkurven kan gjenopprette slettede elementer.",
-      "tip": "Mapper støtter store samlinger med søk og sider. Slå på redigering og dra et kort til en mappe for å legge det til."
+      "note": "Mapper har ingen fast grense for antall varer. Bokmerke- og undermapperekkefølgen lagres sammen. Flytting, duplisering, sletting eller gjenoppretting av en mappe inkluderer hele undertreet; gjennomgå slettebekreftelser.",
+      "tip": "Store mapper har søk og sider med 54 elementer. I listeredigeringsmodus, velg en rad og bruk Flytt opp eller Flytt ned, eller trykk Alt + ↑ / ↓ på den fokuserte raden."
     },
     "workspaces": {
       "question": "Hvordan holder jeg personlige sider og arbeidssider atskilt?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Hvordan sikkerhetskopierer eller overfører jeg dataene mine?",
-      "searchTerms": "sikkerhetskopi; eksportere data; importere kopi; gjenopprette sikkerhetskopiering; en annen nettleser; overføre data",
+      "searchTerms": "sikkerhetskopi; eksportere data; importere kopi; gjenopprette sikkerhetskopiering; en annen nettleser; overføre data; importer Chrome bokmerker; HTML bokmerker; tom mappe; velg importerte elementer",
       "title": "Sikkerhetskopiering og import",
       "summary": "Ta vare på en kopi av plassen din og ta den med deg.",
       "steps": [
-        "I Innstillinger → Generelt eksporterer du en fullstendig sikkerhetskopi for å bevare data og de lokale filene som er inkludert i ZIP-arkivet.",
-        "For å gjenopprette, importer en sikkerhetskopi og gå gjennom bekreftelsen før du erstatter data. Kompatible JSON-sikkerhetskopier støttes også.",
-        "I Innstillinger → Bokmerker kan du eksportere eller importere bare bokmerker og mapper når du ikke trenger en fullstendig sikkerhetskopi."
+        "I Innstillinger → Generelt eksporterer du en fullstendig sikkerhetskopi før du bytter ut data eller bytter nettleser. Backups uten lokale videoer bruker JSON; de med lokale videoer bruker ZIP. Se gjennom erstatningsbekreftelsen før du gjenoppretter en.",
+        "For å legge til Chrome bokmerker, bruk Innstillinger → Bokmerker → Importer fra Google Chrome eller Importer HTML-fil. Den første velkomstguiden tilbyr også den opprinnelige importen når støttede bokmerker oppdages.",
+        "Utvid Se og velg elementer for å velge koblinger eller mapper, søk eller velg/velg bort alle. Tom mapper starter uavmerket med et Tom-merke; lenker viser favorittikoner. Bekreft Importer bokmerker: dialogen lukkes etter lagring og et blinklys rapporterer resultatet."
       ],
-      "note": "En bokmerkeeksport er ikke en fullstendig sikkerhetskopi av innstillinger og lokale medier. Lagre en sikkerhetskopi før du gjenoppretter eller sletter data.",
-      "tip": "En fullstendig sikkerhetskopi fra Innstillinger → Generelt inkluderer lokale filer i en ZIP-fil. Det er nyttig før du bytter nettleser eller gjenoppretter data."
+      "note": "Chrome/HTML importer legges til Hoved, og bevarer eksisterende elementer og kilderekkefølge. Innholdet i Bokmerker-linjen går direkte på skrivebordet; andre fylte nettleserblokker beholder mappene sine, bortsett fra en eneste flat bøtte. Innstillinger → Bokmerker importerer og eksporterer også New DeskTab JSON. En bokmerkeeksport inkluderer ikke alle innstillinger og lokale medier; ha en fullstendig sikkerhetskopi. Fullstendige JSON og ZIP sikkerhetskopier bevarer preferansen for daglig tips; eldre sikkerhetskopier uten den beholder det gjeldende valget.",
+      "tip": "Importer Chrome bokmerker eller en HTML fil fra Innstillinger → Bokmerker og velg elementene først. Bruk en fullstendig sikkerhetskopi fra Innstillinger → Generelt før du avinstallerer eller erstatter arbeidsområdet."
     },
     "sync": {
       "question": "Hvordan bruker jeg samme plass på en annen datamaskin?",
@@ -470,7 +470,7 @@
       "steps": [
         "Logg på og aktiver utvidelsessynkronisering i Google Chrome-profilen din.",
         "I Innstillinger → Synkronisering velger du Synkronisert og godtar bekreftelsen. Bryteren trer i kraft umiddelbart: eksisterende synkroniserte bokmerker og innstillinger lastes inn, eller dine lagrede lokale data synkroniseres hvis ingen finnes.",
-        "Bruk samme profil på den andre enheten. Sjekk synkroniseringsstatus og tilgjengelig plass i panelet."
+        "Bruk den samme Google Chrome-profilen og utvidelsen ID på den andre enheten. Sjekk synkroniseringsstatus og tilgjengelig plass i panelet. Hold en separat fullstendig sikkerhetskopi før du avinstallerer."
       ],
       "note": "Lokale filer, papirkurven og daglige tips tilhører hver enhet. Synkronisering har lagringsgrenser; bruke alternative nettadresser for lokale bilder og videoer. Å velge Lokal ber også om bekreftelse og trer i kraft umiddelbart, og holder de synkroniserte dataene lagret.",
       "tip": "Synkronisering deler plassen din på tvers av enheter, men lokale filer trenger en alternativ URL. Se Innstillinger → Synkronisering."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Hvordan sletter jeg dataene mine eller tilbakestiller innstillingene?",
-      "searchTerms": "slette data; tilbakestill innstillinger; fjern alt; begynne på nytt",
+      "searchTerms": "slette data; tilbakestill innstillinger; fjern alt; begynne på nytt; avinstaller utvidelse; installer på nytt; oppdatering utvidelse; tapte bokmerker",
       "title": "Lagrer og tilbakestiller",
       "summary": "Forstå hva som er lagret og hva hver handling fjerner.",
       "steps": [
@@ -498,7 +498,7 @@
         "Hvis et varsel om ventende lagring vises, klikker du på Prøv å lagre på nytt og venter på bekreftelse før du lukker fanen.",
         "I Innstillinger → Generelt kan du tilbakestille innstillinger eller slette alle data. Les bekreftelsen og eksporter en sikkerhetskopi av alt du vil beholde."
       ],
-      "note": "Tilbakestilling av innstillinger beholder bokmerkene dine, størrelsene og stilene. Sletting av alle lokale data fjerner varene og tømmer papirkurven. Eksporter en sikkerhetskopi før sletting: Angre erstatter ikke en sikkerhetskopi.",
+      "note": "Tilbakestilling av innstillinger beholder bokmerker, størrelser og stiler. Sletting av lokale data eller avinstallering fjerner denne profilens lokale arbeidsområde, innstillinger, media og søppel. En ny installasjon starter i Lokalt-modus uten å automatisk gjenopprette den gamle plassen. Eksporter en fullstendig sikkerhetskopi først. For utpakkede oppdateringer, bytt ut filer og bruk Reload på chrome://extensions med samme nøkkel og utvidelse ID.",
       "tip": "Hvis du ser en melding om ulagrede endringer, bruk Prøv å lagre på nytt før du lukker fanen. Beskytt plassen din med en full backup."
     },
     "learning": {

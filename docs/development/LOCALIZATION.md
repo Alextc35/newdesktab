@@ -21,6 +21,12 @@ review of wording is still recommended before publishing localized store copy.
 Existing English, Spanish and Brazilian Portuguese translations are maintained
 separately.
 
+The 1.1.0 refresh updates Chrome/HTML import messages and the related folder,
+backup and data-retention instructions in every shipped language. Empty folders,
+Main placement and Chrome Sync quota errors must describe the same behavior as
+the English source. Remove obsolete capacity messages when their runtime use is
+removed; an unused 18-bookmark error is not a current folder limit.
+
 `node scripts/generate-locales.mjs` generates the additional catalogs from
 English using Google Translate during development. It preserves brands,
 variables and manual destinations, and caches translated strings under

@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Hitta alternativen för säkerhetskopiering i Inställningar → Allmänt.",
-        "Export laddar ner en ZIP med data och lokala filer.",
+        "Exportera nedladdningar JSON, eller en ZIP när lokala videor ingår.",
         "Import ber om bekräftelse innan data ersätts."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Hur grupperar jag bokmärken i mappar?",
-      "searchTerms": "skapa mapp; gruppbokmärken; organisera favoriter; ta bort från mappen; byt namn på mapp",
+      "searchTerms": "skapa mapp; gruppbokmärken; organisera favoriter; ta bort från mappen; byt namn på mapp; undermappar; stora mappar; sidor; flytta upp; flytta ner; ordna om rader",
       "title": "Organisera med mappar",
       "summary": "Samla bokmärken och undermappar på ett ställe.",
       "steps": [
-        "Välj + → Mapp i menyn till vänster och ge den ett namn.",
-        "I redigeringsläge, dra bokmärken till den för att sätta in dem. Öppna mappen för att se dess rutnät.",
-        "Använd mappens redigeringsläge för att ordna dess bokmärken. Klicka på dess namn för att byta namn på den och på dess ikon för att anpassa dess utseende."
+        "Välj + → Mapp och ge den ett namn. I redigeringsläge, dra bokmärken till den. Små samlingar använder ett 3 × 6 rutnät; stora eller kapslade samlingar använder sökbara listor med sidor med 54 objekt.",
+        "Öppna undermappar och använd Tillbaka eller brödsmulan för att gå tillbaka. I listredigeringsläge, välj en rad och använd Flytta uppåt eller Flytta ner; Alt + ↑ / ↓ flyttar också den fokuserade raden.",
+        "Redigera, ta bort och flytta ut kontroller visas till höger om varje listrad. Klicka på mappnamnet för att byta namn på den eller på dess utseendekontroll för att ändra dess stil."
       ],
-      "note": "Att ta bort en mapp påverkar också dess bokmärken. Granska bekräftelsen innan du fortsätter; papperskorgen kan återställa raderade föremål.",
-      "tip": "Mappar stöder stora samlingar med sökning och sidor. Slå på redigering och dra ett kort till en mapp för att lägga till det."
+      "note": "Mappar har ingen fast gräns för antalet objekt. Bokmärkes- och undermappsordning sparas tillsammans. Flytta, duplicera, ta bort eller återställa en mapp inkluderar dess fullständiga underträd; granska raderingsbekräftelser.",
+      "tip": "Stora mappar har sökning och sidor med 54 objekt. I listredigeringsläge, välj en rad och använd Flytta uppåt eller Flytta ner, eller tryck på Alt + ↑ / ↓ på den fokuserade raden."
     },
     "workspaces": {
       "question": "Hur håller jag personliga och arbetssidor åtskilda?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Hur säkerhetskopierar eller överför jag mina data?",
-      "searchTerms": "säkerhetskopia; exportera data; importera kopia; återställa säkerhetskopia; en annan webbläsare; överföra data",
+      "searchTerms": "säkerhetskopia; exportera data; importera kopia; återställa säkerhetskopia; en annan webbläsare; överföra data; importera Chrome bokmärken; HTML bokmärken; tom mapp; välj importerade objekt",
       "title": "Säkerhetskopiering och import",
       "summary": "Behåll en kopia av ditt utrymme och ta det med dig.",
       "steps": [
-        "I Inställningar → Allmänt exportera en fullständig säkerhetskopia för att bevara data och de lokala filerna som ingår i ZIP-arkivet.",
-        "För att återställa, importera en säkerhetskopia och granska bekräftelsen innan du ersätter data. Kompatibla JSON-säkerhetskopior stöds också.",
-        "I Inställningar → Bokmärken kan du exportera eller importera bara bokmärken och mappar när du inte behöver en fullständig säkerhetskopia."
+        "I Inställningar → Allmänt exporterar du en fullständig säkerhetskopia innan du byter data eller byter webbläsare. Backups utan lokala videor använder JSON; de med lokala videor använder ZIP. Granska ersättningsbekräftelsen innan du återställer en.",
+        "För att lägga till Chrome bokmärken, använd Inställningar → Bokmärken → Importera från Google Chrome eller Importera HTML-fil. Den första välkomstguiden erbjuder också den inbyggda importen när bokmärken som stöds upptäcks.",
+        "Expandera Visa och välj objekt för att välja länkar eller mappar, söka eller markera/avmarkera alla. Tom mappar börjar omarkerade med märket Tom; länkar visar favoriter. Bekräfta Importera bokmärken: dialogrutan stängs efter att ha sparats och en blinkning rapporterar resultatet."
       ],
-      "note": "En bokmärkesexport är inte en fullständig säkerhetskopia av inställningar och lokala media. Spara en säkerhetskopia innan du återställer eller raderar data.",
-      "tip": "En fullständig säkerhetskopia från Inställningar → Allmänt inkluderar lokala filer i en ZIP. Det är användbart innan du byter webbläsare eller återställer data."
+      "note": "Chrome/HTML importer läggs till Main, och bevarar befintliga objekt och källordning. Bokmärken-fältets innehåll går direkt på skrivbordet; andra fyllda webbläsarhinkar behåller sina mappar, förutom en enda platt hink. Inställningar → Bokmärken importerar och exporterar också New DeskTab JSON. En bokmärkesexport inkluderar inte alla inställningar och lokala media; ha en fullständig säkerhetskopia. Fullständiga JSON och ZIP säkerhetskopior behåller den dagliga tipsinställningen; äldre säkerhetskopior utan det behåller det nuvarande valet.",
+      "tip": "Importera Chrome bokmärken eller en HTML fil från Inställningar → Bokmärken och välj objekten först. Använd en fullständig säkerhetskopia från Inställningar → Allmänt innan du avinstallerar eller byter ut din arbetsyta."
     },
     "sync": {
       "question": "Hur använder jag samma utrymme på en annan dator?",
@@ -470,7 +470,7 @@
       "steps": [
         "Logga in och aktivera tilläggssynkronisering i din Google Chrome profil.",
         "I Inställningar → Synkronisering väljer du Synkroniserat och accepterar bekräftelsen. Växlingen träder i kraft omedelbart: befintliga synkroniserade bokmärken och inställningar laddas eller din sparade lokala data synkroniseras om ingen finns.",
-        "Använd samma profil på den andra enheten. Kontrollera synkroniseringsstatus och tillgängligt utrymme i panelen."
+        "Använd samma Google Chrome profil och tillägg ID på den andra enheten. Kontrollera synkroniseringsstatus och tillgängligt utrymme i panelen. Håll en separat fullständig säkerhetskopia innan du avinstallerar."
       ],
       "note": "Lokala filer, papperskorgen och dagliga tips hör till varje enhet. Synkronisering har lagringsgränser; använd alternativa webbadresser för lokala bilder och videor. Att välja Lokal ber också om bekräftelse och träder i kraft omedelbart, och synkroniserad data lagras.",
       "tip": "Synkronisering delar ditt utrymme mellan enheter, men lokala filer behöver en alternativ URL. Se Inställningar → Synkronisering."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Hur tar jag bort mina data eller återställer inställningarna?",
-      "searchTerms": "radera data; återställ inställningar; ta bort allt; börja om",
+      "searchTerms": "radera data; återställ inställningar; ta bort allt; börja om från början; avinstallera tillägg; installera om; uppdatera tillägg; förlorade bokmärken",
       "title": "Sparar och återställer",
       "summary": "Förstå vad som sparas och vad varje åtgärd tar bort.",
       "steps": [
@@ -498,7 +498,7 @@
         "Om ett meddelande om väntande spara visas klickar du på Försök spara igen och väntar på bekräftelse innan du stänger fliken.",
         "I Inställningar → Allmänt kan du återställa inställningar eller radera all data. Läs bekräftelsen och exportera en säkerhetskopia av allt du vill behålla."
       ],
-      "note": "Återställning av inställningar behåller dina bokmärken, deras storlekar och deras stilar. Att radera all lokal data tar bort föremålen och tömmer papperskorgen. Exportera en säkerhetskopia innan du tar bort: Ångra ersätter inte en säkerhetskopia.",
+      "note": "Återställning av inställningar behåller bokmärken, storlekar och stilar. Om du tar bort lokal data eller avinstallerar den här profilens lokala arbetsyta, inställningar, media och papperskorgen. En ny installation startar i läget Lokalt utan att automatiskt återställa det gamla utrymmet. Exportera först en fullständig säkerhetskopia. För uppackade uppdateringar, ersätt filer och använd Reload på chrome://extensions med samma nyckel och tillägg ID.",
       "tip": "Om du ser ett meddelande om osparade ändringar, använd Försök spara igen innan du stänger fliken. Skydda ditt utrymme med en fullständig säkerhetskopia."
     },
     "learning": {

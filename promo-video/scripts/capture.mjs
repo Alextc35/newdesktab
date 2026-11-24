@@ -91,7 +91,7 @@ try {
     const { createDefaultPersistedData } = await import(chrome.runtime.getURL('src/platform/storage/persistedDataDefaults.js'));
     const blank = createDefaultPersistedData();
     blank.settings.language = 'en'; blank.settings.interfaceTheme = 'dark'; blank.settings.showRecycleBin = false;
-    await chrome.storage.local.set({ ...blank, newdesktabOnboarding: { version: 1, status: 'completed' }, newdesktabReleaseNotes: { version: '1.0.0' }, newdesktabDailyTips: { enabled: false } });
+    await chrome.storage.local.set({ ...blank, newdesktabOnboarding: { version: 1, status: 'completed' }, newdesktabReleaseNotes: { version: chrome.runtime.getManifest().version }, newdesktabDailyTips: { enabled: false } });
   });
   await page.reload(); await page.locator('#bookmark-container[tabindex="-1"]').waitFor();
   await hold(1000); await still('plain');

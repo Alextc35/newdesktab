@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Encontre as opções de backup em Configurações → Geral.",
-        "Exportar baixa um ZIP com dados e arquivos locais.",
+        "Exporte downloads JSON ou ZIP quando vídeos locais estiverem incluídos.",
         "A importação pede confirmação antes de substituir os dados."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Como agrupo marcadores em pastas?",
-      "searchTerms": "criar pasta; marcadores de grupo; organizar favoritos; remova da pasta; renomear pasta",
+      "searchTerms": "criar pasta; marcadores de grupo; organizar favoritos; remova da pasta; renomear pasta; subpastas; pastas grandes; páginas; subir; descer; reordenar linhas",
       "title": "Organize com pastas",
       "summary": "Reúna marcadores e subpastas em um só lugar.",
       "steps": [
-        "Escolha + → Pasta no menu esquerdo e dê um nome a ela.",
-        "No modo de edição, arraste os favoritos para colocá-los dentro. Abra a pasta para ver sua grade.",
-        "Use o modo de edição da pasta para organizar seus marcadores. Clique em seu nome para renomeá-lo e em seu ícone para personalizar sua aparência."
+        "Escolha + → Pasta e dê um nome a ela. No modo de edição, arraste os favoritos para ele. Coleções pequenas usam uma grade 3 × 6; coleções grandes ou aninhadas usam listas pesquisáveis ​​com páginas de 54 itens.",
+        "Abra subpastas e use Voltar ou a localização atual para retornar. No modo de edição de lista, selecione uma linha e use Subir ou Mover para baixo; Alt + ↑ / ↓ também move a linha em foco.",
+        "Os controles de edição, exclusão e remoção aparecem à direita de cada linha da lista. Clique no nome da pasta para renomeá-la ou no controle de aparência para alterar seu estilo."
       ],
-      "note": "A exclusão de uma pasta também afeta seus favoritos. Revise a confirmação antes de continuar; a lixeira pode restaurar itens excluídos.",
-      "tip": "As pastas suportam grandes coleções com pesquisas e páginas. Ative a edição e arraste um cartão para uma pasta para adicioná-lo."
+      "note": "As pastas não têm limite fixo de contagem de itens. A ordem dos marcadores e das subpastas são salvas juntas. Mover, duplicar, excluir ou restaurar uma pasta inclui sua subárvore completa; revisar as confirmações de exclusão.",
+      "tip": "Pastas grandes possuem pesquisas e páginas de 54 itens. No modo de edição de lista, selecione uma linha e use Subir ou Mover para baixo, ou pressione Alt + ↑ / ↓ na linha em foco."
     },
     "workspaces": {
       "question": "Como mantenho as páginas pessoais e de trabalho separadas?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Como faço backup ou transfiro meus dados?",
-      "searchTerms": "cópia de segurança; exportar dados; importar cópia; restaurar backup; outro navegador; transferir dados",
+      "searchTerms": "cópia de segurança; exportar dados; importar cópia; restaurar backup; outro navegador; transferir dados; importar marcadores Chrome; HTML marcadores; pasta vazia; selecione itens importados",
       "title": "Backups e importações",
       "summary": "Guarde uma cópia do seu espaço e leve-a consigo.",
       "steps": [
-        "Em Configurações → Geral, exporte um backup completo para preservar os dados e os arquivos locais incluídos no arquivo ZIP.",
-        "Para restaurar, importe um backup e revise a confirmação antes de substituir os dados. Backups JSON compatíveis também são suportados.",
-        "Em Configurações → Favoritos você pode exportar ou importar apenas favoritos e pastas quando não precisar de um backup completo."
+        "Em Configurações → Geral, exporte um backup completo antes de substituir dados ou mudar de navegador. Backups sem vídeos locais usam JSON; aqueles com vídeos locais usam ZIP. Revise a confirmação de substituição antes de restaurar uma.",
+        "Para adicionar marcadores Chrome, use Configurações → Favoritos → Importar de Google Chrome ou Importar arquivo HTML. O primeiro guia de boas-vindas também oferece importação nativa quando marcadores suportados são detectados.",
+        "Expanda Visualizar e selecionar itens para escolher links ou pastas, pesquisar ou selecionar/desmarcar tudo. As pastas Vazio começam desmarcadas com um emblema Vazio; links mostram ícones favoritos. Confirme Importar favoritos: a caixa de diálogo fecha após salvar e um flash informa o resultado."
       ],
-      "note": "Uma exportação de favoritos não é um backup completo das configurações e da mídia local. Salve um backup antes de restaurar ou excluir dados.",
-      "tip": "Um backup completo em Configurações → Geral inclui arquivos locais em um ZIP. É útil antes de mudar de navegador ou restaurar dados."
+      "note": "As importações de Chrome/HTML são adicionadas a Principal, preservando os itens existentes e a ordem de origem. O conteúdo da barra Favoritos vai diretamente para a área de trabalho; outros buckets de navegador preenchidos mantêm suas pastas, exceto um único bucket plano. Configurações → Favoritos também importa e exporta New DeskTab JSON. Uma exportação de favoritos não inclui todas as configurações e mídia local; mantenha um backup completo. Os backups completos de JSON e ZIP preservam a preferência de dicas diárias; backups mais antigos sem ele mantêm a escolha atual.",
+      "tip": "Importe marcadores Chrome ou um arquivo HTML de Configurações → Favoritos e escolha os itens primeiro. Use um backup completo de Configurações → Geral antes de desinstalar ou substituir seu espaço de trabalho."
     },
     "sync": {
       "question": "Como faço para usar o mesmo espaço em outro computador?",
@@ -470,7 +470,7 @@
       "steps": [
         "Faça login e ative a sincronização de extensões em seu perfil Google Chrome.",
         "Em Configurações → Sincronização escolha Sincronizado e aceite a confirmação. A mudança entra em vigor imediatamente: os marcadores e configurações sincronizados existentes são carregados ou os dados locais salvos são sincronizados se não existirem.",
-        "Use o mesmo perfil no outro dispositivo. Verifique o status da sincronização e o espaço disponível no painel."
+        "Use o mesmo perfil Google Chrome e extensão ID no outro dispositivo. Verifique o status da sincronização e o espaço disponível no painel. Mantenha um backup completo separado antes de desinstalar."
       ],
       "note": "Arquivos locais, lixeira e dicas diárias pertencem a cada dispositivo. A sincronização tem limites de armazenamento; use URLs alternativos para imagens e vídeos locais. A escolha de Locais também pede confirmação e tem efeito imediato, mantendo armazenados os dados sincronizados.",
       "tip": "A sincronização compartilha seu espaço entre dispositivos, mas os arquivos locais precisam de um URL alternativo. Consulte Configurações → Sincronização."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Como excluo meus dados ou redefino configurações?",
-      "searchTerms": "excluir dados; redefinir configurações; remova tudo; recomeçar",
+      "searchTerms": "excluir dados; redefinir configurações; remova tudo; recomeçar; extensão de desinstalação; reinstalar; extensão de atualização; favoritos perdidos",
       "title": "Salvando e redefinindo",
       "summary": "Entenda o que é salvo e o que cada ação remove.",
       "steps": [
@@ -498,7 +498,7 @@
         "Se aparecer um aviso de salvamento pendente, clique em Tentar salvar novamente e aguarde a confirmação antes de fechar a guia.",
         "Em Configurações → Geral você pode redefinir as configurações ou excluir todos os dados. Leia a confirmação e exporte um backup de tudo o que deseja manter."
       ],
-      "note": "A redefinição das configurações mantém seus favoritos, seus tamanhos e estilos. A exclusão de todos os dados locais remove os itens e esvazia a lixeira. Exportar um backup antes de excluir: Desfazer não substitui um backup.",
+      "note": "A redefinição das configurações mantém marcadores, tamanhos e estilos. Excluir dados locais ou desinstalar remove o espaço de trabalho local, as configurações, a mídia e a lixeira deste perfil. Uma nova instalação começa no modo Locais sem restaurar automaticamente o espaço antigo. Exporte primeiro um backup completo. Para atualizações descompactadas, substitua os arquivos e use Recarregar em chrome://extensions com a mesma chave e extensão ID.",
       "tip": "Se você vir um aviso de alterações não salvas, use Tentar salvar novamente antes de fechar a guia. Proteja seu espaço com um backup completo."
     },
     "learning": {

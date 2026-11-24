@@ -8,8 +8,12 @@ installation. The 1.0.0 entry contains the author's story and thanks, six featur
 highlights, and a note that the clock widget is still in development.
 The 1.0.1 entry explains that JSON and ZIP backups preserve the daily-tip
 preference and that each tip has a discreet button to turn off future tips.
-Version 1.1.0 adds native Chrome and HTML bookmark import, nested folders, and
-searchable, paged navigation for large folders without the previous 18-item cap.
+Version 1.1.0 adds selective native Chrome and HTML bookmark import into Main,
+nested folders, and searchable, paged navigation for large folders without the
+previous 18-item cap. Toolbar contents appear directly on the desktop in source
+order. Empty folders are visible and initially unchecked; confirmation precedes
+the import, and success closes the dialog with a flash notification. Folder
+editing includes row selection and controls to move entries up or down.
 
 ## Arrival and history
 

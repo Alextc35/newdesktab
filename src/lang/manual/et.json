@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Varundusvalikud leiate menüüst Seaded → Üldine.",
-        "Eksport laadib andmete ja kohalike failidega ZIP-faili alla.",
+        "Ekspordi allalaadimised JSON või ZIP, kui kaasatakse kohalikud videod.",
         "Import küsib enne andmete asendamist kinnitust."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Kuidas järjehoidjaid kaustadesse grupeerida?",
-      "searchTerms": "luua kaust; rühma järjehoidjad; korraldada lemmikud; eemalda kaustast; kaust ümber nimetada",
+      "searchTerms": "luua kaust; rühma järjehoidjad; korraldada lemmikud; eemalda kaustast; nimeta kaust ümber; alamkaustad; suured kaustad; lehed; liikuda üles; liigu alla; järjesta ridu ümber",
       "title": "Korraldage kaustadega",
       "summary": "Koguge järjehoidjad ja alamkaustad ühte kohta.",
       "steps": [
-        "Valige vasakpoolsest menüüst + → Kaust ja andke sellele nimi.",
-        "Redigeerimisrežiimis lohistage järjehoidjad sellele, et need sisse panna. Avage kaust, et näha selle võrgustikku.",
-        "Kasutage kausta redigeerimisrežiimi selle järjehoidjate korraldamiseks. Selle ümbernimetamiseks klõpsake selle nimel ja välimuse kohandamiseks ikooni."
+        "Valige + → Kaust ja andke sellele nimi. Redigeerimisrežiimis lohistage sellele järjehoidjad. Väikesed kogud kasutavad ruudustikku 3 × 6; suured või pesastatud kogud kasutavad otsitavaid loendeid 54 üksuse lehtedega.",
+        "Avage alamkaustad ja kasutage naasmiseks Tagasi või teeriba. Valige loendi muutmisrežiimis rida ja kasutage Liigu üles või Liigu alla; Alt + ↑ / ↓ liigutab samuti fokuseeritud rida.",
+        "Redigeerimise, kustutamise ja teisaldamise juhtnupud kuvatakse iga loendirea paremal pool. Klõpsake kausta nime selle ümbernimetamiseks või välimuse juhtelementi, et muuta selle stiili."
       ],
-      "note": "Kausta kustutamine mõjutab ka selle järjehoidjaid. Enne jätkamist vaadake kinnitus üle; prügikast saab kustutatud üksusi taastada.",
-      "tip": "Kaustad toetavad suuri kogusid otsingu ja lehtedega. Lülitage redigeerimine sisse ja lohistage kaart selle lisamiseks kausta."
+      "note": "Kaustadel ei ole fikseeritud üksuste arvu limiiti. Järjehoidjate ja alamkaustade järjestus salvestatakse koos. Kausta teisaldamine, paljundamine, kustutamine või taastamine hõlmab selle täielikku alampuud; vaata üle kustutamise kinnitused.",
+      "tip": "Suurtes kaustades on otsing ja 54 üksuse leheküljed. Valige loendi muutmisrežiimis rida ja kasutage klahvi Liigu üles või Liigu alla või vajutage fookustatud real klahvi Alt + ↑ / ↓."
     },
     "workspaces": {
       "question": "Kuidas isiklikku ja töölehte lahus hoida?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Kuidas ma saan oma andmeid varundada või edastada?",
-      "searchTerms": "varukoopia; andmete eksport; impordi koopia; taastada varukoopia; teine ​​brauser; andmete ülekandmine",
+      "searchTerms": "varukoopia; andmete eksport; impordi koopia; taastada varukoopia; teine ​​brauser; andmete edastamine; importida Chrome järjehoidjaid; HTML järjehoidjad; tühi kaust; valige imporditud üksused",
       "title": "Varundamine ja import",
       "summary": "Hoidke oma ruumi koopiat ja võtke see endaga kaasa.",
       "steps": [
-        "Menüüs Seadistused → Üldine eksportige ZIP-arhiivis sisalduvate andmete ja kohalike failide säilitamiseks täielik varukoopia.",
-        "Taastamiseks importige varukoopia ja vaadake enne andmete asendamist kinnitus üle. Toetatakse ka ühilduvaid JSON-i varukoopiaid.",
-        "Menüüs Seadistused → Järjehoidjad saate eksportida või importida ainult järjehoidjaid ja kaustu, kui te ei vaja täielikku varukoopiat."
+        "Enne andmete asendamist või brauseri vahetamist eksportige jaotises Seaded → Kindral täielik varukoopia. Backups ilma kohalike videoteta kasutavad JSON; kohalikud videod kasutavad ZIP. Enne selle taastamist vaadake üle asenduskinnitus.",
+        "Järjehoidjate Chrome lisamiseks kasutage Seaded → Järjehoidjad → Import kohast Google Chrome või Importige HTML-faili. Esimene tervitusjuhend pakub toetatud järjehoidjate tuvastamisel ka loomulikku importi.",
+        "Laiendage Vaadake ja valige üksused linkide või kaustade valimiseks, otsimiseks või kõigi valimiseks või valiku tühistamiseks. Tühi kaustad algavad märgistamata märgiga Tühi; lingid näitavad lemmikuid. Kinnitage Järjehoidjate importimine: dialoog sulgub pärast salvestamist ja välk annab tulemusest teada."
       ],
-      "note": "Järjehoidjate eksport ei ole seadete ja kohaliku meedia täielik varukoopia. Enne andmete taastamist või kustutamist salvestage varukoopia.",
-      "tip": "Täielik varukoopia menüüst Seaded → Üldine sisaldab kohalikke faile ZIP-vormingus. See on kasulik enne brauseri vahetamist või andmete taastamist."
+      "note": "Chrome/HTML impordid lisavad Peamine, säilitades olemasolevad kaubad ja lähtejärjestuse. Järjehoidjad-riba sisu läheb otse töölauale; teised asustatud brauseri ämbrid jätavad oma kaustad alles, välja arvatud ainus lame ämber. Seaded → Järjehoidjad impordib ja ekspordib ka New DeskTab JSON. Järjehoidjate eksport ei hõlma kõiki seadeid ja kohalikku meediat; hoidke täielikku varukoopiat. Täielik JSON ja ZIP varukoopia säilitab igapäevase jootraha eelistuse; vanemad varukoopiad ilma selleta säilitavad praeguse valiku.",
+      "tip": "Importige Chrome järjehoidjaid või HTML-fail asukohast Seaded → Järjehoidjad ja valige esmalt üksused. Enne tööruumi desinstallimist või asendamist kasutage täielikku varukoopiat saidilt Seaded → Kindral."
     },
     "sync": {
       "question": "Kuidas kasutada sama ruumi teises arvutis?",
@@ -470,7 +470,7 @@
       "steps": [
         "Logige sisse ja lubage laienduse sünkroonimine oma profiilis Google Chrome.",
         "Valige menüüs Seaded → Sünkroonimine Sünkroonitud ja nõustuge kinnitusega. Lülitus jõustub kohe: olemasolevad sünkroonitud järjehoidjad ja sätted laaditakse või teie salvestatud kohalikud andmed sünkroonitakse, kui neid pole.",
-        "Kasutage sama profiili ka teises seadmes. Kontrollige sünkroonimise olekut ja paneelil saadaolevat ruumi."
+        "Kasutage teises seadmes sama profiili Google Chrome ja laiendust ID. Kontrollige sünkroonimise olekut ja paneelil saadaolevat ruumi. Enne desinstallimist tehke eraldi täielik varukoopia."
       ],
       "note": "Kohalikud failid, prügikast ja igapäevased nõuanded kuuluvad iga seadme juurde. Sünkroonimisel on salvestuspiirangud; kasutage kohalike piltide ja videote jaoks alternatiivseid URL-e. Valides Kohalik, küsitakse ka kinnitust ja see jõustub kohe, säilitades sünkroonitud andmed.",
       "tip": "Sünkroonimine jagab teie ruumi seadmete vahel, kuid kohalikele failidele on vaja alternatiivset URL-i. Vt Seaded → Sünkroonimine."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Kuidas ma saan oma andmeid kustutada või seadeid lähtestada?",
-      "searchTerms": "kustutada andmed; lähtestage seaded; eemaldage kõik; alusta otsast",
+      "searchTerms": "kustutada andmed; lähtestage seaded; eemaldage kõik; alusta otsast; desinstalli laiendus; uuesti installida; värskenduse laiendus; kadunud järjehoidjad",
       "title": "Salvestamine ja lähtestamine",
       "summary": "Saate aru, mis salvestatakse ja mida iga toiming eemaldab.",
       "steps": [
@@ -498,7 +498,7 @@
         "Kui kuvatakse ootel salvestamise teade, klõpsake nuppu Proovi salvestada uuesti ja oodake enne vahekaardi sulgemist kinnitust.",
         "Menüüs Seaded → Üldine saate seadeid lähtestada või kõik andmed kustutada. Lugege kinnitust ja eksportige varukoopia kõigest, mida soovite säilitada."
       ],
-      "note": "Seadete lähtestamine säilitab teie järjehoidjad, nende suurused ja stiilid. Kõigi kohalike andmete kustutamine eemaldab üksused ja tühjendab prügikasti. Varukoopia eksportimine enne kustutamist: tagasivõtmine ei asenda varukoopiat.",
+      "note": "Seadete lähtestamine säilitab järjehoidjad, suurused ja stiilid. Kohalike andmete kustutamine või desinstallimine eemaldab selle profiili kohaliku tööruumi, seaded, meediumid ja prügikasti. Uus installimine algab režiimis Kohalik, ilma vana ruumi automaatselt taastamata. Esmalt eksportige täielik varukoopia. Pakkimata värskenduste jaoks asendage failid ja kasutage uuesti laadimist saidil chrome://extensions sama võtme ja laiendiga ID.",
       "tip": "Kui näete teadet salvestamata muudatuste kohta, kasutage enne vahekaardi sulgemist käsku Proovi salvestada uuesti. Kaitske oma ruumi täieliku varukoopiaga."
     },
     "learning": {

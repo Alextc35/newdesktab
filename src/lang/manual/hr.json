@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Pronađite opcije sigurnosne kopije u Postavke → Općenito.",
-        "Export preuzima ZIP s podacima i lokalnim datotekama.",
+        "Izvezite preuzimanja JSON ili ZIP kada su uključeni lokalni videozapisi.",
         "Import traži potvrdu prije zamjene podataka."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Kako mogu grupirati oznake u mape?",
-      "searchTerms": "stvoriti mapu; grupne knjižne oznake; organizirati favorite; ukloniti iz mape; preimenuj mapu",
+      "searchTerms": "stvoriti mapu; grupne knjižne oznake; organizirati favorite; ukloniti iz mape; preimenovati mapu; podmape; velike mape; stranice; pomaknuti se; pomaknuti se prema dolje; redoslijed redova",
       "title": "Organizirajte pomoću mapa",
       "summary": "Skupite oznake i podmape na jednom mjestu.",
       "steps": [
-        "Odaberite + → Mapa u lijevom izborniku i dodijelite joj naziv.",
-        "U načinu za uređivanje, povucite oznake na nju da biste ih stavili unutra. Otvorite mapu da vidite njezinu mrežu.",
-        "Upotrijebite način uređivanja mape da rasporedite njezine oznake. Pritisnite njegovo ime da biste ga preimenovali i njegovu ikonu da biste prilagodili njegov izgled."
+        "Odaberite + → Mapa i dodijelite joj naziv. U načinu za uređivanje povucite oznake na njega. Male zbirke koriste mrežu 3 × 6; velike ili ugniježđene zbirke koriste pretražive popise sa stranicama od 54 stavki.",
+        "Otvorite podmape i upotrijebite natrag ili put za povratak. U načinu uređivanja popisa odaberite redak i upotrijebite Pomakni se gore ili Pomakni se dolje; Alt + ↑ / ↓ također pomiče fokusirani red.",
+        "Kontrole za uređivanje, brisanje i premještanje pojavljuju se desno od svakog reda popisa. Pritisnite naziv mape da biste je preimenovali ili njenu kontrolu izgleda da biste promijenili stil."
       ],
-      "note": "Brisanje mape također utječe na njezine oznake. Pregledajte potvrdu prije nastavka; koš za smeće može vratiti izbrisane stavke.",
-      "tip": "Mape podržavaju velike zbirke s pretraživanjem i stranicama. Uključite uređivanje i povucite karticu u mapu da biste je dodali."
+      "note": "Mape nemaju fiksno ograničenje broja stavki. Redoslijed oznaka i podmapa sprema se zajedno. Premještanje, dupliciranje, brisanje ili vraćanje mape uključuje njezino potpuno podstablo; pregled potvrda brisanja.",
+      "tip": "Velike mape imaju pretraživanje i stranice od 54 stavki. U načinu uređivanja popisa odaberite redak i upotrijebite Pomakni se gore ili Pomakni se dolje ili pritisnite Alt + ↑ / ↓ u retku koji je u fokusu."
     },
     "workspaces": {
       "question": "Kako mogu odvojiti osobne i poslovne stranice?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Kako mogu napraviti sigurnosnu kopiju ili prenijeti svoje podatke?",
-      "searchTerms": "sigurnosna kopija; izvoz podataka; uvozna kopija; vratiti sigurnosnu kopiju; drugi preglednik; prijenos podataka",
+      "searchTerms": "sigurnosna kopija; izvoz podataka; uvozna kopija; vratiti sigurnosnu kopiju; drugi preglednik; prijenos podataka; uvoz Chrome oznaka; HTML oznake; prazna mapa; odabir uvezenih stavki",
       "title": "Sigurnosne kopije i uvozi",
       "summary": "Sačuvajte kopiju svog prostora i ponesite je sa sobom.",
       "steps": [
-        "U Postavke → Općenito izvezite punu sigurnosnu kopiju kako biste sačuvali podatke i lokalne datoteke uključene u ZIP arhivu.",
-        "Za vraćanje uvezite sigurnosnu kopiju i pregledajte potvrdu prije zamjene podataka. Podržane su i kompatibilne JSON sigurnosne kopije.",
-        "U Postavke → Oznake možete izvesti ili uvesti samo oznake i mape kada vam nije potrebna potpuna sigurnosna kopija."
+        "U postavke → generalno, izvezite punu sigurnosnu kopiju prije zamjene podataka ili promjene preglednika. Backups bez lokalnih videozapisa koriste JSON; oni s lokalnim videozapisima koriste ZIP. Pregledajte potvrdu zamjene prije vraćanja.",
+        "Za dodavanje Chrome oznaka koristite postavke → Knjižne oznake → Uvoz iz Google Chrome ili Uvezi HTML datoteku. Prvi vodič dobrodošlice također nudi izvorni uvoz kada se otkriju podržane knjižne oznake.",
+        "Proširite Pregledajte i odaberite stavke za odabir veza ili mapa, pretraživanje ili odabir/poništavanje odabira svega. Prazna mapa počinje neoznačeno sa značkom Prazna; veze prikazuju favikone. Potvrdite Uvoz oznaka: dijaloški okvir se zatvara nakon spremanja i bljesak javlja rezultat."
       ],
-      "note": "Izvoz knjižne oznake nije puna sigurnosna kopija postavki i lokalnih medija. Spremite sigurnosnu kopiju prije vraćanja ili brisanja podataka.",
-      "tip": "Puna sigurnosna kopija iz Postavke → Općenito uključuje lokalne datoteke u ZIP-u. Korisno je prije promjene preglednika ili vraćanja podataka."
+      "note": "Chrome/HTML uvoza dodaje se u Glavni, čuvajući postojeće stavke i izvorni poredak. Knjižne oznake-sadržaj trake ide izravno na radnu površinu; drugi popunjeni spremnici preglednika zadržavaju svoje mape, osim jedinog ravnog spremnika. postavke → Knjižne oznake također uvozi i izvozi New DeskTab JSON. Izvoz knjižne oznake ne uključuje sve postavke i lokalne medije; napravite punu sigurnosnu kopiju. Pune sigurnosne kopije JSON i ZIP čuvaju preferencu dnevne napojnice; starije sigurnosne kopije bez toga zadržavaju trenutni izbor.",
+      "tip": "Uvezite Chrome oznaka ili HTML datoteku iz postavke → Knjižne oznake i prvo odaberite stavke. Koristite potpunu sigurnosnu kopiju iz postavke → generalno prije deinstalacije ili zamjene radnog prostora."
     },
     "sync": {
       "question": "Kako mogu koristiti isti prostor na drugom računalu?",
@@ -470,7 +470,7 @@
       "steps": [
         "Prijavite se i omogućite sinkronizaciju proširenja u svom Google Chrome profilu.",
         "U Postavke → Sinkronizacija odaberite Sinkronizirano i prihvatite potvrdu. Promjena stupa na snagu odmah: učitavaju se postojeće sinkronizirane oznake i postavke ili se sinkroniziraju vaši spremljeni lokalni podaci ako ne postoje.",
-        "Koristite isti profil na drugom uređaju. Provjerite status sinkronizacije i raspoloživi prostor na ploči."
+        "Koristite isti Google Chrome profil i proširenje ID na drugom uređaju. Provjerite status sinkronizacije i raspoloživi prostor na ploči. Sačuvajte zasebnu punu sigurnosnu kopiju prije deinstalacije."
       ],
       "note": "Lokalne datoteke, koš za smeće i dnevni savjeti pripadaju svakom uređaju. Sinkronizacija ima ograničenja pohrane; koristite alternativne URL-ove za lokalne slike i videozapise. Odabir Lokalno također traži potvrdu i odmah stupa na snagu, zadržavajući pohranjene sinkronizirane podatke.",
       "tip": "Sinkronizacija dijeli vaš prostor na više uređaja, ali lokalne datoteke trebaju alternativni URL. Pogledajte Postavke → Sinkronizacija."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Kako mogu izbrisati svoje podatke ili resetirati postavke?",
-      "searchTerms": "izbrisati podatke; resetirati postavke; ukloniti sve; početi ispočetka",
+      "searchTerms": "izbrisati podatke; resetirati postavke; ukloniti sve; početi ispočetka; deinstalirati proširenje; ponovno instalirati; proširenje ažuriranja; izgubljene oznake",
       "title": "Spremanje i resetiranje",
       "summary": "Saznajte što se sprema i što svaka radnja uklanja.",
       "steps": [
@@ -498,7 +498,7 @@
         "Ako se pojavi obavijest o spremanju na čekanju, kliknite Pokušaj ponovno spremiti i pričekajte potvrdu prije zatvaranja kartice.",
         "U Postavke → Općenito možete resetirati postavke ili izbrisati sve podatke. Pročitajte potvrdu i izvezite sigurnosnu kopiju svega što želite zadržati."
       ],
-      "note": "Poništavanjem postavki zadržavaju se vaše oznake, njihove veličine i stilovi. Brisanjem svih lokalnih podataka uklanjaju se stavke i prazni se koš za smeće. Izvezite sigurnosnu kopiju prije brisanja: Poništi ne zamjenjuje sigurnosnu kopiju.",
+      "note": "Ponovno postavljanje postavki zadržava knjižne oznake, veličine i stilove. Brisanjem lokalnih podataka ili deinstalacijom uklanja se lokalni radni prostor, postavke, mediji i smeće ovog profila. Nova instalacija počinje u načinu rada Lokalni bez automatskog vraćanja starog prostora. Prvo izvezite punu sigurnosnu kopiju. Za raspakirana ažuriranja zamijenite datoteke i upotrijebite Reload na chrome://extensions s istim ključem i ekstenzijom ID.",
       "tip": "Ako vidite obavijest o nespremljenim promjenama, upotrijebite Pokušaj ponovno spremiti prije zatvaranja kartice. Zaštitite svoj prostor potpunom sigurnosnom kopijom."
     },
     "learning": {

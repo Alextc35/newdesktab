@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Cari pilihan sandaran dalam Tetapan → Umum.",
-        "Eksport memuat turun ZIP dengan data dan fail setempat.",
+        "Eksport muat turun JSON atau ZIP apabila video tempatan disertakan.",
         "Import meminta pengesahan sebelum menggantikan data."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Bagaimanakah cara saya mengumpulkan penanda halaman ke dalam folder?",
-      "searchTerms": "buat folder; penanda buku kumpulan; mengatur kegemaran; keluarkan daripada folder; menamakan semula folder",
+      "searchTerms": "buat folder; penanda buku kumpulan; mengatur kegemaran; keluarkan daripada folder; menamakan semula folder; subfolder; folder besar; muka surat; bergerak ke atas; bergerak ke bawah; menyusun semula baris",
       "title": "Susun dengan folder",
       "summary": "Kumpulkan penanda halaman dan subfolder di satu tempat.",
       "steps": [
-        "Pilih + → Folder dalam menu kiri dan beri nama.",
-        "Dalam mod edit, seret penanda halaman ke atasnya untuk meletakkannya di dalam. Buka folder untuk melihat gridnya.",
-        "Gunakan mod edit folder untuk mengatur penanda halamannya. Klik namanya untuk menamakan semula dan ikonnya untuk menyesuaikan penampilannya."
+        "Pilih + → Folder dan beri nama. Dalam mod edit, seret penanda halaman ke atasnya. Koleksi kecil menggunakan grid 3 × 6; koleksi besar atau bersarang menggunakan senarai yang boleh dicari dengan halaman 54 item.",
+        "Buka subfolder dan gunakan belakang atau serbuk roti untuk kembali. Dalam mod edit senarai, pilih baris dan gunakan Bergerak ke atas atau Bergerak ke bawah; Alt + ↑ / ↓ turut mengalihkan baris yang difokuskan.",
+        "Kawalan edit, padam dan alih keluar muncul di sebelah kanan setiap baris senarai. Klik nama folder untuk menamakan semula atau kawalan penampilannya untuk menukar gayanya."
       ],
-      "note": "Memadamkan folder juga mempengaruhi penanda halamannya. Semak pengesahan sebelum meneruskan; tong kitar semula boleh memulihkan item yang dipadam.",
-      "tip": "Folder menyokong koleksi besar dengan carian dan halaman. Hidupkan pengeditan dan seret kad ke folder untuk menambahkannya."
+      "note": "Folder tidak mempunyai had kiraan item tetap. Penanda halaman dan susunan subfolder disimpan bersama-sama. Memindahkan, menduplikasi, memadam atau memulihkan folder termasuk subpokok lengkapnya; semak pengesahan pemadaman.",
+      "tip": "Folder besar mempunyai carian dan halaman 54 item. Dalam mod edit senarai, pilih baris dan gunakan Bergerak ke atas atau Bergerak ke bawah atau tekan Alt + ↑ / ↓ pada baris yang difokuskan."
     },
     "workspaces": {
       "question": "Bagaimanakah cara saya memisahkan halaman peribadi dan halaman kerja?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Bagaimanakah cara saya membuat sandaran atau memindahkan data saya?",
-      "searchTerms": "salinan sandaran; data eksport; salinan import; memulihkan sandaran; pelayar lain; memindahkan data",
+      "searchTerms": "salinan sandaran; data eksport; salinan import; memulihkan sandaran; pelayar lain; pemindahan data; import Chrome penanda halaman; HTML penanda halaman; folder kosong; pilih barang yang diimport",
       "title": "Sandaran dan import",
       "summary": "Simpan salinan ruang anda dan bawa bersama anda.",
       "steps": [
-        "Dalam Tetapan → Eksport umum sandaran penuh untuk mengekalkan data dan fail tempatan yang disertakan dalam arkib ZIP.",
-        "Untuk memulihkan, import sandaran dan semak pengesahan sebelum menggantikan data. Sandaran JSON yang serasi juga disokong.",
-        "Dalam Tetapan → Penanda halaman anda boleh mengeksport atau mengimport hanya penanda halaman dan folder apabila anda tidak memerlukan sandaran penuh."
+        "Dalam tetapan → Umum, eksport sandaran penuh sebelum menggantikan data atau menukar penyemak imbas. Backup tanpa video tempatan menggunakan JSON; mereka yang mempunyai video tempatan menggunakan ZIP. Semak pengesahan penggantian sebelum memulihkannya.",
+        "Untuk menambah Chrome penanda halaman, gunakan tetapan → Penanda buku → Import daripada Google Chrome atau Import fail HTML. Panduan alu-aluan pertama juga menawarkan import asli apabila penanda halaman yang disokong dikesan.",
+        "Kembangkan Lihat dan pilih item untuk memilih pautan atau folder, cari atau pilih/nyahpilih semua. kosong folder mula dinyahtandai dengan lencana kosong; pautan menunjukkan favicon. Sahkan Import penanda halaman: dialog ditutup selepas menyimpan dan kilat melaporkan hasilnya."
       ],
-      "note": "Eksport penanda halaman bukanlah sandaran penuh tetapan dan media tempatan. Simpan sandaran sebelum memulihkan atau memadam data.",
-      "tip": "Sandaran penuh daripada Tetapan → Umum termasuk fail tempatan dalam ZIP. Ia berguna sebelum menukar penyemak imbas atau memulihkan data."
+      "note": "Chrome/HTML import ditambah kepada Utama, mengekalkan item sedia ada dan pesanan sumber. Penanda buku-kandungan bar pergi terus pada desktop; baldi penyemak imbas berpenduduk lain menyimpan folder mereka, kecuali baldi rata tunggal. tetapan → Penanda buku juga mengimport dan mengeksport New DeskTab JSON. Eksport penanda halaman tidak termasuk semua tetapan dan media tempatan; simpan sandaran penuh. Sandaran penuh JSON dan ZIP mengekalkan keutamaan tip harian; sandaran lama tanpa ia mengekalkan pilihan semasa.",
+      "tip": "Import Chrome penanda halaman atau fail HTML daripada tetapan → Penanda buku dan pilih item dahulu. Gunakan sandaran penuh daripada tetapan → Umum sebelum menyahpasang atau menggantikan ruang kerja anda."
     },
     "sync": {
       "question": "Bagaimanakah saya menggunakan ruang yang sama pada komputer lain?",
@@ -470,7 +470,7 @@
       "steps": [
         "Log masuk dan dayakan penyegerakan sambungan dalam profil Google Chrome anda.",
         "Dalam Tetapan → Penyegerakan pilih Disegerakkan dan terima pengesahan. Suis berkuat kuasa serta-merta: penanda halaman dan tetapan disegerakkan sedia ada dimuatkan, atau data setempat anda yang disimpan disegerakkan jika tiada.",
-        "Gunakan profil yang sama pada peranti lain. Semak status penyegerakan dan ruang yang tersedia dalam panel."
+        "Gunakan profil dan sambungan Google Chrome yang sama ID pada peranti lain. Semak status penyegerakan dan ruang yang tersedia dalam panel. Simpan sandaran penuh yang berasingan sebelum menyahpasang."
       ],
       "note": "Fail tempatan, tong kitar semula dan petua harian adalah milik setiap peranti. Penyegerakan mempunyai had storan; gunakan URL alternatif untuk imej dan video tempatan. Memilih Setempat juga meminta pengesahan dan berkuat kuasa serta-merta, memastikan data yang disegerakkan disimpan.",
       "tip": "Penyegerakan berkongsi ruang anda merentas peranti, tetapi fail setempat memerlukan URL alternatif. Lihat Tetapan → Penyegerakan."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Bagaimanakah cara saya memadamkan data saya atau menetapkan semula tetapan?",
-      "searchTerms": "memadam data; tetapkan semula tetapan; keluarkan segala-galanya; mula semula",
+      "searchTerms": "memadam data; tetapkan semula tetapan; keluarkan segala-galanya; mula semula; nyahpasang sambungan; pasang semula; sambungan kemas kini; hilang penanda buku",
       "title": "Menyimpan dan menetapkan semula",
       "summary": "Fahami perkara yang disimpan dan perkara yang dialih keluar oleh setiap tindakan.",
       "steps": [
@@ -498,7 +498,7 @@
         "Jika notis simpan belum selesai muncul, klik Cuba Simpan semula dan tunggu pengesahan sebelum menutup tab.",
         "Dalam Tetapan → Umum anda boleh menetapkan semula tetapan atau memadam semua data. Baca pengesahan dan eksport sandaran apa sahaja yang anda mahu simpan."
       ],
-      "note": "Menetapkan semula tetapan mengekalkan penanda halaman anda, saiz dan gayanya. Memadam semua data setempat akan mengalih keluar item dan mengosongkan tong kitar semula. Eksport sandaran sebelum memadam: Buat asal tidak menggantikan sandaran.",
+      "note": "Menetapkan semula tetapan menyimpan penanda halaman, saiz dan gaya. Memadam data setempat atau menyahpasang akan mengalih keluar ruang kerja, tetapan, media dan sampah setempat profil ini. Pemasangan baharu bermula dalam mod Tempatan tanpa memulihkan ruang lama secara automatik. Eksport sandaran penuh dahulu. Untuk kemas kini yang tidak dibungkus, gantikan fail dan gunakan Muat Semula pada chrome://extensions dengan kunci dan sambungan yang sama ID.",
       "tip": "Jika anda melihat notis perubahan yang belum disimpan, gunakan Cuba Simpan semula sebelum menutup tab. Lindungi ruang anda dengan sandaran penuh."
     },
     "learning": {

@@ -162,7 +162,7 @@
       ],
       "backup": [
         "Find the backup options in Settings → General.",
-        "Export downloads a ZIP with data and local files.",
+        "Export downloads JSON, or a ZIP when local videos are included.",
         "Import asks for confirmation before replacing data."
       ],
       "sync": [
@@ -261,11 +261,11 @@
       "tip": "Want to move a bookmark into an occupied cell? Look at Relocation and Cascade in Settings → Bookmarks and watch their previews."
     },
     "folders": {
-      "question": "How do I group bookmarks into folders?", "searchTerms": "create folder; group bookmarks; organize favorites; remove from folder; rename folder",
+      "question": "How do I group bookmarks into folders?", "searchTerms": "create folder; group bookmarks; organize favorites; remove from folder; rename folder; subfolders; large folders; pages; move up; move down; reorder rows",
       "title": "Organize with folders", "summary": "Gather bookmarks and subfolders in one place.",
-      "steps": ["Choose + → Folder in the left menu and give it a name.", "In edit mode, drag bookmarks onto it to put them inside. Open the folder to see its grid.", "Use the folder's edit mode to arrange its bookmarks. Click its name to rename it and its icon to customize its appearance."],
-      "note": "Deleting a folder affects its bookmarks too. Review the confirmation before continuing; the recycle bin can restore deleted items.",
-      "tip": "Folders support large collections with search and pages. Turn on editing and drag a card onto a folder to add it."
+      "steps": ["Choose + → Folder and give it a name. In edit mode, drag bookmarks onto it. Small collections use a 3 × 6 grid; large or nested collections use searchable lists with pages of 54 items.", "Open subfolders and use Back or the breadcrumb to return. In list edit mode, select a row and use Move up or Move down; Alt + ↑ / ↓ also moves the focused row.", "Edit, delete and move-out controls appear at the right of each list row. Click the folder name to rename it or its appearance control to change its style."],
+      "note": "Folders have no fixed item-count limit. Bookmark and subfolder order is saved together. Moving, duplicating, deleting or restoring a folder includes its complete subtree; review deletion confirmations.",
+      "tip": "Large folders have search and pages of 54 items. In list edit mode, select a row and use Move up or Move down, or press Alt + ↑ / ↓ on the focused row."
     },
     "workspaces": {
       "question": "How do I keep personal and work pages separate?", "searchTerms": "personal work; create workspace; switch workspace; desktops",
@@ -331,16 +331,16 @@
       "tip": "Deleted a bookmark by mistake? Open the recycle bin and restore it. Adjust the retention period in Settings → General."
     },
     "backup": {
-      "question": "How do I back up or transfer my data?", "searchTerms": "backup copy; export data; import copy; restore backup; another browser; transfer data",
+      "question": "How do I back up or transfer my data?", "searchTerms": "backup copy; export data; import copy; restore backup; another browser; transfer data; import Chrome bookmarks; HTML bookmarks; empty folder; select imported items",
       "title": "Backups and imports", "summary": "Keep a copy of your space and take it with you.",
-      "steps": ["In Settings → General export a full backup to preserve data and the local files included in the ZIP archive.", "To restore, import a backup and review the confirmation before replacing data. Compatible JSON backups are also supported.", "In Settings → Bookmarks you can export or import just bookmarks and folders when you don't need a full backup."],
-      "note": "A bookmark export isn't a full backup of settings and local media. Complete JSON and ZIP backups also preserve whether daily tips are enabled; older backups keep the current choice. Save a backup before restoring or deleting data.",
-      "tip": "A full backup from Settings → General includes local files in a ZIP. It's useful before switching browsers or restoring data."
+      "steps": ["In Settings → General, export a full backup before replacing data or changing browsers. Backups without local videos use JSON; those with local videos use ZIP. Review the replacement confirmation before restoring one.", "To add Chrome bookmarks, use Settings → Bookmarks → Import from Google Chrome or Import HTML file. The first welcome guide also offers the native import when supported bookmarks are detected.", "Expand View and select items to choose links or folders, search, or select/deselect all. Empty folders start unchecked with an Empty badge; links show favicons. Confirm Import bookmarks: the dialog closes after saving and a flash reports the result."],
+      "note": "Chrome/HTML imports add to Main, preserving existing items and source order. Bookmarks-bar contents go directly on the desktop; other populated browser buckets keep their folders, except a sole flat bucket. Settings → Bookmarks also imports and exports New DeskTab JSON. A bookmark export does not include all settings and local media; keep a full backup. Full JSON and ZIP backups preserve the daily-tip preference; older backups without it keep the current choice.",
+      "tip": "Import Chrome bookmarks or an HTML file from Settings → Bookmarks and choose the items first. Use a full backup from Settings → General before uninstalling or replacing your workspace."
     },
     "sync": {
       "question": "How do I use the same space on another computer?", "searchTerms": "another computer; synchronize devices; synchronization; cloud; local sync; stop synchronization; disable sync; local mode",
       "title": "Synchronize across devices", "summary": "Share your space using browser synchronization.",
-      "steps": ["Sign in and enable extension synchronization in your Google Chrome profile.", "In Settings → Synchronization choose Synced and accept the confirmation. The switch takes effect immediately: existing synchronized bookmarks and settings are loaded, or your saved local data is synchronized if none exists.", "Use the same profile on the other device. Check synchronization status and available space in the panel."],
+      "steps": ["Sign in and enable extension synchronization in your Google Chrome profile.", "In Settings → Synchronization choose Synced and accept the confirmation. The switch takes effect immediately: existing synchronized bookmarks and settings are loaded, or your saved local data is synchronized if none exists.", "Use the same Google Chrome profile and extension ID on the other device. Check synchronization status and available space in the panel. Keep a separate full backup before uninstalling."],
       "note": "Local files, the recycle bin and daily tips belong to each device. Synchronization has storage limits; use alternative URLs for local images and videos. Choosing Local also asks for confirmation and takes effect immediately, keeping the synchronized data stored.",
       "tip": "Synchronization shares your space across devices, but local files need an alternative URL. See Settings → Synchronization."
     },
@@ -352,10 +352,10 @@
       "tip": "In a narrow window your bookmarks stay available as a list. Widen it when you want to edit or reorganize the grid."
     },
     "data": {
-      "question": "How do I delete my data or reset settings?", "searchTerms": "delete data; reset settings; remove everything; start over",
+      "question": "How do I delete my data or reset settings?", "searchTerms": "delete data; reset settings; remove everything; start over; uninstall extension; reinstall; update extension; lost bookmarks",
       "title": "Saving and resetting", "summary": "Understand what is saved and what each action removes.",
       "steps": ["Workspace actions save automatically. In editors and Settings, confirm with Save; Cancel discards that panel's draft.", "If a pending-save notice appears, click Retry save and wait for confirmation before closing the tab.", "In Settings → General you can reset settings or delete all data. Read the confirmation and export a backup of anything you want to keep."],
-      "note": "Resetting settings keeps your bookmarks, their sizes and their styles. Deleting all local data removes the items and empties the recycle bin. Export a backup before deleting: Undo does not replace a backup.",
+      "note": "Resetting settings keeps bookmarks, sizes and styles. Deleting local data or uninstalling removes this profile's local workspace, settings, media and trash. A fresh install starts in Local mode without automatically restoring the old space. Export a full backup first. For unpacked updates, replace files and use Reload on chrome://extensions with the same key and extension ID.",
       "tip": "If you see an unsaved-changes notice, use Retry save before closing the tab. Protect your space with a full backup."
     },
     "learning": {

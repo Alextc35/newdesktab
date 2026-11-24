@@ -10,7 +10,7 @@ individual contracts in greater detail.
 > **Product:** New DeskTab<br>
 > **Application:** Chromium Manifest V3 extension<br>
 > **Technology:** JavaScript ES modules, native HTML and CSS<br>
-> **Reference release:** 1.0.0
+> **Reference release:** 1.1.0 (public data schema 2)
 
 All source paths below are relative to `src/` unless they explicitly begin with
 `src/`, `tests/` or `scripts/`.
@@ -126,7 +126,8 @@ must not accumulate bookmark, folder, workspace or recycle-bin business rules.
 ### Domain models
 
 `domain/` contains deterministic entities, invariants, validation and defaults.
-It does not access the DOM, store or Chrome APIs.
+It does not access the application DOM, store or Chrome APIs. Its bookmark HTML
+parser reads a separate inert document; imported markup never enters the UI.
 
 ```text
 domain/
@@ -260,11 +261,14 @@ A bookmark owns identity, URL, appearance, workspace and a grid rectangle.
 `folderId` represents folder membership. A contained bookmark keeps its saved
 main-grid dimensions but does not reserve space in the top-level grid.
 
-Folders are independent `data.folders` entities. Their optional `parentId`
+Folders are independent `data.folders` entities. Their nullable `parentId`
 preserves subfolders; every descendant belongs to the same workspace. Only root
 folders reserve desktop cells. Small collections use a six-column, three-row
 editing grid. Larger collections and folders containing subfolders use a compact
 list with search and pages of at most 54 items. Membership has no fixed count cap.
+`domain/folders/folderContents.js` owns mixed reading order, paging, ancestor
+navigation and paths; `folderTree.js` identifies roots and complete subtrees.
+Missing, cyclic or cross-workspace parents are repaired during normalization.
 
 Appearance presets contain visual fields only. They never carry identity,
 URL, timestamps, membership or placement.
@@ -294,7 +298,8 @@ workspaces without interpreting their configuration.
 ### Recycle bin
 
 The visible bin has its own position and appearance. `trash` holds deleted
-bookmarks or complete folder-and-bookmark groups with deletion timestamps.
+bookmarks or complete folder trees with deletion timestamps. A folder entry
+stores its root in `folder`, descendants in `folders` and links in `bookmarks`.
 Retention is configurable: 1, 7, 14 or 28 days, or zero for no automatic expiry.
 The default is 28 days. Contents remain device-local when Sync is active.
 
@@ -448,14 +453,75 @@ pointerdown
 
 A bookmark/folder deletion builds a trash entry and removes the live entities
 in one transition. Restoration calculates valid placement and membership,
-restores the entities and removes that trash entry. A folder travels with its
-contained bookmarks. Widget removal follows its separate permanent policy.
+restores the entities and removes that trash entry. A folder travels with all
+its descendant folders and contained bookmarks. Widget removal follows its
+separate permanent policy.
+
+### Import Chrome or HTML bookmarks
+
+```text
+first welcome finishes / Settings import action
+    → Chrome snapshot or inert HTML parsing
+    → browserBookmarkImportUI builds the selectable tree
+    → shared confirmation alert
+    → browserBookmarkImport receives the selected tree
+    → domain preparation preserves hierarchy and finds Main placement
+    → schema normalization and Sync quota preflight
+    → store persistence succeeds
+    → dialog closes and a success flash reports imported counts
+```
+
+Native detection uses `chrome.bookmarks.getTree()` without changing Chrome
+bookmarks. Only the first welcome offers automatic detection, after the guide
+finishes or is dismissed; a manual replay does not offer it again. Settings
+provides both native and Chrome/Netscape HTML import. These append to Main
+(`groupId: null`) and activate Main, separately from DeskTab JSON imports and
+complete backups.
+
+The shared preview expands folders, searches names/URLs and selects individual
+entries or entire subtrees. Empty folders have a badge and start unselected;
+they can be included explicitly or through Select all. Parent checkboxes show
+partial selection. Preview rendering grows in 100-row increments, and bookmark
+rows reuse favicon rendering. The domain selection filter retains required
+ancestors and original source order and identities.
+
+Bookmarks-bar children are placed directly on Main. Other populated browser
+roots keep their folders; empty native roots are omitted. With no populated
+toolbar, a single populated browser root containing only links is flattened.
+User subfolders are preserved, and imported folders have a transparent outer
+background. New desktop items fill free cells left to right and top to bottom,
+avoiding existing items. Unchanged source items are not duplicated on reimport.
+When all imported roots cannot fit, an overflow folder contains them; no free
+cell for that folder produces `MAIN_WORKSPACE_FULL` before state changes.
+
+`features/bookmarks/browserBookmarkImport.js` owns detection, quota checks,
+persistence and rollback. `domain/bookmarks/browserBookmarkImport.js` owns URL
+validation, inert HTML parsing and import preparation;
+`browserBookmarkSelection.js` owns tree selection. HTML markup is never attached
+to the application DOM. A failed write rolls back the import delta while
+preserving independent concurrent edits; the dialog remains available to retry.
+
+### Browse and reorder a large folder
+
+`features/folders/folderModal.js` switches between the small editing grid and
+bounded compact pages. Search filters the current folder, while breadcrumbs
+and Back navigate nested folders. The contents shell and breadcrumbs use the
+shared custom scrollbar. Compact edit rows keep Edit, Delete and Move out actions
+aligned at the right and allow one selected row at a time.
+
+Move up/Move down or `Alt+ArrowUp`/`Alt+ArrowDown` calls
+`moveFolderEntry(folderId, itemId, -1 | 1)`. The action swaps adjacent mixed
+bookmark/folder positions in one undoable change and returns `{ moved, index? }`.
+The UI waits for persistence, clears search and shows the selected entry's new
+page. Moving a subfolder out preserves its subtree on the workspace desktop.
 
 ### Save Settings
 
 The modal edits an isolated `settingsDraft`. Confirmation constructs final
-settings and invokes the relevant actions. Cancellation discards pending edits
-and cleans up newly staged local files rather than leaving partial changes.
+settings and invokes the relevant actions. Workspace fields that the draft does
+not edit are read from current state, so importing while Settings is open is not
+undone by saving that draft. Cancellation discards pending edits and cleans up
+newly staged local files rather than leaving partial changes.
 
 ## 9. Persistence, Sync and concurrency
 
@@ -463,6 +529,13 @@ Local is the initial mode and uses `chrome.storage.local`. Sync is enabled only
 when `platform/browser/browserCapabilities.js` recognizes supported Google
 Chrome. `platform/sync/syncTransport.js` serializes versioned data into
 quota-safe `chrome.storage.sync` chunks.
+
+The manifest declares `storage`, `unlimitedStorage`, `activeTab` and `bookmarks`.
+`bookmarks` permits native tree detection/import; the source bookmarks are never
+edited. `unlimitedStorage` supports large Local collections, but does not change
+Chrome Sync's approximately 100 KB total quota. Browser imports preflight that
+quota and fail before committing oversized data. The favicon provider retains
+the restricted host permission `https://t3.gstatic.com/*`.
 
 The persistence-mode choice, local files, personal wallpaper collection, image
 selections and trash contents remain device-specific. Shared bookmark data,
@@ -547,7 +620,10 @@ keyboard navigation. If it does, design the missing generic capability first.
 | Bookmark validation | `domain/bookmarks/` |
 | Bookmark creation behavior | `features/bookmarks/bookmarkActions.js` |
 | Bookmark dynamic markup | `features/bookmarks/bookmarkCard.js` |
+| Chrome/HTML import preparation and selection | `domain/bookmarks/browserBookmarkImport.js` and `browserBookmarkSelection.js` |
+| Chrome detection, import persistence and dialog | `features/bookmarks/browserBookmarkImport.js` and `browserBookmarkImportUI.js` |
 | Folder rules and local placement | `domain/folders/` |
+| Folder paging, paths and subtree traversal | `domain/folders/folderContents.js` and `folderTree.js` |
 | Folder contents UI | `features/folders/` |
 | Collision and placement algorithms | `shared/grid/` |
 | Pointer gesture interpretation | `features/grid/gridPointerController.js` and its helpers |
@@ -600,10 +676,14 @@ application state; `app/applicationDiagnostics.js` composes the live report.
 
 Preserve these invariants:
 
-- Domain code does not access the DOM or Chrome APIs.
+- Domain rules do not access the application DOM or Chrome APIs; imported HTML
+  is parsed in an inert document and never attached to the interface.
 - External data crosses the schema boundary before use.
 - A bookmark and its folder belong to the same workspace.
-- Folders cannot nest; contained bookmarks do not occupy the main grid.
+- Folders may nest only within one workspace, without cycles. Contained
+  bookmarks and subfolders do not occupy the desktop grid.
+- Browser import appends to Main and preserves source hierarchy and mixed order.
+- Folder membership has no fixed count cap; compact rendering stays bounded.
 - Multi-item movement commits atomically.
 - Grid selection, pointer previews and focus are not persisted.
 - Local/Sync selection is device-specific.

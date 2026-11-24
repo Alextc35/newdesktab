@@ -162,7 +162,7 @@
       ],
       "backup": [
         "Localiza las opciones de copia en Ajustes → General.",
-        "Exportar descarga un ZIP con datos y archivos locales.",
+        "Exportar descarga JSON, o un ZIP si se incluyen vídeos locales.",
         "Importar pide confirmación antes de reemplazar los datos."
       ],
       "sync": [
@@ -261,11 +261,11 @@
       "tip": "¿Quieres mover un favorito a una celda ocupada? Revisa Recolocación y Sucesión en Ajustes → Favoritos y mira sus animaciones."
     },
     "folders": {
-      "question": "¿Cómo agrupo mis favoritos en carpetas?", "searchTerms": "crear carpeta; agrupar favoritos; organizar marcadores; sacar de carpeta; renombrar carpeta",
+      "question": "¿Cómo agrupo mis favoritos en carpetas?", "searchTerms": "crear carpeta; agrupar favoritos; organizar marcadores; sacar de carpeta; renombrar carpeta; subcarpetas; carpetas grandes; páginas; subir; bajar; ordenar filas",
       "title": "Organizar en carpetas", "summary": "Reúne favoritos y subcarpetas en un mismo lugar.",
-      "steps": ["Elige + → Carpeta en el menú izquierdo y dale un nombre.", "En modo edición, arrastra favoritos sobre ella para guardarlos dentro. Abre la carpeta para ver su cuadrícula.", "Usa la edición de la carpeta para ordenar sus favoritos. Pulsa su nombre para renombrarla y su icono para personalizar el aspecto."],
-      "note": "Eliminar una carpeta afecta también a sus favoritos. Revisa la confirmación antes de continuar; la papelera permite recuperar los elementos eliminados.",
-      "tip": "Las carpetas admiten colecciones grandes con búsqueda y páginas. Activa la edición y arrastra una tarjeta sobre una carpeta para añadirla."
+      "steps": ["Elige + → Carpeta y dale un nombre. En edición, arrastra favoritos sobre ella. Las colecciones pequeñas usan una cuadrícula de 3 × 6; las grandes o con subcarpetas usan listas con búsqueda y páginas de 54 elementos.", "Abre subcarpetas y usa Volver o la ruta para regresar. En la edición de la lista, selecciona una fila y usa Subir o Bajar; Alt + ↑ / ↓ también mueve la fila enfocada.", "Los controles de editar, borrar y sacar de la carpeta aparecen a la derecha de cada fila. Pulsa el nombre de la carpeta para renombrarla o su control de apariencia para cambiar el estilo."],
+      "note": "Las carpetas no tienen un límite fijo de elementos. El orden de favoritos y subcarpetas se guarda junto. Mover, duplicar, eliminar o restaurar una carpeta incluye todo su árbol; revisa las confirmaciones de borrado.",
+      "tip": "Las carpetas grandes tienen búsqueda y páginas de 54 elementos. En la edición de la lista, selecciona una fila y usa Subir o Bajar, o pulsa Alt + ↑ / ↓ sobre la fila enfocada."
     },
     "workspaces": {
       "question": "¿Cómo separo mi espacio personal del trabajo?", "searchTerms": "personal trabajo; crear espacio; cambiar espacio; escritorios; workspace",
@@ -331,16 +331,16 @@
       "tip": "¿Borraste un favorito por error? Abre la papelera y restáuralo. En Ajustes → General puedes cambiar el tiempo de conservación."
     },
     "backup": {
-      "question": "¿Cómo hago una copia o me llevo mis datos?", "searchTerms": "copia seguridad; exportar datos; importar copia; restaurar backup; otro navegador; transferir datos",
+      "question": "¿Cómo hago una copia o me llevo mis datos?", "searchTerms": "copia seguridad; exportar datos; importar copia; restaurar backup; otro navegador; transferir datos; importar favoritos Chrome; marcadores HTML; carpeta vacía; seleccionar elementos importados",
       "title": "Copias e importación", "summary": "Conserva tu espacio y llévalo contigo.",
-      "steps": ["En Ajustes → General exporta una copia completa para conservar los datos y los archivos locales incluidos en el respaldo ZIP.", "Para restaurar, importa una copia y revisa la confirmación antes de reemplazar los datos. También se admiten las copias JSON compatibles.", "En Ajustes → Favoritos puedes exportar o importar solo favoritos y carpetas cuando no necesites una copia completa."],
-      "note": "Una exportación de favoritos no sustituye a una copia completa de ajustes y multimedia local. Las copias completas JSON y ZIP también conservan si los consejos diarios están activados; las antiguas mantienen la opción actual. Guarda una copia antes de restaurar o borrar datos.",
-      "tip": "La copia completa de Ajustes → General incluye los archivos locales en un ZIP. Es útil antes de cambiar de navegador o restaurar datos."
+      "steps": ["En Ajustes → General, exporta una copia completa antes de reemplazar datos o cambiar de navegador. Las copias sin vídeos locales usan JSON; con vídeos locales usan ZIP. Revisa la confirmación de reemplazo antes de restaurar una.", "Para añadir favoritos de Chrome, usa Ajustes → Favoritos → Importar desde Google Chrome o Importar archivo HTML. La primera guía de bienvenida también ofrece la importación nativa si detecta favoritos compatibles.", "Despliega Ver y seleccionar elementos para elegir enlaces o carpetas, buscar, o marcar/desmarcar todo. Las carpetas vacías empiezan desmarcadas con la etiqueta Vacía; los enlaces muestran su favicon. Confirma Importar favoritos: el diálogo se cierra al guardar y un aviso breve indica el resultado."],
+      "note": "Las importaciones Chrome/HTML se añaden a Main y conservan los elementos actuales y el orden de origen. La barra de marcadores va directamente al escritorio; los demás grupos del navegador mantienen sus carpetas, salvo un único grupo sin subcarpetas. Ajustes → Favoritos también importa y exporta JSON de New DeskTab. La exportación de favoritos no incluye todos los ajustes ni los archivos locales; conserva una copia completa. Las copias completas JSON y ZIP guardan la preferencia de los consejos diarios; las antiguas sin ella mantienen la opción actual.",
+      "tip": "Importa favoritos de Chrome o un archivo HTML desde Ajustes → Favoritos y elige antes los elementos. Usa una copia completa de Ajustes → General antes de desinstalar o reemplazar tu espacio."
     },
     "sync": {
       "question": "¿Cómo uso el mismo espacio en otro ordenador?", "searchTerms": "otro ordenador; sincronizar dispositivos; sincronización; nube; local sync; otro equipo; dejar de sincronizar; desactivar sync; modo local",
       "title": "Sincronizar entre dispositivos", "summary": "Comparte tu espacio usando la sincronización del navegador.",
-      "steps": ["Inicia sesión y habilita la sincronización de extensiones en tu perfil de Google Chrome.", "En Ajustes → Sincronización elige Sincronizado y acepta la confirmación. El cambio se aplica inmediatamente: si ya hay datos sincronizados, se cargan sus favoritos y ajustes; si no, se sincronizan tus datos locales guardados.", "Usa el mismo perfil en el otro dispositivo. Consulta el estado y el espacio disponible en el panel de sincronización."],
+      "steps": ["Inicia sesión y habilita la sincronización de extensiones en tu perfil de Google Chrome.", "En Ajustes → Sincronización elige Sincronizado y acepta la confirmación. El cambio se aplica inmediatamente: si ya hay datos sincronizados, se cargan sus favoritos y ajustes; si no, se sincronizan tus datos locales guardados.", "Usa el mismo perfil de Google Chrome y el mismo ID de extensión en el otro dispositivo. Consulta el estado y el espacio disponible en el panel. Conserva una copia completa aparte antes de desinstalar."],
       "note": "Los archivos locales, la papelera y los consejos diarios pertenecen a cada dispositivo. La sincronización tiene límites de espacio; usa URLs alternativas para las imágenes y vídeos locales. Al elegir Local también se pide confirmación y el cambio se aplica al instante, conservando los datos sincronizados guardados.",
       "tip": "La sincronización comparte tu espacio entre dispositivos, pero los archivos locales necesitan una URL alternativa. Consulta Ajustes → Sincronización."
     },
@@ -352,10 +352,10 @@
       "tip": "En una ventana estrecha tus favoritos siguen disponibles como lista. Amplíala cuando quieras editar o reorganizar la cuadrícula."
     },
     "data": {
-      "question": "¿Cómo borro mis datos o restablezco los ajustes?", "searchTerms": "borrar datos; restablecer ajustes; eliminar todo; empezar cero; reset",
+      "question": "¿Cómo borro mis datos o restablezco los ajustes?", "searchTerms": "borrar datos; restablecer ajustes; eliminar todo; empezar cero; reset; desinstalar extensión; reinstalar; actualizar extensión; favoritos perdidos",
       "title": "Guardar y restablecer", "summary": "Conoce qué se guarda y qué elimina cada acción.",
       "steps": ["Las acciones del espacio se guardan automáticamente. En los editores y Ajustes, confirma con Guardar; Cancelar descarta el borrador de ese panel.", "Si aparece un aviso de guardado pendiente, pulsa Reintentar y espera la confirmación antes de cerrar la pestaña.", "En Ajustes → General puedes restablecer los ajustes o eliminar todos los datos. Lee la confirmación y exporta antes una copia de lo que quieras conservar."],
-      "note": "Restablecer ajustes conserva tus favoritos, sus tamaños y sus estilos. Borrar todos los datos locales elimina los elementos y vacía la papelera. Exporta una copia antes de borrar: Deshacer no sustituye una copia de seguridad.",
+      "note": "Restablecer ajustes conserva favoritos, tamaños y estilos. Borrar los datos locales o desinstalar elimina el espacio local, los ajustes, los archivos y la papelera de este perfil. Una instalación nueva empieza en Local y no restaura automáticamente el espacio anterior. Exporta antes una copia completa. Para actualizar sin empaquetar, reemplaza los archivos y usa Recargar en chrome://extensions con la misma clave y el mismo ID de extensión.",
       "tip": "Si ves un aviso de cambios sin guardar, usa Reintentar antes de cerrar la pestaña. Puedes proteger tu espacio con una copia completa."
     },
     "learning": {

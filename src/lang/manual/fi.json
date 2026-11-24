@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Etsi varmuuskopiointivaihtoehdot kohdasta Asetukset → Yleiset.",
-        "Vie lataukset ZIP-tiedostolla datalla ja paikallisilla tiedostoilla.",
+        "Vie lataukset JSON tai ZIP, kun mukana on paikallisia videoita.",
         "Tuonti pyytää vahvistusta ennen tietojen vaihtamista."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Kuinka ryhmittelen kirjanmerkit kansioihin?",
-      "searchTerms": "luo kansio; ryhmän kirjanmerkit; järjestää suosikkeja; poista kansiosta; nimeä kansio uudelleen",
+      "searchTerms": "luo kansio; ryhmän kirjanmerkit; järjestää suosikkeja; poista kansiosta; nimeä kansio uudelleen; alikansiot; suuret kansiot; sivut; liikkua ylöspäin; siirtyä alas; järjestää rivit uudelleen",
       "title": "Järjestä kansioiden avulla",
       "summary": "Kerää kirjanmerkit ja alikansiot yhteen paikkaan.",
       "steps": [
-        "Valitse vasemmasta valikosta + → Kansio ja anna sille nimi.",
-        "Muokkaustilassa vedä siihen kirjanmerkkejä, jotta ne siirretään sisään. Avaa kansio nähdäksesi sen ruudukon.",
-        "Käytä kansion muokkaustilaa sen kirjanmerkkien järjestämiseen. Napsauta sen nimeä nimetäksesi sen uudelleen ja sen kuvaketta muokataksesi sen ulkoasua."
+        "Valitse + → Kansio ja anna sille nimi. Vedä kirjanmerkkejä muokkaustilassa siihen. Pienet kokoelmat käyttävät ruudukkoa 3 × 6; suuret tai sisäkkäiset kokoelmat käyttävät haettavia luetteloita, joissa on 54 kohteen sivuja.",
+        "Avaa alikansiot ja palaa käyttämällä Takaisin tai navigointipolkua. Valitse luettelon muokkaustilassa rivi ja käytä Siirrä ylös tai Siirry alas; Alt + ↑ / ↓ siirtää myös kohdistettua riviä.",
+        "Muokkaus-, poisto- ja poisto-ohjaimet näkyvät kunkin luettelorivin oikealla puolella. Napsauta kansion nimeä nimetäksesi sen uudelleen tai sen ulkoasua muuttaaksesi sen tyyliä."
       ],
-      "note": "Kansion poistaminen vaikuttaa myös sen kirjanmerkkeihin. Tarkista vahvistus ennen kuin jatkat; roskakori voi palauttaa poistetut kohteet.",
-      "tip": "Kansiot tukevat suuria kokoelmia haun ja sivujen avulla. Ota muokkaus käyttöön ja lisää se vetämällä kortti kansioon."
+      "note": "Kansioilla ei ole kiinteää kohdemäärärajaa. Kirjanmerkki- ja alikansiojärjestys tallennetaan yhdessä. Kansion siirtäminen, monistaminen, poistaminen tai palauttaminen sisältää sen täydellisen alipuun; tarkista poistovahvistukset.",
+      "tip": "Suurissa kansioissa on haku ja 54 kohteen sivut. Valitse luettelon muokkaustilassa rivi ja käytä Siirrä ylös tai Siirry alas tai paina Alt + ↑ / ↓ kohdistetulla rivillä."
     },
     "workspaces": {
       "question": "Kuinka pidän henkilökohtaiset ja työsivut erillään?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Miten varmuuskopioin tai siirrän tietoni?",
-      "searchTerms": "varmuuskopio; viedä tiedot; tuonti kopio; palauttaa varmuuskopion; toinen selain; siirtää tietoja",
+      "searchTerms": "varmuuskopio; viedä tiedot; tuonti kopio; palauttaa varmuuskopion; toinen selain; siirtää tietoja; tuoda Chrome kirjanmerkkejä; HTML kirjanmerkit; tyhjä kansio; valitse tuodut tuotteet",
       "title": "Varmuuskopiot ja tuonti",
       "summary": "Pidä kopio tilastasi ja ota se mukaasi.",
       "steps": [
-        "Vie täydellinen varmuuskopio kohdassa Asetukset → Yleiset ZIP-arkiston sisältämien tietojen ja paikallisten tiedostojen säilyttämiseksi.",
-        "Palauttaaksesi tuo varmuuskopion ja tarkista vahvistus ennen tietojen vaihtamista. Myös yhteensopivia JSON-varmuuskopioita tuetaan.",
-        "Kohdassa Asetukset → Kirjanmerkit voit viedä tai tuoda vain kirjanmerkkejä ja kansioita, kun et tarvitse täyttä varmuuskopiota."
+        "Vie täydellinen varmuuskopio kohdassa Asetukset → Kenraali ennen tietojen vaihtamista tai selaimen vaihtamista. Backups ilman paikallisia videoita käyttävät JSON; ne, joilla on paikallisia videoita, käyttävät ZIP. Tarkista vaihtovahvistus ennen sen palauttamista.",
+        "Lisää Chrome kirjanmerkkejä käyttämällä Asetukset → Kirjanmerkit → Tuo paikasta Google Chrome tai Tuo HTML-tiedosto. Ensimmäinen tervetuloopas tarjoaa myös alkuperäisen tuonnin, kun tuetut kirjanmerkit havaitaan.",
+        "Laajenna Tarkastele ja valitse kohteita valitaksesi linkit tai kansiot, hae tai valitse kaikki tai poista valinnat. Tyhjä kansiot alkavat valitsematta Tyhjä -merkillä; linkit näyttävät suosikkeja. Vahvista Tuo kirjanmerkit: valintaikkuna sulkeutuu tallennuksen jälkeen ja flash raportoi tuloksen."
       ],
-      "note": "Kirjanmerkkien vienti ei ole asetusten ja paikallisen median täydellinen varmuuskopio. Tallenna varmuuskopio ennen tietojen palauttamista tai poistamista.",
-      "tip": "Täysi varmuuskopio kohdasta Asetukset → Yleiset sisältävät paikalliset tiedostot ZIP-muodossa. Se on hyödyllinen ennen selaimen vaihtamista tai tietojen palauttamista."
+      "note": "Chrome/HTML tuonnit lisäävät Main, säilyttäen olemassa olevat tuotteet ja lähdejärjestyksen. Kirjanmerkit-palkin sisältö menee suoraan työpöydälle; muut täytetyt selaimen ämpärit säilyttävät kansiot, paitsi yksi litteä ämpäri. Asetukset → Kirjanmerkit myös tuo ja vie New DeskTab JSON. Kirjanmerkkien vienti ei sisällä kaikkia asetuksia ja paikallista mediaa; pidä täydellinen varmuuskopio. Täydelliset JSON ja ZIP varmuuskopiot säilyttävät päivittäisen vinkin mieltymyksen; Vanhemmat varmuuskopiot ilman sitä säilyttävät nykyisen valinnan.",
+      "tip": "Tuo Chrome kirjanmerkkejä tai HTML-tiedosto osoitteesta Asetukset → Kirjanmerkit ja valitse kohteet ensin. Käytä täyttä varmuuskopiota osoitteesta Asetukset → Kenraali, ennen kuin poistat työtilan tai vaihdat sen."
     },
     "sync": {
       "question": "Kuinka käytän samaa tilaa toisessa tietokoneessa?",
@@ -470,7 +470,7 @@
       "steps": [
         "Kirjaudu sisään ja ota laajennussynkronointi käyttöön profiilissasi Google Chrome.",
         "Valitse Asetukset → Synkronointi kohdassa Synkronoitu ja hyväksy vahvistus. Vaihto astuu voimaan välittömästi: olemassa olevat synkronoidut kirjanmerkit ja asetukset ladataan tai tallennetut paikalliset tiedot synkronoidaan, jos niitä ei ole.",
-        "Käytä samaa profiilia toisessa laitteessa. Tarkista synkronoinnin tila ja käytettävissä oleva tila paneelissa."
+        "Käytä samaa profiilia Google Chrome ja laajennusta ID toisessa laitteessa. Tarkista synkronoinnin tila ja käytettävissä oleva tila paneelissa. Pidä erillinen täydellinen varmuuskopio ennen asennuksen poistamista."
       ],
       "note": "Paikalliset tiedostot, roskakori ja päivittäiset vinkit kuuluvat jokaiselle laitteelle. Synkronoinnissa on tallennusrajoituksia; Käytä vaihtoehtoisia URL-osoitteita paikallisille kuville ja videoille. Paikallinen-vaihtoehdon valitseminen pyytää myös vahvistusta ja astuu voimaan välittömästi pitäen synkronoidut tiedot tallennettuina.",
       "tip": "Synkronointi jakaa tilasi laitteiden kesken, mutta paikalliset tiedostot tarvitsevat vaihtoehtoisen URL-osoitteen. Katso Asetukset → Synkronointi."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Kuinka poistan tietoni tai nollaan asetukset?",
-      "searchTerms": "poistaa tiedot; nollaa asetukset; poista kaikki; aloita alusta",
+      "searchTerms": "poistaa tiedot; nollaa asetukset; poista kaikki; aloittaa alusta; poista laajennus; asenna uudelleen; päivityslaajennus; kadonneet kirjanmerkit",
       "title": "Tallentaminen ja nollaus",
       "summary": "Ymmärrä, mitä tallennetaan ja mitä kukin toiminto poistaa.",
       "steps": [
@@ -498,7 +498,7 @@
         "Jos näkyviin tulee odottavaa tallennusta koskeva ilmoitus, napsauta Yritä tallennusta uudelleen ja odota vahvistusta ennen välilehden sulkemista.",
         "Kohdassa Asetukset → Yleiset voit nollata asetukset tai poistaa kaikki tiedot. Lue vahvistus ja vie varmuuskopio kaikesta, jonka haluat säilyttää."
       ],
-      "note": "Asetusten nollaaminen säilyttää kirjanmerkkisi, niiden koot ja tyylit. Kaikkien paikallisten tietojen poistaminen poistaa kohteet ja tyhjentää roskakorin. Vie varmuuskopio ennen poistamista: Kumoa ei korvaa varmuuskopiota.",
+      "note": "Asetusten nollaaminen säilyttää kirjanmerkit, koot ja tyylit. Paikallisten tietojen poistaminen tai asennuksen poistaminen poistaa tämän profiilin paikallisen työtilan, asetukset, median ja roskakorin. Uusi asennus alkaa Paikallinen-tilassa palauttamatta automaattisesti vanhaa tilaa. Vie ensin täydellinen varmuuskopio. Pakkaamattomia päivityksiä varten korvaa tiedostot ja käytä Uudelleenlatausta osoitteessa chrome://extensions samalla avaimella ja tunnisteella ID.",
       "tip": "Jos näet ilmoituksen tallentamattomista muutoksista, käytä Yritä tallennusta uudelleen ennen välilehden sulkemista. Suojaa tilaasi täydellä varmuuskopiolla."
     },
     "learning": {

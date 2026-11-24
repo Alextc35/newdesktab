@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Find sikkerhedskopieringsmulighederne i Indstillinger → Generelt.",
-        "Eksport downloader en ZIP-fil med data og lokale filer.",
+        "Eksporter downloads JSON eller en ZIP, når lokale videoer er inkluderet.",
         "Import beder om bekræftelse før udskiftning af data."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Hvordan grupperer jeg bogmærker i mapper?",
-      "searchTerms": "oprette mappe; gruppebogmærker; organisere favoritter; fjern fra mappe; omdøbe mappe",
+      "searchTerms": "oprette mappe; gruppebogmærker; organisere favoritter; fjern fra mappe; omdøb mappe; undermapper; store mapper; sider; rykke op; bevæge sig ned; omarranger rækker",
       "title": "Organiser med mapper",
       "summary": "Saml bogmærker og undermapper på ét sted.",
       "steps": [
-        "Vælg + → Mappe i menuen til venstre, og giv den et navn.",
-        "I redigeringstilstand skal du trække bogmærker til den for at sætte dem ind. Åbn mappen for at se dens gitter.",
-        "Brug mappens redigeringstilstand til at arrangere dens bogmærker. Klik på dens navn for at omdøbe den og dens ikon for at tilpasse dens udseende."
+        "Vælg + → Mappe og giv den et navn. I redigeringstilstand skal du trække bogmærker til den. Små samlinger bruger et 3 × 6 gitter; store eller indlejrede samlinger bruger søgbare lister med sider med 54 elementer.",
+        "Åbn undermapper og brug Tilbage eller brødkrumme for at vende tilbage. I listeredigeringstilstand skal du vælge en række og bruge Flyt op eller Flyt ned; Alt + ↑ / ↓ flytter også den fokuserede række.",
+        "Kontrolelementer til redigering, sletning og flytning vises til højre for hver listerække. Klik på mappenavnet for at omdøbe den eller dens udseendekontrol for at ændre dens stil."
       ],
-      "note": "Sletning af en mappe påvirker også dens bogmærker. Gennemgå bekræftelsen, før du fortsætter; papirkurven kan gendanne slettede genstande.",
-      "tip": "Mapper understøtter store samlinger med søgning og sider. Slå redigering til, og træk et kort til en mappe for at tilføje det."
+      "note": "Mapper har ingen fast vareantal grænse. Bogmærke- og undermapperækkefølgen gemmes sammen. Flytning, duplikering, sletning eller gendannelse af en mappe inkluderer dens komplette undertræ; gennemgå slettebekræftelser.",
+      "tip": "Store mapper har søgning og sider med 54 elementer. I listeredigeringstilstand skal du vælge en række og bruge Flyt op eller Flyt ned, eller trykke på Alt + ↑ / ↓ på den fokuserede række."
     },
     "workspaces": {
       "question": "Hvordan holder jeg personlige sider og arbejdssider adskilt?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Hvordan sikkerhedskopierer eller overfører jeg mine data?",
-      "searchTerms": "sikkerhedskopi; eksportere data; import kopi; gendan backup; en anden browser; overføre data",
+      "searchTerms": "sikkerhedskopi; eksportere data; import kopi; gendan backup; en anden browser; overføre data; importer Chrome bogmærker; HTML bogmærker; tom mappe; vælg importerede varer",
       "title": "Sikkerhedskopier og importer",
       "summary": "Behold en kopi af din plads og tag den med dig.",
       "steps": [
-        "I Indstillinger → Generelt eksporterer du en komplet sikkerhedskopi for at bevare data og de lokale filer, der er inkluderet i ZIP-arkivet.",
-        "For at gendanne skal du importere en sikkerhedskopi og gennemgå bekræftelsen, før du udskifter data. Kompatible JSON-sikkerhedskopier understøttes også.",
-        "I Indstillinger → Bogmærker kan du kun eksportere eller importere bogmærker og mapper, når du ikke har brug for en fuld sikkerhedskopi."
+        "I Indstillinger → Generelt skal du eksportere en komplet sikkerhedskopi, før du udskifter data eller skifter browser. Backups uden lokale videoer bruger JSON; dem med lokale videoer bruger ZIP. Gennemgå udskiftningsbekræftelsen, før du gendanner en.",
+        "For at tilføje Chrome bogmærker skal du bruge Indstillinger → Bogmærker → Importer fra Google Chrome eller Importer HTML-fil. Den første velkomstguide tilbyder også den oprindelige import, når understøttede bogmærker opdages.",
+        "Udvid Se og vælg elementer for at vælge links eller mapper, søge eller vælge/fravælge alle. Tom mapper starter umarkeret med et Tom badge; links viser favoritter. Bekræft Importer bogmærker: dialogen lukkes efter lagring, og en flash rapporterer resultatet."
       ],
-      "note": "En bogmærkeeksport er ikke en komplet sikkerhedskopi af indstillinger og lokale medier. Gem en sikkerhedskopi, før du gendanner eller sletter data.",
-      "tip": "En fuld sikkerhedskopi fra Indstillinger → Generelt inkluderer lokale filer i en ZIP. Det er nyttigt, før du skifter browser eller gendanner data."
+      "note": "Chrome/HTML importer føjes til Hoved, bevarer eksisterende elementer og kilderækkefølge. Bogmærker-bjælkens indhold går direkte på skrivebordet; andre udfyldte browser-buckets beholder deres mapper, undtagen en eneste flad bucket. Indstillinger → Bogmærker importerer og eksporterer også New DeskTab JSON. En bogmærkeeksport inkluderer ikke alle indstillinger og lokale medier; holde en fuld backup. Fuld JSON og ZIP sikkerhedskopier bevarer den daglige tippræference; ældre sikkerhedskopier uden det beholder det nuværende valg.",
+      "tip": "Importer Chrome bogmærker eller en HTML fil fra Indstillinger → Bogmærker og vælg først emnerne. Brug en fuld sikkerhedskopi fra Indstillinger → Generelt før du afinstallerer eller udskifter dit arbejdsområde."
     },
     "sync": {
       "question": "Hvordan bruger jeg den samme plads på en anden computer?",
@@ -470,7 +470,7 @@
       "steps": [
         "Log ind og aktiver udvidelsessynkronisering i din Google Chrome profil.",
         "I Indstillinger → Synkronisering skal du vælge Synkroniseret og acceptere bekræftelsen. Skiftet træder i kraft med det samme: eksisterende synkroniserede bogmærker og indstillinger indlæses, eller dine gemte lokale data synkroniseres, hvis ingen eksisterer.",
-        "Brug den samme profil på den anden enhed. Tjek synkroniseringsstatus og ledig plads i panelet."
+        "Brug den samme Google Chrome profil og udvidelse ID på den anden enhed. Tjek synkroniseringsstatus og ledig plads i panelet. Opbevar en separat fuld sikkerhedskopi, før du afinstallerer."
       ],
       "note": "Lokale filer, papirkurven og daglige tips hører til hver enhed. Synkronisering har lagergrænser; bruge alternative URL'er til lokale billeder og videoer. Hvis du vælger Lokal, bliver det også bedt om bekræftelse og træder i kraft med det samme, og de synkroniserede data opbevares.",
       "tip": "Synkronisering deler din plads på tværs af enheder, men lokale filer har brug for en alternativ URL. Se Indstillinger → Synkronisering."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Hvordan sletter jeg mine data eller nulstiller indstillinger?",
-      "searchTerms": "slette data; nulstil indstillinger; fjern alt; starte forfra",
+      "searchTerms": "slette data; nulstil indstillinger; fjern alt; begynde forfra; afinstaller udvidelse; geninstaller; opdateringsudvidelse; mistede bogmærker",
       "title": "Gemmer og nulstiller",
       "summary": "Forstå, hvad der er gemt, og hvad hver handling fjerner.",
       "steps": [
@@ -498,7 +498,7 @@
         "Hvis der vises en meddelelse om ventende lagring, skal du klikke på Prøv at gemme igen og vente på bekræftelse, før du lukker fanen.",
         "I Indstillinger → Generelt kan du nulstille indstillinger eller slette alle data. Læs bekræftelsen og eksporter en sikkerhedskopi af alt, hvad du vil beholde."
       ],
-      "note": "Nulstilling af indstillinger bevarer dine bogmærker, deres størrelser og deres stilarter. Sletning af alle lokale data fjerner emnerne og tømmer papirkurven. Eksporter en sikkerhedskopi før sletning: Fortryd erstatter ikke en sikkerhedskopi.",
+      "note": "Nulstilling af indstillinger bevarer bogmærker, størrelser og stilarter. Sletning af lokale data eller afinstallation fjerner denne profils lokale arbejdsområde, indstillinger, medier og papirkurv. En ny installation starter i tilstanden Lokale uden automatisk at gendanne den gamle plads. Eksporter først en komplet sikkerhedskopi. For udpakkede opdateringer skal du erstatte filer og bruge Genindlæs på chrome://extensions med den samme nøgle og udvidelse ID.",
       "tip": "Hvis du ser en meddelelse om ikke-gemte ændringer, skal du bruge Prøv at gemme igen, før du lukker fanen. Beskyt din plads med en fuld backup."
     },
     "learning": {

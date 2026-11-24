@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.1.0 — 2026-11-23
+
+- Offer native Chrome bookmark import after the first welcome guide, and provide Chrome and exported-HTML imports in Settings.
+- Preview detected bookmarks and folders with search, favicons and individual selection; show empty folders and leave them unchecked by default.
+- Import into Main in source order, placing toolbar contents directly on the desktop and preserving useful folders from other bookmark locations.
+- Place new desktop items in row order around existing items, preserve existing positions and styles on repeated imports, and use an overflow folder when needed.
+- Confirm imports before saving, close the dialog after success and report the result with a flash notification.
+- Remove the 18-bookmark folder limit and support nested folders, current-folder search, breadcrumbs and pages of 54 entries for large collections.
+- Improve folder editing with aligned action buttons, row selection, Move up/Move down controls and Alt + Up/Down shortcuts.
+- Preserve complete folder trees when moving, duplicating, deleting or restoring them from the recycle bin.
+- Advance the public data schema to 2 and migrate public schema 1 automatically.
+- Add the `bookmarks` and `unlimitedStorage` permissions for native import and large local collections; Chrome Sync quotas remain unchanged.
+- Align backup and folder-capacity browser tests with schema 2 and the larger folder capacity.
+
 ## 1.0.1 — 2026-11-23
 
 - Preserve the daily-tip preference when exporting and restoring JSON or ZIP backups.

@@ -13,7 +13,7 @@
     "success": "Se han importado {{count}} favoritos y {{folders}} carpetas.",
     "empty": "No se han encontrado favoritos para importar.",
     "error": "No se han podido importar tus favoritos. Reinténtalo o elige otro archivo.",
-    "quotaError": "Estos favoritos superan el espacio de Chrome Sync. Cambia al modo Local en los ajustes generales y vuelve a intentarlo.",
+    "quotaError": "Estos favoritos superan el espacio de Chrome Sync. Cambia a modo Local en Ajustes → Sincronización y vuelve a intentarlo.",
     "unavailable": "La importación directa desde Chrome no está disponible. Puedes importar un archivo HTML de favoritos.",
     "chromeButton": "Importar desde Google Chrome",
     "htmlButton": "Importar archivo HTML",
@@ -359,7 +359,6 @@
       "updated": "Carpeta actualizada",
       "deleted": "Carpeta y favoritos eliminados",
       "bookmarkAdded": "Favorito añadido a la carpeta",
-      "folderFull": "Esta carpeta ya contiene 18 favoritos",
       "bookmarkRemoved": "Favorito devuelto a la cuadrícula"
     },
     "recycleBin": {

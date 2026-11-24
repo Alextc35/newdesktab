@@ -1,6 +1,11 @@
 # Product research and editorial boundaries
 
-Research source: this checkout of New DeskTab, reviewed on 22 November 2026. The extension version is **1.0.0** (`../manifest.json`). The promotional project is independent from production code.
+Research source: the New DeskTab **1.0.0** checkout reviewed on 22 November 2026.
+This document records the basis of the existing promotional footage, independently
+of production code. The current extension is **1.1.0**; see the
+[changelog](../CHANGELOG.md) and [user guide](../docs/guide/USER_GUIDE.md) for its
+Chrome/HTML import and nested-folder behavior. The versioned footage has not
+been recaptured as part of that update.
 
 ## Product and architecture
 
@@ -10,7 +15,7 @@ New DeskTab replaces the browser's new-tab page with a visual bookmark workspace
 
 ## Implemented capabilities
 
-| Capability | Evidence in this checkout |
+| Capability shown in the 1.0.0 footage | Source references |
 | --- | --- |
 | Visual bookmark cards, pointer movement and resizing on a collision-aware grid | `../README.md`, `../docs/guide/USER_GUIDE.md` (Arrange your grid), `../src/shared/grid/`, `../src/features/bookmarks/` |
 | Card colors, category icons, image covers and reusable appearance presets | `../docs/guide/USER_GUIDE.md` (Style bookmarks), `../src/domain/bookmarks/bookmarkDefaults.js`, `../src/shared/icons/iconCatalog.js` |
@@ -30,7 +35,8 @@ The strongest marketing sequence is: see favorite websites together → arrange 
 
 - The real installation starts with an empty bookmark grid. Promotional captures use authored example bookmarks to demonstrate what a user can build; they are not bundled productivity applications.
 - “Inbox”, “Calendar”, “Notes”, “Tasks” and similar card labels describe links supplied by a user. The only bundled widget is a clock, documented as still in development. No native task manager, calendar or notes editor is claimed.
-- Folders are one level deep; no nested-folder claim is made.
+- The 1.0.0 footage demonstrates one level of folders. Version 1.1.0 supports
+  nested folders, but the existing film does not demonstrate them.
 - Search covers saved New DeskTab bookmarks, not general browser history.
 - Optional Sync is provided through a Google Chrome profile. Brave uses Local mode. Uploaded images/videos remain on the device.
 - No account is required. The product has no developer-operated backend or analytics. Remote favicon and wallpaper requests are documented in `../PRIVACY.md`; no claim of zero network requests is made.

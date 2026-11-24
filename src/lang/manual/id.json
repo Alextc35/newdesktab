@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Temukan opsi pencadangan di Pengaturan → Umum.",
-        "Ekspor unduhan ZIP dengan data dan file lokal.",
+        "Ekspor unduhan JSON, atau ZIP jika video lokal disertakan.",
         "Impor meminta konfirmasi sebelum mengganti data."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Bagaimana cara mengelompokkan bookmark ke dalam folder?",
-      "searchTerms": "membuat folder; penanda grup; mengatur favorit; hapus dari folder; ganti nama folder",
+      "searchTerms": "membuat folder; penanda grup; mengatur favorit; hapus dari folder; ganti nama folder; subfolder; folder besar; halaman; naik; bergerak ke bawah; menyusun ulang baris",
       "title": "Atur dengan folder",
       "summary": "Kumpulkan bookmark dan subfolder di satu tempat.",
       "steps": [
-        "Pilih + → Folder di menu sebelah kiri dan beri nama.",
-        "Dalam mode edit, seret penanda ke dalamnya untuk memasukkannya ke dalam. Buka folder untuk melihat kisi-kisinya.",
-        "Gunakan mode edit folder untuk mengatur penandanya. Klik namanya untuk mengganti namanya dan ikonnya untuk menyesuaikan tampilannya."
+        "Pilih + → Folder dan beri nama. Dalam mode edit, seret bookmark ke sana. Koleksi kecil menggunakan kisi 3 × 6; koleksi besar atau bertumpuk menggunakan daftar yang dapat dicari dengan halaman 54 item.",
+        "Buka subfolder dan gunakan Kembali atau remah roti untuk kembali. Dalam mode edit daftar, pilih satu baris dan gunakan Naik atau Pindah ke bawah; Alt + ↑ / ↓ juga memindahkan baris fokus.",
+        "Kontrol edit, hapus, dan pindahkan muncul di sebelah kanan setiap baris daftar. Klik nama folder untuk mengganti namanya atau kontrol tampilannya untuk mengubah gayanya."
       ],
-      "note": "Menghapus folder juga mempengaruhi bookmarknya. Tinjau konfirmasi sebelum melanjutkan; recycle bin dapat mengembalikan item yang terhapus.",
-      "tip": "Folder mendukung koleksi besar dengan pencarian dan halaman. Aktifkan pengeditan dan seret kartu ke folder untuk menambahkannya."
+      "note": "Folder tidak memiliki batas jumlah item yang tetap. Urutan bookmark dan subfolder disimpan bersama. Memindahkan, menggandakan, menghapus, atau memulihkan folder mencakup subpohon lengkapnya; meninjau konfirmasi penghapusan.",
+      "tip": "Folder besar memiliki pencarian dan halaman 54 item. Dalam mode edit daftar, pilih satu baris dan gunakan Naik atau Pindah ke bawah, atau tekan Alt + ↑ / ↓ pada baris fokus."
     },
     "workspaces": {
       "question": "Bagaimana cara memisahkan halaman pribadi dan halaman kerja?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Bagaimana cara mencadangkan atau mentransfer data saya?",
-      "searchTerms": "salinan cadangan; ekspor data; salinan impor; memulihkan cadangan; peramban lain; mentransfer data",
+      "searchTerms": "salinan cadangan; ekspor data; salinan impor; memulihkan cadangan; peramban lain; mentransfer data; impor Chrome bookmark; HTML penanda; folder kosong; pilih item yang diimpor",
       "title": "Cadangan dan impor",
       "summary": "Simpan salinan ruangan Anda dan bawalah bersama Anda.",
       "steps": [
-        "Di Pengaturan → Umum, ekspor cadangan lengkap untuk menyimpan data dan file lokal yang disertakan dalam arsip ZIP.",
-        "Untuk memulihkan, impor cadangan dan tinjau konfirmasi sebelum mengganti data. Cadangan JSON yang kompatibel juga didukung.",
-        "Di Pengaturan → Bookmark, Anda dapat mengekspor atau mengimpor bookmark dan folder saja saat Anda tidak memerlukan cadangan penuh."
+        "Di Pengaturan → Umum, ekspor cadangan lengkap sebelum mengganti data atau mengganti browser. Backup tanpa video lokal menggunakan JSON; mereka yang memiliki video lokal menggunakan ZIP. Tinjau konfirmasi penggantian sebelum memulihkannya.",
+        "Untuk menambahkan Chrome bookmark, gunakan Pengaturan → Bookmark → Impor dari Google Chrome atau Impor berkas HTML. Panduan selamat datang pertama juga menawarkan impor asli ketika bookmark yang didukung terdeteksi.",
+        "Perluas Lihat dan pilih item untuk memilih tautan atau folder, mencari, atau memilih/membatalkan pilihan semua. Folder Kosong mulai tidak dicentang dengan lencana Kosong; tautan menunjukkan favicon. Konfirmasikan Impor bookmark: dialog ditutup setelah menyimpan dan sekilas melaporkan hasilnya."
       ],
-      "note": "Ekspor bookmark bukanlah cadangan lengkap pengaturan dan media lokal. Simpan cadangan sebelum memulihkan atau menghapus data.",
-      "tip": "Cadangan lengkap dari Pengaturan → Umum menyertakan file lokal dalam ZIP. Ini berguna sebelum berpindah browser atau memulihkan data."
+      "note": "Impor Chrome/HTML ditambahkan ke Utama, mempertahankan item yang ada dan pesanan sumber. Bookmark-bar konten langsung masuk ke desktop; keranjang browser lain yang terisi menyimpan foldernya, kecuali satu keranjang datar. Pengaturan → Bookmark juga mengimpor dan mengekspor New DeskTab JSON. Ekspor bookmark tidak mencakup semua pengaturan dan media lokal; simpan cadangan penuh. Cadangan penuh JSON dan ZIP mempertahankan preferensi tip harian; cadangan lama tanpa itu tetap menggunakan pilihan saat ini.",
+      "tip": "Impor Chrome bookmark atau file HTML dari Pengaturan → Bookmark dan pilih item terlebih dahulu. Gunakan cadangan lengkap dari Pengaturan → Umum sebelum mencopot pemasangan atau mengganti ruang kerja Anda."
     },
     "sync": {
       "question": "Bagaimana cara menggunakan ruang yang sama di komputer lain?",
@@ -470,7 +470,7 @@
       "steps": [
         "Masuk dan aktifkan sinkronisasi ekstensi di profil Google Chrome Anda.",
         "Di Pengaturan → Sinkronisasi pilih Disinkronkan dan terima konfirmasi. Peralihan ini akan segera berlaku: penanda dan pengaturan tersinkronisasi yang ada akan dimuat, atau data lokal yang Anda simpan akan disinkronkan jika tidak ada.",
-        "Gunakan profil yang sama di perangkat lain. Periksa status sinkronisasi dan ruang yang tersedia di panel."
+        "Gunakan profil Google Chrome yang sama dan ekstensi ID di perangkat lain. Periksa status sinkronisasi dan ruang yang tersedia di panel. Simpan cadangan lengkap terpisah sebelum menghapus instalasi."
       ],
       "note": "File lokal, recycle bin, dan tips harian adalah milik masing-masing perangkat. Sinkronisasi memiliki batasan penyimpanan; gunakan URL alternatif untuk gambar dan video lokal. Memilih Lokal juga meminta konfirmasi dan segera berlaku, menjaga data tetap tersinkronisasi.",
       "tip": "Sinkronisasi membagi ruang Anda di seluruh perangkat, namun file lokal memerlukan URL alternatif. Lihat Pengaturan → Sinkronisasi."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Bagaimana cara menghapus data atau mengatur ulang pengaturan?",
-      "searchTerms": "menghapus data; mengatur ulang pengaturan; hapus semuanya; memulai kembali",
+      "searchTerms": "menghapus data; mengatur ulang pengaturan; hapus semuanya; memulai kembali; hapus instalan ekstensi; instal ulang; perbarui ekstensi; bookmark yang hilang",
       "title": "Menyimpan dan mengatur ulang",
       "summary": "Pahami apa yang disimpan dan apa yang dihapus dari setiap tindakan.",
       "steps": [
@@ -498,7 +498,7 @@
         "Jika muncul pemberitahuan penyimpanan tertunda, klik Coba lagi simpan dan tunggu konfirmasi sebelum menutup tab.",
         "Di Pengaturan → Umum Anda dapat mengatur ulang pengaturan atau menghapus semua data. Baca konfirmasi dan ekspor cadangan apa pun yang ingin Anda simpan."
       ],
-      "note": "Menyetel ulang pengaturan akan mempertahankan bookmark Anda, ukuran dan gayanya. Menghapus semua data lokal akan menghapus item dan mengosongkan keranjang sampah. Ekspor cadangan sebelum menghapus: Pembatalan tidak menggantikan cadangan.",
+      "note": "Menyetel ulang pengaturan akan mempertahankan bookmark, ukuran, dan gaya. Menghapus data lokal atau mencopot pemasangan akan menghapus ruang kerja lokal, pengaturan, media, dan sampah profil ini. Penginstalan baru dimulai dalam mode Lokal tanpa memulihkan ruang lama secara otomatis. Ekspor cadangan lengkap terlebih dahulu. Untuk pembaruan yang belum dibongkar, ganti file dan gunakan Muat Ulang di chrome://extensions dengan kunci dan ekstensi yang sama ID.",
       "tip": "Jika Anda melihat pemberitahuan perubahan yang belum disimpan, gunakan Coba lagi simpan sebelum menutup tab. Lindungi ruang Anda dengan cadangan penuh."
     },
     "learning": {

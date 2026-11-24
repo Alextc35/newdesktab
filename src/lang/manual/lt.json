@@ -167,7 +167,7 @@
       ],
       "backup": [
         "Atsarginės kopijos parinktis raskite skiltyje „Nustatymai“ → „Bendra“.",
-        "Eksportuokite atsisiuntimus ZIP su duomenimis ir vietiniais failais.",
+        "Eksportuokite atsisiuntimus JSON arba ZIP, kai įtraukiami vietiniai vaizdo įrašai.",
         "Prieš pakeičiant duomenis, importuojant prašoma patvirtinimo."
       ],
       "sync": [
@@ -321,16 +321,16 @@
     },
     "folders": {
       "question": "Kaip sugrupuoti žymes į aplankus?",
-      "searchTerms": "sukurti aplanką; grupės žymės; organizuoti mėgstamiausius; pašalinti iš aplanko; pervardyti aplanką",
+      "searchTerms": "sukurti aplanką; grupės žymės; organizuoti mėgstamiausius; pašalinti iš aplanko; pervardyti aplanką; poaplankiai; dideli aplankai; puslapiai; judėti aukštyn; judėti žemyn; pertvarkyti eilutes",
       "title": "Tvarkyti su aplankais",
       "summary": "Surinkite žymes ir poaplankius vienoje vietoje.",
       "steps": [
-        "Kairiajame meniu pasirinkite + → Aplankas ir suteikite jam pavadinimą.",
-        "Redagavimo režimu vilkite žymes ant jos, kad įdėtumėte jas viduje. Atidarykite aplanką, kad pamatytumėte jo tinklelį.",
-        "Naudokite aplanko redagavimo režimą, kad sutvarkytumėte jo žymes. Spustelėkite jo pavadinimą, kad pervadintumėte jį, ir piktogramą, kad pritaikytumėte jo išvaizdą."
+        "Pasirinkite + → Aplankas ir suteikite jam pavadinimą. Redagavimo režimu vilkite ant jo žymes. Mažose kolekcijose naudojamas 3 × 6 tinklelis; didelėse arba įdėtose kolekcijose naudojami paieškos sąrašai su 54 elementų puslapiais.",
+        "Atidarykite poaplankius ir grįžkite naudodami Atgal arba naršymo kelį. Sąrašo redagavimo režimu pasirinkite eilutę ir naudokite Judėti aukštyn arba Judėti žemyn; Alt + ↑ / ↓ taip pat perkelia paryškintą eilutę.",
+        "Redagavimo, ištrynimo ir perkėlimo valdikliai rodomi kiekvienos sąrašo eilutės dešinėje. Spustelėkite aplanko pavadinimą, kad jį pervardytumėte, arba jo išvaizdos valdiklį, kad pakeistumėte jo stilių."
       ],
-      "note": "Aplanko ištrynimas turi įtakos ir jo žymėms. Prieš tęsdami peržiūrėkite patvirtinimą; šiukšliadėžė gali atkurti ištrintus elementus.",
-      "tip": "Aplankai palaiko dideles kolekcijas su paieška ir puslapiais. Įjunkite redagavimą ir vilkite kortelę į aplanką, kad ją pridėtumėte."
+      "note": "Aplankai neturi fiksuoto elementų skaičiaus limito. Žymių ir poaplankių tvarka išsaugoma kartu. Aplanko perkėlimas, kopijavimas, trynimas ar atkūrimas apima visą jo pomedį; peržiūrėti ištrynimo patvirtinimus.",
+      "tip": "Dideliuose aplankuose yra 54 elementų paieška ir puslapiai. Sąrašo redagavimo režimu pasirinkite eilutę ir naudokite Judėti aukštyn arba Judėti žemyn arba pažymėtoje eilutėje paspauskite Alt + ↑ / ↓."
     },
     "workspaces": {
       "question": "Kaip atskirti asmeninius ir darbo puslapius?",
@@ -451,16 +451,16 @@
     },
     "backup": {
       "question": "Kaip sukurti atsarginę duomenų kopiją arba perkelti duomenis?",
-      "searchTerms": "atsarginė kopija; eksportuoti duomenis; importo kopija; atkurti atsarginę kopiją; kita naršyklė; perkelti duomenis",
+      "searchTerms": "atsarginė kopija; eksportuoti duomenis; importo kopija; atkurti atsarginę kopiją; kita naršyklė; perduoti duomenis; importuoti Chrome žymes; HTML žymės; tuščias aplankas; pasirinkite importuotus elementus",
       "title": "Atsarginės kopijos ir importavimas",
       "summary": "Pasilikite savo erdvės kopiją ir pasiimkite ją su savimi.",
       "steps": [
-        "Skiltyje „Nustatymai“ → „Bendra“ eksportuokite visą atsarginę kopiją, kad išsaugotumėte duomenis ir vietinius failus, įtrauktus į ZIP archyvą.",
-        "Norėdami atkurti, importuokite atsarginę kopiją ir peržiūrėkite patvirtinimą prieš pakeisdami duomenis. Taip pat palaikomos suderinamos JSON atsarginės kopijos.",
-        "Nustatymuose → Žymės galite eksportuoti arba importuoti tik žymes ir aplankus, kai nereikia visos atsarginės kopijos."
+        "Nustatymai → Generolas eksportuokite visą atsarginę kopiją prieš pakeisdami duomenis arba keisdami naršyklę. Backups be vietinių vaizdo įrašų naudoti JSON; tie, kurie turi vietinius vaizdo įrašus, naudoja ZIP. Prieš atkurdami peržiūrėkite pakeitimo patvirtinimą.",
+        "Jei norite pridėti Chrome žymių, naudokite Nustatymai → Žymės → Importuoti iš Google Chrome arba Importuoti HTML failą. Pirmajame pasveikinimo vadove taip pat siūlomas vietinis importavimas, kai aptinkamos palaikomos žymės.",
+        "Išskleiskite Peržiūrėkite ir pasirinkite elementus, kad pasirinktumėte nuorodas ar aplankus, ieškotumėte arba pasirinktumėte / panaikintumėte visų pasirinkimą. Tuščia aplankai pradedami nežymėti su ženkleliu Tuščia; nuorodos rodo faviconus. Patvirtinkite Importuoti žymes: po išsaugojimo dialogo langas užsidaro ir „flash“ praneša apie rezultatą."
       ],
-      "note": "Žymių eksportavimas nėra visa nustatymų ir vietinės medijos atsarginė kopija. Prieš atkurdami arba ištrindami duomenis išsaugokite atsarginę kopiją.",
-      "tip": "Visoje atsarginėje kopijoje iš Nustatymai → Bendra apima vietinius failus ZIP. Tai naudinga prieš perjungiant naršyklę arba atkuriant duomenis."
+      "note": "Chrome/HTML importuojami produktai pridedami prie Pagrindinis, išsaugant esamus elementus ir šaltinio tvarką. Žymės-juostos turinys patenka tiesiai į darbalaukį; kiti užpildyti naršyklės segmentai išsaugo savo aplankus, išskyrus vienintelį plokščią segmentą. Nustatymai → Žymės taip pat importuoja ir eksportuoja New DeskTab JSON. Žymės eksportavimas neapima visų nustatymų ir vietinės medijos; pasidarykite visą atsarginę kopiją. Visos JSON ir ZIP atsarginės kopijos išlaiko kasdienį arbatpinigių pasirinkimą; senesnės atsarginės kopijos be jo išlaiko dabartinį pasirinkimą.",
+      "tip": "Importuokite Chrome žymes arba HTML failą iš Nustatymai → Žymės ir pirmiausia pasirinkite elementus. Prieš pašalindami arba pakeisdami darbo sritį, naudokite visą atsarginę kopiją iš Nustatymai → Generolas."
     },
     "sync": {
       "question": "Kaip panaudoti tą pačią vietą kitame kompiuteryje?",
@@ -470,7 +470,7 @@
       "steps": [
         "Prisijunkite ir įgalinkite plėtinių sinchronizavimą savo Google Chrome profilyje.",
         "Skiltyje Nustatymai → Sinchronizavimas pasirinkite Sinchronizuoti ir priimkite patvirtinimą. Perjungimas įsigalioja iš karto: esamos sinchronizuotos žymės ir nustatymai įkeliami arba išsaugoti vietiniai duomenys sinchronizuojami, jei jų nėra.",
-        "Naudokite tą patį profilį kitame įrenginyje. Patikrinkite sinchronizavimo būseną ir laisvą vietą skydelyje."
+        "Kitame įrenginyje naudokite tą patį Google Chrome profilį ir plėtinį ID. Patikrinkite sinchronizavimo būseną ir laisvą vietą skydelyje. Prieš pašalindami padarykite atskirą visą atsarginę kopiją."
       ],
       "note": "Vietiniai failai, šiukšliadėžė ir kasdieniai patarimai priklauso kiekvienam įrenginiui. Sinchronizavimas turi saugojimo apribojimus; vietiniams vaizdams ir vaizdo įrašams naudoti alternatyvius URL. Pasirinkus Vietinis, taip pat prašoma patvirtinimo ir jis įsigalioja nedelsiant, o sinchronizuoti duomenys išsaugomi.",
       "tip": "Sinchronizuojant dalijamasi vieta visuose įrenginiuose, tačiau vietiniams failams reikia alternatyvaus URL. Žr. Nustatymai → Sinchronizavimas."
@@ -490,7 +490,7 @@
     },
     "data": {
       "question": "Kaip ištrinti duomenis arba iš naujo nustatyti nustatymus?",
-      "searchTerms": "ištrinti duomenis; iš naujo nustatyti nustatymus; pašalinti viską; pradėti iš naujo",
+      "searchTerms": "ištrinti duomenis; iš naujo nustatyti nustatymus; pašalinti viską; pradėti iš naujo; pašalinti plėtinį; iš naujo įdiegti; atnaujinimo plėtinys; pamestas žymes",
       "title": "Išsaugojimas ir nustatymas iš naujo",
       "summary": "Supraskite, kas yra išsaugota ir ką kiekvienas veiksmas pašalina.",
       "steps": [
@@ -498,7 +498,7 @@
         "Jei pasirodo pranešimas apie laukiantį išsaugojimą, spustelėkite Bandyti išsaugoti dar kartą ir prieš uždarydami skirtuką palaukite patvirtinimo.",
         "Skiltyje „Nustatymai“ → „Bendra“ galite iš naujo nustatyti nustatymus arba ištrinti visus duomenis. Perskaitykite patvirtinimą ir eksportuokite visų dalykų, kuriuos norite pasilikti, atsarginę kopiją."
       ],
-      "note": "Iš naujo nustačius nustatymus išsaugomos jūsų žymės, jų dydžiai ir stiliai. Ištrynus visus vietinius duomenis, pašalinami elementai ir ištuštinama šiukšliadėžė. Eksportuokite atsarginę kopiją prieš ištrindami: Atšaukimas nepakeičia atsarginės kopijos.",
+      "note": "Iš naujo nustatant nustatymus išsaugomos žymės, dydžiai ir stiliai. Ištrynus vietinius duomenis arba pašalinus pašalinama šio profilio vietinė darbo sritis, nustatymai, laikmena ir šiukšliadėžė. Naujas diegimas pradedamas Vietinis režimu automatiškai neatkuriant senosios vietos. Pirmiausia eksportuokite visą atsarginę kopiją. Jei norite išpakuoti naujinimus, pakeiskite failus ir naudokite įkėlimą iš naujo chrome://extensions naudodami tą patį raktą ir plėtinį ID.",
       "tip": "Jei matote pranešimą apie neišsaugotus pakeitimus, prieš uždarydami skirtuką naudokite Bandyti išsaugoti dar kartą. Apsaugokite savo erdvę naudodami visą atsarginę kopiją."
     },
     "learning": {

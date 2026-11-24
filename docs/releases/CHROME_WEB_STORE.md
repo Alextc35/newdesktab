@@ -43,6 +43,12 @@ See [RELEASE_NOTES.md](RELEASE_NOTES.md) when preparing the notes for a new vers
 > reusable appearance presets. Import and export bookmarks or create a complete
 > local backup whenever you need one.
 >
+> Bring your native Chrome bookmarks or select an exported HTML bookmark file.
+> Preview and select links and folders before importing them into Main. Toolbar
+> items appear directly on the desktop, and other bookmark locations retain
+> useful folders. Browse large collections with nested folders, search,
+> breadcrumbs, paged lists and controls to reorder entries.
+>
 > Choose bundled category icons instead of website favicons or the original
 > folder and recycle-bin artwork. Search for everyday symbols and geometric shapes,
 > with local suggestions for common uses. Reuse them in presets and your default bookmark style.
@@ -87,6 +93,10 @@ See [RELEASE_NOTES.md](RELEASE_NOTES.md) when preparing the notes for a new vers
 > in Settings. Imported names, URLs, folders and their order are copied into a
 > Main workspace alongside existing bookmarks. Users can select individual
 > links or folders before importing. Native bookmarks are never edited or deleted.
+
+Empty folders are visible in the selector and initially unchecked. The offer is
+part of the first welcome sequence; repeating the guide does not repeat it.
+Settings provides explicit imports at any time.
 
 ### Permission justification: unlimitedStorage
 

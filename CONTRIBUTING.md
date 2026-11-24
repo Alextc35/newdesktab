@@ -30,12 +30,22 @@ For browser journeys, install Chromium once with
   tokens, resets and utilities under `src/styles`.
 * Treat imported and synchronized data as untrusted until it crosses
   `migratePersistedData()`.
+* Keep browser-import preparation and selection in `src/domain/bookmarks`;
+  Chrome access, persistence and UI belong to `src/features/bookmarks`. Parse
+  bookmark HTML in an inert document and never render its exported markup.
 * Use `BookmarkPreset` for appearance only. Never add identity, grid or timestamp
   fields to a preset.
 * Reuse the production bookmark renderer for previews.
 * Every event-owning component must clean up its listeners.
 * Add a data migration when persisted structures change.
-* Keep folders first-class: membership belongs in the model, not in DOM state.
+  The current public schema is 2; use `DATA_SCHEMA_VERSION` in current-version
+  fixtures instead of assuming that a release version equals a schema version.
+* Keep folders first-class: `folderId` and `parentId` membership belongs in the
+  model, not in DOM state. Preserve complete subtrees across move, duplicate,
+  delete and restore, with same-workspace parents and no cycles.
+* Keep large-folder rendering bounded; the small 18-cell editing grid is not a
+  membership limit. Reuse mixed reading order, 54-item pages and shared scroll
+  styling rather than rendering an entire imported collection at once.
 
 ## Tests
 
@@ -46,6 +56,10 @@ Choose the smallest useful layer:
 * Playwright for user-visible journeys across modules.
 
 Avoid asserting private implementation details or large visual snapshots.
+For browser import, cover partial selection, empty folders, hierarchy, Main
+placement, unchanged-source reimports and persistence/quota failures at the
+appropriate layer. Manifest and native browser API changes also need
+`npm run test:extension`; the E2E harness simulates those APIs.
 
 ## Commits and pull requests
 
