@@ -39,6 +39,11 @@
     "mainFull": "Main has no free space for these bookmarks. Free one grid cell and try again."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "A smoother desktop",
+      "improvements": "Hidden panels no longer flash at startup. Bookmark import counts only your folders, opens the bookmarks bar by default and has clearer controls. Folders without bookmarks can be deleted without confirmation, including empty subfolders.",
+      "preferences": "Keep bookmark size is now the default when resizing the window. Daily tips have clearer actions and confirm when you turn them off. Saved preferences are preserved."
+    },
     "v1_1_0": {
       "title": "Your Chrome bookmarks, at home in New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

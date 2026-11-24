@@ -673,6 +673,9 @@ test('confirms Delete and Backspace on an unselected keyboard-focused folder', a
     Object.assign(stored.recycleBin, { gx: 0, gy: 0, w: 1, h: 1 });
     const folder = stored.folders.find(item => item.name === 'Delete with keyboard');
     Object.assign(folder, { gx: 0, gy: 1, w: 1, h: 1 });
+    stored.folders.push({ ...folder, id: 'keyboard-nested-folder', name: 'Nested', parentId: folder.id, gx: 0, gy: 0 });
+    stored.bookmarks.push({ ...stored.bookmarks[0], id: 'keyboard-nested-bookmark',
+      name: 'Nested bookmark', folderId: 'keyboard-nested-folder' });
     stored.bookmarks.forEach((bookmark, index) => {
       Object.assign(bookmark, { gx: 4 + index, gy: 4 });
     });
@@ -691,14 +694,14 @@ test('confirms Delete and Backspace on an unselected keyboard-focused folder', a
 
   await page.keyboard.press('Delete');
   await expect(page.locator('#alert-modal-title'))
-    .toHaveText('Move “Delete with keyboard” and its 0 bookmarks to the recycle bin?');
+    .toHaveText('Move “Delete with keyboard” and its 1 bookmarks to the recycle bin?');
   await page.getByRole('button', { name: 'Cancel', exact: true }).click();
   await expect(grid).toBeFocused();
   await expect(folder).toBeVisible();
 
   await page.keyboard.press('Shift+Backspace');
   await expect(page.locator('#alert-modal-title')).toHaveText(
-    'Permanently delete “Delete with keyboard” and its 0 bookmarks? This cannot be undone.'
+    'Permanently delete “Delete with keyboard” and its 1 bookmarks? This cannot be undone.'
   );
   await page.getByRole('button', { name: 'Cancel', exact: true }).click();
   await expect(folder).toHaveClass(/is-keyboard-active/);
@@ -715,6 +718,47 @@ test('confirms Delete and Backspace on an unselected keyboard-focused folder', a
   await expect(page.locator('#bookmark-container .is-keyboard-active')).toHaveCount(1);
   await expect(grid).toBeFocused();
   await expect(grid).toHaveClass(/has-grid-keyboard-cursor/);
+});
+
+test('recycles an empty nested folder by keyboard without confirmation while permanent deletion still asks', async ({ page }) => {
+  await page.evaluate(async () => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    const { DEFAULT_FOLDER_STYLE } = await import('/src/domain/folders/folderDefaults.js');
+    const { data } = getState();
+    const root = { ...DEFAULT_FOLDER_STYLE, id: 'empty-keyboard-tree', name: 'Empty tree', parentId: null,
+      groupId: null, gx: 0, gy: 1, w: 1, h: 1 };
+    await setState({ data: {
+      folders: [root, { ...root, id: 'empty-keyboard-child', name: 'Empty child', parentId: root.id }],
+      bookmarks: data.bookmarks.map((bookmark, index) => ({ ...bookmark, gx: 4 + index, gy: 4 })),
+      recycleBin: { ...data.recycleBin, gx: 0, gy: 0, w: 1, h: 1 }
+    } });
+  });
+  await enableEditMode(page);
+  const root = page.locator('#bookmark-container [data-folder-id="empty-keyboard-tree"]');
+  await page.locator('#bookmark-container').focus();
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('ArrowDown');
+  await expect(root).toHaveClass(/is-keyboard-active/);
+  await page.keyboard.press('Shift+Delete');
+  await expect(page.locator('#alert-modal-title')).toHaveText(
+    'Permanently delete “Empty tree” and its 0 bookmarks? This cannot be undone.'
+  );
+  await page.locator('#alert-modal-cancel').click();
+  await page.keyboard.press('Delete');
+  await expect(root).toHaveCount(0);
+  await expect(page.locator('#alert-modal')).toBeHidden();
+  await reloadSavedPage(page);
+  await page.evaluate(async () => {
+    const { getState } = await import('/src/state/appStore.js');
+    const { restoreTrashEntries } = await import('/src/features/recycle-bin/recycleBinActions.js');
+    const entry = getState().data.trash.find(entry => entry.folder?.id === 'empty-keyboard-tree');
+    if (!entry || entry.folders[0]?.id !== 'empty-keyboard-child') throw new Error('Empty tree was not retained in trash.');
+    restoreTrashEntries([entry.id]);
+  });
+  await reloadSavedPage(page);
+  await expect(root).toBeVisible();
+  expect(await page.evaluate(async () => (await import('/src/state/appStore.js')).getState().data.folders
+    .find(folder => folder.id === 'empty-keyboard-child').parentId)).toBe('empty-keyboard-tree');
 });
 
 test('continues Tab navigation on the next occupied row after the row edge', async ({ page }) => {
@@ -3138,7 +3182,9 @@ test('scales folder previews and applies one centered tray style', async ({ page
           h: 1
         }))
       ));
-      chrome.storage.local.set({ folders, bookmarks }, resolve);
+      chrome.storage.local.set({ folders, bookmarks,
+        settings: { ...stored.settings, windowResizeMode: 'fit' }
+      }, resolve);
     });
   }));
   await reloadSavedPage(page);
@@ -3735,6 +3781,7 @@ test('edits a folder directly and deletes it through bulk selection', async ({ p
   await expect(folder).toBeVisible();
   await folder.click();
   await page.getByRole('button', { name: 'Delete', exact: true }).click();
-  await page.getByRole('button', { name: 'Accept' }).click();  await waitForSaved(page);
+  await expect(page.locator('#alert-modal')).toBeHidden();
+  await waitForSaved(page);
   await expect(folder).toHaveCount(0);
 });

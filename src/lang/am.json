@@ -39,6 +39,11 @@
     "mainFull": "ዋናው ለእነዚህ ዕልባቶች ነፃ ቦታ የለውም። አንድ የፍርግርግ ሕዋስ ነጻ ያውጡ እና እንደገና ይሞክሩ።"
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "የተሻለ ዴስክቶፕ ተሞክሮ",
+      "improvements": "የተደበቁ ፓነሎች በመነሻ ጊዜ ከእንግዲህ አይታዩም። የዕልባት ማስመጣት የራስዎን አቃፊዎች ብቻ ይቆጥራል፣ የዕልባቶችን አሞሌ በነባሪ ይዘረጋል እና ግልጽ መቆጣጠሪያዎች አሉት። ዕልባቶች የሌሏቸው አቃፊዎች፣ ባዶ ንዑስ አቃፊዎች ቢኖሯቸውም፣ ያለ ማረጋገጫ ሊሰረዙ ይችላሉ።",
+      "preferences": "የመስኮቱን መጠን ሲቀይሩ «Keep bookmark size» አሁን ነባሪው አማራጭ ነው። ዕለታዊ ምክሮች ይበልጥ ግልጽ አዝራሮች አሏቸው፣ እና ሲያጠፏቸው ማረጋገጫ ያሳያሉ። የተቀመጡ ምርጫዎችዎ ይጠበቃሉ።"
+    },
     "v1_1_0": {
       "title": "የእርስዎ Chrome ዕልባቶች፣ ቤት በNew DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

@@ -58,7 +58,7 @@ test('offers native bookmarks only after the first guide and remembers a dismiss
   await expect(importDialog(page)).toBeHidden();
   await page.locator('#onboarding-skip').click();
   await expect(importDialog(page)).toBeVisible();
-  await expect(page.locator('#browser-bookmark-import-description')).toContainText('3 bookmarks and 2 folders');
+  await expect(page.locator('#browser-bookmark-import-description')).toContainText('3 bookmarks and 1 folders');
   await expect(page.locator('#browser-bookmark-import-confirm')).toBeFocused();
   await page.getByRole('button', { name: 'Not now', exact: true }).click();
   await expect(importDialog(page)).toBeHidden();
@@ -70,6 +70,81 @@ test('offers native bookmarks only after the first guide and remembers a dismiss
   await page.locator('#settings-open-guide').click();
   await page.locator('#onboarding-skip').click();
   await expect(importDialog(page)).toBeHidden();
+});
+
+test('opens the native toolbar by default and preserves a manual collapse when reopening the list', async ({ page }) => {
+  await start(page);
+  await openBookmarkSettings(page);
+  await page.locator('#import-chrome-bookmarks').click();
+  await page.locator('#browser-bookmark-import-preview').click();
+  const toolbar = page.locator('#browser-bookmark-import-tree button[data-toggle-id="0"]');
+  const research = page.locator('#browser-bookmark-import-tree button[data-toggle-id="0/1"]');
+  await expect(toolbar).toHaveAttribute('aria-expanded', 'true');
+  await expect(research).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.locator('#browser-bookmark-import-tree input[data-node-id="0/0"]')).toBeVisible();
+  await expect(page.locator('#browser-bookmark-import-selected-count')).toContainText('3 bookmarks and 1 folders');
+  await toolbar.click();
+  await expect(toolbar).toHaveAttribute('aria-expanded', 'false');
+  await page.locator('#browser-bookmark-import-preview').click();
+  await page.locator('#browser-bookmark-import-preview').click();
+  await expect(toolbar).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.locator('#browser-bookmark-import-tree input[data-node-id="0/0"]')).toHaveCount(0);
+});
+
+test('opens an HTML toolbar by default and keeps progress in the import button while work is pending', async ({ page }) => {
+  await start(page);
+  await openBookmarkSettings(page);
+  await page.evaluate(() => {
+    const original = File.prototype.text;
+    File.prototype.text = function () {
+      File.prototype.text = original;
+      return new Promise(resolve => {
+        window.__finishBookmarkRead = () => resolve(original.call(this));
+      });
+    };
+  });
+  await page.locator('#import-html-bookmarks-input').setInputFiles({
+    name: 'toolbar.html', mimeType: 'text/html',
+    buffer: Buffer.from('<DL><DT><H3 PERSONAL_TOOLBAR_FOLDER="true">Barra exportada</H3><DL>'
+      + '<DT><A HREF="https://progress.example/">Progress page</A>'
+      + '<DT><H3>Research</H3><DL><DT><A HREF="https://nested.example/">Nested page</A></DL></DL></DL>')
+  });
+  await page.locator('#browser-bookmark-import-preview').click();
+  const status = page.locator('#browser-bookmark-import-status');
+  const confirm = page.locator('#browser-bookmark-import-confirm');
+  await expect(importDialog(page)).toHaveAttribute('aria-busy', 'true');
+  await expect(status).toBeHidden();
+  await expect(status).toHaveText('');
+  await expect(confirm).toHaveText('Import bookmarks');
+  await expect(confirm).toBeDisabled();
+  await page.evaluate(() => window.__finishBookmarkRead());
+  await expect(importDialog(page)).toHaveAttribute('aria-busy', 'false');
+  await expect(page.locator('#browser-bookmark-import-tree button[data-toggle-id="0"]'))
+    .toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('#browser-bookmark-import-tree button[data-toggle-id="0/1"]'))
+    .toHaveAttribute('aria-expanded', 'false');
+  await expect(page.locator('#browser-bookmark-import-tree input[data-node-id="0/0"]')).toBeVisible();
+  await page.evaluate(() => {
+    const original = chrome.storage.local.set;
+    chrome.storage.local.set = (items, callback) => {
+      if (items.bookmarks?.some(bookmark => bookmark.url === 'https://progress.example/')) {
+        chrome.storage.local.set = original;
+        window.__finishBookmarkWrite = () => original(items, callback);
+      } else original(items, callback);
+    };
+  });
+  await confirm.click();
+  await expect(page.locator('#alert-modal')).toBeVisible();
+  await page.locator('#alert-modal-accept').click();
+  await expect(importDialog(page)).toHaveAttribute('aria-busy', 'true');
+  await expect(confirm).toHaveText('Importing bookmarks…');
+  await expect(confirm).toBeDisabled();
+  await expect(status).toBeHidden();
+  await expect(status).toHaveText('');
+  await expect.poll(() => page.evaluate(() => typeof window.__finishBookmarkWrite)).toBe('function');
+  await page.evaluate(() => window.__finishBookmarkWrite());
+  await expect(importDialog(page)).toBeHidden();
+  await expect(page.locator('.flash-success', { hasText: '2 bookmarks and 1 folders imported.' })).toBeVisible();
 });
 
 test('does not offer an empty native collection', async ({ page }) => {

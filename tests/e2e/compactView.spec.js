@@ -35,6 +35,8 @@ async function start(page, width = 1280) {
       settings: {
         ...getState().data.settings,
         interfaceTheme: 'dark',
+        // Scaling journeys exercise fit explicitly; the default keeps card sizes.
+        windowResizeMode: 'fit',
         // These tests exercise bookmark/folder responsiveness. Keep the
         // bottom-right cell available instead of turning the drag into a
         // deliberate recycle-bin drop.

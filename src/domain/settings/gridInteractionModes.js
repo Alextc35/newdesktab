@@ -36,5 +36,5 @@ export function normalizeBookmarkResizeMode(value) {
 export function normalizeWindowResizeMode(value) {
   return VALID_WINDOW_RESIZE_MODES.has(value)
     ? value
-    : WINDOW_RESIZE_MODES.FIT;
+    : WINDOW_RESIZE_MODES.RELATIVE;
 }

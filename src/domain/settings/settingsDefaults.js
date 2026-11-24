@@ -15,7 +15,7 @@ export const DEFAULT_SETTINGS = {
   interfaceTheme: 'system',
   bookmarkDragMode: BOOKMARK_DRAG_MODES.NONE,
   bookmarkResizeMode: BOOKMARK_RESIZE_MODES.SMOOTH,
-  windowResizeMode: WINDOW_RESIZE_MODES.FIT,
+  windowResizeMode: WINDOW_RESIZE_MODES.RELATIVE,
   keyboardShortcuts: structuredClone(DEFAULT_KEYBOARD_SHORTCUTS),
   showRecycleBin: true,
   showLauncher: true,

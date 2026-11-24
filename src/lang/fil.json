@@ -39,6 +39,11 @@
     "mainFull": "Ang Main ay walang libreng espasyo para sa mga bookmark na ito. Magbakante ng isang grid cell at subukang muli."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Mas maayos na desktop",
+      "improvements": "Hindi na panandaliang lumilitaw ang mga nakatagong panel sa pagsisimula. Sarili mong mga folder lang ang binibilang sa pag-import ng bookmark, nakabukas na ang bookmarks bar bilang default, at mas malinaw ang mga kontrol. Maaaring magtanggal ng mga folder na walang bookmark nang walang kumpirmasyon, kahit may mga walang lamang subfolder.",
+      "preferences": "Default na ngayon ang «Keep bookmark size» kapag binabago ang laki ng window. Mas malinaw na ang mga aksyon sa mga araw-araw na tip at may kumpirmasyon kapag pinatay mo ang mga ito. Nananatili ang mga naka-save mong kagustuhan."
+    },
     "v1_1_0": {
       "title": "Ang iyong mga bookmark sa Chrome, sa bahay sa New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

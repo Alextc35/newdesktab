@@ -39,6 +39,11 @@
     "mainFull": "Main tidak memiliki ruang kosong untuk bookmark ini. Bebaskan satu sel kisi dan coba lagi."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Desktop yang lebih lancar",
+      "improvements": "Panel tersembunyi tidak lagi berkedip saat aplikasi dimulai. Impor bookmark hanya menghitung folder Anda sendiri, membuka bilah bookmark secara default, dan memiliki kontrol yang lebih jelas. Folder tanpa bookmark dapat dihapus tanpa konfirmasi, meskipun berisi subfolder kosong.",
+      "preferences": "«Keep bookmark size» kini menjadi pilihan default saat mengubah ukuran jendela. Tindakan pada tips harian lebih jelas dan pesan konfirmasi muncul saat Anda menonaktifkannya. Preferensi yang tersimpan tetap dipertahankan."
+    },
     "v1_1_0": {
       "title": "Bookmark Chrome Anda, di rumah di New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

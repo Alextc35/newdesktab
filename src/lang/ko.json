@@ -39,6 +39,11 @@
     "mainFull": "Main에는 이러한 책갈피를 위한 여유 공간이 없습니다. 그리드 셀 하나를 비우고 다시 시도하세요."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "더 매끄러운 데스크톱",
+      "improvements": "숨겨진 패널이 시작할 때 잠깐 나타나는 현상을 수정했습니다. 북마크 가져오기는 사용자가 만든 폴더만 계산하고, 북마크바를 기본으로 펼치며, 조작 방식도 더 명확해졌습니다. 북마크가 없는 폴더는 빈 하위 폴더가 포함되어 있어도 확인 없이 삭제할 수 있습니다.",
+      "preferences": "창 크기를 조절할 때 이제 «Keep bookmark size»가 기본 옵션입니다. 일일 팁의 동작이 더 명확해지고, 팁을 끄면 확인 메시지가 표시됩니다. 저장된 설정은 그대로 유지됩니다."
+    },
     "v1_1_0": {
       "title": "New DeskTab에 있는 Chrome 북마크",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

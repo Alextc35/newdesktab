@@ -4,7 +4,10 @@ import { expectAppReady } from './helpers/appReady.js';
 const dialog = page => page.locator('#browser-bookmark-import-modal');
 const treeView = page => page.locator('#browser-bookmark-import-tree');
 const checkbox = (page, id) => treeView(page).locator(`input[data-node-id="${id}"]`);
-const expand = (page, id) => treeView(page).locator(`button[data-toggle-id="${id}"]`).click();
+const expand = async (page, id) => {
+  const toggle = treeView(page).locator(`button[data-toggle-id="${id}"]`);
+  if (await toggle.getAttribute('aria-expanded') !== 'true') await toggle.click();
+};
 const link = (id, title) => ({ id, title, url: `https://example.test/${id}` });
 const native = children => [{ id: '0', title: '', children }];
 const pageErrors = new WeakMap();
@@ -194,7 +197,7 @@ test('bounds large selection lists, loads more and searches collapsed descendant
   await expect(treeView(page).locator('input:checked')).toHaveCount(0);
   await page.locator('#browser-bookmark-import-select-all').click();
   await expect(treeView(page).locator('input:checked')).toHaveCount(200);
-  await expand(page, '0');
+  await treeView(page).locator('button[data-toggle-id="0"]').click();
   await expect(treeView(page).locator('input')).toHaveCount(1);
   await page.locator('#browser-bookmark-import-select-none').click();
   await page.locator('#browser-bookmark-import-search').fill('/249');

@@ -17,6 +17,47 @@ const source = [{ id: '0', children: [{ id: '1', title: 'Bookmarks bar', childre
   { title: 'After', url: 'chrome://settings/' }
 ] }] }];
 
+test('counts user folders inside native browser roots without counting the roots themselves', () => {
+  const tree = [{ id: '0', children: [
+    { id: '1', title: 'Localized toolbar', children: [
+      { id: '2', title: 'User folder', children: [
+        { title: 'Safe', url: 'https://safe.test' },
+        { title: 'Unsafe', url: 'javascript:alert(1)' }
+      ] },
+      { id: '3', title: 'Empty user folder', children: [] }
+    ] },
+    { id: '2', title: 'Localized other bookmarks', children: [] },
+    { id: '3', title: 'Localized mobile bookmarks', children: [] }
+  ] }];
+  const original = structuredClone(tree);
+  assert.deepEqual(countBrowserBookmarks(tree), { bookmarkCount: 1, folderCount: 2, skippedCount: 1 });
+  assert.deepEqual(tree, original);
+});
+
+test('recognizes browser root metadata while counting ordinary top-level and nested folders', () => {
+  const tree = [
+    { id: 'toolbar-account', folderType: 'bookmarks-bar', children: [
+      { title: 'Nested user folder', children: [] }
+    ] },
+    { id: 'other-account', folderType: 'other', children: [] },
+    { id: 'mobile-account', folderType: 'mobile', children: [] },
+    { title: 'User collection', children: [] }
+  ];
+  assert.deepEqual(countBrowserBookmarks(tree), { bookmarkCount: 0, folderCount: 2, skippedCount: 0 });
+});
+
+test('empty browser roots do not make an empty import valid but a user folder does', () => {
+  const tree = [{ id: '0', children: [
+    { id: '1', title: 'Toolbar', children: [] },
+    { id: '2', title: 'Other', children: [] }
+  ] }];
+  assert.deepEqual(countBrowserBookmarks(tree), { bookmarkCount: 0, folderCount: 0, skippedCount: 0 });
+  assert.throws(() => prepareBrowserBookmarkImport(tree, emptyData()), { code: 'EMPTY_BOOKMARK_IMPORT' });
+  tree[0].children[0].children.push({ title: 'Empty user folder', children: [] });
+  assert.deepEqual(countBrowserBookmarks(tree), { bookmarkCount: 0, folderCount: 1, skippedCount: 0 });
+  assert.equal(prepareBrowserBookmarkImport(tree, emptyData()).folderCount, 1);
+});
+
 test('native import keeps mixed order, dates, names, nested folders and existing data', () => {
   const data = emptyData();
   data.settings.showRecycleBin = false;
@@ -247,7 +288,7 @@ test('HTML parser reads standard omitted DT closing tags, entities, empty folder
   assert.equal(bar.children[0].dateAdded, 123000);
   assert.deepEqual(bar.children[1].children.map(item => item.title), ['Vacía', 'Dentro']);
   assert.deepEqual(bar.children[1].children[0].children, []);
-  assert.deepEqual(countBrowserBookmarks(tree), { bookmarkCount: 3, folderCount: 4, skippedCount: 0 });
+  assert.deepEqual(countBrowserBookmarks(tree), { bookmarkCount: 3, folderCount: 3, skippedCount: 0 });
 });
 
 test('imports large folders without truncation and repeats without multiplying intentional duplicates', () => {

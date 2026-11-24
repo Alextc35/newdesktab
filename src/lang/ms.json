@@ -39,6 +39,11 @@
     "mainFull": "Utama tidak mempunyai ruang kosong untuk penanda halaman ini. Kosongkan satu sel grid dan cuba lagi."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Desktop yang lebih lancar",
+      "improvements": "Panel tersembunyi tidak lagi berkelip semasa permulaan. Import penanda halaman hanya mengira folder anda, mengembangkan bar penanda halaman secara lalai dan mempunyai kawalan yang lebih jelas. Folder tanpa penanda halaman boleh dipadam tanpa pengesahan, termasuk subfolder kosong.",
+      "preferences": "Mengekalkan saiz penanda halaman kini menjadi pilihan lalai apabila saiz tetingkap diubah. Petua harian mempunyai tindakan yang lebih jelas dan memberikan pengesahan apabila anda mematikannya. Pilihan yang disimpan dikekalkan."
+    },
     "v1_1_0": {
       "title": "Penanda halaman Chrome anda, di rumah dalam New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

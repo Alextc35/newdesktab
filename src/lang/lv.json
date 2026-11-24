@@ -39,6 +39,11 @@
     "mainFull": "Galvenā nav brīvas vietas šīm grāmatzīmēm. Atbrīvojiet vienu režģa šūnu un mēģiniet vēlreiz."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Vienmērīgāka darbvirsma",
+      "improvements": "Paslēptie paneļi palaišanas laikā vairs neuzplaiksnī. Importējot grāmatzīmes, tiek skaitītas tikai jūsu mapes, grāmatzīmju josla pēc noklusējuma ir izvērsta, un vadīklas ir skaidrākas. Mapes bez grāmatzīmēm var izdzēst bez apstiprinājuma, pat ja tajās ir tukšas apakšmapes.",
+      "preferences": "Mainot loga izmēru, noklusējuma opcija tagad ir «Keep bookmark size». Ikdienas padomu darbības ir skaidrākas, un, tos izslēdzot, tiek parādīts apstiprinājums. Saglabātās preferences tiek saglabātas."
+    },
     "v1_1_0": {
       "title": "Jūsu Chrome grāmatzīmes mājās New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

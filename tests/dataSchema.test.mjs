@@ -185,15 +185,20 @@ test('normalizes unsupported bookmark drag modes to none', () => {
 
 test('normalizes the global window resize mode and preserves the selected behavior', () => {
   const legacy = migratePersistedData({ bookmarks: [], settings: { language: 'es' } });
-  assert.equal(legacy.settings.windowResizeMode, 'fit');
+  assert.equal(legacy.settings.windowResizeMode, 'relative');
   const relative = migratePersistedData({ bookmarks: [], settings: {
     ...DEFAULT_SETTINGS, windowResizeMode: 'relative'
   } });
   assert.equal(relative.settings.windowResizeMode, 'relative');
+  const fit = migratePersistedData({ bookmarks: [], settings: {
+    ...DEFAULT_SETTINGS, windowResizeMode: 'fit'
+  } });
+  assert.equal(fit.settings.windowResizeMode, 'fit');
+  assert.equal(parseBackupPayload(createBackupEnvelope(fit)).settings.windowResizeMode, 'fit');
   const invalid = migratePersistedData({ bookmarks: [], settings: {
     ...DEFAULT_SETTINGS, windowResizeMode: 'narrow'
   } });
-  assert.equal(invalid.settings.windowResizeMode, 'fit');
+  assert.equal(invalid.settings.windowResizeMode, 'relative');
 });
 
 test('defaults panels to visible and round-trips hidden panels with a safe settings entry point', () => {

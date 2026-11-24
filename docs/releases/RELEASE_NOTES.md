@@ -15,6 +15,19 @@ order. Empty folders are visible and initially unchecked; confirmation precedes
 the import, and success closes the dialog with a flash notification. Folder
 editing includes row selection and controls to move entries up or down.
 
+Version 1.1.1 refines this flow: detected and selected folder totals omit the
+browser's root containers, the bookmarks bar starts expanded, and the preview
+toggle is visually distinct from selection actions. Progress stays in the
+import button without an extra loading block. Spanish references to Main use
+“Principal”. Disabled panels remain hidden during startup, Keep bookmark size
+becomes the first and default window-resizing option, and daily tips align their
+action at the lower right and confirm disabling with a saved-settings flash.
+Saved valid resizing choices remain unchanged; the public data schema stays at 2.
+Folders whose complete tree contains no bookmarks can be moved to the recycle
+bin without confirmation, including trees of empty subfolders. A bookmark
+anywhere in the tree keeps the confirmation step. Permanent deletion always
+requires confirmation.
+
 ## Arrival and history
 
 - A new profile sees release notes before the welcome guide.
@@ -24,8 +37,9 @@ editing includes row selection and controls to move entries up or down.
   bottom right. Its reading timer pauses for hover, focus, another open dialog,
   or a hidden tab.
 - Each tip displays its topic's SVG and can open the related manual section.
-- A discreet button on each tip disables daily tips immediately. JSON and ZIP
-  backups include this preference; older backups without it keep the current choice.
+- A discreet button on each tip disables daily tips immediately and confirms the
+  saved preference with a flash. Its manual action sits at the lower right. JSON
+  and ZIP backups include this preference; older backups without it keep the current choice.
 - **Settings → Help** contains manual search, common questions, the quick guide,
   and the daily-tip preference.
 - In list mode, at 600 pixels wide or less, release notes, the guide, manual and

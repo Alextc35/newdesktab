@@ -178,19 +178,22 @@
   box-shadow: 0 12px 36px var(--ui-shadow);
   animation: daily-tip-appear .25s ease-out;
 }
-.daily-tip-top,
-.daily-tip-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.daily-tip-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.daily-tip-bottom { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 12px; }
 #daily-tip-dismiss { display: grid; place-items: center; width: 28px; height: 28px; margin: -5px -5px 0 0; border-radius: 7px; color: var(--ui-muted); background: transparent; font: inherit; font-size: 20px; cursor: pointer; }
 #daily-tip-dismiss:hover { background: var(--ui-hover); color: var(--ui-text); }
 .daily-tip-title { display: flex; align-items: center; gap: 9px; margin: 10px 0 8px; font-size: 17px; letter-spacing: -.02em; }
 .daily-tip-title .manual-icon { width: 21px; height: 21px; flex-basis: 21px; }
 .daily-tip-text { margin: 0 0 18px; color: var(--ui-muted); font-size: 13px; line-height: 1.7; }
-.daily-tip-bottom span { max-width: 190px; color: var(--ui-muted); font-size: 10px; line-height: 1.6; }
-.daily-tip-bottom .btn { flex-shrink: 0; font-size: 12px; }
+.daily-tip-bottom span { grid-column: 1; max-width: 190px; color: var(--ui-muted); font-size: 10px; line-height: 1.6; }
+.daily-tip-bottom .btn { grid-column: 2; grid-row: 1 / span 2; align-self: end; font-size: 12px; }
 #daily-tip-disable {
   display: block;
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
   max-width: 100%;
-  margin: 10px -4px -4px;
+  margin: 0 -4px -4px;
   padding: 4px;
   border: 0;
   border-radius: 3px;

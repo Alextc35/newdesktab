@@ -39,6 +39,11 @@
     "mainFull": "Main n'a pas d'espace libre pour ces signets. Libérez une cellule de la grille et réessayez."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Un bureau plus fluide",
+      "improvements": "Les panneaux masqués ne clignotent plus au démarrage. L’importation de favoris compte uniquement vos propres dossiers, déplie la barre de favoris par défaut et propose des commandes plus claires. Les dossiers sans favoris peuvent être supprimés sans confirmation, même s’ils contiennent des sous-dossiers vides.",
+      "preferences": "« Keep bookmark size » est désormais l’option par défaut lors du redimensionnement de la fenêtre. Les actions des conseils quotidiens sont plus claires et un message confirme leur désactivation. Les préférences enregistrées sont conservées."
+    },
     "v1_1_0": {
       "title": "Vos favoris Chrome, chez eux dans New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

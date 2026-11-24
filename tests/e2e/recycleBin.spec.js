@@ -334,7 +334,36 @@ test('drops a bookmark into the bin and restores the selected item', async ({ pa
   await expect(page.locator(`.bookmark[data-bookmark-id="${bookmarkId}"]`)).toBeVisible();
 });
 
-test('asks before dropping a folder with contents and supports permanent deletion', async ({ page }) => {
+test('drops an empty folder tree into the bin without a confirmation and restores its descendants', async ({ page }) => {
+  await page.evaluate(async () => {
+    const { getState, setState } = await import('/src/state/appStore.js');
+    const { DEFAULT_FOLDER_STYLE } = await import('/src/domain/folders/folderDefaults.js');
+    const { data } = getState();
+    const folder = { ...DEFAULT_FOLDER_STYLE, id: 'empty-drop-tree', name: 'Empty tree',
+      gx: 3, gy: 0, w: 1, h: 1, groupId: null, parentId: null };
+    await setState({ data: { folders: [...data.folders, folder,
+      { ...folder, id: 'empty-drop-child', name: 'Empty child', parentId: folder.id }] } });
+  });
+  await toggleEditMode(page);
+  const folder = page.locator('#bookmark-container [data-folder-id="empty-drop-tree"]');
+  const bin = page.locator('#bookmark-container > .recycle-bin');
+  await hoverCenterTo(page, folder, bin);
+  await page.mouse.up();
+  await expect(folder).toHaveCount(0);
+  await expect(page.locator('#alert-modal')).toBeHidden();
+  await waitForSaved(page);
+  await toggleEditMode(page);
+  await bin.getByRole('button', { name: /Open recycle bin/ }).click();
+  await page.locator('#recycle-bin-list input').check();
+  await page.locator('#recycle-bin-restore-selected').click();
+  await expect(page.locator('#recycle-bin-list input')).toHaveCount(0);
+  await page.keyboard.press('Escape');
+  await expect(folder).toBeVisible();
+  expect(await page.evaluate(async () => (await import('/src/state/appStore.js')).getState().data.folders
+    .find(folder => folder.id === 'empty-drop-child').parentId)).toBe('empty-drop-tree');
+});
+
+test('asks before dropping a folder with nested contents and supports permanent deletion', async ({ page }) => {
   await page.evaluate(async () => {
     const { getState, setState } = await import('/src/state/appStore.js');
     const data = getState().data;
@@ -344,9 +373,9 @@ test('asks before dropping a folder with contents and supports permanent deletio
     };
     await setState({
       data: {
-        folders: [...data.folders, folder],
+        folders: [...data.folders, folder, { ...folder, id: 'trash-nested', name: 'Nested', parentId: folder.id }],
         bookmarks: data.bookmarks.map((bookmark, index) => index === 0
-          ? { ...bookmark, folderId: folder.id, gx: 0, gy: 0 }
+          ? { ...bookmark, folderId: 'trash-nested', gx: 0, gy: 0 }
           : bookmark)
       }
     });
@@ -364,6 +393,7 @@ test('asks before dropping a folder with contents and supports permanent deletio
   await page.mouse.up();
   await expect(page.locator('#alert-modal')).toBeVisible();
   await expect(page.locator('#alert-modal-title')).toContainText('Archive');
+  await expect(page.locator('#alert-modal-title')).toContainText('1 bookmarks');
   await expect(folder).toBeHidden();
   await expect(folder).toHaveClass(/is-drop-committed/);
   await page.getByRole('button', { name: 'Accept', exact: true }).click();

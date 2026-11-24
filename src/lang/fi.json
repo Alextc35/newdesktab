@@ -39,6 +39,11 @@
     "mainFull": "Mainilla ei ole vapaata tilaa näille kirjanmerkeille. Vapauta yksi ruudukon solu ja yritä uudelleen."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Sujuvampi työpöytä",
+      "improvements": "Piilotetut paneelit eivät enää välähdä näkyviin käynnistettäessä. Kirjanmerkkien tuonti laskee vain omat kansiosi, avaa kirjanmerkkipalkin oletusarvoisesti ja tarjoaa selkeämmät säätimet. Kansiot, joissa ei ole kirjanmerkkejä, voi poistaa ilman vahvistusta, vaikka niissä olisi tyhjiä alikansioita.",
+      "preferences": "Ikkunan kokoa muutettaessa oletusvalinta on nyt ”Keep bookmark size”. Päivittäisten vinkkien toiminnot ovat selkeämpiä, ja niiden poistaminen käytöstä vahvistetaan ilmoituksella. Tallennetut asetukset säilyvät."
+    },
     "v1_1_0": {
       "title": "Chrome-kirjanmerkkisi kotona New DeskTab:ssa",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

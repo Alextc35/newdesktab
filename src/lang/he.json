@@ -39,6 +39,11 @@
     "mainFull": "ל-Main אין מקום פנוי עבור הסימניות הללו. שחרר תא רשת אחד ונסה שוב."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "שולחן עבודה חלק יותר",
+      "improvements": "לוחות מוסתרים כבר לא מהבהבים בזמן ההפעלה. ייבוא הסימניות סופר רק את התיקיות שלכם, פותח את סרגל הסימניות כברירת מחדל ומציע פקדים ברורים יותר. אפשר למחוק תיקיות ללא סימניות בלי אישור, גם אם הן מכילות תיקיות משנה ריקות.",
+      "preferences": "האפשרות «Keep bookmark size» היא כעת ברירת המחדל בעת שינוי גודל החלון. הפעולות בטיפים היומיים ברורות יותר, ומוצג אישור כשמכבים אותם. ההעדפות השמורות נשמרות."
+    },
     "v1_1_0": {
       "title": "הסימניות שלך ב-Chrome, בבית ב-New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

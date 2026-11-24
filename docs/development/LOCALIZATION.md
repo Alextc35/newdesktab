@@ -27,6 +27,10 @@ Main placement and Chrome Sync quota errors must describe the same behavior as
 the English source. Remove obsolete capacity messages when their runtime use is
 removed; an unused 18-bookmark error is not a current folder limit.
 
+The 1.1.1 Spanish correction uses “Principal”, matching `workspace.main`, in
+import prompts, release notes and the shared Spanish manual. Keep the same
+workspace name consistent across each locale's related messages.
+
 `node scripts/generate-locales.mjs` generates the additional catalogs from
 English using Google Translate during development. It preserves brands,
 variables and manual destinations, and caches translated strings under

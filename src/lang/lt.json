@@ -39,6 +39,11 @@
     "mainFull": "Pagrindinėje šioms žymėms nėra laisvos vietos. Atlaisvinkite vieną tinklelio langelį ir bandykite dar kartą."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Sklandesnis darbalaukis",
+      "improvements": "Paslėpti skydeliai paleidžiant nebeblyksteli. Importuojant žymes skaičiuojami tik jūsų aplankai, žymių juosta išskleidžiama pagal numatytąsias nuostatas, o valdikliai tapo aiškesni. Aplankus be žymių galima ištrinti be patvirtinimo, net jei juose yra tuščių poaplankių.",
+      "preferences": "Keičiant lango dydį, numatytoji parinktis dabar yra „Keep bookmark size“. Kasdienių patarimų veiksmai tapo aiškesni, o juos išjungus rodomas patvirtinimas. Išsaugotos nuostatos išlieka."
+    },
     "v1_1_0": {
       "title": "Jūsų „Chrome“ žymės namuose New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

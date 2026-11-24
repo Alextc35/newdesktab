@@ -39,6 +39,11 @@
     "mainFull": "Main não tem espaço livre para esses marcadores. Libere uma célula da grade e tente novamente."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Um desktop mais fluido",
+      "improvements": "Os painéis ocultos não piscam mais na inicialização. A importação de favoritos conta apenas suas pastas, expande a barra de favoritos por padrão e tem controles mais claros. Pastas sem favoritos podem ser excluídas sem confirmação, incluindo subpastas vazias.",
+      "preferences": "Manter o tamanho dos favoritos agora é o padrão ao redimensionar a janela. As dicas diárias têm ações mais claras e exibem uma confirmação quando você as desativa. As preferências salvas são preservadas."
+    },
     "v1_1_0": {
       "title": "Seus favoritos do Chrome, em casa em New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

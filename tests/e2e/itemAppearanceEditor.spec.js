@@ -209,7 +209,7 @@ test('folders and the bin without names center their artwork in cards and previe
       await page.setViewportSize(size);
       const width = await page.evaluate(async () => {
         const { GRID_COLS, PADDING } = await import('/src/shared/grid/gridGeometry.js');
-        return document.getElementById('bookmark-viewport').clientWidth / GRID_COLS - PADDING;
+        return document.getElementById('bookmark-container').clientWidth / GRID_COLS - PADDING;
       });
       await expect.poll(async () => (await card.boundingBox()).width).toBeCloseTo(width, 1);
       await centered(card);

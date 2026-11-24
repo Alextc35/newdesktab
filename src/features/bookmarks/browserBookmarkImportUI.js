@@ -39,6 +39,16 @@ function getController() {
   const showMore = document.getElementById('browser-bookmark-import-show-more');
   let session = null;
 
+  function initializeSelection(current, tree) {
+    current.selection = createBrowserBookmarkSelection(tree);
+    for (const id of current.selection.roots) {
+      const entry = current.selection.nodes.get(id);
+      const isToolbar = entry.node.folderType === 'bookmarks-bar'
+        || current.detected && String(entry.node.id) === '1';
+      if (entry.kind === 'folder' && isToolbar) current.expanded.add(id);
+    }
+  }
+
   function renderSelection() {
     preview.hidden = Boolean(session.result);
     preview.disabled = session.busy || session.confirming;
@@ -179,14 +189,14 @@ function getController() {
     const counts = session.selection ? getSelectedBrowserBookmarkCounts(session.selection) : null;
     confirm.disabled = busy || confirming || (!result && counts && !counts.bookmarkCount && !counts.folderCount);
     cancel.disabled = busy || confirming;
-    confirm.textContent = t(busy ? 'browserImport.importing' : result
+    confirm.textContent = t(busy && !session.loadingSelection ? 'browserImport.importing' : result
       ? 'browserImport.done' : error ? 'browserImport.retry' : 'browserImport.import');
     cancel.textContent = t(automatic ? 'browserImport.notNow' : 'browserImport.cancel');
     cancel.hidden = Boolean(result);
     status.classList.toggle('is-import-error', Boolean(error));
     status.setAttribute('role', error ? 'alert' : 'status');
     if (busy) {
-      status.textContent = t(session.loadingSelection ? 'browserImport.loadingItems' : 'browserImport.importing');
+      status.textContent = '';
     } else if (error) {
       status.textContent = t(error.code === 'SYNC_QUOTA_EXCEEDED'
         ? 'browserImport.quotaError' : error.code === 'MAIN_WORKSPACE_FULL'
@@ -228,7 +238,7 @@ function getController() {
       const options = { workspaceName: t('browserImport.workspaceName') };
       if (!current.selection) {
         const tree = current.detected?.tree ?? parseBrowserBookmarksHtml(await current.file.text());
-        current.selection = createBrowserBookmarkSelection(tree);
+        initializeSelection(current, tree);
       }
       const counts = getSelectedBrowserBookmarkCounts(current.selection);
       if (!counts.bookmarkCount && !counts.folderCount) {
@@ -276,7 +286,7 @@ function getController() {
       render();
       try {
         const tree = current.detected?.tree ?? parseBrowserBookmarksHtml(await current.file.text());
-        current.selection = createBrowserBookmarkSelection(tree);
+        initializeSelection(current, tree);
       } catch (error) {
         current.error = error;
         current.previewOpen = false;

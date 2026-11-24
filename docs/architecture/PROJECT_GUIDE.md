@@ -10,7 +10,7 @@ individual contracts in greater detail.
 > **Product:** New DeskTab<br>
 > **Application:** Chromium Manifest V3 extension<br>
 > **Technology:** JavaScript ES modules, native HTML and CSS<br>
-> **Reference release:** 1.1.0 (public data schema 2)
+> **Reference release:** 1.1.1 (public data schema 2)
 
 All source paths below are relative to `src/` unless they explicitly begin with
 `src/`, `tests/` or `scripts/`.
@@ -102,7 +102,9 @@ loads `src/main.js`, which calls `startApplication()`.
 10. Expose diagnostics and finish the startup timing report.
 
 State and localization are ready before feature UI initialization. Startup
-errors are reported at the application boundary.
+errors are reported at the application boundary. The launcher and workspace
+toolbar start with `hidden` in the HTML; the controller reveals each only after
+the hydrated visibility preference allows it, avoiding a flash of disabled panels.
 
 | File | Responsibility |
 |---|---|
@@ -249,9 +251,9 @@ choice as optional `devicePreferences.dailyTipsEnabled` metadata. It stays out
 of Sync and application data; older backups retain the current choice. Tip
 history and the last offered day remain on the device and outside backups.
 
-Public release 1.1.0 uses `schemaVersion: 2`, with nested folders and recycled
-folder trees. Public schema 1 migrates on load; pre-release development snapshots
-are unsupported. New profiles start with empty
+Release 1.1.1 retains `schemaVersion: 2`, introduced in 1.1.0 for nested folders
+and recycled folder trees. Public schema 1 migrates on load; pre-release
+development snapshots are unsupported. New profiles start with empty
 bookmark, folder and widget collections. Future versioned schemas are rejected
 or handled by the Sync compatibility fallback rather than silently overwritten.
 
@@ -320,6 +322,10 @@ Settings include language, interface theme, drag and resize policies, shortcuts,
 appearance presets, panel visibility and recycle-bin retention. Personal
 wallpaper collections and device image choices have separate device-local
 storage rather than relying on a shared binary payload.
+
+`windowResizeMode` defaults and normalizes missing or invalid values to `relative`
+(Keep bookmark size). The UI places it before `fit`; either valid stored value is
+retained, so this default does not override an existing resizing preference.
 
 ## 6. Store, history and update cycle
 
@@ -484,6 +490,13 @@ they can be included explicitly or through Select all. Parent checkboxes show
 partial selection. Preview rendering grows in 100-row increments, and bookmark
 rows reuse favicon rendering. The domain selection filter retains required
 ancestors and original source order and identities.
+
+Detected and selected folder totals omit recognized browser root containers,
+while preserving those nodes in the tree and counting their user-folder
+descendants. The bookmarks-bar root is expanded when the selection is first
+created; later renders preserve the user's collapsed or expanded state. The
+show/hide disclosure is separate from bulk selection controls, and saving
+progress stays in the import button instead of adding a status block.
 
 Bookmarks-bar children are placed directly on Main. Other populated browser
 roots keep their folders; empty native roots are omitted. With no populated

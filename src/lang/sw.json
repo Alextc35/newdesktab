@@ -39,6 +39,11 @@
     "mainFull": "Main haina nafasi ya bure ya vialamisho hivi. Bure kisanduku cha gridi moja na ujaribu tena."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Eneo-kazi linalofanya kazi kwa ulaini zaidi",
+      "improvements": "Paneli zilizofichwa hazionekani tena kwa muda mfupi wakati wa kuanza. Uagizaji wa alamisho huhesabu folda zako pekee, hupanua upau wa alamisho kwa chaguo-msingi na una vidhibiti vilivyo wazi zaidi. Folda zisizo na alamisho zinaweza kufutwa bila uthibitisho, pamoja na folda ndogo zilizo tupu.",
+      "preferences": "Kudumisha ukubwa wa alamisho sasa ndilo chaguo-msingi unapobadilisha ukubwa wa dirisha. Vidokezo vya kila siku vina vitendo vilivyo wazi zaidi na huonyesha uthibitisho unapovizima. Mapendeleo yaliyohifadhiwa yanadumishwa."
+    },
     "v1_1_0": {
       "title": "Alamisho zako za Chrome, nyumbani katika New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

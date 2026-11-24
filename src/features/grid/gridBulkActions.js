@@ -10,7 +10,7 @@ import {
   getWorkspaces
 } from '../workspaces/workspaceSelectors.js';
 import { getState, subscribe } from '../../state/appStore.js';
-import { getFolderTreeIds } from '../../domain/folders/folderTree.js';
+import { countFolderTreeBookmarks } from '../../domain/folders/folderTree.js';
 import { gridItemRegistry } from '../../shared/grid/gridItemRegistry.js';
 import { t } from '../../platform/i18n/i18n.js';
 import { showAlert } from '../../shared/ui/alertModal.js';
@@ -67,8 +67,9 @@ export function initGridBulkActions() {
   document.getElementById('bulk-delete').addEventListener('click', async () => {
     const items = getSelectedGridItems();
     if (!items.length) return;
-    const confirmed = await showAlert(
-      getDeleteConfirmation(items, currentState),
+    const confirmation = getDeleteConfirmation(items, currentState);
+    const confirmed = confirmation === null || await showAlert(
+      confirmation,
       { type: 'confirm', requiresWideViewport: true }
     );
     if (!confirmed) return;
@@ -152,6 +153,8 @@ export function initGridBulkActions() {
 
 function getDeleteConfirmation(items, state) {
   const { data } = state;
+  if (items.every(item => item.kind === 'folder')
+    && countFolderTreeBookmarks(data.folders, data.bookmarks, items.map(item => item.id)) === 0) return null;
   if (items.length === 1) {
     const selected = items[0];
     const bookmark = selected.kind === 'bookmark'
@@ -164,8 +167,7 @@ function getDeleteConfirmation(items, state) {
       ? data.folders.find(item => item.id === selected.id)
       : null;
     if (folder) {
-      const treeIds = getFolderTreeIds(data.folders, [folder.id]);
-      const count = data.bookmarks.filter(bookmark => treeIds.has(bookmark.folderId)).length;
+      const count = countFolderTreeBookmarks(data.folders, data.bookmarks, [folder.id]);
       return t('folder.confirmDelete', { name: folder.name, count });
     }
     const widget = selected.kind === 'widget'

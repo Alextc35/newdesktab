@@ -17,6 +17,12 @@ export function getFolderTreeIds(folders, rootIds) {
   return ids;
 }
 
+/** Counts bookmarks anywhere inside the requested folders and their descendants. */
+export function countFolderTreeBookmarks(folders, bookmarks, rootIds) {
+  const ids = getFolderTreeIds(folders, rootIds);
+  return bookmarks.filter(bookmark => ids.has(bookmark.folderId)).length;
+}
+
 /** Drops selected descendants whose ancestor is already selected. */
 export function getFolderRoots(folders, selectedIds = new Set(folders.map(folder => folder.id))) {
   const byId = new Map(folders.map(folder => [folder.id, folder]));

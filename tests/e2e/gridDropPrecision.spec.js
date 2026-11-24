@@ -173,10 +173,7 @@ for (const kind of ['bookmark', 'folder']) {
     }
     await page.mouse.move(handles[0].x, handles[0].y, { steps: 8 });
     await page.mouse.up();
-    if (kind === 'folder') {
-      await expect(page.locator('#alert-modal')).toBeVisible();
-      await page.locator('#alert-modal-accept').click();
-    }
+    await expect(page.locator('#alert-modal')).toBeHidden();
     await expect(source).toHaveCount(0);
     await expect.poll(() => page.evaluate(async () => {
       const { getState } = await import('/src/state/appStore.js');

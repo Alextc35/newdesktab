@@ -8,7 +8,7 @@ state, widget and shared boundaries. The former `ui/`, `core/`, `css/` and `js/`
 transition directories have been retired; every remaining module has an
 explicit tested owner directly under `src/`.
 
-This reference describes release 1.1.0 and public data schema 2. The refactoring
+This reference describes release 1.1.1 and public data schema 2. The refactoring
 milestones below are historical records; they do not override current contracts.
 
 ## Direction and dependency rules
@@ -342,6 +342,11 @@ to `app/bootstrap.js`, which owns initialization order, bundled feature
 registration, store hydration and the wiring of UI controllers. Startup
 failures and diagnostics are handled at that same application boundary.
 
+The launcher and workspace toolbar carry `hidden` in `newtab.html`, with
+`display: none` supplied by the shared visibility utility. The application
+controller applies the hydrated preferences before revealing enabled panels;
+disabled panels are never painted during the asynchronous startup work.
+
 Store transitions are coordinated by `app/appController.js`. It translates
 immutable state-reference changes into theme, localization, grid-render and
 edit-mode effects without containing domain rules. The deterministic change
@@ -349,6 +354,11 @@ classification lives in `app/appStateChanges.js`, making the routing contract
 testable without a DOM or Chrome API. Feature commands remain the only place
 that decides how bookmarks, folders, workspaces, the recycle bin or widgets
 change.
+
+Window resizing defaults to `WINDOW_RESIZE_MODES.RELATIVE` (Keep bookmark size)
+both in settings defaults and when normalizing missing or invalid preferences.
+The radio group places it first. Valid persisted `fit` and `relative` values are
+preserved; no data migration or schema change is needed for this default.
 
 ## Settings feature boundary
 
@@ -799,6 +809,10 @@ The schema and commands enforce these rules:
   descendants are `entry.folders`, and all contained links are `entry.bookmarks`.
   Duplicate, move and restore commands preserve the tree; copies use new ids
   and restoration remaps ids that collide with live entities.
+* Moving a folder to the recycle bin requires confirmation only when the folder
+  or any descendant contains bookmarks. A complete tree with no bookmarks,
+  including empty subfolders, can be recycled without confirmation. Permanent
+  deletion retains its confirmation for every folder tree.
 * Deleting a workspace deletes its folders and all bookmarks in that workspace.
 
 ## Bookmark editor
@@ -1010,6 +1024,11 @@ It exposes creation, subtree/all selection, tri-state checkbox state, selected
 counts and `filterSelectedBrowserBookmarks()`. Empty branches stay visible and
 start unselected; selecting them explicitly, their parent or Select all can
 include them. Filtering retains required ancestors and the original mixed order.
+Detected and selected folder counts exclude browser-provided root containers
+recognized by native root IDs or `folderType`, only at the root level. Their
+descendants still count, and the roots remain in the tree so import identity and
+hierarchy are preserved. Counts returned after saving describe folders actually
+created by import preparation, which may retain a populated Other bookmarks root.
 The nonpersisted `BROWSER_BOOKMARK_SOURCE` symbol carries sibling index and
 occurrence metadata so partial reimports retain stable source identities.
 
@@ -1019,6 +1038,11 @@ empty-folder badges, favicon previews and 100-row increments. Import first
 opens the shared confirmation alert. Cancellation retains the selection;
 persisted success closes the dialog and emits translated flashes with imported,
 skipped and duplicate counts. Errors leave the dialog available for retry.
+Selection initialization expands the bookmarks-bar root once for native and
+recognized HTML imports. Later rendering does not reopen a manually collapsed
+folder. The show/hide disclosure is styled separately from the bulk selection
+buttons. Busy progress stays in the import button; the status block is reserved
+for errors and results instead of adding a redundant loading message.
 `shared/ui/flash.js` accepts translation variables through
 `flash(message, type = 'info', duration = 3000, params = {})`; its `flashSuccess`,
 `flashError` and `flashInfo` helpers accept `(message, duration, params)`.
@@ -1094,7 +1118,9 @@ can offer the import dialog when links are detected. Replaying the guide does
 not offer it again. Daily tips wait until the modal stack is available and appear
 in the bottom-right corner.
 Its **Turn off daily tips** button immediately saves the device-local preference
-and closes the card; the Help toggle reflects the same value and can re-enable it.
+and closes the card; a saved-settings success flash appears after persistence
+completes. The Help toggle reflects the same value and can re-enable it. The
+manual action is aligned at the card's lower right beside the disable control.
 
 `features/folders/folderAppearance.js` applies saved appearance to cards, artwork,
 previews and open contents without accessing the store. The contents surface is

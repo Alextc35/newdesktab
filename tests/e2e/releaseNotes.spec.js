@@ -4,10 +4,10 @@ import { expectAppReady } from './helpers/appReady.js';
 const notes = page => page.locator('#release-notes-modal');
 const readRecord = page => page.evaluate(() => JSON.parse(sessionStorage.getItem('newdesktab-test-local')).newdesktabReleaseNotes);
 
-async function start(page, query = 'fresh=1&release=1&tips=1') {
+async function start(page, query = 'fresh=1&release=1&tips=1', version = '1.0.0') {
   await page.route(/^https?:/, route => new URL(route.request().url()).hostname === '127.0.0.1'
     ? route.continue() : route.abort());
-  await page.goto(`/tests/browser-harness.html?version=1.0.0&${query}`);
+  await page.goto(`/tests/browser-harness.html?version=${version}&${query}`);
   await expectAppReady(page);
 }
 
@@ -66,16 +66,19 @@ test('existing profiles see the release once and Escape leaves their workspace u
 });
 
 test('a new patch is offered once, older notes remain readable, and downgrading does not repeat the alert', async ({ page }) => {
-  await start(page, 'release=1');
+  await start(page, 'release=1', '1.1.0');
   await expect(notes(page)).toBeVisible();
+  await expect(page.locator('#release-notes-version')).toHaveText('v1.1.0');
   await page.locator('#release-notes-continue').click();
-  await page.goto('/tests/browser-harness.html?release=1&version=1.0.1');
+  await page.goto('/tests/browser-harness.html?release=1&version=1.1.1');
   await expectAppReady(page);
   await expect(notes(page)).toBeVisible();
-  await expect(page.locator('#release-notes-version')).toHaveText('v1.0.1');
-  await expect(page.locator('#release-notes-title')).toHaveText('New DeskTab has been updated');
-  await expect(page.locator('#release-notes-intro')).toContainText('JSON and ZIP backups');
-  await expect(page.locator('#release-notes-content')).toContainText('directly from the tip');
+  await expect(page.locator('#release-notes-version')).toHaveText('v1.1.1');
+  await expect(page.locator('#release-notes-title')).toHaveText('A smoother desktop');
+  await expect(page.locator('#release-notes-intro')).toContainText(/panels/i);
+  await expect(page.locator('#release-notes-intro')).toContainText(/import/i);
+  await expect(page.locator('#release-notes-content')).toContainText(/resiz/i);
+  await expect(page.locator('#release-notes-content')).toContainText(/preferences/i);
   await page.locator('#release-notes-continue').click();
   await page.reload();
   await expectAppReady(page);
@@ -83,14 +86,52 @@ test('a new patch is offered once, older notes remain readable, and downgrading 
   await information(page);
   await page.locator('#settings-open-release-notes').click();
   await expect(page.locator('#release-notes-history')).toBeVisible();
+  await expect(page.locator('#release-notes-history button')).toHaveText(['v1.1.1', 'v1.1.0', 'v1.0.1', 'v1.0.0']);
+  await page.locator('#release-notes-history').getByRole('button', { name: 'v1.1.0', exact: true }).click();
+  await expect(page.locator('#release-notes-title')).toHaveText('Your Chrome bookmarks, at home in New DeskTab');
+  await expect(page.locator('#release-notes-intro')).toContainText('Main');
+  await page.locator('#release-notes-history').getByRole('button', { name: 'v1.0.1', exact: true }).click();
+  await expect(page.locator('#release-notes-intro')).toContainText('JSON and ZIP backups');
   await page.locator('#release-notes-history').getByRole('button', { name: 'v1.0.0', exact: true }).click();
   await expect(page.locator('#release-notes-title')).toHaveText('Your desktop of websites. At last.');
   await expect(page.locator('#release-notes-content')).toContainText('still a work in progress');
-  await page.goto('/tests/browser-harness.html?release=1&version=1.0.0');
+  await page.goto('/tests/browser-harness.html?release=1&version=1.1.0');
   await expectAppReady(page);
   await expect(notes(page)).toBeHidden();
-  expect(await readRecord(page)).toEqual({ version: '1.0.1' });
+  expect(await readRecord(page)).toEqual({ version: '1.1.1' });
 });
+
+for (const language of ['es', 'es_419']) {
+  test(`the latest notes, older import notes and import confirmation use Principal in ${language}`, async ({ page }) => {
+    await start(page, 'release=1', '1.1.1');
+    await expect(notes(page)).toBeVisible();
+    await page.evaluate(async language => {
+      await (await import('/src/platform/i18n/i18n.js')).changeLanguage({ language });
+    }, language);
+    await expect(page.locator('#release-notes-title')).toHaveText('Un escritorio más fluido');
+    await expect(page.locator('#release-notes-intro')).toContainText('Los paneles ocultos ya no parpadean al iniciar.');
+    await expect(page.locator('#release-notes-content')).toContainText('Mantener tamaño es ahora la opción predeterminada');
+    await expect(page.locator('#release-notes-content')).toContainText('Se respetan las preferencias guardadas.');
+    await page.locator('#release-notes-continue').click();
+    await information(page);
+    await page.locator('#settings-open-release-notes').click();
+    await page.locator('#release-notes-history').getByRole('button', { name: 'v1.1.0', exact: true }).click();
+    await expect(page.locator('#release-notes-intro')).toContainText('en Principal');
+    await expect(page.locator('#release-notes-intro')).not.toContainText(/\bMain\b/);
+    await page.locator('#release-notes-continue').click();
+    await page.locator('[data-tab="settings-modal-tab-bookmark"]').click();
+    await expect(page.locator('[data-i18n="browserImport.settingsDescription"]')).toContainText('en Principal');
+    await page.locator('#import-html-bookmarks-input').setInputFiles({
+      name: 'favoritos.html', mimeType: 'text/html',
+      buffer: Buffer.from('<DL><DT><A HREF="https://principal.example/">Favorito</A></DL>')
+    });
+    await expect(page.locator('#browser-bookmark-import-details')).toContainText('en Principal');
+    await page.locator('#browser-bookmark-import-confirm').click();
+    await expect(page.locator('#alert-modal')).toBeVisible();
+    await expect(page.locator('#alert-modal')).toContainText('en Principal');
+    await expect(page.locator('#alert-modal')).not.toContainText(/\bMain\b/);
+  });
+}
 
 test('Information keeps the settings draft and release history is localized in every language', async ({ page }) => {
   await start(page, 'release=1');

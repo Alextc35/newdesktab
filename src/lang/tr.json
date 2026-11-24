@@ -39,6 +39,11 @@
     "mainFull": "Main'de bu yer imleri için boş alan yok. Bir ızgara hücresini serbest bırakın ve tekrar deneyin."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Daha akıcı bir masaüstü",
+      "improvements": "Gizli paneller artık başlangıçta kısa süreliğine görünmüyor. Yer imi içe aktarımı yalnızca kendi klasörlerinizi sayar, yer imleri çubuğunu varsayılan olarak genişletir ve daha anlaşılır denetimler sunar. Yer imi içermeyen klasörler, boş alt klasörler de dahil olmak üzere onay istenmeden silinebilir.",
+      "preferences": "Pencere yeniden boyutlandırıldığında yer imi boyutunu korumak artık varsayılandır. Günlük ipuçlarının eylemleri daha anlaşılırdır ve bunları kapattığınızda bir onay gösterilir. Kaydedilmiş tercihler korunur."
+    },
     "v1_1_0": {
       "title": "Chrome yer işaretleriniz New DeskTab'da evinizde",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

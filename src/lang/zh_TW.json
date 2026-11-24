@@ -39,6 +39,11 @@
     "mainFull": "Main 没有可用空间来容纳这些书签。释放一个网格单元并重试。"
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "更流暢的桌面",
+      "improvements": "隱藏的面板在啟動時不再閃現。匯入書籤時僅統計你自己的資料夾，預設展開書籤列，並提供更清晰的操作控制項。 不含書籤的資料夾可直接刪除，無須確認，其中也包括空的子資料夾。",
+      "preferences": "調整視窗大小時，現在預設保持書籤大小。每日提示的操作更加清晰，關閉時會顯示確認訊息。已儲存的偏好設定保持不變。"
+    },
     "v1_1_0": {
       "title": "您的 Chrome 書籤，盡在 New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

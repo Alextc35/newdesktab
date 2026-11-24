@@ -6,9 +6,10 @@ Start here for a closer look at the extension. The main README introduces the
 product; these guides explain everyday use, implementation, maintenance and
 release procedures. All documentation is maintained in English.
 
-The current release is **1.1.0**, with public data schema **2**. Its user guide
+The current release is **1.1.1**, with public data schema **2**. Its user guide
 covers Chrome/HTML import into Main, nested folders and navigation for large
-collections. The schema-1 migration is automatic; versioned audit reports below
+collections, with Keep bookmark size as the default window-resizing behavior.
+The schema-1 migration is automatic; versioned audit reports below
 retain their original findings.
 
 ## Find what you need

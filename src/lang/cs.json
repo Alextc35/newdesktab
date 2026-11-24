@@ -39,6 +39,11 @@
     "mainFull": "Main nemá pro tyto záložky volné místo. Uvolněte jednu buňku mřížky a zkuste to znovu."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Plynulejší plocha",
+      "improvements": "Skryté panely už při spuštění neproblikávají. Import záložek počítá jen vaše složky, ve výchozím stavu rozbaluje lištu záložek a nabízí přehlednější ovládání. Složky bez záložek lze odstranit bez potvrzení, i když obsahují prázdné podsložky.",
+      "preferences": "Při změně velikosti okna je nyní výchozí volbou „Keep bookmark size“. Denní tipy mají přehlednější akce a při jejich vypnutí se zobrazí potvrzení. Uložené předvolby zůstávají zachovány."
+    },
     "v1_1_0": {
       "title": "Vaše záložky Chrome jako doma v New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

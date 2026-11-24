@@ -277,9 +277,40 @@ test('the daily tip can be turned off directly and reenabled from Help', async (
   await expect(disable).toHaveText('Turn off daily tips');
   await page.evaluate(async () => (await import('/src/platform/i18n/i18n.js')).changeLanguage({ language: 'es' }));
   await expect(disable).toHaveText('No mostrar consejos diarios');
+  const footer = await card.evaluate(element => {
+    const bounds = element.getBoundingClientRect();
+    const style = getComputedStyle(element);
+    const read = element.querySelector('#daily-tip-read').getBoundingClientRect();
+    const hint = element.querySelector('[data-i18n="manual.daily.pace"]').getBoundingClientRect();
+    return {
+      right: bounds.right - parseFloat(style.borderRightWidth) - parseFloat(style.paddingRight) - read.right,
+      bottom: bounds.bottom - parseFloat(style.borderBottomWidth) - parseFloat(style.paddingBottom) - read.bottom,
+      belowHint: read.top >= hint.bottom
+    };
+  });
+  expect(Math.abs(footer.right)).toBeLessThanOrEqual(1);
+  expect(Math.abs(footer.bottom)).toBeLessThanOrEqual(1);
+  expect(footer.belowHint).toBe(true);
+  await page.evaluate(() => {
+    const original = chrome.storage.local.set;
+    chrome.storage.local.set = (items, callback) => {
+      if (items.newdesktabDailyTips) {
+        window.completeDailyTipWrite = () => {
+          chrome.storage.local.set = original;
+          original(items, callback);
+        };
+      } else original(items, callback);
+    };
+  });
   await disable.focus();
   await page.keyboard.press('Enter');
+  await expect.poll(() => page.evaluate(() => typeof window.completeDailyTipWrite)).toBe('function');
+  await expect(disable).toBeDisabled();
+  await expect(card).toBeVisible();
+  await expect(page.locator('.flash-success')).toHaveCount(0);
+  await page.evaluate(() => window.completeDailyTipWrite());
   await expect(card).toBeHidden();
+  await expect(page.locator('.flash-success')).toHaveText('Configuración guardada');
   expect((await storedTips(page)).enabled).toBe(false);
   await page.reload();
   await expectAppReady(page);
@@ -310,10 +341,12 @@ test('a failed direct disable keeps the daily tip available for retry', async ({
   });
   await disable.click();
   await expect(page.locator('.flash-error')).toHaveText('Could not save the latest changes.');
+  await expect(page.locator('.flash-success')).toHaveCount(0);
   await expect(card).toBeVisible();
   await expect(disable).toBeEnabled();
   expect((await storedTips(page)).enabled).toBe(true);
   await disable.click();
   await expect(card).toBeHidden();
+  await expect(page.locator('.flash-success')).toHaveText('Settings saved');
   expect((await storedTips(page)).enabled).toBe(false);
 });

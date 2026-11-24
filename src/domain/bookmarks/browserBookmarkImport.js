@@ -27,12 +27,19 @@ export function browserBookmarkRoots(tree) {
     ? tree[0].children : tree;
 }
 
-/** Counts the actual importable links without touching native bookmarks. */
+/** Identifies browser-provided containers when inspecting a tree's roots. */
+export function isBrowserBookmarkRoot(node, source = 'chrome') {
+  return (source === 'chrome' && ['1', '2', '3'].includes(String(node.id)))
+    || ['bookmarks-bar', 'other', 'mobile'].includes(node.folderType);
+}
+
+/** Counts importable links and user folders, excluding browser root containers. */
 export function countBrowserBookmarks(tree) {
   let bookmarkCount = 0;
   let folderCount = 0;
   let skippedCount = 0;
-  const stack = [...browserBookmarkRoots(tree)];
+  const roots = new Set(browserBookmarkRoots(tree));
+  const stack = [...roots];
   const visited = new Set();
   while (stack.length) {
     const node = stack.pop();
@@ -42,7 +49,7 @@ export function countBrowserBookmarks(tree) {
       if (safeImportedBookmarkUrl(node.url)) bookmarkCount += 1;
       else skippedCount += 1;
     } else if (Array.isArray(node.children)) {
-      folderCount += 1;
+      if (!roots.has(node) || !isBrowserBookmarkRoot(node)) folderCount += 1;
       for (const child of node.children) stack.push(child);
     }
   }
@@ -159,12 +166,10 @@ export function prepareBrowserBookmarkImport(tree, data, {
     || data.bookmarks.some(bookmark => oldWrapperIds.has(bookmark.folderId) && !sourceOwned(bookmark));
   const removedParents = new Map(wrapperHasForeignContents ? [] : [[rootId, null]]);
   const liveSourceParents = new Set([...sourceFolders, ...sourceBookmarks].map(item => item.parentId));
-  const isBrowserRoot = node => (source === 'chrome' && ['1', '2', '3'].includes(String(node.id)))
-    || ['bookmarks-bar', 'other', 'mobile'].includes(node.folderType);
   const isToolbar = node => node.folderType === 'bookmarks-bar'
     || source === 'chrome' && String(node.id) === '1';
   const activeRoots = sourceRoots.filter(({ id, node }) => {
-    if (isBrowserRoot(node) && !liveSourceParents.has(id)) {
+    if (isBrowserBookmarkRoot(node, source) && !liveSourceParents.has(id)) {
       removedParents.set(id, null);
       return false;
     }
@@ -172,7 +177,7 @@ export function prepareBrowserBookmarkImport(tree, data, {
   });
   const toolbarRoots = activeRoots.filter(({ id, node }) => isToolbar(node) && liveSourceParents.has(id));
   for (const { id } of toolbarRoots) removedParents.set(id, null);
-  if (!toolbarRoots.length && activeRoots.length === 1 && isBrowserRoot(activeRoots[0].node)) {
+  if (!toolbarRoots.length && activeRoots.length === 1 && isBrowserBookmarkRoot(activeRoots[0].node, source)) {
     const { id } = activeRoots[0];
     // A single flat browser bucket does not need an extra click to reach links.
     if (!sourceFolders.some(folder => folder.parentId === id)) removedParents.set(id, null);

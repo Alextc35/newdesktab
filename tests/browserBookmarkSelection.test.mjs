@@ -31,6 +31,37 @@ test('indexes visible Chrome folders with positional identities and initial tota
   assert.deepEqual(state(selection, '0'), { checked: true, indeterminate: false, disabled: false });
 });
 
+for (const roots of [
+  [{ id: '1' }, { id: '2' }, { id: '3' }],
+  [{ folderType: 'bookmarks-bar' }, { folderType: 'other' }, { folderType: 'mobile' }]
+]) {
+  test(`selected totals exclude browser roots identified by ${roots[0].id ? 'native ID' : 'folder type'}`, () => {
+    const tree = [{ id: '0', children: [
+      { ...roots[0], title: 'Localized toolbar', children: [
+        { id: '2', title: 'User folder', children: [link('Nested')] },
+        { id: '3', title: 'Empty user folder', children: [] }
+      ] },
+      { ...roots[1], title: 'Localized other bookmarks', children: [link('Other')] },
+      { ...roots[2], title: 'Localized mobile bookmarks', children: [] }
+    ] }];
+    const selection = createBrowserBookmarkSelection(tree);
+    assert.deepEqual(getSelectedBrowserBookmarkCounts(selection), { bookmarkCount: 2, folderCount: 1 });
+    setAllBrowserBookmarksSelected(selection, false);
+    setBrowserBookmarkSelected(selection, '0/0/0', true);
+    assert.deepEqual(getSelectedBrowserBookmarkCounts(selection), { bookmarkCount: 1, folderCount: 1 });
+    const filtered = filterSelectedBrowserBookmarks(selection);
+    assert.equal(filtered.length, 1);
+    assert.equal(filtered[0].title, 'Localized toolbar');
+    assert.equal(filtered[0].children[0].title, 'User folder');
+    assert.equal(filtered[0].children[0].children[0].title, 'Nested');
+    setAllBrowserBookmarksSelected(selection, true);
+    assert.deepEqual(getSelectedBrowserBookmarkCounts(selection), { bookmarkCount: 2, folderCount: 2 });
+    setAllBrowserBookmarksSelected(selection, false);
+    setBrowserBookmarkSelected(selection, '2', true);
+    assert.deepEqual(getSelectedBrowserBookmarkCounts(selection), { bookmarkCount: 0, folderCount: 0 });
+  });
+}
+
 test('folder checkbox changes its complete subtree and maintains ancestor tri-state', () => {
   const selection = createBrowserBookmarkSelection(source());
   setBrowserBookmarkSelected(selection, '0/1', false);

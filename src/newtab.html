@@ -22,7 +22,7 @@
     <div id="grid-overlay" class="grid-edit-overlay"></div>
   </div>
 
-  <nav id="workspace-toolbar" aria-label="Workspace controls" data-i18n-aria-label="workspace.ariaLabel">
+  <nav id="workspace-toolbar" aria-label="Workspace controls" data-i18n-aria-label="workspace.ariaLabel" hidden>
     <div id="workspace-options" class="workspace-options custom-scrollbar" role="list"
       aria-hidden="true" hidden inert></div>
     <div class="workspace-toolbar-actions">
@@ -146,7 +146,7 @@
       data-i18n="bulk.clear">Cancelar selección</button>
   </div>
 
-  <div id="floating-menu" class="launcher-dock">
+  <div id="floating-menu" class="launcher-dock" hidden>
     <button id="edit-toggle-mode" class="launcher-edit" type="button" aria-label="Enter edit mode"
       data-i18n-aria-label="launcher.editMode.enter" aria-pressed="false">
       <span class="edit-toggle-icon" aria-hidden="true"></span>
@@ -307,9 +307,9 @@
     </div>
     <div class="daily-tip-bottom">
       <span data-i18n="manual.daily.pace">Pasa el cursor para pausar.</span>
+      <button id="daily-tip-disable" type="button" data-i18n="manual.daily.disable">No mostrar consejos diarios</button>
       <button id="daily-tip-read" class="btn btn-secondary" type="button" data-i18n="manual.daily.read">Ver cómo</button>
     </div>
-    <button id="daily-tip-disable" type="button" data-i18n="manual.daily.disable">No mostrar consejos diarios</button>
     <div class="daily-tip-progress" aria-hidden="true"><span class="daily-tip-progress-fill"></span></div>
   </aside>
 
@@ -344,7 +344,7 @@
       <h2 data-i18n="browserImport.title">Your bookmarks, now in New DeskTab</h2>
       <p id="browser-bookmark-import-description"></p>
       <p id="browser-bookmark-import-details"></p>
-      <button id="browser-bookmark-import-preview" class="btn btn-secondary" type="button"
+      <button id="browser-bookmark-import-preview" class="btn" type="button"
         aria-expanded="false" aria-controls="browser-bookmark-import-selection"
         data-i18n="browserImport.chooseItems">Ver y seleccionar elementos</button>
       <section id="browser-bookmark-import-selection" class="browser-import-selection" hidden>
@@ -897,7 +897,7 @@
                     <svg class="settings-action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8V4h4M20 16v4h-4M4 4l6 6m10 10-6-6M14 4h6v6M4 14v6h6M20 4l-6 6M4 20l6-6"/></svg>
                     <span data-i18n="settingsModal.general.windowResize.title">Window resizing behavior</span>
                   </span>
-                  <small id="window-resize-settings-summary">Fit window</small>
+                  <small id="window-resize-settings-summary">Keep bookmark size</small>
                 </span>
               </button>
               <div id="window-resize-settings-body" class="settings-collapsible-body" hidden>
@@ -905,15 +905,6 @@
                   Choose how bookmarks respond when the window changes size.
                 </p>
                 <div class="drag-mode-options" role="radiogroup" aria-labelledby="window-resize-settings-title">
-                  <label class="drag-mode-option">
-                    <input type="radio" name="window-resize-mode" value="fit">
-                    <span class="drag-mode-copy">
-                      <strong data-i18n="settingsModal.general.windowResize.fit.title">Fit window</strong>
-                      <small data-i18n="settingsModal.general.windowResize.fit.description">
-                        Shrink and grow bookmarks to fit the available area.
-                      </small>
-                    </span>
-                  </label>
                   <label class="drag-mode-option">
                     <input type="radio" name="window-resize-mode" value="relative">
                     <span class="drag-mode-copy">
@@ -923,8 +914,17 @@
                       </small>
                     </span>
                   </label>
+                  <label class="drag-mode-option">
+                    <input type="radio" name="window-resize-mode" value="fit">
+                    <span class="drag-mode-copy">
+                      <strong data-i18n="settingsModal.general.windowResize.fit.title">Fit window</strong>
+                      <small data-i18n="settingsModal.general.windowResize.fit.description">
+                        Shrink and grow bookmarks to fit the available area.
+                      </small>
+                    </span>
+                  </label>
                 </div>
-                <div id="window-resize-preview" class="window-resize-preview" data-mode="fit" aria-hidden="true">
+                <div id="window-resize-preview" class="window-resize-preview" data-mode="relative" aria-hidden="true">
                   <div class="window-resize-preview-sample">
                     <small data-i18n="settingsModal.general.windowResize.previewWide">Wide window</small>
                     <div class="window-resize-preview-window">

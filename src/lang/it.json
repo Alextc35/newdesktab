@@ -39,6 +39,11 @@
     "mainFull": "Main non ha spazio libero per questi segnalibri. Liberare una cella della griglia e riprovare."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Un desktop più fluido",
+      "improvements": "I pannelli nascosti non compaiono più per un istante all’avvio. L’importazione dei preferiti conta solo le tue cartelle, espande la barra dei preferiti per impostazione predefinita e offre controlli più chiari. Le cartelle senza preferiti possono essere eliminate senza conferma, anche se contengono sottocartelle vuote.",
+      "preferences": "«Keep bookmark size» è ora l’opzione predefinita quando ridimensioni la finestra. I suggerimenti giornalieri hanno azioni più chiare e mostrano una conferma quando li disattivi. Le preferenze salvate vengono mantenute."
+    },
     "v1_1_0": {
       "title": "I tuoi segnalibri di Chrome, a casa in New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

@@ -1,10 +1,10 @@
 {
   "browserImport": {
-    "confirmImport": "¿Importar los favoritos y las carpetas seleccionados en Main?",
+    "confirmImport": "¿Importar los favoritos y las carpetas seleccionados en Principal?",
     "title": "Tus favoritos, ahora en New DeskTab",
     "detected": "Hemos detectado {{count}} favoritos y {{folders}} carpetas en Google Chrome.",
     "htmlDescription": "Importar los favoritos de {{filename}}.",
-    "description": "Importa tu selección en Main junto a tus favoritos actuales. La barra de marcadores aparece directamente en el escritorio; los demás favoritos conservan sus carpetas.",
+    "description": "Importa tu selección en Principal junto a tus favoritos actuales. La barra de marcadores aparece directamente en el escritorio; los demás favoritos conservan sus carpetas.",
     "import": "Importar favoritos",
     "notNow": "Ahora no",
     "cancel": "Cancelar",
@@ -18,7 +18,7 @@
     "chromeButton": "Importar desde Google Chrome",
     "htmlButton": "Importar archivo HTML",
     "settingsTitle": "Trae los favoritos de tu navegador",
-    "settingsDescription": "Elige favoritos y carpetas de Chrome o de un archivo HTML exportado e impórtalos en Main.",
+    "settingsDescription": "Elige favoritos y carpetas de Chrome o de un archivo HTML exportado e impórtalos en Principal.",
     "skipped": "Se han omitido {{count}} enlaces no compatibles.",
     "duplicates": "{{count}} favoritos ya estaban importados.",
     "retry": "Reintentar",
@@ -36,12 +36,17 @@
     "showMore": "Mostrar más",
     "loadingItems": "Leyendo favoritos…",
     "emptyFolder": "Vacía",
-    "mainFull": "Main no tiene espacio libre para estos favoritos. Libera una casilla del escritorio y vuelve a intentarlo."
+    "mainFull": "Principal no tiene espacio libre para estos favoritos. Libera una casilla del escritorio y vuelve a intentarlo."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Un escritorio más fluido",
+      "improvements": "Los paneles ocultos ya no parpadean al iniciar. La importación cuenta solo tus carpetas, despliega la barra de marcadores por defecto y distingue mejor sus controles. Las carpetas sin favoritos se pueden eliminar sin confirmación, aunque contengan subcarpetas vacías.",
+      "preferences": "Mantener tamaño es ahora la opción predeterminada al redimensionar la ventana. Los consejos diarios tienen sus acciones mejor colocadas y confirman al desactivarlos. Se respetan las preferencias guardadas."
+    },
     "v1_1_0": {
       "title": "Tus favoritos de Chrome, en New DeskTab",
-      "import": "Importa tu selección en Main junto a tus favoritos actuales. La barra de marcadores aparece directamente en el escritorio; los demás favoritos conservan sus carpetas.",
+      "import": "Importa tu selección en Principal junto a tus favoritos actuales. La barra de marcadores aparece directamente en el escritorio; los demás favoritos conservan sus carpetas.",
       "folders": "Las carpetas admiten colecciones grandes, con búsqueda, páginas compactas y navegación por la ruta. Tus favoritos actuales se mantienen y puedes mover, duplicar y recuperar árboles completos de carpetas desde la papelera."
     },
     "settingsTitle": "Notas de versión",

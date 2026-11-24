@@ -39,6 +39,11 @@
     "mainFull": "Main heeft geen vrije ruimte voor deze bladwijzers. Maak één rastercel vrij en probeer het opnieuw."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Een soepelere desktop",
+      "improvements": "Verborgen panelen flitsen niet meer in beeld bij het opstarten. Bij het importeren van bladwijzers worden alleen je eigen mappen geteld, is de bladwijzerbalk standaard uitgeklapt en zijn de knoppen duidelijker. Mappen zonder bladwijzers kunnen zonder bevestiging worden verwijderd, inclusief lege submappen.",
+      "preferences": "Bij het aanpassen van het venster blijft de grootte van bladwijzers nu standaard behouden. Dagelijkse tips hebben duidelijkere knoppen en bevestigen wanneer je ze uitschakelt. Opgeslagen voorkeuren blijven behouden."
+    },
     "v1_1_0": {
       "title": "Uw Chrome-bladwijzers, thuis in New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

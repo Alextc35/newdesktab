@@ -6,6 +6,56 @@ This is a historical record of completed release work. Checked items and test
 counts describe the dated validation below; they do not certify a later checkout.
 Use the [release procedure](CHROME_WEB_STORE.md#release-procedure) for a new build.
 
+## Release 1.1.1 — November 24, 2026
+
+Validated on Windows with Node.js 24.14.0 and bundled Chromium 151.0.7922.34.
+The release keeps public schema 2, the existing permissions and Chrome 123 as
+the declared minimum; valid saved resizing preferences are preserved.
+
+- [x] Pass ESLint, all 357 unit tests and all 98 DOM tests (`npm run check`).
+  The new DOM coverage verifies empty folder trees, populated descendants,
+  confirmation cancellation, bulk selections, persistence and restoration.
+- [x] Run all 437 Playwright scenarios with `CI=1` and four workers: 436 passed;
+  the remaining assertion still expected a confirmation for an empty folder.
+  Update that expectation and pass all seven scenarios in the affected
+  `gridDropPrecision.spec.js` file on the final rerun. No runtime change was
+  needed after the full run.
+- [x] Verify startup panel visibility before bootstrap, browser-root counts,
+  initial bookmarks-bar expansion, import progress, the new resizing default,
+  daily-tip layout and saved feedback, folder-tree recycling, and v1.1.1
+  release history and Spanish workspace names.
+- [x] Pass both Python packaging tests. Build both release ZIPs, compare every
+  packaged runtime entry with its source and verify the SHA-256 sidecars.
+  Each ZIP contains 446 files. The Store manifest omits `key`; the developer
+  manifest retains the source's stable public key.
+- [x] Extract and smoke-test each ZIP in an independent temporary Chromium
+  profile, including folder editing, popup saving, reload, shortcuts, ZIP video
+  backup restoration, local grid scroll and caption positioning.
+- [x] Include translated v1.1.1 notes in all 52 interface languages and keep
+  the historical release entries available inside the extension.
+- [x] Regenerate and visually inspect the four Store screenshots and promotional
+  tile; also inspect Spanish import, release notes, daily-tip feedback and
+  window-resizing controls.
+- [x] Pass source reachability audit: all 208 JavaScript modules are reachable
+  from the application entry points. This does not certify unused CSS candidates.
+- [x] Pass the promotional video's TypeScript check. Both npm dependency audits
+  report zero vulnerabilities.
+- [x] Check local documentation links and whitespace; keep only the four
+  v1.1.1 release ZIP/checksum files at the top level of `dist/`.
+
+| Artifact | Bytes | SHA-256 |
+| --- | ---: | --- |
+| [Store ZIP](../../dist/newdesktab-1.1.1.zip) | 3,831,590 | `3ea43599be9f40df5597d1f59265f37106b195d95d8072a194679d455c1dd579` |
+| [Developer ZIP](../../dist/newdesktab-1.1.1-dev.zip) | 3,831,932 | `39f116bc02c936fe6583c5df575d0b5376e59f40bbdd5d55d3451c6d6ebbba97` |
+
+The [Store checksum](../../dist/newdesktab-1.1.1.zip.sha256) and
+[developer checksum](../../dist/newdesktab-1.1.1-dev.zip.sha256) accompany the ZIPs.
+Supporting logs and visual captures remain in ignored
+`dist/release-audit/v1.1.1/`. These are local checks; the final commit's GitHub
+Actions result and any Store submission are separate from this record. Chrome
+123, installed Brave/Google Chrome and real-account Sync were not reverified
+for this patch.
+
 ## Release 1.1.0 — November 24, 2026
 
 The local validation below covers the 1.1.0 runtime and CI-test alignment at

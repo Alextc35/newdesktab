@@ -39,6 +39,11 @@
     "mainFull": "W głównym folderze nie ma wolnego miejsca na te zakładki. Uwolnij jedną komórkę siatki i spróbuj ponownie."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Płynniej działający pulpit",
+      "improvements": "Ukryte panele nie migają już podczas uruchamiania. Import zakładek zlicza tylko Twoje foldery, domyślnie rozwija pasek zakładek i oferuje czytelniejsze przyciski. Foldery bez zakładek można usuwać bez potwierdzenia, wraz z pustymi podfolderami.",
+      "preferences": "Podczas zmiany rozmiaru okna rozmiar zakładek jest teraz domyślnie zachowywany. Codzienne wskazówki mają czytelniejsze przyciski i wyświetlają potwierdzenie po ich wyłączeniu. Zapisane preferencje zostają zachowane."
+    },
     "v1_1_0": {
       "title": "Twoje zakładki Chrome w domu w New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

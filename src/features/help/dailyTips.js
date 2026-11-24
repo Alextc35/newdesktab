@@ -2,7 +2,7 @@ import { subscribeLanguageChange, t } from '../../platform/i18n/i18n.js';
 import { areDailyTipsEnabled, claimDailyTip, DEVICE_DAILY_TIPS_KEY, setDailyTipsEnabled } from '../../platform/storage/deviceDailyTips.js';
 import { hasOpenModal, subscribeModalChanges } from '../../shared/ui/modalManager.js';
 import { isListView } from '../../shared/ui/viewportMode.js';
-import { flashError, flashInfo } from '../../shared/ui/flash.js';
+import { flashError, flashInfo, flashSuccess } from '../../shared/ui/flash.js';
 import { MANUAL_TOPICS } from './manualCatalog.js';
 import { createManualIcon } from './manualIcons.js';
 import { createTimedNotice } from './timedNotice.js';
@@ -80,6 +80,7 @@ export function createDailyTips({ card, onOpenManual }) {
       enabled = false;
       clearTimeout(timer);
       notice.dismiss({ animate: false });
+      flashSuccess('flash.settings.saved');
     } catch (error) {
       console.warn('[HELP] Could not disable daily tips:', error);
       if (!destroyed) flashError('settingsModal.sync.status.error');

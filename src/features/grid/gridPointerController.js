@@ -1,4 +1,5 @@
 import '../../types/types.js'; // typedefs
+import { countFolderTreeBookmarks } from '../../domain/folders/folderTree.js';
 import {
   addBookmarkToFolder
 } from '../folders/folderActions.js';
@@ -380,10 +381,9 @@ function restoreCancelledGridDrop(element) {
 }
 
 async function confirmFolderRecycle(folder) {
-  const bookmarkCount = getState().data.bookmarks.filter(
-    bookmark => bookmark.folderId === folder.id
-  ).length;
-  const confirmed = await showAlert(t('alert.recycleBin.folder', {
+  const { folders, bookmarks } = getState().data;
+  const bookmarkCount = countFolderTreeBookmarks(folders, bookmarks, [folder.id]);
+  const confirmed = bookmarkCount === 0 || await showAlert(t('alert.recycleBin.folder', {
     name: folder.name,
     count: bookmarkCount
   }), { type: 'confirm' });

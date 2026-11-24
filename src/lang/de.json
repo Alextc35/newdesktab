@@ -39,6 +39,11 @@
     "mainFull": "Main verfügt über keinen freien Speicherplatz für diese Lesezeichen. Geben Sie eine Gitterzelle frei und versuchen Sie es erneut."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Ein flüssigerer Desktop",
+      "improvements": "Ausgeblendete Bereiche blitzen beim Start nicht mehr auf. Beim Lesezeichenimport werden nur deine eigenen Ordner gezählt, die Lesezeichenleiste ist standardmäßig aufgeklappt und die Bedienelemente sind übersichtlicher. Ordner ohne Lesezeichen lassen sich ohne Bestätigung löschen, auch wenn sie leere Unterordner enthalten.",
+      "preferences": "„Keep bookmark size“ ist jetzt die Standardeinstellung beim Ändern der Fenstergröße. Die Aktionen der täglichen Tipps sind übersichtlicher, und beim Ausschalten erscheint eine Bestätigung. Gespeicherte Einstellungen bleiben erhalten."
+    },
     "v1_1_0": {
       "title": "Ihre Chrome-Lesezeichen, zu Hause im New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

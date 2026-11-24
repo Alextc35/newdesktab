@@ -1,6 +1,7 @@
 import {
   BROWSER_BOOKMARK_SOURCE,
   browserBookmarkRoots,
+  isBrowserBookmarkRoot,
   safeImportedBookmarkUrl
 } from './browserBookmarkImport.js';
 
@@ -114,14 +115,16 @@ export function getBrowserBookmarkSelectionState(selection, id) {
   };
 }
 
-/** Counts selected links and every folder needed to retain their hierarchy. */
+/** Counts selected links and user folders without including browser roots. */
 export function getSelectedBrowserBookmarkCounts(selection) {
   const retained = getRetainedNodes(selection);
   let bookmarkCount = 0;
   let folderCount = 0;
   for (const id of retained) {
-    if (selection.nodes.get(id).kind === 'folder') folderCount++;
-    else bookmarkCount++;
+    const entry = selection.nodes.get(id);
+    if (entry.kind === 'folder') {
+      if (entry.parentId !== null || !isBrowserBookmarkRoot(entry.node)) folderCount++;
+    } else bookmarkCount++;
   }
   return { bookmarkCount, folderCount };
 }

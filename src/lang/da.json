@@ -39,6 +39,11 @@
     "mainFull": "Main har ingen ledig plads til disse bogmærker. Frigør en gittercelle, og prøv igen."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Et mere flydende skrivebord",
+      "improvements": "Skjulte paneler blinker ikke længere frem ved opstart. Import af bogmærker tæller kun dine egne mapper, folder bogmærkelinjen ud som standard og har tydeligere betjening. Mapper uden bogmærker kan slettes uden bekræftelse, også hvis de indeholder tomme undermapper.",
+      "preferences": "«Keep bookmark size» er nu standardvalget, når du ændrer vinduets størrelse. De daglige tip har tydeligere handlinger og viser en bekræftelse, når du slår dem fra. Dine gemte indstillinger bevares."
+    },
     "v1_1_0": {
       "title": "Dine Chrome-bogmærker hjemme i New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

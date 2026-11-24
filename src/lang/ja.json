@@ -39,6 +39,11 @@
     "mainFull": "Main には、これらのブックマーク用の空きスペースがありません。グリッド セルを 1 つ解放して、再試行してください。"
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "よりスムーズなデスクトップ",
+      "improvements": "非表示のパネルが起動時に一瞬表示される問題を修正しました。ブックマークのインポートではユーザーが作成したフォルダのみを数え、ブックマークバーを標準で展開します。操作も分かりやすくなりました。 ブックマークがないフォルダは、空のサブフォルダを含む場合でも確認なしで削除できます。",
+      "preferences": "ウィンドウのサイズ変更時は「Keep bookmark size」が標準の設定になりました。毎日のヒントの操作が分かりやすくなり、無効にすると確認メッセージが表示されます。保存済みの設定は維持されます。"
+    },
     "v1_1_0": {
       "title": "Chrome のブックマークを自宅の New DeskTab に保存",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

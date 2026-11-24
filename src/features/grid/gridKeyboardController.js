@@ -219,10 +219,9 @@ async function confirmFocusedGridItemDeletion(item, { permanent = false } = {}) 
     ...createItemActionContext(item),
     permanent
   };
-  const confirmation = item.definition.getRemovalConfirmation?.(context)
-    ?? t('alert.widget.confirmPermanentDelete');
-  const confirmed = await showAlert(
-    confirmation,
+  const confirmation = item.definition.getRemovalConfirmation?.(context);
+  const confirmed = !permanent && item.selectionKind === 'folder' && confirmation === null || await showAlert(
+    confirmation ?? t('alert.widget.confirmPermanentDelete'),
     { type: 'confirm', requiresWideViewport: true }
   );
   if (!confirmed) {

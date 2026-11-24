@@ -34,6 +34,35 @@ async function savedPreferences(page) {
   });
 }
 
+async function reloadBeforePanelPreferences(page, visibility) {
+  let resume;
+  let requested;
+  const pending = new Promise(resolve => { resume = resolve; });
+  const bootstrapRequested = new Promise(resolve => { requested = resolve; });
+  const interceptBootstrap = async route => {
+    requested();
+    await pending;
+    await route.continue();
+  };
+  await page.route('**/src/main.js', interceptBootstrap);
+  const navigation = page.reload();
+  try {
+    await bootstrapRequested;
+    // The static shell has reached the browser, but preferences cannot be read.
+    await expectPanels(page, { launcher: false, workspace: false });
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => {
+      requestAnimationFrame(resolve);
+    })));
+    await expectPanels(page, { launcher: false, workspace: false });
+  } finally {
+    resume();
+    await navigation;
+    await page.unroute('**/src/main.js', interceptBootstrap);
+  }
+  await expectAppReady(page);
+  await expectPanels(page, visibility);
+}
+
 test.beforeEach(async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 720 });
   await page.route('**/*', route => new URL(route.request().url()).hostname === '127.0.0.1'
@@ -41,6 +70,10 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/tests/browser-harness.html');
   await expectAppReady(page);
   await page.locator('#bookmark-container').focus();
+});
+
+test('enabled panels stay unpainted until startup applies their preferences', async ({ page }) => {
+  await reloadBeforePanelPreferences(page, { launcher: true, workspace: true });
 });
 
 for (const [input, visibility] of [
@@ -57,9 +90,7 @@ for (const [input, visibility] of [
     await saveSettings(page);
     await expectPanels(page, visibility);
 
-    await page.reload();
-    await expectAppReady(page);
-    await expectPanels(page, visibility);
+    await reloadBeforePanelPreferences(page, visibility);
     await openSettings(page);
     await expect(page.locator('#settings-show-launcher')).toBeChecked({ checked: visibility.launcher });
     await expect(page.locator('#settings-show-workspace-toolbar')).toBeChecked({ checked: visibility.workspace });
@@ -95,9 +126,7 @@ test('hidden panels retain creation, workspace navigation and settings shortcuts
   await page.locator('#settings-show-workspace-toolbar').uncheck();
   await saveSettings(page);
   await expectPanels(page, { launcher: false, workspace: false });
-  await page.reload();
-  await expectAppReady(page);
-  await expectPanels(page, { launcher: false, workspace: false });
+  await reloadBeforePanelPreferences(page, { launcher: false, workspace: false });
 
   for (const [key, modal] of [
     ['KeyB', '#edit-bookmark-modal'], ['KeyF', '#edit-folder-modal']

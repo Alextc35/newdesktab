@@ -94,6 +94,8 @@ Save favorite styles as presets and reuse them across your bookmarks.
 
 ## Get started
 
+The current release is **1.1.1**. See the [changelog](CHANGELOG.md) for the update details.
+
 Requires **Chrome / Chromium 123 or newer**, or a compatible Brave version.
 To install only the extension files, generate a clean package first.
 Packaging requires **Node.js/npm and Python 3.9 or newer**. If you already have
@@ -130,6 +132,8 @@ generates both ZIPs and SHA-256 checksums without changing the source manifest.
 
 **A few useful defaults:** `E` to edit · `B` to add a bookmark · `S` for settings ·
 `/` to search · `Ctrl + ↑ / ↓` to switch workspaces.
+Bookmarks keep their size when the window becomes smaller; choose **Fit window**
+in Settings if you prefer to scale the grid to the available area.
 The [user guide](docs/guide/USER_GUIDE.md) covers customization, shortcuts and backups.
 
 ## Your data, your choice

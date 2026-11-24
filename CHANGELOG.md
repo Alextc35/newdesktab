@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.1 — 2026-11-24
+
+- Keep disabled action and workspace panels hidden from the initial page render, avoiding a flash during startup.
+- Count only user folders in detected and selected browser bookmarks, excluding browser-provided root containers.
+- Move folders to the recycle bin without confirmation when their complete tree contains no bookmarks, including trees of empty subfolders; keep confirmation when any descendant contains bookmarks or deletion is permanent.
+- Expand the bookmarks bar by default in the import preview, distinguish its show/hide control from selection actions, and keep progress in the import button without an extra loading block.
+- Use “Principal” consistently for Main in Spanish import text, release notes and the manual.
+- Put Keep bookmark size first in window-resizing settings and make it the default for new or missing preferences; retain valid saved choices.
+- Align the daily-tip action at the lower right and confirm turning off daily tips with a saved-settings flash.
+- Retain public data schema 2, the current permissions and Chrome/Chromium 123 as the minimum browser version.
+
 ## 1.1.0 — 2026-11-23
 
 - Offer native Chrome bookmark import after the first welcome guide, and provide Chrome and exported-HTML imports in Settings.

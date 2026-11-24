@@ -39,6 +39,11 @@
     "mainFull": "Main har inget ledigt utrymme för dessa bokmärken. Frigör en rutnätscell och försök igen."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Ett smidigare skrivbord",
+      "improvements": "Dolda paneler blinkar inte längre till vid start. Bokmärkesimporten räknar bara dina egna mappar, visar bokmärkesfältet utfällt som standard och har tydligare kontroller. Mappar utan bokmärken kan tas bort utan bekräftelse, inklusive tomma undermappar.",
+      "preferences": "Bokmärkenas storlek behålls nu som standard när du ändrar fönstrets storlek. Dagliga tips har tydligare åtgärder och visar en bekräftelse när du stänger av dem. Sparade inställningar behålls."
+    },
     "v1_1_0": {
       "title": "Dina Chrome-bokmärken, hemma i New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

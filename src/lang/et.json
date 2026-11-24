@@ -39,6 +39,11 @@
     "mainFull": "Mainil pole nende järjehoidjate jaoks vaba ruumi. Vabastage üks ruudustiku lahter ja proovige uuesti."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Sujuvam töölaud",
+      "improvements": "Peidetud paneelid ei vilksata enam käivitamisel. Järjehoidjate import loendab ainult teie enda kaustu, avab järjehoidjariba vaikimisi ja pakub selgemaid juhtelemente. Järjehoidjateta kaustu saab kustutada ilma kinnituseta, ka siis, kui need sisaldavad tühje alamkaustu.",
+      "preferences": "Akna suuruse muutmisel on nüüd vaikevalik „Keep bookmark size“. Igapäevaste nõuannete toimingud on selgemad ja nende väljalülitamisel kuvatakse kinnitus. Salvestatud eelistused säilivad."
+    },
     "v1_1_0": {
       "title": "Teie Chrome'i järjehoidjad New DeskTab-s kodus",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

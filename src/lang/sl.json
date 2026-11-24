@@ -39,6 +39,11 @@
     "mainFull": "Glavni nima prostora za te zaznamke. Sprostite eno mrežno celico in poskusite znova."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Bolj tekoče namizje",
+      "improvements": "Skrite plošče ob zagonu ne utripajo več. Uvoz zaznamkov šteje le vaše mape, privzeto razširi vrstico z zaznamki in ima jasnejše kontrolnike. Mape brez zaznamkov lahko izbrišete brez potrditve, vključno s praznimi podmapami.",
+      "preferences": "Pri spreminjanju velikosti okna se zdaj privzeto ohrani velikost zaznamkov. Dnevni nasveti imajo jasnejša dejanja in ob izklopu prikažejo potrditev. Shranjene nastavitve se ohranijo."
+    },
     "v1_1_0": {
       "title": "Vaši zaznamki v Chromu, doma v New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

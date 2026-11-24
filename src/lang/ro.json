@@ -39,6 +39,11 @@
     "mainFull": "Main nu are spațiu liber pentru aceste marcaje. Eliberați o celulă de grilă și încercați din nou."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Un desktop mai fluid",
+      "improvements": "Panourile ascunse nu mai apar pentru o clipă la pornire. Importul de marcaje numără doar folderele tale, extinde implicit bara de marcaje și oferă controale mai clare. Folderele fără marcaje pot fi șterse fără confirmare, inclusiv subfolderele goale.",
+      "preferences": "Dimensiunea marcajelor este acum păstrată implicit când redimensionezi fereastra. Sfaturile zilnice au acțiuni mai clare și afișează o confirmare când le dezactivezi. Preferințele salvate sunt păstrate."
+    },
     "v1_1_0": {
       "title": "Marcajele tale Chrome, acasă în New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

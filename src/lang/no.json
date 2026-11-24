@@ -39,6 +39,11 @@
     "mainFull": "Main har ikke ledig plass for disse bokmerkene. Frigjør én rutenettcelle og prøv igjen."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Et smidigere skrivebord",
+      "improvements": "Skjulte paneler blinker ikke lenger ved oppstart. Bokmerkeimport teller bare dine egne mapper, viser bokmerkelinjen utvidet som standard og har tydeligere kontroller. Mapper uten bokmerker kan slettes uten bekreftelse, inkludert tomme undermapper.",
+      "preferences": "Bokmerkenes størrelse beholdes nå som standard når du endrer vindusstørrelsen. Daglige tips har tydeligere handlinger og gir en bekreftelse når du slår dem av. Lagrede innstillinger beholdes."
+    },
     "v1_1_0": {
       "title": "Chrome-bokmerkene dine hjemme i New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

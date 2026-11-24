@@ -39,6 +39,11 @@
     "mainFull": "Main không có không gian trống cho những dấu trang này. Giải phóng một ô lưới và thử lại."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Màn hình làm việc mượt mà hơn",
+      "improvements": "Các bảng đã ẩn không còn nhấp nháy khi khởi động. Tính năng nhập dấu trang chỉ đếm các thư mục của bạn, mặc định mở rộng thanh dấu trang và có các nút điều khiển rõ ràng hơn. Có thể xóa thư mục không chứa dấu trang mà không cần xác nhận, bao gồm cả các thư mục con trống.",
+      "preferences": "Giữ nguyên kích thước dấu trang nay là mặc định khi thay đổi kích thước cửa sổ. Mẹo hằng ngày có các thao tác rõ ràng hơn và hiển thị xác nhận khi bạn tắt chúng. Các tùy chọn đã lưu được giữ nguyên."
+    },
     "v1_1_0": {
       "title": "Dấu trang Chrome của bạn ở nhà trong New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

@@ -135,8 +135,11 @@ folder out of the way. Folder cards use the same grid drag and resize system.
 ### Resize the browser window
 
 **Settings → General → Window resizing behavior → Keep bookmark size** keeps the
-larger grid available in a smaller window. Each workspace remembers its
-horizontal and vertical scroll position on this device. A workspace with no
+larger grid available in a smaller window. It is the first option and the default
+for new profiles or missing preferences. Existing valid saved choices remain in
+place. Choose **Fit window** to shrink or grow bookmarks with the available area.
+Each workspace remembers its horizontal and vertical scroll position on this
+device. A workspace with no
 saved position starts centered. Window resizing keeps the visible center
 anchored; changing workspace restores its view and fades it in without scaling
 the grid.
@@ -167,10 +170,13 @@ Sequence behavior also applies inside folders.
 
 Dragging a bookmark onto a folder uses its first free internal cell. Taking it
 out finds a free area in the main grid large enough for its saved dimensions.
-Imported folders can contain subfolders. Moving a folder to another workspace keeps its
-complete subtree with it. Deleting a folder asks for confirmation and sends the folder
-and all its contents to the recycle bin together, unless permanent deletion is
-explicitly selected.
+Imported folders can contain subfolders. Moving a folder to another workspace
+keeps its complete subtree with it. Moving a folder to the recycle bin asks for
+confirmation when it or any of its subfolders contains bookmarks. A folder with
+no bookmarks anywhere in its tree goes to the recycle bin without confirmation,
+including when it contains only empty subfolders. The folder and its complete
+tree stay together. Permanent deletion always requires confirmation, including
+for a tree without bookmarks.
 
 ### Workspaces
 
@@ -186,7 +192,8 @@ contains `Ctrl` or the resulting combination is assigned to another action.
 
 **Settings → General → Panels** controls the left action panel and bottom
 workspace panel independently. Their shortcuts remain available when a panel is
-hidden. Keep a Settings shortcut assigned so you can reopen Settings.
+hidden. Disabled panels stay hidden while a new tab loads, avoiding a brief flash.
+Keep a Settings shortcut assigned so you can reopen Settings.
 
 ## Search and widgets
 
@@ -223,7 +230,7 @@ and synchronized shared settings when Chrome Sync is enabled.
 | Short primary click in edit mode | Toggle selection. |
 | Hold and move the primary button | Drag an item. |
 | Click a resize handle / `Shift + click` | Grow / shrink one grid cell in that direction. |
-| `Delete` / `Backspace` during keyboard grid navigation in edit mode | Confirm removal of the focused item; bookmarks and folders go to the recycle bin, while widgets are permanently deleted. |
+| `Delete` / `Backspace` during keyboard grid navigation in edit mode | Remove the focused item after any required confirmation; bookmarks and folders go to the recycle bin, while widgets are permanently deleted. Folders with no bookmarks anywhere in their tree do not require confirmation. |
 | `Shift + Delete` / `Shift + Backspace` in that mode | Confirm permanent removal of the focused removable item. |
 | `Escape` outside dialogs and text controls | Clear selection first, then leave grid navigation, then leave edit mode on successive presses. |
 
@@ -348,6 +355,10 @@ New DeskTab supports two different exports from Settings:
 Use **View and select items** to expand the detected tree, choose individual
 links or complete folders, search, or select/deselect everything. Empty folders
 have a visible **Empty** badge and start unchecked. You can include them explicitly.
+The bookmarks bar starts expanded, and you can collapse it. Detected and selected
+folder totals count user-created folders inside the browser containers; the
+bookmarks bar, Other bookmarks and mobile root containers do not count as folders.
+The blue show/hide control is distinct from the selection buttons below it.
 Folder icons contain an expand arrow when they have children; links show their
 website favicon when available. The tree uses the interface's styled scrollbar
 and can reveal more entries in large collections.
@@ -368,6 +379,7 @@ existing data unchanged.
 Repeating the same import avoids duplicating the imported records.
 The standard confirmation appears before writing the selected data. On success,
 the import dialog closes automatically and a flash reports the saved result.
+While saving, progress appears in the import button without an extra loading block.
 Unsupported link protocols are skipped and reported. Large collections may
 exceed Chrome Sync's storage allowance; switch DeskTab to Local mode and retry.
 
@@ -426,8 +438,9 @@ cannot be undone. Exported backup files must be deleted separately.
 **Settings → Help** contains the searchable manual, common questions, replayable
 welcome guide and daily-tip preference. Tips can open their related manual
 section, and **Turn off daily tips** on the card disables future tips immediately.
-You can enable them again in Help. **Settings → Information** provides release
-notes and version history.
+The **Show me how** action sits at the lower right; disabling tips closes the card
+and confirms the saved setting with a flash. You can enable them again in Help.
+**Settings → Information** provides release notes and version history.
 
 On a new profile, release notes appear before the guide, followed by the detected
 Chrome-bookmark import offer when applicable. An enabled daily tip follows those

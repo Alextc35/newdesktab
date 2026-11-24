@@ -39,6 +39,11 @@
     "mainFull": "Main no té espai lliure per a aquestes adreces d'interès. Allibera una cel·la de quadrícula i torna-ho a provar."
   },
   "releaseNotes": {
+    "v1_1_1": {
+      "title": "Un escriptori més fluid",
+      "improvements": "Els panells ocults ja no apareixen un instant en iniciar. La importació d'adreces d'interès només compta les teves carpetes, desplega la barra d'adreces d'interès per defecte i té controls més clars. Les carpetes sense adreces d'interès, encara que continguin subcarpetes buides, es poden suprimir sense confirmació.",
+      "preferences": "«Keep bookmark size» és ara l'opció per defecte en redimensionar la finestra. Els consells diaris tenen accions més clares i mostren una confirmació quan els desactives. Es conserven les preferències desades."
+    },
     "v1_1_0": {
       "title": "Les vostres adreces d'interès de Chrome, a casa a New DeskTab",
       "import": "Import your selection into Main alongside your current bookmarks. The bookmarks bar appears directly on the desktop; other bookmarks keep their folders.",

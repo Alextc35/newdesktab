@@ -1,4 +1,5 @@
 import { isGridKeyboardActive } from '../grid/gridKeyboardController.js';
+import { countFolderTreeBookmarks } from '../../domain/folders/folderTree.js';
 import { createFolderListItem } from './folderListItem.js';
 import { getActiveWorkspaceId } from '../workspaces/workspaceSelectors.js';
 import { createFolderElement, enableFolderEditing } from './folderCard.js';
@@ -45,11 +46,13 @@ export const folderGridItem = Object.freeze({
   open: ({ item }) => openFolderModal(item.id),
   edit: ({ item }) => openFolderEditor(item.id),
   getRemovalConfirmation({ item, state, permanent }) {
+    const count = countFolderTreeBookmarks(state.data.folders, state.data.bookmarks, [item.id]);
+    if (!permanent && count === 0) return null;
     return t(permanent
       ? 'folder.confirmPermanentDelete'
       : 'folder.confirmDelete', {
       name: item.name,
-      count: state.data.bookmarks.filter(bookmark => bookmark.folderId === item.id).length
+      count
     });
   },
   remove({ item, permanent }) {

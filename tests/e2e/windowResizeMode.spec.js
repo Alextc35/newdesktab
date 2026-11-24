@@ -86,29 +86,32 @@ test.beforeEach(async ({ page }) => {
   await expectAppReady(page);
 });
 
-test('keeps the grid size on smaller windows and returns to fitting on demand', async ({ page }) => {
+test('defaults to keeping bookmark size first and allows a persisted switch to fitting', async ({ page }) => {
   await page.setViewportSize({ width: 1200, height: 800 });
-  const fitSize = await page.locator('#bookmark-container').evaluate(element => ({
+  const initialSize = await page.locator('#bookmark-container').evaluate(element => ({
     width: element.clientWidth,
     height: element.clientHeight
   }));
 
   await openSettings(page);
   await expandWindowResizeSettings(page);
-  await page.locator('input[name="window-resize-mode"][value="relative"]').check();
+  const modes = page.locator('input[name="window-resize-mode"]');
+  await expect(modes.nth(0)).toHaveValue('relative');
+  await expect(modes.nth(0)).toBeChecked();
+  await expect(modes.nth(1)).toHaveValue('fit');
   await expect(page.locator('#window-resize-settings-summary'))
     .toHaveText('Keep bookmark size');
-  await page.locator('#settings-modal-save').click();
+  await page.locator('#settings-modal-cancel').click();
   await expect(page.locator('#settings-modal')).toBeHidden();
   await waitForSaved(page);
 
   await expect.poll(() => page.locator('#bookmark-container')
-    .evaluate(element => element.clientWidth)).toBe(fitSize.width);
+    .evaluate(element => element.clientWidth)).toBe(initialSize.width);
   await page.setViewportSize({ width: 700, height: 500 });
   await expect.poll(() => page.locator('#bookmark-container')
-    .evaluate(element => element.clientWidth)).toBe(fitSize.width);
+    .evaluate(element => element.clientWidth)).toBe(initialSize.width);
   await expect.poll(() => page.locator('#bookmark-container')
-    .evaluate(element => element.clientHeight)).toBe(fitSize.height);
+    .evaluate(element => element.clientHeight)).toBe(initialSize.height);
   const relativeState = await page.evaluate(async () => {
     const { getState } = await import('/src/state/appStore.js');
     const viewport = document.getElementById('bookmark-viewport');
@@ -139,6 +142,11 @@ test('keeps the grid size on smaller windows and returns to fitting on demand', 
   expect(fitState).toBe('fit');
   await expect(page.locator('#bookmark-viewport')).toHaveJSProperty('scrollLeft', 0);
   await expect(page.locator('#bookmark-viewport')).toHaveJSProperty('scrollTop', 0);
+  await page.reload();
+  await expectAppReady(page);
+  await openSettings(page);
+  await expandWindowResizeSettings(page);
+  await expect(page.locator('input[name="window-resize-mode"][value="fit"]')).toBeChecked();
 });
 
 test('keeps centered bookmarks the same size through repeated resizes and list view', async ({ page }) => {
