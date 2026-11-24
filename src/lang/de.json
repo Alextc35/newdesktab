@@ -39,6 +39,11 @@
     "mainFull": "Main verfügt über keinen freien Speicherplatz für diese Lesezeichen. Geben Sie eine Gitterzelle frei und versuchen Sie es erneut."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Synchronisierung ohne Moduswechsel",
+      "sync": "Über Chrome Sync empfangene Änderungen aktualisieren jetzt geöffnete New DeskTab-Tabs, ohne dass du zu „Lokal“ und zurück zu „Synchronisiert“ wechseln musst.",
+      "recovery": "New DeskTab prüft beim Zurückkehren zu einem Tab auf Änderungen und erholt sich von vorübergehenden Leseproblemen. Änderungen, die beim Öffnen des Desktops eintreffen, gehen nicht mehr verloren."
+    },
     "v1_1_1": {
       "title": "Ein flüssigerer Desktop",
       "improvements": "Ausgeblendete Bereiche blitzen beim Start nicht mehr auf. Beim Lesezeichenimport werden nur deine eigenen Ordner gezählt, die Lesezeichenleiste ist standardmäßig aufgeklappt und die Bedienelemente sind übersichtlicher. Ordner ohne Lesezeichen lassen sich ohne Bestätigung löschen, auch wenn sie leere Unterordner enthalten.",

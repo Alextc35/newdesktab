@@ -4,6 +4,15 @@ export const SYNC_FORMAT_VERSION = 1;
 
 const SYNC_ITEM_SAFE_BYTES = 7600;
 
+/** FNV-1a over UTF-16 code units detects accidental mixed chunks, not tampering. */
+function getPayloadChecksum(serialized) {
+  let checksum = 0x811c9dc5;
+  for (let index = 0; index < serialized.length; index += 1) {
+    checksum = Math.imul(checksum ^ serialized.charCodeAt(index), 0x01000193);
+  }
+  return (checksum >>> 0).toString(16).padStart(8, '0');
+}
+
 /**
  * Splits serialized data into values that remain below storage.sync's
  * per-item quota, including escaped JSON string characters.
@@ -62,7 +71,8 @@ export function getSyncChunkKeys(chunkCount) {
  * @param {{schemaVersion: number, writerDeviceId: string|null, updatedAt?: number, writeId?: string}} options
  */
 export function encodeSyncPayload(data, options) {
-  const chunks = splitSyncPayload(JSON.stringify(data));
+  const serialized = JSON.stringify(data);
+  const chunks = splitSyncPayload(serialized);
   const items = Object.fromEntries(
     chunks.map((chunk, index) => [`${SYNC_CHUNK_PREFIX}${index}`, chunk])
   );
@@ -70,6 +80,7 @@ export function encodeSyncPayload(data, options) {
     version: SYNC_FORMAT_VERSION,
     schemaVersion: options.schemaVersion,
     chunkCount: chunks.length,
+    payloadChecksum: getPayloadChecksum(serialized),
     updatedAt: options.updatedAt ?? Date.now(),
     writerDeviceId: options.writerDeviceId,
     writeId: options.writeId ?? crypto.randomUUID()
@@ -119,8 +130,17 @@ export function decodeSyncPayload(meta, values) {
     throw new Error('The synchronized NewDeskTab data is incomplete.');
   }
 
+  const serialized = keys.map(key => values[key]).join('');
+  // Older writers omit this field and remain readable by current builds.
+  if (meta.payloadChecksum !== undefined
+    && meta.payloadChecksum !== getPayloadChecksum(serialized)) {
+    const error = new Error('The synchronized NewDeskTab data is inconsistent.');
+    error.code = 'SYNC_PAYLOAD_MISMATCH';
+    throw error;
+  }
+
   try {
-    return JSON.parse(keys.map(key => values[key]).join(''));
+    return JSON.parse(serialized);
   } catch (error) {
     throw new Error('The synchronized NewDeskTab data is invalid.', { cause: error });
   }

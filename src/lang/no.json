@@ -39,6 +39,11 @@
     "mainFull": "Main har ikke ledig plass for disse bokmerkene. Frigjør én rutenettcelle og prøv igjen."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Synkroniser uten å bytte modus",
+      "sync": "Endringer mottatt gjennom Chrome Sync oppdater nå åpne New DeskTab-faner uten å bytte til Lokal og tilbake til synkronisering.",
+      "recovery": "New DeskTab ser etter oppdateringer når du går tilbake til en fane og gjenoppretter etter midlertidige leseproblemer. Oppdateringer som kommer mens skrivebordet åpnes, savnes ikke lenger."
+    },
     "v1_1_1": {
       "title": "Et smidigere skrivebord",
       "improvements": "Skjulte paneler blinker ikke lenger ved oppstart. Bokmerkeimport teller bare dine egne mapper, viser bokmerkelinjen utvidet som standard og har tydeligere kontroller. Mapper uten bokmerker kan slettes uten bekreftelse, inkludert tomme undermapper.",

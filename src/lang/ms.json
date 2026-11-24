@@ -39,6 +39,11 @@
     "mainFull": "Utama tidak mempunyai ruang kosong untuk penanda halaman ini. Kosongkan satu sel grid dan cuba lagi."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Segerakkan tanpa menukar mod",
+      "sync": "Perubahan yang diterima melalui Chrome Sync kini memuat semula tab New DeskTab tanpa beralih kepada Setempat dan kembali kepada Penyegerakan.",
+      "recovery": "New DeskTab menyemak kemas kini apabila anda kembali ke tab dan pulih daripada masalah bacaan sementara. Kemas kini yang tiba semasa desktop dibuka tidak lagi terlepas."
+    },
     "v1_1_1": {
       "title": "Desktop yang lebih lancar",
       "improvements": "Panel tersembunyi tidak lagi berkelip semasa permulaan. Import penanda halaman hanya mengira folder anda, mengembangkan bar penanda halaman secara lalai dan mempunyai kawalan yang lebih jelas. Folder tanpa penanda halaman boleh dipadam tanpa pengesahan, termasuk subfolder kosong.",

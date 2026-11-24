@@ -39,6 +39,11 @@
     "mainFull": "Main n'a pas d'espace libre pour ces signets. Libérez une cellule de la grille et réessayez."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Synchronisez sans changer de mode",
+      "sync": "Les modifications reçues via Chrome Sync actualisent désormais les onglets New DeskTab ouverts sans devoir passer en mode Local puis revenir à Sync.",
+      "recovery": "New DeskTab recherche les modifications lorsque vous revenez à un onglet et réessaie en cas de problème de lecture temporaire. Les modifications reçues pendant l’ouverture du bureau ne sont plus perdues."
+    },
     "v1_1_1": {
       "title": "Un bureau plus fluide",
       "improvements": "Les panneaux masqués ne clignotent plus au démarrage. L’importation de favoris compte uniquement vos propres dossiers, déplie la barre de favoris par défaut et propose des commandes plus claires. Les dossiers sans favoris peuvent être supprimés sans confirmation, même s’ils contiennent des sous-dossiers vides.",

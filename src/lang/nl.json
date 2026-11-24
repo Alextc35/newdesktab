@@ -39,6 +39,11 @@
     "mainFull": "Main heeft geen vrije ruimte voor deze bladwijzers. Maak één rastercel vrij en probeer het opnieuw."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Synchroniseer zonder van modus te wisselen",
+      "sync": "Wijzigingen ontvangen via Chrome Sync vernieuwen nu geopende New DeskTab tabbladen zonder over te schakelen naar Lokaal en terug naar Sync.",
+      "recovery": "New DeskTab controleert op updates wanneer u terugkeert naar een tabblad en herstelt van tijdelijke leesproblemen. Updates die binnenkomen terwijl het bureaublad wordt geopend, worden niet langer gemist."
+    },
     "v1_1_1": {
       "title": "Een soepelere desktop",
       "improvements": "Verborgen panelen flitsen niet meer in beeld bij het opstarten. Bij het importeren van bladwijzers worden alleen je eigen mappen geteld, is de bladwijzerbalk standaard uitgeklapt en zijn de knoppen duidelijker. Mappen zonder bladwijzers kunnen zonder bevestiging worden verwijderd, inclusief lege submappen.",

@@ -121,23 +121,6 @@
   display: none;
 }
 
-.workspace-local-image-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-  margin: -2px 0 4px;
-}
-
-.workspace-local-image-name {
-  min-width: 0;
-  overflow: hidden;
-  color: var(--ui-muted);
-  font-size: 12px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .workspace-image-sync-note {
   margin: 4px 0 14px;
   color: var(--ui-muted);

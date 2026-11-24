@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.2 — 2026-11-24
+
+- Refresh open New DeskTab pages when Chrome Sync changes arrive, without requiring a switch to Local and back to Sync.
+- Retain storage changes received during startup and prevent older asynchronous reads from replacing newer updates.
+- Retry temporary storage-read failures and check for updates when returning to a tab.
+- Validate synchronized payload integrity while retaining compatibility with earlier versions.
+- Read only Sync metadata for normal update checks and remove unused workspace styles and a selector.
+- Keep public data schema 2, the existing permissions and Chrome/Chromium 123 as the minimum browser version.
+
 ## 1.1.1 — 2026-11-24
 
 - Keep disabled action and workspace panels hidden from the initial page render, avoiding a flash during startup.

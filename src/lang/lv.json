@@ -39,6 +39,11 @@
     "mainFull": "Galvenā nav brīvas vietas šīm grāmatzīmēm. Atbrīvojiet vienu režģa šūnu un mēģiniet vēlreiz."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Sinhronizācija bez režīmu pārslēgšanas",
+      "sync": "Izmaiņas, kas saņemtas, izmantojot Chrome Sync, tagad atsvaidzina atvērtās New DeskTab cilnes, nepārslēdzoties uz lokālo un atpakaļ uz sinhronizāciju.",
+      "recovery": "New DeskTab pārbauda atjauninājumus, kad atgriežaties cilnē, un atkopjas no īslaicīgām lasīšanas problēmām. Atjauninājumi, kas tiek saņemti, kamēr tiek atvērta darbvirsma, vairs netiek palaisti garām."
+    },
     "v1_1_1": {
       "title": "Vienmērīgāka darbvirsma",
       "improvements": "Paslēptie paneļi palaišanas laikā vairs neuzplaiksnī. Importējot grāmatzīmes, tiek skaitītas tikai jūsu mapes, grāmatzīmju josla pēc noklusējuma ir izvērsta, un vadīklas ir skaidrākas. Mapes bez grāmatzīmēm var izdzēst bez apstiprinājuma, pat ja tajās ir tukšas apakšmapes.",

@@ -93,6 +93,14 @@ const {
 
 const waitForStorageRefresh = () => new Promise(resolve => setTimeout(resolve, 80));
 
+async function waitUntil(predicate, message) {
+  const deadline = Date.now() + 2000;
+  while (!predicate() && Date.now() < deadline) {
+    await new Promise(resolve => setTimeout(resolve, 10));
+  }
+  assert.ok(predicate(), message);
+}
+
 test('announces only data updates received from another device', async () => {
   await hydrateStore();
 
@@ -141,7 +149,10 @@ test('announces only data updates received from another device', async () => {
   chrome.storage.sync.set({
     'newdesktabSyncChunk:0': JSON.stringify(remoteData)
   }, () => {});
-  await waitForStorageRefresh();
+  // Migrating device-only trash can invalidate the first snapshot. Wait for
+  // the applied update rather than assuming it finishes in one debounce.
+  await waitUntil(() => getState().data.bookmarks[0].name === 'Changed remotely',
+    'the synchronized change must reach the visible state');
 
   assert.equal(getState().data.bookmarks[0].name, 'Changed remotely');
   assert.equal(remoteUpdates, 1);
@@ -155,7 +166,8 @@ test('keeps the visible data and switches to Local after remote Sync deletion', 
   const visibleBeforeDeletion = getState().data;
 
   chrome.storage.sync.remove(Object.keys(chrome.storage.sync.data), () => {});
-  await waitForStorageRefresh();
+  await waitUntil(() => events.includes('deleted'),
+    'remote Sync deletion must finish preserving the visible data locally');
 
   assert.equal(getStorageMode(), 'local');
   assert.deepEqual(getState().data, visibleBeforeDeletion);

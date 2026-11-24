@@ -94,7 +94,7 @@ Save favorite styles as presets and reuse them across your bookmarks.
 
 ## Get started
 
-The current release is **1.1.1**. See the [changelog](CHANGELOG.md) for the update details.
+The current release is **1.1.2**. See the [changelog](CHANGELOG.md) for the update details.
 
 Requires **Chrome / Chromium 123 or newer**, or a compatible Brave version.
 To install only the extension files, generate a clean package first.

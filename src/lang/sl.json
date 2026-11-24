@@ -39,6 +39,11 @@
     "mainFull": "Glavni nima prostora za te zaznamke. Sprostite eno mrežno celico in poskusite znova."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Sinhronizacija brez preklapljanja načinov",
+      "sync": "Changes received through Chrome Sync now refresh open New DeskTab tabs without switching to Local and back to Sync.",
+      "recovery": "New DeskTab checks for updates when you return to a tab and recovers from temporary reading problems. Updates arriving while the desktop opens are no longer missed."
+    },
     "v1_1_1": {
       "title": "Bolj tekoče namizje",
       "improvements": "Skrite plošče ob zagonu ne utripajo več. Uvoz zaznamkov šteje le vaše mape, privzeto razširi vrstico z zaznamki in ima jasnejše kontrolnike. Mape brez zaznamkov lahko izbrišete brez potrditve, vključno s praznimi podmapami.",

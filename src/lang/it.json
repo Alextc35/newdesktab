@@ -39,6 +39,11 @@
     "mainFull": "Main non ha spazio libero per questi segnalibri. Liberare una cella della griglia e riprovare."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Sincronizzazione senza cambiare modalità",
+      "sync": "Le modifiche ricevute tramite Chrome Sync ora aggiornano le schede New DeskTab aperte senza passare a Locale e tornare a Sincronizzazione.",
+      "recovery": "New DeskTab controlla gli aggiornamenti quando torni a una scheda e risolve problemi temporanei di lettura. Gli aggiornamenti che arrivano mentre il desktop si apre non vengono più persi."
+    },
     "v1_1_1": {
       "title": "Un desktop più fluido",
       "improvements": "I pannelli nascosti non compaiono più per un istante all’avvio. L’importazione dei preferiti conta solo le tue cartelle, espande la barra dei preferiti per impostazione predefinita e offre controlli più chiari. Le cartelle senza preferiti possono essere eliminate senza conferma, anche se contengono sottocartelle vuote.",

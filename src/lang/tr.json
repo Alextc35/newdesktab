@@ -39,6 +39,11 @@
     "mainFull": "Main'de bu yer imleri için boş alan yok. Bir ızgara hücresini serbest bırakın ve tekrar deneyin."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Modları değiştirmeden senkronizasyon",
+      "sync": "Chrome Sync aracılığıyla alınan değişiklikler artık Yerel'e geçip Senkronizasyon'a geri dönmeden açık New DeskTab sekmelerini yeniliyor.",
+      "recovery": "New DeskTab, bir sekmeye döndüğünüzde güncellemeleri kontrol eder ve geçici okuma sorunlarından kurtulur. Masaüstü açıldığında gelen güncellemeler artık kaçırılmıyor."
+    },
     "v1_1_1": {
       "title": "Daha akıcı bir masaüstü",
       "improvements": "Gizli paneller artık başlangıçta kısa süreliğine görünmüyor. Yer imi içe aktarımı yalnızca kendi klasörlerinizi sayar, yer imleri çubuğunu varsayılan olarak genişletir ve daha anlaşılır denetimler sunar. Yer imi içermeyen klasörler, boş alt klasörler de dahil olmak üzere onay istenmeden silinebilir.",

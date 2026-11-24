@@ -39,6 +39,11 @@
     "mainFull": "Main nemá pro tyto záložky volné místo. Uvolněte jednu buňku mřížky a zkuste to znovu."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Synchronizace bez přepínání režimů",
+      "sync": "Změny přijaté prostřednictvím Chrome Sync nyní obnovují otevřené karty New DeskTab bez přepínání na místní a zpět na synchronizaci.",
+      "recovery": "New DeskTab zkontroluje aktualizace, když se vrátíte na kartu, a zotaví se z dočasných problémů se čtením. Aktualizace přicházející při otevření plochy již nebudou chybět."
+    },
     "v1_1_1": {
       "title": "Plynulejší plocha",
       "improvements": "Skryté panely už při spuštění neproblikávají. Import záložek počítá jen vaše složky, ve výchozím stavu rozbaluje lištu záložek a nabízí přehlednější ovládání. Složky bez záložek lze odstranit bez potvrzení, i když obsahují prázdné podsložky.",

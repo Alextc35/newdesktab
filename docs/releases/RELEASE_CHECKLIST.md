@@ -6,6 +6,61 @@ This is a historical record of completed release work. Checked items and test
 counts describe the dated validation below; they do not certify a later checkout.
 Use the [release procedure](CHROME_WEB_STORE.md#release-procedure) for a new build.
 
+## Release 1.1.2 — November 24, 2026
+
+This patch corrects how open pages apply Chrome Sync storage updates: startup
+changes are retained, obsolete reads are discarded, temporary read failures are
+retried, and returning to a tab checks storage again. Public schema 2, permissions
+and the minimum Chrome version remain unchanged.
+
+Validated on Windows with Node.js 24.14.0 and bundled Chromium 151.0.7922.34.
+
+- [x] Pass ESLint, all 384 unit tests and all 98 DOM tests (`npm run check`).
+  Regression coverage includes startup notifications, overlapping reads,
+  transient initial and background read errors, focus/visibility recovery,
+  concurrent successful and failed saves, mode changes, incomplete chunks,
+  payload integrity, legacy formats and future-version compatibility.
+- [x] Pass all 437 Playwright scenarios with eight workers, without failures,
+  retries or skips. Existing bookmark, folder, widget, workspace, settings,
+  backup, keyboard, layout and local-media behavior remains covered.
+- [x] Pass both Python packaging tests. Verify all 446 entries in each final ZIP
+  against current runtime sources and verify their SHA-256 sidecars. The Store
+  manifest omits `key`; the developer manifest retains the stable public key.
+- [x] Extract and smoke-test both ZIPs in independent temporary Chromium
+  profiles. Also smoke-test the Store ZIP in installed Google Chrome
+  158.0.8127.88 and Brave (product version 158.1.100.59), using isolated profiles.
+  These checks cover startup, folder editing, popup save, reload, shortcuts,
+  ZIP video backup, local grid scroll and caption positioning.
+- [x] Include v1.1.2 release notes in all 52 interface languages. Regenerate
+  and visually inspect the four Store screenshots and the promotional tile.
+- [x] Audit source reachability: all 208 JavaScript modules are reachable.
+  Remove two unused workspace CSS rules and an unused selector. Preserve the
+  remaining CSS candidate because it is generated dynamically, and retain the
+  documented import APIs. No confirmed orphan remains in the audit candidates.
+- [x] Complete the UI benchmark with 60 and 1,200 bookmarks at 4× CPU throttling,
+  without page errors. The run overlaps other release checks and is recorded
+  as a functional workload check, without a before/after speedup claim.
+- [x] Pass the promotional video's TypeScript check. Both npm dependency audits
+  report zero vulnerabilities. Check local documentation links and whitespace.
+
+| Artifact | Bytes | SHA-256 |
+| --- | ---: | --- |
+| [Store ZIP](../../dist/newdesktab-1.1.2.zip) | 3,841,033 | `284d276ac6b463995c2c96b60a062af0829a8caa8fb7defdce2dcceb2b3bc185` |
+| [Developer ZIP](../../dist/newdesktab-1.1.2-dev.zip) | 3,841,373 | `a9a23f3484d6d3529fe424f17ae3d80ca5af8053348fa02ae124e861223f39bf` |
+
+The [Store checksum](../../dist/newdesktab-1.1.2.zip.sha256) and
+[developer checksum](../../dist/newdesktab-1.1.2-dev.zip.sha256) accompany the ZIPs.
+`dist/` retains only these four release artifacts. Supporting logs, raw benchmark
+results and extracted packages were removed after validation. The initial
+sandboxed server attempt and the browser run interrupted before completion are
+not counted as validation. The successful complete run was recorded in
+`e2e-final.log` before cleanup.
+
+These checks verify local storage behavior and simulated remote updates. Real
+Google-account Sync propagation between two devices, Chrome 123, GitHub Actions
+for a final commit, and Chrome Store submission were not verified or performed
+as part of this local release preparation.
+
 ## Release 1.1.1 — November 24, 2026
 
 Validated on Windows with Node.js 24.14.0 and bundled Chromium 151.0.7922.34.
@@ -45,16 +100,16 @@ the declared minimum; valid saved resizing preferences are preserved.
 
 | Artifact | Bytes | SHA-256 |
 | --- | ---: | --- |
-| [Store ZIP](../../dist/newdesktab-1.1.1.zip) | 3,831,590 | `3ea43599be9f40df5597d1f59265f37106b195d95d8072a194679d455c1dd579` |
-| [Developer ZIP](../../dist/newdesktab-1.1.1-dev.zip) | 3,831,932 | `39f116bc02c936fe6583c5df575d0b5376e59f40bbdd5d55d3451c6d6ebbba97` |
+| Store ZIP: `newdesktab-1.1.1.zip` | 3,831,590 | `3ea43599be9f40df5597d1f59265f37106b195d95d8072a194679d455c1dd579` |
+| Developer ZIP: `newdesktab-1.1.1-dev.zip` | 3,831,932 | `39f116bc02c936fe6583c5df575d0b5376e59f40bbdd5d55d3451c6d6ebbba97` |
 
-The [Store checksum](../../dist/newdesktab-1.1.1.zip.sha256) and
-[developer checksum](../../dist/newdesktab-1.1.1-dev.zip.sha256) accompany the ZIPs.
-Supporting logs and visual captures remain in ignored
-`dist/release-audit/v1.1.1/`. These are local checks; the final commit's GitHub
-Actions result and any Store submission are separate from this record. Chrome
-123, installed Brave/Google Chrome and real-account Sync were not reverified
-for this patch.
+The Store checksum `newdesktab-1.1.1.zip.sha256` and developer checksum
+`newdesktab-1.1.1-dev.zip.sha256` accompanied these ZIPs. The older archives,
+checksums, supporting logs and visual captures were removed during the 1.1.2
+cleanup; sizes and hashes above remain as the historical release record.
+These are local checks; the final commit's GitHub Actions result and any Store
+submission are separate from this record. Chrome 123, installed Brave/Google
+Chrome and real-account Sync were not reverified for this patch.
 
 ## Release 1.1.0 — November 24, 2026
 

@@ -39,6 +39,11 @@
     "mainFull": "Main har ingen ledig plads til disse bogmærker. Frigør en gittercelle, og prøv igen."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Synkroniser uden at skifte tilstand",
+      "sync": "Ændringer modtaget via Chrome Sync opdaterer nu åbne New DeskTab faner uden at skifte til Lokal og tilbage til Synkronisering.",
+      "recovery": "New DeskTab søger efter opdateringer, når du vender tilbage til en fane og genopretter efter midlertidige læseproblemer. Opdateringer, der ankommer, mens skrivebordet åbner, savnes ikke længere."
+    },
     "v1_1_1": {
       "title": "Et mere flydende skrivebord",
       "improvements": "Skjulte paneler blinker ikke længere frem ved opstart. Import af bogmærker tæller kun dine egne mapper, folder bogmærkelinjen ud som standard og har tydeligere betjening. Mapper uden bogmærker kan slettes uden bekræftelse, også hvis de indeholder tomme undermapper.",

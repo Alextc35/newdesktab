@@ -48,10 +48,12 @@ test('encodes metadata and round-trips a synchronized payload', () => {
     version: SYNC_FORMAT_VERSION,
     schemaVersion: DATA_SCHEMA_VERSION,
     chunkCount: encoded.chunks.length,
+    payloadChecksum: encoded.meta.payloadChecksum,
     updatedAt: 1234,
     writerDeviceId: 'device-1',
     writeId: 'write-1'
   });
+  assert.match(encoded.meta.payloadChecksum, /^[0-9a-f]{8}$/);
   assert.deepEqual(getSyncChunkKeys(encoded.chunks.length), [
     `${SYNC_CHUNK_PREFIX}0`
   ]);
@@ -88,4 +90,30 @@ test('recognizes only transport-owned sync keys', () => {
   assert.equal(isSyncTransportKey(`${SYNC_CHUNK_PREFIX}3`), true);
   assert.equal(isSyncTransportKey('bookmarks'), false);
   assert.equal(isSyncTransportKey('unrelatedExtensionData'), false);
+});
+
+test('detects mixed chunks even when they still form valid JSON', () => {
+  const oldData = { head: 'old', padding: 'x'.repeat(8000), tail: 'old' };
+  const newData = { head: 'new', padding: 'x'.repeat(8000), tail: 'new' };
+  const options = { schemaVersion: DATA_SCHEMA_VERSION, writerDeviceId: 'writer' };
+  const oldPayload = encodeSyncPayload(oldData, options);
+  const newPayload = encodeSyncPayload(newData, options);
+  assert.ok(newPayload.chunks.length > 1);
+  const mixed = { ...newPayload.items, [`${SYNC_CHUNK_PREFIX}1`]: oldPayload.chunks[1] };
+  const serialized = getSyncChunkKeys(newPayload.chunks.length).map(key => mixed[key]).join('');
+  assert.deepEqual(JSON.parse(serialized), { ...newData, tail: 'old' });
+  assert.throws(() => decodeSyncPayload(newPayload.meta, mixed), { code: 'SYNC_PAYLOAD_MISMATCH' });
+  assert.deepEqual(decodeSyncPayload(newPayload.meta, newPayload.items), newData);
+});
+
+test('accepts older payloads without checksum and hashes Unicode consistently', () => {
+  const data = { text: 'DeskTab 🚀 áéí \\"'.repeat(200) };
+  const options = { schemaVersion: DATA_SCHEMA_VERSION, writerDeviceId: 'writer' };
+  const first = encodeSyncPayload(data, options);
+  const second = encodeSyncPayload(data, options);
+  assert.equal(first.meta.payloadChecksum, second.meta.payloadChecksum);
+  assert.deepEqual(decodeSyncPayload(first.meta, first.items), data);
+  const legacyMeta = { ...first.meta };
+  delete legacyMeta.payloadChecksum;
+  assert.deepEqual(decodeSyncPayload(legacyMeta, first.items), data);
 });

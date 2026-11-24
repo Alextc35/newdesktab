@@ -375,7 +375,9 @@ test('adopts and removes recycle-bin contents from a legacy synchronized payload
     schemaVersion: DATA_SCHEMA_VERSION - 1,
     trash: legacyTrash
   };
-  const previousMeta = chrome.storage.sync.data.newdesktabSyncMeta;
+  const previousMeta = { ...chrome.storage.sync.data.newdesktabSyncMeta };
+  // This fixture represents a writer predating transport integrity checks.
+  delete previousMeta.payloadChecksum;
 
   await new Promise(resolve => chrome.storage.local.remove(DEVICE_TRASH_KEY, resolve));
   await new Promise(resolve => chrome.storage.sync.set({

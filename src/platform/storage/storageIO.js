@@ -1,7 +1,7 @@
 import { migratePersistedData as normalizePersistedData } from './dataSchema.js';
 import { DATA_SCHEMA_VERSION } from './schemaVersion.js';
 import { callStorage, getStorageBytes } from './chromeStorage.js';
-import { decodeSyncPayload, encodeSyncPayload, getSyncChunkKeys, SYNC_CHUNK_PREFIX, SYNC_META_KEY, validateSyncMetadata } from '../sync/syncTransport.js';
+import { decodeSyncPayload, encodeSyncPayload, getSyncChunkKeys, SYNC_CHUNK_PREFIX, SYNC_META_KEY } from '../sync/syncTransport.js';
 import { saveDeviceImageSelections, withoutDeviceImages } from './deviceImageSelections.js';
 import { saveDeviceTrash, withoutDeviceTrash } from './deviceTrashStorage.js';
 import { saveDeviceWallpapers, withoutDeviceWallpapers } from './deviceWallpapers.js';
@@ -52,44 +52,49 @@ export function createStorageIO({ getDeviceId, observeSyncWriter }) {
    * @returns {Promise<Partial<PersistedData>|null>}
    */
   async function readSyncData() {
-    const header = await callStorage(
-      chrome.storage.sync,
-      'get',
-      [SYNC_META_KEY, ...LEGACY_SYNC_KEYS]
-    );
+    let readError;
 
-    const meta = header[SYNC_META_KEY];
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      // Sync is bounded to about 100 KiB. Read its header and chunks together;
+      // the optional checksum also catches partially delivered remote writes.
+      const values = await callStorage(chrome.storage.sync, 'get', null);
+      const meta = values[SYNC_META_KEY];
 
-    if (!meta) {
-      if (
-        header.schemaVersion === undefined &&
-        header.bookmarks === undefined &&
-        header.folders === undefined &&
-        header.widgets === undefined &&
-        header.recycleBin === undefined &&
-        header.trash === undefined &&
-        header.settings === undefined
-      ) {
-        return null;
+      if (!meta) {
+        if (!LEGACY_SYNC_KEYS.some(key => values[key] !== undefined)) {
+          // Chunks can arrive before their header. They are incomplete data,
+          // rather than evidence that another device deleted Sync.
+          if (Object.keys(values).some(key => key.startsWith(SYNC_CHUNK_PREFIX))) {
+            readError = new Error('The synchronized NewDeskTab data is incomplete.');
+            continue;
+          }
+          return null;
+        }
+
+        return Object.fromEntries(LEGACY_SYNC_KEYS.map(key => [key, values[key]]));
       }
 
-      return {
-        schemaVersion: header.schemaVersion,
-        bookmarks: header.bookmarks,
-        folders: header.folders,
-        widgets: header.widgets,
-        recycleBin: header.recycleBin,
-        trash: header.trash,
-        settings: header.settings
-      };
+      let data;
+      try {
+        data = decodeSyncPayload(meta, values);
+      } catch (error) {
+        if (error.code === 'UNSUPPORTED_SYNC_FORMAT') throw error;
+        readError = error;
+        continue;
+      }
+
+      const latest = await callStorage(chrome.storage.sync, 'get', SYNC_META_KEY);
+      if (JSON.stringify(latest[SYNC_META_KEY]) !== JSON.stringify(meta)) {
+        readError = new Error('The synchronized NewDeskTab data changed while being read.');
+        continue;
+      }
+
+      observeSyncWriter(typeof meta.writerDeviceId === 'string' ? meta.writerDeviceId : null);
+      return data;
     }
 
-    observeSyncWriter(typeof meta.writerDeviceId === 'string' ? meta.writerDeviceId : null);
-
-    validateSyncMetadata(meta);
-    const keys = getSyncChunkKeys(meta.chunkCount);
-    const values = await callStorage(chrome.storage.sync, 'get', keys);
-    return decodeSyncPayload(meta, values);
+    // The store schedules delayed refreshes if remote chunks are still arriving.
+    throw readError;
   }
 
   /**
@@ -142,6 +147,7 @@ export function createStorageIO({ getDeviceId, observeSyncWriter }) {
 
     // A device-only image change does not need a new synchronized write.
     if (previous[SYNC_META_KEY]?.schemaVersion === DATA_SCHEMA_VERSION
+      && previous[SYNC_META_KEY]?.payloadChecksum === encoded.meta.payloadChecksum
       && previousChunkCount === chunks.length
       && chunks.every((chunk, index) => previous[`${SYNC_CHUNK_PREFIX}${index}`] === chunk)) {
       return;

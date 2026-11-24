@@ -31,6 +31,12 @@ let storageRefreshTimer = null;
 /** @type {{areaName: 'local'|'sync', origin: 'same-device'|'other-device'}|null} */
 let pendingStorageChange = null;
 
+const STORAGE_REFRESH_RETRY_DELAYS = [250, 1000, 3000];
+let storageRefreshRevision = 0;
+let storageRefreshRunning = false;
+let storageRefreshRetries = 0;
+let storageModeChanges = 0;
+
 /** @type {(() => void)|null} */
 let unsubscribeFromStorage = null;
 
@@ -335,6 +341,8 @@ export async function changeStorageMode(mode, nextData = state.data) {
 
   const previousMode = storage.getMode();
   const trace = debug.start('Switch storage', { from: previousMode, to: mode });
+  storageModeChanges += 1;
+  storageRefreshRevision += 1;
   try {
     await persistenceQueue.catch(() => undefined);
     trace.mark('Queue wait');
@@ -348,6 +356,9 @@ export async function changeStorageMode(mode, nextData = state.data) {
   } catch (error) {
     trace.end({ status: 'error', error: error.message, activeMode: storage.getMode() });
     throw error;
+  } finally {
+    storageModeChanges -= 1;
+    queueStorageRefresh({ areaName: storage.getMode(), origin: 'same-device' });
   }
 }
 
@@ -407,14 +418,29 @@ export async function toggleEditing() {
  * @returns {Promise<void>}
  */
 export async function hydrateStore() {
+  // Buffer changes before the first read, including events received while
+  // device-specific images and wallpapers are still being restored.
+  subscribeToStorageChanges();
   await storage.initialize();
-  const persisted = await storage.get(null);
+  let persisted;
+  for (let attempt = 0; ; attempt += 1) {
+    try {
+      persisted = await storage.get(null);
+      break;
+    } catch (error) {
+      // Remote chunks may still be arriving when a new tab starts. Keep
+      // hydration read-only and give the complete payload time to arrive.
+      const delay = STORAGE_REFRESH_RETRY_DELAYS[attempt];
+      if (delay === undefined) throw error;
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
 
   await setState({ data: persisted });
 
   finishHydration();
   clearBookmarkHistory();
-  subscribeToStorageChanges();
+  scheduleStorageRefresh();
 }
 
 /**
@@ -454,69 +480,98 @@ function replacePersistedData(data) {
 function subscribeToStorageChanges() {
   if (unsubscribeFromStorage) return;
 
-  unsubscribeFromStorage = storage.subscribe(change => {
-    if (
-      change.origin === 'other-device'
-      || pendingStorageChange?.origin !== 'other-device'
-    ) {
-      pendingStorageChange = change;
+  unsubscribeFromStorage = storage.subscribe(queueStorageRefresh);
+
+  // A suspended or background tab may have missed its final storage event.
+  // Reconcile on return without inventing a remote-update notification.
+  const reconcileSync = () => {
+    if (storage.getMode() === STORAGE_MODES.SYNC) {
+      queueStorageRefresh({ areaName: STORAGE_MODES.SYNC, origin: 'same-device' });
+    }
+  };
+  if (typeof window !== 'undefined') window.addEventListener('focus', reconcileSync);
+  if (typeof document !== 'undefined') {
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') reconcileSync();
+    });
+  }
+}
+
+function queueStorageRefresh(change) {
+  if (change.origin === 'other-device' || pendingStorageChange?.origin !== 'other-device') {
+    pendingStorageChange = change;
+  }
+  storageRefreshRevision += 1;
+  storageRefreshRetries = 0;
+  scheduleStorageRefresh();
+}
+
+function scheduleStorageRefresh(delay = 50) {
+  if (isHydrating || storageModeChanges || storageRefreshRunning || !pendingStorageChange) return;
+  if (storageRefreshTimer) clearTimeout(storageRefreshTimer);
+  storageRefreshTimer = setTimeout(refreshFromStorage, delay);
+}
+
+async function refreshFromStorage() {
+  storageRefreshTimer = null;
+  if (isHydrating || storageModeChanges || storageRefreshRunning || !pendingStorageChange) return;
+
+  storageRefreshRunning = true;
+  const revision = storageRefreshRevision;
+  const refreshChange = pendingStorageChange;
+  const mode = storage.getMode();
+  const queue = persistenceQueue;
+  let nextDelay = 50;
+  const isCurrent = () => revision === storageRefreshRevision
+    && queue === persistenceQueue && mode === storage.getMode() && !storageModeChanges;
+
+  try {
+    // Wait for optimistic edits, and retain this refresh if another edit starts
+    // during the read even when that edit fails without a storage notification.
+    await queue.catch(() => undefined);
+    if (!isCurrent()) return;
+
+    const isRemoteSyncChange = refreshChange.areaName === STORAGE_MODES.SYNC
+      && refreshChange.origin === 'other-device';
+    if (mode === STORAGE_MODES.SYNC) {
+      const syncMetadata = await storage.getSyncMetadata();
+      if (!isCurrent()) return;
+      if (!syncMetadata.hasData) {
+        // Preserve the visible state on remote deletion, including a deletion
+        // discovered when returning to a tab that missed the original event.
+        pendingStorageChange = null;
+        await changeStorageMode(STORAGE_MODES.LOCAL, state.data);
+        if (isRemoteSyncChange) {
+          for (const listener of remoteSyncUpdateListeners) listener({ type: 'deleted' });
+        }
+        return;
+      }
     }
 
-    if (storageRefreshTimer) clearTimeout(storageRefreshTimer);
+    const persisted = await storage.get(null);
+    // Only one read runs at a time. A newer event invalidates this snapshot
+    // and keeps the pending refresh until the newest data can be applied.
+    if (!isCurrent()) return;
+    const refreshed = pendingPersistenceBase
+      ? mergeChanges(pendingPersistenceBase, state.data, persisted)
+      : persisted;
+    if (pendingPersistenceBase) pendingPersistenceBase = structuredClone(persisted);
+    pendingStorageChange = null;
+    storageRefreshRetries = 0;
+    const dataChanged = replacePersistedData(refreshed);
+    if (dataChanged) debug.info('Data refreshed from storage', refreshChange);
 
-    storageRefreshTimer = setTimeout(async () => {
-      storageRefreshTimer = null;
-      const refreshChange = pendingStorageChange;
-      pendingStorageChange = null;
-
-      try {
-        // Never replace optimistic edits with an older storage event while a
-        // local commit is queued. Read again only after that queue has drained.
-        const queue = persistenceQueue;
-        await queue.catch(() => undefined);
-
-        const isRemoteSyncChange = refreshChange?.areaName === STORAGE_MODES.SYNC
-          && refreshChange.origin === 'other-device';
-        if (isRemoteSyncChange && storage.getMode() === STORAGE_MODES.SYNC) {
-          const syncMetadata = await storage.getSyncMetadata();
-          if (!syncMetadata.hasData) {
-            // Preserve the last synchronized state visible on this device.
-            // Closed devices perform the equivalent fallback in storage.get().
-            await changeStorageMode(STORAGE_MODES.LOCAL, state.data);
-            for (const listener of remoteSyncUpdateListeners) {
-              listener({ type: 'deleted' });
-            }
-            return;
-          }
-        }
-
-        const persisted = await storage.get(null);
-        // Another edit may have started while the asynchronous read ran. Its
-        // storage event will refresh again after it finishes.
-        if (queue !== persistenceQueue) return;
-        // A failed write remains an unsaved local change. A refresh must not
-        // erase it; merge remote changes and retain a base for the next retry.
-        const refreshed = pendingPersistenceBase
-          ? mergeChanges(pendingPersistenceBase, state.data, persisted)
-          : persisted;
-        if (pendingPersistenceBase) pendingPersistenceBase = structuredClone(persisted);
-        const dataChanged = replacePersistedData(refreshed);
-        if (dataChanged) debug.info('Data refreshed from storage', refreshChange);
-
-        if (
-          dataChanged
-          && refreshChange?.areaName === STORAGE_MODES.SYNC
-          && refreshChange.origin === 'other-device'
-        ) {
-          for (const listener of remoteSyncUpdateListeners) {
-            listener({ type: 'updated' });
-          }
-        }
-      } catch (err) {
-        console.error('[STORE] Storage refresh failed:', err);
-      }
-    }, 50);
-  });
+    if (dataChanged && isRemoteSyncChange) {
+      for (const listener of remoteSyncUpdateListeners) listener({ type: 'updated' });
+    }
+  } catch (err) {
+    console.error('[STORE] Storage refresh failed:', err);
+    nextDelay = STORAGE_REFRESH_RETRY_DELAYS[storageRefreshRetries++] ?? null;
+  } finally {
+    storageRefreshRunning = false;
+    if (revision !== storageRefreshRevision) nextDelay = 50;
+    if (nextDelay !== null) scheduleStorageRefresh(nextDelay);
+  }
 }
 
 /**

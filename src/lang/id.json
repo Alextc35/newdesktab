@@ -39,6 +39,11 @@
     "mainFull": "Main tidak memiliki ruang kosong untuk bookmark ini. Bebaskan satu sel kisi dan coba lagi."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Sinkronisasi tanpa berpindah mode",
+      "sync": "Perubahan yang diterima melalui Chrome Sync kini menyegarkan tab New DeskTab yang terbuka tanpa beralih ke Lokal dan kembali ke Sinkronisasi.",
+      "recovery": "New DeskTab memeriksa pembaruan saat Anda kembali ke tab dan memulihkan dari masalah membaca sementara. Pembaruan yang datang saat desktop terbuka tidak lagi terlewatkan."
+    },
     "v1_1_1": {
       "title": "Desktop yang lebih lancar",
       "improvements": "Panel tersembunyi tidak lagi berkedip saat aplikasi dimulai. Impor bookmark hanya menghitung folder Anda sendiri, membuka bilah bookmark secara default, dan memiliki kontrol yang lebih jelas. Folder tanpa bookmark dapat dihapus tanpa konfirmasi, meskipun berisi subfolder kosong.",

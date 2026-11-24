@@ -39,6 +39,11 @@
     "mainFull": "Glavni nema slobodnog prostora za ove oznake. Oslobodite jednu ćeliju mreže i pokušajte ponovno."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Sinkronizacija bez mijenjanja načina rada",
+      "sync": "Promjene primljene putem Chrome Sync sada osvježavaju otvorene New DeskTab kartice bez prebacivanja na lokalno i natrag na sinkronizaciju.",
+      "recovery": "New DeskTab provjerava ažuriranja kada se vratite na karticu i oporavlja se od privremenih problema s čitanjem. Ažuriranja koja stižu dok se radna površina otvara više se ne propuštaju."
+    },
     "v1_1_1": {
       "title": "Glatkiji rad radne površine",
       "improvements": "Skriveni paneli više ne bljesnu pri pokretanju. Uvoz oznaka broji samo vaše mape, prema zadanim postavkama proširuje traku oznaka i ima jasnije kontrole. Mape bez oznaka mogu se izbrisati bez potvrde, čak i ako sadrže prazne podmape.",

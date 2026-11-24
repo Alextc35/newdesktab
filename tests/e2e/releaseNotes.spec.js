@@ -66,19 +66,19 @@ test('existing profiles see the release once and Escape leaves their workspace u
 });
 
 test('a new patch is offered once, older notes remain readable, and downgrading does not repeat the alert', async ({ page }) => {
-  await start(page, 'release=1', '1.1.0');
-  await expect(notes(page)).toBeVisible();
-  await expect(page.locator('#release-notes-version')).toHaveText('v1.1.0');
-  await page.locator('#release-notes-continue').click();
-  await page.goto('/tests/browser-harness.html?release=1&version=1.1.1');
-  await expectAppReady(page);
+  await start(page, 'release=1', '1.1.1');
   await expect(notes(page)).toBeVisible();
   await expect(page.locator('#release-notes-version')).toHaveText('v1.1.1');
-  await expect(page.locator('#release-notes-title')).toHaveText('A smoother desktop');
-  await expect(page.locator('#release-notes-intro')).toContainText(/panels/i);
-  await expect(page.locator('#release-notes-intro')).toContainText(/import/i);
-  await expect(page.locator('#release-notes-content')).toContainText(/resiz/i);
-  await expect(page.locator('#release-notes-content')).toContainText(/preferences/i);
+  await page.locator('#release-notes-continue').click();
+  await page.goto('/tests/browser-harness.html?release=1&version=1.1.2');
+  await expectAppReady(page);
+  await expect(notes(page)).toBeVisible();
+  await expect(page.locator('#release-notes-version')).toHaveText('v1.1.2');
+  await expect(page.locator('#release-notes-title')).toHaveText('Sync without switching modes');
+  await expect(page.locator('#release-notes-intro')).toContainText('Chrome Sync');
+  await expect(page.locator('#release-notes-intro')).toContainText('without switching to Local');
+  await expect(page.locator('#release-notes-content')).toContainText('when you return to a tab');
+  await expect(page.locator('#release-notes-content')).toContainText('while the desktop opens');
   await page.locator('#release-notes-continue').click();
   await page.reload();
   await expectAppReady(page);
@@ -86,7 +86,7 @@ test('a new patch is offered once, older notes remain readable, and downgrading 
   await information(page);
   await page.locator('#settings-open-release-notes').click();
   await expect(page.locator('#release-notes-history')).toBeVisible();
-  await expect(page.locator('#release-notes-history button')).toHaveText(['v1.1.1', 'v1.1.0', 'v1.0.1', 'v1.0.0']);
+  await expect(page.locator('#release-notes-history button')).toHaveText(['v1.1.2', 'v1.1.1', 'v1.1.0', 'v1.0.1', 'v1.0.0']);
   await page.locator('#release-notes-history').getByRole('button', { name: 'v1.1.0', exact: true }).click();
   await expect(page.locator('#release-notes-title')).toHaveText('Your Chrome bookmarks, at home in New DeskTab');
   await expect(page.locator('#release-notes-intro')).toContainText('Main');
@@ -98,7 +98,7 @@ test('a new patch is offered once, older notes remain readable, and downgrading 
   await page.goto('/tests/browser-harness.html?release=1&version=1.1.0');
   await expectAppReady(page);
   await expect(notes(page)).toBeHidden();
-  expect(await readRecord(page)).toEqual({ version: '1.1.1' });
+  expect(await readRecord(page)).toEqual({ version: '1.1.2' });
 });
 
 for (const language of ['es', 'es_419']) {

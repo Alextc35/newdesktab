@@ -39,6 +39,11 @@
     "mainFull": "Mainil pole nende järjehoidjate jaoks vaba ruumi. Vabastage üks ruudustiku lahter ja proovige uuesti."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Sünkroonimine ilma režiimide vahetamiseta",
+      "sync": "Teenuse Chrome Sync kaudu saadud muudatused värskendavad nüüd avatud New DeskTab vahekaarti, lülitumata kohalikule ja tagasi sünkroonimisele.",
+      "recovery": "New DeskTab kontrollib värskendusi, kui naasete vahelehele, ja taastub ajutistest lugemisprobleemidest. Töölaua avanemise ajal saabuvad värskendused ei jää enam vahele."
+    },
     "v1_1_1": {
       "title": "Sujuvam töölaud",
       "improvements": "Peidetud paneelid ei vilksata enam käivitamisel. Järjehoidjate import loendab ainult teie enda kaustu, avab järjehoidjariba vaikimisi ja pakub selgemaid juhtelemente. Järjehoidjateta kaustu saab kustutada ilma kinnituseta, ka siis, kui need sisaldavad tühje alamkaustu.",

@@ -39,6 +39,11 @@
     "mainFull": "Main nemá žiadne voľné miesto pre tieto záložky. Uvoľnite jednu bunku mriežky a skúste to znova."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Synchronizácia bez prepínania režimov",
+      "sync": "Changes received through Chrome Sync now refresh open New DeskTab tabs without switching to Local and back to Sync.",
+      "recovery": "New DeskTab checks for updates when you return to a tab and recovers from temporary reading problems. Updates arriving while the desktop opens are no longer missed."
+    },
     "v1_1_1": {
       "title": "Plynulejšia pracovná plocha",
       "improvements": "Skryté panely už pri spustení neblikajú. Import záložiek počíta iba vaše priečinky, predvolene rozbalí panel záložiek a ponúka prehľadnejšie ovládanie. Priečinky bez záložiek možno odstrániť bez potvrdenia vrátane prázdnych podpriečinkov.",

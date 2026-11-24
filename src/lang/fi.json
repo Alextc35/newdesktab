@@ -39,6 +39,11 @@
     "mainFull": "Mainilla ei ole vapaata tilaa näille kirjanmerkeille. Vapauta yksi ruudukon solu ja yritä uudelleen."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Synkronoi ilman tilan vaihtoa",
+      "sync": "Palvelun Chrome Sync kautta vastaanotetut muutokset päivittävät nyt avoinna olevat New DeskTab välilehdet vaihtamatta paikalliseen ja takaisin synkronointiin.",
+      "recovery": "New DeskTab tarkistaa päivitykset, kun palaat välilehdelle, ja toipuu tilapäisistä lukuongelmista. Työpöydän avautuessa saapuvia päivityksiä ei enää jää huomaamatta."
+    },
     "v1_1_1": {
       "title": "Sujuvampi työpöytä",
       "improvements": "Piilotetut paneelit eivät enää välähdä näkyviin käynnistettäessä. Kirjanmerkkien tuonti laskee vain omat kansiosi, avaa kirjanmerkkipalkin oletusarvoisesti ja tarjoaa selkeämmät säätimet. Kansiot, joissa ei ole kirjanmerkkejä, voi poistaa ilman vahvistusta, vaikka niissä olisi tyhjiä alikansioita.",

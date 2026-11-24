@@ -560,6 +560,19 @@ trees; stored/imported normalization and migrations remain together under
 `platform/storage`. Visual components continue to call feature actions rather
 than the storage facade directly.
 
+Storage notifications are buffered before hydration. Refreshes run one at a time,
+discard snapshots invalidated by newer events or local edits, and retry transient
+read errors with bounded delays. Focus and visibility restoration reconcile Sync
+without polling. Initial hydration uses the same retry delays. Normal Sync
+metadata checks read only the transport header; legacy or incomplete payloads
+fall back to inspecting all owned keys.
+
+Sync reads capture the header and chunks together and confirm that the header
+has not changed before accepting the result. New writes include an optional
+payload checksum so readers reject mixed generations even if their combined JSON
+is valid. Older payloads without a checksum remain readable, and the wire format
+version stays at 1.
+
 The destructive General-settings reset is explicitly device-local. In Local
 mode it replaces persisted app data with an empty default state; in Sync mode
 it first switches the device to Local using that empty state. It then clears

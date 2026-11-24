@@ -39,6 +39,11 @@
     "mainFull": "Main không có không gian trống cho những dấu trang này. Giải phóng một ô lưới và thử lại."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Đồng bộ hóa mà không cần chuyển đổi chế độ",
+      "sync": "Các thay đổi nhận được thông qua Chrome Sync hiện làm mới các tab New DeskTab đang mở mà không cần chuyển sang Cục bộ và quay lại Đồng bộ hóa.",
+      "recovery": "New DeskTab kiểm tra các bản cập nhật khi bạn quay lại một tab và khắc phục các sự cố đọc tạm thời. Các bản cập nhật đến khi màn hình mở sẽ không còn bị bỏ lỡ nữa."
+    },
     "v1_1_1": {
       "title": "Màn hình làm việc mượt mà hơn",
       "improvements": "Các bảng đã ẩn không còn nhấp nháy khi khởi động. Tính năng nhập dấu trang chỉ đếm các thư mục của bạn, mặc định mở rộng thanh dấu trang và có các nút điều khiển rõ ràng hơn. Có thể xóa thư mục không chứa dấu trang mà không cần xác nhận, bao gồm cả các thư mục con trống.",

@@ -39,6 +39,11 @@
     "mainFull": "Main não tem espaço livre para esses marcadores. Libere uma célula da grade e tente novamente."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Sincronize sem mudar de modo",
+      "sync": "As alterações recebidas por meio de Chrome Sync agora atualizam as guias New DeskTab abertas sem mudar para Local e voltar para Sincronização.",
+      "recovery": "New DeskTab verifica atualizações quando você retorna a uma guia e se recupera de problemas temporários de leitura. As atualizações que chegam enquanto a área de trabalho é aberta não são mais perdidas."
+    },
     "v1_1_1": {
       "title": "Um ambiente de trabalho mais fluido",
       "improvements": "Os painéis ocultos deixam de piscar ao iniciar. A importação de favoritos conta apenas as suas pastas, expande a barra de favoritos por predefinição e tem controlos mais claros. As pastas sem favoritos podem ser eliminadas sem confirmação, incluindo subpastas vazias.",

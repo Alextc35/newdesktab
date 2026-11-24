@@ -39,6 +39,11 @@
     "mainFull": "Principal no tiene espacio libre para estos favoritos. Libera una casilla del escritorio y vuelve a intentarlo."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Sync sin cambiar de modo",
+      "sync": "Los cambios recibidos mediante Chrome Sync ahora actualizan las pestañas abiertas de New DeskTab sin tener que pasar a Local y volver a Sync.",
+      "recovery": "New DeskTab comprueba si hay cambios al volver a una pestaña y se recupera de problemas temporales de lectura. Los cambios que llegan mientras se abre el escritorio ya no se pierden."
+    },
     "v1_1_1": {
       "title": "Un escritorio más fluido",
       "improvements": "Los paneles ocultos ya no parpadean al iniciar. La importación cuenta solo tus carpetas, despliega la barra de marcadores por defecto y distingue mejor sus controles. Las carpetas sin favoritos se pueden eliminar sin confirmación, aunque contengan subcarpetas vacías.",

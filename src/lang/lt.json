@@ -39,6 +39,11 @@
     "mainFull": "Pagrindinėje šioms žymėms nėra laisvos vietos. Atlaisvinkite vieną tinklelio langelį ir bandykite dar kartą."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Sinchronizuokite neperjungdami režimų",
+      "sync": "Pakeitimai, gauti naudojant Chrome Sync, dabar atnaujina atidarytus New DeskTab skirtukus neperjungiant į Vietinis ir atgal į sinchronizavimą.",
+      "recovery": "New DeskTab patikrina, ar nėra naujinimų, kai grįžtate į skirtuką, ir atsigauna po laikinų skaitymo problemų. Atnaujinimai, gaunami atidarius darbalaukį, nebepraleidžiami."
+    },
     "v1_1_1": {
       "title": "Sklandesnis darbalaukis",
       "improvements": "Paslėpti skydeliai paleidžiant nebeblyksteli. Importuojant žymes skaičiuojami tik jūsų aplankai, žymių juosta išskleidžiama pagal numatytąsias nuostatas, o valdikliai tapo aiškesni. Aplankus be žymių galima ištrinti be patvirtinimo, net jei juose yra tuščių poaplankių.",

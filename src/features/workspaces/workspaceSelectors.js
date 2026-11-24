@@ -24,11 +24,6 @@ export function getWorkspaceById(data, workspaceId) {
   return getWorkspaces(data).find(workspace => workspace.id === workspaceId) ?? null;
 }
 
-export function getWorkspaceName(data, workspaceId, fallback = 'Main') {
-  const workspace = getWorkspaceById(data, workspaceId);
-  return workspace?.name || fallback;
-}
-
 export function getWorkspaceIds(data) {
   return getIds(getWorkspaces(data));
 }

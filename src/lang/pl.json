@@ -39,6 +39,11 @@
     "mainFull": "W głównym folderze nie ma wolnego miejsca na te zakładki. Uwolnij jedną komórkę siatki i spróbuj ponownie."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Synchronizuj bez przełączania trybów",
+      "sync": "Zmiany otrzymane przez Chrome Sync teraz odświeżają otwarte karty New DeskTab bez przełączania na tryb lokalny i powrót do synchronizacji.",
+      "recovery": "New DeskTab sprawdza dostępność aktualizacji po powrocie do karty i usuwa tymczasowe problemy z odczytem. Aktualizacje pojawiające się podczas otwierania pulpitu nie są już pomijane."
+    },
     "v1_1_1": {
       "title": "Płynniej działający pulpit",
       "improvements": "Ukryte panele nie migają już podczas uruchamiania. Import zakładek zlicza tylko Twoje foldery, domyślnie rozwija pasek zakładek i oferuje czytelniejsze przyciski. Foldery bez zakładek można usuwać bez potwierdzenia, wraz z pustymi podfolderami.",

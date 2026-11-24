@@ -28,6 +28,14 @@ bin without confirmation, including trees of empty subfolders. A bookmark
 anywhere in the tree keeps the confirmation step. Permanent deletion always
 requires confirmation.
 
+Version 1.1.2 fixes automatic refresh of data received through Chrome Sync.
+Storage changes received during startup are retained, older asynchronous reads
+cannot replace newer updates, and temporary read failures are retried. Returning
+to an open tab also checks storage again, so users do not need to switch to Local
+and back to Sync to refresh their workspace. Chrome still owns cross-device
+transport and its timing; this patch changes how New DeskTab receives and applies
+the data available to the extension. The public data schema remains at 2.
+
 ## Arrival and history
 
 - A new profile sees release notes before the welcome guide.

@@ -39,6 +39,11 @@
     "mainFull": "A Mainban nincs szabad hely ezeknek a könyvjelzőknek. Szabadítson fel egy rácscellát, és próbálja újra."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Szinkronizálás módváltás nélkül",
+      "sync": "A Chrome Sync szolgáltatáson keresztül beérkezett módosítások most frissítik a megnyitott New DeskTab lapot anélkül, hogy átváltana a Helyi és vissza a Szinkronizálásra.",
+      "recovery": "Az New DeskTab ellenőrzi a frissítéseket, amikor visszatér egy lapra, és helyreáll az átmeneti olvasási problémákból. Az asztal megnyitásakor érkező frissítések már nem maradnak el."
+    },
     "v1_1_1": {
       "title": "Gördülékenyebb asztal",
       "improvements": "A rejtett panelek már nem villannak fel indításkor. A könyvjelzők importálása csak a saját mappáit számolja, alapértelmezetten kibontja a könyvjelzősávot, és átláthatóbb vezérlőket kínál. A könyvjelzőket nem tartalmazó mappák megerősítés nélkül törölhetők, akkor is, ha üres almappákat tartalmaznak.",

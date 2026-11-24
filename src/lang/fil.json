@@ -39,6 +39,11 @@
     "mainFull": "Ang Main ay walang libreng espasyo para sa mga bookmark na ito. Magbakante ng isang grid cell at subukang muli."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Mag-sync nang hindi lumilipat ng mga mode",
+      "sync": "Ang mga pagbabagong natanggap sa pamamagitan ng Chrome Sync ay nagre-refresh na ngayon sa bukas na New DeskTab na mga tab nang hindi lumilipat sa Lokal at bumalik sa Sync.",
+      "recovery": "Sinusuri ng New DeskTab ang mga update kapag bumalik ka sa isang tab at nakabawi mula sa mga pansamantalang problema sa pagbabasa. Ang mga update na dumarating habang nagbubukas ang desktop ay hindi na napalampas."
+    },
     "v1_1_1": {
       "title": "Mas maayos na desktop",
       "improvements": "Hindi na panandaliang lumilitaw ang mga nakatagong panel sa pagsisimula. Sarili mong mga folder lang ang binibilang sa pag-import ng bookmark, nakabukas na ang bookmarks bar bilang default, at mas malinaw ang mga kontrol. Maaaring magtanggal ng mga folder na walang bookmark nang walang kumpirmasyon, kahit may mga walang lamang subfolder.",

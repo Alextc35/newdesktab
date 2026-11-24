@@ -59,7 +59,12 @@ function isNewDeskTabSyncKey(key) {
  * @returns {Promise<{hasData: boolean, updatedAt: number|null}>}
  */
 async function getSyncMetadata() {
-  const values = await callStorage(chrome.storage.sync, 'get', null);
+  // Normal payloads only need their small header. Inspect every key only for
+  // legacy data or partially received chunks that do not have a header yet.
+  let values = await callStorage(chrome.storage.sync, 'get', SYNC_META_KEY);
+  if (!values[SYNC_META_KEY]) {
+    values = await callStorage(chrome.storage.sync, 'get', null);
+  }
   const syncKeys = Object.keys(values).filter(isNewDeskTabSyncKey);
   const updatedAt = values[SYNC_META_KEY]?.updatedAt;
 

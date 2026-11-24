@@ -39,6 +39,11 @@
     "mainFull": "Main haina nafasi ya bure ya vialamisho hivi. Bure kisanduku cha gridi moja na ujaribu tena."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Sawazisha bila kubadili hali",
+      "sync": "Mabadiliko yaliyopokelewa kupitia Chrome Sync sasa onyesha upya vichupo New DeskTab bila kubadili hadi Local na kurudi kwenye Usawazishaji.",
+      "recovery": "New DeskTab hutafuta masasisho unaporudi kwenye kichupo na kupata nafuu kutokana na matatizo ya muda ya kusoma. Masasisho yanayofika wakati eneo-kazi inafunguliwa hayakosekani tena."
+    },
     "v1_1_1": {
       "title": "Eneo-kazi linalofanya kazi kwa ulaini zaidi",
       "improvements": "Paneli zilizofichwa hazionekani tena kwa muda mfupi wakati wa kuanza. Uagizaji wa alamisho huhesabu folda zako pekee, hupanua upau wa alamisho kwa chaguo-msingi na una vidhibiti vilivyo wazi zaidi. Folda zisizo na alamisho zinaweza kufutwa bila uthibitisho, pamoja na folda ndogo zilizo tupu.",

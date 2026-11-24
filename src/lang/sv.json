@@ -39,6 +39,11 @@
     "mainFull": "Main har inget ledigt utrymme för dessa bokmärken. Frigör en rutnätscell och försök igen."
   },
   "releaseNotes": {
+    "v1_1_2": {
+      "title": "Synkronisera utan att byta läge",
+      "sync": "Ändringar som tagits emot via Chrome Sync uppdaterar nu öppna New DeskTab-flikar utan att byta till lokalt och tillbaka till Sync.",
+      "recovery": "New DeskTab söker efter uppdateringar när du återgår till en flik och återställer sig från tillfälliga läsproblem. Uppdateringar som kommer när skrivbordet öppnas missas inte längre."
+    },
     "v1_1_1": {
       "title": "Ett smidigare skrivbord",
       "improvements": "Dolda paneler blinkar inte längre till vid start. Bokmärkesimporten räknar bara dina egna mappar, visar bokmärkesfältet utfällt som standard och har tydligare kontroller. Mappar utan bokmärken kan tas bort utan bekräftelse, inklusive tomma undermappar.",
