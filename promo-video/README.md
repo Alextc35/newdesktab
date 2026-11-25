@@ -3,7 +3,7 @@
 Proyecto audiovisual editable de lanzamiento de **New DeskTab 1.0.0**. La superficie del producto procede de la extensión real instalada en Chromium: no se ha reconstruido su interfaz. Los favoritos son datos de demostración que enlazan a sitios reales. La instalación original comienza con un escritorio vacío.
 
 Las capturas y los vídeos conservan la versión 1.0.0 que muestran. La extensión
-actual es 1.1.0 e incorpora importación de Chrome/HTML y carpetas anidadas;
+actual es 1.1.2 e incorpora importación de Chrome/HTML y carpetas anidadas;
 consulta el [changelog](../CHANGELOG.md). Volver a ejecutar la captura utiliza el
 checkout actual y requiere revisar el montaje y sus textos antes de publicarlo.
 

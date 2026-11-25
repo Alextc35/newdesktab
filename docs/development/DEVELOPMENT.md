@@ -59,7 +59,7 @@ packaging and smoke tests of both extracted Store and developer packages. See
 
 ### Bookmark import, folder trees and schema changes
 
-Release 1.1.1 retains public data schema 2, introduced in 1.1.0 and defined by
+Release 1.1.2 retains public data schema 2, introduced in 1.1.0 and defined by
 `DATA_SCHEMA_VERSION` in
 [`schemaVersion.js`](../../src/platform/storage/schemaVersion.js). Public schema 1
 data migrates on load. Use the constant for current-schema fixtures and

@@ -8,7 +8,7 @@ state, widget and shared boundaries. The former `ui/`, `core/`, `css/` and `js/`
 transition directories have been retired; every remaining module has an
 explicit tested owner directly under `src/`.
 
-This reference describes release 1.1.1 and public data schema 2. The refactoring
+This reference describes release 1.1.2 and public data schema 2. The refactoring
 milestones below are historical records; they do not override current contracts.
 
 ## Direction and dependency rules

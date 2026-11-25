@@ -2,9 +2,18 @@
 
 [Documentation index](../README.md) · [Publishing procedure](CHROME_WEB_STORE.md) · [Release review](RELEASE_REVIEW.md)
 
-This is a historical record of completed release work. Checked items and test
-counts describe the dated validation below; they do not certify a later checkout.
+This file records publication status and completed release work. Checked items
+and test counts describe the dated records below; they do not certify a later checkout.
 Use the [release procedure](CHROME_WEB_STORE.md#release-procedure) for a new build.
+
+## Chrome Web Store publication
+
+- [x] Submit the initial release on November 22, 2026.
+- [x] Receive Store approval on November 23, 2026.
+
+New DeskTab **1.1.2** is published on the [Chrome Web Store](https://chromewebstore.google.com/detail/new-desktab/inafkeeciknpocbamagdmdnbbfmpdlmp).
+The project author confirmed these dates and the current published version.
+The release validation records below retain their original scope.
 
 ## Release 1.1.2 — November 24, 2026
 

@@ -2,7 +2,7 @@
 
 Research source: the New DeskTab **1.0.0** checkout reviewed on 22 November 2026.
 This document records the basis of the existing promotional footage, independently
-of production code. The current extension is **1.1.0**; see the
+of production code. The current extension is **1.1.2**; see the
 [changelog](../CHANGELOG.md) and [user guide](../docs/guide/USER_GUIDE.md) for its
 Chrome/HTML import and nested-folder behavior. The versioned footage has not
 been recaptured as part of that update.
@@ -40,7 +40,9 @@ The strongest marketing sequence is: see favorite websites together → arrange 
 - Search covers saved New DeskTab bookmarks, not general browser history.
 - Optional Sync is provided through a Google Chrome profile. Brave uses Local mode. Uploaded images/videos remain on the device.
 - No account is required. The product has no developer-operated backend or analytics. Remote favicon and wallpaper requests are documented in `../PRIVACY.md`; no claim of zero network requests is made.
-- The public URL verified in `../docs/releases/CHROME_WEB_STORE.md` is **https://github.com/Alextc35/newdesktab**. No Chrome Web Store listing URL was found or invented. “Discover New DeskTab” links the audience to the repository.
+- The original research used the [repository](https://github.com/Alextc35/newdesktab)
+  as its public URL, and “Discover New DeskTab” in the existing film links there.
+  The extension is now published on the [Chrome Web Store](https://chromewebstore.google.com/detail/new-desktab/inafkeeciknpocbamagdmdnbbfmpdlmp).
 
 ## Visual identity
 

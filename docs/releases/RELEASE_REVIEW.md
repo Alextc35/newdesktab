@@ -2,6 +2,11 @@
 
 [Documentation index](../README.md) · [Publishing procedure](CHROME_WEB_STORE.md) · [Checklist](RELEASE_CHECKLIST.md)
 
+New DeskTab **1.1.2** is now published on the [Chrome Web Store](https://chromewebstore.google.com/detail/new-desktab/inafkeeciknpocbamagdmdnbbfmpdlmp).
+The initial release was submitted on November 22, 2026 and accepted on November 23,
+as confirmed by the project author. The publishing follow-up below preserves the
+earlier historical record.
+
 This report preserves the validation recorded for the 1.0.0 release artifacts.
 Dates, browser versions, counts and hashes belong to those runs; they are not
 fresh results for every later checkout. Re-run the

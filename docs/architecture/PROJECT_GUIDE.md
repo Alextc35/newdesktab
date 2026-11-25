@@ -10,7 +10,7 @@ individual contracts in greater detail.
 > **Product:** New DeskTab<br>
 > **Application:** Chromium Manifest V3 extension<br>
 > **Technology:** JavaScript ES modules, native HTML and CSS<br>
-> **Reference release:** 1.1.1 (public data schema 2)
+> **Reference release:** 1.1.2 (public data schema 2)
 
 All source paths below are relative to `src/` unless they explicitly begin with
 `src/`, `tests/` or `scripts/`.
@@ -251,7 +251,7 @@ choice as optional `devicePreferences.dailyTipsEnabled` metadata. It stays out
 of Sync and application data; older backups retain the current choice. Tip
 history and the last offered day remain on the device and outside backups.
 
-Release 1.1.1 retains `schemaVersion: 2`, introduced in 1.1.0 for nested folders
+Release 1.1.2 retains `schemaVersion: 2`, introduced in 1.1.0 for nested folders
 and recycled folder trees. Public schema 1 migrates on load; pre-release
 development snapshots are unsupported. New profiles start with empty
 bookmark, folder and widget collections. Future versioned schemas are rejected

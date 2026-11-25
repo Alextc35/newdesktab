@@ -2,10 +2,13 @@
 
 [Documentation index](../README.md) · [Development](../development/DEVELOPMENT.md) · [Release review](RELEASE_REVIEW.md)
 
+New DeskTab is published on the [Chrome Web Store](https://chromewebstore.google.com/detail/new-desktab/inafkeeciknpocbamagdmdnbbfmpdlmp).
+Use this guide when preparing subsequent Store updates.
+
 This file is the source of truth for the NewDeskTab listing and privacy answers.
 Review it against the release ZIP before every submission.
 
-Release target: `1.1.2`. Minimum browser engine: Chrome/Chromium `123`.
+Published release: `1.1.2`. Minimum browser engine: Chrome/Chromium `123`.
 
 Public data schema: `2`, adding nested folders and recoverable folder trees.
 Public schema `1` is migrated on load. Pre-release development snapshots are not
